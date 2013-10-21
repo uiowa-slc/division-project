@@ -33,7 +33,6 @@ class DivisionSiteTree_Controller extends Extension {
 	      	 $stylesheets[] = "division-project/css/master.css";
 	      }
 
-		$stylesheets[]="division-project/css/_division-bar.css";
 		Requirements::combine_files('allStyles.css', $stylesheets);
 
 		/*Requirements::themedCSS('reset');
