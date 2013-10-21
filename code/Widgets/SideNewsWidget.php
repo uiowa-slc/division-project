@@ -19,3 +19,4 @@ class SideNewsWidget extends Widget {
             new NumericField("NumberToShow", "Number to Show")
         );
     }
+}
