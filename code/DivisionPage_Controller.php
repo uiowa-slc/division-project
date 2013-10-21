@@ -28,8 +28,10 @@ class DivisionPage_Controller extends Extension {
 		$stylesheets = array();
 		$themeDir = $this->owner->ThemeDir();
 
+		echo $themeDir;
+
 		if(Director::fileExists($themeDir . "/css/master.css")) {
-			echo "yoo";
+
 	      	 $stylesheets[] = $themeDir . "/css/master.css";
 	      } else {
 	      	 $stylesheets[] = "division-project/css/master.css";
