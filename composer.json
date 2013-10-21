@@ -27,4 +27,14 @@
                         "dev-master": "0.1.x-dev"
                 }
         }
+            "repositories": [
+        {
+
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
+        }
+    ],
+    "require": {
+        "md/division-bar": "dev-master"
+    }
 }
