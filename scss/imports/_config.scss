@@ -1,0 +1,29 @@
+/*-------------------------------------------
+    Colors
+-------------------------------------------*/
+$link-color: #0088cc;
+$yellow: #ffce39;
+
+
+/*-------------------------------------------
+    Sizes
+-------------------------------------------*/
+$base-font: 15;
+$base-font-size: 15px;
+
+
+/*-------------------------------------------
+    Fonts
+-------------------------------------------*/
+$heading-font: "proxima-nova-condensed",sans-serif;
+/*$body-font: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;*/
+$body-font: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+/*-------------------------------------------
+    Media Queries
+-------------------------------------------*/
+$break-small: 480px;
+$break-medium: 768px;
+$break-large: 980px; /* 980px / 16px; */
+$break-xlarge: 1140px; /* 1140px / 16px; */

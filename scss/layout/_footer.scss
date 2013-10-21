@@ -1,0 +1,80 @@
+.footer {
+	background: #222;
+	border-top: 8px solid #000;
+	-webkit-box-shadow: inset 0 1px 0 #2e2e2e;
+	-moz-box-shadow: inset 0 1px 0 #2e2e2e;
+	box-shadow: inset 0 1px 0 #2e2e2e;
+	color: #eee;
+	padding: 3em 0 1em;
+	position: relative;
+}
+.footer p {
+	@media screen and (min-width: $break-small) {
+		@include rem(13);
+	}
+	
+}
+.footer a {
+	color: #eee;
+}
+.footer h4 {
+	color: #eee;
+	font-weight: 300;
+	
+	text-transform: uppercase;
+	@media screen and (min-width: $break-small) {
+		margin-top: 0;
+	}
+}
+
+.footer-nav {
+	list-style: none;
+	margin: 0;
+	padding: 1em 0 0;
+	@media screen and (min-width: $break-small) {
+		border-left: 1px solid #000;
+	}
+}
+.footer-nav:first-child {
+	padding-top: 0;
+}
+.footer-nav a {
+	display: block;
+	padding: 10px 0;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	&:hover {
+		border-left-color: $yellow;
+	}
+	@media screen and (min-width: $break-small) {
+		border-left: 1px solid #2e2e2e;
+		@include rem(13);
+		padding: 5px 0 5px 10px;
+	}
+}
+@media only screen and (max-width: $break-small) {
+	.mobile-half {
+		float: left;
+		width: 50%;
+	}
+}
+.footer .btn {color: #333;}
+.footer hr {
+	border-top-color: #000;
+	border-bottom-color: #2e2e2e;
+    margin: .5em 0;
+}
+.appt-btn {
+	border: 3px solid #eee;
+	color: #fff;
+	display: block;
+	margin-top: 12px;
+	padding: 5px;
+	text-align: center;
+	&:hover {
+		background: #fff;
+		color: #333;
+		text-decoration: none;
+	}
+}

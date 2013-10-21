@@ -1,0 +1,233 @@
+/* Home Hero
+========================================================================== */
+.hero {
+	border-bottom: 5px solid $yellow;
+	position: relative;
+	padding: 2em 0;
+	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
+		background: #000 url(../images/hero-image-md.jpg) no-repeat center top;
+		padding: 4em 0;
+	}
+	@media screen and (min-width: $break-medium) {
+		background: #000 url(../images/hero-image.jpg) no-repeat center top;
+		padding: 0;
+		height: 665px;
+	}
+}
+.hero .container {
+	height: inherit;
+	position: relative;
+	@media screen and (min-width: $break-medium) {
+		text-align: right;
+	}
+}
+.hero .container:before {
+	@media screen and (min-width: $break-medium) {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+	}
+}
+.hero-text {	
+	@media screen and (min-width: $break-medium) {
+		position: absolute;
+		left: 1em;
+		bottom: 4em;
+		max-width: 60%;
+		margin-right: 300px;
+		text-align: left;
+	}
+}
+.blocktext {
+	margin-top: 0;
+	@include rem(24);
+	font-weight: 600;
+	line-height: 1.35;
+	padding: 1px;
+	@media screen and (min-width: $break-small) {
+		background: #000;
+		background: rgba(0,0,0,.8);
+		color: #fff;
+		display: inline;
+		@include rem(35);
+	}
+}
+
+.hero-text ul {
+	list-style: none;
+	margin: 10px 0 0;
+	padding: 0;
+}
+.hero-text li {
+	margin: 0 10px 10px 0;
+	@media screen and (min-width: $break-small) {
+		float: left;
+	}
+}
+.hero-text li a {
+	background: $yellow;
+	color: #fff;
+	display: block;
+	font-family: $heading-font;
+	@include rem(21);
+	font-weight: 600;
+	letter-spacing: .05em;
+	padding: 5px 10px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+	text-transform: uppercase;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-transition: all .2s ease-out;
+	&:hover {
+		text-decoration: none;
+		margin-top: -2px;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+	}
+}
+
+/* Hero Featured Content
+========================================================================== */
+.hero-article-wrapper {
+	margin-bottom: 1em;
+	overflow: hidden;
+	@media screen and (min-width: $break-medium) {
+		width: 278px;
+		margin-bottom: 0;
+		display: inline-block;
+		background: #fff;
+		padding: 1em;
+		text-align: left;
+		vertical-align: middle;
+	}
+}
+.hero-article {
+	border-top: 1px solid #ddd;
+	margin-top: 1.7em;
+	padding-top: 1em;
+	width: 100%;
+	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
+		border: none;
+		float: left;
+		margin-top: 0;
+		width: 49%;
+		background: #fff;
+		padding: 10px;
+	}
+	@media screen and (min-width: $break-medium) {
+		float: none;
+		width: 100%;
+	}
+}
+.hero-article:first-child {
+	border-top: none;
+	margin-top: 0;
+	margin-right: 2%;
+	padding-top: 0;
+	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
+		padding-top: 10px;
+	}
+}
+.hero-article img {
+	display: none;
+	@media screen and (min-width: $break-medium) {
+		display: block;
+	}
+}
+.hero-title {
+	margin: .2em 0 .2em;
+	& a {
+		color: #333;
+	}
+}
+.hero-content {
+	line-height: 1.5;
+	margin-bottom: 1em;
+	@media screen and (min-width: $break-small) {
+		@include rem(14);
+	}
+}
+.hero-link {
+	xborder: 3px solid #000;
+	color: #fff;
+	display: block;
+	background: #000;
+	padding: 4px 10px 4px 10px;
+	text-align: center;
+	text-transform: uppercase;
+	&:after {
+		content: '';
+	    border-style: solid;
+	    border-width: 4.5px 0 4.5px 5px;
+		border-color: transparent transparent transparent #ffce39;
+	    display: inline-block;
+	    height: 0px;
+	    position: relative;
+	    left: 4px;
+	    width: 0px;
+	    margin: 0 3px;
+	}
+	@media screen and (min-width: $break-small) {
+		float: right;
+		@include rem(12);
+	}
+}
+
+/* Home Highlights
+========================================================================== */
+.home-highlights {
+	background: #f2f2f2;
+	padding: 5em 0;
+}
+.module {
+	background: #fff;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.4);
+	-ms-box-shadow: 0 1px 1px rgba(0,0,0,.4);
+	box-shadow: 0 1px 1px rgba(0,0,0,.4);
+	border-radius: 2px;
+	margin-bottom: 1em;
+	min-height: 305px;
+	@media screen and (min-width: $break-small) {
+		float: left;
+		margin-left: 2.7624309392265194%;
+		margin-bottom: 0;
+		overflow: hidden;
+		width: 31.491712707182323%;
+		-webkit-transition: all .2s ease-out;
+		-moz-transition: all .2s ease-out;
+		transition: all .2s ease-out;
+		&:hover {
+			margin-top: -3px;
+			-webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+			-moz-box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+			-ms-box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+			box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+		}
+	}
+}
+.lt-ie9 .module:hover {
+	margin-top: 0;
+}
+.module:first-child {
+	margin-left: 0;
+}
+.module .media {
+	border-bottom: 4px solid $yellow;
+}
+.module .media img, .module .media object, .module .media embed {
+	width: 100%;
+}
+.module .inner {
+	@include rem(14);
+	line-height: 1.5;
+	padding: 1em;
+}
+.module h3 {
+	font-size: 20px;
+	margin: .3em 0 .5em;
+	text-transform: uppercase;
+	& a {
+		color: #333;
+	}
+}
