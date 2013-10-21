@@ -11,9 +11,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="shortcut icon" href="{$ThemeDir}/images/favicon.ico" />
 	
-	<title>$Title - Vice President For Student Life</title>
-	<link rel="stylesheet" href="{$ThemeDir}/css/master.css" />
-	<link rel="stylesheet" href="{$BaseHref}/division-bar/css/_division-bar.css" />
+	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<!--[if lt IE 9]>
 		<script src="{$ThemeDir}/js/vendor/html5shiv.js"></script>
 		<script src="{$ThemeDir}/js/vendor/respond.min.js"></script>

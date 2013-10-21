@@ -1,7 +1,7 @@
 <header class="header clearfix" role="banner">
 	<div class="container">
 		
-		<h1><a href="{$BaseHref}" class="logo">Vice President <br class="rwd-break">For Student Life</a></h1>
+		<h1><a href="{$BaseHref}" class="logo">$SiteConfig.Title</a></h1>
 		
 		<nav role="navigation" class="nav-main-wrapper clearfix hide-print">
 			<h2 class="nav-title"><a href="#">Menu <span></span></a></h2>
