@@ -44,9 +44,5 @@
 <% end_if %>
 
 <aside>
-	<% if SidebarItems %>
-		<% loop SidebarItems %>
-			<% include SidebarItem %>
-		<% end_loop %>
-	<% end_if %>
+	$SideBarView
 </aside>
