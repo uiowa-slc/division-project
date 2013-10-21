@@ -1,1 +1,2892 @@
-@charset "UTF-8";/* normalize.css v2.1.1 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{background:#fff;color:#000;font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{height:auto;min-height:50px;overflow:auto;vertical-align:top}html,button,input,select,textarea{color:#222}table{border-collapse:collapse;border-spacing:0}a{color:#08c;outline:none;text-decoration:none}a:hover{text-decoration:underline}a:active{color:#0088cc}a:focus{outline:thin dotted}p,pre,blockquote,ul,ol,dl,figure,table,fieldset{margin:0.6667em 0}small{font-size:85%}h1,h2,h3,h4,h5,h6{color:#333;font-family:"proxima-nova-condensed",sans-serif;margin:1em 0 0.5em;letter-spacing:1px;line-height:1.2;font-weight:600;text-rendering:optimizelegibility}h1{font-size:40px;font-size:2.66667rem;font-weight:300;margin:.25em 0;text-transform:uppercase;padding-bottom:10px}@media screen and (min-width: 768px){h1{font-size:60px;font-size:4rem}}h2{font-size:33px;font-size:2.2rem}h3{font-size:26px;font-size:1.73333rem}h4{font-size:22px;font-size:1.46667rem}h5{font-size:18px;font-size:1.2rem}h6{font-size:16px;font-size:1.06667rem}h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{margin-top:0}.lede{font-size:18px;font-size:1.2rem}ul,ol{padding:0;margin-left:24px}ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0}ul.unstyled,ol.unstyled{list-style:none;margin:0;padding:0}dt{font-weight:bold}dd{margin-left:1em}code,pre{padding:0 3px 2px;font-family:Monaco, Menlo, Consolas, "Courier New", monospace;font-size:0.75em;color:#333;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}code{padding:2px 4px;color:#d14;background-color:#f7f7f9;border:1px solid #e1e1e8}hr{clear:both;margin:1.5em 0;border:0;border-top:1px solid #ddd;border-bottom:1px solid #fff}blockquote{padding-left:1em;border-left:5px solid #ffce39}blockquote small{display:block;line-height:20px;color:#666}blockquote small:before{content:'\2014 \00A0'}blockquote.pull-right{float:right;margin-left:1em;padding-right:1em;padding-left:0;border-right:5px solid #eee;border-left:0}blockquote.pull-right p,blockquote.pull-right small{text-align:right}blockquote.pull-right small:before{content:''}blockquote.pull-right small:after{content:'\00A0 \2014'}q:before,q:after,blockquote:before,blockquote:after{content:""}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}::-moz-selection{background:#b3d4fc;text-shadow:none}::selection{background:#b3d4fc;text-shadow:none}img,object,embed{max-width:100%;height:auto}object,embed{height:100%}img{display:inline-block;-ms-interpolation-mode:bicubic;vertical-align:middle}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.clearfix{*zoom:1}@media screen and (min-width: 480px){img.left{float:left;margin-right:1em;margin-bottom:1em}}@media screen and (min-width: 480px){img.right{float:right;margin-left:1em;margin-bottom:1em}}.text-left{text-align:left}.text-right{text-align:right}.text-center{text-align:center}.text-justify{text-align:justify}.uppercase{text-transform:uppercase}.clear{clear:both}@media screen and (min-width: 480px){.two-col{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}}@media screen and (min-width: 480px){.three-col{-webkit-column-count:3;-moz-column-count:3;column-count:3;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}}@media screen and (min-width: 480px){.four-col{-webkit-column-count:4;-moz-column-count:4;column-count:4;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}}.ir{background-color:transparent;border:0;overflow:hidden;*text-indent:-9999px}.ir:before{content:"";display:block;width:0;height:100%}.hidden{display:none !important;visibility:hidden}.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.invisible{visibility:hidden}@font-face{font-family:'search';src:url("../font/search.eot?43632120");src:url("../font/search.eot?43632120#iefix") format("embedded-opentype"),url("../font/search.woff?43632120") format("woff"),url("../font/search.ttf?43632120") format("truetype"),url("../font/search.svg?43632120#search") format("svg");font-weight:normal;font-style:normal}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:'search';font-style:normal;font-weight:normal;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:0.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:0.2em}.icon-twitter:before{content:'\f099'}.icon-facebook:before{content:'\f09a'}.icon-menu:before{content:'\f0c9'}.icon-search:before{content:'🔍'}form{margin:1em 0}fieldset{padding:0;margin:0;border:0}textarea{resize:vertical}input,button,select,textarea{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif}label{display:block;font-weight:bold;margin-bottom:3px}select,textarea,input.text{display:inline-block;padding:4px 6px;font-size:14px;line-height:20px;color:#555555;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}input,textarea,.uneditable-input{width:206px}textarea{height:auto}textarea,input.text{border:1px solid #cccccc;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border linear .2s, box-shadow linear .2s;-moz-transition:border linear .2s, box-shadow linear .2s;-o-transition:border linear .2s, box-shadow linear .2s;transition:border linear .2s, box-shadow linear .2s}textarea:focus,input.text:focus{border-color:rgba(82,168,236,0.8);outline:0;outline:thin dotted \9;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6)}input[type="radio"],input[type="checkbox"]{margin:4px 5px 0;*margin-top:0;margin-top:1px \9;line-height:normal;cursor:pointer}input[type="file"],input[type="image"],input[type="submit"],input[type="reset"],input[type="button"],input[type="radio"],input[type="checkbox"]{width:auto}select,input[type="file"]{height:30px;*margin-top:4px;line-height:30px}select{width:220px;border:1px solid #cccccc;background-color:#ffffff}select[multiple],select[size]{height:auto}select:focus,input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}input,textarea,.uneditable-input{margin-left:0;width:100%}.Actions{padding:19px 20px 20px;margin-top:20px;margin-bottom:20px;background-color:#f5f5f5;border-top:1px solid #e5e5e5;*zoom:1}.Actions:before,.Actions:after{display:table;content:"";line-height:0}.Actions:after{clear:both}.Actions .action{background:#000;color:#fff;border:none;display:inline-block;font-size:16px;padding:9px 14px;text-align:center;vertical-align:middle;cursor:pointer;border-radius:3px}.field{margin-bottom:10px}.field .left,.field .right{float:none}.checkboxset,.optionset{list-style:none;margin:0 0 9px 0;padding:0}.checkbox,.radio{display:inline}.checkboxset .middleColumn label,.optionset .middleColumn label{display:inline;font-weight:normal}.message.required{color:#f00;display:block;margin-bottom:5px}.colgroup:before,.colgroup:after{content:"";display:table;clear:both}@media only screen and (min-width: 480px){[class*='col-']{float:left;padding-right:30px}.colgroup [class*='col-']:last-of-type{padding-right:0}.col-1-8{width:12.5%}.col-3-8{width:37.5%}.col-1-4{width:25%}.col-1-3{width:33.33%}.col-1-2{width:50%}.col-2-3{width:66.66%}}table{max-width:100%;background-color:transparent;border-collapse:collapse;border-spacing:0}table{width:100%;max-width:100%;background-color:transparent;border-collapse:collapse;border-spacing:0}table th,table td{padding:8px;line-height:1.5;text-align:left;vertical-align:top;border-top:1px solid #ddd}table th{font-weight:bold}table thead th{vertical-align:bottom}table caption+thead tr:first-child th,table caption+thead tr:first-child td,table colgroup+thead tr:first-child th,table colgroup+thead tr:first-child td,table thead:first-child tr:first-child th,table thead:first-child tr:first-child td{border-top:0}table tbody+tbody{border-top:2px solid #ddd}.table-condensed th,.table-condensed td{font-size:13px;padding:4px 5px}.table-bordered{border:1px solid #ddd;border-left:0;border-collapse:separate;*border-collapse:collapsed}.table-bordered th,.table-bordered td{border-left:1px solid #ddd}.table-bordered caption+thead tr:first-child th,.table-bordered caption+tbody tr:first-child th,.table-bordered caption+tbody tr:first-child td,.table-bordered colgroup+thead tr:first-child th,.table-bordered colgroup+tbody tr:first-child th,.table-bordered colgroup+tbody tr:first-child td,.table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td{border-top:0}.table-striped tbody tr:nth-child(odd) td,.table-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9}.table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color:#f5f5f5}.hero{border-bottom:5px solid #ffce39;position:relative;padding:2em 0}@media screen and (min-width: 480px) and (max-width: 768px){.hero{background:#000 url(../images/hero-image-md.jpg) no-repeat center top;padding:4em 0}}@media screen and (min-width: 768px){.hero{background:#000 url(../images/hero-image.jpg) no-repeat center top;padding:0;height:665px}}.hero .container{height:inherit;position:relative}@media screen and (min-width: 768px){.hero .container{text-align:right}}@media screen and (min-width: 768px){.hero .container:before{content:'';display:inline-block;height:100%;vertical-align:middle;margin-right:-0.25em}}@media screen and (min-width: 768px){.hero-text{position:absolute;left:1em;bottom:4em;max-width:60%;margin-right:300px;text-align:left}}.blocktext{margin-top:0;font-size:24px;font-size:1.6rem;font-weight:600;line-height:1.35;padding:1px}@media screen and (min-width: 480px){.blocktext{background:#000;background:rgba(0,0,0,0.8);color:#fff;display:inline;font-size:35px;font-size:2.33333rem}}.hero-text ul{list-style:none;margin:10px 0 0;padding:0}.hero-text li{margin:0 10px 10px 0}@media screen and (min-width: 480px){.hero-text li{float:left}}.hero-text li a{background:#ffce39;color:#fff;display:block;font-family:"proxima-nova-condensed",sans-serif;font-size:21px;font-size:1.4rem;font-weight:600;letter-spacing:.05em;padding:5px 10px;text-shadow:1px 1px 1px rgba(0,0,0,0.3);text-transform:uppercase;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3);-webkit-transition:all .2s ease-out}.hero-text li a:hover{text-decoration:none;margin-top:-2px;box-shadow:0 2px 2px 0 rgba(0,0,0,0.3)}.hero-article-wrapper{margin-bottom:1em;overflow:hidden}@media screen and (min-width: 768px){.hero-article-wrapper{width:278px;margin-bottom:0;display:inline-block;background:#fff;padding:1em;text-align:left;vertical-align:middle}}.hero-article{border-top:1px solid #ddd;margin-top:1.7em;padding-top:1em;width:100%}@media screen and (min-width: 480px) and (max-width: 768px){.hero-article{border:none;float:left;margin-top:0;width:49%;background:#fff;padding:10px}}@media screen and (min-width: 768px){.hero-article{float:none;width:100%}}.hero-article:first-child{border-top:none;margin-top:0;margin-right:2%;padding-top:0}@media screen and (min-width: 480px) and (max-width: 768px){.hero-article:first-child{padding-top:10px}}.hero-article img{display:none}@media screen and (min-width: 768px){.hero-article img{display:block}}.hero-title{margin:.2em 0 .2em}.hero-title a{color:#333}.hero-content{line-height:1.5;margin-bottom:1em}@media screen and (min-width: 480px){.hero-content{font-size:14px;font-size:0.93333rem}}.hero-link{xborder:3px solid #000;color:#fff;display:block;background:#000;padding:4px 10px 4px 10px;text-align:center;text-transform:uppercase}.hero-link:after{content:'';border-style:solid;border-width:4.5px 0 4.5px 5px;border-color:transparent transparent transparent #ffce39;display:inline-block;height:0px;position:relative;left:4px;width:0px;margin:0 3px}@media screen and (min-width: 480px){.hero-link{float:right;font-size:12px;font-size:0.8rem}}.home-highlights{background:#f2f2f2;padding:5em 0}.module{background:#fff;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.4);-moz-box-shadow:0 1px 1px rgba(0,0,0,0.4);-ms-box-shadow:0 1px 1px rgba(0,0,0,0.4);box-shadow:0 1px 1px rgba(0,0,0,0.4);border-radius:2px;margin-bottom:1em;min-height:305px}@media screen and (min-width: 480px){.module{float:left;margin-left:2.7624309392265194%;margin-bottom:0;overflow:hidden;width:31.491712707182323%;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out}.module:hover{margin-top:-3px;-webkit-box-shadow:0 3px 3px 0 rgba(0,0,0,0.3);-moz-box-shadow:0 3px 3px 0 rgba(0,0,0,0.3);-ms-box-shadow:0 3px 3px 0 rgba(0,0,0,0.3);box-shadow:0 3px 3px 0 rgba(0,0,0,0.3)}}.lt-ie9 .module:hover{margin-top:0}.module:first-child{margin-left:0}.module .media{border-bottom:4px solid #ffce39}.module .media img,.module .media object,.module .media embed{width:100%}.module .inner{font-size:14px;font-size:0.93333rem;line-height:1.5;padding:1em}.module h3{font-size:20px;margin:.3em 0 .5em;text-transform:uppercase}.module h3 a{color:#333}.menu-link{margin:0 auto;width:96%}.nav-main-wrapper{text-align:center;max-height:500px;border:none;background:inherit;box-shadow:inherit;margin-bottom:0}@media screen and (max-width: 767px){.nav-main-wrapper{background:#ffffff;background:-moz-linear-gradient(top, #fff 0%, #f2f2f2 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f2f2f2));background:-webkit-linear-gradient(top, #fff 0%, #f2f2f2 100%);background:-o-linear-gradient(top, #fff 0%, #f2f2f2 100%);background:-ms-linear-gradient(top, #fff 0%, #f2f2f2 100%);background:linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 );-webkit-box-shadow:0 1px 4px rgba(0,0,0,0.07);border-radius:4px;border:1px solid #d4d4d4;display:block;max-height:44px;margin:0 auto 1em auto;overflow:hidden;position:relative;width:100%}}.nav-main-wrapper.expand{max-height:500px}.nav-title{font-family:"proxima-nova-condensed",sans-serif;font-size:1.25em;font-weight:300;line-height:44px;margin:0;position:relative;text-align:left;text-transform:uppercase}.nav-title a{color:#222;display:block;padding:0 15px}.nav-title a:hover{text-decoration:none}@media screen and (min-width: 768px){.nav-title{display:none}}.expand .nav-title{background:#eee}.nav-title span{border-radius:4px;width:40px;height:32px;position:absolute;top:5px;right:10px;border:1px solid #d5d5d5;background:#f2f2f2;background:-moz-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f2f2), color-stop(100%, #e5e5e5));background:-webkit-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);background:-o-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);background:-ms-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);background:linear-gradient(to bottom, #f2f2f2 0%,#e5e5e5 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e5e5e5',GradientType=0 );-webkit-box-shadow:inset 0 1px 0 #fff;-moz-box-shadow:inset 0 1px 0 #fff;-ms-shadow:inset 0 1px 0 #fff;box-shadow:inset 0 1px 0 #fff}.nav-title span:after{-webkit-box-shadow:0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;-moz-box-shadow:0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;-ms-box-shadow:0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;box-shadow:0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;position:absolute;left:11px;top:0;display:block;width:16px;height:0;color:#888888;padding:0;content:''}.nav-main{border-top:1px solid #ddd;list-style:none;margin:0 auto;padding:0}@media screen and (min-width: 768px){.nav-main{border-top:none;display:table;text-align:center}}@media screen and (min-width: 768px){.nav-main li{border-right:1px solid #fff;display:table-cell;text-rendering:optimizelegibility}.nav-main li:first-child{border-left:1px solid #fff}}.nav-main a{border-bottom:1px solid #ddd;display:block;font-size:14px;font-size:0.93333rem;padding:.8em 0 .8em 15px;position:relative;-webkit-transition:font-size .3s linear;-moz-transition:font-size .3s linear;transition:font-size .3s linear}@media screen and (max-width: 767px){.nav-main a{text-align:left}}@media screen and (min-width: 768px){.nav-main a{border-bottom:none;color:#333;font-family:"proxima-nova-condensed",sans-serif;font-size:17px;font-size:1.13333rem;font-weight:300;letter-spacing:.05em;line-height:1.3125em;padding:.25em 1.3em .55em;text-transform:uppercase;white-space:nowrap}}@media screen and (min-width: 980px){.nav-main a{font-size:20px;font-size:1.33333rem;padding:.25em 1.45em .55em}}@media screen and (min-width: 1140px){.nav-main a{padding:.25em 2em .55em}}.nav-main li:last-child a{border-bottom:none}.nav-main a:hover,.nav-main a:focus{background:#eee}@media screen and (min-width: 768px){.nav-main a:hover,.nav-main a:focus{background:url(../images/nav_hover.gif) repeat-x left bottom;text-decoration:none}.nav-main a:hover:after,.nav-main a:focus:after{content:'';border-style:solid;border-width:0 6px 6px 6px;border-color:transparent transparent #222 transparent;display:inline-block;height:0px;position:absolute;left:50%;margin-left:-6px;bottom:4px;text-decoration:none;width:0px}}@media screen and (min-width: 768px){.nav-main .active a{background:url(../images/nav_hover.gif) repeat-x left bottom}.nav-main .active a:after{content:'';border-style:solid;border-width:0 6px 6px 6px;border-color:transparent transparent #222 transparent;display:inline-block;height:0px;position:absolute;left:50%;margin-left:-6px;bottom:4px;text-decoration:none;width:0px}}.section-title,#blog-sidebar h3{text-transform:uppercase}@media screen and (min-width: 768px){.section-title,#blog-sidebar h3{margin:1.25em 0 1.20em 15px;font-size:30px}}.section-title a,#blog-sidebar h3 a{color:#333}.sec-nav ul{list-style:none;margin:0;padding:0}.sec-nav a{border-bottom:1px solid #ddd;color:#333;display:block;padding:10px 0 10px 5px}.sec-nav a:hover{background-color:#000;color:#fff;text-decoration:none}@media screen and (min-width: 768px){.sec-nav a{padding-left:15px}}.first-level{border-top:1px solid #ddd;margin-bottom:1em}.second-level,.third-level{background:#f2f2f2;background:rgba(0,0,0,0.05);font-size:14px;font-size:0.93333rem}.second-level a{padding-left:30px}.third-level a{font-size:13px;font-size:0.86667rem;padding-left:50px}.sec-nav .active>a{background:#000;color:#fff;position:relative}@media screen and (min-width: 768px){.sec-nav .active>a:before{content:'';width:0px;height:0px;border-style:solid;border-width:21px 0 21px 8px;border-color:transparent transparent transparent #fff;position:absolute;left:-1px;top:50%;margin-top:-21px}}.sec-nav .tag-nav,.tag-nav{border-top:none;list-style:none;margin:0;padding:0 0 0 15px}.tag-nav li{display:inline-block;margin:0 0 10px}.tag-nav li a{background:#ffce39;border:none;color:#000;display:block;padding:5px;position:relative;text-transform:capitalize;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}.tag-nav .count{font-size:13px;font-size:0.86667rem;letter-spacing:2px}.footer{background:#222;border-top:8px solid #000;-webkit-box-shadow:inset 0 1px 0 #2e2e2e;-moz-box-shadow:inset 0 1px 0 #2e2e2e;box-shadow:inset 0 1px 0 #2e2e2e;color:#eee;padding:3em 0 1em;position:relative}@media screen and (min-width: 480px){.footer p{font-size:13px;font-size:0.86667rem}}.footer a{color:#eee}.footer h4{color:#eee;font-weight:300;text-transform:uppercase}@media screen and (min-width: 480px){.footer h4{margin-top:0}}.footer-nav{list-style:none;margin:0;padding:1em 0 0}@media screen and (min-width: 480px){.footer-nav{border-left:1px solid #000}}.footer-nav:first-child{padding-top:0}.footer-nav a{display:block;padding:10px 0;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;transition:all .2s ease-in-out}.footer-nav a:hover{border-left-color:#ffce39}@media screen and (min-width: 480px){.footer-nav a{border-left:1px solid #2e2e2e;font-size:13px;font-size:0.86667rem;padding:5px 0 5px 10px}}@media only screen and (max-width: 480px){.mobile-half{float:left;width:50%}}.footer .btn{color:#333}.footer hr{border-top-color:#000;border-bottom-color:#2e2e2e;margin:.5em 0}.appt-btn{border:3px solid #eee;color:#fff;display:block;margin-top:12px;padding:5px;text-align:center}.appt-btn:hover{background:#fff;color:#333;text-decoration:none}html{font-size:15px}body{background:#fff;color:#444;font-family:"proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;margin:0;padding:0}.division-topbar .wrapper{max-width:1140px}.division-topbar .uiowa{width:177px}.container{margin:0 auto;max-width:1140px;padding:0 2em;position:relative}@media screen and (min-width: 768px){.container{padding:0}}@media screen and (min-width: 768px){.main-bg{background:#000 url(../images/hero-image.jpg) no-repeat center top;border-bottom:5px solid #ffce39;height:665px;position:absolute;width:100%}}.gradient{background:#ffffff;position:relative}@media screen and (min-width: 768px){.gradient{background:-moz-linear-gradient(left, #fff 50%, #f8f6f3 50%);background:-webkit-gradient(linear, left top, right top, color-stop(50%, #fff), color-stop(50%, #f8f6f3));background:-webkit-linear-gradient(left, #fff 50%, #f8f6f3 50%);background:-o-linear-gradient(left, #fff 50%, #f8f6f3 50%);background:-ms-linear-gradient(left, #fff 50%, #f8f6f3 50%);background:linear-gradient(to right, #ffffff 50%,#f8f6f3 50%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f8f6f3',GradientType=1 )}}.ie9 .gradient,.ie8 .gradient{background:#fff url(../images/gradient.gif) center top repeat-y}.white-cover{display:none}@media screen and (min-width: 768px){.white-cover{background-color:#fff;border-right:1px solid #ddd;display:block;position:absolute;width:72%;height:100%}}@media screen and (min-width: 768px){.main-content,.sec-content{float:left}}.main-content{padding:1em 0}@media screen and (min-width: 768px){.main-content{background:#fff;border-right:1px solid #ddd;width:72%;position:relative;padding:2em 2em 3em 2em}}@media screen and (min-width: 768px){.margin-top{margin-top:-85px}}@media screen and (min-width: 768px){.sec-content{background:#f8f6f3;border-left:1px solid #ddd;margin-left:-1px;padding-bottom:3em;width:28%;padding-left:0;padding-right:1em}}.topics{border-top:1px solid #ddd;padding:3em 0;position:relative}.header{background:#fff url(../images/nav_yellow.gif) repeat-x left bottom;position:relative}.header h1{margin:0}.logo{color:#222;display:block;font-family:"proxima-nova-condensed",sans-serif;font-size:29px;font-size:1.93333rem;font-weight:600;letter-spacing:1px;line-height:1.1;margin:0.5em 0 .2em 0;text-align:center;text-decoration:none;text-transform:uppercase;text-rendering:optimizelegibility}.logo:hover{text-decoration:none}@media screen and (min-width: 480px){.logo{font-size:41px;font-size:2.73333rem}}@media screen and (min-width: 1140px){.logo{font-size:46px;font-size:3.06667rem;margin:0.5em 0 .2em 0}}@media screen and (min-width: 630px){.rwd-break{display:none}}.breadcrumbs{list-style:none;font-size:12px;font-size:0.8rem;margin:0;padding:13px 1em 10px 0;xborder-bottom:1px solid #ddd}.breadcrumbs li{display:inline}.breadcrumbs li:after{content:"\25B8";display:inline-block;padding:0 6px 0 10px}.breadcrumbs li:last-child:after{content:""}.mod{font-size:14px;font-size:0.93333rem;line-height:1.4;position:relative}.mod h3{font-size:21px;font-size:1.4rem;margin-bottom:.8em;padding-bottom:5px;text-transform:uppercase}.mod-news small{display:block}.mod a{xcolor:#444}aside .mod{margin-bottom:1em}@media screen and (min-width: 768px){aside .mod{padding:15px 0 0 22px}}aside .mod a{color:#08c}.mod.photo{padding-top:22px}.mod.photo div{position:relative}.mod.photo h3,.faces h3{background:#333;background:rgba(0,0,0,0.8);border:none;color:#fff;display:inline-block;font-weight:300;margin:0;padding:10px;position:absolute;bottom:20px;left:0;z-index:30}.faces-image-container{position:relative}.faces{position:relative}.faces h3{bottom:5%}.grid-justify{xfont-size:0.1px;list-style:none;margin:0;padding:0;text-align:justify}.grid-justify:after{content:'';display:inline-block;width:100%}.grid-justify .filler{height:0;margin:0}.grid-justify li{text-align:left;vertical-align:top}@media screen and (min-width: 480px){.grid-justify li{display:inline-block;width:48%}}.staff-title{clear:both}.staff-list{font-size:0.1px;list-style:none;margin:0;padding:0;text-align:justify}.staff-list:after{content:'';display:inline-block;width:100%}.staff-list li{font-size:15px;font-size:1rem;margin-bottom:1em;vertical-align:top;text-align:left}@media screen and (min-width: 480px){.staff-list li{display:inline-block;width:48%}}@media screen and (min-width: 768px){.staff-list li{width:23%}}.staff-list .filler{height:0;margin:0}.staff-img{width:100%}.staff-link{display:block;margin-bottom:.5em;position:relative}.staff-link:before{content:'';position:absolute;width:100%;height:100%;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;transition:all .2s ease-in-out}.staff-link:hover:before{border:4px solid #ffce39}.staff-name{margin:0}.staff-position{display:block}.staff-name{margin:0}.tags{border-bottom:1px solid #ddd;margin-top:-10px;padding-bottom:12px;margin-bottom:1.5em}.post-link{margin:1.5em 0}.pagination{margin:1em 0;text-align:center}.pagination ul{display:inline-block;list-style:none;margin:0;padding:0}.pagination ul li{display:inline}.pagination a{color:#666;padding:4px 12px}.pagination a:hover{background:#eee}.pagination .active a{background:#000;color:#fff}.pagination .disabled a:hover{background:#fff}.feed-nav{margin:0}.feed-nav li{list-style-type:none;border-bottom:1px solid #ddd;padding:0.5em;margin:0}.feed-nav li:hover{background:#efefef}.feed-nav .read-more{display:block;float:right;margin-top:1em}.feed-nav .posted-on{font-size:0.8em}.feed-nav a:hover{text-decoration:none}.feed-nav a .posted-on{color:black}.feed-nav .read-more:after{clear:both}.img-container{background-color:#000;background-position:center top;background-repeat:no-repeat;background-size:cover;height:200px;position:relative;xpadding-top:25%}@media screen and (min-width: 768px){.img-container{height:400px;padding-top:0;background-size:auto}}.img-fifty{visibility:hidden}@media screen and (min-width: 768px){.img-fifty{background:#ffffff;position:absolute;left:0;width:71%;height:115%;top:0;visibility:visible}}.img-fifty-top{visibility:hidden}@media screen and (min-width: 768px){.img-fifty-top{background:#ffffff;position:absolute;left:0;width:50%;height:85px;bottom:0;visibility:visible}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}body{font-size:13px;line-height:1.4}a,a:visited{text-decoration:underline}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}.hide-print,.division-topbar{display:none}.content-wrapper{min-height:auto}.logo{font-size:40px;text-align:left}h1{border:none;font-size:34px;text-transform:none}.rwd-break{display:none}.footer{border:none;padding-top:0}}
+@charset "UTF-8";
+/* Global
+-------------------------------------------*/
+/*-------------------------------------------
+    Colors
+-------------------------------------------*/
+/*-------------------------------------------
+    Sizes
+-------------------------------------------*/
+/*-------------------------------------------
+    Fonts
+-------------------------------------------*/
+/*$body-font: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;*/
+/*-------------------------------------------
+    Media Queries
+-------------------------------------------*/
+/* 980px / 16px; */
+/* 1140px / 16px; */
+/*-------------------------------------------
+    Px to Em conversion
+-------------------------------------------*/
+/* usage: font-size: em(18) */
+/*-------------------------------------------
+    Px to Rem conversion
+-------------------------------------------*/
+/* usage
+    p {
+        @include font-size(13);
+    }
+*/
+/* =============================================================================
+    Vertical Gradient with solid colour back-up
+    ========================================================================= */
+/* Example
+
+body {
+    @include gradient($color: #F5F5F5, $start-color: #EEE, $end-color: #FFF);
+}
+
+*/
+/* =============================================================================
+    Transition mixin with speed and timing function
+    ========================================================================= */
+/* Example
+
+a {
+    @include transition(0.3s, ease-out);
+}
+
+*/
+/* =============================================================================
+    Border radius containing background clip
+    ========================================================================= */
+/* Example
+
+div {
+    @include border-radius(4px 0 0 4px);
+}
+
+*/
+/* =============================================================================
+    Box-shadow complete with vendor prefixes, up to 5 shadow parameters
+    ========================================================================= */
+/* Example
+
+div {
+    @include box-shadow(
+        0 0 5px 5px rgba(0,0,0,0.25),
+        inset 0 0 5px rgba(0,0,0,0.25),
+    );
+}
+
+*/
+/* =============================================================================
+    Calculate fluid ratio for an image based on two dimensions (width/height)
+    - http://goo.gl/Wl694
+    ========================================================================= */
+/* Example - The following will have fluid ratio from 4:1 at 800px to 2:1 at 300px.
+
+    HTML:
+    <div class="column">
+        <figure class="fixedratio"></figure>
+    </div>
+
+    CSS:
+    .column {
+        max-width: 800px;
+    }
+    .fixedratio {
+        @include fluid-ratio(800px 200px, 300px 150px);
+        background-image: url(/path/to/file/);
+    }
+
+*/
+/* normalize.css v2.1.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+/* line 22, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+/* line 32, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 41, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+/* line 50, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Set default font family to sans-serif.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 68, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+html {
+  background: #fff;
+  /* 1 */
+  color: #000;
+  /* 2 */
+  font-family: sans-serif;
+  /* 3 */
+  -ms-text-size-adjust: 100%;
+  /* 4 */
+  -webkit-text-size-adjust: 100%;
+  /* 4 */
+}
+
+/*
+ * Removes default margin.
+ */
+/* line 80, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 92, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+/* line 101, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 113, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 122, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+/* line 130, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 138, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+/* line 148, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * Corrects font family set oddly in Safari 5 and Chrome.
+ */
+/* line 161, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+/* line 170, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/*
+ * Sets consistent quote types.
+ */
+/* line 178, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+/* line 186, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 195, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 202, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 206, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+/* line 218, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+img {
+  border: 0;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+/* line 226, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE 8/9 and Safari 5.
+ */
+/* line 238, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Define consistent border, margin, and padding.
+ */
+/* line 250, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 261, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Corrects font family not being inherited in all browsers.
+ * 2. Corrects font size not being inherited in all browsers.
+ * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+ */
+/* line 275, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 287, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 299, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 314, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+/* line 324, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to `content-box` in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ */
+/* line 334, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 345, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 358, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 4+.
+ */
+/* line 367, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+/* line 377, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+textarea {
+  height: auto;
+  min-height: 50px;
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* line 384, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+html, button, input, select, textarea {
+  color: #222;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+/* line 394, /Users/dustin1/Sites/division-project/scss/imports/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* /scss/imports/typography.scss
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+a {
+  color: #0088cc;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 4, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 5, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+a:active {
+  color: #0088cc;
+}
+
+/* line 6, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 8, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+  margin: 0.6667em 0;
+}
+
+/* line 11, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+small {
+  font-size: 85%;
+}
+
+/* line 13, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-family: "proxima-nova-condensed", sans-serif;
+  margin: 1em 0 0.5em;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-rendering: optimizelegibility;
+}
+
+/* line 22, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h1 {
+  font-size: 40px;
+  font-size: 2.66667rem;
+  font-weight: 300;
+  margin: .25em 0;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  /* line 22, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+  h1 {
+    font-size: 60px;
+    font-size: 4rem;
+  }
+}
+
+/* line 32, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h2 {
+  font-size: 33px;
+  font-size: 2.2rem;
+}
+
+/* line 35, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h3 {
+  font-size: 26px;
+  font-size: 1.73333rem;
+}
+
+/* line 38, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h4 {
+  font-size: 22px;
+  font-size: 1.46667rem;
+}
+
+/* line 41, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h5 {
+  font-size: 18px;
+  font-size: 1.2rem;
+}
+
+/* line 44, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h6 {
+  font-size: 16px;
+  font-size: 1.06667rem;
+}
+
+/* line 51, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6 {
+  margin-top: 0;
+}
+
+/* line 53, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+.lede {
+  font-size: 18px;
+  font-size: 1.2rem;
+}
+
+/* line 57, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+ul, ol {
+  padding: 0;
+  margin-left: 24px;
+}
+
+/* line 61, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+ul ul, ul ol, ol ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* line 65, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+ul.unstyled, ol.unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 70, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+dt {
+  font-weight: bold;
+}
+
+/* line 73, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+dd {
+  margin-left: 1em;
+}
+
+/* line 76, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+code, pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 0.75em;
+  color: #333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 85, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+code {
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+/* line 91, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+hr {
+  clear: both;
+  margin: 1.5em 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+}
+
+/* Quotes
+----------------------------------------------------*/
+/* line 101, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote {
+  padding-left: 1em;
+  border-left: 5px solid #ffce39;
+}
+
+/* line 105, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote small {
+  display: block;
+  line-height: 20px;
+  color: #666;
+}
+
+/* line 110, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+
+/* line 113, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote.pull-right {
+  float: right;
+  margin-left: 1em;
+  padding-right: 1em;
+  padding-left: 0;
+  border-right: 5px solid #eee;
+  border-left: 0;
+}
+
+/* line 122, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote.pull-right p,
+blockquote.pull-right small {
+  text-align: right;
+}
+
+/* line 125, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote.pull-right small:before {
+  content: '';
+}
+
+/* line 128, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+blockquote.pull-right small:after {
+  content: '\00A0 \2014';
+}
+
+/* line 134, /Users/dustin1/Sites/division-project/scss/imports/_typography.scss */
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+/* Global classes
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 5, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* line 6, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* line 8, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+img, object, embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 10, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+object, embed {
+  height: 100%;
+}
+
+/* line 11, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+img {
+  display: inline-block;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* line 14, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+/* line 15, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 16, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+@media screen and (min-width: 480px) {
+  /* line 18, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+  img.left {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  /* line 25, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+  img.right {
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+/* line 33, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 34, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 35, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 36, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.text-justify {
+  text-align: justify;
+}
+
+/* line 37, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* line 38, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.clear {
+  clear: both;
+}
+
+@media screen and (min-width: 480px) {
+  /* line 40, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+  .two-col {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 1em;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  /* line 50, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+  .three-col {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1em;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  /* line 60, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+  .four-col {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 1em;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+  }
+}
+
+/* line 71, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+
+/* line 72, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+}
+
+/* line 73, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* line 74, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 75, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 76, /Users/dustin1/Sites/division-project/scss/imports/_global.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/* Elements
+-------------------------------------------*/
+/*@import "imports/_buttons.scss";*/
+@font-face {
+  font-family: 'search';
+  src: url("../font/search.eot?43632120");
+  src: url("../font/search.eot?43632120#iefix") format("embedded-opentype"), url("../font/search.woff?43632120") format("woff"), url("../font/search.ttf?43632120") format("truetype"), url("../font/search.svg?43632120#search") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'search';
+    src: url('../font/search.svg?43632120#search') format('svg');
+  }
+}
+*/
+/* line 21, /Users/dustin1/Sites/division-project/scss/imports/_font.scss */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'search';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+}
+
+/* search */
+/* line 38, /Users/dustin1/Sites/division-project/scss/imports/_font.scss */
+.icon-twitter:before {
+  content: '\f099';
+}
+
+/* '' */
+/* line 39, /Users/dustin1/Sites/division-project/scss/imports/_font.scss */
+.icon-facebook:before {
+  content: '\f09a';
+}
+
+/* '' */
+/* line 40, /Users/dustin1/Sites/division-project/scss/imports/_font.scss */
+.icon-menu:before {
+  content: '\f0c9';
+}
+
+/* '' */
+/* line 41, /Users/dustin1/Sites/division-project/scss/imports/_font.scss */
+.icon-search:before {
+  content: '🔍';
+}
+
+/* '\1f50d' */
+/* /scss/imports/forms.scss
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+form {
+  margin: 1em 0;
+}
+
+/* line 6, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* line 11, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 15, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+input,
+button,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 18, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+/* line 25, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+select,
+textarea,
+input.text {
+  display: inline-block;
+  padding: 4px 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555555;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 37, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+input,
+textarea,
+.uneditable-input {
+  width: 206px;
+}
+
+/* line 40, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+textarea {
+  height: auto;
+}
+
+/* line 44, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+textarea,
+input.text {
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+
+/* line 55, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+textarea:focus,
+input.text:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* line 66, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 5px 0;
+  *margin-top: 0;
+  /* IE7 */
+  margin-top: 1px \9;
+  /* IE8-9 */
+  line-height: normal;
+  cursor: pointer;
+}
+
+/* line 83, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+
+/* line 86, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+select, input[type="file"] {
+  height: 30px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+  line-height: 30px;
+}
+
+/* line 95, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+select {
+  width: 220px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+}
+
+/* line 100, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+select[multiple], select[size] {
+  height: auto;
+}
+
+/* line 106, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* line 114, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+input,
+textarea,
+.uneditable-input {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* line 119, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.Actions {
+  padding: 19px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  *zoom: 1;
+}
+
+/* line 128, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.Actions:before,
+.Actions:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+/* line 133, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.Actions:after {
+  clear: both;
+}
+
+/* line 136, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.Actions .action {
+  background: #000;
+  color: #fff;
+  border: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 9px 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* line 148, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.field {
+  margin-bottom: 10px;
+}
+
+/* line 151, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.field .left, .field .right {
+  float: none;
+}
+
+/* line 154, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.checkboxset, .optionset {
+  list-style: none;
+  margin: 0 0 9px 0;
+  padding: 0;
+}
+
+/* line 159, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.checkbox, .radio {
+  display: inline;
+}
+
+/* line 162, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.checkboxset .middleColumn label, .optionset .middleColumn label {
+  display: inline;
+  font-weight: normal;
+}
+
+/* line 166, /Users/dustin1/Sites/division-project/scss/imports/_forms.scss */
+.message.required {
+  color: #f00;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/*@import "imports/_grid.scss";*/
+/* line 4, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+.colgroup:before, .colgroup:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media only screen and (min-width: 480px) {
+  /* line 11, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  [class*='col-'] {
+    float: left;
+    padding-right: 30px;
+  }
+  /* line 14, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .colgroup [class*='col-']:last-of-type {
+    padding-right: 0;
+  }
+
+  /* line 18, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-1-8 {
+    width: 12.5%;
+  }
+
+  /* line 19, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-3-8 {
+    width: 37.5%;
+  }
+
+  /* line 20, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-1-4 {
+    width: 25%;
+  }
+
+  /* line 21, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-1-3 {
+    width: 33.33%;
+  }
+
+  /* line 22, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-1-2 {
+    width: 50%;
+  }
+
+  /* line 23, /Users/dustin1/Sites/division-project/scss/imports/_grid-simple.scss */
+  .col-2-3 {
+    width: 66.66%;
+  }
+}
+/* /scss/imports/tables.scss
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 9, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* line 15, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table th, table td {
+  padding: 8px;
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+/* line 21, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table th {
+  font-weight: bold;
+}
+/* line 23, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table thead th {
+  vertical-align: bottom;
+}
+/* line 30, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table caption + thead tr:first-child th, table caption + thead tr:first-child td, table colgroup + thead tr:first-child th, table colgroup + thead tr:first-child td, table thead:first-child tr:first-child th, table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+/* line 32, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+table tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+/* CONDENSED ==================================================== */
+/* line 37, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-condensed th, .table-condensed td {
+  font-size: 13px;
+  padding: 4px 5px;
+}
+
+/* BORDERED ==================================================== */
+/* line 43, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-bordered {
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+}
+/* line 48, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-bordered th, .table-bordered td {
+  border-left: 1px solid #ddd;
+}
+/* line 58, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+/* STRIPED ==================================================== */
+/* line 63, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+
+/* HOVER ==================================================== */
+/* line 68, /Users/dustin1/Sites/division-project/scss/imports/_tables.scss */
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #f5f5f5;
+}
+
+/* Vendor
+-------------------------------------------*/
+/*@import "vendor/_flexslider.scss";*/
+/* Layout
+-------------------------------------------*/
+/* Home Hero
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero {
+  border-bottom: 5px solid #ffce39;
+  position: relative;
+  padding: 2em 0;
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  /* line 3, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero {
+    background: black url(../images/hero-image-md.jpg) no-repeat center top;
+    padding: 4em 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 3, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero {
+    background: black url(../images/hero-image.jpg) no-repeat center top;
+    padding: 0;
+    height: 665px;
+  }
+}
+
+/* line 17, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero .container {
+  height: inherit;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  /* line 17, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero .container {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 24, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero .container:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 33, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-text {
+    position: absolute;
+    left: 1em;
+    bottom: 4em;
+    max-width: 60%;
+    margin-right: 300px;
+    text-align: left;
+  }
+}
+
+/* line 43, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.blocktext {
+  margin-top: 0;
+  font-size: 24px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: 1px;
+}
+@media screen and (min-width: 480px) {
+  /* line 43, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .blocktext {
+    background: #000;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: inline;
+    font-size: 35px;
+    font-size: 2.33333rem;
+  }
+}
+
+/* line 58, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-text ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+/* line 63, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-text li {
+  margin: 0 10px 10px 0;
+}
+@media screen and (min-width: 480px) {
+  /* line 63, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-text li {
+    float: left;
+  }
+}
+
+/* line 69, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-text li a {
+  background: #ffce39;
+  color: #fff;
+  display: block;
+  font-family: "proxima-nova-condensed", sans-serif;
+  font-size: 21px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all .2s ease-out;
+}
+/* line 82, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-text li a:hover {
+  text-decoration: none;
+  margin-top: -2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Featured Content
+========================================================================== */
+/* line 91, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-article-wrapper {
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  /* line 91, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-article-wrapper {
+    width: 278px;
+    margin-bottom: 0;
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+
+/* line 104, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-article {
+  border-top: 1px solid #ddd;
+  margin-top: 1.7em;
+  padding-top: 1em;
+  width: 100%;
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  /* line 104, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-article {
+    border: none;
+    float: left;
+    margin-top: 0;
+    width: 49%;
+    background: #fff;
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 104, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-article {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* line 122, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-article:first-child {
+  border-top: none;
+  margin-top: 0;
+  margin-right: 2%;
+  padding-top: 0;
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  /* line 122, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-article:first-child {
+    padding-top: 10px;
+  }
+}
+
+/* line 131, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-article img {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 131, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-article img {
+    display: block;
+  }
+}
+
+/* line 137, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-title {
+  margin: .2em 0 .2em;
+}
+/* line 139, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-title a {
+  color: #333;
+}
+
+/* line 143, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-content {
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 480px) {
+  /* line 143, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-content {
+    font-size: 14px;
+    font-size: 0.93333rem;
+  }
+}
+
+/* line 150, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-link {
+  xborder: 3px solid #000;
+  color: #fff;
+  display: block;
+  background: #000;
+  padding: 4px 10px 4px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 158, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.hero-link:after {
+  content: '';
+  border-style: solid;
+  border-width: 4.5px 0 4.5px 5px;
+  border-color: transparent transparent transparent #ffce39;
+  display: inline-block;
+  height: 0px;
+  position: relative;
+  left: 4px;
+  width: 0px;
+  margin: 0 3px;
+}
+@media screen and (min-width: 480px) {
+  /* line 150, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .hero-link {
+    float: right;
+    font-size: 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Home Highlights
+========================================================================== */
+/* line 178, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.home-highlights {
+  background: #f2f2f2;
+  padding: 5em 0;
+}
+
+/* line 182, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module {
+  background: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  margin-bottom: 1em;
+  min-height: 305px;
+}
+@media screen and (min-width: 480px) {
+  /* line 182, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .module {
+    float: left;
+    margin-left: 2.7624309392265194%;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 31.491712707182323%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  }
+  /* line 200, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+  .module:hover {
+    margin-top: -3px;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* line 209, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.lt-ie9 .module:hover {
+  margin-top: 0;
+}
+
+/* line 212, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module:first-child {
+  margin-left: 0;
+}
+
+/* line 215, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module .media {
+  border-bottom: 4px solid #ffce39;
+}
+
+/* line 218, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module .media img, .module .media object, .module .media embed {
+  width: 100%;
+}
+
+/* line 221, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module .inner {
+  font-size: 14px;
+  font-size: 0.93333rem;
+  line-height: 1.5;
+  padding: 1em;
+}
+
+/* line 226, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module h3 {
+  font-size: 20px;
+  margin: .3em 0 .5em;
+  text-transform: uppercase;
+}
+/* line 230, /Users/dustin1/Sites/division-project/scss/layout/_home.scss */
+.module h3 a {
+  color: #333;
+}
+
+/* Navigation
+========================================================================== */
+/* line 4, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.menu-link {
+  margin: 0 auto;
+  width: 96%;
+}
+
+/* line 9, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main-wrapper {
+  text-align: center;
+  max-height: 500px;
+  border: none;
+  background: inherit;
+  box-shadow: inherit;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  /* line 9, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main-wrapper {
+    background: #ffffff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, white 0%, #f2f2f2 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f2f2f2));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 0%, #f2f2f2 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, white 0%, #f2f2f2 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, white 0%, #f2f2f2 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 );
+    /* IE6-9 */
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    border-radius: 4px;
+    border: 1px solid #d4d4d4;
+    display: block;
+    max-height: 44px;
+    margin: 0 auto 1em auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+}
+/* line 35, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main-wrapper.expand {
+  max-height: 500px;
+}
+
+/* line 39, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-title {
+  font-family: "proxima-nova-condensed", sans-serif;
+  font-size: 1.25em;
+  font-weight: 300;
+  line-height: 44px;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  text-transform: uppercase;
+}
+/* line 48, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-title a {
+  color: #222;
+  display: block;
+  padding: 0 15px;
+}
+/* line 52, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-title a:hover {
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 39, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-title {
+    display: none;
+  }
+}
+
+/* line 60, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.expand .nav-title {
+  background: #eee;
+}
+
+/* line 63, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-title span {
+  border-radius: 4px;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: 1px solid #d5d5d5;
+  background: #f2f2f2;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f2f2), color-stop(100%, #e5e5e5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f2f2f2 0%, #e5e5e5 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f2f2f2 0%, #e5e5e5 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e5e5e5',GradientType=0 );
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 0 #fff;
+  -moz-box-shadow: inset 0 1px 0 #fff;
+  -ms-shadow: inset 0 1px 0 #fff;
+  box-shadow: inset 0 1px 0 #fff;
+}
+/* line 83, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-title span:after {
+  -webkit-box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;
+  -moz-box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;
+  -ms-box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;
+  box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888;
+  position: absolute;
+  left: 11px;
+  top: 0;
+  display: block;
+  width: 16px;
+  height: 0;
+  color: #888888;
+  padding: 0;
+  content: '';
+}
+
+/* line 100, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main {
+  border-top: 1px solid #ddd;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  /* line 100, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main {
+    border-top: none;
+    display: table;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 111, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main li {
+    border-right: 1px solid #fff;
+    display: table-cell;
+    text-rendering: optimizelegibility;
+  }
+  /* line 116, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main li:first-child {
+    border-left: 1px solid #fff;
+  }
+}
+
+/* line 121, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main a {
+  border-bottom: 1px solid #ddd;
+  display: block;
+  font-size: 14px;
+  font-size: 0.93333rem;
+  padding: .8em 0 .8em 15px;
+  position: relative;
+  -webkit-transition: font-size .3s linear;
+  -moz-transition: font-size .3s linear;
+  transition: font-size .3s linear;
+}
+@media screen and (max-width: 767px) {
+  /* line 121, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a {
+    text-align: left;
+    /* for internet explorer */
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 121, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a {
+    border-bottom: none;
+    color: #333;
+    font-family: "proxima-nova-condensed", sans-serif;
+    font-size: 17px;
+    font-size: 1.13333rem;
+    font-weight: 300;
+    letter-spacing: .05em;
+    line-height: 1.3125em;
+    padding: .25em 1.3em .55em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 121, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a {
+    font-size: 20px;
+    font-size: 1.33333rem;
+    padding: .25em 1.45em .55em;
+  }
+}
+@media screen and (min-width: 1140px) {
+  /* line 121, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a {
+    padding: .25em 2em .55em;
+  }
+}
+
+/* line 153, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main li:last-child a {
+  border-bottom: none;
+}
+
+/* Hover State */
+/* line 157, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.nav-main a:hover, .nav-main a:focus {
+  background: #eee;
+}
+@media screen and (min-width: 768px) {
+  /* line 157, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a:hover, .nav-main a:focus {
+    background: url(division-project/images/nav_hover.gif) repeat-x left bottom;
+    text-decoration: none;
+  }
+  /* line 162, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main a:hover:after, .nav-main a:focus:after {
+    content: '';
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #222 transparent;
+    display: inline-block;
+    height: 0px;
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    bottom: 4px;
+    text-decoration: none;
+    width: 0px;
+  }
+}
+
+/* Active State */
+@media screen and (min-width: 768px) {
+  /* line 181, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main .active a {
+    background: url(division-project/images/nav_hover.gif) repeat-x left bottom;
+  }
+  /* line 184, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .nav-main .active a:after {
+    content: '';
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #222 transparent;
+    display: inline-block;
+    height: 0px;
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    bottom: 4px;
+    text-decoration: none;
+    width: 0px;
+  }
+}
+
+/* Secondary Navigation
+========================================================================== */
+/* line 203, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.section-title, #blog-sidebar h3 {
+  text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+  /* line 203, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .section-title, #blog-sidebar h3 {
+    margin: 1.25em 0 1.20em 15px;
+    font-size: 30px;
+  }
+}
+/* line 209, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.section-title a, #blog-sidebar h3 a {
+  color: #333;
+}
+
+/* line 211, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.sec-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 217, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.sec-nav a {
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  display: block;
+  padding: 10px 0 10px 5px;
+}
+/* line 222, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.sec-nav a:hover {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 217, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .sec-nav a {
+    padding-left: 15px;
+  }
+}
+
+/* line 231, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.first-level {
+  border-top: 1px solid #ddd;
+  margin-bottom: 1em;
+}
+
+/* line 235, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.second-level, .third-level {
+  background: #f2f2f2;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  font-size: 0.93333rem;
+}
+
+/* line 240, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.second-level a {
+  padding-left: 30px;
+}
+
+/* line 244, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.third-level a {
+  font-size: 13px;
+  font-size: 0.86667rem;
+  padding-left: 50px;
+}
+
+/* line 248, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.sec-nav .active > a {
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  /* line 253, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+  .sec-nav .active > a:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 21px 0 21px 8px;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    left: -1px;
+    top: 50%;
+    margin-top: -21px;
+  }
+}
+
+/* TAG-based Navigation
+========================================================================== */
+/* line 272, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.sec-nav .tag-nav, .tag-nav {
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+
+/* line 278, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.tag-nav li {
+  display: inline-block;
+  margin: 0 0 10px;
+}
+
+/* line 282, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.tag-nav li a {
+  background: #ffce39;
+  border: none;
+  color: #000;
+  display: block;
+  padding: 5px;
+  position: relative;
+  text-transform: capitalize;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 294, /Users/dustin1/Sites/division-project/scss/layout/_nav.scss */
+.tag-nav .count {
+  font-size: 13px;
+  font-size: 0.86667rem;
+  letter-spacing: 2px;
+}
+
+/* line 1, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer {
+  background: #222;
+  border-top: 8px solid #000;
+  -webkit-box-shadow: inset 0 1px 0 #2e2e2e;
+  -moz-box-shadow: inset 0 1px 0 #2e2e2e;
+  box-shadow: inset 0 1px 0 #2e2e2e;
+  color: #eee;
+  padding: 3em 0 1em;
+  position: relative;
+}
+
+@media screen and (min-width: 480px) {
+  /* line 11, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+  .footer p {
+    font-size: 13px;
+    font-size: 0.86667rem;
+  }
+}
+
+/* line 17, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer a {
+  color: #eee;
+}
+
+/* line 20, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer h4 {
+  color: #eee;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 480px) {
+  /* line 20, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+  .footer h4 {
+    margin-top: 0;
+  }
+}
+
+/* line 30, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer-nav {
+  list-style: none;
+  margin: 0;
+  padding: 1em 0 0;
+}
+@media screen and (min-width: 480px) {
+  /* line 30, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+  .footer-nav {
+    border-left: 1px solid #000;
+  }
+}
+
+/* line 38, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer-nav:first-child {
+  padding-top: 0;
+}
+
+/* line 41, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer-nav a {
+  display: block;
+  padding: 10px 0;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+/* line 47, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer-nav a:hover {
+  border-left-color: #ffce39;
+}
+@media screen and (min-width: 480px) {
+  /* line 41, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+  .footer-nav a {
+    border-left: 1px solid #2e2e2e;
+    font-size: 13px;
+    font-size: 0.86667rem;
+    padding: 5px 0 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* line 57, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+  .mobile-half {
+    float: left;
+    width: 50%;
+  }
+}
+/* line 62, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer .btn {
+  color: #333;
+}
+
+/* line 63, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.footer hr {
+  border-top-color: #000;
+  border-bottom-color: #2e2e2e;
+  margin: .5em 0;
+}
+
+/* line 68, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.appt-btn {
+  border: 3px solid #eee;
+  color: #fff;
+  display: block;
+  margin-top: 12px;
+  padding: 5px;
+  text-align: center;
+}
+/* line 75, /Users/dustin1/Sites/division-project/scss/layout/_footer.scss */
+.appt-btn:hover {
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Site specific styles
+-------------------------------------------*/
+/* Base styles
+========================================================================== */
+/* line 3, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+html {
+  font-size: 15px;
+}
+
+/* line 6, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+body {
+  background: #fff;
+  color: #444;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Division Bar
+========================================================================== */
+/* line 18, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.division-topbar .wrapper {
+  max-width: 1140px;
+}
+
+/* line 21, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.division-topbar .uiowa {
+  width: 177px;
+}
+
+/* Layout
+========================================================================== */
+/* line 28, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.container {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 2em;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  /* line 28, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .container {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 37, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .main-bg {
+    background: black url(../images/hero-image.jpg) no-repeat center top;
+    border-bottom: 5px solid #ffce39;
+    height: 665px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+/* line 46, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.gradient {
+  background: #ffffff;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  /* line 46, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .gradient {
+    background: -moz-linear-gradient(left, white 50%, #f8f6f3 50%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f8f6f3));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, white 50%, #f8f6f3 50%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, white 50%, #f8f6f3 50%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, white 50%, #f8f6f3 50%);
+    /* IE10+ */
+    background: linear-gradient(to right, #ffffff 50%, #f8f6f3 50%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f8f6f3',GradientType=1 );
+    /* IE6-9 */
+  }
+}
+
+/* line 59, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.ie9 .gradient, .ie8 .gradient {
+  background: white url(../images/gradient.gif) center top repeat-y;
+}
+
+/* line 62, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.white-cover {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 62, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .white-cover {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    display: block;
+    position: absolute;
+    width: 72%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 73, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .main-content, .sec-content {
+    float: left;
+  }
+}
+
+/* line 78, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.main-content {
+  padding: 1em 0;
+}
+@media screen and (min-width: 768px) {
+  /* line 78, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .main-content {
+    background: #fff;
+    border-right: 1px solid #ddd;
+    width: 72%;
+    position: relative;
+    padding: 2em 2em 3em 2em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 88, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .margin-top {
+    margin-top: -85px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 93, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .sec-content {
+    background: #f8f6f3;
+    border-left: 1px solid #ddd;
+    margin-left: -1px;
+    padding-bottom: 3em;
+    width: 28%;
+    padding-left: 0;
+    padding-right: 1em;
+  }
+}
+
+/* line 104, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.topics {
+  border-top: 1px solid #ddd;
+  padding: 3em 0;
+  position: relative;
+}
+
+/* Header
+========================================================================== */
+/* line 113, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.header {
+  background: white url(../images/nav_yellow.gif) repeat-x left bottom;
+  position: relative;
+}
+/* line 117, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.header h1 {
+  margin: 0;
+}
+
+/* line 122, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.logo {
+  color: #222;
+  display: block;
+  font-family: "proxima-nova-condensed",sans-serif;
+  font-size: 29px;
+  font-size: 1.93333rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin: 0.5em 0 .2em 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-rendering: optimizelegibility;
+}
+/* line 135, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.logo:hover {
+  text-decoration: none;
+}
+@media screen and (min-width: 480px) {
+  /* line 122, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .logo {
+    font-size: 41px;
+    font-size: 2.73333rem;
+  }
+}
+@media screen and (min-width: 1140px) {
+  /* line 122, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .logo {
+    font-size: 46px;
+    font-size: 3.06667rem;
+    margin: 0.5em 0 .2em 0;
+  }
+}
+
+@media screen and (min-width: 630px) {
+  /* line 146, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .rwd-break {
+    display: none;
+  }
+}
+
+/* Breadcrumbs
+========================================================================== */
+/* line 155, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.breadcrumbs {
+  list-style: none;
+  font-size: 12px;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 13px 1em 10px 0;
+  xborder-bottom: 1px solid #ddd;
+}
+
+/* line 162, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.breadcrumbs li {
+  display: inline;
+}
+
+/* line 163, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.breadcrumbs li:after {
+  content: "\25B8";
+  display: inline-block;
+  padding: 0 6px 0 10px;
+}
+
+/* line 164, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.breadcrumbs li:last-child:after {
+  content: "";
+}
+
+/* Modules
+========================================================================== */
+/* line 169, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod {
+  font-size: 14px;
+  font-size: 0.93333rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* line 174, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod h3 {
+  font-size: 21px;
+  font-size: 1.4rem;
+  margin-bottom: .8em;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+/* line 180, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod-news small {
+  display: block;
+}
+
+/* line 183, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod a {
+  xcolor: #444;
+}
+
+/* line 187, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+aside .mod {
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 768px) {
+  /* line 187, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  aside .mod {
+    padding: 15px 0 0 22px;
+  }
+}
+/* line 192, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+aside .mod a {
+  color: #0088cc;
+}
+
+/* Photo + Faces Module */
+/* line 198, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod.photo {
+  padding-top: 22px;
+}
+
+/* line 201, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod.photo div {
+  position: relative;
+}
+
+/* line 204, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.mod.photo h3, .faces h3 {
+  background: #333;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-weight: 300;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  z-index: 30;
+}
+
+/* line 219, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.faces-image-container {
+  position: relative;
+}
+
+/* line 222, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.faces {
+  position: relative;
+}
+
+/* Faces Module Addendum */
+/* line 226, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.faces h3 {
+  bottom: 5%;
+}
+
+/* Justify Grid */
+/* line 232, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.grid-justify {
+  xfont-size: 0.1px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+/* line 238, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.grid-justify:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+/* line 243, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.grid-justify .filler {
+  height: 0;
+  margin: 0;
+}
+
+/* line 248, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.grid-justify li {
+  text-align: left;
+  vertical-align: top;
+}
+@media screen and (min-width: 480px) {
+  /* line 248, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .grid-justify li {
+    display: inline-block;
+    width: 48%;
+  }
+}
+
+/* Staff Page
+========================================================================== */
+/* line 259, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-title {
+  clear: both;
+}
+
+/* line 262, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-list {
+  font-size: 0.1px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+/* line 269, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-list:after {
+  /* http://www.barrelny.com/blog/text-align-justify-and-rwd/ */
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+/* line 274, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-list li {
+  font-size: 15px;
+  font-size: 1rem;
+  margin-bottom: 1em;
+  vertical-align: top;
+  text-align: left;
+}
+@media screen and (min-width: 480px) {
+  /* line 274, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .staff-list li {
+    display: inline-block;
+    width: 48%;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 274, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .staff-list li {
+    width: 23%;
+  }
+}
+
+/* line 287, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-list .filler {
+  height: 0;
+  margin: 0;
+}
+
+/* line 291, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-img {
+  width: 100%;
+}
+
+/* line 294, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-link {
+  display: block;
+  margin-bottom: .5em;
+  position: relative;
+}
+
+/* line 299, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-link:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+/* line 309, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-link:hover:before {
+  border: 4px solid #ffce39;
+}
+
+/* line 312, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-name {
+  margin: 0;
+}
+
+/* line 313, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-position {
+  display: block;
+}
+
+/* line 316, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.staff-name {
+  margin: 0;
+}
+
+/* Blog
+========================================================================== */
+/* line 323, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.tags {
+  border-bottom: 1px solid #ddd;
+  margin-top: -10px;
+  padding-bottom: 12px;
+  margin-bottom: 1.5em;
+}
+
+/* line 329, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.post-link {
+  margin: 1.5em 0;
+}
+
+/* Pagination */
+/* line 334, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination {
+  margin: 1em 0;
+  text-align: center;
+}
+/* line 337, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 342, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination ul li {
+  display: inline;
+}
+
+/* line 347, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination a {
+  color: #666;
+  padding: 4px 12px;
+}
+/* line 350, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination a:hover {
+  background: #eee;
+}
+
+/* line 354, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination .active a {
+  background: #000;
+  color: #fff;
+}
+
+/* line 358, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.pagination .disabled a:hover {
+  background: #fff;
+}
+
+/* Sidebar Blog Feeds */
+/* line 362, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav {
+  margin: 0;
+}
+
+/* line 366, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav li {
+  list-style-type: none;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5em;
+  margin: 0;
+}
+/* line 372, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav li:hover {
+  background: #efefef;
+}
+
+/* line 377, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav .read-more {
+  display: block;
+  float: right;
+  margin-top: 1em;
+}
+
+/* line 383, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav .posted-on {
+  font-size: 0.8em;
+}
+
+/* line 387, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav a:hover {
+  text-decoration: none;
+}
+
+/* line 391, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav a .posted-on {
+  color: black;
+}
+
+/* line 396, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.feed-nav .read-more:after {
+  clear: both;
+}
+
+/* Img
+========================================================================== */
+/* line 402, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.img-container {
+  background-color: #000;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  position: relative;
+  xpadding-top: 25%;
+}
+@media screen and (min-width: 768px) {
+  /* line 402, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .img-container {
+    height: 400px;
+    padding-top: 0;
+    background-size: auto;
+  }
+}
+
+/* line 418, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.img-fifty {
+  visibility: hidden;
+}
+@media screen and (min-width: 768px) {
+  /* line 418, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .img-fifty {
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    width: 71%;
+    height: 115%;
+    top: 0;
+    visibility: visible;
+  }
+}
+
+/* line 431, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+.img-fifty-top {
+  visibility: hidden;
+}
+@media screen and (min-width: 768px) {
+  /* line 431, /Users/dustin1/Sites/division-project/scss/layout/_site.scss */
+  .img-fifty-top {
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 85px;
+    bottom: 0;
+    visibility: visible;
+  }
+}
+
+/* Print
+-------------------------------------------*/
+/* css/scss/imports/print.scss
+========================================================================== */
+@media print {
+  /* line 4, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* line 10, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  body {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* line 14, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  /*a[href]:after { content: " (" attr(href) ")"; }*/
+  /* line 16, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* line 17, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 18, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 19, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  /* line 20, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  /* line 21, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 23, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 24, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* line 26, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .hide-print, .division-topbar {
+    display: none;
+  }
+
+  /* Site Specific */
+  /* line 31, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .content-wrapper {
+    min-height: auto;
+  }
+
+  /* line 34, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .logo {
+    font-size: 40px;
+    text-align: left;
+  }
+
+  /* line 38, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  h1 {
+    border: none;
+    font-size: 34px;
+    text-transform: none;
+  }
+
+  /* line 43, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .rwd-break {
+    display: none;
+  }
+
+  /* line 46, /Users/dustin1/Sites/division-project/scss/imports/_print.scss */
+  .footer {
+    border: none;
+    padding-top: 0;
+  }
+}
