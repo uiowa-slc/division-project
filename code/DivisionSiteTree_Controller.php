@@ -25,7 +25,7 @@ class DivisionSiteTree_Controller extends Extension {
 		// instead of putting Requirements calls here.  However these are
 		// included so that our older themes still work
 		$stylesheets = array();
-		$themeDir = $this->ThemeDir();
+		$themeDir = $this->owner->ThemeDir();
 
 	      if(Director::fileExists($themeDir . "/css/master.css")) {
 	      	 $stylesheets[] = $themeDir . "/css/master.css";
