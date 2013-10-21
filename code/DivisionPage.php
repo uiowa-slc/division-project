@@ -44,8 +44,8 @@ class DivisionPage extends DataExtension {
 	);
 
 
-	public function getCMSFields(){
-		$f = parent::getCMSFields();
+public function updateCMSFields(FieldList $f) {
+
 		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		
 
@@ -63,7 +63,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Sidebar", $gridField); // add the grid field to a tab in the CMS
 		//$f->addFieldToTab("Root.Widgets", new WidgetAreaEditor("MyWidgetArea"));
-		return $f;
+
 	}
 
 
