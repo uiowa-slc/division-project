@@ -39,11 +39,6 @@ class DivisionPage_Controller extends Extension {
 
 		Requirements::combine_files('allStyles.css', $stylesheets);
 
-		/*Requirements::themedCSS('reset');
-		Requirements::themedCSS('layout');
-		Requirements::themedCSS('typography');
-		Requirements::themedCSS('form');*/
-
 	}
 
 
