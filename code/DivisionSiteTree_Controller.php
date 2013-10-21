@@ -25,7 +25,7 @@ class DivisionSiteTree_Controller extends Extension {
 		// instead of putting Requirements calls here.  However these are
 		// included so that our older themes still work
 
-		$stylesheets = new Array();
+		$stylesheets = array();
 		if(!Requirements::themedCSS("master")){
 			$stylesheets->push("division-project/css/master.css");
 		}
