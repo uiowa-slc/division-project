@@ -68,7 +68,7 @@ public function updateCMSFields(FieldList $f) {
 
 
     public function SidebarItems() {
-        return $this->getManyManyComponents('SidebarItems')->sort('SortOrder');
+        return $this->owner->getManyManyComponents('SidebarItems')->sort('SortOrder');
     }
 	
 }
