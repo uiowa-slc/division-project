@@ -30,7 +30,6 @@
         },
         "repositories": [
         {
-
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
         }

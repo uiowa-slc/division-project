@@ -1,5 +1,5 @@
 <?php
-class DivisionSiteTree_Controller extends Extension {
+class DivisionPage_Controller extends Extension {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -26,12 +26,9 @@ class DivisionSiteTree_Controller extends Extension {
 		// included so that our older themes still work
 		$stylesheets = array();
 		$themeDir = $this->owner->ThemeDir();
-
-	      if(Director::fileExists($themeDir . "/css/master.css")) {
-	      	 $stylesheets[] = $themeDir . "/css/master.css";
-	      } else {
-	      	 $stylesheets[] = "division-project/css/master.css";
-	      }
+		$stylesheets[] = "division-project/css/master.css";
+	    $stylesheets[] = $themeDir . "/css/site.css";
+	   
 
 		Requirements::combine_files('allStyles.css', $stylesheets);
 

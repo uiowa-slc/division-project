@@ -1,5 +1,5 @@
 <?php
-class DivisionSiteTree extends SiteTreeExtension {
+class DivisionPage extends DataExtension {
 
 	private static $db = array(
 		

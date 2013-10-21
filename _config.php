@@ -2,8 +2,8 @@
 Director::set_environment_type("dev");
 
 
-SiteTree::add_extension('DivisionSiteTree');
-ContentController::add_extension('DivisionSiteTree_Controller');
+SiteTree::add_extension('Page', 'DivisionPage');
+ContentController::add_extension('Page_Controller', 'DivisionPage_Controller');
 
 // add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
