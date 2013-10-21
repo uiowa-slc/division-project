@@ -24,10 +24,17 @@ class DivisionSiteTree_Controller extends Extension {
 		// Note: you should use SS template require tags inside your templates
 		// instead of putting Requirements calls here.  However these are
 		// included so that our older themes still work
-		Requirements::themedCSS('reset');
+
+		$stylesheets = array(
+		    "division-project/css/_division-bar.css",
+		    "$division-project/css/master.css",
+		);
+		Requirements::combine_files('allStyles.css', $stylesheets);
+
+		/*Requirements::themedCSS('reset');
 		Requirements::themedCSS('layout');
 		Requirements::themedCSS('typography');
-		Requirements::themedCSS('form');
+		Requirements::themedCSS('form');*/
 
 	}
 
