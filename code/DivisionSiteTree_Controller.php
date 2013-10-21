@@ -27,10 +27,10 @@ class DivisionSiteTree_Controller extends Extension {
 
 		$stylesheets = array();
 		if(!Requirements::themedCSS("master")){
-			$stylesheets->push("division-project/css/master.css");
+			$stylesheets[] = "division-project/css/master.css";
 		}
 
-		$stylesheets->push("division-project/css/_division-bar.css");
+		$stylesheets[]="division-project/css/_division-bar.css";
 
 		Requirements::combine_files('allStyles.css', $stylesheets);
 
