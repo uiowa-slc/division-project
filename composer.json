@@ -20,7 +20,8 @@
                 "silverstripe/recaptcha": "*",
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
-                "silverstripe/timepickerfield": "*"
+                "silverstripe/timepickerfield": "*",
+                "md/division-bar": "dev-master"
         },
         "extra": {
                 "branch-alias": {
@@ -34,7 +35,5 @@
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
         }
     ],
-    "require": {
-        "md/division-bar": "dev-master"
-    }
+
 }
