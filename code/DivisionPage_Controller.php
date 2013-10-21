@@ -21,7 +21,6 @@ class DivisionPage_Controller extends Extension {
 
 	public function onAfterInit() {
 
-		echo "hello";
 
 		// Note: you should use SS template require tags inside your templates
 		// instead of putting Requirements calls here.  However these are
@@ -30,6 +29,7 @@ class DivisionPage_Controller extends Extension {
 		$themeDir = $this->owner->ThemeDir();
 
 		if(Director::fileExists($themeDir . "/css/master.css")) {
+			echo "yoo";
 	      	 $stylesheets[] = $themeDir . "/css/master.css";
 	      } else {
 	      	 $stylesheets[] = "division-project/css/master.css";
