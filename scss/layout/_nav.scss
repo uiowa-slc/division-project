@@ -157,7 +157,7 @@
 .nav-main a:hover, .nav-main a:focus {
 	background: #eee;
 	@media screen and (min-width: $break-medium) {
-		background: url('../../../division-project/images/nav_hover.gif') repeat-x left bottom;
+		background: url('../../images/nav_hover.gif') repeat-x left bottom;
 		text-decoration: none;
 		&:after {
 			content: '';

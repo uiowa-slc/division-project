@@ -1887,7 +1887,7 @@ table tbody + tbody {
 @media screen and (min-width: 768px) {
   /* line 157, ../scss/layout/_nav.scss */
   .nav-main a:hover, .nav-main a:focus {
-    background: url("../../../division-project/images/nav_hover.gif") repeat-x left bottom;
+    background: url("../../images/nav_hover.gif") repeat-x left bottom;
     text-decoration: none;
   }
   /* line 162, ../scss/layout/_nav.scss */
@@ -2331,7 +2331,7 @@ body {
 ========================================================================== */
 /* line 113, ../scss/layout/_site.scss */
 .header {
-  background: white url(../images/nav_yellow.gif) repeat-x left bottom;
+  background: white url(../../images/nav_yellow.gif) repeat-x left bottom;
   position: relative;
 }
 /* line 117, ../scss/layout/_site.scss */
