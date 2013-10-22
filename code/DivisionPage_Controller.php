@@ -36,8 +36,8 @@ class DivisionPage_Controller extends Extension {
 	      }
 	    $stylesheets[] = $themeDir . "/css/site.css";
 	   
-
-		Requirements::combine_files('division-project/css/allStyles.css', $stylesheets);
+	    Requirements::set_combined_files_folder('division-project/css/');
+		Requirements::combine_files('allStyles.css', $stylesheets);
 
 	}
 
