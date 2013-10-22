@@ -5,11 +5,11 @@
 	position: relative;
 	padding: 2em 0;
 	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
-		background: #000 url(../images/hero-image-md.jpg) no-repeat center top;
+		background: #000 url(../../images/hero-image-md.jpg) no-repeat center top;
 		padding: 4em 0;
 	}
 	@media screen and (min-width: $break-medium) {
-		background: #000 url(../images/hero-image.jpg) no-repeat center top;
+		background: #000 url(../../images/hero-image.jpg) no-repeat center top;
 		padding: 0;
 		height: 665px;
 	}
