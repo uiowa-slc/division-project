@@ -1,4 +1,4 @@
-<div class="hero" style="background-image: url('{$ThemeDir}images/hero-image.jpg');">
+<div class="hero" style="background-image: url('{$ThemeDir}/images/hero-image.jpg');">
         <div class="container clearfix">
 
         <% if HomePageHeroFeatures.limit(2) %>
