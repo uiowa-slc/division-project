@@ -50,8 +50,8 @@
 			
 			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
-		//$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-			$gridFieldConfig->addComponent(new GridFieldManyRelationHandler(), 'GridFieldPaginator');
+			//$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+			//$gridFieldConfig->addComponent(new GridFieldManyRelationHandler(), 'GridFieldPaginator');
 
 			$gridField = new GridField("SidebarItems", "Pages that use this sidebar", $this->Pages(), $gridFieldConfig);
 			
