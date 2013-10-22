@@ -1887,7 +1887,7 @@ table tbody + tbody {
 @media screen and (min-width: 768px) {
   /* line 157, ../scss/layout/_nav.scss */
   .nav-main a:hover, .nav-main a:focus {
-    background: url("../../images/nav_hover.gif") repeat-x left bottom;
+    background: url("../images/nav_hover.gif") repeat-x left bottom;
     text-decoration: none;
   }
   /* line 162, ../scss/layout/_nav.scss */
@@ -1911,7 +1911,7 @@ table tbody + tbody {
 @media screen and (min-width: 768px) {
   /* line 181, ../scss/layout/_nav.scss */
   .nav-main .active a {
-    background: url("../../division-project/images/nav_hover.gif") repeat-x left bottom;
+    background: url("../images/nav_hover.gif") repeat-x left bottom;
   }
   /* line 184, ../scss/layout/_nav.scss */
   .nav-main .active a:after {
