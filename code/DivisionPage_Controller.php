@@ -29,7 +29,6 @@ class DivisionPage_Controller extends Extension {
 		$themeDir = $this->owner->ThemeDir();
 
 		if(Director::fileExists($themeDir . "/css/master.css")) {
-
 	      	 $stylesheets[] = $themeDir . "/css/master.css";
 	      } else {
 	      	 $stylesheets[] = "division-project/css/master.css";
@@ -39,6 +38,15 @@ class DivisionPage_Controller extends Extension {
 	    Requirements::set_combined_files_folder('division-project/css');
 		Requirements::combine_files('allStyles.css', $stylesheets);
 
+		$scripts = array();
+
+		$scripts[] = "division-project/js/plugins-ck.js";
+		$scripts[] = "division-project/js/main.js";
+		$scripts[] = "division-bar/js/division-bar.js";
+
+		$scripts[] = $themeDir . "/js/site.js";
+		Requirements::set_combined_files_folder('division-project/js');
+		Requirements::combine_files('allScripts.js', $scripts);
 	}
 
 
