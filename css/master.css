@@ -1603,43 +1603,36 @@ html[xmlns] .slides {
 -------------------------------------------*/
 /* Home Hero
 ========================================================================== */
-/* line 3, ../scss/layout/_home.scss */
-.hero {
-  border-bottom: 5px solid #ffce39;
-  position: relative;
-  padding: 2em 0;
-  background: #FFF;
-}
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  /* line 3, ../scss/layout/_home.scss */
-  .hero {
-    background: black url(../../images/hero-image-md.jpg) no-repeat center top;
-    padding: 4em 0;
-  }
-}
-@media screen and (min-width: 768px) {
-  /* line 3, ../scss/layout/_home.scss */
-  .hero {
-    background: black url(../../images/hero-image.jpg) no-repeat center top;
-    padding: 0;
-    height: 665px;
-  }
-}
-
-/* line 18, ../scss/layout/_home.scss */
+/* The following hero background CSS is in templates/Layout/HomePage.ss */
+/*.hero {
+	border-bottom: 5px solid $yellow;
+	position: relative;
+	padding: 2em 0;
+	background-color: #FFF;
+	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
+		background: #000 url(../../images/hero-image-md.jpg) no-repeat center top;
+		padding: 4em 0;
+	}
+	@media screen and (min-width: $break-medium) {
+		background: #000 url(../../images/hero-image.jpg) no-repeat center top;
+		padding: 0;
+		height: 665px;
+	}
+}*/
+/* line 21, ../scss/layout/_home.scss */
 .hero .container {
   height: inherit;
   position: relative;
 }
 @media screen and (min-width: 768px) {
-  /* line 18, ../scss/layout/_home.scss */
+  /* line 21, ../scss/layout/_home.scss */
   .hero .container {
     text-align: right;
   }
 }
 
 @media screen and (min-width: 768px) {
-  /* line 25, ../scss/layout/_home.scss */
+  /* line 28, ../scss/layout/_home.scss */
   .hero .container:before {
     content: '';
     display: inline-block;
@@ -1650,7 +1643,7 @@ html[xmlns] .slides {
 }
 
 @media screen and (min-width: 768px) {
-  /* line 34, ../scss/layout/_home.scss */
+  /* line 37, ../scss/layout/_home.scss */
   .hero-text {
     position: absolute;
     left: 1em;
@@ -1661,7 +1654,7 @@ html[xmlns] .slides {
   }
 }
 
-/* line 44, ../scss/layout/_home.scss */
+/* line 47, ../scss/layout/_home.scss */
 .blocktext {
   margin-top: 0;
   font-size: 24px;
@@ -1671,7 +1664,7 @@ html[xmlns] .slides {
   padding: 1px;
 }
 @media screen and (min-width: 480px) {
-  /* line 44, ../scss/layout/_home.scss */
+  /* line 47, ../scss/layout/_home.scss */
   .blocktext {
     background: #000;
     background: rgba(0, 0, 0, 0.8);
@@ -1682,25 +1675,25 @@ html[xmlns] .slides {
   }
 }
 
-/* line 59, ../scss/layout/_home.scss */
+/* line 62, ../scss/layout/_home.scss */
 .hero-text ul {
   list-style: none;
   margin: 10px 0 0;
   padding: 0;
 }
 
-/* line 64, ../scss/layout/_home.scss */
+/* line 67, ../scss/layout/_home.scss */
 .hero-text li {
   margin: 0 10px 10px 0;
 }
 @media screen and (min-width: 480px) {
-  /* line 64, ../scss/layout/_home.scss */
+  /* line 67, ../scss/layout/_home.scss */
   .hero-text li {
     float: left;
   }
 }
 
-/* line 70, ../scss/layout/_home.scss */
+/* line 73, ../scss/layout/_home.scss */
 .hero-text li a {
   background: #ffce39;
   color: #fff;
@@ -1716,7 +1709,7 @@ html[xmlns] .slides {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   -webkit-transition: all .2s ease-out;
 }
-/* line 83, ../scss/layout/_home.scss */
+/* line 86, ../scss/layout/_home.scss */
 .hero-text li a:hover {
   text-decoration: none;
   margin-top: -2px;
@@ -1725,13 +1718,13 @@ html[xmlns] .slides {
 
 /* Hero Featured Content
 ========================================================================== */
-/* line 92, ../scss/layout/_home.scss */
+/* line 95, ../scss/layout/_home.scss */
 .hero-article-wrapper {
   margin-bottom: 1em;
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
-  /* line 92, ../scss/layout/_home.scss */
+  /* line 95, ../scss/layout/_home.scss */
   .hero-article-wrapper {
     width: 278px;
     margin-bottom: 0;
@@ -1743,7 +1736,7 @@ html[xmlns] .slides {
   }
 }
 
-/* line 105, ../scss/layout/_home.scss */
+/* line 108, ../scss/layout/_home.scss */
 .hero-article {
   border-top: 1px solid #ddd;
   margin-top: 1.7em;
@@ -1751,7 +1744,7 @@ html[xmlns] .slides {
   width: 100%;
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
-  /* line 105, ../scss/layout/_home.scss */
+  /* line 108, ../scss/layout/_home.scss */
   .hero-article {
     border: none;
     float: left;
@@ -1761,14 +1754,14 @@ html[xmlns] .slides {
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 105, ../scss/layout/_home.scss */
+  /* line 108, ../scss/layout/_home.scss */
   .hero-article {
     float: none;
     width: 100%;
   }
 }
 
-/* line 122, ../scss/layout/_home.scss */
+/* line 125, ../scss/layout/_home.scss */
 .hero-article:first-child {
   border-top: none;
   margin-top: 0;
@@ -1776,46 +1769,46 @@ html[xmlns] .slides {
   padding-top: 0;
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
-  /* line 122, ../scss/layout/_home.scss */
+  /* line 125, ../scss/layout/_home.scss */
   .hero-article:first-child {
     padding-top: 10px;
   }
 }
 
-/* line 131, ../scss/layout/_home.scss */
+/* line 134, ../scss/layout/_home.scss */
 .hero-article img {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 131, ../scss/layout/_home.scss */
+  /* line 134, ../scss/layout/_home.scss */
   .hero-article img {
     display: block;
   }
 }
 
-/* line 137, ../scss/layout/_home.scss */
+/* line 140, ../scss/layout/_home.scss */
 .hero-title {
   margin: .2em 0 .2em;
 }
-/* line 139, ../scss/layout/_home.scss */
+/* line 142, ../scss/layout/_home.scss */
 .hero-title a {
   color: #333;
 }
 
-/* line 143, ../scss/layout/_home.scss */
+/* line 146, ../scss/layout/_home.scss */
 .hero-content {
   line-height: 1.5;
   margin-bottom: 1em;
 }
 @media screen and (min-width: 480px) {
-  /* line 143, ../scss/layout/_home.scss */
+  /* line 146, ../scss/layout/_home.scss */
   .hero-content {
     font-size: 14px;
     font-size: 0.93333rem;
   }
 }
 
-/* line 150, ../scss/layout/_home.scss */
+/* line 153, ../scss/layout/_home.scss */
 .hero-link {
   xborder: 3px solid #000;
   color: #fff;
@@ -1825,7 +1818,7 @@ html[xmlns] .slides {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 158, ../scss/layout/_home.scss */
+/* line 161, ../scss/layout/_home.scss */
 .hero-link:after {
   content: '';
   border-style: solid;
@@ -1839,7 +1832,7 @@ html[xmlns] .slides {
   margin: 0 3px;
 }
 @media screen and (min-width: 480px) {
-  /* line 150, ../scss/layout/_home.scss */
+  /* line 153, ../scss/layout/_home.scss */
   .hero-link {
     float: right;
     font-size: 12px;
@@ -1849,13 +1842,13 @@ html[xmlns] .slides {
 
 /* Home Highlights
 ========================================================================== */
-/* line 178, ../scss/layout/_home.scss */
+/* line 181, ../scss/layout/_home.scss */
 .home-highlights {
   background: #f2f2f2;
   padding: 5em 0;
 }
 
-/* line 182, ../scss/layout/_home.scss */
+/* line 185, ../scss/layout/_home.scss */
 .module {
   background: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
@@ -1867,7 +1860,7 @@ html[xmlns] .slides {
   min-height: 305px;
 }
 @media screen and (min-width: 480px) {
-  /* line 182, ../scss/layout/_home.scss */
+  /* line 185, ../scss/layout/_home.scss */
   .module {
     float: left;
     margin-left: 2.7624309392265194%;
@@ -1878,7 +1871,7 @@ html[xmlns] .slides {
     -moz-transition: all .2s ease-out;
     transition: all .2s ease-out;
   }
-  /* line 200, ../scss/layout/_home.scss */
+  /* line 203, ../scss/layout/_home.scss */
   .module:hover {
     margin-top: -3px;
     -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
@@ -1888,27 +1881,27 @@ html[xmlns] .slides {
   }
 }
 
-/* line 209, ../scss/layout/_home.scss */
+/* line 212, ../scss/layout/_home.scss */
 .lt-ie9 .module:hover {
   margin-top: 0;
 }
 
-/* line 212, ../scss/layout/_home.scss */
+/* line 215, ../scss/layout/_home.scss */
 .module:first-child {
   margin-left: 0;
 }
 
-/* line 215, ../scss/layout/_home.scss */
+/* line 218, ../scss/layout/_home.scss */
 .module .media {
   border-bottom: 4px solid #ffce39;
 }
 
-/* line 218, ../scss/layout/_home.scss */
+/* line 221, ../scss/layout/_home.scss */
 .module .media img, .module .media object, .module .media embed {
   width: 100%;
 }
 
-/* line 221, ../scss/layout/_home.scss */
+/* line 224, ../scss/layout/_home.scss */
 .module .inner {
   font-size: 14px;
   font-size: 0.93333rem;
@@ -1916,13 +1909,13 @@ html[xmlns] .slides {
   padding: 1em;
 }
 
-/* line 226, ../scss/layout/_home.scss */
+/* line 229, ../scss/layout/_home.scss */
 .module h3 {
   font-size: 20px;
   margin: .3em 0 .5em;
   text-transform: uppercase;
 }
-/* line 230, ../scss/layout/_home.scss */
+/* line 233, ../scss/layout/_home.scss */
 .module h3 a {
   color: #333;
 }

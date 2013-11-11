@@ -1,10 +1,13 @@
 /* Home Hero
 ========================================================================== */
-.hero {
+
+/* The following hero background CSS is in templates/Layout/HomePage.ss */
+
+/*.hero {
 	border-bottom: 5px solid $yellow;
 	position: relative;
 	padding: 2em 0;
-	background: #FFF;
+	background-color: #FFF;
 	@media screen and (min-width: $break-small) and (max-width: $break-medium) {
 		background: #000 url(../../images/hero-image-md.jpg) no-repeat center top;
 		padding: 4em 0;
@@ -14,7 +17,7 @@
 		padding: 0;
 		height: 665px;
 	}
-}
+}*/
 .hero .container {
 	height: inherit;
 	position: relative;

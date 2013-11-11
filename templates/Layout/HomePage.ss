@@ -1,4 +1,25 @@
-<div class="hero" style="background-image: url('{$ThemeDir}/images/hero-image.jpg');">
+<style>
+.hero {
+  border-bottom: 5px solid #ffce39;
+  position: relative;
+  padding: 2em 0;
+  background-color: #FFF;
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .hero {
+    background: black url({$ThemeDir}/images/hero-image-md.jpg) no-repeat center top;
+    padding: 4em 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    background: black url({$ThemeDir}/images/hero-image.jpg) no-repeat center top;
+    padding: 0;
+    height: 665px;
+  }
+}
+</style>
+<div class="hero">
         <div class="container clearfix">
 
         <% if HomePageHeroFeatures.limit(2) %>
