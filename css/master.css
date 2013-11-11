@@ -1751,6 +1751,7 @@ html[xmlns] .slides {
     margin-top: 0;
     width: 49%;
     padding: 10px;
+    background: #fff;
   }
 }
 @media screen and (min-width: 768px) {
@@ -1761,7 +1762,7 @@ html[xmlns] .slides {
   }
 }
 
-/* line 125, ../scss/layout/_home.scss */
+/* line 126, ../scss/layout/_home.scss */
 .hero-article:first-child {
   border-top: none;
   margin-top: 0;
@@ -1769,46 +1770,46 @@ html[xmlns] .slides {
   padding-top: 0;
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
-  /* line 125, ../scss/layout/_home.scss */
+  /* line 126, ../scss/layout/_home.scss */
   .hero-article:first-child {
     padding-top: 10px;
   }
 }
 
-/* line 134, ../scss/layout/_home.scss */
+/* line 135, ../scss/layout/_home.scss */
 .hero-article img {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  /* line 134, ../scss/layout/_home.scss */
+  /* line 135, ../scss/layout/_home.scss */
   .hero-article img {
     display: block;
   }
 }
 
-/* line 140, ../scss/layout/_home.scss */
+/* line 141, ../scss/layout/_home.scss */
 .hero-title {
   margin: .2em 0 .2em;
 }
-/* line 142, ../scss/layout/_home.scss */
+/* line 143, ../scss/layout/_home.scss */
 .hero-title a {
   color: #333;
 }
 
-/* line 146, ../scss/layout/_home.scss */
+/* line 147, ../scss/layout/_home.scss */
 .hero-content {
   line-height: 1.5;
   margin-bottom: 1em;
 }
 @media screen and (min-width: 480px) {
-  /* line 146, ../scss/layout/_home.scss */
+  /* line 147, ../scss/layout/_home.scss */
   .hero-content {
     font-size: 14px;
     font-size: 0.93333rem;
   }
 }
 
-/* line 153, ../scss/layout/_home.scss */
+/* line 154, ../scss/layout/_home.scss */
 .hero-link {
   xborder: 3px solid #000;
   color: #fff;
@@ -1818,7 +1819,7 @@ html[xmlns] .slides {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 161, ../scss/layout/_home.scss */
+/* line 162, ../scss/layout/_home.scss */
 .hero-link:after {
   content: '';
   border-style: solid;
@@ -1832,7 +1833,7 @@ html[xmlns] .slides {
   margin: 0 3px;
 }
 @media screen and (min-width: 480px) {
-  /* line 153, ../scss/layout/_home.scss */
+  /* line 154, ../scss/layout/_home.scss */
   .hero-link {
     float: right;
     font-size: 12px;
@@ -1842,13 +1843,13 @@ html[xmlns] .slides {
 
 /* Home Highlights
 ========================================================================== */
-/* line 181, ../scss/layout/_home.scss */
+/* line 182, ../scss/layout/_home.scss */
 .home-highlights {
   background: #f2f2f2;
   padding: 5em 0;
 }
 
-/* line 185, ../scss/layout/_home.scss */
+/* line 186, ../scss/layout/_home.scss */
 .module {
   background: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
@@ -1860,7 +1861,7 @@ html[xmlns] .slides {
   min-height: 305px;
 }
 @media screen and (min-width: 480px) {
-  /* line 185, ../scss/layout/_home.scss */
+  /* line 186, ../scss/layout/_home.scss */
   .module {
     float: left;
     margin-left: 2.7624309392265194%;
@@ -1871,7 +1872,7 @@ html[xmlns] .slides {
     -moz-transition: all .2s ease-out;
     transition: all .2s ease-out;
   }
-  /* line 203, ../scss/layout/_home.scss */
+  /* line 204, ../scss/layout/_home.scss */
   .module:hover {
     margin-top: -3px;
     -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
@@ -1881,27 +1882,27 @@ html[xmlns] .slides {
   }
 }
 
-/* line 212, ../scss/layout/_home.scss */
+/* line 213, ../scss/layout/_home.scss */
 .lt-ie9 .module:hover {
   margin-top: 0;
 }
 
-/* line 215, ../scss/layout/_home.scss */
+/* line 216, ../scss/layout/_home.scss */
 .module:first-child {
   margin-left: 0;
 }
 
-/* line 218, ../scss/layout/_home.scss */
+/* line 219, ../scss/layout/_home.scss */
 .module .media {
   border-bottom: 4px solid #ffce39;
 }
 
-/* line 221, ../scss/layout/_home.scss */
+/* line 222, ../scss/layout/_home.scss */
 .module .media img, .module .media object, .module .media embed {
   width: 100%;
 }
 
-/* line 224, ../scss/layout/_home.scss */
+/* line 225, ../scss/layout/_home.scss */
 .module .inner {
   font-size: 14px;
   font-size: 0.93333rem;
@@ -1909,13 +1910,13 @@ html[xmlns] .slides {
   padding: 1em;
 }
 
-/* line 229, ../scss/layout/_home.scss */
+/* line 230, ../scss/layout/_home.scss */
 .module h3 {
   font-size: 20px;
   margin: .3em 0 .5em;
   text-transform: uppercase;
 }
-/* line 233, ../scss/layout/_home.scss */
+/* line 234, ../scss/layout/_home.scss */
 .module h3 a {
   color: #333;
 }
