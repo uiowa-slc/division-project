@@ -46,7 +46,7 @@ class DivisionPage extends DataExtension {
 
 public function updateCMSFields(FieldList $f) {
 
-		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
+		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
 		
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
