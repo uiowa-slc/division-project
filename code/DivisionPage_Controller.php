@@ -41,7 +41,7 @@ class DivisionPage_Controller extends Extension {
 
 		$scripts = array();
 
-		$scripts[] = $themeDir . "/js/vendor/jquery-1.8.3.min.js";
+		$scripts[] = "division-project/js/vendor/jquery-1.8.3.min.js";
 
 		$scripts[] = "division-project/js/plugins-ck.js";
 		$scripts[] = "division-project/js/main.js";
