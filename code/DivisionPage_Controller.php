@@ -36,7 +36,7 @@ class DivisionPage_Controller extends Extension {
 	      }
 	    $stylesheets[] = $themeDir . "/css/site.css";
 	   
-	    Requirements::set_combined_files_folder('division-project/_combinedfiles');
+	    Requirements::set_combined_files_folder('division-project/_combinedfiles/css');
 		Requirements::combine_files('allStyles.css', $stylesheets);
 
 		$scripts = array();
@@ -48,7 +48,7 @@ class DivisionPage_Controller extends Extension {
 		$scripts[] = "division-bar/js/division-bar.js";
 
 		$scripts[] = $themeDir . "/js/site.js";
-		
+		Requirements::set_combined_files_folder('division-project/_combinedfiles/js');
 		Requirements::combine_files('allScripts.js', $scripts);
 	}
 
