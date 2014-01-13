@@ -30,14 +30,12 @@ class DivisionPage_Controller extends Extension {
 		$baseFolder = Director::baseFolder();
 
 		if(Director::fileExists($themeDir . "/css/master.css")) {
-	      	 $stylesheets[] = $themeDir . "/css/master.css";
+	      	 Requirements::css($themeDir . "/css/master.css");
 	      } else {
-	      	 $stylesheets[] = "division-project/css/master.css";
+	      	 Requirements::css("division-project/css/master.css");
 	      }
-	    $stylesheets[] = $themeDir . "/css/site.css";
-	   
+	    Requirements::css($themeDir . "/css/site.css");
 	    Requirements::set_combined_files_folder('division-project/assets/_combined');
-		Requirements::combine_files('allStyles.css', $stylesheets);
 
 		$scripts = array();
 
