@@ -20,7 +20,7 @@
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
-                "rywa/silverstripe-foundation-form": "*",
+                "rywa/silverstripe-foundation-forms": "*",
                 "md/division-bar": "dev-master"
         },
         "extra": {
