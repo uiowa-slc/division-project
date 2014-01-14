@@ -1,7 +1,4 @@
 <?php 
-Director::set_environment_type("dev");
-
-
 SiteTree::add_extension('Page', 'DivisionPage');
 ContentController::add_extension('Page_Controller', 'DivisionPage_Controller');
 
