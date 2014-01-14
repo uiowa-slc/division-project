@@ -1,0 +1,37 @@
+/* Sidebar Search */
+
+aside #SearchForm_SearchForm {
+
+	@media screen and (min-width: $break-medium) {
+		margin: 1.25em 0 1.20em 15px;
+	}
+	
+
+	input#SearchForm_SearchForm_Search {
+		width: 100%
+	}
+
+	.action {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	label {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+
+}

@@ -1,4 +1,5 @@
 <aside>
+	<% include SideBarSearch %>
 	<div id="blog-sidebar">
 		$SideBarView
 	</div>
