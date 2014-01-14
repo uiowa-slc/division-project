@@ -21,10 +21,11 @@
 		                </a>
 		            </h4>
 		            <% if $Content %>
-		                <p>$Content.LimitWordCountXML</p>
+		                <p>$Content.Summary(30)</p>
 		            <% end_if %>
-		            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Read more about &quot;{$Title}&quot;...</a>
+		            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Continue Reading</a>
 		        </li>
+		        <hr />
 		        <% end_loop %>
 		    </ul>
 		    <% else %>
