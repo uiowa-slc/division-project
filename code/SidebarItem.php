@@ -40,7 +40,7 @@
 			
 
 			$fields->push( new TextField( 'Title', 'Title' ));
-			$fields->push( new CheckboxField( 'ShowHeading', 'Show the default heading above' ));
+			$fields->push( new CheckboxField( 'ShowHeading', 'Show the Title above the Sidebar Item\'s content.' ));
 			//$fields->push( new TextField( 'SortOrder', 'SortOrder' ));
 			$fields->push( new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
 			$fields->push( new CheckboxField( 'UseExternalLink', 'Use an external link instead (below)' ));
