@@ -4,20 +4,18 @@
 
 class BlogFieldExtension extends DataExtension {
 
-	static $db = array(
-     	'StoryBy' => 'Text',
-        'StoryByEmail' => 'Text',
-        'StoryByTitle' => 'Text',
-        'StoryByDept' => 'Text',
-        'PhotosBy' => 'Text',
-        'PhotosByEmail' => 'Text',
-        'ExternalURL' => 'Text',	
-	
-	);
+    private static $db = array(
+      'StoryBy' => 'Text',
+      'StoryByEmail' => 'Text',
+      'StoryByTitle' => 'Text',
+      'StoryByDept' => 'Text',
+      'PhotosBy' => 'Text',
+      'PhotosByEmail' => 'Text',
+      'ExternalURL' => 'Text',	
+    );
 
-    static $has_one = array(
+    private static $has_one = array(
         'Image' => 'Image',
-  
     );
     
     public function getCMSFields() {
@@ -40,9 +38,8 @@ class BlogFieldExtension extends DataExtension {
       if($this->owner->ClassName == "BlogEntry"){
         //$fields->removeByName("Date");
       }else {
-
         $fields->renameField("Date", "Published Date");
-      }
+      } 
 
   }
 
