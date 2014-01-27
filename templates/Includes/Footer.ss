@@ -18,8 +18,12 @@
 			<div class="col-1-4 hide-print">
 				<div class="colgroup">
 					<ul class="footer-nav">
-						<li><a href="$SiteConfig.FacebookID" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
-						<li><a href="$SiteConfig.TwitterID" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
+						<% if $SiteConfig.FacebookLink %>
+						<li><a href="$SiteConfig.FacebookLink" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
+						<% end_if %>
+						<% if $SiteConfig.TwitterLink %>
+						<li><a href="$SiteConfig.TwitterLink" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
+						<% end_if %>
 					</ul>
 					<ul class="footer-nav">
 						<% loop Menu(1) %>
