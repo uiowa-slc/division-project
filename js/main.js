@@ -7,17 +7,20 @@ $(window).load(function() {
 	// 	slideshow: false
 	// });
 	
-	$('.flexslider').show();
+	if ($('.flexslider').length){
 
-	 //Flexslider
-	$('.flexslider').flexslider({
-		animation: "slide",
-		animationLoop: true,
-		itemMargin: 0,
-		minItems: 1,
-		maxItems: 1,
-		itemWidth: 500,
-	});
+		$('.flexslider').show();
+
+		 //Flexslider
+		$('.flexslider').flexslider({
+			animation: "slide",
+			animationLoop: true,
+			itemMargin: 0,
+			minItems: 1,
+			maxItems: 1,
+			itemWidth: 500,
+		});
+	}
 
 	$('.nav-title a').click(function() {
 		$('.nav-main-wrapper').toggleClass('expand');

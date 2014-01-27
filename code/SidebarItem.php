@@ -40,13 +40,14 @@
 			
 
 			$fields->push( new TextField( 'Title', 'Title' ));
-			$fields->push( new CheckboxField( 'ShowHeading', 'Show the Title above the Sidebar Item\'s content.' ));
+			$fields->push( new CheckboxField( 'ShowHeading', 'Show the Title overlapped with the Sidebar Item\'s content.' ));
 			//$fields->push( new TextField( 'SortOrder', 'SortOrder' ));
 			$fields->push( new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
-			$fields->push( new CheckboxField( 'UseExternalLink', 'Use an external link instead (below)' ));
-			$fields->push( new TextField( 'ExternalLink', 'External Link' ));			
-			$fields->push( new HTMLEditorField( 'Content', 'Content' ));
+			$fields->push( new CheckboxField( 'UseExternalLink', 'Or use the external link below' ));
+			$fields->push( new TextField( 'ExternalLink', 'External Link' ));
 			$fields->push( new UploadField( 'Image', 'Image' ));
+						
+			$fields->push( new HTMLEditorField( 'Content', 'Content' ));
 			
 			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
