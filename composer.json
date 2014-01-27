@@ -20,7 +20,7 @@
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
-                "md/division-bar": "dev-master"
+                "md/division-bar": "*"
         },
         "extra": {
                 "branch-alias": {
