@@ -8,17 +8,17 @@
             	<% end_if %>
                   <h2>$Position</h2>
                   <ul>
-                        <li>Email: <a href="mailto:$EmailAddress">$EmailAddress</a></li>
-                        <li>Phone: $Phone</li>
-                  <% if $DepartmentName %>
-                        <li>
-                        <% if $DepartmentURL %>
-                              <a href="$DepartmentURL">$DepartmentName</a>
-                        <% else %>
-                              $DepartmentName
+                        <% if $EmailAddress %><li>Email: <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
+                        <% if $Phone %><li>Phone: $Phone</li><% end_if %>
+                        <% if $DepartmentName %>
+                              <li>
+                                    <% if $DepartmentURL %>
+                                          <a href="$DepartmentURL">$DepartmentName</a>
+                                    <% else %>
+                                          $DepartmentName
+                                    <% end_if %>
+                              </li>
                         <% end_if %>
-                        </li>
-                  <% end_if %>
                   </ul>
                   
                   $Content
