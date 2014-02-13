@@ -7,8 +7,8 @@
 	<div class="container clearfix">
 		<div class="white-cover"></div>
 	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
-	    	$Form
 	    	$Content
+	    	$Form
 	    </section>
 	    <section class="sec-content hide-print">
 	    	<% include SideNav %>

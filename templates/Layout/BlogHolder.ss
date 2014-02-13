@@ -8,7 +8,7 @@
 		<div class="white-cover"></div>
 	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
         
-				<% if SelectedTag %>
+				<% if $SelectedTag %>
 					<div class="selectedTag">
 						<h2>
 						<% _t('VIEWINGTAGGED', 'Viewing entries tagged with') %> '$SelectedTag'
@@ -16,7 +16,7 @@
 						<p> <a href="$Link">View all entries</a></p>
 						
 					</div>
-				<% else_if SelectedDate %>
+				<% else_if $SelectedDate %>
 					<div class="selectedTag">
 						<em>
 						<% _t('VIEWINGPOSTEDIN', 'Viewing entries posted in') %> $SelectedNiceDate <a href="$Link">View all entries</a>
@@ -26,19 +26,19 @@
 					<h1>$Title</h1>
 				<% end_if %>
 				
-				<% if BlogEntries %>
-					<% loop BlogEntries %>
-						<% include BlogSummary %>
+				<% if $BlogEntries %>
+					<% loop $BlogEntries %>
+						<% include $BlogSummary %>
 					<% end_loop %>
 				<% else %>
 					<p><% _t('NOENTRIES', 'There are no entries with this tag.') %></p>
 				<% end_if %>
 				
-				<% include BlogPagination %>
+				<% include $BlogPagination %>
         </section>
         <section class="sec-content hide-print">
         	<%-- include SideNav --%>
-        	<% include BlogSideBar %>
+        	<% include $BlogSideBar %>
         </section>
     </div>
 </div>

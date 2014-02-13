@@ -1,6 +1,7 @@
 <aside>
 	<% include SideBarSearch %>
 	<div id="blog-sidebar">
+		$Parent.SideBarView
 		$SideBarView
 	</div>
 	
