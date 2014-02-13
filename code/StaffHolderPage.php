@@ -30,11 +30,15 @@ class StaffHolderPage extends Page {
 		return $f;
 	}
 	
+	public function Children(){
+		$staffPages = StaffPage::get()->sort('LastName ASC');
+		return $staffPages;
+
+	}
 	
 	public function StaffTeams(){
 		$teams = StaffTeam::get();
 		return $teams;
-		
 	}
 }
 class StaffHolderPage_Controller extends Page_Controller {
