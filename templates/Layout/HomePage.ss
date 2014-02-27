@@ -22,10 +22,10 @@
 <div class="hero">
         <div class="container clearfix">
 
-        <% if HomePageHeroFeatures.limit(2) %>
+        <% if HomePageHeroFeatures.Limit(2) %>
             <div class="hero-article-wrapper">
 
-                <% loop HomePageHeroFeatures %>
+                <% loop HomePageHeroFeatures.Limit(2) %>
                 <div class="hero-article clearfix">
                     <% if $Image %>
                     	<% if $UseExternalLink %>
