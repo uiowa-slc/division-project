@@ -20,9 +20,10 @@
 		                    <% end_if %>
 		                </a>
 		            </h4>
-		            <% if $Content %>
+		            <%-- can't show content previews because shortcodes can break results. Thanks SilverStripe --%>
+		            <%--<% if $Content %>
 		                <p>$Content.Summary(30)</p>
-		            <% end_if %>
+		            <% end_if %>--%>
 		            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Continue Reading</a>
 		        </li>
 		        <hr />
