@@ -81,4 +81,4 @@
          </div><!-- end .container -->
     </section>
 
-    <%-- <% include TopicsAndNews %> --%>
+    <% include TopicsAndNews %>

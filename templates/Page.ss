@@ -27,7 +27,6 @@
     $Layout
 
     <% include Footer %>
-
 	<% include GoogleAnalytics %>
 </body>
 </html>
