@@ -12,13 +12,13 @@
 	<link rel="shortcut icon" href="{$ThemeDir}/images/favicon.ico" />
 	
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
-	
+
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
 	<link rel="stylesheet" type="text/css" href="division-bar/css/_division-bar.css" />
 
 	<!--[if lt IE 9]>
-		<script src="{$ThemeDir}/js/vendor/html5shiv.js"></script>
-		<script src="{$ThemeDir}/js/vendor/respond.min.js"></script>
+		<script src="division-project/js/vendor/html5shiv.js"></script>
+		<script src="division-project/js/vendor/respond.min.js"></script>
 	<![endif]-->
 	<script type="text/javascript" src="//use.typekit.net/ivn3muh.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
