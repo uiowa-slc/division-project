@@ -29,13 +29,13 @@ class DivisionPage_Controller extends Extension {
 		$themeDir = $this->owner->ThemeDir();
 		$baseFolder = Director::baseFolder();
 
-		if(Director::fileExists($themeDir . "/css/master.css")) {
+		/*if(Director::fileExists($themeDir . "/css/master.css")) {
 	      	 Requirements::css($themeDir . "/css/master.css");
 	      } else {
 	      	 Requirements::css("division-project/css/master.css");
 	      }
 	    Requirements::css($themeDir . "/css/site.css");
-	    Requirements::set_combined_files_folder('division-project/assets/_combined');
+	    Requirements::set_combined_files_folder('division-project/assets/_combined');*/
 
 		$scripts = array();
 
