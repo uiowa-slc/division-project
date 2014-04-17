@@ -21,21 +21,8 @@ class DivisionPage_Controller extends Extension {
 
 	public function onAfterInit() {
 
-
-		// Note: you should use SS template require tags inside your templates
-		// instead of putting Requirements calls here.  However these are
-		// included so that our older themes still work
-		$stylesheets = array();
 		$themeDir = $this->owner->ThemeDir();
 		$baseFolder = Director::baseFolder();
-
-		/*if(Director::fileExists($themeDir . "/css/master.css")) {
-	      	 Requirements::css($themeDir . "/css/master.css");
-	      } else {
-	      	 Requirements::css("division-project/css/master.css");
-	      }
-	    Requirements::css($themeDir . "/css/site.css");
-	    Requirements::set_combined_files_folder('division-project/assets/_combined');*/
 
 		$scripts = array();
 
@@ -107,7 +94,6 @@ class DivisionPage_Controller extends Extension {
 			if(isset($arguments['tag'])){
 				$customise['Tag'] = $arguments['tag'];
 			}
-			//$customise['Title'] = $title ? Convert::raw2xml($title) : false;
 			 
 			//overide the defaults with the arguments supplied
 			$customise = array_merge($customise,$arguments);
