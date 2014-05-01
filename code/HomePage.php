@@ -10,11 +10,14 @@ class HomePage extends Page {
 	);
 
 	private static $has_many = array(
+		'BackgroundFeatures' => 'HomePageBackgroundFeature',
 	);
 
 	public function getCMSFields(){
 		$f = parent::getCMSFields();
+
 		$f->removeByName("Content");
+		$f->removeByName("BackgroundImage");
 		$f->removeByName("InheritSidebarItems");
 		$f->removeByName("SidebarLabel");
 		$f->removeByName("SidebarItem");
@@ -22,20 +25,27 @@ class HomePage extends Page {
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
-    $gridFieldConfig2 = GridFieldConfig_RecordEditor::create();
+    	$gridFieldConfig2 = GridFieldConfig_RecordEditor::create();
 		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
-    /* Remove  some abilities if you aren't an admin. */
-    if(!Permission::check('ADMIN')){
-      $gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
-      $gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
 
-    }
 
-    $gridField = new GridField("HomePageHeroFeature", "Home Page Hero Features (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
-  	$gridField2 = new GridField("HomePageFeature", "Home Page Features (Only the first three are shown)", HomePageFeature::get(), $gridFieldConfig2);
+	    if(!Permission::check('ADMIN')){
+	      $gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+	      $gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+	    }
 
-		$f->addFieldToTab("Root.Main", $gridField); // add the grid field to a tab in the CMS	*/
-    $f->addFieldToTab("Root.Main", $gridField2); // add the grid field to a tab in the CMS	*/
+		$homePageBackgroundFeatureGridField = new GridField('BackgroundFeatures', 'Background Features', $this->BackgroundFeatures(), GridFieldConfig_RelationEditor::create());
+	    $homePageHeroFeatureGridField = new GridField("HomePageHeroFeature", "Home Page Hero Features (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
+	  	$homePageFeatureGridField = new GridField("HomePageFeature", "Home Page Features (Only the first three are shown)", HomePageFeature::get(), $gridFieldConfig2);
+
+	  	if(Permission::check('ADMIN')){
+			$f->addFieldToTab("Root.Main", $homePageBackgroundFeatureGridField);
+		}
+		
+		$f->addFieldToTab("Root.Main", $homePageHeroFeatureGridField);
+	    $f->addFieldToTab("Root.Main", $homePageFeatureGridField); 
+
+
 		return $f;
 	}
 }
@@ -63,7 +73,13 @@ class HomePage_Controller extends Page_Controller {
 		parent::init();
 
 	}
+	public function index(){
+		$page = $this->customise(array(
+			'BackgroundFeature' => HomePageBackgroundFeature::get()->Sort('RAND()')->First()
+		));
 
+		return $page->renderWith(array('HomePage','Page'));
+	}
 	public function HomePageFeatures() {
 		$features = HomePageFeature::get();
 

@@ -7,13 +7,21 @@
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .hero {
+  <% if $BackgroundFeature %>
+    background: black url({$BackgroundFeature.Image.URL}) no-repeat center top;
+  <% else %>
     background: black url({$ThemeDir}/images/hero-image-md.jpg) no-repeat center top;
+  <% end_if %>
     padding: 4em 0;
   }
 }
 @media screen and (min-width: 768px) {
   .hero {
+  <% if $BackgroundFeature %>
+    background: black url({$BackgroundFeature.Image.URL}) no-repeat center top;
+  <% else %>
     background: black url({$ThemeDir}/images/hero-image.jpg) no-repeat center top;
+  <% end_if %>
     padding: 0;
     height: 665px;
   }
