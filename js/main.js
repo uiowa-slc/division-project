@@ -31,3 +31,4 @@ $(window).load(function() {
 	$(".module .media").fitVids();
 
 });
+   

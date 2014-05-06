@@ -45,15 +45,14 @@ class DivisionPage extends DataExtension {
 
 
 public function updateCMSFields(FieldList $f) {
-
-		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
-		
-
+		if(Permission::check('ADMIN')){
+			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
+		}
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 		
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row))); 
-		//$gridFieldConfig->addComponent(new GridFieldManyRelationHandler(), 'GridFieldPaginator');
+
 		$sort->table = 'Page_SidebarItems'; 
 		$sort->parentField = 'PageID'; 
 		$sort->componentField = 'SidebarItemID'; 
@@ -62,10 +61,8 @@ public function updateCMSFields(FieldList $f) {
 		$f->addFieldToTab("Root.Sidebar", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
 		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Sidebar", $gridField); // add the grid field to a tab in the CMS
-		//$f->addFieldToTab("Root.Widgets", new WidgetAreaEditor("MyWidgetArea"));
 
 	}
-
 
     public function SidebarItems() {
         return $this->owner->getManyManyComponents('SidebarItems')->sort('SortOrder');
