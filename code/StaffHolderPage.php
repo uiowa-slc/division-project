@@ -31,9 +31,8 @@ class StaffHolderPage extends Page {
 	}
 	
 	public function Children(){
-		$staffPages = StaffPage::get()->sort('LastName ASC');
+		$staffPages = parent::Children()->sort('LastName');
 		return $staffPages;
-
 	}
 	
 	public function StaffTeams(){
