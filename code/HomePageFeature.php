@@ -6,7 +6,8 @@
 			"Title" => "Varchar(155)",
 			"Content" => "HTMLText",
 			"YouTubeEmbed" => "HTMLText",
-			"SortOrder"=>"Int"
+			"SortOrder"=> "Int",
+			"ExternalLink" => "Text"
 
 		);
 		
@@ -23,6 +24,8 @@
 			$fields->push( new TextField( 'Title', 'Title' ));
 			
 			$fields->push( new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
+
+			$fields->push( new TextField("ExternalLink", "Use this external link instead of the selected page"));
 			$fields->push( new HTMLEditorField( 'Content', 'Content' ));
 			
 			$fields->push( new UploadField("Image", "Image (350 x 180 pixels)"));

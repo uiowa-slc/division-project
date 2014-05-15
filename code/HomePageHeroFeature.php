@@ -25,8 +25,7 @@
 
 			$fields->push( new UploadField("Image", "Image"));
 			$fields->push( new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
-			$fields->push( new CheckboxField( 'UseExternalLink', 'Use the external link instead:' ));
-			$fields->push( new TextField( 'ExternalLink', 'External Link' ));
+			$fields->push( new TextField( 'ExternalLink', 'Use the external link instead:' ));
 			$fields->push( new HTMLEditorField( 'Content', 'Content' ));
 
 
