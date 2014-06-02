@@ -1,5 +1,5 @@
 <div class="container clearfix">
-      <section class="staff-content">
+      <section class="staff-content main-content">
       	$Form
       	$Content
       	<% loop Teams %>
