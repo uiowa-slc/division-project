@@ -3,7 +3,6 @@
 <!--[if IE 8]><html class="ie8" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-		<!-- deployment test -->
 	<% base_tag %>
 	<meta charset="utf-8">
 	
