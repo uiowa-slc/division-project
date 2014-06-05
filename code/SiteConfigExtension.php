@@ -7,7 +7,7 @@ class SiteConfigExtension extends DataExtension {
 	'Address' =>'Text',
 	'PhoneNumber' =>'Text',
 	'FacebookLink' =>'Text',
-	'GroupSummary'=>'Text',
+	'GroupSummary'=>'HTMLText',
 	'EmailAddress' => 'Text'
     
 	);
@@ -18,7 +18,7 @@ class SiteConfigExtension extends DataExtension {
   
   public function updateCMSFields(FieldList $fields){
 
-	  $fields->addFieldToTab('Root.Main', new TextareaField('GroupSummary', 'Group Summary'));
+	  $fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
 
 	  $fields->addFieldToTab('Root.Main', new TextareaField('Address', 'Organization Address'));
 	  $fields->addFieldToTab('Root.Main', new TextareaField('PhoneNumber', 'Phone Number(s)'));
