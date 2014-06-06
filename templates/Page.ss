@@ -30,7 +30,7 @@
     $Layout
 
     <% include Footer %>
-    <script type="text/javascript" src="{$ThemeDir}/build/build-src.js"></script>
+    <script type="text/javascript" src="{$ThemeDir}/build/build.js"></script>
 	<% include GoogleAnalytics %>
 </body>
 </html>
