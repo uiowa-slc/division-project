@@ -1,0 +1,17 @@
+{
+  "name": "division-project",
+  "version": "2.0.0",
+  "homepage": "https://github.com/StudentLifeMarketingAndDesign/division-project",
+  "authors": [
+    "Dustin Quam <quamsta@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

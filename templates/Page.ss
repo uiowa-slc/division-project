@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="division-bar/css/_division-bar.css" />
 
 	<!--[if lt IE 9]>
-		<script src="division-project/js/vendor/html5shiv.js"></script>
+		<script src="division-project/js/vendor/html5shiv.min.js"></script>
 		<script src="division-project/js/vendor/respond.min.js"></script>
 	<![endif]-->
 	<script type="text/javascript" src="//use.typekit.net/ivn3muh.js"></script>
@@ -30,6 +30,7 @@
     $Layout
 
     <% include Footer %>
+    <script type="text/javascript" src="{$ThemeDir}/build/build-src.js"></script>
 	<% include GoogleAnalytics %>
 </body>
 </html>

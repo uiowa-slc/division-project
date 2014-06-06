@@ -19,92 +19,63 @@ class DivisionPage_Controller extends Extension {
 	private static $allowed_actions = array (
 	);
 
-	public function onAfterInit() {
 
-		$themeDir = $this->owner->ThemeDir();
-		$baseFolder = Director::baseFolder();
-
-		$scripts = array();
-
-		$scripts[] = "division-project/js/vendor/jquery-1.8.3.min.js";
-
-		$scripts[] = "division-project/js/plugins-ck.js";
-		$scripts[] = "division-project/js/main.js";
-		$scripts[] = "division-bar/js/division-bar.js";
-
-		$scripts[] = $themeDir . "/js/site.js";
-		
-		Requirements::combine_files('allScripts.js', $scripts);
-	}
-
-
-	/* Clear Out Empty Lines from SS Template Indents */
-	/*public function handleRequest(SS_HTTPRequest $request, DataModel $model) {
-		$ret = parent::handleRequest($request, $model);
-		$temp=$ret->getBody();
-		$temp = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $temp);
-		$ret->setBody($temp);
-		return $ret;
-	} */
-	
-	public static function StaffSpotlightHandler($arguments, $content){
+	public static function StaffSpotlightHandler( $arguments, $content ) {
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
-		
-		$blogHolder = DataObject::get_by_id('BlogHolder', 133);
-		
-		$latestStaffSpotlight = $blogHolder->Entries(1, 'faces')->sort('Date DESC')->first();
-		
-		//print_r($blogHolder);
-		//$latestStaffSpotlight = BlogEntry::get()->
-		if($latestStaffSpotlight){
-		 
+
+		$blogHolder = DataObject::get_by_id( 'BlogHolder', 133 );
+
+		$latestStaffSpotlight = $blogHolder->Entries( 1, 'faces' )->sort( 'Date DESC' )->first();
+
+		if ( $latestStaffSpotlight ) {
+
 			$customise = array();
 			/*** SET DEFAULTS ***/
 			$customise['BlogPage'] = $latestStaffSpotlight;
 			$customise['SidebarContent'] = $content;
-			 
+
 			//overide the defaults with the arguments supplied
-			$customise = array_merge($customise,$arguments);
-			 
+			$customise = array_merge( $customise, $arguments );
+
 			//get our YouTube template
-			$template = new SSViewer('SidebarSpotlight');
-			 
+			$template = new SSViewer( 'SidebarSpotlight' );
+
 			//return the customised template
-			return $template->process(new ArrayData($customise));	
-		}	
-		
-		
-		
-	}
-	public static function BlogFeedHandler($arguments){
-		//example: [blogfeed page="news" tags="assessment"]Assessment News[/blogfeed]
-		
-		if (empty($arguments['page'])) {
-		    return;
+			return $template->process( new ArrayData( $customise ) );
 		}
-		
+
+
+
+	}
+	public static function BlogFeedHandler( $arguments ) {
+		//example: [blogfeed page="news" tags="assessment"]Assessment News[/blogfeed]
+
+		if ( empty( $arguments['page'] ) ) {
+			return;
+		}
+
 		$pageURLSegment = $arguments['page'];
-		$page = DataObject::get("Page")->filter("URLSegment", $pageURLSegment)->first();
+		$page = DataObject::get( "Page" )->filter( "URLSegment", $pageURLSegment )->first();
 		//print_r($page);
-		if($page){
-		 
+		if ( $page ) {
+
 			$customise = array();
 			/*** SET DEFAULTS ***/
 			$customise['BlogPage'] = $page;
-			if(isset($arguments['tag'])){
+			if ( isset( $arguments['tag'] ) ) {
 				$customise['Tag'] = $arguments['tag'];
 			}
-			 
+
 			//overide the defaults with the arguments supplied
-			$customise = array_merge($customise,$arguments);
-			 
+			$customise = array_merge( $customise, $arguments );
+
 			//get our YouTube template
-			$template = new SSViewer('SidebarBlogFeed');
-			 
+			$template = new SSViewer( 'SidebarBlogFeed' );
+
 			//return the customised template
-			return $template->process(new ArrayData($customise));	
-		}	
-		
+			return $template->process( new ArrayData( $customise ) );
+		}
+
 	}
 
 }

@@ -7,6 +7,10 @@
 	color: #eee;
 	padding: 3em 0 1em;
 	position: relative;
+
+	img{
+		max-width: 266px;
+	}
 }
 .footer p {
 	@media screen and (min-width: $break-small) {

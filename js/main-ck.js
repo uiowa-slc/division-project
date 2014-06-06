@@ -1,1 +1,0 @@
-$(window).load(function(){$(".nav-title a").click(function(){$(".nav-main-wrapper").toggleClass("expand");return!1});$(".module .media").fitVids()});
