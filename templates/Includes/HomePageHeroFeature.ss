@@ -1,6 +1,6 @@
 <div class="hero-article clearfix">
     <% if $Image %>
-    	<% if $UseExternalLink %>
+    	<% if $ExternalLink %>
     		<a href="$ExternalLink" target="_blank"><img src="$Image.URL" alt=""></a>
     	<% else %>
         	<a href="$AssociatedPage.Link"><img src="$Image.URL" alt=""></a>
