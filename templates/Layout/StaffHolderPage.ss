@@ -1,4 +1,6 @@
+<div class="gradient">
 <div class="container clearfix">
+      <div class="white-cover"></div>
       <section class="staff-content main-content">
       	$Form
       	$Content
@@ -24,5 +26,9 @@
             <% end_if %>
       	
       </section>
+          <section class="sec-content hide-print">
+            <% include SideNav %>
+          </section>
+      </div>
 </div>
 <% include TopicsAndNews %>
