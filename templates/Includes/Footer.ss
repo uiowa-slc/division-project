@@ -13,7 +13,7 @@
 					<br />Phone: $SiteConfig.PhoneNumber
 				<% end_if %>
 				<% if $SiteConfig.EmailAddress %>
-					<br />Email: <a href="mailto:{$EmailAddress}">$SiteConfig.EmailAddress</a>
+					<br />Email: <a href="mailto:{$SiteConfig.EmailAddress}">$SiteConfig.EmailAddress</a>
 				<% end_if %>
 			</p>
 				
