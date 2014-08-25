@@ -21,7 +21,7 @@
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
                 "md/division-bar": "*",
-                "md/ac-json-events" : "dev-localist",
+                "md/ac-json-events": "dev-localist"
         },
         "extra": {
                 "branch-alias": {
