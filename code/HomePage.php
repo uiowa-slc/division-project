@@ -75,7 +75,7 @@ class HomePage_Controller extends Page_Controller {
 	}
 	public function index(){
 		$page = $this->customise(array(
-			'BackgroundFeature' => HomePageBackgroundFeature::get()->Sort('RAND()')->First()
+			'BackgroundFeature' => $this->BackgroundFeatures()->Sort('RAND()')->First()
 		));
 
 		return $page->renderWith(array('HomePage','Page'));
