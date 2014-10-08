@@ -8,7 +8,7 @@
     <% else %>
         <a href="$AssociatedPage.Link">
     <% end_if %>
-            <img src="$Image.CroppedImage(350,197).URL" alt="$Title">
+            <img src="$Image.CroppedImage(350,197).URL" alt="An image representing $Title">
         </a>
     <% end_if %>
     </div>
