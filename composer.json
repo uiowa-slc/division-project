@@ -20,8 +20,10 @@
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
+                "jonom/focuspoint" : "*",
                 "md/division-bar": "*",
                 "md/ac-json-events": "dev-master"
+
         },
         "extra": {
                 "branch-alias": {
