@@ -13,5 +13,15 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "fitvids": "1.1.x",
+    "flexslider": "*",
+    "html5shiv": "3.7.x",
+    "jquery": "1.10.x",
+    "jquery.equalheights": "1.5.x",
+    "respond": "1.4.x",
+    "foundation": "zurb/bower-foundation"
+  }
+
 }

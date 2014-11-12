@@ -33,7 +33,6 @@
     "commit": "14899021f2cde337737e42e6cab3c4dc41fe3a1a"
   },
   "_source": "git://github.com/davatron5000/FitVids.js.git",
-  "_target": "~1.1.0",
-  "_originalSource": "fitvids",
-  "_direct": true
+  "_target": "1.1.x",
+  "_originalSource": "fitvids"
 }
