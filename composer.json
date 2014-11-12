@@ -22,7 +22,8 @@
                 "silverstripe/timepickerfield": "*",
                 "jonom/focuspoint" : "*",
                 "md/division-bar": "*",
-                "md/ac-json-events": "dev-master"
+                "md/ac-json-events": "dev-master",
+                "sheadawson/quickaddnew" : "*"
 
         },
         "extra": {
