@@ -29,6 +29,6 @@ $(window).load(function() {
 
 	/* FitVids */
 	$(".module .media").fitVids();
-
+	$(".hero-content").fitVids();
 });
    
