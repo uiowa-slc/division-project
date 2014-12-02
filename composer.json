@@ -23,7 +23,8 @@
                 "jonom/focuspoint" : "*",
                 "md/division-bar": "*",
                 "md/ac-json-events": "dev-master",
-                "sheadawson/quickaddnew" : "*"
+                "sheadawson/quickaddnew" : "*",
+                "silverstripe-australia/gridfieldextensions" : "*"
 
         },
         "extra": {
