@@ -28,7 +28,7 @@ class StaffPage extends Page {
 		
 		$fields->removeByName("Content");
 		$fields->removeByName("Metadata");
-		$fields->removeByName("BackgroundImage");
+		
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
