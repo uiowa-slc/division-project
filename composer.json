@@ -22,6 +22,7 @@
                 "silverstripe/timepickerfield": "*",
                 "jonom/focuspoint" : "*",
                 "md/division-bar": "*",
+                "md/rss-display": "*",
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*"
@@ -36,6 +37,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display"       
         },
         {
             "type": "vcs",
