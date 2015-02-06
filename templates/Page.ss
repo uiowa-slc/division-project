@@ -9,7 +9,7 @@
 	<meta name="description" content="" /> 
 	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-	
+	<% include OpenGraph %>
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
 	
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
