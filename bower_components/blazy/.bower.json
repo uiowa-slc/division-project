@@ -1,6 +1,7 @@
 {
   "name": "bLazy",
   "main": "blazy.js",
+  "version": "1.3.1",
   "description": "bLazy is a lightweight script for lazy loading and multi-serving images",
   "homepage": "https://github.com/dinbror/blazy",
   "keywords": [
@@ -22,14 +23,15 @@
   ],
   "license": "MIT",
   "moduleType": [
-    "amd"
+    "amd",
+    "CommonJS"
   ],
   "ignore": [],
-  "_release": "761042dd10",
+  "_release": "1.3.1",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "761042dd101ce803e47398407aab11b93e2cad32"
+    "type": "version",
+    "tag": "1.3.1",
+    "commit": "fae860857d58764d84222ef981305f0ea9c90b24"
   },
   "_source": "git://github.com/dinbror/blazy.git",
   "_target": "*",
