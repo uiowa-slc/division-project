@@ -15,7 +15,6 @@
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 
 	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
-	<link rel="stylesheet" type="text/css" href="division-bar/css/_division-bar.css" />
 
 	<!--[if lt IE 9]>
 		<script src="division-project/js/vendor/html5shiv.min.js"></script>
