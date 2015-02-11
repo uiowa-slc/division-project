@@ -82,5 +82,19 @@ class StaffPage_Controller extends Page_Controller {
 
 
 	}
+	public function NewsPosts(){
 
+		$memberId = $this->EmailAddress;
+
+
+		if(isset($memberId)){
+			echo "hello";
+			$url = 'http://studentlife.uiowa.edu/news/rss?member='.$memberId;
+			print_r($url);
+			return $this->RSSDisplay(20, $url);
+		}else{
+			return false;
+		}
+		
+	}
 }
