@@ -10,25 +10,23 @@ class StaffPage extends Page {
 		"DepartmentURL" => "Text",
 		"DepartmentName" => "Text",
 
-	
 	);
 
 	private static $has_one = array(
 		"Photo" => "Image",
 	);
-	
-	private static $belongs_many_many = array (
-		"Teams" => "StaffTeam"
+
+	private static $belongs_many_many = array(
+		"Teams" => "StaffTeam",
 	);
-	
-	public function getCMSFields(){
+
+	public function getCMSFields() {
 		SiteTree::disableCMSFieldsExtensions();
 		$fields = parent::getCMSFields();
 		SiteTree::enableCMSFieldsExtensions();
-		
+
 		$fields->removeByName("Content");
 		$fields->removeByName("Metadata");
-		
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
@@ -38,22 +36,20 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department URL (optional)"));
 
-		
 		$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team <a href="admin/pages/edit/show/14" target="_blank">(Manage Teams)</a>', StaffTeam::get()->map('ID', 'Name')));
-		
+
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
 		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (dimensions)"));
 
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
-		
+
 		$this->extend('updateCMSFields', $fields);
 		return $fields;
-		
+
 	}
 
-	
 	//private static $allowed_children = array("");
 
 }
@@ -74,27 +70,23 @@ class StaffPage_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
+	private static $allowed_actions = array(
 	);
 
 	public function init() {
 		parent::init();
 
-
 	}
-	public function NewsPosts(){
+	public function NewsPosts() {
 
 		$memberId = $this->EmailAddress;
 
-
-		if(isset($memberId)){
-			echo "hello";
-			$url = 'http://studentlife.uiowa.edu/news/rss?member='.$memberId;
-			print_r($url);
+		if (isset($memberId)) {
+			$url = 'http://studentlife.uiowa.edu/news/rss?member=' . $memberId;
 			return $this->RSSDisplay(20, $url);
-		}else{
+		} else {
 			return false;
 		}
-		
+
 	}
 }
