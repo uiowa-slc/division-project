@@ -6,7 +6,7 @@
 <% else_if $Photo %>
 	<meta property="og:image" content="$Photo.SetWidth(600).AbsoluteURL" />
 <% else %>
-	<meta property="og:image" content="{$BaseHref}/division-project/images/og-poster.jpg" />
+	<meta property="og:image" content="{$BaseHref}{$ThemeDir}/images/og-poster.jpg" />
 <% end_if %>
 <meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
 <meta property="og:site_name" content="$SiteConfig.Title.ATT" />
