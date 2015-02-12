@@ -14,8 +14,11 @@
 	
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<style><% include CriticalCss %></style>
-
-	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
+	<% include LoadCss %>
+	<script>
+	  loadCSS( "$ThemeDir/css/master.css" );
+	</script>
+	<noscript><link href="$ThemeDir/css/master.css" rel="stylesheet"></noscript>
 
 	<!--[if lt IE 9]>
 		<script src="division-project/js/vendor/html5shiv.min.js"></script>
