@@ -1,3 +1,9 @@
+SiteTree:
+  extensions:
+    - DivisionPage
+    - PublishableSiteTree
+    - SiteTreePublishingEngine
+    - FilesystemPublisher('cache', 'html')
 Controller:
   extensions:
     - SS_MinifiedResponseExtension
