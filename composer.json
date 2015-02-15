@@ -25,7 +25,8 @@
                 "md/rss-display": "*",
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",
-                "silverstripe-australia/gridfieldextensions" : "*"
+                "silverstripe-australia/gridfieldextensions" : "*",
+                "silverstripe/staticpublishqueue" : "*"
 
         },
         "extra": {

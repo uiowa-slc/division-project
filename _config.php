@@ -1,5 +1,4 @@
 <?php
-ContentController::add_extension('Page_Controller', 'DivisionPage_Controller');
 
 // add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
@@ -32,11 +31,3 @@ HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 GD::set_default_quality(80);
 ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'BlogFeedHandler'));
 ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
-Object::add_extension("BlogEntry", "BlogFieldExtension");
-Object::add_extension("Page", "WidgetExtension");
-SiteConfig::add_extension('SiteConfigExtension');
-
-RecaptchaField::$public_api_key = '6LcjsAgAAAAAAD6MXE7QNLusIBMajgpfK_EWjL3C';
-RecaptchaField::$private_api_key = '6LcjsAgAAAAAAD6MXE7QNLusIBMajgpfK_EWjL3C';
-
-SpamProtectorManager::set_spam_protector('RecaptchaProtector');
