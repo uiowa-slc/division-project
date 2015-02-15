@@ -1,5 +1,5 @@
 <% if $BackgroundImage %>
-	<div class="img-container" style="background-image: url($BackgroundImage.URL);">
+	<div class="img-container b-lazy" data-src="$BackgroundImage.URL">
 		<div class="img-fifty-top"></div>
 	</div>
 <% end_if %>
