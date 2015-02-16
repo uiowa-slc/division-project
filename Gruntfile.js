@@ -28,6 +28,7 @@ module.exports = function(grunt) {
           'bower_components/fitvids/jquery.fitvids.js',
           'bower_components/flexslider/jquery.flexslider.js',
           'bower_components/blazy/blazy.js',
+	        'bower_components/REM-unit-polyfill/js/rem.js',
           'node_modules/fg-loadcss/loadCSS.js',
           '../division-bar/js/division-bar.js',
           'js/*.js',
