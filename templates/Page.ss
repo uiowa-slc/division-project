@@ -42,7 +42,7 @@
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
 	var element = document.createElement("script");
-	element.src = "$ThemeDir/build/build.js?v=2";
+	element.src = "$ThemeDir/build/build.js";
 	document.body.appendChild(element);
 	}
 	if (window.addEventListener)
