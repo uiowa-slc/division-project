@@ -8,6 +8,7 @@
         <div class="white-cover"></div>
         <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
             <article>    
+                $Breadcrumbs
                 <% if $Image %>
                     <img src="$Image.CroppedImage(765,512).URL" alt="">
                 <% end_if %>

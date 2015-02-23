@@ -149,7 +149,7 @@ textarea,
     margin-bottom: 10px;
 }
 .field .left, .field .right {
-  float: none;
+  float: none !important;
 }
 .checkboxset, .optionset {
     list-style: none;

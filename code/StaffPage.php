@@ -22,10 +22,13 @@ class StaffPage extends Page {
 	);
 	
 	public function getCMSFields(){
+		SiteTree::disableCMSFieldsExtensions();
 		$fields = parent::getCMSFields();
+		SiteTree::enableCMSFieldsExtensions();
 		
 		$fields->removeByName("Content");
 		$fields->removeByName("Metadata");
+		
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
@@ -45,9 +48,11 @@ class StaffPage extends Page {
 
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
 		
+		$this->extend('updateCMSFields', $fields);
 		return $fields;
 		
 	}
+
 	
 	//private static $allowed_children = array("");
 

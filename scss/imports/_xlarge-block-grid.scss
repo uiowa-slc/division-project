@@ -1,0 +1,18 @@
+// Add support for xlarge and xxlarge block grid
+@for $i from 1 through $block-grid-elements {
+  @media #{$xlarge-up} {
+    .xlarge-block-grid-#{$i} {
+      @include block-grid(
+        $per-row: $i
+      );
+    }
+  }
+
+  @media #{$xxlarge-up} {
+    .xxlarge-block-grid-#{$i} {
+      @include block-grid(
+        $per-row: $i
+      );
+    }
+  }
+}
