@@ -6,9 +6,11 @@
 @import "imports/_typography.scss";
 @import "imports/_global.scss";
 
+@import "_division-bar.scss";
+
 /* Elements
 -------------------------------------------*/
-/*@import "imports/_buttons.scss";*/
+@import "imports/_buttons.scss";
 @import "imports/_font.scss";
 @import "imports/_forms.scss";
 @import "imports/_search.scss";

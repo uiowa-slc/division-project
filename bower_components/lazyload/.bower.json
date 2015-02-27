@@ -1,0 +1,14 @@
+{
+  "name": "lazyload",
+  "homepage": "https://github.com/vvo/lazyload",
+  "version": "3.0.0",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "54088367b62f7ae582f09cdba1b122d86c18b766"
+  },
+  "_source": "git://github.com/vvo/lazyload.git",
+  "_target": "*",
+  "_originalSource": "lazyload"
+}

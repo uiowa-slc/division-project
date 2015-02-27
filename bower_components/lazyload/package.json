@@ -1,0 +1,58 @@
+{
+  "name": "lazyloadjs",
+  "version": "3.0.0",
+  "description": "Image lazy loading",
+  "main": "./lazyload.js",
+  "scripts": {
+    "build": "browserify ./lazyload.js -s lazyload -p deumdify > build/lazyload.min.js",
+    "watch": "watchify ./lazyload.js -d -s lazyload -p deumdify -o build/lazyload.min.js -v",
+    "dev": "npm run watch & zuul --local 8080 -- test/*.js",
+    "test": "npm run build && zuul -- test/*.js",
+    "examples": "http-server ./"
+  },
+  "repository": "vvo/lazyload",
+  "author": "Vincent Voyer <vincent.voyer@gmail.com> (http://github.com/vvo)",
+  "license": "MIT",
+  "dependencies": {
+    "in-viewport": "^1.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^8.1.1",
+    "deumdify": "^1.0.4",
+    "express": "^4.9.0",
+    "http-server": "^0.7.4",
+    "merge": "^1.2.0",
+    "uglifyify": "^3.0.1",
+    "watchify": "^2.2.1",
+    "zuul": "^1.10.2"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "uglifyify",
+        {
+          "mangle": true,
+          "screw-ie8": true,
+          "compress": {
+            "sequences": true,
+            "properties": true,
+            "dead_code": true,
+            "drop_debugger": true,
+            "unsafe": true,
+            "conditionals": true,
+            "comparisons": true,
+            "evaluate": true,
+            "booleans": true,
+            "loops": true,
+            "unused": true,
+            "hoist_funs": true,
+            "if_return": true,
+            "join_vars": true,
+            "cascade": true,
+            "drop_console": true
+          }
+        }
+      ]
+    ]
+  }
+}

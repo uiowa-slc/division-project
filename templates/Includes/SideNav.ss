@@ -1,4 +1,4 @@
-<% if Menu(2) %>
+ <% if Menu(2) %>
 	<% with Level(1) %>
 		<h3 class="section-title"><% if $LinkOrCurrent = "current" %>$MenuTitle<% else %><a href="$Link">$MenuTitle</a><% end_if %></h3>
 	<% end_with %>
