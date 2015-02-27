@@ -14,7 +14,9 @@
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
 	
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
-	<style><% include CriticalCss %></style>
+	<style>
+		<% include CriticalCss %>
+	</style>
 	<% include LoadCss %>
 	<script>
 	  loadCSS( "$ThemeDir/css/master.css" );
@@ -38,6 +40,7 @@
     $Layout
 
     <% include Footer %>
+    <% include MdFooter %>
 
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
