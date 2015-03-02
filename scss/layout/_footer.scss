@@ -11,6 +11,11 @@
 	img{
 		max-width: 266px;
 	}
+
+	.dsl-footer{
+		height: 72px;
+		margin-top: -20px;
+	}
 }
 .footer p {
 	@media screen and (min-width: $break-small) {
