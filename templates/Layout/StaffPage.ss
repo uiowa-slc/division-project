@@ -4,7 +4,7 @@
             <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
             	<h1>$Title</h1>
             	<% if $Photo %>
-            		<img data-src="$Photo.SetWidth(760).URL" alt="$FirstName $LastName">
+            		<img src="division-project/images/placeholder-staffpage.png" data-src="$Photo.SetWidth(760).URL" alt="$FirstName $LastName">
             	<% end_if %>
                   <h2>$Position</h2>
                   <ul>

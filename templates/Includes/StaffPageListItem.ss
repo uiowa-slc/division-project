@@ -1,16 +1,16 @@
 <li>
       <% if $Photo %>
       <a href="$Link" class="staff-link">
-            <img data-src="$Photo.CroppedImage(350,234).URL" alt="Photograph of $FirstName $LastName" class="staff-img">
+            <img src="division-project/images/dosl.png" data-src="$Photo.CroppedImage(350,234).URL" alt="Photograph of $FirstName $LastName" class="staff-img">
       </a>
       <% else %>
       <a href="$Link" class="staff-link">
             
-            <img data-src="division-project/images/dosl.png" alt="Photograph of $FirstName $LastName" class="staff-img">
+            <img src="division-project/images/dosl.png" alt="Photograph of $FirstName $LastName" class="staff-img">
       </a>
       <% end_if %>
       <p class="staff-name">
             <a href="$Link">$FirstName $LastName</a>
             <% if $Position %><small class="staff-position">$Position</small><% end_if %>
       </p>
-</li>
+</li>&nbsp;
