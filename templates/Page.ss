@@ -40,7 +40,7 @@
     $Layout
 
     <% include Footer %>
-    <% include MdFooter %>
+    <% include MdBar %>
 
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
