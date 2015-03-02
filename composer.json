@@ -28,7 +28,8 @@
                 "sheadawson/quickaddnew" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/staticpublishqueue" : "*",
-                "silverstripe/tenon" : "*"
+                "silverstripe/tenon" : "*",
+                "silverstripe/gridfieldpaginatorwithshowall" : "*"
 
         },
         "repositories": [
