@@ -26,7 +26,8 @@
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
-                "silverstripe/staticpublishqueue" : "*"
+                "silverstripe/staticpublishqueue" : "*",
+                "silverstripe/tenon" : "*"
 
         },
         "extra": {
