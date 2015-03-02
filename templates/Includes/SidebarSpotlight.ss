@@ -6,7 +6,7 @@
 		    <% if $Image %>
 		    	<div class="faces-image-container">
 		    		<h3>$Title</h3>
-		    		<img src="$Image.SetWidth(279).URL" alt="An image representing $Title">
+		    		<img data-src="$Image.SetWidth(279).URL" alt="An image representing $Title">
 		    	</div>
 		    <% end_if %>
 		</a>

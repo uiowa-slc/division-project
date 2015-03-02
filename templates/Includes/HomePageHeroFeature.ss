@@ -1,9 +1,9 @@
 <div class="hero-article clearfix">
     <% if $Image %>
     	<% if $ExternalLink %>
-    		<a href="$ExternalLink" target="_blank"><img src="$Image.SetWidth(250).URL" alt="An image taht represents $Title"></a>
+    		<a href="$ExternalLink" target="_blank"><img data-src="$Image.SetWidth(250).URL" alt="An image taht represents $Title"></a>
     	<% else %>
-        	<a href="$AssociatedPage.Link"><img src="$Image.SetWidth(250).URL" alt="An image that represents $Title"></a>
+        	<a href="$AssociatedPage.Link"><img data-src="$Image.SetWidth(250).URL" alt="An image that represents $Title"></a>
         <% end_if %>
     <% end_if %>
     <h3 class="hero-title">

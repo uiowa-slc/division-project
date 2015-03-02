@@ -2,7 +2,7 @@
     <div class="container">
         <div class="colgroup">
 			<div class="col-1-2">
-				<a href="http://studentlife.uiowa.edu" class="hide-print"><img src="division-project/images/dosl-uiowa.png" alt="Division Of Student Life Logo" style="margin-top: -20px;"></a><br>
+				<a href="http://studentlife.uiowa.edu" class="hide-print"><img data-src="division-project/images/dosl-uiowa.png" alt="Division Of Student Life Logo" style="margin-top: -20px;"></a><br>
 				<% if $SiteConfig.GroupSummary %>
 					<p>$SiteConfig.GroupSummary</p>
 				<% else %>

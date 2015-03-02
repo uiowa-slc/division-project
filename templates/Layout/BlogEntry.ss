@@ -10,7 +10,7 @@
             <article>    
                 $Breadcrumbs
                 <% if $Image %>
-                    <img src="$Image.CroppedImage(765,512).URL" alt="">
+                    <img data-src="$Image.CroppedImage(765,512).URL" alt="">
                 <% end_if %>
                 	<h1 class="postTitle">$Title</h1>
                 <% if $StoryBy %>
