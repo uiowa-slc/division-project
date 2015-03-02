@@ -32,9 +32,7 @@
     $Layout
     <% include SubFooter %>
     <% include Footer %>
-
     <script type="text/javascript" src="{$ThemeDir}/build/build.js"></script>
-    <script type="text/javascript" src="tenon/javascript/tenon_post.js"></script>
 	<% include GoogleAnalytics %>
 </body>
 </html>

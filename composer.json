@@ -25,10 +25,7 @@
                 "md/rss-display": "*",
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",
-                "silverstripe-australia/gridfieldextensions" : "*",
-                "normann/gridfieldpaginatorwithshowall": "dev-master",
-                "silverstripe/tenon" : "*"
-
+                "silverstripe-australia/gridfieldextensions" : "*"
 
         },
         "extra": {
