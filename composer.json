@@ -29,7 +29,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/staticpublishqueue" : "*",
                 "silverstripe/tenon" : "*",
-                "silverstripe/gridfieldpaginatorwithshowall" : "*"
+                "normann/gridfieldpaginatorwithshowall" : "*"
 
         },
         "repositories": [
