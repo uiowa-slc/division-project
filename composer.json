@@ -29,9 +29,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/staticpublishqueue" : "*",
                 "silverstripe/tenon" : "*",
-                "normann/gridfieldpaginatorwithshowall" : "*",
-                "maldicore/silverstripe-clientexport" : "dev-master"
-
+                "normann/gridfieldpaginatorwithshowall" : "*"
         },
         "repositories": [
         {
