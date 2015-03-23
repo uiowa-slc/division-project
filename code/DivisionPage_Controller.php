@@ -16,18 +16,17 @@ class DivisionPage_Controller extends Extension {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
+	private static $allowed_actions = array(
 	);
 
-
-	public static function StaffSpotlightHandler( $arguments, $content ) {
+	public static function StaffSpotlightHandler($arguments, $content) {
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
 
-		$blogHolder = DataObject::get_by_id( 'BlogHolder', 133 );
+		$blogHolder = DataObject::get_by_id('BlogHolder', 133);
 
-		$latestStaffSpotlight = $blogHolder->Entries( 1, 'faces' )->sort( 'Date DESC' )->first();
+		$latestStaffSpotlight = $blogHolder->Entries(1, 'faces')->sort('Date DESC')->first();
 
-		if ( $latestStaffSpotlight ) {
+		if ($latestStaffSpotlight) {
 
 			$customise = array();
 			/*** SET DEFAULTS ***/
@@ -35,45 +34,43 @@ class DivisionPage_Controller extends Extension {
 			$customise['SidebarContent'] = $content;
 
 			//overide the defaults with the arguments supplied
-			$customise = array_merge( $customise, $arguments );
+			$customise = array_merge($customise, $arguments);
 
 			//get our YouTube template
-			$template = new SSViewer( 'SidebarSpotlight' );
+			$template = new SSViewer('SidebarSpotlight');
 
 			//return the customised template
-			return $template->process( new ArrayData( $customise ) );
+			return $template->process(new ArrayData($customise));
 		}
 
-
-
 	}
-	public static function BlogFeedHandler( $arguments ) {
+	public static function BlogFeedHandler($arguments) {
 		//example: [blogfeed page="news" tags="assessment"]Assessment News[/blogfeed]
 
-		if ( empty( $arguments['page'] ) ) {
+		if (empty($arguments['page'])) {
 			return;
 		}
 
 		$pageURLSegment = $arguments['page'];
-		$page = DataObject::get( "Page" )->filter( "URLSegment", $pageURLSegment )->first();
+		$page = DataObject::get("Page")->filter("URLSegment", $pageURLSegment)->first();
 		//print_r($page);
-		if ( $page ) {
+		if ($page) {
 
 			$customise = array();
 			/*** SET DEFAULTS ***/
 			$customise['BlogPage'] = $page;
-			if ( isset( $arguments['tag'] ) ) {
+			if (isset($arguments['tag'])) {
 				$customise['Tag'] = $arguments['tag'];
 			}
 
 			//overide the defaults with the arguments supplied
-			$customise = array_merge( $customise, $arguments );
+			$customise = array_merge($customise, $arguments);
 
 			//get our YouTube template
-			$template = new SSViewer( 'SidebarBlogFeed' );
+			$template = new SSViewer('SidebarBlogFeed');
 
 			//return the customised template
-			return $template->process( new ArrayData( $customise ) );
+			return $template->process(new ArrayData($customise));
 		}
 
 	}

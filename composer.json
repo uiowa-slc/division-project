@@ -5,15 +5,15 @@
         "minimum-stability": "dev",
         "require": {
                 "php": ">=5.3.2",
-                "silverstripe/cms": "3.1.10",
-                "silverstripe/framework": "3.1.10",
+                "silverstripe/cms": "3.1.12",
+                "silverstripe/framework": "3.1.12",
                 "silverstripe/installer": "*",
                 "silverstripe-themes/simple": "*",
                 "undefinedoffset/sortablegridfield": "*",
                 "unclecheese/betterbuttons": "*",
                 "unclecheese/eventcalendar": "*",
                 "colymba/gridfield-bulk-editing-tools": "*",
-                "silverstripe/blog": "*",
+                "silverstripe/blog": "1.0",
                 "silverstripe/widgets": "*",
                 "silverstripe/userforms": "*",
                 "silverstripe/recaptcha": "*",
@@ -29,8 +29,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/staticpublishqueue" : "*",
                 "silverstripe/tenon" : "*",
-                "silverstripe/gridfieldpaginatorwithshowall" : "*"
-
+                "normann/gridfieldpaginatorwithshowall" : "*"
         },
         "repositories": [
         {

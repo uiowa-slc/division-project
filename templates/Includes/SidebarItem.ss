@@ -7,7 +7,7 @@
 		        <h3>$Title</h3>
 		    
 		        <% if $Image %>
-		        	<img src="$Image.SetWidth(279).URL" alt="An image representing $Title">
+		        	<img src="division-project/images/placeholder-sidebar.png" data-src="$Image.SetWidth(279).URL" alt="An image representing $Title">
 		        <% end_if %>
 	    	</a>
     	<% else %>
@@ -15,7 +15,7 @@
 	        <h3>$Title</h3>
 	        
 	        <% if $Image %>
-	        	<img src="$Image.URL" alt="An image representing $Title">
+	        	<img src="division-project/images/placeholder-sidebar.png" data-src="$Image.URL" alt="An image representing $Title">
 	        <% end_if %>
     	<% end_if %>
     </div>
