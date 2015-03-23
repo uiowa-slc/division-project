@@ -9,20 +9,26 @@
 	<meta name="description" content="" /> 
 	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
 	<% include OpenGraph %>
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
 	
 	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
-
-	<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/master.css" />
-	<link rel="stylesheet" type="text/css" href="division-bar/css/_division-bar.css" />
-
+	<style>
+		<% include CriticalCss %>
+	</style>
+	<% include LoadCss %>
+	<script>
+	  loadCSS( "$ThemeDir/css/master.css" );
+	</script>
+	<noscript><link href="$ThemeDir/css/master.css" rel="stylesheet"></noscript>
 	<!--[if lt IE 9]>
-		<script src="division-project/js/vendor/html5shiv.min.js"></script>
-		<script src="division-project/js/vendor/respond.min.js"></script>
+	  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+	  <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+	  <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+	  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="//use.typekit.net/ivn3muh.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
 
 <body>
@@ -32,7 +38,22 @@
     $Layout
     <% include SubFooter %>
     <% include Footer %>
-    <script type="text/javascript" src="{$ThemeDir}/build/build.js"></script>
+    <% include MdBar %>
+
+	<script type="text/javascript">
+	function downloadJSAtOnload() {
+	var element = document.createElement("script");
+	element.src = "$ThemeDir/build/build.js";
+	document.body.appendChild(element);
+	}
+	if (window.addEventListener)
+	window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent)
+	window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+	</script>
 	<% include GoogleAnalytics %>
+	<script type="text/javascript" src="//use.typekit.net/ivn3muh.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
 </html>

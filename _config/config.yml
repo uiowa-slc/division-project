@@ -1,3 +1,16 @@
 Controller:
   extensions:
     - SS_MinifiedResponseExtension
+Page:
+  extensions:
+    - DivisionPage
+    - WidgetExtension
+Page_Controller:
+  extensions:
+    - DivisionPage_Controller
+BlogEntry:
+  extensions:
+    - BlogFieldExtension
+SiteConfig:
+  extensions:
+    - SiteConfigExtension

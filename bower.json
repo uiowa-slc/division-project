@@ -21,7 +21,8 @@
     "jquery": "1.10.x",
     "jquery.equalheights": "1.5.x",
     "respond": "1.4.x",
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "blazy" : "*"
   }
 
 }
