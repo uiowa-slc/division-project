@@ -98,8 +98,6 @@ img{ display: inline-block; vertical-align: middle; }
 .dosl, .adr{ float: none; width: auto; }
 .dosl{ display: block; padding-bottom: 0px; }
 }
-[class^="icon-"]::before{ font-family: search; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: 0.2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; margin-left: 0.2em; }
-.icon-facebook::before{ content: ; }
 form{ margin-top: 1em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; }
 input{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 label{ display: block; font-weight: bold; margin-bottom: 3px; }
@@ -133,6 +131,36 @@ input{ margin-left: 0px; width: 100%; }
 .hero-text li{ float: left; }
 }
 .hero-text li a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 206, 57); color: rgb(255, 255, 255); display: block; font-family: proxima-nova-condensed, sans-serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; text-shadow: rgba(0, 0, 0, 0.296875) 1px 1px 1px; text-transform: uppercase; -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 1px; -webkit-transition-property: all; -webkit-transition-duration: 0.2s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-position: initial initial; background-repeat: initial initial; }
+.hero-article-wrapper{ margin-bottom: 1em; overflow-x: hidden; overflow-y: hidden; }
+@media screen and (min-width: 768px){
+.hero-article-wrapper{ width: 278px; margin-bottom: 0px; display: inline-block; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em; text-align: left; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+}
+.hero-article{ border-top-width: 1px; border-top-style: solid; border-top-color: rgb(221, 221, 221); margin-top: 1.7em; padding-top: 1em; width: 100%; }
+@media screen and (max-width: 768px) and (min-width: 480px){
+.hero-article{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; float: left; margin-top: 0px; width: 49%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial; }
+}
+@media screen and (min-width: 768px){
+.hero-article{ float: none; width: 100%; }
+}
+.hero-article:first-child{ border-top-style: none; border-top-width: initial; border-top-color: initial; margin-top: 0px; margin-right: 2%; padding-top: 0px; }
+@media screen and (max-width: 768px) and (min-width: 480px){
+.hero-article:first-child{ padding-top: 10px; }
+}
+.hero-article img{ display: none; }
+@media screen and (min-width: 768px){
+.hero-article img{ display: block; }
+}
+.hero-title{ margin-top: 0.2em; margin-right: 0px; margin-bottom: 0.2em; margin-left: 0px; }
+.hero-title a{ color: rgb(51, 51, 51); }
+.hero-content{ line-height: 1.5; margin-bottom: 1em; }
+@media screen and (min-width: 480px){
+.hero-content{ font-size: 0.93333rem; }
+}
+.hero-link{ color: rgb(255, 255, 255); display: block; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(0, 0, 0); padding-top: 4px; padding-right: 10px; padding-bottom: 4px; padding-left: 10px; text-align: center; text-transform: uppercase; background-position: initial initial; background-repeat: initial initial; }
+.hero-link::after{ content: ''; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 4.5px; border-right-width: 0px; border-bottom-width: 4.5px; border-left-width: 5px; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgb(255, 206, 57); display: inline-block; height: 0px; position: relative; left: 4px; width: 0px; margin-top: 0px; margin-right: 3px; margin-bottom: 0px; margin-left: 3px; }
+@media screen and (min-width: 480px){
+.hero-link{ float: right; font-size: 0.8rem; }
+}
 .home-highlights{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(242, 242, 242); padding-top: 5em; padding-right: 0px; padding-bottom: 5em; padding-left: 0px; background-position: initial initial; background-repeat: initial initial; }
 .module{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); -webkit-box-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 1px; box-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 1px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; margin-bottom: 1em; min-height: 305px; background-position: initial initial; background-repeat: initial initial; }
 @media screen and (min-width: 480px){
@@ -182,6 +210,8 @@ input{ margin-left: 0px; width: 100%; }
 .nav-main .active a::after{ content: ''; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-top-color: transparent; border-right-color: transparent; border-bottom-color: rgb(34, 34, 34); border-left-color: transparent; display: inline-block; height: 0px; position: absolute; left: 50%; margin-left: -6px; bottom: 4px; text-decoration: none; width: 0px; }
 }
 .footer img{ max-width: 266px; }
+.footer .dsl-footer{ height: 72px; }
+.footer .dsl-footer img{ margin-top: -20px; }
 @media screen and (min-width: 480px){
 .footer p{ font-size: 0.86667rem; }
 }
@@ -209,6 +239,13 @@ body{ background-image: initial; background-attachment: initial; background-orig
 @media screen and (min-width: 768px){
 .container{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 }
+@media screen and (min-width: 768px){
+.main-content, .sec-content { float: left; }
+}
+.main-content { padding-top: 1em; padding-right: 0px; padding-bottom: 1em; padding-left: 0px; }
+@media screen and (min-width: 768px){
+.main-content { background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); width: 72%; position: relative; padding-top: 2em; padding-right: 2em; padding-bottom: 3em; padding-left: 2em; background-position: initial initial; background-repeat: initial initial; }
+}
 .header{ background-image: url(../../../division-project/images/nav_yellow.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); position: relative; background-position: 0% 100%; background-repeat: repeat no-repeat; }
 .header h1{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .logo{ color: rgb(34, 34, 34); display: block; font-family: proxima-nova-condensed, sans-serif; font-size: 1.93333rem; font-weight: 600; letter-spacing: 1px; line-height: 1.1; margin-top: 0.5em; margin-right: 0px; margin-bottom: 0.2em; margin-left: 0px; text-align: center; text-decoration: none; text-transform: uppercase; text-rendering: optimizelegibility; }
@@ -217,6 +254,10 @@ body{ background-image: initial; background-attachment: initial; background-orig
 }
 @media screen and (min-width: 1140px){
 .logo{ font-size: 3.06667rem; margin-top: 0.5em; margin-right: 0px; margin-bottom: 0.2em; margin-left: 0px; }
+}
+.img-container { background-color: rgb(0, 0, 0); background-size: cover; height: 200px; position: relative; background-position: 50% 0%; background-repeat: no-repeat no-repeat; }
+@media screen and (min-width: 768px){
+.img-container { height: 400px; padding-top: 0px; background-size:  ; }
 }
 @media print{
 *{ background-image: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
@@ -229,31 +270,4 @@ h2, h3{ page-break-after: avoid; }
 .hide-print, .division-topbar{ display: none; }
 .logo{ font-size: 40px; text-align: left; }
 h1{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; font-size: 34px; text-transform: none; }
-}
-html, body{ height: 100%; }
-*{ box-sizing: border-box; }
-html, body{ font-size: 15px; }
-body{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1.5; position: relative; cursor: auto; background-position: initial initial; background-repeat: initial initial; }
-img{ max-width: 100%; height: auto; }
-img{ }
-.clearfix::before, .clearfix::after{ content: ' '; display: table; }
-.clearfix::after{ clear: both; }
-img{ display: inline-block; vertical-align: middle; }
-@media print{
-*{ background-image: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-a{ text-decoration: underline; }
-a[href]::after{ content: ' (', attr(href), ')'; }
- img{ page-break-inside: avoid; }
-img{ max-width: 100% !important; }
-p, h2, h3{ orphans: 3; widows: 3; }
-h2, h3{ page-break-after: avoid; }
-}
-@media (min-width: 768px){
-.nav-main a{ padding-left: 0.9em; padding-right: 0.9em; }
-}
-@media (min-width: 980px){
-.nav-main a{ padding-left: 1.2em; padding-right: 1.2em; }
-}
-@media (min-width: 1140px){
-.nav-main a{ padding-left: 1.8em; padding-right: 1.8em; }
 }
