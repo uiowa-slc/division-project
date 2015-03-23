@@ -36,7 +36,7 @@
 
     <% include Header %>
     $Layout
-
+    <% include SubFooter %>
     <% include Footer %>
     <% include MdBar %>
 
