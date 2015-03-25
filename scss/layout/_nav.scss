@@ -6,6 +6,13 @@
 	margin: 0 auto;
 	width: 96%;
 }
+.loading .nav-main-wrapper{
+	opacity: 0;
+
+	@media screen and (min-width: $break-medium){
+		opacity: 1;
+	}
+}
 .nav-main-wrapper {
 	text-align: center;
 	max-height: 500px;
@@ -35,6 +42,7 @@
 	&.expand {
 		max-height: 500px;
 	}
+
 }
 .nav-title {
 	font-family: $heading-font;
