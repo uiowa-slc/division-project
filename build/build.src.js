@@ -11581,6 +11581,12 @@ $(function() {
 			minItems: 1,
 			maxItems: 1,
 			itemWidth: 500,
+			start: function(){
+				bLazy.revalidate();
+			},
+			before: function(){
+				bLazy.revalidate();
+			},
 		});
 	}
 
