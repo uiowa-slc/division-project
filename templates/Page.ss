@@ -43,7 +43,7 @@
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
 	var element = document.createElement("script");
-	element.src = "$ThemeDir/build/build.src.js";
+	element.src = "$ThemeDir/build/build.js";
 	document.body.appendChild(element);
 	}
 	if (window.addEventListener)
