@@ -20,7 +20,7 @@
 	background: inherit;
 	box-shadow: inherit;
 	margin-bottom: 0;
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: $break-medium - 1) {
 		background: #ffffff; /* Old browsers */
 		background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
@@ -135,7 +135,7 @@
 	-webkit-transition: font-size .3s linear;
 	-moz-transition: font-size .3s linear;
 	transition: font-size .3s linear;
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: $break-medium - 1) {
 		text-align: left; /* for internet explorer */
 	}
 	@media screen and (min-width: $break-medium) {
