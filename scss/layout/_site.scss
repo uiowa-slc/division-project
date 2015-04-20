@@ -399,6 +399,14 @@ aside .mod {
 
 /* Img
 ========================================================================== */
+.main-content img {
+	display: block;
+	padding: 3px;
+	@media screen and (min-width: $break-medium) {
+		display: inline-block; 
+		padding: 0;
+	}
+}
 .img-container {
 	background-color: #000;
 	background-position: center top;

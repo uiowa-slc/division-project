@@ -8,7 +8,7 @@
 img,object,embed { max-width: 100%; height: auto; }
 
 object,embed { height: 100%; }
-img { display: inline-block; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+img { -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
 .clearfix:before,
 .clearfix:after { content: " ";display: table;}

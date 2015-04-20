@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body class="{$ClassName} loading">
     <% include DivisionBar %>
 
     <% include Header %>
