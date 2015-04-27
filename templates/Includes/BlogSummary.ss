@@ -14,7 +14,7 @@
 		<% else %><a href="$Link"><% end_if %>Read Full Post</a></p>
 	<% end_if %>
 
-	<% if $Date %><p class="authorDate"><% _t('POSTEDON', 'Posted on') %> $Date.Long</p><% end_if %>
+	<% if $Date %><p class="authorDate"><% _t('POSTEDON', 'Posted on') %> $Date.Format("F j, Y")</p><% end_if %>
 
 	<!-- <% if TagsCollection %>
 		<p class="tags-summary">

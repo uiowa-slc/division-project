@@ -30,7 +30,7 @@
                         <% end_loop %>
                     </p>
                 <% end_if %>      
-
+                Posted on $Date.Format("F j, Y")
             </article>
         </section>
         
