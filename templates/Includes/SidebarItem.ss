@@ -20,5 +20,9 @@
     	<% end_if %>
     </div>
 <% end_if %>
+    
+    <% if RSSFeedLink %>
+    	<% include SidebarRssFeed %>
+    <% end_if %>
     $Content
 </div>

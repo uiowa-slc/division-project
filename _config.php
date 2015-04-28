@@ -31,3 +31,4 @@ HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 GD::set_default_quality(80);
 ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'BlogFeedHandler'));
 ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
+ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));

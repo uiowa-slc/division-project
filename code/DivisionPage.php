@@ -2,33 +2,29 @@
 class DivisionPage extends DataExtension {
 
 	private static $db = array(
-		
+
 	);
 
 	private static $has_one = array(
 		"BackgroundImage" => "Image",
 	);
 
-
-	private static $many_many = array (
-		"SidebarItems" => "SidebarItem"
+	private static $many_many = array(
+		"SidebarItems" => "SidebarItem",
 	);
 
-    private static $many_many_extraFields=array(
-        'SidebarItems'=>array(
-            'SortOrder'=>'Int'
-        )
-    );
+	private static $many_many_extraFields = array(
+		'SidebarItems' => array(
+			'SortOrder' => 'Int',
+		),
+	);
 
+	private static $plural_name = "Pages";
 
-
-    private static $plural_name = "Pages";
-
-	private static $defaults = array (
-
+	private static $defaults = array(
 
 		"Content" =>
-			"<h1>H1. This is a very large header.</h1>
+		"<h1>H1. This is a very large header.</h1>
 <p>The first paragraph directly after an H1 is the lede paragraph and is styled with a larger font size than other paragraphs.</p>
 <h2>H2. This is a large header.</h2>
 <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient.</p>
@@ -39,33 +35,32 @@ class DivisionPage extends DataExtension {
 <h5>H5. This is small header.</h5>
 <p>Cum sociis natoque penatibus magnis parturient montes, nascetur ridiculus mus. Sed consectetur est.</p>
 <h6>H6. This is very small header.</h6>
-<p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>"
+<p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>",
 
 	);
 
-
-public function updateCMSFields(FieldList $f) {
-		if(Permission::check('ADMIN')){
+	public function updateCMSFields(FieldList $f) {
+		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
 		}
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
-		
+
 		$row = "SortOrder";
-		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row))); 
+		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
-		$sort->table = 'Page_SidebarItems'; 
-		$sort->parentField = 'PageID'; 
-		$sort->componentField = 'SidebarItemID'; 
+		$sort->table = 'Page_SidebarItems';
+		$sort->parentField = 'PageID';
+		$sort->componentField = 'SidebarItemID';
 
-		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->SidebarItems(), $gridFieldConfig);
+		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
 		$f->addFieldToTab("Root.Sidebar", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
 		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Sidebar", $gridField); // add the grid field to a tab in the CMS
 
 	}
 
-    public function SidebarItems() {
-        return $this->owner->getManyManyComponents('SidebarItems')->sort('SortOrder');
-    }
-	
+	public function getSidebarItems() {
+		return $this->owner->getManyManyComponents('SidebarItems')->sort('SortOrder');
+	}
+
 }
