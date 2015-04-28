@@ -44,6 +44,9 @@
 <% end_if %>
 
 <aside>
+	<div class="mod">
+		$SideBarView
+	</div>
 	<% if SidebarItems %>
 		<% loop SidebarItems %>
 			<% include SidebarItem %>
