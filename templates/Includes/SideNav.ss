@@ -47,8 +47,8 @@
 	<div class="mod">
 		$SideBarView
 	</div>
-	<% if SidebarItems %>
-		<% loop SidebarItems %>
+	<% if getSidebarItems %>
+		<% loop getSidebarItems %>
 			<% include SidebarItem %>
 		<% end_loop %>
 	<% end_if %>
