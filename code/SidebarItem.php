@@ -42,7 +42,7 @@ class SidebarItem extends DataObject {
 		$fields->push($treeDropdown);
 		$fields->push(new CheckboxField('UseExternalLink', 'Or use the external link below'));
 		$fields->push(new TextField('ExternalLink', 'External Link'));
-		$fields->push(new TextField('RSSFeedLink', 'Display the following RSS feed after the header, title, content'));
+		$fields->push(new TextField('RSSFeedLink', 'Display the following RSS feed after the header, title. Content is displayed below the feed.'));
 		$fields->push(new UploadField('Image', 'Image'));
 
 		$fields->push(new HTMLEditorField('Content', 'Content'));
