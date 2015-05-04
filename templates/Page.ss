@@ -12,8 +12,13 @@
 
 	<% include OpenGraph %>
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
-	
-	<title>$Title - $SiteConfig.Title - The University of Iowa</title>
+
+	<% if $URLSegment = 'home' %>
+		<title>$SiteConfig.Title - The University of Iowa</title>
+	<% else %>
+		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
+	<% end_if %>
+
 	<style>
 		<% include CriticalCss %>
 	</style>
