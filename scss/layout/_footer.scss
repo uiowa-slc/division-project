@@ -19,6 +19,11 @@
 		}
 	}
 }
+
+.footer .social-icon {
+  font-family: 'iconies_socialregular';
+}
+
 .footer p {
 	@media screen and (min-width: $break-small) {
 		@include rem(13);

@@ -34,6 +34,18 @@
   margin-left: 0.2em;
 }
 
+@font-face {
+    font-family: 'iconies_socialregular';
+    src: url('../../../division-project/font/iconiessocial-webfont.eot');
+    src: url('../../../division-project/font/iconiessocial-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../division-project/font/iconiessocial-webfont.woff') format('woff'),
+         url('../../../division-project/font/iconiessocial-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 /* search */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
