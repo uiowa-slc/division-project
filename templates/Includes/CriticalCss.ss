@@ -87,7 +87,7 @@ img{ vertical-align: middle; }
 }
 @media only screen and (max-width: 600px){
 .directory-toggle{ border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 0, 0); -webkit-box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; display: block; float: right; height: 40px; text-decoration: none; width: 40px; }
-.search-toggle{ border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 0, 0); -webkit-box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; display: block; float: right; height: 40px; text-decoration: none; width: 40px; background-image: url(../images/division-bar/magnifier-18.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-size: 52% ; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; text-indent: -999em; background-position: 10px 10px; background-repeat: no-repeat no-repeat; }
+.search-toggle{ border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 0, 0); -webkit-box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; box-shadow: rgba(255, 255, 255, 0.0976562) -1px 0px 0px; display: block; float: right; height: 40px; text-decoration: none; width: 40px; background-image: url(../../../division-bar/images/division-bar/magnifier-18.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-size: 52% ; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; text-indent: -999em; background-position: 10px 10px; background-repeat: no-repeat no-repeat; }
 .directory-toggle::after{ left: 14px; }
 .directory-toggle img{ display: none; }
 .division-search{ border-top-width: 1px; border-top-style: solid; border-top-color: rgb(0, 0, 0); -webkit-box-shadow: rgba(255, 255, 255, 0.0976562) 0px 1px 0px inset; box-shadow: rgba(255, 255, 255, 0.0976562) 0px 1px 0px inset; display: none; position: relative; left: 0px; bottom: 0px; }
@@ -172,6 +172,7 @@ input{ margin-left: 0px; width: 100%; }
 .module .inner{ font-size: 0.93333rem; line-height: 1.5; padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em; }
 .module h3{ font-size: 20px; margin-top: 0.3em; margin-right: 0px; margin-bottom: 0.5em; margin-left: 0px; text-transform: uppercase; }
 .module h3 a{ color: rgb(51, 51, 51); }
+.module h4{ font-size: 15px; }
 .loading .nav-main-wrapper{ opacity: 0; }
 @media screen and (min-width: 768px){
 .loading .nav-main-wrapper{ opacity: 1; }
