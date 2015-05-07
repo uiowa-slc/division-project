@@ -1,8 +1,4 @@
-<% if $BackgroundImage %>
-    <div class="img-container" style="background-image: url($BackgroundImage.URL);">
-        <div class="img-fifty-top"></div>
-    </div>
-<% end_if %>
+<% include BackgroundImage %>
 <div class="gradient">
     <div class="container clearfix">
         <div class="white-cover"></div>
@@ -30,7 +26,7 @@
                         <% end_loop %>
                     </p>
                 <% end_if %>      
-                Posted on $Date.Format("F j, Y")
+                <% if $Date %><p class="authorDate">Posted on $Date.Format("F j, Y")</p><% end_if %>
             </article>
         </section>
         

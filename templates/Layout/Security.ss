@@ -1,5 +1,3 @@
-<% require css(division-project/css/master.css) %>
-
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
