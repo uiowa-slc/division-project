@@ -29,7 +29,8 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/staticpublishqueue" : "*",
                 "silverstripe/tenon" : "*",
-                "normann/gridfieldpaginatorwithshowall" : "*"
+                "normann/gridfieldpaginatorwithshowall" : "*",
+                "madmatt/silverstripe-flickr" : "*"
         },
         "repositories": [
         {
