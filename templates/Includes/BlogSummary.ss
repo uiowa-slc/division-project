@@ -10,8 +10,8 @@
 	<% if BlogHolder.ShowFullEntry %>
 		$Content
 	<% else %> 
-		<p>$Content.LimitWordCount(30)<% if $ExternalURL %><a href="$ExternalURL" target="_blank">
-		<% else %><a href="$Link"><% end_if %>Read Full Post</a></p>
+		<p>$Content.Summary(50)<% if $ExternalURL %><a href="$ExternalURL" target="_blank">
+		<% else %><a href="$Link"><% end_if %> Read Full Post</a></p>
 	<% end_if %>
 
 	<% if $Date %><p class="authorDate"><% _t('POSTEDON', 'Posted on') %> $Date.Format("F j, Y")</p><% end_if %>
