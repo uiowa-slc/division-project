@@ -147,8 +147,79 @@ class DivisionPage_Controller extends Extension {
 
 	}
 
-	private function buildFlickrSingle($photo) {
+	private function buildFlickrSingle($photo_Id) {
+		if(!$this->isAPIAvailable()) return null;
+ 
+		$params = array(
+			'method' => 'flickr.photos.getSizes',
+			'photo_id' => $photo_Id
+		);
+
+		$this->setQueryString(array_merge($this->defaultParams(), $params));
+
+
+			try {
+			$response = $this->request()->getBody();
+			$response = unserialize($response);
+
+			if(!$response || $response['stat'] !== 'ok') {
+				throw new Exception(sprintf('Response from Flickr not expected: %s', var_export($response, true)));
+			}
+
+			$result = FlickrPhotoset::create_from_array($response['photo_id']);
+			return $result;
+		} catch(Exception $e) {
+			SS_Log::log(
+				sprintf(
+					"Couldn't retrieve Flickr photo for  photo '%s': Message: %s",
+					$photosetId,
+					$e->getMessage()
+				),
+				SS_Log::ERR
+			);
+
+			return null;
+		}
 
 	}
 
+
+	public function getPhotosetById($photosetId, $userId = null) {
+		if(!$this->isAPIAvailable()) return null;
+
+		$params = array(
+			'method' => 'flickr.photosets.getInfo',
+			'photoset_id' => $photosetId
+		);
+
+		if(!is_null($userId)) {
+			$params['user_id'] = $userId;
+		}
+
+		$this->setQueryString(array_merge($this->defaultParams(), $params));
+
+		try {
+			$response = $this->request()->getBody();
+			$response = unserialize($response);
+
+			if(!$response || $response['stat'] !== 'ok') {
+				throw new Exception(sprintf('Response from Flickr not expected: %s', var_export($response, true)));
+			}
+
+			$result = FlickrPhotoset::create_from_array($response['photoset'], $userId);
+			return $result;
+		} catch(Exception $e) {
+			SS_Log::log(
+				sprintf(
+					"Couldn't retrieve Flickr photoset for user '%s', photoset '%s': Message: %s",
+					$userId,
+					$photosetId,
+					$e->getMessage()
+				),
+				SS_Log::ERR
+			);
+
+			return null;
+		}
+	}
 }

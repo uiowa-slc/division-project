@@ -30,7 +30,7 @@
                 "silverstripe/staticpublishqueue" : "*",
                 "silverstripe/tenon" : "*",
                 "normann/gridfieldpaginatorwithshowall" : "*",
-                "madmatt/silverstripe-flickr" : "*"
+                "md/silverstripe-flickr" : "*"
         },
         "repositories": [
         {
