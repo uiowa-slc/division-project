@@ -29,6 +29,7 @@ module.exports = function(grunt) {
           'bower_components/flexslider/jquery.flexslider.js',
           'bower_components/blazy/blazy.js',
 	        'bower_components/REM-unit-polyfill/js/rem.js',
+          'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
           'node_modules/fg-loadcss/loadCSS.js',
           '../division-bar/js/division-bar.js',
           'js/*.js',

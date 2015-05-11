@@ -98,4 +98,57 @@ class DivisionPage_Controller extends Extension {
 		}
 	}
 
+	public static function FlickrShortcodeHandler($arguments) {
+
+		$service = new FlickrService();
+
+		$userId = 'imubuddy';
+		$service->setApiKey(FLICKR_API_KEY);
+		$controller = new DivisionPage_Controller();
+
+		/* [flickr set="xxxxxx"] */
+		if (isset($arguments['set'])) {
+			$set = $service->getPhotosetById($arguments['set']);
+			$type = null;
+			$columns = null;
+			if (isset($arguments['type'])) {$type = $arguments['type'];}
+			if (isset($arguments['columns'])) {$columns = $arguments['columns'];}
+
+			print_r($columns);
+
+			return $controller->buildFlickrSet($set, $type, $columns);
+
+			/* [flickr photo="xxxxxx"] */
+		} elseif (isset($arguments['photo'])) {
+			$photoId = $arguments['photo'];
+			$photo = $service->getPhotoById($photoId);
+			return $controller->buildFlickrSingle($photo);
+		}
+
+	}
+
+	public function buildFlickrSet($set, $type = 'gallery', $columns = 2) {
+		$service = new FlickrService();
+		$service->setApiKey(FLICKR_API_KEY);
+
+		$photosFromSet = $service->getPhotosInPhotoset($set->id);
+
+		//print_r($photosFromSet);
+
+		$customise = array();
+		$customise['Photoset'] = $set;
+		$customise['Photos'] = $photosFromSet;
+		$customise['Type'] = $type;
+		$customise['Columns'] = $columns;
+
+		$template = new SSViewer('FlickrSet');
+		//return the customised template
+		return $template->process(new ArrayData($customise));
+
+	}
+
+	private function buildFlickrSingle($photo) {
+
+	}
+
 }

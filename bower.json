@@ -22,7 +22,8 @@
     "jquery.equalheights": "1.5.x",
     "respond": "1.4.x",
     "foundation": "zurb/bower-foundation",
-    "blazy" : "*"
+    "blazy" : "*",
+    "magnific-popup" : "*"
   }
 
 }
