@@ -121,8 +121,7 @@ class DivisionPage_Controller extends Extension {
 			/* [flickr photo="xxxxxx"] */
 		} elseif (isset($arguments['photo'])) {
 			$photoId = $arguments['photo'];
-			$photo = $service->getPhotoById($photoId);
-			return $controller->buildFlickrSingle($photo);
+			return $controller->buildFlickrSingle($photoId);
 		}
 
 	}
@@ -148,78 +147,23 @@ class DivisionPage_Controller extends Extension {
 	}
 
 	private function buildFlickrSingle($photo_Id) {
-		if(!$this->isAPIAvailable()) return null;
- 
-		$params = array(
-			'method' => 'flickr.photos.getSizes',
-			'photo_id' => $photo_Id
-		);
+		$service = new FlickrService();
+		$service->setApiKey(FLICKR_API_KEY);
 
-		$this->setQueryString(array_merge($this->defaultParams(), $params));
+		if(!$service->isAPIAvailable()) return null;
+		$photo = $service->getPhotoById($photo_Id);
 
+		$customise = array();
+		//$customise['PhotoUrl'] = $photo;
+		$customise = $photo;
+		
+		$template = new SSViewer('FlickrSingle');
+		//return the customised template
+		return $template->process(new ArrayData($customise));
 
-			try {
-			$response = $this->request()->getBody();
-			$response = unserialize($response);
-
-			if(!$response || $response['stat'] !== 'ok') {
-				throw new Exception(sprintf('Response from Flickr not expected: %s', var_export($response, true)));
-			}
-
-			$result = FlickrPhotoset::create_from_array($response['photo_id']);
-			return $result;
-		} catch(Exception $e) {
-			SS_Log::log(
-				sprintf(
-					"Couldn't retrieve Flickr photo for  photo '%s': Message: %s",
-					$photosetId,
-					$e->getMessage()
-				),
-				SS_Log::ERR
-			);
-
-			return null;
-		}
+		
 
 	}
 
 
-	public function getPhotosetById($photosetId, $userId = null) {
-		if(!$this->isAPIAvailable()) return null;
-
-		$params = array(
-			'method' => 'flickr.photosets.getInfo',
-			'photoset_id' => $photosetId
-		);
-
-		if(!is_null($userId)) {
-			$params['user_id'] = $userId;
-		}
-
-		$this->setQueryString(array_merge($this->defaultParams(), $params));
-
-		try {
-			$response = $this->request()->getBody();
-			$response = unserialize($response);
-
-			if(!$response || $response['stat'] !== 'ok') {
-				throw new Exception(sprintf('Response from Flickr not expected: %s', var_export($response, true)));
-			}
-
-			$result = FlickrPhotoset::create_from_array($response['photoset'], $userId);
-			return $result;
-		} catch(Exception $e) {
-			SS_Log::log(
-				sprintf(
-					"Couldn't retrieve Flickr photoset for user '%s', photoset '%s': Message: %s",
-					$userId,
-					$photosetId,
-					$e->getMessage()
-				),
-				SS_Log::ERR
-			);
-
-			return null;
-		}
-	}
 }
