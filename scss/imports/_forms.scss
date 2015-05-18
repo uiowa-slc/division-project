@@ -168,3 +168,10 @@ textarea,
     display: block;
     margin-bottom: 5px;
 }
+
+.requiredField > label{
+    &:before{
+        content: '* ';
+        color: red;
+    }
+}
