@@ -27,7 +27,7 @@
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
-                "silverstripe/staticpublishqueue" : "*",
+                "silverstripe/staticpublisher" : "*",
                 "silverstripe/tenon" : "*",
                 "normann/gridfieldpaginatorwithshowall" : "*",
                 "md/silverstripe-flickr" : "*"

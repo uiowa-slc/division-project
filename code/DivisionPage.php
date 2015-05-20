@@ -65,4 +65,49 @@ class DivisionPage extends DataExtension {
 		return $this->owner->getManyManyComponents('SidebarItems')->sort('SortOrder');
 	}
 
+	/** Caching stuff below, have fun. **/
+
+	/**
+	 * Return a list of all the pages to cache
+	 *
+	 * @return array
+	 */
+	public function allPagesToCache() {
+		// Get each page type to define its sub-urls
+		$urls = array();
+		// memory intensive depending on number of pages
+		$pages = Page::get();
+		$ignored = array('UserDefinedForm');
+		foreach ($pages as $page) {
+			// check to make sure this page is not in the classname
+			if (!in_array($page->ClassName, $ignored)) {
+				$urls = array_merge($urls, (array) $page->subPagesToCache());
+			}
+		}
+		// add any custom URLs which are not SiteTree instances
+		$urls[] = "sitemap.xml";
+		return $urls;
+	}
+	/**
+	 * Get a list of URLs to cache related to this page.
+	 *
+	 * @return array
+	 */
+	public function subPagesToCache() {
+		$urls = array();
+		// add current page
+		$urls[] = $this->owner->Link();
+		return $urls;
+	}
+	/**
+	 * Get a list of URL's to publish when this page changes
+	 */
+	public function pagesAffectedByChanges() {
+		$urls = $this->subPagesToCache();
+		if ($p = $this->Parent) {
+			$urls = array_merge((array) $urls, (array) $p->subPagesToCache());
+		}
+		return $urls;
+	}
+
 }
