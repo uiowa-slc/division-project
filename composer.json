@@ -44,6 +44,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"       
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
         }
     ]
 
