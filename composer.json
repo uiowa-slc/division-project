@@ -11,7 +11,7 @@
                 "silverstripe-themes/simple": "*",
                 "undefinedoffset/sortablegridfield": "*",
                 "unclecheese/betterbuttons": "*",
-                "unclecheese/eventcalendar": "*",
+                "unclecheese/eventcalendar": "1.0.x",
                 "colymba/gridfield-bulk-editing-tools": "*",
                 "silverstripe/blog": "1.0",
                 "silverstripe/widgets": "*",
