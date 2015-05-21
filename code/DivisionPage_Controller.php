@@ -109,20 +109,20 @@ class DivisionPage_Controller extends Extension {
 		/* [flickr set="xxxxxx"] */
 		if (isset($arguments['set'])) {
 			$set = $service->getPhotosetById($arguments['set']);
-			$type = null;
-			$columns = null;
-			if (isset($arguments['type'])) {$type = $arguments['type'];}
-			if (isset($arguments['columns'])) {$columns = $arguments['columns'];}
 
-			print_r($columns);
+			if (isset($set)) {
+				$type = null;
+				$columns = null;
+				if (isset($arguments['type'])) {$type = $arguments['type'];}
+				if (isset($arguments['columns'])) {$columns = $arguments['columns'];}
 
-			return $controller->buildFlickrSet($set, $type, $columns);
+				return $controller->buildFlickrSet($set, $type, $columns);
+			}
 
 			/* [flickr photo="xxxxxx"] */
 		} elseif (isset($arguments['photo'])) {
 			$photoId = $arguments['photo'];
-			$photo = $service->getPhotoById($photoId);
-			return $controller->buildFlickrSingle($photo);
+			return $controller->buildFlickrSingle($photoId);
 		}
 
 	}
@@ -147,7 +147,23 @@ class DivisionPage_Controller extends Extension {
 
 	}
 
-	private function buildFlickrSingle($photo) {
+	private function buildFlickrSingle($photo_Id) {
+		$service = new FlickrService();
+		$service->setApiKey(FLICKR_API_KEY);
+
+		if (!$service->isAPIAvailable()) {
+			return null;
+		}
+
+		$photo = $service->getPhotoById($photo_Id);
+
+		$customise = array();
+		//$customise['PhotoUrl'] = $photo;
+		$customise = $photo;
+
+		$template = new SSViewer('FlickrSingle');
+		//return the customised template
+		return $template->process(new ArrayData($customise));
 
 	}
 
