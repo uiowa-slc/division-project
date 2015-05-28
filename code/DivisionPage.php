@@ -45,7 +45,7 @@ class DivisionPage extends DataExtension {
 		}
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
-		$f->addFieldToTab('Root.Main', new LiteralField('ShortcodeDocLink', '<a href="https://github.com/StudentLifeMarketingAndDesign/division-project/blob/2.0.x/docs/Shortcodes.md" target="_blank">How to use shortcodes (Flickr, Staff Spotlight, etc) &rarr;</a>'), 'Content');
+		$f->addFieldToTab('Root.Main', new LiteralField('ShortcodeDocLink', '<a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">How to use shortcodes (Flickr, Staff Spotlight, etc) &rarr;</a>'), 'Content');
 
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
