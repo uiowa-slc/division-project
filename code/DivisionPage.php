@@ -103,8 +103,8 @@ class DivisionPage extends DataExtension {
 	 * Get a list of URL's to publish when this page changes
 	 */
 	public function pagesAffectedByChanges() {
-		$urls = $this->subPagesToCache();
-		if ($p = $this->Parent) {
+		$urls = $this->owner->subPagesToCache();
+		if ($p = $this->owner->Parent) {
 			$urls = array_merge((array) $urls, (array) $p->subPagesToCache());
 		}
 		return $urls;
