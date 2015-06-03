@@ -8,7 +8,6 @@
 			</ul>
 		</div>
 	<% else %>
-
 		<ul class="large-block-grid-{$Columns} slideshow-container">
 			<% loop $Photos %>
 				<li><p><a href="$Large1024Url" title="$Description"><img data-src="$Medium800Url" src="<% include PlaceholderLargeSrc %>" /></a></p>
@@ -16,5 +15,4 @@
 			<% end_loop %>
 		</ul>
 	<% end_if %>
-	<p><a href="$Photoset.Url" target="_blank" class="btn">View gallery on Flickr</a></p>
 <% end_if %>
