@@ -31,6 +31,7 @@ module.exports = function(grunt) {
 	        'bower_components/REM-unit-polyfill/js/rem.js',
           'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
           'node_modules/fg-loadcss/loadCSS.js',
+          'bower_components/masonry/dist/masonry.pkgd.js',
           '../division-bar/js/division-bar.js',
           'js/*.js',
           'vendor/visible/jquery.visible.js'],

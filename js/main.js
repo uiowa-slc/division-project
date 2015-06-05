@@ -44,7 +44,7 @@ $(function() {
 
 	$("body").removeClass("loading");
 
-	$('.slideshow-container').magnificPopup({
+	$('.slideshow-grid-container, .slideshow-container').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
 		type: 'image',
 		gallery:{
@@ -65,6 +65,12 @@ $(function() {
 		      return openerElement.is('img') ? openerElement : openerElement.find('img');
 		    }
 		}
+	});
+
+	$('.slideshow-grid-container').masonry({
+	  // options
+	  itemSelector: '.slideshow-grid-item',
+	  "gutter": 10
 	});
 	
 });
