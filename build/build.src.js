@@ -16830,7 +16830,8 @@ $(function() {
 	/* FitVids */
 	$(".module .media").fitVids();
 	$(".hero-content").fitVids();
-
+	$(".main-content").fitVids();
+	
 	var bLazy = new Blazy({
 		selector: 'img,.lazy',
 	    breakpoints: [{
