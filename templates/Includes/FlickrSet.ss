@@ -23,7 +23,7 @@
 	<% else_if $Type == "grid" %>
 		<div class="slideshow-grid-container">
 			<% loop $Photos %>
-				<div class="slideshow-grid-item slideshow-grid-item--width{$Up.Columns} <% if $MultipleOf(5) %>slideshow-grid-item--width4<% end_if %>"><p><a href="$Large1024Url" title="$Description"><img src="$Medium800Url" alt="$Description" /></a></p>
+				<div class="slideshow-grid-item slideshow-grid-item--width{$Up.Columns} <% if $MultipleOf(5) && $Up.Columns == "2" %>slideshow-grid-item--width4<% else_if $MultipleOf(4) && $Up.Columns == "3" %>slideshow-grid-item--width4<% end_if %>"><p><a href="$Large1024Url" title="$Description"><img src="$Medium800Url" alt="$Description" /></a></p>
 				<% if $Description || $Title %><p><% if $Title %><strong>$Title</strong><br /><% end_if %> <% if $Description %>$Description<% end_if %></p><% end_if %></div>
 			<% end_loop %>
 		</div>

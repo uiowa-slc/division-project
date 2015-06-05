@@ -15,21 +15,20 @@ iframe.flickr-slideshow{
 .slideshow-grid-container{
 	.slideshow-grid-item{
 		width: 100%;
-		width: 45%;
 	}
-	.slideshow-grid-item.slideshow-grid-item--width2 {
+	.slideshow-grid-item, .slideshow-grid-item.slideshow-grid-item--width2 {
 		@media screen and (min-width: $break-large) {
-			width: 45%;
+			width: 49%;
 		}
 	}
 	.slideshow-grid-item.slideshow-grid-item--width3 {
 		@media screen and (min-width: $break-large) {
-			width: 32%;
+			width: 32.5%;
 		}
 	}
 	.slideshow-grid-item.slideshow-grid-item--width4 {
 		@media screen and (min-width: $break-large) {
-			width: 65%;
+			width: 100%;
 		}
 	}
 //	.slideshow-grid-item--width2 { width: 500px; }
