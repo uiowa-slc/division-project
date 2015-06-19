@@ -8,7 +8,7 @@ Page:
 Page_Controller:
   extensions:
     - DivisionPage_Controller
-BlogEntry:
+BlogPost:
   extensions:
     - BlogFieldExtension
 SiteConfig:

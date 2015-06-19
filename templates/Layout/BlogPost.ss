@@ -17,16 +17,16 @@
                 	                	
 	                $Content  
                 
-                    <% if TagsCollection %>
+                    <% if Tags %>
                     <br />
                     <p class="tags">
                          <% _t('TAGS', 'Tags:') %> 
-                        <% loop TagsCollection %>
-                            <a href="$Link" title="<% _t('VIEWALLPOSTTAGGED', 'View all posts tagged') %> '$Tag'" rel="tag">$Tag</a><% if not Last %>,<% end_if %>
+                        <% loop Tags %>
+                            <a href="$Link" title="<% _t('VIEWALLPOSTTAGGED', 'View all posts tagged') %> '$Title'" rel="tag">$Title</a><% if not Last %>,<% end_if %>
                         <% end_loop %>
                     </p>
                 <% end_if %>      
-                <% if $Date %><p class="authorDate">Posted on $Date.Format("F j, Y")</p><% end_if %>
+                <% include BlogByline %>
             </article>
         </section>
         

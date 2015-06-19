@@ -304,6 +304,10 @@
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+
+	&.all-posts{
+		background: #B2B2B2;
+	}
 }
 .tag-nav .count {
 	@include rem(13);

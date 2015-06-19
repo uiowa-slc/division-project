@@ -1,35 +1,34 @@
 <?php
-class ReportsHolder extends BlogHolder {
+class ReportsHolder extends Blog {
 
 	private static $db = array(
 	);
 
 	private static $has_one = array(
-	
+
 	);
 
 	private static $has_many = array(
 	);
-	
+
 	static $singular_name = 'Report Holder';
-	
+
 	static $plural_name = 'Report Holders';
 
 	private static $allowed_children = array("ReportPage");
-	
-	public function getCMSFields(){
+
+	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		//$f->removeByName("Content");
 		//$gridFieldConfig = GridFieldConfig_RecordEditor::create();
 		//$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		
-		
+
 		/*$gridField = new GridField("StaffTeam", "Staff Teams", StaffTeam::get(), GridFieldConfig_RecordEditor::create());
 		$f->addFieldToTab("Root.Main", $gridField); // add the grid field to a tab in the CMS	*/
 		return $f;
 	}
 }
-class ReportsHolder_Controller extends BlogHolder_Controller {
+class ReportsHolder_Controller extends Blog_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -46,7 +45,7 @@ class ReportsHolder_Controller extends BlogHolder_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
+	private static $allowed_actions = array(
 	);
 
 	public function init() {
