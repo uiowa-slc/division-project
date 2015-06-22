@@ -19,6 +19,9 @@ class HomePageFeature extends DataObject {
 
 	private static $default_sort = "SortOrder";
 
+	private static $singular_name = "Feature";
+	private static $plural_name = "Features";
+
 	function getCMSFields() {
 		$fields = new FieldList();
 

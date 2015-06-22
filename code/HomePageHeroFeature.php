@@ -1,35 +1,37 @@
 <?php
 
-	class HomePageHeroFeature extends DataObject {
+class HomePageHeroFeature extends DataObject {
 
-		private static $db = array(
-			"Title" => "Varchar(155)",
-			"Content" => "HTMLText",
-			"SortOrder"=>"Int",
-			"ExternalLink" => "Text",
-			"UseExternalLink" => "Boolean"
+	private static $db = array(
+		"Title" => "Varchar(155)",
+		"Content" => "HTMLText",
+		"SortOrder" => "Int",
+		"ExternalLink" => "Text",
+		"UseExternalLink" => "Boolean",
 
-		);
+	);
 
-		private static $has_one = array (
-			"AssociatedPage" => "SiteTree",
-			"Image" => "Image"
-		);
+	private static $has_one = array(
+		"AssociatedPage" => "SiteTree",
+		"Image" => "Image",
+	);
 
-		private static $default_sort = "SortOrder";
+	private static $default_sort = "SortOrder";
 
-		function getCMSFields() {
-			$fields = new FieldList();
+	private static $singular_name = "Hero Feature";
+	private static $plural_name = "Hero Features";
 
-			$fields->push( new TextField( 'Title', 'Title' ));
+	function getCMSFields() {
+		$fields = new FieldList();
 
-			$fields->push( new UploadField("Image", "Image"));
-			$fields->push( new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
-			$fields->push( new TextField( 'ExternalLink', 'Use the external link instead:' ));
-			$fields->push( new HTMLEditorField( 'Content', 'Content' ));
+		$fields->push(new TextField('Title', 'Title'));
 
+		$fields->push(new UploadField("Image", "Image"));
+		$fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
+		$fields->push(new TextField('ExternalLink', 'Use the external link instead:'));
+		$fields->push(new HTMLEditorField('Content', 'Content'));
 
-			return $fields;
-		}
-
+		return $fields;
 	}
+
+}

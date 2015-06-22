@@ -1,33 +1,35 @@
-<?php 
+<?php
 
 class HomePageBackgroundFeature extends DataObject {
-	
+
 	private static $db = array(
 		'Tagline' => 'Text',
-		'Buttons' => 'HTMLText'
-		);
-	
-	private static $has_one = array (
-		'Image' => 'Image',
-		'HomePage' => 'HomePage'
-		);
+		'Buttons' => 'HTMLText',
+	);
 
-	private static $plural_name = "Background Features";
-	
-	private static $summary_fields = array (
+	private static $has_one = array(
+		'Image' => 'Image',
+		'HomePage' => 'HomePage',
+	);
+
+	private static $plural_name = "Background Images and Taglines";
+
+	private static $singular_name = "Background Image and Tagline";
+
+	private static $summary_fields = array(
 		"Tagline",
-		"Thumbnail"
+		"Thumbnail",
 	);
 
 	function getThumbnail() {
 		return $this->Image()->CMSThumbnail();
-	}	
+	}
 
 	public function getCMSFields() {
-    	$fields = parent::getCMSFields();
+		$fields = parent::getCMSFields();
 		$fields->renameField("Buttons", "Buttons (Unordered List with Links)");
 		//$fields->fieldByName("Buttons")->setRows(3);
-		return $fields; 
+		return $fields;
 	}
-	
+
 }

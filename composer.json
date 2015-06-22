@@ -30,7 +30,8 @@
                 "silverstripe/staticpublisher" : "*",
                 "silverstripe/tenon" : "*",
                 "normann/gridfieldpaginatorwithshowall" : "*",
-                "md/silverstripe-flickr" : "*"
+                "md/silverstripe-flickr" : "*",
+                "silverstripe-australia/gridfieldextensions" : "*"
         },
         "repositories": [
         {

@@ -48,6 +48,8 @@
     </div>
 	<section class="home-highlights">
         <div class="container clearfix">
+
+        <div class="fb-page" data-href="https://www.facebook.com/pages/Graduate-Professional-Student-Government/128878975027" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Graduate-Professional-Student-Government/128878975027"><a href="https://www.facebook.com/pages/Graduate-Professional-Student-Government/128878975027">Graduate &amp; Professional Student Government</a></blockquote></div></div>
 	        <% loop HomePageFeatures.Limit(3) %>
 	            <% include HomePageFeature %>
 	         <% end_loop %>
