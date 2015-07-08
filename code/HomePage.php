@@ -25,8 +25,16 @@ class HomePage extends Page {
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
-		$gridFieldConfig2 = GridFieldConfig_RecordEditor::create();
-		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
+		$homePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
+		$homePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+
+		$homePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
+		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType("GridFieldAddNewMultiClass")->setClasses(
+			array(
+				"HomePageFeature",
+				"HomePageFacebookFeature",
+			)
+		);
 
 		$bgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
@@ -38,7 +46,7 @@ class HomePage extends Page {
 
 		$homePageBackgroundFeatureGridField = new GridField('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
 		$homePageHeroFeatureGridField = new GridField("HomePageHeroFeature", "Hero features that overlap the background (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
-		$homePageFeatureGridField = new GridField("HomePageFeature", "Features below the background image (Only the first three are shown)", HomePageFeature::get(), $gridFieldConfig2);
+		$homePageFeatureGridField = new GridField("HomePageFeature", "Features below the background image (Only the first three are shown)", HomePageFeature::get(), $homePageFeatureGridFieldConfig);
 
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", $homePageBackgroundFeatureGridField);

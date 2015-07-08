@@ -19,9 +19,8 @@
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
 
-	<style>
-		<% include CriticalCss %>
-	</style>
+	<style><% include CriticalCss %></style>
+	
 	<% include LoadCss %>
 	<script>
 	  loadCSS( "$ThemeDir/css/master.css" );

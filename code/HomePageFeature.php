@@ -49,4 +49,8 @@ class HomePageFeature extends DataObject {
 
 	}
 
+	public function forTemplate() {
+		return $this->renderWith($this->ClassName);
+	}
+
 }
