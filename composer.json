@@ -31,7 +31,8 @@
                 "silverstripe/tenon" : "*",
                 "normann/gridfieldpaginatorwithshowall" : "*",
                 "md/silverstripe-flickr" : "*",
-                "silverstripe-australia/gridfieldextensions" : "*"
+                "silverstripe-australia/gridfieldextensions" : "*",
+                "jonom/silverstripe-betternavigator": "*"
         },
         "repositories": [
         {
