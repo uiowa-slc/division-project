@@ -32,7 +32,8 @@
                 "normann/gridfieldpaginatorwithshowall" : "*",
                 "md/silverstripe-flickr" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
-                "jonom/silverstripe-betternavigator": "*"
+                "jonom/silverstripe-betternavigator": "*",
+                "thisisbd/silverstripe-maintenance-mode" : "*"
         },
         "repositories": [
         {
