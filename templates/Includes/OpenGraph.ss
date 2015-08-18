@@ -13,12 +13,20 @@
 
 	<% if $Image %>
 		<meta property="og:image" content="$Image.SetWidth(600).AbsoluteURL" />
+		<meta property="og:image:width" content="600" />
+		<meta property="og:image:height" content="$Image.SetWidth(600).Height" />
 	<% else_if $Photo %>
 		<meta property="og:image" content="$Photo.SetWidth(600).AbsoluteURL" />
+		<meta property="og:image:width" content="600" />
+		<meta property="og:image:height" content="$Photo.SetWidth(600).Height" />
 	<% else_if $BackgroundImage %>
 		<meta property="og:image" content="$BackgroundImage(600).AbsoluteURL" />
+		<meta property="og:image:width" content="$BackgroundImage.Width" />
+		<meta property="og:image:height" content="$BackgroundImage.Height" />		
 	<% else %>
 		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 	<% end_if %>
 	<meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
 
