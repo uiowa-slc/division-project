@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
     concat: {
       js:{
-        src: ['bower_components/jquery/jquery.js',
+        src: [
           'bower_components/jquery.equalheights/jquery.equalheights.js',
           'bower_components/fitvids/jquery.fitvids.js',
           'bower_components/flexslider/jquery.flexslider.js',
