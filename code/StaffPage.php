@@ -49,7 +49,13 @@ class StaffPage extends Page {
 		return $fields;
 
 	}
+	public function FullNameTruncated() {
+		$lastName = $this->owner->LastName;
+		$fullName = $this->owner->FirstName . ' ' . substr($lastName, 0, 1) . '.';
 
+		return $fullName;
+
+	}
 	//private static $allowed_children = array("");
 
 }

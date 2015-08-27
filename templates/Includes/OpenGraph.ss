@@ -1,11 +1,21 @@
 <% if $URLSegment == "home" %>
 
 	<meta property="og:title" content="$SiteConfig.Title" />
-	<meta property="og:content" content="The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom." />
-  <% if $BackgroundFeature %>
-  	<meta property="og:image" content="$BackgroundFeature.Image.AbsoluteURL" />
+
+	<% if $SiteConfig.GroupSummary %>
+		<meta property="og:content" content="$SiteConfig.GroupSummary.ATT" />
+	<% else %>
+		<meta property="og:content" content="The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom." />
+	<% end_if %>
+
+  <% if $SiteConfig.PosterImage %>
+  	<meta property="og:image" content="$SiteConfig.PosterImage.AbsoluteURL" />
+	<meta property="og:image:width" content="$SiteConfig.PosterImage.Width" />
+	<meta property="og:image:height" content="$SiteConfig.PosterImage.Height" />  	
   <% else %>
- 	 <meta property="og:image" content="{$BaseHref}division-project/images/hero-image.jpg" />
+		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
   <% end_if %>
 
 <% else %>

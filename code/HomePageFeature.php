@@ -50,6 +50,7 @@ class HomePageFeature extends DataObject {
 	}
 
 	public function forTemplate() {
+		//print_r(HomePageFeature::$extra_methods);
 		return $this->renderWith($this->ClassName);
 	}
 
