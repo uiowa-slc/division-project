@@ -12,14 +12,13 @@
 			<% end_if %>
 			
 			$Form
-			$CommentsForm
+			$CommentsFormc
 			<% with $PaginatedList %>
 			<% include Pagination %>
 			<% end_with %>
 		</section>
 		<section class="sec-content hide-print">
 			<% include BlogSideBar %>
-			<% include SideNav %>
 		</section>
 	</div>
 </div>
