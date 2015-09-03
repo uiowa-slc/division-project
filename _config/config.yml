@@ -4,7 +4,7 @@ Controller:
 Page:
   extensions:
     - DivisionPage
-    - WidgetExtension
+    - WidgetPageExtension
 Page_Controller:
   extensions:
     - DivisionPage_Controller

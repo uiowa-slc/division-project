@@ -1,8 +1,10 @@
 <aside>
 	<% include SideBarSearch %>
+	<% if $SideBarView %>
 	<div id="blog-sidebar">
 		$SideBarView
 	</div>
+	<% end_if %>
 	
 	<% if SidebarItems %>
 			<% loop SidebarItems %>
