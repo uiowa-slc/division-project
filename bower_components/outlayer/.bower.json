@@ -1,6 +1,6 @@
 {
   "name": "outlayer",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "the brains and guts of a layout library",
   "main": "outlayer.js",
   "dependencies": {
@@ -45,11 +45,11 @@
     "isotope"
   ],
   "license": "MIT",
-  "_release": "1.4.0",
+  "_release": "1.4.2",
   "_resolution": {
     "type": "version",
-    "tag": "v1.4.0",
-    "commit": "d6112741a7853de99530d2aa3911c26325b8a8cb"
+    "tag": "v1.4.2",
+    "commit": "c2d5e67fa6b4e716591ac11fa2d27494bdfc1733"
   },
   "_source": "git://github.com/metafizzy/outlayer.git",
   "_target": "~1.4.0",
