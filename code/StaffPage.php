@@ -2,12 +2,12 @@
 class StaffPage extends Page {
 
 	private static $db = array(
-		"FirstName" => "Text",
-		"LastName" => "Text",
-		"Position" => "Text",
-		"EmailAddress" => "Text",
-		"Phone" => "Text",
-		"DepartmentURL" => "Text",
+		"FirstName"      => "Text",
+		"LastName"       => "Text",
+		"Position"       => "Text",
+		"EmailAddress"   => "Text",
+		"Phone"          => "Text",
+		"DepartmentURL"  => "Text",
 		"DepartmentName" => "Text",
 
 	);
@@ -41,17 +41,17 @@ class StaffPage extends Page {
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
-		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (dimensions)"));
-
+		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 760 x 507)"));
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
 
 		$this->extend('updateCMSFields', $fields);
+		$fields->removeByName("BackgroundImage");
 		return $fields;
 
 	}
 	public function FullNameTruncated() {
 		$lastName = $this->owner->LastName;
-		$fullName = $this->owner->FirstName . ' ' . substr($lastName, 0, 1) . '.';
+		$fullName = $this->owner->FirstName.' '.substr($lastName, 0, 1).'.';
 
 		return $fullName;
 
@@ -88,7 +88,7 @@ class StaffPage_Controller extends Page_Controller {
 		$memberId = $this->EmailAddress;
 
 		if (isset($memberId)) {
-			$url = 'http://studentlife.uiowa.edu/news/rss?member=' . $memberId;
+			$url = 'http://studentlife.uiowa.edu/news/rss?member='.$memberId;
 			return $this->RSSDisplay(20, $url);
 		} else {
 			return false;
