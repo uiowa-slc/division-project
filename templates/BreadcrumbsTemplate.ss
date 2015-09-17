@@ -1,3 +1,4 @@
+<%-- No breadcrumbs for now
 <% if Pages %>
 	<ul class="breadcrumbs">
 		<li><a href="$Baseref">Home</a></li>
@@ -10,3 +11,4 @@
 		<% end_loop %>
 	</ul>
 <% end_if %>
+--%>
