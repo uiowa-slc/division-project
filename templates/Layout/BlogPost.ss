@@ -6,7 +6,7 @@
             <article>    
                 $Breadcrumbs
                 <% if $Image %>
-                    <img src="<% include PlaceholderLargeSrc %>" data-src="$Image.SetWidth(765).URL" alt="Image representing $Title">
+                    <img src="<% include PlaceholderLargeSrc %>" data-src="$Image.ScaleWidth(765).URL" alt="Image representing $Title">
                 <% end_if %>
                 	<h1 class="postTitle">$Title</h1>
                 <% if $StoryBy %>
