@@ -14,10 +14,12 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	static $has_one = array(
-
+		'PosterImage' => 'Image'
 	);
 
 	public function updateCMSFields(FieldList $fields) {
+
+		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Open Graph Image (1200 x 630)'));
 
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
 

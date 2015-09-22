@@ -3,8 +3,9 @@
 	<div class="container clearfix">
 		<div class="white-cover"></div>
 	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
+	    	$Breadcrumbs
 			<% if SelectedTag %>
-				<h1>Self-Help/$SelectedTag</h1>
+				<h1>Tag: $SelectedTag</h1>
 			<% else %>
 				<h1>$Title</h1>
 			<% end_if %>

@@ -2,6 +2,7 @@
 <div class="container clearfix">
       <div class="white-cover"></div>
       <section class="staff-content main-content">
+            $Breadcrumbs
       	$Form
       	$Content
             <% if $Teams %>

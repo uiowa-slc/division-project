@@ -1,13 +1,13 @@
 {
   "name": "lazyload",
-  "version": "3.0.3",
+  "version": "3.2.1",
   "main": "build/lazyload.js",
   "homepage": "https://github.com/vvo/lazyload",
-  "_release": "3.0.3",
+  "_release": "3.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "v3.0.3",
-    "commit": "399f436fa364d0a03b2b8cd464191062c07176af"
+    "tag": "v3.2.1",
+    "commit": "a0889aa443eac6001a1bea5c4c6652b214814fbd"
   },
   "_source": "git://github.com/vvo/lazyload.git",
   "_target": "*",

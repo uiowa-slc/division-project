@@ -1,4 +1,4 @@
-<% if Pages %>
+<% if Pages.Count > 1 && not $BackgroundImage %>
 	<ul class="breadcrumbs">
 		<li><a href="$Baseref">Home</a></li>
 		<% loop Pages %>

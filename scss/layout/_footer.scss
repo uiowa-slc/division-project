@@ -6,10 +6,21 @@
 	box-shadow: inset 0 1px 0 #2e2e2e;
 	color: #eee;
 	padding: 3em 0 1em;
+	
 	position: relative;
 
+	@media screen and (min-width: $break-small) {
+		padding: 3em 10px 1em 10px;
+	}
+	@media screen and (min-width: $break-xlarge) {
+		padding: 3em 0 1em;
+	}
 	img{
-		max-width: 266px;
+		max-width: 100%;
+		@media screen and (min-width: $break-medium) {
+			max-width: 266px;
+
+		}
 	}
 
 	.dsl-footer{
