@@ -54,7 +54,6 @@ class StaffPage extends Page {
 		$fullName = $this->owner->FirstName.' '.substr($lastName, 0, 1).'.';
 
 		return $fullName;
-
 	}
 	//private static $allowed_children = array("");
 
