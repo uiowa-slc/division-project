@@ -30,4 +30,9 @@ $break-xlarge: 1140px; /* 1140px / 16px; */
 
 /* Foundation Settings */
 
-$align-block-grid-to-grid: true;
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-html-classes: true;
+// $include-print-styles: true;
+$include-html-global-classes: $include-html-classes;
+
+$align-block-grid-to-grid: false;
