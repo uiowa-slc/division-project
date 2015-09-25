@@ -13,9 +13,12 @@
 	line-height: 1.6;
 	img{
 		max-width: 100%;
-		@media #{$medium-up} {
+		@media #{$small-up} {
 			max-width: 266px;
 		}
+	}
+	.social-icon {
+	  font-family: 'iconies_socialregular';
 	}
 }
 .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
@@ -27,7 +30,7 @@
 	}
 }
 .footer p, .footer li {
-	font-size: rem-calc(12);
+	font-size: rem-calc(14);
 }
 .footer a {
 	color: #eee;
