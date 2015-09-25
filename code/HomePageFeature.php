@@ -1,6 +1,6 @@
 <?php
 
-class HomePageFeature extends DataObject implements Versioned {
+class HomePageFeature extends DataObject {
 
 	private static $db = array(
 		"Title"        => "Varchar(155)",
