@@ -14,3 +14,9 @@ BlogPost:
 SiteConfig:
   extensions:
     - SiteConfigExtension
+HomePageFeature:
+  extensions:
+    - Versioned("Stage","Live")
+HomePageHeroFeature:
+  extensions:
+    - Versioned("Stage","Live")
