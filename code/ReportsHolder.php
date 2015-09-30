@@ -15,7 +15,7 @@ class ReportsHolder extends Blog {
 
 	static $plural_name = 'Report Holders';
 
-	private static $allowed_children = array("ReportPage");
+	private static $allowed_children = array("ReportPage", "BlogPost");
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();

@@ -22,15 +22,17 @@ class DivisionPage_Controller extends Extension {
 	public static function StaffSpotlightHandler($arguments, $content) {
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
 
-		$blogHolder = DataObject::get_by_id('BlogHolder', 133);
+		$blogHolder = DataObject::get_by_id('Blog', 133);
 
-		$latestStaffSpotlight = $blogHolder->Entries(1, 'faces')->sort('Date DESC')->first();
+		$tag = BlogTag::get()->filter(array('Title:PartialMatch' => 'Faces'))->First();
 
+		$latestStaffSpotlight = $tag->BlogPosts()->sort('PublishDate DESC')->First();
+		//print_r($latestStaffSpotlight);
 		if ($latestStaffSpotlight) {
 
 			$customise = array();
 			/*** SET DEFAULTS ***/
-			$customise['BlogPage'] = $latestStaffSpotlight;
+			$customise['BlogPage']       = $latestStaffSpotlight;
 			$customise['SidebarContent'] = $content;
 
 			//overide the defaults with the arguments supplied
@@ -52,7 +54,7 @@ class DivisionPage_Controller extends Extension {
 		}
 
 		$pageURLSegment = $arguments['page'];
-		$page = DataObject::get("Page")->filter("URLSegment", $pageURLSegment)->first();
+		$page           = Page::get()->filter("URLSegment", $pageURLSegment)->First();
 		//print_r($page);
 		if ($page) {
 
@@ -61,6 +63,14 @@ class DivisionPage_Controller extends Extension {
 			$customise['BlogPage'] = $page;
 			if (isset($arguments['tag'])) {
 				$customise['Tag'] = $arguments['tag'];
+				$blogTag          = BlogTag::get()->filter(array('Title:PartialMatch' => $arguments['tag']))->First();
+
+				if (isset($blogTag)) {
+					$customise['BlogPosts'] = $blogTag->BlogPosts();
+				}
+
+			} else {
+				$customise['BlogPosts'] = $page->getBlogPosts();
 			}
 
 			//overide the defaults with the arguments supplied
@@ -81,16 +91,16 @@ class DivisionPage_Controller extends Extension {
 			return;
 		}
 
-		$feedURL = $arguments['url'];
+		$feedURL    = $arguments['url'];
 		$controller = new Page_Controller();
 
 		$feedItems = $controller->RSSDisplay(5, $feedURL);
 
 		if ($feedItems) {
 
-			$customise = array();
+			$customise              = array();
 			$customise['FeedItems'] = $feedItems;
-			$customise = array_merge($customise, $arguments);
+			$customise              = array_merge($customise, $arguments);
 
 			$template = new SSViewer('SidebarRssFeed');
 			//return the customised template
@@ -98,27 +108,26 @@ class DivisionPage_Controller extends Extension {
 		}
 	}
 
-	public static function ButtonHandler($arguments,$caption= null,$parser = null){
-		
+	public static function ButtonHandler($arguments, $caption = null, $parser = null) {
+
 		if (empty($arguments['url'])) {
-		    return;
+			return;
 		}
-		 
+
 		$customise = array();
 		/*** SET DEFAULTS ***/
-		$customise['Link'] = $arguments['url'];
-		$customise['Caption'] = $caption ? Convert::raw2xml($caption) : false;
-		 
+		$customise['Link']    = $arguments['url'];
+		$customise['Caption'] = $caption?Convert::raw2xml($caption):false;
+
 		//overide the defaults with the arguments supplied
-		$customise = array_merge($customise,$arguments);
-		 
+		$customise = array_merge($customise, $arguments);
+
 		//get our YouTube template
 		$template = new SSViewer('Button');
-		 
-		//return the customised template
-		return $template->process(new ArrayData($customise));		
-		
-	}
 
+		//return the customised template
+		return $template->process(new ArrayData($customise));
+
+	}
 
 }
