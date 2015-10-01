@@ -3,13 +3,13 @@
 class BlogFieldExtension extends DataExtension {
 
 	private static $db = array(
-		'StoryBy' => 'Text',
-		'StoryByEmail' => 'Text',
-		'StoryByTitle' => 'Text',
-		'StoryByDept' => 'Text',
-		'PhotosBy' => 'Text',
+		'StoryBy'       => 'Text',
+		'StoryByEmail'  => 'Text',
+		'StoryByTitle'  => 'Text',
+		'StoryByDept'   => 'Text',
+		'PhotosBy'      => 'Text',
 		'PhotosByEmail' => 'Text',
-		'ExternalURL' => 'Text',
+		'ExternalURL'   => 'Text',
 	);
 
 	private static $has_one = array(
@@ -32,7 +32,7 @@ class BlogFieldExtension extends DataExtension {
 		$fields->addFieldToTab("Root.Main", new TextField('PhotosByEmail', 'Photographer email address'), 'Content');
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
 		$fields->removeByName("Author");
-		$fields->removeByName("FeaturedImage");
+		//$fields->removeByName("FeaturedImage");
 
 		if ($this->owner->ClassName == "BlogEntry") {
 			//$fields->removeByName("Date");

@@ -3,12 +3,12 @@
 	<% with BlogPage %>
 		<a href="$Link">
 		    
-		    <% if $Image %>
+		    
 		    	<div class="faces-image-container">
 		    		<h3>$Title</h3>
-		    		<img src="division-project/images/placeholder-sidebar.png" data-src="$Image.SetWidth(279).URL" alt="An image representing $Title">
+		    		<% if $FeaturedImage %><img src="division-project/images/placeholder-sidebar.png" data-src="$FeaturedImage.SetWidth(279).URL" alt="An image representing $Title"><% end_if %>
 		    	</div>
-		    <% end_if %>
+		    
 		</a>
 	<% end_with %>
 </div>
