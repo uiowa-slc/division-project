@@ -4,10 +4,11 @@
         <div class="white-cover"></div>
         <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
             <article>    
-                $Breadcrumbs
-                <% if $Image %>
-                    <img src="<% include PlaceholderLargeSrc %>" data-src="$Image.SetWidth(765).URL" alt="Image representing $Title">
+               
+                <% if $FeaturedImage %>
+                    <img src="<% include PlaceholderLargeSrc %>" data-src="$FeaturedImage.SetWidth(765).URL" alt="Image representing $Title">
                 <% end_if %>
+                     $Breadcrumbs
                 	<h1 class="postTitle">$Title</h1>
                 <% if $StoryBy %>
                 	<p>

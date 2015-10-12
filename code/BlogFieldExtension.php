@@ -12,10 +12,6 @@ class BlogFieldExtension extends DataExtension {
 		'ExternalURL'   => 'Text',
 	);
 
-	private static $has_one = array(
-		'Image' => 'Image',
-	);
-
 	public function getCMSFields() {
 		$this->extend('updateCMSFields', $fields);
 
@@ -23,16 +19,14 @@ class BlogFieldExtension extends DataExtension {
 	}
 
 	public function updateCMSFields(FieldList $fields) {
-		$fields->addFieldToTab("Root.Main", new UploadField('Image', 'Main Image'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('StoryBy', 'Story author'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('StoryByEmail', 'Author email address'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('StoryByTitle', 'Author posiiton title'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('StoryByDept', 'Author department title'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('PhotosBy', 'Photos or video by'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('PhotosByEmail', 'Photographer email address'), 'Content');
-		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
-		$fields->removeByName("Author");
-		//$fields->removeByName("FeaturedImage");
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('StoryBy', 'Story author'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('StoryByEmail', 'Author email address'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('StoryByTitle', 'Author posiiton title'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('StoryByDept', 'Author department title'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('PhotosBy', 'Photos or video by'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('PhotosByEmail', 'Photographer email address'));
+		$fields->addFieldToTab("Root.AdditionalCredits", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
+		$fields->removeByName("BackgroundImage");
 
 		if ($this->owner->ClassName == "BlogEntry") {
 			//$fields->removeByName("Date");

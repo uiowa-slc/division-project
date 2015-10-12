@@ -26,23 +26,25 @@ class DivisionPage_Controller extends Extension {
 
 		$tag = BlogTag::get()->filter(array('Title:PartialMatch' => 'Faces'))->First();
 
-		$latestStaffSpotlight = $tag->BlogPosts()->sort('PublishDate DESC')->First();
-		//print_r($latestStaffSpotlight);
-		if ($latestStaffSpotlight) {
+		if ($tag) {
+			$latestStaffSpotlight = $tag->BlogPosts()->sort('PublishDate DESC')->First();
+			//print_r($latestStaffSpotlight);
+			if ($latestStaffSpotlight) {
 
-			$customise = array();
-			/*** SET DEFAULTS ***/
-			$customise['BlogPage']       = $latestStaffSpotlight;
-			$customise['SidebarContent'] = $content;
+				$customise = array();
+				/*** SET DEFAULTS ***/
+				$customise['BlogPage']       = $latestStaffSpotlight;
+				$customise['SidebarContent'] = $content;
 
-			//overide the defaults with the arguments supplied
-			$customise = array_merge($customise, $arguments);
+				//overide the defaults with the arguments supplied
+				$customise = array_merge($customise, $arguments);
 
-			//get our YouTube template
-			$template = new SSViewer('SidebarSpotlight');
+				//get our YouTube template
+				$template = new SSViewer('SidebarSpotlight');
 
-			//return the customised template
-			return $template->process(new ArrayData($customise));
+				//return the customised template
+				return $template->process(new ArrayData($customise));
+			}
 		}
 
 	}
