@@ -32,7 +32,7 @@
 	  <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 	<![endif]-->
-
+	<% include GoogleAnalytics %>
 </head>
 
 <body class="{$ClassName} loading">
@@ -59,7 +59,7 @@
 	window.attachEvent("onload", downloadJSAtOnload);
 	else window.onload = downloadJSAtOnload;
 	</script>
-	<% include GoogleAnalytics %>
+	
 	<script type="text/javascript">
 	(function(d) {
 	  var tkTimeout=3000;
