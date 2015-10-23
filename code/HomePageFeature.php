@@ -3,24 +3,24 @@
 class HomePageFeature extends DataObject {
 
 	private static $db = array(
-		"Title" => "Varchar(155)",
-		"Content" => "HTMLText",
+		"Title"        => "Varchar(155)",
+		"Content"      => "HTMLText",
 		"YouTubeEmbed" => "HTMLText",
-		"SortOrder" => "Int",
+		"SortOrder"    => "Int",
 		"ExternalLink" => "Text",
-		'FeedLink' => 'Text',
+		'FeedLink'     => 'Text',
 
 	);
 
 	private static $has_one = array(
 		"AssociatedPage" => "SiteTree",
-		"Image" => "Image",
+		"Image"          => "Image",
 	);
 
 	private static $default_sort = "SortOrder";
 
 	private static $singular_name = "Feature";
-	private static $plural_name = "Features";
+	private static $plural_name   = "Features";
 
 	function getCMSFields() {
 		$fields = new FieldList();
@@ -33,7 +33,7 @@ class HomePageFeature extends DataObject {
 		$fields->push(new TextField("FeedLink", "Display posts from the following feed (only RSS for now)"));
 		$fields->push(new HTMLEditorField('Content', 'Content'));
 
-		$fields->push(new UploadField("Image", "Image (350 x 180 pixels)"));
+		$fields->push(new UploadField("Image", "Image (use 359 x 202 pixels exactly to avoid resampling)"));
 		$fields->push(new TextField("YouTubeEmbed", "Use a YouTube embed code instead of an image:"));
 
 		return $fields;
@@ -43,7 +43,7 @@ class HomePageFeature extends DataObject {
 
 		if ($this->FeedLink) {
 			$controller = new Page_Controller();
-			$feedItems = $controller->RSSDisplay(5, $this->FeedLink);
+			$feedItems  = $controller->RSSDisplay(5, $this->FeedLink);
 			return $feedItems;
 		}
 
