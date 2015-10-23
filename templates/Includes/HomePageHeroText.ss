@@ -1,7 +1,7 @@
 	        <div class="hero-text">
 	        	<% if $BackgroundFeature.Tagline %>
 	        		<h2 class="blocktext">$BackgroundFeature.Tagline</h2>
-	        	<% else %>
+	        	<% else_if $SiteConfig.Tagline %>
                 	<h2 class="blocktext">$SiteConfig.Tagline</h2>
                 <% end_if %>
                 <% if $BackgroundFeature.Buttons %>
