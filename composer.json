@@ -18,6 +18,7 @@
                 "silverstripe/userforms": "*",
                 "silverstripe/recaptcha": "*",
                 "silverstripe/mathspamprotection" : "*",
+                "silverstripe/spamprotection" : "dev-pulls/core-validation"
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
@@ -36,6 +37,10 @@
                 "thisisbd/silverstripe-maintenance-mode" : "*"
         },
         "repositories": [
+        {
+            "type": "vcs",
+            "url" : "https://github.com/tractorcow/silverstripe-userforms"
+        }
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
