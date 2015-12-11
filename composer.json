@@ -39,7 +39,7 @@
         "repositories": [
         {
             "type": "vcs",
-            "url" : "https://github.com/tractorcow/silverstripe-userforms"
+            "url" : "https://github.com/tractorcow/silverstripe-userforms",
             "packagist" : false
         },
         {
