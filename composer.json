@@ -18,7 +18,7 @@
                 "silverstripe/userforms": "*",
                 "silverstripe/recaptcha": "*",
                 "silverstripe/mathspamprotection" : "*",
-                "silverstripe/spamprotection" : "dev-pulls/core-validation",
+                "silverstripe/spamprotection" : "pulls/core-validation",
                 "simplepie/simplepie": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
