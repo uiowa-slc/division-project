@@ -40,7 +40,7 @@
         {
             "type": "vcs",
             "url" : "https://github.com/tractorcow/silverstripe-userforms"
-            "packagist": false
+            "packagist" : false
         },
         {
             "type": "vcs",
