@@ -40,7 +40,7 @@
         {
             "type": "vcs",
             "url" : "https://github.com/tractorcow/silverstripe-userforms"
-        }
+        },
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
