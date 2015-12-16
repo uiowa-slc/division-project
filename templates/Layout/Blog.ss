@@ -18,6 +18,7 @@
                 </h2>
             <% else_if $CurrentTag %>
                 <h2><%t Blog.Tag "Tag" %>: $CurrentTag.Title </h2>
+                <p><a href="{$Link}" class="btn">View all posts</a></p>
             <% else_if $CurrentCategory %>
                 <h2><%t Blog.Category "Category" %>: $CurrentCategory.Title </h2>
             <% else %>
