@@ -1,6 +1,9 @@
 Controller:
   extensions:
     - SS_MinifiedResponseExtension
+Member:
+  log_num_visits: false
+  log_last_visited: false
 Page:
   extensions:
     - DivisionPage
@@ -14,12 +17,3 @@ BlogPost:
 SiteConfig:
   extensions:
     - SiteConfigExtension
-HomePageFeature:
-  extensions:
-    - Versioned("Stage","Live")
-HomePageHeroFeature:
-  extensions:
-    - Versioned("Stage","Live")
-Member:
-  log_num_visits: false
-  log_last_visited: false
