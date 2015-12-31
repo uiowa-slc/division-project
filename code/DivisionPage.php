@@ -15,7 +15,7 @@ class DivisionPage extends DataExtension {
 
 	private static $many_many_extraFields = array(
 		'SidebarItems' => array(
-			'SortOrder' => 'Int',
+			'SortOrder'   => 'Int',
 		),
 	);
 
@@ -51,14 +51,14 @@ class DivisionPage extends DataExtension {
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
-		$sort->table = 'Page_SidebarItems';
-		$sort->parentField = 'PageID';
+		$sort->table          = 'Page_SidebarItems';
+		$sort->parentField    = 'PageID';
 		$sort->componentField = 'SidebarItemID';
 
 		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
-		$f->addFieldToTab("Root.Sidebar", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
-		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
-		$f->addFieldToTab("Root.Sidebar", $gridField); // add the grid field to a tab in the CMS
+		$f->addFieldToTab("Root.Widgets", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
+		$f->addFieldToTab("Root.Widgets", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
+		$f->addFieldToTab("Root.Widgets", $gridField);// add the grid field to a tab in the CMS
 
 	}
 
@@ -77,7 +77,7 @@ class DivisionPage extends DataExtension {
 		// Get each page type to define its sub-urls
 		$urls = array();
 		// memory intensive depending on number of pages
-		$pages = Page::get();
+		$pages   = Page::get();
 		$ignored = array('UserDefinedForm', 'HomePage');
 		foreach ($pages as $page) {
 			// check to make sure this page is not in the classname
