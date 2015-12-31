@@ -46,7 +46,7 @@ class DivisionPage extends DataExtension {
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		if (defined('FLICKR_USER')) {
-			$f->addFieldToTab('Root.Main', new LiteralField('ShortcodeDocLink', '<a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">How to use Flickr shortcodes &rarr;</a>'), 'Content');
+			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
 		}
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
@@ -56,6 +56,7 @@ class DivisionPage extends DataExtension {
 		$sort->componentField = 'SidebarItemID';
 
 		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
+
 		$f->addFieldToTab("Root.Widgets", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
 		$f->addFieldToTab("Root.Widgets", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Widgets", $gridField);// add the grid field to a tab in the CMS
