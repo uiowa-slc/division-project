@@ -2,11 +2,11 @@
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
-	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
+	    <article class="main-content <% if $BackgroundImage %>margin-top<% end_if %>" role="main">
 	    	$Breadcrumbs
 	    	$Content
 	    	$Form
-	    </section>
+	    </article>
 	    <section class="sec-content hide-print">
 	    	<% include SideNav %>
 	    </section>

@@ -1,6 +1,6 @@
 <style>
 .hero {
-  border-bottom: 5px solid #ffce39;
+ 
   position: relative;
   padding: 2em 0;
   background-color: #FFF;
