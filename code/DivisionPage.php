@@ -56,9 +56,10 @@ class DivisionPage extends DataExtension {
 		$sort->componentField = 'SidebarItemID';
 
 		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
-		$f->addFieldToTab("Root.Sidebar", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
-		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
-		$f->addFieldToTab("Root.Sidebar", $gridField);// add the grid field to a tab in the CMS
+
+		$f->addFieldToTab("Root.Widgets", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
+		$f->addFieldToTab("Root.Widgets", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
+		$f->addFieldToTab("Root.Widgets", $gridField);// add the grid field to a tab in the CMS
 
 	}
 
