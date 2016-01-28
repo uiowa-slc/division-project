@@ -5,7 +5,7 @@
 	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
         $Breadcrumbs
         <h1>$Title</h1>
-
+        	$Content
             <% if $ArchiveYear %>
                 <h2><%t Blog.Archive "Archive" %>:
                 <% if $ArchiveDay %>
