@@ -5,6 +5,7 @@ class HomePageTwitterFeature extends HomePageFeature {
 	private static $db = array(
 		"AltTwitterName" => "Text",
 		"WidgetID"       => "Text",
+		"HideFooter" => "Boolean"
 	);
 
 	private static $defaults = array(
@@ -23,6 +24,7 @@ class HomePageTwitterFeature extends HomePageFeature {
 		$fields = new FieldList();
 		$fields->push(new TextField('TwitterName', 'Alternate Twitter User Name (If left blank, we use the default from the site\'s settings)'));
 		$fields->push(new TextField('WidgetID', 'Twitter Widget ID'));
+		$fields->push(new CheckboxField('HideFooter', 'Hide the Tweet Composer'));
 		return $fields;
 	}
 
