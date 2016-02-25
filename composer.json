@@ -15,7 +15,7 @@
                 "colymba/gridfield-bulk-editing-tools": "*",
                 "silverstripe/blog": "2.*",
                 "silverstripe/widgets": "*",
-                "silverstripe/userforms": "2.*",
+                "silverstripe/userforms": "3.*",
                 "silverstripe/recaptcha": "*",
                 "silverstripe/mathspamprotection" : "*",
                 "simplepie/simplepie": "*",
@@ -32,7 +32,8 @@
                 "md/silverstripe-flickr" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "jonom/silverstripe-betternavigator": "*",
-                "thisisbd/silverstripe-maintenance-mode" : "*"
+                "thisisbd/silverstripe-maintenance-mode" : "*",
+		"silverstripe/secureassets" : "dev-master"
         },
         "repositories": [
         {
