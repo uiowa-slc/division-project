@@ -1,7 +1,7 @@
-<% if $Photos %>
 	<% if $Type == "slideshow" %>
+
 		<% if $Photoset %>
-			<iframe class="flickr-slideshow" src="https://www.flickr.com/photos/{$FlickrUser}/{$Photos.First.ID}/in/set-{$Photoset.ID}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+			<iframe class="flickr-slideshow lazy" src="https://www.flickr.com/photos/{$FlickrUser}/sets/{$Photoset}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 		<% else %>
 			<div class="flexslider">
 				<ul class="slides">
@@ -28,4 +28,3 @@
 			<% end_loop %>
 		</div>
 	<% end_if %>
-<% end_if %>
