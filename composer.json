@@ -2,7 +2,7 @@
         "name": "md/division-project",
         "description": "The University of Iowa Division of Student Life Project Code and Theme",
         "type": "silverstripe-module",
-        "minimum-stability": "dev",
+        "minimum-stability": "stable",
         "require": {
                 "php": ">=5.3.2",
                 "silverstripe/cms": "3.3.1",
