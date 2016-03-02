@@ -33,6 +33,7 @@ class HomePage extends Page {
 			array(
 				"HomePageFeature",
 				"HomePageFacebookFeature",
+				"HomePageTwitterFeature",
 			)
 		);
 
@@ -45,8 +46,8 @@ class HomePage extends Page {
 		}
 
 		$homePageBackgroundFeatureGridField = new GridField('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
-		$homePageHeroFeatureGridField = new GridField("HomePageHeroFeature", "Hero features that overlap the background (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
-		$homePageFeatureGridField = new GridField("HomePageFeature", "Features below the background image (Only the first three are shown)", HomePageFeature::get(), $homePageFeatureGridFieldConfig);
+		$homePageHeroFeatureGridField       = new GridField("HomePageHeroFeature", "Hero features that overlap the background (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
+		$homePageFeatureGridField           = new GridField("HomePageFeature", "Features below the background image (Only the first three are shown)", HomePageFeature::get(), $homePageFeatureGridFieldConfig);
 
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", $homePageBackgroundFeatureGridField);
@@ -86,8 +87,8 @@ class HomePage_Controller extends Page_Controller {
 	}
 	public function index() {
 		$page = $this->customise(array(
-			'BackgroundFeature' => $this->BackgroundFeatures()->Sort('RAND()')->First(),
-		));
+				'BackgroundFeature' => $this->BackgroundFeatures()->Sort('RAND()')->First(),
+			));
 
 		return $page->renderWith(array('HomePage', 'Page'));
 	}
