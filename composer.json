@@ -13,7 +13,7 @@
                 "unclecheese/betterbuttons": "*",
                 "unclecheese/eventcalendar": "1.*",
                 "colymba/gridfield-bulk-editing-tools": "*",
-                "silverstripe/blog": "2.4",
+                "silverstripe/blog": "2.*",
                 "silverstripe/widgets": "*",
                 "silverstripe/userforms": "2.*",
                 "silverstripe/recaptcha": "*",
