@@ -4,9 +4,9 @@
         <div class="white-cover"></div>
         <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
             <article>    
-               
+
                 <% if $FeaturedImage %>
-                    <img src="<% include PlaceholderLargeSrc %>" data-src="$FeaturedImage.SetWidth(765).URL" alt="Image representing $Title">
+                    <img src="<% include PlaceholderLargeSrc %>" data-src="$FeaturedImage.ScaleWidth(765).URL" alt="Image representing $Title">
                 <% end_if %>
                      $Breadcrumbs
                 	<h1 class="postTitle">$Title</h1>
