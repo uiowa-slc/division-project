@@ -2,7 +2,7 @@
         "name": "md/division-project",
         "description": "The University of Iowa Division of Student Life Project Code and Theme",
         "type": "silverstripe-module",
-        "minimum-stability": "dev",
+        "minimum-stability": "stable",
         "require": {
                 "php": ">=5.3.2",
                 "silverstripe/cms": "3.3.1",
@@ -11,11 +11,11 @@
                 "silverstripe-themes/simple": "*",
                 "undefinedoffset/sortablegridfield": "*",
                 "unclecheese/betterbuttons": "*",
-                "unclecheese/eventcalendar": "1.*",
+                "unclecheese/eventcalendar": "*",
                 "colymba/gridfield-bulk-editing-tools": "*",
                 "silverstripe/blog": "2.*",
                 "silverstripe/widgets": "*",
-                "silverstripe/userforms": "2.*",
+                "silverstripe/userforms": "*",
                 "silverstripe/recaptcha": "*",
                 "silverstripe/mathspamprotection" : "*",
                 "simplepie/simplepie": "*",
@@ -32,10 +32,15 @@
                 "md/silverstripe-flickr" : "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "jonom/silverstripe-betternavigator": "*",
-                "thisisbd/silverstripe-maintenance-mode" : "*"
+                "thisisbd/silverstripe-maintenance-mode" : "*",
+		"silverstripe/secureassets" : "dev-master"
         },
         "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/tractorcow/silverstripe-userforms/"
+        },        
+	{
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
         },

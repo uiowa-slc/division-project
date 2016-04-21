@@ -8,22 +8,23 @@
 <nav class="sec-nav">
 	<ul class="first-level">
 			<% with Level(1) %>
-				<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>><a href="$Link">$MenuTitle</a></li>
+				<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>><a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a></li>
 			<% end_with %>
 			<% loop Menu(2) %>
-				<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>><a href="$Link">$MenuTitle</a>
+				<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>>
+				<a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
 				
 				<%-- third level nav option 1 --%>
 					<% if $LinkOrSection = "section" && Children %>
 						<ul class="second-level">
 							<% loop Children %>
 								<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>>
-									<a href="$Link">$MenuTitle</a>
+									<a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
 									<% if $LinkOrSection = "section" && Children %>
 										<ul class="third-level">
 											<% loop Children %>
 												<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>>
-													<a href="$Link">$MenuTitle</a>
+													<a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
 												</li>
 											<% end_loop %>
 										</ul>
