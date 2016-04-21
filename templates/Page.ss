@@ -11,6 +11,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
 	<% include OpenGraph %>
+
+	<% if $PreventSearchEngineIndex %>
+		<meta name="robots" content="noindex">
+	<% end_if %>
+
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
 
 	<% if $URLSegment = 'home' %>
@@ -18,8 +23,7 @@
 	<% else %>
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
-
-	<style><% include CriticalCss %></style>
+<style><% include CriticalCss %></style>
 	
 	<% include LoadCss %>
 	<script>

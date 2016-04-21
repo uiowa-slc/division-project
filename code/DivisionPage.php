@@ -2,7 +2,7 @@
 class DivisionPage extends DataExtension {
 
 	private static $db = array(
-
+		'PreventSearchEngineIndex' => 'Boolean',
 	);
 
 	private static $has_one = array(
@@ -48,6 +48,7 @@ class DivisionPage extends DataExtension {
 		if (defined('FLICKR_USER')) {
 			$f->addFieldToTab('Root.Main', new LiteralField('ShortcodeDocLink', '<a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">How to use Flickr shortcodes &rarr;</a>'), 'Content');
 		}
+
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
@@ -59,6 +60,11 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab("Root.Sidebar", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
 		$f->addFieldToTab("Root.Sidebar", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Sidebar", $gridField); // add the grid field to a tab in the CMS
+
+	}
+
+	public function updateSettingsFields(FieldList $f) {
+		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 
 	}
 
