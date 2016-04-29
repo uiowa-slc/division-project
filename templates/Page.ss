@@ -19,6 +19,11 @@
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
 
+	<% if $TwitterLink %>
+		<% include TweetCard %>
+	<% end_if %>
+
+
 	<style><% include CriticalCss %></style>
 	
 	<% include LoadCss %>
@@ -33,6 +38,7 @@
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 	<![endif]-->
 	<% include GoogleAnalytics %>
+	
 </head>
 
 <body class="{$ClassName} loading">
