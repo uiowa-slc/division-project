@@ -15,7 +15,7 @@
                 "colymba/gridfield-bulk-editing-tools": "*",
                 "silverstripe/blog": "2.*",
                 "silverstripe/widgets": "*",
-                "silverstripe/userforms": "*",
+                "silverstripe/userforms": "3.*",
                 "silverstripe/recaptcha": "*",
                 "silverstripe/mathspamprotection" : "*",
                 "simplepie/simplepie": "*",
@@ -36,10 +36,6 @@
 		"silverstripe/secureassets" : "dev-master"
         },
         "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/tractorcow/silverstripe-userforms/"
-        },        
 	{
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
