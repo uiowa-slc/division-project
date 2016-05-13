@@ -19,7 +19,7 @@
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
 
-	<% if $TwitterLink %>
+	<% if $SiteConfig.TwitterLink %>
 		<% include TweetCard %>
 	<% end_if %>
 
