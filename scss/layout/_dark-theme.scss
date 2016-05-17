@@ -1,0 +1,22 @@
+@media screen and (min-width: 768px) {
+	.nav-main li:first-child {
+		border-left-color: #2d2d2d;
+	}
+
+	.nav-main li {
+		border-right-color: #2d2d2d;
+	}
+
+	.nav-main a {
+		color: white;
+	}
+}
+
+.header {
+	background-color: #2d2d2d;
+	position: relative;
+}
+
+.logo {
+	color: #fff;
+}

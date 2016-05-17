@@ -43,8 +43,11 @@
 <a href="#main" class="visuallyhidden">Skip to main content</a>
 <div id="fb-root"></div>
 
-
-    <% include DivisionBar %>
+	<% if $SiteConfig.DisableDivisionBranding %>
+		<% include UiowaBarBootstrap %>
+	<% else %>
+    	<% include DivisionBar %>
+    <% end_if %>
 
     <% include Header %>
     <div id="main">
