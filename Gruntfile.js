@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           'bower_components/fitvids/jquery.fitvids.js',
           'bower_components/flexslider/jquery.flexslider.js',
           'bower_components/blazy/blazy.js',
-	        'bower_components/REM-unit-polyfill/js/rem.js',
+          'bower_components/REM-unit-polyfill/js/rem.js',
           'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
           'node_modules/fg-loadcss/loadCSS.js',
           'bower_components/masonry/dist/masonry.pkgd.js',
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['js/*.js', 'js/**/*.js'],
+        files: ['js/*.js', 'js/**/*.js', '../division-bar/js/*.js'],
         tasks: ['concat', 'uglify'],
         options: {
           spawn: true,

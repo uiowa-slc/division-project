@@ -40,13 +40,16 @@
 </head>
 
 <body class="{$ClassName} loading">
+<a href="#main" class="visuallyhidden">Skip to main content</a>
 <div id="fb-root"></div>
 
 
     <% include DivisionBar %>
 
     <% include Header %>
-    $Layout
+    <div id="main">
+    	$Layout
+    </div>
     <% include SubFooter %>
     <% include Footer %>
     <% include MdBar %>
