@@ -11,6 +11,7 @@ class SiteConfigExtension extends DataExtension {
 		'EmailAddress' => 'Text',
 		'VimeoLink' => 'Text',
 		'YouTubeLink' => 'Text',
+		'DisableDivisionBranding' => 'Boolean'
 	);
 
 	static $has_one = array(
@@ -18,6 +19,7 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	public function updateCMSFields(FieldList $fields) {
+		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division of Student Life branding elements'));
 
 		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Open Graph Image (1200 x 630)'));
 
