@@ -7,6 +7,7 @@
 @import "imports/_global.scss";
 
 @import "_division-bar.scss";
+@import "_uiowa-bar-bootstrap.scss";
 @import "_md-bar.scss";
 
 /* Elements
@@ -15,13 +16,15 @@
 @import "imports/_font.scss";
 @import "imports/_forms.scss";
 @import "imports/_search.scss";
-/*@import "imports/_grid.scss";*/ 
+
+/*@import "imports/_grid.scss";*/
 @import "imports/_grid-simple.scss";
 @import "imports/_tables.scss";
 
 /* Vendor 
--------------------------------------------*/ 
+-------------------------------------------*/
 @import "vendor/_flexslider.scss";
+
 /*@import "vendor/_foundation-forms.scss";*/
 @import "../bower_components/foundation/scss/foundation/components/grid";
 @import "../bower_components/foundation/scss/foundation/components/block-grid";
@@ -29,13 +32,12 @@
 @import "../bower_components/magnific-popup/src/css/main";
 
 /* Layout
--------------------------------------------*/ 
+-------------------------------------------*/
 @import "layout/_home.scss";
 @import "layout/_nav.scss";
 @import "layout/_initiatives.scss";
 @import "layout/flickr";
 @import "layout/_footer.scss";
-
 
 /* Site specific styles
 -------------------------------------------*/
