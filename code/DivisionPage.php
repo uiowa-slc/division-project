@@ -7,6 +7,7 @@ class DivisionPage extends DataExtension {
 
 	private static $has_one = array(
 		"BackgroundImage" => "Image",
+		'FeaturedImage' => 'Image'
 	);
 
 	private static $many_many = array(
@@ -41,8 +42,14 @@ class DivisionPage extends DataExtension {
 
 	public function updateCMSFields(FieldList $f) {
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
+			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImageID", "Background Image"), "Content");
 		}
+
+		$parent = $this->owner->Parent();
+		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
+			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in feature holder pages)"), "Content");
+		}
+
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		if (defined('FLICKR_USER')) {
