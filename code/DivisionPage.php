@@ -42,7 +42,7 @@ class DivisionPage extends DataExtension {
 
 	public function updateCMSFields(FieldList $f) {
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImageID", "Background Image"), "Content");
+			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		}
 
 		$parent = $this->owner->Parent();
