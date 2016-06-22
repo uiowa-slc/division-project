@@ -47,7 +47,7 @@ class DivisionPage extends DataExtension {
 
 		$parent = $this->owner->Parent();
 		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
-			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in feature holder pages)"), "Content");
+			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in parent)"), "Content");
 		}
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
