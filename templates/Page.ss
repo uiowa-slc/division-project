@@ -40,8 +40,12 @@
 </head>
 
 <body class="{$ClassName} loading">
-<a href="#main" class="visuallyhidden">Skip to main content</a>
-<div id="fb-root"></div>
+
+<div id="skiplink" role="region" aria-label="Skip Link">
+	<a href="#main" class="visuallyhidden">Skip to main content</a>
+</div>
+
+<div id="fb-root" role="navigation" aria-label="Social Media"></div>
 
 	<% if $SiteConfig.DisableDivisionBranding %>
 		<% include UiowaBarBootstrap %>
@@ -50,7 +54,7 @@
     <% end_if %>
 
     <% include Header %>
-    <div id="main">
+    <div id="main" role="main"; aria-label="Main Page Content">
     	$Layout
     </div>
     <% include SubFooter %>

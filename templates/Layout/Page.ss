@@ -2,7 +2,7 @@
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
-	    <article class="main-content <% if $BackgroundImage %>margin-top<% end_if %>" role="main" id="main-content">
+	    <article class="main-content <% if $BackgroundImage %>margin-top<% end_if %>" id="main-content">
 	    	$Breadcrumbs
 	    	$Content
 	    	$Form
