@@ -102,7 +102,6 @@ body {
 .main-content {
 	padding: 1em 0;
 	text-overflow: ellipsis;
-	overflow: hidden;
 
 	@media screen and (min-width: $break-medium) {
 		background: #fff;
