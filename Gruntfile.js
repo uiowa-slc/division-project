@@ -33,8 +33,10 @@ module.exports = function(grunt) {
           'node_modules/fg-loadcss/loadCSS.js',
           'bower_components/masonry/dist/masonry.pkgd.js',
           '../division-bar/js/division-bar.js',
+           'js/vendor/responsive-tables.js',
           'js/*.js',
-          'vendor/visible/jquery.visible.js'],
+          'vendor/visible/jquery.visible.js',
+         ],
         dest: 'build/build.src.js'
       }
     },
