@@ -6,7 +6,7 @@
             <article>    
 
                 <% if $FeaturedImage %>
-                    <img src="<% include PlaceholderLargeSrc %>" data-src="$FeaturedImage.ScaleWidth(765).URL" alt="Image representing $Title">
+                    <img src="<% include PlaceholderLargeSrc %>" data-src="$FeaturedImage.ScaleWidth(765).URL" role="presentation" alt="">
                 <% end_if %>
                      $Breadcrumbs
                 	<h1 class="postTitle">$Title</h1>

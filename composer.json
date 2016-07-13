@@ -22,7 +22,7 @@
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe/timepickerfield": "*",
                 "jonom/focuspoint" : "*",
-                "md/division-bar": "*",
+                "md/division-bar": "dev-accessibility-fixes",
                 "md/rss-display": "*",
                 "md/ac-json-events": "dev-master",
                 "sheadawson/quickaddnew" : "*",

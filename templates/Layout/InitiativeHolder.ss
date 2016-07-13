@@ -11,7 +11,7 @@
 	    	<div class="large-12">
 			    	<% if $FeaturedInitiative %>
 				    	<% with $FeaturedInitiative %>
-				    		<a href="$Link"><img data-src="$MainImage.Fill(700,468).URL" alt="$Title" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" /></a>
+				    		<a href="$Link"><img data-src="$MainImage.Fill(700,468).URL" role="presentation" alt="" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" /></a>
 				    		<h1><a href="$Link">Featured: $Title</a></h1>
 				    		<p> $Content.Summary(100) <a href="$Link"> Continue Reading </a> </p>
 				    	<% end_with %>
@@ -29,14 +29,14 @@
 		                  <li>
 		                              <% if $MainImage %>
 		                              <a href="$Link" class="initiatives-link">                                  
-		                                    <img data-src="$MainImage.Fill(350,234).URL" alt="$Title" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" />
+		                                    <img data-src="$MainImage.Fill(350,234).URL" role="presentation" alt="" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" />
 		                              </a>
 		                              <H2> <a href="$Link"> $Title </a> </H2>
 		                              <p> $Content.Summary(50) <a href="$Link"> Continue Reading </a> </p>
 		                              <% else %>
 			                          <a href="$Link" class="initiatives-link no-image"> 
 			                             	<p class="NoLogo">$Title</p>  
-			                             	<img data-src="{$ThemeDir}/images/no-image-initiative.jpg" alt="$Title" class="initiatives-img"> 			                          	 		 		
+			                             	<img data-src="{$ThemeDir}/images/no-image-initiative.jpg" role="presentation" alt="" class="initiatives-img"> 			                          	 		 		
 			                             </a>
 		                              <% end_if %>
 		                         
