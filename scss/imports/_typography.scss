@@ -39,9 +39,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     @include rem(40);
 
+    text-transform: uppercase;
     font-weight: 300;
     margin: .25em 0;
     padding-bottom: 10px;
+
+    .BlogPost & {
+        text-transform: none;
+    }
 
     @media screen and (min-width: $break-medium) {
         @include rem(60);
