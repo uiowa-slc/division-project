@@ -5,7 +5,7 @@
 	    	
 	    	<% if $MainImage %>
 			<div>
-			<img data-src="$MainImage.URL" src="<% include PlaceholderLargeSrc %>"alt="$Title" />
+			<img data-src="$MainImage.URL" src="<% include PlaceholderLargeSrc %>" role="presentation" alt="" />
 			</div>
 			<% end_if %>
 			$Breadcrumbs

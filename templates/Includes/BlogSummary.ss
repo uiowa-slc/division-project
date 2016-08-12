@@ -1,11 +1,11 @@
 <div class="blogSummary">
-	<h3 class="postTitle">
+	<h2 class="postTitle">
 		<% if $ExternalURL %><a href="$ExternalURL" target="_blank" title="<% _t('VIEWFULL', 'View full post titled -') %> '$Title'">$MenuTitle</a>
 
 		<% else %>
 			<a href="$Link" title="<% _t('VIEWFULL', 'View full post titled -') %> '$Title'">$MenuTitle</a>
 		<% end_if %>
-	</h3>
+	</h2>
 	<p>$Content.Summary(50)<% if $ExternalURL %><a href="$ExternalURL" target="_blank"><% else %>
 	<a href="$Link"><% end_if %>Continue reading...</a></p>
 	<% include BlogByline %>

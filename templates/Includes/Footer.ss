@@ -2,9 +2,16 @@
 <footer class="footer clearfix" role="contentinfo">
 	<div class="row">
 		<div class="medium-6 large-5 columns">
+
+			<% if $SiteConfig.DisableDivisionBranding %>
+				<a href="http://uiowa.edu" class="hide-print footer-logo"><img src="division-project/images/ui-logo-footer.png" alt="The University of Iowa"></a>
+			<% else %>
 			<a href="http://studentlife.uiowa.edu" class="hide-print footer-logo"><img src="division-project/images/dosl-uiowa.png" alt="Division Of Student Life"></a>
+			<% end_if %>
 			<% if $SiteConfig.GroupSummary %>
 				$SiteConfig.GroupSummary
+			<% else_if $SiteConfig.DisableDivisionBranding %>
+				<p>In pursuing its missions of teaching, research, and service, the University seeks to advance scholarly and creative endeavor through leading-edge research and artistic production; to use this research and creativity to enhance undergraduate, graduate, and professional education, health care, and other services provided to the people of Iowa, the nation, and the world; and to educate students for success and personal fulfillment in a diverse world.</p>
 			<% else %>
 				<p>The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom.</p>
 			<% end_if %>

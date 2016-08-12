@@ -2,11 +2,12 @@
 class DivisionPage extends DataExtension {
 
 	private static $db = array(
-
+		'PreventSearchEngineIndex' => 'Boolean',
 	);
 
 	private static $has_one = array(
 		"BackgroundImage" => "Image",
+		'FeaturedImage' => 'Image'
 	);
 
 	private static $many_many = array(
@@ -43,11 +44,18 @@ class DivisionPage extends DataExtension {
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		}
+
+		$parent = $this->owner->Parent();
+		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
+			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in parent)"), "Content");
+		}
+
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		if (defined('FLICKR_USER')) {
 			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
 		}
+
 		$row = "SortOrder";
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
@@ -60,6 +68,11 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab("Root.Widgets", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
 		$f->addFieldToTab("Root.Widgets", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab("Root.Widgets", $gridField);// add the grid field to a tab in the CMS
+
+	}
+
+	public function updateSettingsFields(FieldList $f) {
+		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 
 	}
 

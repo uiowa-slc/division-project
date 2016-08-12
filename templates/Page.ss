@@ -11,6 +11,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
 	<% include OpenGraph %>
+
+	<% if $PreventSearchEngineIndex %>
+		<meta name="robots" content="noindex">
+	<% end_if %>
+
 	<link rel="shortcut icon" href="division-project/images/favicon.ico" />
 
 	<% if $URLSegment = 'home' %>
@@ -18,8 +23,7 @@
 	<% else %>
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
-
-	<style><% include CriticalCss %></style>
+<style><% include CriticalCss %></style>
 	
 	<% include LoadCss %>
 	<script>
@@ -36,13 +40,23 @@
 </head>
 
 <body class="{$ClassName} loading">
-<div id="fb-root"></div>
 
+<div id="skiplink" role="region" aria-label="Skip Link">
+	<a href="#main" class="visuallyhidden">Skip to main content</a>
+</div>
 
-    <% include DivisionBar %>
+<div id="fb-root" role="navigation" aria-label="Social Media"></div>
+
+	<% if $SiteConfig.DisableDivisionBranding %>
+		<% include UiowaBarBootstrap %>
+	<% else %>
+    	<% include DivisionBar %>
+    <% end_if %>
 
     <% include Header %>
-    $Layout
+    <div id="main" role="main"; aria-label="Main Page Content">
+    	$Layout
+    </div>
     <% include SubFooter %>
     <% include Footer %>
     <% include MdBar %>
