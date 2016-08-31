@@ -1,6 +1,3 @@
-Controller:
-  extensions:
-    - SS_MinifiedResponseExtension
 Member:
   log_num_visits: false
   log_last_visited: false
