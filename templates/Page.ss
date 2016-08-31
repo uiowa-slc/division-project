@@ -57,6 +57,9 @@
     <div id="main" role="main"; aria-label="Main Page Content">
     	$Layout
     </div>
+    <% if $SiteConfig.ShowExitButton %>
+    <a id="exit" href="http://weather.com"></a>
+    <% end_if %>
     <% include SubFooter %>
     <% include Footer %>
     <% include MdBar %>
