@@ -7045,6 +7045,14 @@ $(document).ready(function() {
     $('.directory-toggle').click(function() {
         $(this).toggleClass("active");
         $('.division-directory').toggleClass("active");
+
+        var state = $(this).attr('aria-expanded') == 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+
+        var stateHidden = $('#collapsible-0').attr('aria-hidden') == 'false' ? true : false;
+        $('#collapsible-0').attr('aria-hidden', stateHidden);
+
+
         return false;
     });
 
@@ -7053,16 +7061,16 @@ $(document).ready(function() {
     $('.search-toggle').click(function() {
         $(this).toggleClass('active');
         $('.division-search').slideToggle();
+
+        var state = $(this).attr('aria-expanded') == 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+
+        var stateHidden = $('#collapsible-1').attr('aria-hidden') == 'false' ? true : false;
+        $('#collapsible-1').attr('aria-hidden', stateHidden);
+        
         return false;
     });
 
-
-    // For small screens - show the directory
-    $('.division-menu').on('click', '.has-subnav a', function() {
-        $(this).next().slideToggle('slow');
-        $(this).toggleClass('active');
-
-    });
 
 });
 $(document).ready(function() {
@@ -7070,14 +7078,14 @@ $(document).ready(function() {
   var updateTables = function() {
     if (($(window).width() < 767) && !switched ){
       switched = true;
-      $("table").each(function(i, element) {
+      $("table.responsive").each(function(i, element) {
         splitTable($(element));
       });
       return true;
     }
     else if (switched && ($(window).width() > 767)) {
       switched = false;
-      $("table").each(function(i, element) {
+      $("table.responsive").each(function(i, element) {
         unsplitTable($(element));
       });
     }
