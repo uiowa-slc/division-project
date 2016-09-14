@@ -11,8 +11,8 @@
                      $Breadcrumbs
                 	<h1 class="postTitle">$Title</h1>
                 <% if $StoryBy %>
-                	<p>
-						Story by <a href="mailto:$StoryByEmail">$StoryBy</a> <% if $StoryByTitle %> // $StoryByTitle <% end_if %> <% if $StoryByDept %> - $StoryByDept <% end_if %>
+                	<p class="authorDate">
+						Posted by <% if $StoryByEmail %><a href="mailto:$StoryByEmail">$StoryBy</a><% else %>$StoryBy<% end_if %> <% if $StoryByTitle %> // $StoryByTitle <% end_if %> <% if $StoryByDept %> - $StoryByDept <% end_if %>
                 	</p>
 			    <% end_if %>
                 	                	
