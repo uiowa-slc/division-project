@@ -1,6 +1,8 @@
 	<p class="authorDate">
+	<% if $PublishDate %>
 	<%t Blog.Posted "Posted" %>
 	<a href="$MonthlyArchiveLink">$PublishDate.Format("F j, Y")</a>
+	<% end_if %>
 	
 	<% if $Credits %>
 		<%t Blog.By "by" %>
