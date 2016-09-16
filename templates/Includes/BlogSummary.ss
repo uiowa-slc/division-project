@@ -1,4 +1,7 @@
 <div class="blogSummary">
+	<% if $FeaturedImage %>
+		<a href="$Link" class="blog-featured-image"><img src="$FeaturedImage.URL" role="presentation" alt="" /></a>
+	<% end_if %>
 	<h2 class="postTitle">
 		<% if $ExternalURL %><a href="$ExternalURL" target="_blank" title="<% _t('VIEWFULL', 'View full post titled -') %> '$Title'">$MenuTitle</a>
 

@@ -6,6 +6,7 @@
         $Breadcrumbs
         <h1>$Title</h1>
         	$Content
+        	<hr />
             <% if $ArchiveYear %>
                 <p><%t Blog.Archive "Archive" %>:
                 <% if $ArchiveDay %>
