@@ -21,7 +21,7 @@
                                 <a href="mailto:$PhotosByEmail">$PhotosByEmail</a>
 
                             <% else %>
-                                Photo(s) by $PhotosBy
+                                Photo Credit: $PhotosBy
                             <% end_if %>
 
                         <% end_if %>
