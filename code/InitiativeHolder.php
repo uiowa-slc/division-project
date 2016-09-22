@@ -11,7 +11,7 @@ class InitiativeHolder extends Page {
 
 			$fields = parent::getCMSFields();
 
-			$initiatives = InitiativePage::get();
+			$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID));
 			$featuredInitiativeField = DropdownField::create(
 										   $name = "FeaturedInitiativeID",
 										   $title = "Choose a featured initative (this will  change the image used for the initiatives homepage feature and all initiative sidebar items)",
@@ -47,11 +47,11 @@ class InitiativeHolder_Controller extends Page_Controller {
 			$featuredInitiativeID = $this->FeaturedInitiativeID;
 			$initiatives = InitiativePage::get()->exclude(array(
 				'ID' => $featuredInitiativeID
-			))->sort('RAND()');
+			))->filter(array('ParentID' => $this->ID))->sort('RAND()');
 			
 
 		}else{
-			$initiatives = InitiativePage::get()->sort('RAND()');
+			$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('RAND()');
 		}
 		return $initiatives;
 	}
