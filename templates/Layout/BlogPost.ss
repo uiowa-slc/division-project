@@ -11,15 +11,29 @@
                      $Breadcrumbs
                 	<h1 class="postTitle">$Title</h1>
                 <% if $StoryBy %>
-                	<p>
-						Story by <a href="mailto:$StoryByEmail">$StoryBy</a> <% if $StoryByTitle %> // $StoryByTitle <% end_if %> <% if $StoryByDept %> - $StoryByDept <% end_if %>
+                	<p class="authorDate">
+						By <% if $StoryByEmail %><a href="mailto:$StoryByEmail">$StoryBy</a><% else %>$StoryBy<% end_if %> <% if $StoryByTitle %> // $StoryByTitle <% end_if %> <% if $StoryByDept %> - $StoryByDept <% end_if %>
+
+                        <% if $PhotosBy %>
+                            <br />
+
+                            <% if $PhotosByEmail %>
+                                <a href="mailto:$PhotosByEmail">$PhotosByEmail</a>
+
+                            <% else %>
+                                Photo Credit: $PhotosBy
+                            <% end_if %>
+
+                        <% end_if %>
+
+
                 	</p>
 			    <% end_if %>
                 	                	
 	                $Content  
                 
                     <% if Tags %>
-                    <br />
+                    <hr />
                     <p class="tags">
                          <% _t('TAGS', 'Tags:') %> 
                         <% loop Tags %>
@@ -27,7 +41,7 @@
                         <% end_loop %>
                     </p>
                 <% end_if %>      
-                <% include BlogByline %>
+            
             </article>
         </section>
         

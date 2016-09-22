@@ -92,7 +92,7 @@ class DivisionPage extends DataExtension {
 		$urls = array();
 		// memory intensive depending on number of pages
 		$pages   = Page::get();
-		$ignored = array('UserDefinedForm', 'HomePage');
+		$ignored = array('UserDefinedForm');
 		foreach ($pages as $page) {
 			// check to make sure this page is not in the classname
 			if (!in_array($page->ClassName, $ignored)) {
