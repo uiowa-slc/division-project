@@ -1,7 +1,9 @@
 <?php
 class InitiativeHolder extends Page {
 
-	private static $db = array();
+	private static $db = array(
+		'ShuffleInitiatives' => 'Boolean'
+	);
 	private static $has_one = array(
 		'FeaturedInitiative' => 'InitiativePage'
 	);
@@ -10,7 +12,7 @@ class InitiativeHolder extends Page {
 		public function getCMSFields()	{
 
 			$fields = parent::getCMSFields();
-
+			$fields->addFieldToTab('Root.Main', new CheckboxField('ShuffleInitiatives', 'Show initiatives in a random order'), 'Content');
 			$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID));
 			$featuredInitiativeField = DropdownField::create(
 										   $name = "FeaturedInitiativeID",
@@ -45,13 +47,28 @@ class InitiativeHolder_Controller extends Page_Controller {
 
 		if($this->FeaturedInitiativeID){
 			$featuredInitiativeID = $this->FeaturedInitiativeID;
-			$initiatives = InitiativePage::get()->exclude(array(
-				'ID' => $featuredInitiativeID
-			))->filter(array('ParentID' => $this->ID))->sort('RAND()');
+
+			if($this->ShuffleInitiatives){
+				$initiatives = InitiativePage::get()->exclude(array(
+					'ID' => $featuredInitiativeID
+				))->filter(array('ParentID' => $this->ID))->sort('RAND()');
+
+			}else{
+				$initiatives = InitiativePage::get()->exclude(array(
+					'ID' => $featuredInitiativeID
+				))->filter(array('ParentID' => $this->ID))->sort('Sort');
+			}
+
 			
 
 		}else{
-			$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('RAND()');
+
+			if($this->ShuffleInitiatives){
+				$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('RAND()');
+
+			}else{
+				$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('Sort');
+			}
 		}
 		return $initiatives;
 	}
