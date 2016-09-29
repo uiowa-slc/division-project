@@ -1,0 +1,58 @@
+.subfooter {
+	border-top: 1px solid #ddd;
+
+	$subfooterHeight: 180px;
+
+	padding: 20px 0;
+
+	@media only screen and (min-width: 420px) {
+		//max-height: $subfooterHeight + 20px;
+	}
+
+	img {
+		max-height: $subfooterHeight - 20px;
+	}
+
+	[class*='col-'] {
+		&:last-of-type {
+			border-right: none;
+		}
+	}
+
+	#mc_embed_signup form {
+		padding: 0;
+	}
+
+	#mc_embed_signup input {
+		border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+	}
+
+	.flex-center {
+		display: flex;
+		align-items: center;
+	}
+
+	.appt-btn {
+		color: black;
+		width: 100%;
+		background-color: transparent;
+
+		&:hover {
+			background-color: gold;
+			color: black;
+		}
+	}
+
+	.accred {
+		max-width: 74%;
+	}
+
+	.hon {
+		max-width: 25%;
+	}
+
+	.last-edit {
+		color: #AAA;
+		font-size: 0.8em;
+	}
+}
