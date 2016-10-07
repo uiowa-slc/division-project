@@ -15,35 +15,36 @@
 				    		<h1><a href="$Link">Featured: $Title</a></h1>
 				    		<p> $Content.Summary(100) <a href="$Link"> Continue Reading </a> </p>
 				    	<% end_with %>
-				    <hr />
-			    	<h2>All Initiatives</h2>
+					    <% if $Initiatives %>
+						    <hr />
+					    	<h2>All Initiatives</h2>
+				    	<% end_if %>
 			    	<% else %>
 			    		<h1>$MenuTitle</h1>
 				    <% end_if %>
 
 			    	$Form
 			    	$Content
-					<ul class="large-block-grid-2 initiatives-list">
-					
+			 		<% if $Initiatives %>
+						<ul class="large-block-grid-2 initiatives-list">
 		                  <% loop $Initiatives %>
 		                  <li>
-		                              <% if $MainImage %>
-		                              <a href="$Link" class="initiatives-link">                                  
-		                                    <img data-src="$MainImage.Fill(350,234).URL" role="presentation" alt="" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" />
-		                              </a>
-		                              <H2> <a href="$Link"> $Title </a> </H2>
-		                              <p> $Content.Summary(50) <a href="$Link"> Continue Reading </a> </p>
-		                              <% else %>
-			                          <a href="$Link" class="initiatives-link no-image"> 
-			                             	<p class="NoLogo">$Title</p>  
-			                             	<img data-src="{$ThemeDir}/images/no-image-initiative.jpg" role="presentation" alt="" class="initiatives-img"> 			                          	 		 		
-			                             </a>
-		                              <% end_if %>
-		                         
+	                          <% if $MainImage %>
+	                          <a href="$Link" class="initiatives-link">                                  
+	                                <img data-src="$MainImage.Fill(350,234).URL" role="presentation" alt="" src="<% include PlaceholderLargeSrc %>" class="initiatives-img" />
+	                          </a>
+	                          <h2> <a href="$Link"> $Title </a> </h2>
+	                          <p> $Content.Summary(50) <a href="$Link"> Continue Reading </a> </p>
+	                          <% else %>
+	                          <a href="$Link" class="initiatives-link no-image"> 
+	                             	<p class="NoLogo">$Title</p>  
+	                             	<img data-src="{$ThemeDir}/images/no-image-initiative.jpg" role="presentation" alt="" class="initiatives-img"> 			                          	 		 		
+	                             </a>
+	                          <% end_if %>
 		                    </li>
 		                  <% end_loop %>
-
-		            </ul>
+			            </ul>
+		            <% end_if %>
 		        </section>
 		                
 			    <section class="sec-content hide-print">

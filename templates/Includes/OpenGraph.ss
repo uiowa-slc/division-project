@@ -25,6 +25,11 @@
 		<meta property="og:image" content="$Image.ScaleWidth(600).AbsoluteURL" />
 		<meta property="og:image:width" content="600" />
 		<meta property="og:image:height" content="$Image.ScaleWidth(600).Height" />
+
+	<% else_if $FeaturedImage %>
+		<meta property="og:image" content="$FeaturedImage.ScaleWidth(600).AbsoluteURL" />
+		<meta property="og:image:width" content="600" />
+		<meta property="og:image:height" content="$FeaturedImage.ScaleWidth(600).Height" />
 	<% else_if $Photo %>
 		<meta property="og:image" content="$Photo.ScaleWidth(600).AbsoluteURL" />
 		<meta property="og:image:width" content="600" />
