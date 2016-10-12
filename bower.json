@@ -1,12 +1,12 @@
 {
-  "name": "division-project",
-  "version": "2.0.0",
-  "homepage": "https://github.com/StudentLifeMarketingAndDesign/division-project",
+  "name": "foundation-ssg",
+  "version": "1.0.0",
   "authors": [
-    "Dustin Quam <quamsta@gmail.com>"
+    "ZURB <foundation@zurb.com>"
   ],
+  "description": "Static site generator for Foundation for Sites.",
+  "main": "gulpfile.js",
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,15 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "fitvids": "1.1.x",
-    "flexslider": "*",
-    "html5shiv": "3.7.x",
-    "jquery": "1.10.x",
-    "jquery.equalheights": "1.5.x",
-    "respond": "1.4.x",
-    "foundation": "zurb/bower-foundation",
-    "blazy" : "*",
-    "magnific-popup" : "*"
-  }
-
+    "foundation-sites": "~6.2.3",
+    "motion-ui": "~1.2.2"
+  },
+  "private": true
 }

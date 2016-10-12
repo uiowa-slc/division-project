@@ -1,57 +1,55 @@
-{
-        "name": "md/division-project",
-        "description": "The University of Iowa Division of Student Life Project Code and Theme",
-        "type": "silverstripe-module",
-        "minimum-stability": "stable",
-        "require": {
-                "php": ">=5.3.2",
-                "silverstripe/cms": "3.4.1",
-                "silverstripe/framework": "3.4.1",
-                "silverstripe/installer": "*",
-                "silverstripe-themes/simple": "*",
-                "undefinedoffset/sortablegridfield": "*",
-                "unclecheese/betterbuttons": "*",
-                "unclecheese/eventcalendar": "*",
-                "colymba/gridfield-bulk-editing-tools": "*",
-                "silverstripe/blog": "2.*",
-                "silverstripe/widgets": "*",
-                "silverstripe/userforms": "3.*",
-                "silverstripe/recaptcha": "*",
-                "silverstripe/mathspamprotection" : "*",
-                "simplepie/simplepie": "*",
-                "silverstripe/googlesitemaps": "*",
-                "silverstripe/timepickerfield": "*",
-                "jonom/focuspoint" : "*",
-                "md/division-bar": "dev-master",
-                "md/rss-display": "*",
-                "md/ac-json-events": "dev-master",
-                "sheadawson/quickaddnew" : "*",
-                "silverstripe-australia/gridfieldextensions" : "*",
-                "silverstripe/staticpublisher" : "*",
-                "normann/gridfieldpaginatorwithshowall" : "*",
-                "md/silverstripe-flickr" : "*",
-                "silverstripe-australia/gridfieldextensions" : "*",
-                "jonom/silverstripe-betternavigator": "2.1.0",
-                "thisisbd/silverstripe-maintenance-mode" : "*",
-		"silverstripe/secureassets" : "dev-master"
-        },
-        "repositories": [
-	{
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"       
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/rss-display"       
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"       
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
-        }
-    ]
-
+{  
+   "name":"md/division-project",
+   "description":"The University of Iowa Division of Student Life Project Code and Theme",
+   "type":"silverstripe-module",
+   "minimum-stability":"stable",
+   "require":{  
+      "php":">=5.3.2",
+      "silverstripe/cms":"3.4.1",
+      "silverstripe/framework":"3.4.1",
+      "silverstripe/installer":"*",
+      "silverstripe-themes/simple":"*",
+      "undefinedoffset/sortablegridfield":"*",
+      "unclecheese/betterbuttons":"*",
+      "unclecheese/eventcalendar":"*",
+      "colymba/gridfield-bulk-editing-tools":"*",
+      "silverstripe/blog":"2.*",
+      "silverstripe/widgets":"*",
+      "silverstripe/userforms":"3.*",
+      "silverstripe/recaptcha":"*",
+      "silverstripe/mathspamprotection":"*",
+      "simplepie/simplepie":"*",
+      "silverstripe/googlesitemaps":"*",
+      "silverstripe/timepickerfield":"*",
+      "jonom/focuspoint":"*",
+      "md/division-bar":"dev-master",
+      "md/rss-display":"*",
+      "md/ac-json-events":"dev-master",
+      "sheadawson/quickaddnew":"*",
+      "silverstripe/staticpublisher":"*",
+      "normann/gridfieldpaginatorwithshowall":"*",
+      "md/silverstripe-flickr":"*",
+      "silverstripe-australia/gridfieldextensions":"*",
+      "jonom/silverstripe-betternavigator":"2.1.0",
+      "thisisbd/silverstripe-maintenance-mode":"*",
+      "silverstripe/secureassets":"dev-master"
+   },
+   "repositories":[  
+      {  
+         "type":"vcs",
+         "url":"https://github.com/StudentLifeMarketingAndDesign/division-bar"
+      },
+      {  
+         "type":"vcs",
+         "url":"https://github.com/StudentLifeMarketingAndDesign/rss-display"
+      },
+      {  
+         "type":"vcs",
+         "url":"https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
+      },
+      {  
+         "type":"vcs",
+         "url":"https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
+      }
+   ]
 }
