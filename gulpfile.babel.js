@@ -4,9 +4,7 @@ import plugins  from 'gulp-load-plugins';
 import yargs    from 'yargs';
 import browser  from 'browser-sync';
 import gulp     from 'gulp';
-//import panini   from 'panini';
 import rimraf   from 'rimraf';
-//import sherpa   from 'style-sherpa';
 import yaml     from 'js-yaml';
 import fs       from 'fs';
 
@@ -45,24 +43,6 @@ function copy() {
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist));
 }
 
-// Copy page templates into finished HTML files
-function pages() {
-  return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
-    .pipe(panini({
-      root: 'src/pages/',
-      layouts: 'src/layouts/',
-      partials: 'src/partials/',
-      data: 'src/data/',
-      helpers: 'src/helpers/'
-    }))
-    .pipe(gulp.dest(PATHS.dist));
-}
-
-// Load updated HTML templates and partials into Panini
-function resetPages(done) {
-  panini.refresh();
-  done();
-}
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -113,7 +93,20 @@ function images() {
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    proxy: "localhost:8888"
+    proxy: {
+      target: "localhost:8888",
+      proxyRes: [
+          function(proxyRes, req, res) {
+              //console.log(proxyRes.headers);
+              // proxyRes.setHeader('X-Special-Proxy-Header', 'foobar');
+          }
+      ],
+      proxyReq: [
+        function(proxyReq) {
+            //proxyReq.setHeader('X-Special-Proxy-Header', 'foobar');
+        }
+      ]
+    }
   });
   done();
 }
@@ -130,12 +123,12 @@ function watch() {
   // gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
   // gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
 
-  gulp.watch(PATHS.theme +'/templates/**/*.ss').on('all', gulp.series(pages, browser.reload));
+  gulp.watch(PATHS.theme +'/templates/**/*.ss').on('all', gulp.series(browser.reload));
   gulp.watch(PATHS.theme + '/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
   gulp.watch(PATHS.theme + '/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/images/**/*').on('all', gulp.series(images, browser.reload));
 
-  gulp.watch('templates/**/*.ss').on('all', gulp.series(pages, browser.reload));
+  gulp.watch('templates/**/*.ss').on('all', gulp.series(browser.reload));
   gulp.watch('src/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));

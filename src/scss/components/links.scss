@@ -1,0 +1,10 @@
+a {
+
+	@include transition;
+	&:hover, :active, :focus {
+		
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+}

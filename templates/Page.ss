@@ -42,7 +42,7 @@
     -->
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/app.css">
   </head>
-  <body>
+  <body class="{$ClassName} action--{$Action}">
     <!-- Add your site or app content here -->
     $Layout
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

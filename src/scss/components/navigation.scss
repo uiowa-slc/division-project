@@ -1,0 +1,113 @@
+.nav-wrapper {
+	margin-top: .5em;
+	position: relative;
+	z-index: 1;
+	// @media (max-width: $breakpoint-large - 1) {
+	// 	display: none;
+	// }
+}
+.main-nav {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	display: table;
+	text-align: center;
+}
+.main-nav > li {
+	display: table-cell;
+	position: relative;
+}
+
+/* first descendant link within a top level navigation item */
+.main-nav > li > a {
+	display: block;
+	padding: 2px 14px;
+	position: relative;
+	transition: none;
+	z-index: 2;
+	@media (min-width: 1090px) {
+		padding: 2px 23px;
+	}
+}
+
+/* hover
+----------------------------------------------------*/
+.main-nav > li:not(.parent):hover > a {
+	text-decoration: underline;
+	&:after {
+		content: "";
+	}
+}
+.main-nav > li.parent:hover > a {
+	box-shadow:
+		inset 1px 0 0 #ddd,
+		inset 0 1px 0 #ddd,
+		inset -1px 0 0 #ddd;
+	&:after {
+		background-color: #fff;
+		display: block;
+		width: calc(100% - 1px);
+		height: 1px;
+		position: absolute;
+		bottom: 0;
+		left: 1px;
+		content: "";
+	}
+}
+
+/* second level nav panel
+----------------------------------------------------*/
+.main-nav .sub-nav {
+	background-color: #fff;
+	position: absolute;
+	left: -9999px;
+	top: 100%;
+	min-width: 250px;
+	list-style: none;
+	opacity: 0;
+	box-shadow:
+		inset 1px 0 0 #ddd,
+		inset 0 1px 0 #ddd,
+		inset -1px 0 0 #ddd,
+		inset 0 -1px 0 #ddd,
+		4px 4px 4px 0 rgba(0,0,0,0.05);
+   margin-top: -1px;
+   visibility: hidden;
+   padding: 18px 24px;
+   z-index: 1;
+   margin-left: 0;
+}
+.main-nav li:hover .sub-nav,
+.main-nav li:focus .sub-nav,
+.main-nav .sub-nav.show-menu {
+	left: 0;
+	opacity: 1;
+	visibility: visible;
+}
+
+/* second level nav link styles
+----------------------------------------------------*/
+.sub-nav li {
+	border-bottom: 1px solid #eee;
+	float: none;
+	position: static;
+}
+.sub-navul li:before,
+.main-nav ul li.last:after {
+	display: none;
+}
+.sub-nav ul li:first-of-type {
+	border-top: none;
+}
+.sub-nav li a {
+	display: block;
+	line-height: 1.3;
+	padding: 12px 0;
+	text-align: left;
+	text-transform: none;
+	transition: padding .1s ease-in-out;
+}
+
+
+
+
