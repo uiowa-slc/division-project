@@ -1,11 +1,11 @@
 
-	<li class="orbit-slide">
+	<li class="orbit-slide" style="background-image: url($Image.URL);">
 		<div class="homepage-slider--bg-container">
 		<div class="row">
 			<div class="large-6 columns">
 				<p class="subheader">News</p>
-				<h1>Being Black at Iowa</h1>
-				<p>Pellentesque vestibulum libero id nibh vulputate, vel dictum felis tincidunt. Maecenas rhoncus mauris purus, quis euismod sapien scelerisque ac. Suspendisse finibus arcu enim, vel sagittis nisi faucibus sed.</p>
+				<h1>Empowering Students</h1>
+				<p>$Tagline</p>
 				<p><a href="#" class="button hollow homepage-slider--read-more">Read Full Story</a></p>
 			</div>
 		</div>

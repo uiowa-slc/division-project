@@ -3,11 +3,15 @@
 		<div class="header--container">
 		<% include Header %>
 		</div>
+
+		<% if $BackgroundFeatures.Count > 1 %>
 		<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
 		<button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
-		<% include HomePageSlide %>
-		<% include HomePageSlide %>
-		<% include HomePageSlide %>
+		<% end_if %>
+
+		<% loop $BackgroundFeatures %>
+			<% include HomePageSlide %>
+		<% end_loop %>
 	</ul>
 
 </div>
