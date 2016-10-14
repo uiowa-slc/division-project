@@ -22,7 +22,6 @@
       "silverstripe/googlesitemaps":"*",
       "silverstripe/timepickerfield":"*",
       "jonom/focuspoint":"*",
-      "md/division-bar":"dev-master",
       "md/rss-display":"*",
       "md/ac-json-events":"dev-master",
       "sheadawson/quickaddnew":"*",
