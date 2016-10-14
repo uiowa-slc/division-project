@@ -3,7 +3,6 @@
 </div>
 <div class="row large-6 large-centered columns">
 	<article role="main">
-		<h1>$Title</h1>
 		$Content
 		$Form
 	</article>

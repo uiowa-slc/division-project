@@ -1,4 +1,4 @@
-<div class="orbit homepage-slider" role="region" aria-label="Favorite Space Pictures" data-orbit>
+<div class="orbit homepage-slider" role="region" aria-label="Featured News Items" data-orbit>
 	<ul class="orbit-container">
 		<div class="header--container">
 		<% include Header %>
