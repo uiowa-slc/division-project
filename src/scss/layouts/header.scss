@@ -1,0 +1,43 @@
+header.header {
+	h1 {
+		font-size: rem-calc(29);
+		font-weight: 600;
+		letter-spacing: 1px;
+		line-height: 1.1;
+		padding: 0.5em 0 .2em 0;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		a{
+			color: $body-font-color;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(41);
+		}
+
+
+		@include breakpoint(large) {
+			font-size: rem-calc(46);
+			padding: 0.5em 0 .2em 0;
+		}
+	}
+
+	&.header_dark{
+
+		h1{
+			a{
+				color: white;
+			}
+		}
+
+	}
+}
+
+.HomePage header {
+	color: white;
+}

@@ -40,6 +40,7 @@
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
+    $TypeKit
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/app.css">
   </head>
   <body class="{$ClassName} action--{$Action}">
@@ -54,6 +55,5 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
-    <!-- Built with love using Web Starter Kit -->
   </body>
 </html>

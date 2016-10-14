@@ -1,39 +1,19 @@
-<header role="banner">
-	<h1 class="text-center">$SiteConfig.Title</h1>
+<% include DivisionBar %>
+<header class="header header_dark" role="banner">
+	<h1><a href="$BaseUrl">$SiteConfig.Title</a></h1>
 		<nav role="navigation" class="nav-wrapper" aria-label="Main menu">
-			<ul class="main-nav clearfix">
-				<li class="first parent"><a href="#">Menu One</a>
+			<ul class="main-nav main-nav_dark clearfix">
+				<% loop $Menu(1) %>
+				<li class="$FirstLast <% if $Children %>parent<% end_if %>"><a href="$Link">$MenuTitle</a>
+					<% if $Children %>
 					<ul class="sub-nav unstyled">
-						<li class="first "><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class="last"><a href="#">Dolor Pharetra Parturient</a></li>
+						<% loop $Children %>
+							<li class="$FirstLast "><a href="$Link">$MenuTitle</a></li>
+						<% end_loop %>
 					</ul>
+					<% end_if %>
 				</li>
-				<li class="parent"><a href="#">Menu Two</a>
-					<ul class="sub-nav unstyled">
-						<li class="first"><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class="last"><a href="#">Dolor Pharetra Parturient</a></li>
-					</ul>
-				</li>
-				<li class="parent"><a href="#">Menu Three</a>
-					<ul class="sub-nav unstyled">
-						<li class="first "><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class=""><a href="#">Dolor Pharetra Parturient</a></li>
-						<li class="last"><a href="#">Dolor Pharetra Parturient</a></li>
-					</ul>
-				</li>
-				<li class=""><a href="#">Menu Four</a></li>
-				<li class="last"><a href="#">Menu Five</a></li>
+				<% end_loop %>
 			</ul>
 		</nav>
 	</header>

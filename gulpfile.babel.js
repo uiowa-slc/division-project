@@ -94,18 +94,7 @@ function images() {
 function server(done) {
   browser.init({
     proxy: {
-      target: "localhost:8888",
-      proxyRes: [
-          function(proxyRes, req, res) {
-              //console.log(proxyRes.headers);
-              // proxyRes.setHeader('X-Special-Proxy-Header', 'foobar');
-          }
-      ],
-      proxyReq: [
-        function(proxyReq) {
-            //proxyReq.setHeader('X-Special-Proxy-Header', 'foobar');
-        }
-      ]
+      target: "localhost:8888/division-project-4"
     }
   });
   done();

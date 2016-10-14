@@ -12,10 +12,18 @@
 	padding: 0;
 	display: table;
 	text-align: center;
+
+	&.main-nav_dark	{
+		background-color: #333;
+		&> li > a{
+			color: $white;
+		}
+	}
 }
 .main-nav > li {
 	display: table-cell;
 	position: relative;
+	font-family: $header-font-family;
 }
 
 /* first descendant link within a top level navigation item */
@@ -25,8 +33,11 @@
 	position: relative;
 	transition: none;
 	z-index: 2;
+	text-transform: uppercase;
+	font-size: rem-calc(18);
+	font-weight: 600;
 	@media (min-width: 1090px) {
-		padding: 2px 23px;
+		padding: rem-calc(20) rem-calc(37);
 	}
 }
 

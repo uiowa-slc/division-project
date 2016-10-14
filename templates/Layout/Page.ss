@@ -1,6 +1,9 @@
+<div class="background-slider" style="background-image: url($BackgroundImage.URL)">
 <% include Header %>
-<main role="main">
+</div>
+
+<article role="main">
 	<h1>$Title</h1>
-
-
-</main>
+	$Content
+	$Form
+</article>
