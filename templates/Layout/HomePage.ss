@@ -1,41 +1,22 @@
-<div class="homepage-slider">
-	<% include Header %>
-	<div class="row">
-		<div class="large-6 columns">
-			<p class="subheader">News</p>
-			<h1>Being Black at Iowa</h1>
-			<p>Pellentesque vestibulum libero id nibh vulputate, vel dictum felis tincidunt. Maecenas rhoncus mauris purus, quis euismod sapien scelerisque ac. Suspendisse finibus arcu enim, vel sagittis nisi faucibus sed.</p>
-			<p><a href="#" class="button hollow">Read Full Story</a></p>
+<div class="orbit homepage-slider" role="region" aria-label="Favorite Space Pictures" data-orbit>
+	<ul class="orbit-container">
+		<div class="header--container">
+		<% include Header %>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns">
-			<p class="subheader">Related Content</p>
-		</div>
-	</div>
-	<div class="row small-up-1 medium-up-4">
-		<div class="column">
-			<article>
-				<p><em>September 25, 2016</em></p>
-				<p>Curabitur blandit tempus porttitor.</p>
-			</article>		
-		</div>
-		<div class="column">
-			<article>
-				<p><em>September 25, 2016</em></p>
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-			</article>	
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="large-12">
-		<p>$SiteConfig.Tagline</p>
-		<article role="main">
-			<h1>$Title</h1>
-			$Content
-			$Form
-		</article>
-	</div>
+		<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+		<button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+		<% include HomePageSlide %>
+		<% include HomePageSlide %>
+		<% include HomePageSlide %>
+	</ul>
 
+</div>
+<div class="row large-6 large-centered columns">
+	<hr />
+	<p class="text-center">$SiteConfig.Tagline</p>
+	<article role="main">
+		<h1>$Title</h1>
+		$Content
+		$Form
+	</article>
 </div>

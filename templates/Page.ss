@@ -46,6 +46,8 @@
   <body class="{$ClassName} action--{$Action}">
     <!-- Add your site or app content here -->
     $Layout
+
+    <script src="{$ThemeDir}/dist/scripts/app.js"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

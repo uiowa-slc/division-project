@@ -33,7 +33,8 @@
       "thisisbd/silverstripe-maintenance-mode":"*",
       "silverstripe/secureassets":"dev-master",
       "studiobonito/silverstripe-typekit" : "*",
-      "unclecheese/silverstripe-page-gallery": "dev-master"
+      "unclecheese/silverstripe-page-gallery": "dev-master",
+      "rywa/silverstripe-foundation-forms" : "dev-master"
    },
    "repositories":[  
       {  

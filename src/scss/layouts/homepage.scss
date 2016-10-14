@@ -1,9 +1,35 @@
 .HomePage{
 	.homepage-slider{
 		background-color: #333;
-		background-image: url(../images/k2.jpg);
+		
 		color: $white;
+
+		.orbit-next,.orbit-previous{
+			height: 100%;
+			width: 5%;
+			&:hover, &:active, &:focus{
+				
+			}
+		}
+		.orbit-previous:hover, .orbit-next:hover, .orbit-previous:active, .orbit-next:active, .orbit-previous:focus, .orbit-next:focus{
+
+		}
+
+		.homepage-slider--read-more{
+				color: white;
+				border-color: white;
+		}
+		li.orbit-slide{
+			
+			background-image: url(https://unsplash.it/1920/1080?random);
+
+			.homepage-slider--bg-container {
+				background: rgba(#333, 0.5);
+				position: relative;
+				padding-top: 400px;
+
+			}
+
+		}
 	}
-
-
 }

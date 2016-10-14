@@ -29,14 +29,15 @@
 /* first descendant link within a top level navigation item */
 .main-nav > li > a {
 	display: block;
-	padding: 2px 14px;
+	padding: rem-calc(10) rem-calc(25);
 	position: relative;
 	transition: none;
 	z-index: 2;
 	text-transform: uppercase;
 	font-size: rem-calc(18);
 	font-weight: 600;
-	@media (min-width: 1090px) {
+
+	@include breakpoint(large) {
 		padding: rem-calc(20) rem-calc(37);
 	}
 }
@@ -50,15 +51,12 @@
 	}
 }
 .main-nav > li.parent:hover > a {
-	box-shadow:
-		inset 1px 0 0 #ddd,
-		inset 0 1px 0 #ddd,
-		inset -1px 0 0 #ddd;
+
 	&:after {
 		background-color: #fff;
 		display: block;
 		width: calc(100% - 1px);
-		height: 1px;
+		height: 5px;
 		position: absolute;
 		bottom: 0;
 		left: 1px;

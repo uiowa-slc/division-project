@@ -1,3 +1,10 @@
+.header--container{
+	position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    z-index: 9999;
+}
 header.header {
 	h1 {
 		font-size: rem-calc(29);
