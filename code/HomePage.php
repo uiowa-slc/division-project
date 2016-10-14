@@ -61,7 +61,8 @@ class HomePage extends Page {
 		$f->addFieldToTab("Root.Main", $homePageHeroFeatureGridField);
 		$f->addFieldToTab("Root.Main", new LiteralField("SpacerField", "<br /><br />"));
 		$f->addFieldToTab("Root.Main", $homePageFeatureGridField);
-
+		
+		$this->extend('updateCMSFields', $f);
 		return $f;
 	}
 }

@@ -1,11 +1,11 @@
 <% if $Posts %>
-	<ul>
+<ul class="feed-nav">
+
+
 		<% loop $Posts %>
-			<li>
-				<a href="$Link" title="$Title">
-					<span class="text">$Title</span>
-				</a>
-			</li>
-		<% end_loop %>
-	</ul>
+			<a href="$Link" title="<% _t('VIEWFULL', 'View full post titled -') %> '$Title'"><li>$MenuTitle<br /><% if $PublishDate %><span class="posted-on">posted on $PublishDate.Format('F j')</span><% end_if %></li></a>
+    	<% end_loop %>
+
+
+</ul>
 <% end_if %>

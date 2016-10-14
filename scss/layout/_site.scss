@@ -414,6 +414,14 @@ aside .mod {
 
 /* Blog
 ========================================================================== */
+
+.blog-featured-image {
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
 .tags {
 	border-bottom: 1px solid #ddd;
 	margin-top: -10px;
@@ -463,6 +471,10 @@ aside .mod {
 }
 
 /* Sidebar Blog Feeds */
+#blog-sidebar .WidgetHolder h3 {
+	margin-bottom: 10px;
+}
+
 .feed-nav {
 	margin: 0;
 }
