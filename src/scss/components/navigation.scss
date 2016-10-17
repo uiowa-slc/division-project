@@ -1,122 +1,128 @@
-.nav-wrapper {
+
+
+.navigation__wrapper {
 	margin-top: .5em;
 	position: relative;
 	z-index: 1;
-	// @media (max-width: $breakpoint-large - 1) {
-	// 	display: none;
-	// }
+	background-color: #eee;
+	&--dark	{
+		background-color: #242424;
+	}
 }
-.main-nav {
+.navigation {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
 	display: table;
 	text-align: center;
 
-	&.main-nav_dark	{
-		background-color: #333;
-		&> li > a{
-			color: $white;
-		}
+	&__item--parent:hover{
+			&:after {
+					background-color: $yellow;
+					display: block;
+					width: calc(100% - 1px);
+					height: 5px;
+					position: absolute;
+					bottom: 0;
+					left: 1px;
+					content: "";
+				}
+			.navigation__subnav{
+				left: 0;
+				opacity: 1;
+				visibility: visible;
+			}
 	}
-}
-.main-nav > li {
-	display: table-cell;
-	position: relative;
-	font-family: $header-font-family;
-}
 
-/* first descendant link within a top level navigation item */
-.main-nav > li > a {
-	display: block;
-	padding: rem-calc(10) rem-calc(25);
-	position: relative;
-	transition: none;
-	z-index: 2;
-	text-transform: uppercase;
-	font-size: rem-calc(18);
-	font-weight: 600;
+	&__item{
+		display: table-cell;
+		position: relative;
+		font-family: $header-font-family;
 
-	@include breakpoint(large) {
-		padding: rem-calc(20) rem-calc(37);
-	}
-}
+			.navigation__link--parent{
+				
+			}
 
-/* hover
-----------------------------------------------------*/
-.main-nav > li:not(.parent):hover > a {
-	text-decoration: underline;
-	&:after {
-		content: "";
-	}
-}
-.main-nav > li.parent:hover > a {
+		}		
 
-	&:after {
-		background-color: #fff;
+	&__link{
 		display: block;
-		width: calc(100% - 1px);
-		height: 5px;
-		position: absolute;
-		bottom: 0;
-		left: 1px;
-		content: "";
+		padding: rem-calc(10) rem-calc(25);
+		position: relative;
+		transition: none;
+		z-index: 2;
+		text-transform: uppercase;
+		font-size: rem-calc(18);
+		font-weight: 600;
+		color: $black;
+
+
+		@include breakpoint(large) {
+			padding: rem-calc(20) rem-calc(37);
+		}
+
 	}
-}
 
-/* second level nav panel
-----------------------------------------------------*/
-.main-nav .sub-nav {
-	background-color: #fff;
-	position: absolute;
-	left: -9999px;
-	top: 100%;
-	min-width: 250px;
-	list-style: none;
-	opacity: 0;
-	box-shadow:
-		inset 1px 0 0 #ddd,
-		inset 0 1px 0 #ddd,
-		inset -1px 0 0 #ddd,
-		inset 0 -1px 0 #ddd,
-		4px 4px 4px 0 rgba(0,0,0,0.05);
-   margin-top: -1px;
-   visibility: hidden;
-   padding: 18px 24px;
-   z-index: 1;
-   margin-left: 0;
-}
-.main-nav li:hover .sub-nav,
-.main-nav li:focus .sub-nav,
-.main-nav .sub-nav.show-menu {
-	left: 0;
-	opacity: 1;
-	visibility: visible;
-}
+	&__link--dark{
+		color: white;
+	}
 
-/* second level nav link styles
-----------------------------------------------------*/
-.sub-nav li {
-	border-bottom: 1px solid #eee;
-	float: none;
-	position: static;
-}
-.sub-navul li:before,
-.main-nav ul li.last:after {
-	display: none;
-}
-.sub-nav ul li:first-of-type {
-	border-top: none;
-}
-.sub-nav li a {
-	display: block;
-	line-height: 1.3;
-	padding: 12px 0;
-	text-align: left;
-	text-transform: none;
-	transition: padding .1s ease-in-out;
-}
+	&__subnav{
+		background-color: #fff;
+		position: absolute;
+		left: -9999px;
+		top: 100%;
+		min-width: 250px;
+		list-style: none;
+		opacity: 0;
+		box-shadow:
+			inset 1px 0 0 #ddd,
+			inset 0 1px 0 #ddd,
+			inset -1px 0 0 #ddd,
+			inset 0 -1px 0 #ddd,
+			4px 4px 4px 0 rgba(0,0,0,0.05);
+	   margin-top: -1px;
+	   visibility: hidden;
+	   padding: 18px 24px;
+	   z-index: 1;
+	   margin-left: 0;
+	}
+
+	&__subnav--show-menu{
+		left: 0;
+		opacity: 1;
+		visibility: visible;		
+	}
 
 
+	&__subnav-item{
+		border-bottom: 1px solid #eee;
+		float: none;
+		position: static;
+
+		&:first-of-type{
+			border-top: none;
+		}
+
+		&:before{
+			display: none;
+		}
+
+	}
+
+	&__subnav-item--last{
 
 
+	}
+
+	&__subnav-link{
+
+		display: block;
+		line-height: 1.3;
+		padding: 12px 0;
+		text-align: left;
+		text-transform: none;
+		transition: padding .1s ease-in-out;	
+	}
+
+}
