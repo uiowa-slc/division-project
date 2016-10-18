@@ -20,12 +20,9 @@ $yellow: #ffcd00;
 
 @include add-foundation-colors;
 
-/* Base Typography
-----------------------------------------------------*/
-//Most browsers have this set to 16 by default, so we use 100%:
-$global-font-size: 100%;
 
-$global-width: rem-calc(1200);
+
+$global-width: rem-calc(1600);
 $global-lineheight: 1.5;
 
 $body-background: $white;
@@ -41,6 +38,12 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+
+/* Base Typography
+----------------------------------------------------*/
+//Most browsers have this set to 16 by default, so we use 100%:
+
+$global-font-size: 120%;
 
 /* Links
 ----------------------------------------------------*/
