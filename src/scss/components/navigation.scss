@@ -120,13 +120,13 @@
 		z-index: 2;
 		text-transform: uppercase;
 		font-size: rem-calc(18);
-		color: black;
+		color: #333;
 		border-color: white;
 		@include breakpoint(large) {
 			padding: rem-calc(20) rem-calc(37);
 		}
 
-		&:hover{
+		&:hover,&:focus,&:active{
 			color: lighten($black, 20);
 		}
 
@@ -142,7 +142,7 @@
 	&__link--dark{
 		color: white;
 		font-weight: bold;
-		&:hover{
+		&:hover,&:focus,&:active{
 			color: darken($white, 20);
 		}
 		&:after{
@@ -194,7 +194,7 @@
 	}
 
 	&__subnav-item--last{
-
+		border-bottom: none;
 
 	}
 

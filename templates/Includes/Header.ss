@@ -10,7 +10,7 @@
 				<% if $Children %>
 					<ul class="navigation__subnav">
 						<% loop $Children %>
-							<li class="$FirstLast navigation__subnav-item "><a class="navigation__subnav-link" href="$Link">$MenuTitle</a></li>
+							<li class="navigation__subnav-item <% if $FirstLast %>navigation__subnav-item--$FirstLast<% end_if %>"><a class="navigation__subnav-link" href="$Link">$MenuTitle</a></li>
 						<% end_loop %>
 					</ul>
 				<% end_if %>
