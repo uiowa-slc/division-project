@@ -4,7 +4,7 @@
 	margin-top: .5em;
 	position: relative;
 	z-index: 1;
-	background-color: #eee;
+	background-color: #f7f7f7;
 	&--dark	{
 		background-color: #242424;
 	}
@@ -53,7 +53,6 @@
 		z-index: 2;
 		text-transform: uppercase;
 		font-size: rem-calc(18);
-		font-weight: 600;
 		color: $black;
 
 
@@ -65,6 +64,7 @@
 
 	&__link--dark{
 		color: white;
+		font-weight: bold;
 	}
 
 	&__subnav{

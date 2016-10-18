@@ -1,0 +1,31 @@
+
+/* Main Content Styles: */
+
+.content{
+	padding-top: rem-calc(40);
+
+	h1,h2,h3,h4,h5,h6{
+		a:after{
+			@include css-triangle(6px, $anchor-color, right);
+			margin-bottom: 4px;
+			margin-left: 5px;
+			display: inline-block;
+
+		}
+	}	
+}
+
+
+/* SilverStripe / TinyMCE Image Styles (non BEM!!) */
+
+img.right{
+	@extend .float-right;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+img.left{
+	@extend .float-left;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}

@@ -19,7 +19,7 @@
 <div class="row large-6 large-centered columns">
 	<hr />
 	<p class="text-center">$SiteConfig.Tagline</p>
-	<article role="main">
+	<article role="main" class="content">
 		<h1>$Title</h1>
 		$Content
 		$Form

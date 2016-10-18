@@ -34,7 +34,8 @@
       "silverstripe/secureassets":"dev-master",
       "studiobonito/silverstripe-typekit" : "*",
       "unclecheese/silverstripe-page-gallery": "dev-master",
-      "rywa/silverstripe-foundation-forms" : "dev-master"
+      "rywa/silverstripe-foundation-forms" : "dev-master",
+      "unclecheese/silverstripe-green" : "*"
    },
    "repositories":[  
       {  

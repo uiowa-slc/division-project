@@ -46,7 +46,7 @@
   <body class="{$ClassName} action--{$Action}">
     <!-- Add your site or app content here -->
     $Layout
-
+    $BetterNavigator
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
