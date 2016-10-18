@@ -7,11 +7,16 @@
 }
 
 .header {
+	@include breakpoint(large) {
+		margin-top: -30px;
+	}
+
 	h1 {
 		font-size: rem-calc(29);
 		font-weight: 600;
 		letter-spacing: 1px;
 		line-height: 1.1;
+		margin: 0;
 		padding: 0.2em 0 .2em 0;
 		text-align: center;
 		text-decoration: none;
