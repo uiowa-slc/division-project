@@ -60,20 +60,7 @@
     <% include Footer %>
     <% include MdBar %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-
-	<script type="text/javascript">
-	function downloadJSAtOnload() {
-	var element = document.createElement("script");
-	element.src = "$ThemeDir/build/build.js";
-	document.body.appendChild(element);
-	}
-	if (window.addEventListener)
-	window.addEventListener("load", downloadJSAtOnload, false);
-	else if (window.attachEvent)
-	window.attachEvent("onload", downloadJSAtOnload);
-	else window.onload = downloadJSAtOnload;
-	</script>
+		<script src="{$ThemeDir}/build/build.js"></script>
 
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -82,8 +69,6 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=270867676312194&version=v2.4";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-	
 	$BetterNavigator
-
 </body>
 </html>
