@@ -39,6 +39,15 @@ class SiteConfigExtension extends DataExtension {
 		return $fields;
 	}
 
+	public function TwitterHandle(){
+		$twitterLink = $this->owner->TwitterLink;
+
+		//parse the twitter link here
+		$twitterLink = explode('/', $twitterLink);
+
+		return $twitterLink[3];
+	}
+
 }
 class SiteConfigExtensionPage_Controller extends Page_Controller {
 

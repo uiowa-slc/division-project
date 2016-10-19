@@ -11,7 +11,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
 	<% include OpenGraph %>
-
+	<% if $SiteConfig.TwitterLink %>
+		<% include TweetCard %>
+	<% end_if %>
 	<% if $PreventSearchEngineIndex %>
 		<meta name="robots" content="noindex">
 	<% end_if %>
