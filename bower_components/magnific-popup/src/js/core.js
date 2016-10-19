@@ -25,12 +25,12 @@ var CLOSE_EVENT = 'Close',
 /**
  * Private vars 
  */
+/*jshint -W079 */
 var mfp, // As we have only one instance of MagnificPopup object, we define it locally to not to use 'this'
 	MagnificPopup = function(){},
 	_isJQ = !!(window.jQuery),
 	_prevStatus,
 	_window = $(window),
-	_body,
 	_document,
 	_prevContentType,
 	_wrapClasses,
@@ -80,6 +80,7 @@ var _mfpOn = function(name, f) {
 	// Initialize Magnific Popup only when called at least once
 	_checkInstance = function() {
 		if(!$.magnificPopup.instance) {
+			/*jshint -W020 */
 			mfp = new MagnificPopup();
 			mfp.init();
 			$.magnificPopup.instance = mfp;
@@ -118,9 +119,7 @@ MagnificPopup.prototype = {
 	 */
 	init: function() {
 		var appVersion = navigator.appVersion;
-		mfp.isIE7 = appVersion.indexOf("MSIE 7.") !== -1; 
-		mfp.isIE8 = appVersion.indexOf("MSIE 8.") !== -1;
-		mfp.isLowIE = mfp.isIE7 || mfp.isIE8;
+		mfp.isLowIE = mfp.isIE8 = document.all && !document.addEventListener;
 		mfp.isAndroid = (/android/gi).test(appVersion);
 		mfp.isIOS = (/iphone|ipad|ipod/gi).test(appVersion);
 		mfp.supportsTransition = supportsTransitions();
@@ -138,10 +137,6 @@ MagnificPopup.prototype = {
 	 * @param  data [description]
 	 */
 	open: function(data) {
-
-		if(!_body) {
-			_body = $(document.body);
-		}
 
 		var i;
 
@@ -341,7 +336,7 @@ MagnificPopup.prototype = {
 		$('html').css(windowStyles);
 		
 		// add everything to DOM
-		mfp.bgOverlay.add(mfp.wrap).prependTo( mfp.st.prependTo || _body );
+		mfp.bgOverlay.add(mfp.wrap).prependTo( mfp.st.prependTo || $(document.body) );
 
 		// Save last focused element
 		mfp._lastFocusedEl = document.activeElement;
@@ -432,7 +427,7 @@ MagnificPopup.prototype = {
 		}
 
 
-		if(mfp._lastFocusedEl) {
+		if(mfp.st.autoFocusLast && mfp._lastFocusedEl) {
 			$(mfp._lastFocusedEl).focus(); // put tab focus back
 		}
 		mfp.currItem = null;	
@@ -479,17 +474,13 @@ MagnificPopup.prototype = {
 			item = mfp.parseEl( mfp.index );
 		}
 
-		var type = item.type;	
+		var type = item.type;
 
 		_mfpTrigger('BeforeChange', [mfp.currItem ? mfp.currItem.type : '', type]);
 		// BeforeChange event works like so:
 		// _mfpOn('BeforeChange', function(e, prevType, newType) { });
-		
+
 		mfp.currItem = item;
-
-		
-
-		
 
 		if(!mfp.currTemplate[type]) {
 			var markup = mfp.st[type] ? mfp.st[type].markup : false;
@@ -508,7 +499,7 @@ MagnificPopup.prototype = {
 		if(_prevContentType && _prevContentType !== item.type) {
 			mfp.container.removeClass('mfp-'+_prevContentType+'-holder');
 		}
-		
+
 		var newContent = mfp['get' + type.charAt(0).toUpperCase() + type.slice(1)](item, mfp.currTemplate[type]);
 		mfp.appendContent(newContent, type);
 
@@ -516,7 +507,7 @@ MagnificPopup.prototype = {
 
 		_mfpTrigger(CHANGE_EVENT, item);
 		_prevContentType = item.type;
-		
+
 		// Append container back after its content changed
 		mfp.container.prepend(mfp.contentContainer);
 
@@ -529,7 +520,7 @@ MagnificPopup.prototype = {
 	 */
 	appendContent: function(newContent, type) {
 		mfp.content = newContent;
-		
+
 		if(newContent) {
 			if(mfp.st.showCloseBtn && mfp.st.closeBtnInside &&
 				mfp.currTemplate[type] === true) {
@@ -551,8 +542,6 @@ MagnificPopup.prototype = {
 	},
 
 
-
-	
 	/**
 	 * Creates Magnific Popup data object based on given data
 	 * @param  {int} index Index of item to parse
@@ -606,11 +595,11 @@ MagnificPopup.prototype = {
 
 		if(!options) {
 			options = {};
-		} 
+		}
 
 		var eName = 'click.magnificPopup';
 		options.mainEl = el;
-		
+
 		if(options.items) {
 			options.isObj = true;
 			el.off(eName).on(eName, eHandler);
@@ -628,7 +617,7 @@ MagnificPopup.prototype = {
 		var midClick = options.midClick !== undefined ? options.midClick : $.magnificPopup.defaults.midClick;
 
 
-		if(!midClick && ( e.which === 2 || e.ctrlKey || e.metaKey ) ) {
+		if(!midClick && ( e.which === 2 || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey ) ) {
 			return;
 		}
 
@@ -645,7 +634,7 @@ MagnificPopup.prototype = {
 				}
 			}
 		}
-		
+
 		if(e.type) {
 			e.preventDefault();
 
@@ -654,7 +643,6 @@ MagnificPopup.prototype = {
 				e.stopPropagation();
 			}
 		}
-			
 
 		options.el = $(e.mfpEl);
 		if(options.delegate) {
@@ -783,7 +771,7 @@ MagnificPopup.prototype = {
 						if(el.is('img')) {
 							el.attr('src', value);
 						} else {
-							el.replaceWith( '<img src="'+value+'" class="' + el.attr('class') + '" />' );
+							el.replaceWith( $('<img>').attr('src', value).attr('class', el.attr('class')) );
 						}
 					} else {
 						el.attr(arr[1], value);
@@ -822,14 +810,13 @@ $.magnificPopup = {
 	modules: [],
 
 	open: function(options, index) {
-		_checkInstance();	
+		_checkInstance();
 
 		if(!options) {
 			options = {};
 		} else {
 			options = $.extend(true, {}, options);
 		}
-			
 
 		options.isObj = true;
 		options.index = index || 0;
@@ -844,16 +831,16 @@ $.magnificPopup = {
 		if(module.options) {
 			$.magnificPopup.defaults[name] = module.options;
 		}
-		$.extend(this.proto, module.proto);			
+		$.extend(this.proto, module.proto);
 		this.modules.push(name);
 	},
 
-	defaults: {   
+	defaults: {
 
 		// Info about options is in docs:
 		// http://dimsemenov.com/plugins/magnific-popup/documentation.html#options
-		
-		disableOn: 0,	
+
+		disableOn: 0,
 
 		key: null,
 
@@ -864,12 +851,12 @@ $.magnificPopup = {
 		preloader: true,
 
 		focus: '', // CSS selector of input to focus after popup is opened
-		
+
 		closeOnContentClick: false,
 
 		closeOnBgClick: true,
 
-		closeBtnInside: true, 
+		closeBtnInside: true,
 
 		showCloseBtn: true,
 
@@ -878,22 +865,24 @@ $.magnificPopup = {
 		modal: false,
 
 		alignTop: false,
-	
+
 		removalDelay: 0,
 
 		prependTo: null,
-		
-		fixedContentPos: 'auto', 
-	
+
+		fixedContentPos: 'auto',
+
 		fixedBgPos: 'auto',
 
 		overflowY: 'auto',
 
-		closeMarkup: '<button title="%title%" type="button" class="mfp-close">&times;</button>',
+		closeMarkup: '<button title="%title%" type="button" class="mfp-close">&#215;</button>',
 
 		tClose: 'Close (Esc)',
 
-		tLoading: 'Loading...'
+		tLoading: 'Loading...',
+
+		autoFocusLast: true
 
 	}
 };
@@ -931,9 +920,9 @@ $.fn.magnificPopup = function(options) {
 	} else {
 		// clone options obj
 		options = $.extend(true, {}, options);
-		
+
 		/*
-		 * As Zepto doesn't support .data() method for objects 
+		 * As Zepto doesn't support .data() method for objects
 		 * and it works only in normal browsers
 		 * we assign "options" object directly to the DOM element. FTW!
 		 */
@@ -948,22 +937,3 @@ $.fn.magnificPopup = function(options) {
 	}
 	return jqEl;
 };
-
-
-//Quick benchmark
-/*
-var start = performance.now(),
-	i,
-	rounds = 1000;
-
-for(i = 0; i < rounds; i++) {
-
-}
-console.log('Test #1:', performance.now() - start);
-
-start = performance.now();
-for(i = 0; i < rounds; i++) {
-
-}
-console.log('Test #2:', performance.now() - start);
-*/

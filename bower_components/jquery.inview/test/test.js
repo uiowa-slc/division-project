@@ -1,6 +1,6 @@
 QUnit.config.reorder = false;
 
-window['jQuery 1.6'].each(['jQuery 1.4', 'jQuery 1.5', 'jQuery 1.6', 'jQuery 1.7', 'jQuery 1.8'], function(i, version) {
+window['jQuery 1.8'].each(['jQuery 1.8', 'jQuery 1.12', 'jQuery 2.2'], function(i, version) {
   var jQuery  = window[version],
       $       = jQuery;
 
@@ -211,61 +211,12 @@ window['jQuery 1.6'].each(['jQuery 1.4', 'jQuery 1.5', 'jQuery 1.6', 'jQuery 1.7
   });
 
 
-  asyncTest('Check visiblePartX & visiblePartY parameters #1', function() {
-    expect(2);
-
-    this.element.css({
-      top: '-25px',
-      left: '-25px'
-    }).appendTo('body');
-
-    this.element.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-      equal(visiblePartX, 'right', 'visiblePartX has correct value');
-      equal(visiblePartY, 'bottom', 'visiblePartY has correct value');
-      start();
-    });
-  });
-
-
-  asyncTest('Check visiblePartX & visiblePartY parameters #2', function() {
-    expect(2);
-
-    this.element.css({
-      top: '0',
-      left: '-25px'
-    }).appendTo('body');
-
-    this.element.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-      equal(visiblePartX, 'right', 'visiblePartX has correct value');
-      equal(visiblePartY, 'both', 'visiblePartY has correct value');
-      start();
-    });
-  });
-
-
-  asyncTest('Check visiblePartX & visiblePartY parameters #3', function() {
-    expect(2);
-
-    this.element.css({
-      top: '0',
-      left: '0'
-    }).appendTo('body');
-
-    this.element.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-      equal(visiblePartX, 'both', 'visiblePartX has correct value');
-      equal(visiblePartY, 'both', 'visiblePartY has correct value');
-      start();
-    });
-  });
-
-
   asyncTest('Check "live" events', function() {
     expect(3);
     
-    var that = this,
-        elems = $("body .test-container > div.test-element");
-    elems.live("inview", function(event) {
-      elems.die("inview");
+    var that = this;
+    $("body").on("inview", ".test-container > div.test-element", function(event) {
+      $("body").off("inview");
       ok(true, "Live event correctly fired");
       equal(event.currentTarget, that.element[0], "event.currentTarget correctly set");
       equal(this, that.element[0], "Handler bound to target element");

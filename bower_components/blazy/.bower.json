@@ -1,18 +1,22 @@
 {
   "name": "bLazy",
   "main": "blazy.js",
-  "version": "1.3.1",
-  "description": "bLazy is a lightweight script for lazy loading and multi-serving images",
+  "version": "1.8.0",
+  "description": "A fast lightweight pure JavaScript script for lazy loading and multi-serving images, iframes, videos and more.",
   "homepage": "https://github.com/dinbror/blazy",
   "keywords": [
     "blazy",
     "lazy",
     "lazyload",
+    "lazyloading",
     "retina",
     "responsive",
     "image",
     "images",
-    "javascript"
+    "picture",
+    "srcset",
+    "javascript",
+    "performance"
   ],
   "authors": [
     {
@@ -27,13 +31,13 @@
     "CommonJS"
   ],
   "ignore": [],
-  "_release": "1.3.1",
+  "_release": "1.8.0",
   "_resolution": {
     "type": "version",
-    "tag": "1.3.1",
-    "commit": "fae860857d58764d84222ef981305f0ea9c90b24"
+    "tag": "1.8.0",
+    "commit": "d578d9aada5b6898eff2260e2446ed2f893ff877"
   },
-  "_source": "git://github.com/dinbror/blazy.git",
+  "_source": "https://github.com/dinbror/blazy.git",
   "_target": "*",
   "_originalSource": "blazy"
 }

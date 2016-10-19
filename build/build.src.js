@@ -101,12 +101,14 @@
 })( window.jQuery || window.Zepto );
 
 /*
- * jQuery FlexSlider v2.5.0
+ * jQuery FlexSlider v2.6.3
  * Copyright 2012 WooThemes
  * Contributing Author: Tyler Smith
  */
 ;
 (function ($) {
+
+  var focused = true;
 
   //FlexSlider: Object Instance
   $.flexslider = function(el, options) {
@@ -119,7 +121,6 @@
         msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
         touch = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
         // depricating this idea, as devices are being released with both of these events
-        //eventType = (touch) ? "touchend" : "click",
         eventType = "click touchend MSPointerUp keyup",
         watchedEvent = "",
         watchedEventClearTimer,
@@ -128,8 +129,7 @@
         carousel = (slider.vars.itemWidth > 0),
         fade = slider.vars.animation === "fade",
         asNav = slider.vars.asNavFor !== "",
-        methods = {},
-        focused = true;
+        methods = {};
 
     // Store a reference to the slider object
     $.data(el, "flexslider", slider);
@@ -319,7 +319,9 @@
           if (slider.pagingCount > 1) {
             for (var i = 0; i < slider.pagingCount; i++) {
               slide = slider.slides.eq(i);
-              item = (slider.vars.controlNav === "thumbnails") ? '<img src="' + slide.attr( 'data-thumb' ) + '"/>' : '<a>' + j + '</a>';
+              if ( undefined === slide.attr( 'data-thumb-alt' ) ) { slide.attr( 'data-thumb-alt', '' ); }
+              var altText = ( '' !== slide.attr( 'data-thumb-alt' ) ) ? altText = ' alt="' + slide.attr( 'data-thumb-alt' ) + '"' : '';
+              item = (slider.vars.controlNav === "thumbnails") ? '<img src="' + slide.attr( 'data-thumb' ) + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
               if ( 'thumbnails' === slider.vars.controlNav && true === slider.vars.thumbCaptions ) {
                 var captn = slide.attr( 'data-thumbcaption' );
                 if ( '' !== captn && undefined !== captn ) { item += '<span class="' + namespace + 'caption">' + captn + '</span>'; }
@@ -389,7 +391,7 @@
         },
         update: function(action, pos) {
           if (slider.pagingCount > 1 && action === "add") {
-            slider.controlNavScaffold.append($('<li><a>' + slider.count + '</a></li>'));
+            slider.controlNavScaffold.append($('<li><a href="#">' + slider.count + '</a></li>'));
           } else if (slider.pagingCount === 1) {
             slider.controlNavScaffold.find('li').remove();
           } else {
@@ -452,7 +454,7 @@
       },
       pausePlay: {
         setup: function() {
-          var pausePlayScaffold = $('<div class="' + namespace + 'pauseplay"><a></a></div>');
+          var pausePlayScaffold = $('<div class="' + namespace + 'pauseplay"><a href="#"></a></div>');
 
           // CONTROLSCONTAINER:
           if (slider.controlsContainer) {
@@ -692,7 +694,7 @@
       smoothHeight: function(dur) {
         if (!vertical || fade) {
           var $obj = (fade) ? slider : slider.viewport;
-          (dur) ? $obj.animate({"height": slider.slides.eq(slider.animatingTo).height()}, dur) : $obj.height(slider.slides.eq(slider.animatingTo).height());
+          (dur) ? $obj.animate({"height": slider.slides.eq(slider.animatingTo).innerHeight()}, dur) : $obj.innerHeight(slider.slides.eq(slider.animatingTo).innerHeight());
         }
       },
       sync: function(action) {
@@ -723,19 +725,19 @@
               if (methods.pauseInvisible.isHidden()) {
                 if(slider.startTimeout) {
                   clearTimeout(slider.startTimeout); //If clock is ticking, stop timer and prevent from starting while invisible
-                } else { 
+                } else {
                   slider.pause(); //Or just pause
                 }
               }
               else {
                 if(slider.started) {
                   slider.play(); //Initiated before, just play
-                } else { 
-                  if (slider.vars.initDelay > 0) { 
+                } else {
+                  if (slider.vars.initDelay > 0) {
                     setTimeout(slider.play, slider.vars.initDelay);
                   } else {
                     slider.play(); //Didn't init before: simply init or wait for it
-                  } 
+                  }
                 }
               }
             });
@@ -839,7 +841,6 @@
 
           // INFINITE LOOP / REVERSE:
           if (carousel) {
-            //margin = (slider.vars.itemWidth > slider.w) ? slider.vars.itemMargin * 2 : slider.vars.itemMargin;
             margin = slider.vars.itemMargin;
             calcNext = ((slider.itemW + margin) * slider.move) * slider.animatingTo;
             slideString = (calcNext > slider.limit && slider.visible !== 1) ? slider.limit : calcNext;
@@ -856,7 +857,7 @@
               slider.animating = false;
               slider.currentSlide = slider.animatingTo;
             }
-            
+
             // Unbind previous transitionEnd events and re-bind new transitionEnd event
             slider.container.unbind("webkitTransitionEnd transitionend");
             slider.container.bind("webkitTransitionEnd transitionend", function() {
@@ -877,12 +878,8 @@
           }
         } else { // FADE:
           if (!touch) {
-            //slider.slides.eq(slider.currentSlide).fadeOut(slider.vars.animationSpeed, slider.vars.easing);
-            //slider.slides.eq(target).fadeIn(slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
-
             slider.slides.eq(slider.currentSlide).css({"zIndex": 1}).animate({"opacity": 0}, slider.vars.animationSpeed, slider.vars.easing);
             slider.slides.eq(target).css({"zIndex": 2}).animate({"opacity": 1}, slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
-
           } else {
             slider.slides.eq(slider.currentSlide).css({ "opacity": 0, "zIndex": 1 });
             slider.slides.eq(target).css({ "opacity": 1, "zIndex": 2 });
@@ -1038,7 +1035,7 @@
           slider.setProps(sliderOffset * slider.computedW, "init");
           setTimeout(function(){
             slider.doMath();
-            slider.newSlides.css({"width": slider.computedW, "float": "left", "display": "block"});
+            slider.newSlides.css({"width": slider.computedW, "marginRight" : slider.computedM, "float": "left", "display": "block"});
             // SMOOTH HEIGHT:
             if (slider.vars.smoothHeight) { methods.smoothHeight(); }
           }, (type === "init") ? 100 : 0);
@@ -1081,6 +1078,7 @@
       // CAROUSEL:
       if (carousel) {
         slider.itemT = slider.vars.itemWidth + slideMargin;
+        slider.itemM = slideMargin;
         slider.minW = (minItems) ? minItems * slider.itemT : slider.w;
         slider.maxW = (maxItems) ? (maxItems * slider.itemT) - slideMargin : slider.w;
         slider.itemW = (slider.minW > slider.w) ? (slider.w - (slideMargin * (minItems - 1)))/minItems :
@@ -1095,10 +1093,12 @@
                        (slider.vars.itemWidth > slider.w) ? (slider.itemW * (slider.count - 1)) + (slideMargin * (slider.count - 1)) : ((slider.itemW + slideMargin) * slider.count) - slider.w - slideMargin;
       } else {
         slider.itemW = slider.w;
+        slider.itemM = slideMargin;
         slider.pagingCount = slider.count;
         slider.last = slider.count - 1;
       }
       slider.computedW = slider.itemW - slider.boxPadding;
+      slider.computedM = slider.itemM;
     };
 
     slider.update = function(pos, action) {
@@ -1269,7 +1269,7 @@
             selector = (options.selector) ? options.selector : ".slides > li",
             $slides = $this.find(selector);
 
-      if ( ( $slides.length === 1 && options.allowOneSlide === true ) || $slides.length === 0 ) {
+      if ( ( $slides.length === 1 && options.allowOneSlide === false ) || $slides.length === 0 ) {
           $slides.fadeIn(400);
           if (options.start) { options.start($this); }
         } else if ($this.data('flexslider') === undefined) {
@@ -1293,238 +1293,372 @@
 })(jQuery);
 
 /*!
-  hey, [be]Lazy.js - v1.3.1 - 2015.02.01 
-  A lazy loading and multi-serving image script
+  hey, [be]Lazy.js - v1.8.0 - 2016.10.16
+  A fast, small and dependency free lazy load script (https://github.com/dinbror/blazy)
   (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
 */
-;(function(root, blazy) {
-	if (typeof define === 'function' && define.amd) {
+;
+(function(root, blazy) {
+    if (typeof define === 'function' && define.amd) {
         // AMD. Register bLazy as an anonymous module
         define(blazy);
-	} else if (typeof exports === 'object') {
-		// Node. Does not work with strict CommonJS, but
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
         // only CommonJS-like environments that support module.exports,
-        // like Node. 
-		module.exports = blazy();
-	} else {
+        // like Node.
+        module.exports = blazy();
+    } else {
         // Browser globals. Register bLazy on window
         root.Blazy = blazy();
-	}
-})(this, function () {
-	'use strict';
-	
-	//vars
-	var source, options, viewport, images, count, isRetina, destroyed;
-	//throttle vars
-	var validateT, saveViewportOffsetT;
-	
-	// constructor
-	function Blazy(settings) {
-		//IE7- fallback for missing querySelectorAll support
-		if (!document.querySelectorAll) {
-			var s=document.createStyleSheet();
-			document.querySelectorAll = function(r, c, i, j, a) {
-				a=document.all, c=[], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
-				for (i=r.length; i--;) {
-					s.addRule(r[i], 'k:v');
-					for (j=a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
-						s.removeRule(0);
-				}
-				return c;
-			};
-		}
-		//init vars
-		destroyed 				= true;
-		images 					= [];
-		viewport				= {};
-		//options
-		options 				= settings 				|| {};
-		options.error	 		= options.error 		|| false;
-		options.offset			= options.offset 		|| 100;
-		options.success			= options.success 		|| false;
-	  	options.selector 		= options.selector 		|| '.b-lazy';
-		options.separator 		= options.separator 	|| '|';
-		options.container		= options.container 	?  document.querySelectorAll(options.container) : false;
-		options.errorClass 		= options.errorClass 	|| 'b-error';
-		options.breakpoints		= options.breakpoints	|| false;
-		options.successClass 	= options.successClass 	|| 'b-loaded';
-		options.src = source 	= options.src			|| 'data-src';
-		isRetina				= window.devicePixelRatio > 1;
-		viewport.top 			= 0 - options.offset;
-		viewport.left 			= 0 - options.offset;
-		//throttle, ensures that we don't call the functions too often
-		validateT				= throttle(validate, 25); 
-		saveViewportOffsetT			= throttle(saveViewportOffset, 50);
+    }
+})(this, function() {
+    'use strict';
 
-		saveViewportOffset();	
-				
-		//handle multi-served image src
-		each(options.breakpoints, function(object){
-			if(object.width >= window.screen.width) {
-				source = object.src;
-				return false;
-			}
-		});
-		
-		// start lazy load
-		initialize();	
-  	}
-	
-	/* public functions
-	************************************/
-	Blazy.prototype.revalidate = function() {
- 		initialize();
-   	};
-	Blazy.prototype.load = function(element, force){
-		if(!isElementLoaded(element)) loadImage(element, force);
-	};
-	Blazy.prototype.destroy = function(){
-		if(options.container){
-			each(options.container, function(object){
-				unbindEvent(object, 'scroll', validateT);
-			});
-		}
-		unbindEvent(window, 'scroll', validateT);
-		unbindEvent(window, 'resize', validateT);
-		unbindEvent(window, 'resize', saveViewportOffsetT);
-		count = 0;
-		images.length = 0;
-		destroyed = true;
-	};
-	
-	/* private helper functions
-	************************************/
-	function initialize(){
-		// First we create an array of images to lazy load
-		createImageArray(options.selector);
-		// Then we bind resize and scroll events if not already binded
-		if(destroyed) {
-			destroyed = false;
-			if(options.container) {
-	 			each(options.container, function(object){
-	 				bindEvent(object, 'scroll', validateT);
-	 			});
-	 		}
-			bindEvent(window, 'resize', saveViewportOffsetT);
-			bindEvent(window, 'resize', validateT);
-	 		bindEvent(window, 'scroll', validateT);
-		}
-		// And finally, we start to lazy load. Should bLazy ensure domready?
-		validate();	
-	}
-	
-	function validate() {
-		for(var i = 0; i<count; i++){
-			var image = images[i];
- 			if(elementInView(image) || isElementLoaded(image)) {
-				Blazy.prototype.load(image);
- 				images.splice(i, 1);
- 				count--;
- 				i--;
- 			} 
- 		}
-		if(count === 0) {
-			Blazy.prototype.destroy();
-		}
-	}
-	
-	function loadImage(ele, force){
-		// if element is visible
-		if(force || (ele.offsetWidth > 0 && ele.offsetHeight > 0)) {
-			var dataSrc = ele.getAttribute(source) || ele.getAttribute(options.src); // fallback to default data-src
-			if(dataSrc) {
-				var dataSrcSplitted = dataSrc.split(options.separator);
-				var src = dataSrcSplitted[isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
-				var img = new Image();
-				// cleanup markup, remove data source attributes
-				each(options.breakpoints, function(object){
-					ele.removeAttribute(object.src);
-				});
-				ele.removeAttribute(options.src);
-				img.onerror = function() {
-					if(options.error) options.error(ele, "invalid");
-					ele.className = ele.className + ' ' + options.errorClass;
-				}; 
-				img.onload = function() {
-					// Is element an image or should we add the src as a background image?
-			      		ele.nodeName.toLowerCase() === 'img' ? ele.src = src : ele.style.backgroundImage = 'url("' + src + '")';	
-					ele.className = ele.className + ' ' + options.successClass;	
-					if(options.success) options.success(ele);
-				};
-				img.src = src; //preload image
-			} else {
-				if(options.error) options.error(ele, "missing");
-				ele.className = ele.className + ' ' + options.errorClass;
-			}
-		}
-	 }
-			
-	function elementInView(ele) {
-		var rect = ele.getBoundingClientRect();
-		
-		return (
-			// Intersection
-			rect.right >= viewport.left
-			&& rect.bottom >= viewport.top
-			&& rect.left <= viewport.right
-			&& rect.top <= viewport.bottom
-		 );
-	 }
-	 
-	 function isElementLoaded(ele) {
-		 return (' ' + ele.className + ' ').indexOf(' ' + options.successClass + ' ') !== -1;
-	 }
-	 
-	 function createImageArray(selector) {
- 		var nodelist 	= document.querySelectorAll(selector);
- 		count 			= nodelist.length;
- 		//converting nodelist to array
- 		for(var i = count; i--; images.unshift(nodelist[i])){}
-	 }
-	 
-	 function saveViewportOffset(){
-		 viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + options.offset;
-		 viewport.right = (window.innerWidth || document.documentElement.clientWidth) + options.offset;
-	 }
-	 
-	 function bindEvent(ele, type, fn) {
-		 if (ele.attachEvent) {
-         		ele.attachEvent && ele.attachEvent('on' + type, fn);
-       	 	} else {
-         	       ele.addEventListener(type, fn, false);
-       		}
-	 }
-	 
-	 function unbindEvent(ele, type, fn) {
-		 if (ele.detachEvent) {
-         		ele.detachEvent && ele.detachEvent('on' + type, fn);
-       	 	} else {
-         	       ele.removeEventListener(type, fn, false);
-       		}
-	 }
-	 
-	 function each(object, fn){
- 		if(object && fn) {
- 			var l = object.length;
- 			for(var i = 0; i<l && fn(object[i], i) !== false; i++){}
- 		}
-	 }
-	 
-	 function throttle(fn, minDelay) {
-     		 var lastCall = 0;
-		 return function() {
-			 var now = +new Date();
-         		 if (now - lastCall < minDelay) {
-           			 return;
-			 }
-         		 lastCall = now;
-         		 fn.apply(images, arguments);
-       		 };
-	 }
-  	
-	 return Blazy;
+    //private vars
+    var _source, _viewport, _isRetina, _attrSrc = 'src',
+        _attrSrcset = 'srcset';
+
+    // constructor
+    return function Blazy(options) {
+        //IE7- fallback for missing querySelectorAll support
+        if (!document.querySelectorAll) {
+            var s = document.createStyleSheet();
+            document.querySelectorAll = function(r, c, i, j, a) {
+                a = document.all, c = [], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
+                for (i = r.length; i--;) {
+                    s.addRule(r[i], 'k:v');
+                    for (j = a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
+                    s.removeRule(0);
+                }
+                return c;
+            };
+        }
+
+        //options and helper vars
+        var scope = this;
+        var util = scope._util = {};
+        util.elements = [];
+        util.destroyed = true;
+        scope.options = options || {};
+        scope.options.error = scope.options.error || false;
+        scope.options.offset = scope.options.offset || 100;
+        scope.options.root = scope.options.root || document;
+        scope.options.success = scope.options.success || false;
+        scope.options.selector = scope.options.selector || '.b-lazy';
+        scope.options.separator = scope.options.separator || '|';
+        scope.options.containerClass = scope.options.container;
+        scope.options.container = scope.options.containerClass ? document.querySelectorAll(scope.options.containerClass) : false;
+        scope.options.errorClass = scope.options.errorClass || 'b-error';
+        scope.options.breakpoints = scope.options.breakpoints || false;
+        scope.options.loadInvisible = scope.options.loadInvisible || false;
+        scope.options.successClass = scope.options.successClass || 'b-loaded';
+        scope.options.validateDelay = scope.options.validateDelay || 25;
+        scope.options.saveViewportOffsetDelay = scope.options.saveViewportOffsetDelay || 50;
+        scope.options.srcset = scope.options.srcset || 'data-srcset';
+        scope.options.src = _source = scope.options.src || 'data-src';
+        _isRetina = window.devicePixelRatio > 1;
+        _viewport = {};
+        _viewport.top = 0 - scope.options.offset;
+        _viewport.left = 0 - scope.options.offset;
+
+
+        /* public functions
+         ************************************/
+        scope.revalidate = function() {
+            initialize(this);
+        };
+        scope.load = function(elements, force) {
+            var opt = this.options;
+            if (elements.length === undefined) {
+                loadElement(elements, force, opt);
+            } else {
+                each(elements, function(element) {
+                    loadElement(element, force, opt);
+                });
+            }
+        };
+        scope.destroy = function() {
+            var self = this;
+            var util = self._util;
+            if (self.options.container) {
+                each(self.options.container, function(object) {
+                    unbindEvent(object, 'scroll', util.validateT);
+                });
+            }
+            unbindEvent(window, 'scroll', util.validateT);
+            unbindEvent(window, 'resize', util.validateT);
+            unbindEvent(window, 'resize', util.saveViewportOffsetT);
+            util.count = 0;
+            util.elements.length = 0;
+            util.destroyed = true;
+        };
+
+        //throttle, ensures that we don't call the functions too often
+        util.validateT = throttle(function() {
+            validate(scope);
+        }, scope.options.validateDelay, scope);
+        util.saveViewportOffsetT = throttle(function() {
+            saveViewportOffset(scope.options.offset);
+        }, scope.options.saveViewportOffsetDelay, scope);
+        saveViewportOffset(scope.options.offset);
+
+        //handle multi-served image src (obsolete)
+        each(scope.options.breakpoints, function(object) {
+            if (object.width >= window.screen.width) {
+                _source = object.src;
+                return false;
+            }
+        });
+
+        // start lazy load
+        setTimeout(function() {
+            initialize(scope);
+        }); // "dom ready" fix
+
+    };
+
+
+    /* Private helper functions
+     ************************************/
+    function initialize(self) {
+        var util = self._util;
+        // First we create an array of elements to lazy load
+        util.elements = toArray(self.options);
+        util.count = util.elements.length;
+        // Then we bind resize and scroll events if not already binded
+        if (util.destroyed) {
+            util.destroyed = false;
+            if (self.options.container) {
+                each(self.options.container, function(object) {
+                    bindEvent(object, 'scroll', util.validateT);
+                });
+            }
+            bindEvent(window, 'resize', util.saveViewportOffsetT);
+            bindEvent(window, 'resize', util.validateT);
+            bindEvent(window, 'scroll', util.validateT);
+        }
+        // And finally, we start to lazy load.
+        validate(self);
+    }
+
+    function validate(self) {
+        var util = self._util;
+        for (var i = 0; i < util.count; i++) {
+            var element = util.elements[i];
+            if (elementInView(element, self.options) || hasClass(element, self.options.successClass)) {
+                self.load(element);
+                util.elements.splice(i, 1);
+                util.count--;
+                i--;
+            }
+        }
+        if (util.count === 0) {
+            self.destroy();
+        }
+    }
+
+    function elementInView(ele, options) {
+        var rect = ele.getBoundingClientRect();
+
+        if(options.container){
+            // Is element inside a container?
+            var elementContainer = ele.closest(options.containerClass);
+            if(elementContainer){
+                var containerRect = elementContainer.getBoundingClientRect();
+                // Is container in view?
+                if(inView(containerRect, _viewport)){
+                    var containerRectWithOffset = {
+                        top: containerRect.top - options.offset,
+                        right: containerRect.right + options.offset,
+                        bottom: containerRect.bottom + options.offset,
+                        left: containerRect.left - options.offset
+                    };
+                    // Is element in view of container?
+                    return inView(rect, containerRectWithOffset);
+                } else {
+                    return false;
+                }
+            }
+        }      
+        return inView(rect, _viewport);
+    }
+
+    function inView(rect, viewport){
+        // Intersection
+        return rect.right >= viewport.left &&
+               rect.bottom >= viewport.top && 
+               rect.left <= viewport.right && 
+               rect.top <= viewport.bottom;
+    }
+
+    function loadElement(ele, force, options) {
+        // if element is visible, not loaded or forced
+        if (!hasClass(ele, options.successClass) && (force || options.loadInvisible || (ele.offsetWidth > 0 && ele.offsetHeight > 0))) {
+            var dataSrc = getAttr(ele, _source) || getAttr(ele, options.src); // fallback to default 'data-src'
+            if (dataSrc) {
+                var dataSrcSplitted = dataSrc.split(options.separator);
+                var src = dataSrcSplitted[_isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
+                var srcset = getAttr(ele, options.srcset);
+                var isImage = equal(ele, 'img');
+                var parent = ele.parentNode;
+                var isPicture = parent && equal(parent, 'picture');
+                // Image or background image
+                if (isImage || ele.src === undefined) {
+                    var img = new Image();
+                    // using EventListener instead of onerror and onload
+                    // due to bug introduced in chrome v50 
+                    // (https://productforums.google.com/forum/#!topic/chrome/p51Lk7vnP2o)
+                    var onErrorHandler = function() {
+                        if (options.error) options.error(ele, "invalid");
+                        addClass(ele, options.errorClass);
+                        unbindEvent(img, 'error', onErrorHandler);
+                        unbindEvent(img, 'load', onLoadHandler);
+                    };
+                    var onLoadHandler = function() {
+                        // Is element an image
+                        if (isImage) {
+                            if(!isPicture) {
+                                handleSources(ele, src, srcset);
+                            }
+                        // or background-image
+                        } else {
+                            ele.style.backgroundImage = 'url("' + src + '")';
+                        }
+                        itemLoaded(ele, options);
+                        unbindEvent(img, 'load', onLoadHandler);
+                        unbindEvent(img, 'error', onErrorHandler);
+                    };
+                    
+                    // Picture element
+                    if (isPicture) {
+                        img = ele; // Image tag inside picture element wont get preloaded
+                        each(parent.getElementsByTagName('source'), function(source) {
+                            handleSource(source, _attrSrcset, options.srcset);
+                        });
+                    }
+                    bindEvent(img, 'error', onErrorHandler);
+                    bindEvent(img, 'load', onLoadHandler);
+                    handleSources(img, src, srcset); // Preload
+
+                } else { // An item with src like iframe, unity games, simpel video etc
+                    ele.src = src;
+                    itemLoaded(ele, options);
+                }
+            } else {
+                // video with child source
+                if (equal(ele, 'video')) {
+                    each(ele.getElementsByTagName('source'), function(source) {
+                        handleSource(source, _attrSrc, options.src);
+                    });
+                    ele.load();
+                    itemLoaded(ele, options);
+                } else {
+                    if (options.error) options.error(ele, "missing");
+                    addClass(ele, options.errorClass);
+                }
+            }
+        }
+    }
+
+    function itemLoaded(ele, options) {
+        addClass(ele, options.successClass);
+        if (options.success) options.success(ele);
+        // cleanup markup, remove data source attributes
+        removeAttr(ele, options.src);
+        removeAttr(ele, options.srcset);
+        each(options.breakpoints, function(object) {
+            removeAttr(ele, object.src);
+        });
+    }
+
+    function handleSource(ele, attr, dataAttr) {
+        var dataSrc = getAttr(ele, dataAttr);
+        if (dataSrc) {
+            setAttr(ele, attr, dataSrc);
+            removeAttr(ele, dataAttr);
+        }
+    }
+
+    function handleSources(ele, src, srcset){
+        if(srcset) {
+            setAttr(ele, _attrSrcset, srcset); //srcset
+        }
+        ele.src = src; //src 
+    }
+
+    function setAttr(ele, attr, value){
+        ele.setAttribute(attr, value);
+    }
+
+    function getAttr(ele, attr) {
+        return ele.getAttribute(attr);
+    }
+
+    function removeAttr(ele, attr){
+        ele.removeAttribute(attr); 
+    }
+
+    function equal(ele, str) {
+        return ele.nodeName.toLowerCase() === str;
+    }
+
+    function hasClass(ele, className) {
+        return (' ' + ele.className + ' ').indexOf(' ' + className + ' ') !== -1;
+    }
+
+    function addClass(ele, className) {
+        if (!hasClass(ele, className)) {
+            ele.className += ' ' + className;
+        }
+    }
+
+    function toArray(options) {
+        var array = [];
+        var nodelist = (options.root).querySelectorAll(options.selector);
+        for (var i = nodelist.length; i--; array.unshift(nodelist[i])) {}
+        return array;
+    }
+
+    function saveViewportOffset(offset) {
+        _viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + offset;
+        _viewport.right = (window.innerWidth || document.documentElement.clientWidth) + offset;
+    }
+
+    function bindEvent(ele, type, fn) {
+        if (ele.attachEvent) {
+            ele.attachEvent && ele.attachEvent('on' + type, fn);
+        } else {
+            ele.addEventListener(type, fn, { capture: false, passive: true });
+        }
+    }
+
+    function unbindEvent(ele, type, fn) {
+        if (ele.detachEvent) {
+            ele.detachEvent && ele.detachEvent('on' + type, fn);
+        } else {
+            ele.removeEventListener(type, fn, { capture: false, passive: true });
+        }
+    }
+
+    function each(object, fn) {
+        if (object && fn) {
+            var l = object.length;
+            for (var i = 0; i < l && fn(object[i], i) !== false; i++) {}
+        }
+    }
+
+    function throttle(fn, minDelay, scope) {
+        var lastCall = 0;
+        return function() {
+            var now = +new Date();
+            if (now - lastCall < minDelay) {
+                return;
+            }
+            lastCall = now;
+            fn.apply(scope, arguments);
+        };
+    }
 });
-
 (function (window, undefined) {
     "use strict";
     // test for REM unit support
@@ -1741,9 +1875,9 @@
 
 })(window);
 
-/*! Magnific Popup - v1.0.0 - 2014-12-12
+/*! Magnific Popup - v1.1.0 - 2016-02-20
 * http://dimsemenov.com/plugins/magnific-popup/
-* Copyright (c) 2014 Dmitry Semenov; */
+* Copyright (c) 2016 Dmitry Semenov; */
 ;(function (factory) { 
 if (typeof define === 'function' && define.amd) { 
  // AMD. Register as an anonymous module. 
@@ -1785,12 +1919,12 @@ var CLOSE_EVENT = 'Close',
 /**
  * Private vars 
  */
+/*jshint -W079 */
 var mfp, // As we have only one instance of MagnificPopup object, we define it locally to not to use 'this'
 	MagnificPopup = function(){},
 	_isJQ = !!(window.jQuery),
 	_prevStatus,
 	_window = $(window),
-	_body,
 	_document,
 	_prevContentType,
 	_wrapClasses,
@@ -1840,6 +1974,7 @@ var _mfpOn = function(name, f) {
 	// Initialize Magnific Popup only when called at least once
 	_checkInstance = function() {
 		if(!$.magnificPopup.instance) {
+			/*jshint -W020 */
 			mfp = new MagnificPopup();
 			mfp.init();
 			$.magnificPopup.instance = mfp;
@@ -1878,9 +2013,7 @@ MagnificPopup.prototype = {
 	 */
 	init: function() {
 		var appVersion = navigator.appVersion;
-		mfp.isIE7 = appVersion.indexOf("MSIE 7.") !== -1; 
-		mfp.isIE8 = appVersion.indexOf("MSIE 8.") !== -1;
-		mfp.isLowIE = mfp.isIE7 || mfp.isIE8;
+		mfp.isLowIE = mfp.isIE8 = document.all && !document.addEventListener;
 		mfp.isAndroid = (/android/gi).test(appVersion);
 		mfp.isIOS = (/iphone|ipad|ipod/gi).test(appVersion);
 		mfp.supportsTransition = supportsTransitions();
@@ -1898,10 +2031,6 @@ MagnificPopup.prototype = {
 	 * @param  data [description]
 	 */
 	open: function(data) {
-
-		if(!_body) {
-			_body = $(document.body);
-		}
 
 		var i;
 
@@ -2101,7 +2230,7 @@ MagnificPopup.prototype = {
 		$('html').css(windowStyles);
 		
 		// add everything to DOM
-		mfp.bgOverlay.add(mfp.wrap).prependTo( mfp.st.prependTo || _body );
+		mfp.bgOverlay.add(mfp.wrap).prependTo( mfp.st.prependTo || $(document.body) );
 
 		// Save last focused element
 		mfp._lastFocusedEl = document.activeElement;
@@ -2192,7 +2321,7 @@ MagnificPopup.prototype = {
 		}
 
 
-		if(mfp._lastFocusedEl) {
+		if(mfp.st.autoFocusLast && mfp._lastFocusedEl) {
 			$(mfp._lastFocusedEl).focus(); // put tab focus back
 		}
 		mfp.currItem = null;	
@@ -2239,17 +2368,13 @@ MagnificPopup.prototype = {
 			item = mfp.parseEl( mfp.index );
 		}
 
-		var type = item.type;	
+		var type = item.type;
 
 		_mfpTrigger('BeforeChange', [mfp.currItem ? mfp.currItem.type : '', type]);
 		// BeforeChange event works like so:
 		// _mfpOn('BeforeChange', function(e, prevType, newType) { });
-		
+
 		mfp.currItem = item;
-
-		
-
-		
 
 		if(!mfp.currTemplate[type]) {
 			var markup = mfp.st[type] ? mfp.st[type].markup : false;
@@ -2268,7 +2393,7 @@ MagnificPopup.prototype = {
 		if(_prevContentType && _prevContentType !== item.type) {
 			mfp.container.removeClass('mfp-'+_prevContentType+'-holder');
 		}
-		
+
 		var newContent = mfp['get' + type.charAt(0).toUpperCase() + type.slice(1)](item, mfp.currTemplate[type]);
 		mfp.appendContent(newContent, type);
 
@@ -2276,7 +2401,7 @@ MagnificPopup.prototype = {
 
 		_mfpTrigger(CHANGE_EVENT, item);
 		_prevContentType = item.type;
-		
+
 		// Append container back after its content changed
 		mfp.container.prepend(mfp.contentContainer);
 
@@ -2289,7 +2414,7 @@ MagnificPopup.prototype = {
 	 */
 	appendContent: function(newContent, type) {
 		mfp.content = newContent;
-		
+
 		if(newContent) {
 			if(mfp.st.showCloseBtn && mfp.st.closeBtnInside &&
 				mfp.currTemplate[type] === true) {
@@ -2311,8 +2436,6 @@ MagnificPopup.prototype = {
 	},
 
 
-
-	
 	/**
 	 * Creates Magnific Popup data object based on given data
 	 * @param  {int} index Index of item to parse
@@ -2366,11 +2489,11 @@ MagnificPopup.prototype = {
 
 		if(!options) {
 			options = {};
-		} 
+		}
 
 		var eName = 'click.magnificPopup';
 		options.mainEl = el;
-		
+
 		if(options.items) {
 			options.isObj = true;
 			el.off(eName).on(eName, eHandler);
@@ -2388,7 +2511,7 @@ MagnificPopup.prototype = {
 		var midClick = options.midClick !== undefined ? options.midClick : $.magnificPopup.defaults.midClick;
 
 
-		if(!midClick && ( e.which === 2 || e.ctrlKey || e.metaKey ) ) {
+		if(!midClick && ( e.which === 2 || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey ) ) {
 			return;
 		}
 
@@ -2405,7 +2528,7 @@ MagnificPopup.prototype = {
 				}
 			}
 		}
-		
+
 		if(e.type) {
 			e.preventDefault();
 
@@ -2414,7 +2537,6 @@ MagnificPopup.prototype = {
 				e.stopPropagation();
 			}
 		}
-			
 
 		options.el = $(e.mfpEl);
 		if(options.delegate) {
@@ -2543,7 +2665,7 @@ MagnificPopup.prototype = {
 						if(el.is('img')) {
 							el.attr('src', value);
 						} else {
-							el.replaceWith( '<img src="'+value+'" class="' + el.attr('class') + '" />' );
+							el.replaceWith( $('<img>').attr('src', value).attr('class', el.attr('class')) );
 						}
 					} else {
 						el.attr(arr[1], value);
@@ -2582,14 +2704,13 @@ $.magnificPopup = {
 	modules: [],
 
 	open: function(options, index) {
-		_checkInstance();	
+		_checkInstance();
 
 		if(!options) {
 			options = {};
 		} else {
 			options = $.extend(true, {}, options);
 		}
-			
 
 		options.isObj = true;
 		options.index = index || 0;
@@ -2604,16 +2725,16 @@ $.magnificPopup = {
 		if(module.options) {
 			$.magnificPopup.defaults[name] = module.options;
 		}
-		$.extend(this.proto, module.proto);			
+		$.extend(this.proto, module.proto);
 		this.modules.push(name);
 	},
 
-	defaults: {   
+	defaults: {
 
 		// Info about options is in docs:
 		// http://dimsemenov.com/plugins/magnific-popup/documentation.html#options
-		
-		disableOn: 0,	
+
+		disableOn: 0,
 
 		key: null,
 
@@ -2624,12 +2745,12 @@ $.magnificPopup = {
 		preloader: true,
 
 		focus: '', // CSS selector of input to focus after popup is opened
-		
+
 		closeOnContentClick: false,
 
 		closeOnBgClick: true,
 
-		closeBtnInside: true, 
+		closeBtnInside: true,
 
 		showCloseBtn: true,
 
@@ -2638,22 +2759,24 @@ $.magnificPopup = {
 		modal: false,
 
 		alignTop: false,
-	
+
 		removalDelay: 0,
 
 		prependTo: null,
-		
-		fixedContentPos: 'auto', 
-	
+
+		fixedContentPos: 'auto',
+
 		fixedBgPos: 'auto',
 
 		overflowY: 'auto',
 
-		closeMarkup: '<button title="%title%" type="button" class="mfp-close">&times;</button>',
+		closeMarkup: '<button title="%title%" type="button" class="mfp-close">&#215;</button>',
 
 		tClose: 'Close (Esc)',
 
-		tLoading: 'Loading...'
+		tLoading: 'Loading...',
+
+		autoFocusLast: true
 
 	}
 };
@@ -2691,9 +2814,9 @@ $.fn.magnificPopup = function(options) {
 	} else {
 		// clone options obj
 		options = $.extend(true, {}, options);
-		
+
 		/*
-		 * As Zepto doesn't support .data() method for objects 
+		 * As Zepto doesn't support .data() method for objects
 		 * and it works only in normal browsers
 		 * we assign "options" object directly to the DOM element. FTW!
 		 */
@@ -2709,33 +2832,13 @@ $.fn.magnificPopup = function(options) {
 	return jqEl;
 };
 
-
-//Quick benchmark
-/*
-var start = performance.now(),
-	i,
-	rounds = 1000;
-
-for(i = 0; i < rounds; i++) {
-
-}
-console.log('Test #1:', performance.now() - start);
-
-start = performance.now();
-for(i = 0; i < rounds; i++) {
-
-}
-console.log('Test #2:', performance.now() - start);
-*/
-
-
 /*>>core*/
 
 /*>>inline*/
 
 var INLINE_NS = 'inline',
 	_hiddenClass,
-	_inlinePlaceholder, 
+	_inlinePlaceholder,
 	_lastInlineElement,
 	_putInlineElementsBack = function() {
 		if(_lastInlineElement) {
@@ -2806,7 +2909,7 @@ var AJAX_NS = 'ajax',
 	_ajaxCur,
 	_removeAjaxCursor = function() {
 		if(_ajaxCur) {
-			_body.removeClass(_ajaxCur);
+			$(document.body).removeClass(_ajaxCur);
 		}
 	},
 	_destroyAjaxRequest = function() {
@@ -2834,8 +2937,9 @@ $.magnificPopup.registerModule(AJAX_NS, {
 		},
 		getAjax: function(item) {
 
-			if(_ajaxCur)
-				_body.addClass(_ajaxCur);
+			if(_ajaxCur) {
+				$(document.body).addClass(_ajaxCur);
+			}
 
 			mfp.updateStatus('loading');
 
@@ -2879,18 +2983,12 @@ $.magnificPopup.registerModule(AJAX_NS, {
 	}
 });
 
-
-
-
-
-	
-
 /*>>ajax*/
 
 /*>>image*/
 var _imgInterval,
 	_getTitle = function(item) {
-		if(item.data && item.data.title !== undefined) 
+		if(item.data && item.data.title !== undefined)
 			return item.data.title;
 
 		var src = mfp.st.image.titleSrc;
@@ -2921,7 +3019,7 @@ $.magnificPopup.registerModule('image', {
 					'</figure>'+
 				'</div>',
 		cursor: 'mfp-zoom-out-cur',
-		titleSrc: 'title', 
+		titleSrc: 'title',
 		verticalFit: true,
 		tError: '<a href="%url%">The image</a> could not be loaded.'
 	},
@@ -2935,13 +3033,13 @@ $.magnificPopup.registerModule('image', {
 
 			_mfpOn(OPEN_EVENT+ns, function() {
 				if(mfp.currItem.type === 'image' && imgSt.cursor) {
-					_body.addClass(imgSt.cursor);
+					$(document.body).addClass(imgSt.cursor);
 				}
 			});
 
 			_mfpOn(CLOSE_EVENT+ns, function() {
 				if(imgSt.cursor) {
-					_body.removeClass(imgSt.cursor);
+					$(document.body).removeClass(imgSt.cursor);
 				}
 				_window.off('resize' + EVENT_NS);
 			});
@@ -2966,13 +3064,13 @@ $.magnificPopup.registerModule('image', {
 		},
 		_onImageHasSize: function(item) {
 			if(item.img) {
-				
+
 				item.hasSize = true;
 
 				if(_imgInterval) {
 					clearInterval(_imgInterval);
 				}
-				
+
 				item.isCheckingImgSize = false;
 
 				_mfpTrigger('ImageHasSize', item);
@@ -2980,7 +3078,7 @@ $.magnificPopup.registerModule('image', {
 				if(item.imgHidden) {
 					if(mfp.content)
 						mfp.content.removeClass('mfp-loading');
-					
+
 					item.imgHidden = false;
 				}
 
@@ -3033,7 +3131,7 @@ $.magnificPopup.registerModule('image', {
 					if(item) {
 						if (item.img[0].complete) {
 							item.img.off('.mfploader');
-							
+
 							if(item === mfp.currItem){
 								mfp._onImageHasSize(item);
 
@@ -3044,7 +3142,7 @@ $.magnificPopup.registerModule('image', {
 							item.loaded = true;
 
 							_mfpTrigger('ImageLoadComplete');
-							
+
 						}
 						else {
 							// if image complete check fails 200 times (20 sec), we assume that there was an error.
@@ -3094,7 +3192,7 @@ $.magnificPopup.registerModule('image', {
 				img = item.img[0];
 				if(img.naturalWidth > 0) {
 					item.hasSize = true;
-				} else if(!img.width) {										
+				} else if(!img.width) {
 					item.hasSize = false;
 				}
 			}
@@ -3126,14 +3224,12 @@ $.magnificPopup.registerModule('image', {
 				item.imgHidden = true;
 				template.addClass('mfp-loading');
 				mfp.findImageSize(item);
-			} 
+			}
 
 			return template;
 		}
 	}
 });
-
-
 
 /*>>image*/
 
@@ -3143,7 +3239,7 @@ var hasMozTransform,
 		if(hasMozTransform === undefined) {
 			hasMozTransform = document.createElement('p').style.MozTransform !== undefined;
 		}
-		return hasMozTransform;		
+		return hasMozTransform;
 	};
 
 $.magnificPopup.registerModule('zoom', {
@@ -3163,7 +3259,7 @@ $.magnificPopup.registerModule('zoom', {
 			var zoomSt = mfp.st.zoom,
 				ns = '.zoom',
 				image;
-				
+
 			if(!zoomSt.enabled || !mfp.supportsTransition) {
 				return;
 			}
@@ -3199,7 +3295,7 @@ $.magnificPopup.registerModule('zoom', {
 					mfp.content.css('visibility', 'hidden');
 
 					// Basically, all code below does is clones existing image, puts in on top of the current one and animated it
-					
+
 					image = mfp._getItemToZoom();
 
 					if(!image) {
@@ -3207,8 +3303,8 @@ $.magnificPopup.registerModule('zoom', {
 						return;
 					}
 
-					animatedImg = getElToAnimate(image); 
-					
+					animatedImg = getElToAnimate(image);
+
 					animatedImg.css( mfp._getOffset() );
 
 					mfp.wrap.append(animatedImg);
@@ -3223,7 +3319,7 @@ $.magnificPopup.registerModule('zoom', {
 								animatedImg.remove();
 								image = animatedImg = null;
 								_mfpTrigger('ZoomAnimationEnded');
-							}, 16); // avoid blink when switching images 
+							}, 16); // avoid blink when switching images
 
 						}, duration); // this timeout equals animation duration
 
@@ -3247,12 +3343,11 @@ $.magnificPopup.registerModule('zoom', {
 						}
 						animatedImg = getElToAnimate(image);
 					}
-					
-					
+
 					animatedImg.css( mfp._getOffset(true) );
 					mfp.wrap.append(animatedImg);
 					mfp.content.css('visibility', 'hidden');
-					
+
 					setTimeout(function() {
 						animatedImg.css( mfp._getOffset() );
 					}, 16);
@@ -3267,7 +3362,7 @@ $.magnificPopup.registerModule('zoom', {
 						animatedImg.remove();
 					}
 					image = null;
-				}	
+				}
 			});
 		},
 
@@ -3299,7 +3394,7 @@ $.magnificPopup.registerModule('zoom', {
 
 
 			/*
-			
+
 			Animating left + top + width/height looks glitchy in Firefox, but perfect in Chrome. And vice-versa.
 
 			 */
@@ -3330,11 +3425,11 @@ $.magnificPopup.registerModule('zoom', {
 
 var IFRAME_NS = 'iframe',
 	_emptyPage = '//about:blank',
-	
+
 	_fixIframeBugs = function(isShowing) {
 		if(mfp.currTemplate[IFRAME_NS]) {
 			var el = mfp.currTemplate[IFRAME_NS].find('iframe');
-			if(el.length) { 
+			if(el.length) {
 				// reset src after the popup is closed to avoid "video keeps playing after popup is closed" bug
 				if(!isShowing) {
 					el[0].src = _emptyPage;
@@ -3361,8 +3456,8 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 		// we don't care and support only one default type of URL by default
 		patterns: {
 			youtube: {
-				index: 'youtube.com', 
-				id: 'v=', 
+				index: 'youtube.com',
+				id: 'v=',
 				src: '//www.youtube.com/embed/%id%?autoplay=1'
 			},
 			vimeo: {
@@ -3387,7 +3482,7 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 						_fixIframeBugs(); // iframe if removed
 					} else if(newType === IFRAME_NS) {
 						_fixIframeBugs(true); // iframe is showing
-					} 
+					}
 				}// else {
 					// iframe source is switched, don't do anything
 				//}
@@ -3401,7 +3496,7 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 		getIframe: function(item, template) {
 			var embedSrc = item.src;
 			var iframeSt = mfp.st.iframe;
-				
+
 			$.each(iframeSt.patterns, function() {
 				if(embedSrc.indexOf( this.index ) > -1) {
 					if(this.id) {
@@ -3415,7 +3510,7 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 					return false; // break;
 				}
 			});
-			
+
 			var dataObj = {};
 			if(iframeSt.srcAction) {
 				dataObj[iframeSt.srcAction] = embedSrc;
@@ -3468,11 +3563,10 @@ $.magnificPopup.registerModule('gallery', {
 		initGallery: function() {
 
 			var gSt = mfp.st.gallery,
-				ns = '.mfp-gallery',
-				supportsFastClick = Boolean($.fn.mfpFastClick);
+				ns = '.mfp-gallery';
 
 			mfp.direction = true; // true - next, false - prev
-			
+
 			if(!gSt || !gSt.enabled ) return false;
 
 			_wrapClasses += ' mfp-gallery';
@@ -3511,24 +3605,15 @@ $.magnificPopup.registerModule('gallery', {
 			_mfpOn('BuildControls' + ns, function() {
 				if(mfp.items.length > 1 && gSt.arrows && !mfp.arrowLeft) {
 					var markup = gSt.arrowMarkup,
-						arrowLeft = mfp.arrowLeft = $( markup.replace(/%title%/gi, gSt.tPrev).replace(/%dir%/gi, 'left') ).addClass(PREVENT_CLOSE_CLASS),			
+						arrowLeft = mfp.arrowLeft = $( markup.replace(/%title%/gi, gSt.tPrev).replace(/%dir%/gi, 'left') ).addClass(PREVENT_CLOSE_CLASS),
 						arrowRight = mfp.arrowRight = $( markup.replace(/%title%/gi, gSt.tNext).replace(/%dir%/gi, 'right') ).addClass(PREVENT_CLOSE_CLASS);
 
-					var eName = supportsFastClick ? 'mfpFastClick' : 'click';
-					arrowLeft[eName](function() {
+					arrowLeft.click(function() {
 						mfp.prev();
-					});			
-					arrowRight[eName](function() {
+					});
+					arrowRight.click(function() {
 						mfp.next();
-					});	
-
-					// Polyfill for :before and :after (adds elements with classes mfp-a and mfp-b)
-					if(mfp.isIE7) {
-						_getEl('b', arrowLeft[0], false, true);
-						_getEl('a', arrowLeft[0], false, true);
-						_getEl('b', arrowRight[0], false, true);
-						_getEl('a', arrowRight[0], false, true);
-					}
+					});
 
 					mfp.container.append(arrowLeft.add(arrowRight));
 				}
@@ -3540,21 +3625,17 @@ $.magnificPopup.registerModule('gallery', {
 				mfp._preloadTimeout = setTimeout(function() {
 					mfp.preloadNearbyImages();
 					mfp._preloadTimeout = null;
-				}, 16);		
+				}, 16);
 			});
 
 
 			_mfpOn(CLOSE_EVENT+ns, function() {
 				_document.off(ns);
 				mfp.wrap.off('click'+ns);
-			
-				if(mfp.arrowLeft && supportsFastClick) {
-					mfp.arrowLeft.add(mfp.arrowRight).destroyMfpFastClick();
-				}
 				mfp.arrowRight = mfp.arrowLeft = null;
 			});
 
-		}, 
+		},
 		next: function() {
 			mfp.direction = true;
 			mfp.index = _getLoopedId(mfp.index + 1);
@@ -3613,58 +3694,6 @@ $.magnificPopup.registerModule('gallery', {
 	}
 });
 
-/*
-Touch Support that might be implemented some day
-
-addSwipeGesture: function() {
-	var startX,
-		moved,
-		multipleTouches;
-
-		return;
-
-	var namespace = '.mfp',
-		addEventNames = function(pref, down, move, up, cancel) {
-			mfp._tStart = pref + down + namespace;
-			mfp._tMove = pref + move + namespace;
-			mfp._tEnd = pref + up + namespace;
-			mfp._tCancel = pref + cancel + namespace;
-		};
-
-	if(window.navigator.msPointerEnabled) {
-		addEventNames('MSPointer', 'Down', 'Move', 'Up', 'Cancel');
-	} else if('ontouchstart' in window) {
-		addEventNames('touch', 'start', 'move', 'end', 'cancel');
-	} else {
-		return;
-	}
-	_window.on(mfp._tStart, function(e) {
-		var oE = e.originalEvent;
-		multipleTouches = moved = false;
-		startX = oE.pageX || oE.changedTouches[0].pageX;
-	}).on(mfp._tMove, function(e) {
-		if(e.originalEvent.touches.length > 1) {
-			multipleTouches = e.originalEvent.touches.length;
-		} else {
-			//e.preventDefault();
-			moved = true;
-		}
-	}).on(mfp._tEnd + ' ' + mfp._tCancel, function(e) {
-		if(moved && !multipleTouches) {
-			var oE = e.originalEvent,
-				diff = startX - (oE.pageX || oE.changedTouches[0].pageX);
-
-			if(diff > 20) {
-				mfp.next();
-			} else if(diff < -20) {
-				mfp.prev();
-			}
-		}
-	});
-},
-*/
-
-
 /*>>gallery*/
 
 /*>>retina*/
@@ -3705,103 +3734,6 @@ $.magnificPopup.registerModule(RETINA_NS, {
 });
 
 /*>>retina*/
-
-/*>>fastclick*/
-/**
- * FastClick event implementation. (removes 300ms delay on touch devices)
- * Based on https://developers.google.com/mobile/articles/fast_buttons
- *
- * You may use it outside the Magnific Popup by calling just:
- *
- * $('.your-el').mfpFastClick(function() {
- *     console.log('Clicked!');
- * });
- *
- * To unbind:
- * $('.your-el').destroyMfpFastClick();
- * 
- * 
- * Note that it's a very basic and simple implementation, it blocks ghost click on the same element where it was bound.
- * If you need something more advanced, use plugin by FT Labs https://github.com/ftlabs/fastclick
- * 
- */
-
-(function() {
-	var ghostClickDelay = 1000,
-		supportsTouch = 'ontouchstart' in window,
-		unbindTouchMove = function() {
-			_window.off('touchmove'+ns+' touchend'+ns);
-		},
-		eName = 'mfpFastClick',
-		ns = '.'+eName;
-
-
-	// As Zepto.js doesn't have an easy way to add custom events (like jQuery), so we implement it in this way
-	$.fn.mfpFastClick = function(callback) {
-
-		return $(this).each(function() {
-
-			var elem = $(this),
-				lock;
-
-			if( supportsTouch ) {
-
-				var timeout,
-					startX,
-					startY,
-					pointerMoved,
-					point,
-					numPointers;
-
-				elem.on('touchstart' + ns, function(e) {
-					pointerMoved = false;
-					numPointers = 1;
-
-					point = e.originalEvent ? e.originalEvent.touches[0] : e.touches[0];
-					startX = point.clientX;
-					startY = point.clientY;
-
-					_window.on('touchmove'+ns, function(e) {
-						point = e.originalEvent ? e.originalEvent.touches : e.touches;
-						numPointers = point.length;
-						point = point[0];
-						if (Math.abs(point.clientX - startX) > 10 ||
-							Math.abs(point.clientY - startY) > 10) {
-							pointerMoved = true;
-							unbindTouchMove();
-						}
-					}).on('touchend'+ns, function(e) {
-						unbindTouchMove();
-						if(pointerMoved || numPointers > 1) {
-							return;
-						}
-						lock = true;
-						e.preventDefault();
-						clearTimeout(timeout);
-						timeout = setTimeout(function() {
-							lock = false;
-						}, ghostClickDelay);
-						callback();
-					});
-				});
-
-			}
-
-			elem.on('click' + ns, function() {
-				if(!lock) {
-					callback();
-				}
-			});
-		});
-	};
-
-	$.fn.destroyMfpFastClick = function() {
-		$(this).off('touchstart' + ns + ' click' + ns);
-		if(supportsTouch) _window.off('touchmove'+ns+' touchend'+ns);
-	};
-})();
-
-/*>>fastclick*/
  _checkInstance(); }));
 /*!
  * Masonry PACKAGED v3.3.2
