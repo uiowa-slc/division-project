@@ -23,13 +23,9 @@
 	<% else %>
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 	<% end_if %>
-<style><% include CriticalCss %></style>
-	
-	<% include LoadCss %>
-	<script>
-	  loadCSS( "$ThemeDir/css/master.css" );
-	</script>
-	<noscript><link href="$ThemeDir/css/master.css" rel="stylesheet"></noscript>
+	<link href="{$ThemeDir}/css/master.css" rel="stylesheet">
+	<script type="text/javascript" src="//use.typekit.net/ivn3muh.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<!--[if lt IE 9]>
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 	  <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
@@ -64,30 +60,8 @@
     <% include Footer %>
     <% include MdBar %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript">
-	function downloadJSAtOnload() {
-	var element = document.createElement("script");
-	element.src = "$ThemeDir/build/build.js";
-	document.body.appendChild(element);
-	}
-	if (window.addEventListener)
-	window.addEventListener("load", downloadJSAtOnload, false);
-	else if (window.attachEvent)
-	window.attachEvent("onload", downloadJSAtOnload);
-	else window.onload = downloadJSAtOnload;
-	</script>
-	
-	<script type="text/javascript">
-	(function(d) {
-	  var tkTimeout=3000;
-	  if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
-	  var config = {
-	    kitId: 'ivn3muh',
-	    scriptTimeout: tkTimeout
-	  },
-	  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-	})(document);
-	</script>
+	<script src="{$ThemeDir}/build/build.js"></script>
+
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
