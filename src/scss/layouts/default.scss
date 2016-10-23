@@ -1,18 +1,32 @@
 
 /* Main Content Styles: */
 
-.content{
-	padding-top: rem-calc(40);
+.main{
+	@include grid-row;
 
-	h1,h2,h3,h4,h5,h6{
-		a:after{
-			@include css-triangle(6px, $anchor-color, right);
-			margin-bottom: 4px;
-			margin-left: 5px;
-			display: inline-block;
+	&__content{
+		@include grid-column(7);
+		@include grid-column-offset(2);
 
+		padding-top: rem-calc(40);
+
+		h1,h2,h3,h4,h5,h6{
+			a:after{
+				@include css-triangle(6px, $anchor-color, right);
+				margin-bottom: 4px;
+				margin-left: 5px;
+				display: inline-block;
+
+			}
 		}
-	}	
+	}
+
+	&__content--homepage{
+		@include grid-column-row();
+		@include grid-column(6);
+		@include grid-column-position(center);
+
+	}
 }
 
 

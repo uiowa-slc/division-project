@@ -1,5 +1,3 @@
-
-
 .navigation__wrapper {
 	margin-top: 0;
 	position: relative;
@@ -7,17 +5,21 @@
 	background-color: #fff;
 	&--dark	{
 		background-color: #242424;
-		
 		margin-top: .5em;
 	}
+	display: none;
+	@include breakpoint(medium) {
+		display: block;
+	}
+
 }
+
 .navigation {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
 	display: table;
 	text-align: center;
-
 	&:after{
 		background-color: $yellow;
 		display: block;
@@ -32,7 +34,6 @@
 	&--dark:after{
 		background: none;
 	}
-
 	&__item{
 		display: table-cell;
 		position: relative;
@@ -41,20 +42,19 @@
 		border-right: 1px solid white;
 		z-index: 2;
 		&:hover:after {
-					background-color: $black;
-					display: block;
-					width: calc(100% - 1px);
-					height: 5px;
-					position: absolute;
-					bottom: 0;
-					left: 1px;
-					content: "";
-					z-index: 1;
-				}
+			background-color: $black;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+			z-index: 1;
+		}
 		.navigation__link--parent{
 			
 		}
-
 	}
 	//We're on the current top nav page.
 	&__item--current{
@@ -69,9 +69,8 @@
 			content: "";
 			z-index: 1;	
 		}
-
 	}
-	//If we're currently on a page with a top level ancestor in the menu
+	//If we're currently on a page with a top level ancestor
 	&__item--section{
 		&:after{
 			background-color: $black;
@@ -87,22 +86,22 @@
 	}
 	//If we're currently hovering over a nav item that has children
 	&__item--parent:hover{
-			&:after {
-					background-color: $black;
-					display: block;
-					width: calc(100% - 1px);
-					height: 5px;
-					position: absolute;
-					bottom: 0;
-					left: 1px;
-					content: "";
-					z-index: 1;
-				}
-			.navigation__subnav{
-				left: 0;
-				opacity: 1;
-				visibility: visible;
-			}
+		&:after {
+			background-color: $black;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+			z-index: 1;
+		}
+		.subnav{
+			left: 0;
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 
 	&__item--dark{
@@ -112,25 +111,86 @@
 		}
 	}
 
+	/* Adjust navigation__link padding and font size depending on how many items in the nav */
+	/* http://alistapart.com/article/quantity-queries-for-css */
+	&__item{
+		/*link layout if there are 7 or more items (don't push it) */
+		&:nth-last-child(n+7) .navigation__link, 
+		&:nth-last-child(n+7) ~ * .navigation__link{
+			ont-size: rem-calc(16);
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(20);
+				padding: rem-calc(20) rem-calc(30);
+			}
+		}
+		/*link layout if there are 9 or more items (you're insane) */
+		&:nth-last-child(n+9) .navigation__link, 
+		&:nth-last-child(n+9) ~ * .navigation__link{
+			font-size: rem-calc(14);
+			@include breakpoint(medium){
+				padding: rem-calc(20) rem-calc(25);
+			}
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(16);
+				padding: rem-calc(20) rem-calc(30);
+			}
+		}
+
+		/* EMERGENCY BREAK GLASS IF NAVIGATION EXCEEDS 11 ITEMS */
+		&:nth-last-child(n+11) .navigation__link, 
+		&:nth-last-child(n+11) ~ * .navigation__link{
+			font-size: rem-calc(14);
+			@include breakpoint(medium){
+				padding: rem-calc(14) rem-calc(10);
+			}
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(16);
+				padding: rem-calc(14) rem-calc(14);
+			}
+		}
+
+
+	}
+	&__item{
+		&:nth-child(n+5):hover{
+			.subnav--two-columns{
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+
+	&__item--column{
+		 
+
+	}
+
+
 	&__link{
 		display: block;
-		padding: rem-calc(10) rem-calc(25);
+		font-size: rem-calc(18);
+		padding: rem-calc(15) rem-calc(15);
+		// @include breakpoint(medium) {
+		// 	padding: rem-calc(15) rem-calc(27);
+		// }
+		@include breakpoint(large) {
+			padding: rem-calc(20) rem-calc(30);
+		}
+		@include breakpoint(xlarge) {
+			padding: rem-calc(20) rem-calc(37);
+			font-size: rem-calc(22);
+		}
 		position: relative;
 		transition: none;
 		z-index: 2;
 		text-transform: uppercase;
-		font-size: rem-calc(22);
 		color: #333;
 		border-color: white;
-		@include breakpoint(large) {
-			padding: rem-calc(20) rem-calc(37);
-		}
-
 		&:hover,&:focus,&:active{
 			color: lighten($black, 20);
 		}
-
 	}
+
 	&__link--parent{
 		&:after{
 			@include css-triangle(4px, $black, down);
@@ -150,39 +210,46 @@
 		}
 	}
 
-	&__subnav{
-		background-color: #fff;
-		position: absolute;
-		left: -9999px;
-		top: 100%;
-		min-width: 250px;
-		list-style: none;
-		opacity: 0;
-		box-shadow:
-			inset 1px 0 0 #ddd,
-			inset 0 1px 0 #ddd,
-			inset -1px 0 0 #ddd,
-			inset 0 -1px 0 #ddd,
-			4px 4px 4px 0 rgba(0,0,0,0.05);
-	   margin-top: -1px;
-	   visibility: hidden;
-	   padding: 18px 24px;
-	   z-index: 1;
-	   margin-left: 0;
-	}
+}
 
-	&__subnav--show-menu{
+.subnav{
+	background-color: #fff;
+	position: absolute;
+	left: -9999px;
+	top: 100%;
+	min-width: rem-calc(300);
+	list-style: none;
+	opacity: 0;
+	box-shadow:
+		inset 1px 0 0 #ddd,
+		inset 0 1px 0 #ddd,
+		inset -1px 0 0 #ddd,
+		inset 0 -1px 0 #ddd,
+		4px 4px 4px 0 rgba(0,0,0,0.05);
+   margin-top: -1px;
+   visibility: hidden;
+   padding: 18px rem-calc(15);
+   z-index: 1;
+   margin-left: 0;
+
+
+	&--show-menu{
 		left: 0;
 		opacity: 1;
 		visibility: visible;		
 	}
 
+	&--two-columns{
+		@include grid-row;
+		@include grid-layout(2);
+		// @include flex-align($x: center, $y: middle);
+		width: rem-calc(500);
+	}
 
-	&__subnav-item{
-		border-bottom: 1px solid #eee;
+	&__item{
+		//border-bottom: 1px solid #eee;
 		float: none;
 		position: static;
-
 		&:first-of-type{
 			border-top: none;
 		}
@@ -193,19 +260,21 @@
 
 	}
 
-	&__subnav-item--last{
-		border-bottom: none;
-
+	&__item--column{
+		@include grid-column(6);
 	}
 
-	&__subnav-link{
+	&__item--last{
+		border-bottom: none;
+	}
 
+	&__link{
 		display: block;
 		line-height: 1.3;
 		padding: 12px 0;
 		text-align: left;
 		text-transform: none;
-		transition: padding .1s ease-in-out;	
+		transition: padding .1s ease-in-out;
+		color: $body-font-color;	
 	}
-
 }

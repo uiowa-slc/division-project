@@ -7,11 +7,13 @@
 	&__slides{
 
 		@include orbit-container;
+		height: auto !important;
 
 	}
 	&__slide{
 		@include orbit-slide;
 		background-size: cover;
+		max-height: none !important;
 	}
 	&__navigation{
 		@include orbit-control;
@@ -26,22 +28,10 @@
 		@include orbit-previous;
 	}
 
-
-	&__bg-container{
-		background-color: rgba(#333, 0.5);
-		background-size: cover;
-		position: relative;
-		padding-top: 400px;
-		height: 100%;	
-	}
-
 	&--homepage{
 		
 	}
-	&__bg-container--homepage{
 
-		
-	}
 	&__shadow--homepage{
 	
 		position: absolute;

@@ -2,7 +2,7 @@
 class HomePage extends Page {
 
 	private static $db = array(
-
+		'LayoutType' => 'varchar(155)'
 	);
 
 	private static $has_one = array(
@@ -13,14 +13,53 @@ class HomePage extends Page {
 		'BackgroundFeatures' => 'HomePageBackgroundFeature',
 	);
 
+	protected $layout_types = array(
+		'ShuffledBackgroundFeatures' => 'Shuffled Background Features and Hero Features (legacy)',
+		'BackgroundVideo' => 'Background Video',
+		'ImageSlider' => 'Image Slider'
+	);
+
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
-		$f->removeByName("Content");
-		$f->removeByName("BackgroundImage");
-		$f->removeByName("InheritSidebarItems");
-		$f->removeByName("SidebarLabel");
-		$f->removeByName("SidebarItem");
+		$f->removeByName('Content');
+		$f->removeByName('BackgroundImage');
+		$f->removeByName('InheritSidebarItems');
+		$f->removeByName('SidebarLabel');
+		$f->removeByName('SidebarItem');
+
+
+		$layoutOptionsField = DropdownField::create(
+  			'LayoutType',
+  			'Layout type',
+  			$this->layout_types
+		);
+		$f->addFieldToTab('Root.Main', $layoutOptionsField);
+
+
+		$this->getShuffledBackgroundFields($f);
+
+		// $backgroundVideoFields = $this->getBackgroundVideoFields($f);
+		// $imageSliderFields = $this->getImageSliderFields($f);
+
+		// $f->addFieldsToTab('Root.Main', $shuffledBackgroundFields);
+		// $f->addFieldsToTab('Root.Main', $backgroundVideoFields);
+		// $f->addFieldsToTab('Root.Main', $imageSliderFields);
+
+
+
+		
+		$this->extend('updateCMSFields', $f);
+
+
+
+		return $f;
+	}
+
+
+	public function getShuffledBackgroundFields($f){
+
+		$fieldList = new FieldList();
 
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
@@ -31,39 +70,34 @@ class HomePage extends Page {
 
 		$homePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
 		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
-		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType("GridFieldAddNewMultiClass")->setClasses(
+		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType('GridFieldAddNewMultiClass')->setClasses(
 			array(
-				"HomePageFeature",
-				"HomePageFacebookFeature",
-				"HomePageTwitterFeature",
+				'HomePageFeature',
+				'HomePageFacebookFeature',
+				'HomePageTwitterFeature',
 			)
 		);
 
 		$bgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-
 		if (!Permission::check('ADMIN')) {
 			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
 			
 		}
+
+		$homePageBackgroundFeatureGridField = GridField::create('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
+		$homePageHeroFeatureGridField       = GridField::create('HomePageHeroFeature', 'Hero features that overlap the background (Only the first two are shown)', HomePageHeroFeature::get(), $gridFieldConfig);
+
+		$homePageFeatureGridField = GridField::create('HomePageFeature', 'Features below the background image (Only the first three are shown)', HomePageFeature::get(), $homePageFeatureGridFieldConfig);
+
 		
-		$homePageBackgroundFeatureGridField = new GridField('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
-		$homePageHeroFeatureGridField       = new GridField("HomePageHeroFeature", "Hero features that overlap the background (Only the first two are shown)", HomePageHeroFeature::get(), $gridFieldConfig);
+		$fieldList->push($homePageBackgroundFeatureGridField);
+		$fieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
+		$fieldList->push($homePageHeroFeatureGridField);
+		$fieldList->push($homePageFeatureGridField);
 
-
-		$homePageFeatureGridField           = new GridField("HomePageFeature", "Features below the background image (Only the first three are shown)", HomePageFeature::get(), $homePageFeatureGridFieldConfig);
-
-		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab("Root.Main", $homePageBackgroundFeatureGridField);
-			$f->addFieldToTab("Root.Main", new LiteralField("SpacerField", "<br /><br />"));
-		}
-
-		$f->addFieldToTab("Root.Main", $homePageHeroFeatureGridField);
-		$f->addFieldToTab("Root.Main", new LiteralField("SpacerField", "<br /><br />"));
-		$f->addFieldToTab("Root.Main", $homePageFeatureGridField);
+		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo('ShuffledBackgroundFeatures')->end());
 		
-		$this->extend('updateCMSFields', $f);
-		return $f;
 	}
 }
 class HomePage_Controller extends Page_Controller {
@@ -95,7 +129,7 @@ class HomePage_Controller extends Page_Controller {
 				'BackgroundFeature' => $this->BackgroundFeatures()->Sort('RAND()')->First(),
 			));
 
-		return $page->renderWith(array('HomePage', 'Page'));
+		return $page->renderWith(array('HomePage_'.$this->LayoutType, 'HomePage', 'Page'));
 	}
 	public function HomePageFeatures() {
 		$features = HomePageFeature::get();

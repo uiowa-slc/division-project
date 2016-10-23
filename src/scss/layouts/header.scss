@@ -1,3 +1,16 @@
+
+.header__screen{
+	background-color: rgba(#333, 0.5);
+	background-size: contain;
+	background-image: url(../images/shadow.png);
+	background-repeat: no-repeat;
+	position: relative;
+	height: 100%;	
+}
+
+.header__screen--in-slider{
+	padding-top: 200px;
+}
 .header__container--in-slider{
 	position: absolute;
     left: 50%;
@@ -5,7 +18,9 @@
     width: 100%;
     z-index: 9999;
 }
+.header__container{
 
+}
 .header {
 	@include breakpoint(large) {
 		// margin-top: -30px;
@@ -45,6 +60,7 @@
 		h1{
 			a{
 				color: white;
+				text-shadow: 0.5px 0.866px 1px rgba(0, 0, 0, 0.39);
 			}
 		}
 

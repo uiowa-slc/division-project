@@ -1,23 +1,49 @@
-.homepage-slider-content{
+.tagline{
+	font-size: rem-calc(29);
+	text-align: center;
+	padding: rem-calc(100) 0;
+}
 
-	&__featured-story{
-		margin-bottom: 150px;
+.tagline__text{
+	margin-bottom: rem-calc(20);
+	text-align: center;
+}
+
+.tagline__separator{
+	height: rem-calc(3);
+	width: 15%;
+	background-color: black;
+	margin: auto;
+}
+
+.welcome{
+	&__text{
+		@include grid-column(7);
 	}
-	&__subheader{
-		font-family: $header-font-family;
-		text-transform: uppercase;
-		font-size:rem-calc(15);
-		font-weight: bold;
+}
+
+
+
+.profile{
+
+	@include grid-column(5);
+	@include media-object-container;
+
+
+	&__media{
+		@include media-object-section(0);
+		// @include media-object-stack;
+		width: 158px;
 	}
 
-	&__header{
-		border-left: 40px solid $yellow;
-		padding-left: 30px;
-		margin-bottom: 50px;
+	&__image{
+		
 	}
 
-	&__aligner{
-		margin-left: 73px;
+	&__text{
+		@include media-object-section(rem-calc(20));
+		// @include media-object-stack;
+
 	}
 
 

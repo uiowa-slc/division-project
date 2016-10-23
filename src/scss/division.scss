@@ -25,7 +25,7 @@
 // @include foundation-dropdown-menu;
 @include foundation-flex-video;
 // @include foundation-label;
-// @include foundation-media-object;
+@include foundation-media-object;
 // @include foundation-off-canvas;
 @include foundation-orbit;
 // @include foundation-pagination;
@@ -71,4 +71,5 @@
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";
+@import "layouts/featured-content";
 @import "layouts/default";

@@ -6,14 +6,14 @@
 	
 	</div>
 <% end_if %>
-<div class="row">	
-	<div class="large-7 large-offset-2 columns">
-		<article role="main" class="content">
+<div class="main">	
+	<%-- <div class="large-7 large-offset-2 columns"> --%>
+		<article role="main" class="main__content">
 			$Content
 			$Form
 		</article>
-	</div>
-	<div class="large-2 large-offset-1 columns">
+	<%-- </div> --%>
+	<%-- <div class="large-2 large-offset-1 columns"> --%>
 		<nav class="sidenav">
 			 <% if $Menu(2) %>
 				<% with Level(1) %>
@@ -48,7 +48,7 @@
 				</ul>
 			<% end_if %><%-- end_if Menu(2) --%>
 		</nav>
-	</div>
+	<%-- </div> --%>
 </div>
 
 

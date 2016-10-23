@@ -5,3 +5,15 @@ h2{
 	font-weight: normal;
 }
 
+.text-heading--small{
+	font-size: rem-calc(13);
+	font-family: $body-font-family;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: rem-calc(30);
+	letter-spacing: 0.1em;
+}
+
+.text-heading--centered{
+	text-align: center;
+}

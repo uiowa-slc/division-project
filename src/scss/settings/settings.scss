@@ -22,7 +22,7 @@ $yellow: #ffcd00;
 
 
 
-$global-width: rem-calc(1600);
+$global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 
 $body-background: $white;
@@ -43,7 +43,7 @@ $print-transparent-backgrounds: true;
 ----------------------------------------------------*/
 //Most browsers have this set to 16 by default, so we use 100%:
 
-$global-font-size: 120%;
+$global-font-size: 110%;
 
 /* Links
 ----------------------------------------------------*/
@@ -141,7 +141,7 @@ $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
 
-$blockquote-color: $dark-gray;
+$blockquote-color: #333;
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
 

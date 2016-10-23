@@ -1,7 +1,7 @@
 <div class="slider slider--homepage" role="region" aria-label="Featured News Items" data-orbit>
 	<ul class="slider__slides">
 		<div class="header__container--in-slider">
-		<% include HeaderDark %>
+			<% include HeaderDark %>
 		</div>
 
 		<% if $BackgroundFeatures.Count > 1 %>
@@ -16,12 +16,4 @@
 		<% end_loop %>
 	</ul>
 </div>
-<div class="row large-6 large-centered columns">
-	<hr />
-	<p class="text-center">$SiteConfig.Tagline</p>
-	<article role="main" class="content">
-		<h1>$Title</h1>
-		$Content
-		$Form
-	</article>
-</div>
+<% include HomePageContent %>

@@ -1,4 +1,9 @@
 .sidenav{
+
+	@include grid-column(2);
+	@include grid-column-offset(1);
+
+
 	padding-top: 40px;
 
 

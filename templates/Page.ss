@@ -48,6 +48,7 @@
     $Layout
     $BetterNavigator
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
+    <script src="division-project/bower_components/vide/dist/jquery.vide.min.js"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

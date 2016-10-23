@@ -1,20 +1,18 @@
+<li class="slider__slide <% if $First %>is-active<% end_if %>" style="background-image: url($Image.URL);">
+	<div class="header__screen header__screen--in-slider">
+		<%-- <div class="homepage-slider__shadow"></div> --%>
+		<div class="featured-content">
+			<div class="featured-content__featured-story">
+				<p class="featured-content__subheader featured-content__aligner">News</p>
+				<h1 class="featured-content__header">Empowering Students</h1>
+				<p><a href="#" class="button button--hollow featured-content__aligner">Read Full Story</a></p>
+				
+			</div>
 
-	<li class="slider__slide <% if $First %>is-active<% end_if %>" style="background-image: url($Image.URL);">
-		<div class="slider__bg-container slider__bg-container--homepage">
-			<%-- <div class="homepage-slider__shadow"></div> --%>
-			<div class="homepage-slider-content">
-				<div class="row homepage-slider-content__featured-story">
-					<div class="large-6 columns">
-						<p class="homepage-slider-content__subheader homepage-slider-content__aligner">News</p>
-						<h1 class="homepage-slider-content__header">Empowering Students</h1>
-						<p><a href="#" class="button button--hollow homepage-slider-content__aligner">Read Full Story</a></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-12 columns">
-						<p class="homepage-slider-content__subheader">Related Content</p>
-					</div>
-				</div>
+			<div class="featured-content__aligner">
+			
+				<p class="featured-content__subheader">Related Content</p>
+				
 				<div class="row small-up-1 medium-up-4">
 					<div class="column">
 						<article>
@@ -31,4 +29,5 @@
 				</div>
 			</div>
 		</div>
-	</li>
+	</div>
+</li>
