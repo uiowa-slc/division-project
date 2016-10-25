@@ -11,8 +11,8 @@
 				<% loop $Children %>
 					<li class="item">
 						<a href="$Link">
-							<% if $FeaturedImage %>
-								<img data-src="$FeaturedImage.FocusFill(300,200).URL" src="division-project/images/placeholder.png"alt="$Title">
+							<% if $FeatureHolderImage %>
+								<img data-src="$FeatureHolderImage.FocusFill(300,200).URL" src="division-project/images/placeholder.png"alt="$Title">
 							<% else %>
 								<img data-src="division-project/images/placeholder.png" src="division-project/images/placeholder.png"alt="$Title">
 							<% end_if %>

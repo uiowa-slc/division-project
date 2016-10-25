@@ -33,7 +33,6 @@
 	                $Content  
                 
                     <% if Tags %>
-                    <hr />
                     <p class="tags">
                          <% _t('TAGS', 'Tags:') %> 
                         <% loop Tags %>

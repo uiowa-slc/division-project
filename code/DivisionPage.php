@@ -6,8 +6,7 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		"BackgroundImage" => "Image",
-		'FeaturedImage' => 'Image'
+		"BackgroundImage" => "Image"
 	);
 
 	private static $many_many = array(
@@ -43,11 +42,6 @@ class DivisionPage extends DataExtension {
 	public function updateCMSFields(FieldList $f) {
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
-		}
-
-		$parent = $this->owner->Parent();
-		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
-			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in parent)"), "Content");
 		}
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
