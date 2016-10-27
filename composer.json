@@ -37,7 +37,9 @@
       "rywa/silverstripe-foundation-forms" : "dev-master",
       "unclecheese/silverstripe-green" : "*",
       "unclecheese/display-logic" : "*",
-      "sheadawson/silverstripe-blocks": "*"
+      "sheadawson/silverstripe-blocks": "*",
+      "unisolutions/silverstripe-copybutton": "*",
+      "micschk/silverstripe-gridfieldsitetreebuttons": "*"
    },
    "repositories":[  
       {  
