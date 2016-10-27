@@ -36,7 +36,8 @@
       "unclecheese/silverstripe-page-gallery": "dev-master",
       "rywa/silverstripe-foundation-forms" : "dev-master",
       "unclecheese/silverstripe-green" : "*",
-      "unclecheese/display-logic" : "*"
+      "unclecheese/display-logic" : "*",
+      "sheadawson/silverstripe-blocks": "*"
    },
    "repositories":[  
       {  
