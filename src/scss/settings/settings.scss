@@ -43,7 +43,7 @@ $print-transparent-backgrounds: true;
 ----------------------------------------------------*/
 //Most browsers have this set to 16 by default, so we use 100%:
 
-$global-font-size: 110%;
+$global-font-size: 100%;
 
 /* Links
 ----------------------------------------------------*/
@@ -96,7 +96,7 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge xxlarge);
 
 /* Grid
 ----------------------------------------------------*/
@@ -142,7 +142,7 @@ $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
 
 $blockquote-color: #333;
-$blockquote-padding: rem-calc(9 20 0 19);
+$blockquote-padding: rem-calc(0 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
 
 $cite-font-size: rem-calc(13);

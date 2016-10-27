@@ -2,7 +2,7 @@
 <header class="header header--dark" role="banner">
 	<h1><a href="$BaseUrl">$SiteConfig.Title</a></h1>
 		
-			<nav role="navigation" class="navigation__wrapper navigation__wrapper--dark large-12 columns row" aria-label="Main menu">
+			<nav role="navigation" class="navigation__wrapper navigation__wrapper--dark" aria-label="Main menu">
 				<ul class="navigation navigation--dark clearfix">
 					<% loop $Menu(1) %>
 						<li class="navigation__item <% if $FirstLast %>navigation__item--$FirstLast<% end_if %><% if $Children %> navigation__item--parent<% end_if %> navigation__item--{$LinkOrCurrent} navigation__item--{$LinkOrSection} navigation__item--dark">

@@ -7,7 +7,7 @@ class DivisionPage extends DataExtension {
 
 	private static $has_one = array(
 		"BackgroundImage" => "Image",
-		'FeaturedImage' => 'Image'
+		'FeatureHolderImage' => 'Image'
 	);
 
 	private static $many_many = array(
@@ -47,7 +47,7 @@ class DivisionPage extends DataExtension {
 
 		$parent = $this->owner->Parent();
 		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
-			$f->addFieldToTab("Root.Main", new UploadField("FeaturedImage", "Feature Holder Image (shown in parent)"), "Content");
+			$f->addFieldToTab("Root.Main", new UploadField("FeatureHolderImage", "Feature Holder Image (shown in parent)"), "Content");
 		}
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();

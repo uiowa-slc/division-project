@@ -1,3 +1,7 @@
+.container{
+	//Container utility class.
+	@include grid-row;
+}
 
 /* Main Content Styles: */
 
@@ -26,6 +30,13 @@
 		@include grid-column(6);
 		@include grid-column-position(center);
 
+	}
+}
+
+.content-block{
+	//For content blocks without headings seaparating them.
+	&--padding{
+		padding: rem-calc(70) 0;
 	}
 }
 

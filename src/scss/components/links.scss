@@ -8,3 +8,11 @@ a {
 		outline: thin dotted;
 	}
 }
+
+.caret-link{
+	&:after{
+		@include css-triangle(4px, $yellow, right);
+		margin-left: 7px;
+		display: inline-block;
+	}
+}
