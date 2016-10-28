@@ -1,5 +1,5 @@
-<section class="content-block">
-
+$BlockArea(BeforeContent)
+<%-- <section class="content-block">
 	<div class="row">
 		<article class="tagline" role="main">
 			<h1 class="text-heading--centered text-heading--small">Our Mission And Vision</h1>
@@ -7,7 +7,8 @@
 			<div class="tagline__separator"></div>
 		</article>
 	</div>
-
+</section> --%>
+<section class="content-block">
 	<div class="row">
 		<div class="welcome__inner">
 			<p class="welcome__text">Welcome to the Office of the Vice President website, a branch of the Division of Student Life. We work with students to create and promote a multitude of educational opportunities that complement the opportunities that students have within the curriculum they study.</p>
@@ -42,7 +43,7 @@
 
 
 <section class="content-block">
-	<h2 class="text-heading--centered text-heading--small">Initiatives and Engagement</h2>
+	<h2 class="content-block-header header--centered header--small">Initiatives and Engagement</h2>
 	<div class="tile-grid row small-up-1 medium-up-2 large-up-3 xlarge-up-4">
 		<% loop ChildrenOf("initiatives") %>
 			<a href="$Link" class="tile column" style="background-image: url('$BackgroundImage.URL')">
@@ -56,7 +57,7 @@
 	<div class="row">
 		<div class="featured-page">
 			<div class="featured-page__text large-6 columns">
-				<h2 class="text-heading--small">Multiculturalism and Diversity</h2>
+				<h2 class="heading--small">Multiculturalism and Diversity</h2>
 				<p>Given the evidence that binge drinking is an issue at the University, the Division of Student Life has spear-headed collaborative efforts on alcohol harm reduction. This plan involves education, bystander interference, communication, and policy review.</p>
 				<ul class="unstyled-list">
 					<li><a class="caret-link" href="#">Timeline and Support Structure</a></li>

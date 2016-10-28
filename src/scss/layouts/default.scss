@@ -5,39 +5,49 @@
 
 /* Main Content Styles: */
 
-.main{
-	@include grid-row;
+.main-content{
 
-	&__content{
+	@include grid-column(12);
+	
+
+	@include breakpoint(large) {
 		@include grid-column(7);
-		@include grid-column-offset(2);
+		@include grid-column-offset(1);
+		
+	}
 
-		padding-top: rem-calc(40);
+	h1,h2,h3,h4,h5,h6{
+		a:after{
+			@include css-triangle(6px, $anchor-color, right);
+			margin-bottom: 4px;
+			margin-left: 5px;
+			display: inline-block;
 
-		h1,h2,h3,h4,h5,h6{
-			a:after{
-				@include css-triangle(6px, $anchor-color, right);
-				margin-bottom: 4px;
-				margin-left: 5px;
-				display: inline-block;
-
-			}
 		}
 	}
 
-	&__content--homepage{
-		@include grid-column-row();
-		@include grid-column(6);
-		@include grid-column-position(center);
-
+	&--with-padding{
+		padding-top: rem-calc(20);
+		@include breakpoint(large) {
+			padding-top: rem-calc(40);
+		}
 	}
 }
 
-.content-block{
-	//For content blocks without headings seaparating them.
-	&--padding{
-		padding: rem-calc(70) 0;
+.sidebar{
+	@include grid-column(12);
+	margin-top: rem-calc(20);
+
+	@include breakpoint(large) {
+		@include grid-column(3);
+		@include grid-column-offset(1);
+		// padding-top: 40px;
 	}
+
+}
+
+.content-block{
+	padding: rem-calc(70) 0;
 }
 
 

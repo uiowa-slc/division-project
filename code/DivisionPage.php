@@ -14,6 +14,10 @@ class DivisionPage extends DataExtension {
 		"SidebarItems" => "SidebarItem",
 	);
 
+	private static $belongs_many_many = array(
+		'TileGridBlocks' => 'TileGridBlock'
+	);	
+
 	private static $many_many_extraFields = array(
 		'SidebarItems' => array(
 			'SortOrder'   => 'Int',

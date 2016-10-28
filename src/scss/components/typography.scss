@@ -17,15 +17,18 @@ h2{
 	}
 }
 
-.text-heading--small{
+.header--small{
 	font-size: rem-calc(13);
 	font-family: $body-font-family;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-bottom: rem-calc(30);
-	letter-spacing: 0.1em;
 }
 
-.text-heading--centered{
+.header--centered{
 	text-align: center;
+}
+
+.content-block-header{
+	margin-bottom: rem-calc(30);
+	letter-spacing: 0.1em;
 }
