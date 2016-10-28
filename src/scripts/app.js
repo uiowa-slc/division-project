@@ -11,6 +11,11 @@ var sliderOptions = {
 
 var slider = new Foundation.Orbit($('.slider'), sliderOptions);
 
+$('iframe').each(function(){
+	$(this).wrap( "<div class='flex-video widescreen'></div>" );
+
+});
+
 // function setDimensions(){
 //    var windowsHeight = $(window).height();
 

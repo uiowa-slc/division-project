@@ -19,4 +19,4 @@ HomePageFeature:
     - Versioned("Stage","Live")
 HomePageHeroFeature:
   extensions:
-    - Versioned("Stage","Live")
+    - Versioned("Stage","Live") 

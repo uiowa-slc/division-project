@@ -14,7 +14,7 @@
 						<ul class="subnav subnav--two-columns">
 							
 								<% loop $Children %>
-									<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link" href="$Link">$MenuTitle</a></li>
+									<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link" href="$Link">$MenuTitle.LimitCharacters(30)</a></li>
 								<% end_loop %>
 						
 			

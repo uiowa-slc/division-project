@@ -1,3 +1,9 @@
+#BetterNavigator{
+	display: none;
+	@include breakpoint(large) {
+		display: block;
+	}
+}
 .container{
 	//Container utility class.
 	@include grid-row;
@@ -9,12 +15,12 @@
 
 	@include grid-column(12);
 	
-
 	@include breakpoint(large) {
 		@include grid-column(7);
-		@include grid-column-offset(1);
 		
-	}
+		
+	}	
+
 
 	h1,h2,h3,h4,h5,h6{
 		a:after{
@@ -32,6 +38,17 @@
 			padding-top: rem-calc(40);
 		}
 	}
+
+	&--with-sidebar{
+		@include breakpoint(large) {
+			@include grid-column-offset(1);
+			
+		}		
+	}
+
+	&--full-width{
+		@include grid-column-position(center);
+	}
 }
 
 .sidebar{
@@ -47,7 +64,11 @@
 }
 
 .content-block{
-	padding: rem-calc(70) 0;
+	border-top: 1px solid #e4e4e4;
+	padding: rem-calc(30) 0;
+	@include breakpoint(large) {
+		padding: rem-calc(70) 0;
+	}
 }
 
 

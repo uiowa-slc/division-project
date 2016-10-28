@@ -1,3 +1,4 @@
+<% if $Children || $Menu(2) %>
 <nav class="sidenav" data-sticky data-margin-top="0" data-anchor="sticky-nav-area" data-sticky-on="large">
 	 <% if $Menu(2) %>
 		<% with Level(1) %>
@@ -32,3 +33,4 @@
 		</ul>
 	<% end_if %><%-- end_if Menu(2) --%>
 </nav>
+<% end_if %>

@@ -3,7 +3,7 @@
 		<%-- <div class="homepage-slider__shadow"></div> --%>
 		<div class="hero">
 
-			<div class="container">
+			<div class="row">
 				<article class="hero-article">
 					<p class="subheader subheader--white hero__aligner">News</p>
 					<h1 class="hero-article__header"><a class="hero-article__link" href="#">Empowering Students</a></h1>
@@ -11,7 +11,7 @@
 				</article>
 			</div>
 
-			<div class="container">
+			<div class="row">
 				<div class="hero-related">
 					<p class="subheader subheader--white hero__aligner">Related Content</p>
 					<div class="hero__aligner">

@@ -1,7 +1,7 @@
 <% include DivisionBarDark %>
 <header class="header header--dark" role="banner">
 	<h1><a href="$BaseUrl">$SiteConfig.Title</a></h1>
-		
+		<div class="large-12 columns row">
 			<nav role="navigation" class="navigation__wrapper navigation__wrapper--dark" aria-label="Main menu">
 				<ul class="navigation navigation--dark clearfix">
 					<% loop $Menu(1) %>
@@ -26,5 +26,6 @@
 					<% end_loop %>
 				</ul>
 			</nav>
+			</div>
 
 	</header>

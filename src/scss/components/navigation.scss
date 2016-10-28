@@ -10,6 +10,7 @@
 		margin-top: .5em;
 	}
 	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
 	@include breakpoint(medium) {
 		overflow: visible;
 
@@ -309,6 +310,8 @@
 
 	&__item--last{
 		border-bottom: none;
+		@include grid-column-end;
+
 	}
 
 	&__link{
