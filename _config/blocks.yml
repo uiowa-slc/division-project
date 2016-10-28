@@ -5,13 +5,14 @@ Page_Controller:
   extensions:
     - DivisionPage_Controller
 BlockManager:
+    use_default_blocks: false
     themes:
         division-subtheme:
-          use_default_blocks: false
           areas:
               Sidebar: true # a Sidebar area will be available on all page types in simple theme
+              BeforeContentConstrained: true
               BeforeContent: true
-              InContent: true
+              AfterContentConstrained: true
               AfterContent: true
               Footer: true # a Footer area will be available on all page types in simple theme
 

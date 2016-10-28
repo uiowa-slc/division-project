@@ -2,6 +2,7 @@
 <header class="header" role="banner">
 	<h1><a href="$BaseUrl">$SiteConfig.Title</a></h1>
 	<div class="navigation__wrapper">
+	<%-- <nav role="navigation" class="large-12 columns row" aria-label="Main menu"> --%>
 	<nav role="navigation" class="large-12 columns row" aria-label="Main menu">
 		<ul class="navigation clearfix">
 			<% loop $Menu(1) %>

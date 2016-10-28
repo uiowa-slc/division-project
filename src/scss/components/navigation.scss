@@ -9,14 +9,21 @@
 		background-color: #242424;
 		margin-top: .5em;
 	}
-	display: none;
+	overflow-x: scroll;
 	@include breakpoint(medium) {
-		display: block;
+		overflow: visible;
+
 	}
+
 
 }
 
 .navigation {
+	width: 700px;
+	@include breakpoint(medium) {
+		width: auto;
+	}
+
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
@@ -43,6 +50,17 @@
 		border-left: 1px solid white;
 		border-right: 1px solid white;
 		z-index: 2;
+		&:after{
+			background-color: $yellow;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+
+		}
 		&:hover:after {
 			background-color: $black;
 			display: block;
@@ -114,8 +132,75 @@
 
 	&__item--dark{
 		border: none;
-		&:after, &:hover:after{
+		&:after{
+			background: none;
+		}
+		&:hover:after{
 			background-color: $yellow;
+		}
+	}
+
+
+	//Make the fifth nav item and beyond's dropdown hang from the right:
+	&__item{
+		&:nth-child(n+5):hover{
+			.subnav--two-columns{
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+
+	&__item--column{
+		 
+
+	}
+
+
+	&__link{
+		display: block;
+		font-size: rem-calc(18);
+		padding: rem-calc(15) rem-calc(15);
+		// @include breakpoint(medium) {
+		// 	padding: rem-calc(15) rem-calc(27);
+		// }
+		@include breakpoint(large) {
+			padding: rem-calc(20) rem-calc(30);
+		}
+		@include breakpoint(xlarge) {
+			padding: rem-calc(20) rem-calc(37);
+			font-size: rem-calc(22);
+		}
+		position: relative;
+		transition: none;
+		z-index: 2;
+		text-transform: uppercase;
+		color: #333;
+		border-color: white;
+		&:hover,&:focus,&:active{
+			color: lighten($black, 20);
+		}
+	}
+
+	&__link--parent{
+
+		@include breakpoint(large){
+			&:after{
+				@include css-triangle(4px, $black, down);
+				display: inline-block;
+				margin-left: 7px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	&__link--dark{
+		color: white;
+		font-weight: bold;
+		&:hover,&:focus,&:active{
+			color: darken($white, 20);
+		}
+		&:after{
+			border-color: white transparent transparent;
 		}
 	}
 
@@ -165,65 +250,6 @@
 
 
 	}
-	&__item{
-		&:nth-child(n+5):hover{
-			.subnav--two-columns{
-				left: auto;
-				right: 0;
-			}
-		}
-	}
-
-	&__item--column{
-		 
-
-	}
-
-
-	&__link{
-		display: block;
-		font-size: rem-calc(18);
-		padding: rem-calc(15) rem-calc(15);
-		// @include breakpoint(medium) {
-		// 	padding: rem-calc(15) rem-calc(27);
-		// }
-		@include breakpoint(large) {
-			padding: rem-calc(20) rem-calc(30);
-		}
-		@include breakpoint(xlarge) {
-			padding: rem-calc(20) rem-calc(37);
-			font-size: rem-calc(22);
-		}
-		position: relative;
-		transition: none;
-		z-index: 2;
-		text-transform: uppercase;
-		color: #333;
-		border-color: white;
-		&:hover,&:focus,&:active{
-			color: lighten($black, 20);
-		}
-	}
-
-	&__link--parent{
-		&:after{
-			@include css-triangle(4px, $black, down);
-			display: inline-block;
-			margin-left: 7px;
-			margin-bottom: 5px;
-		}
-	}
-	&__link--dark{
-		color: white;
-		font-weight: bold;
-		&:hover,&:focus,&:active{
-			color: darken($white, 20);
-		}
-		&:after{
-			border-color: white transparent transparent;
-		}
-	}
-
 }
 
 .subnav{
@@ -245,7 +271,10 @@
    padding: 18px rem-calc(15);
    z-index: 1;
    margin-left: 0;
-
+   display: none;
+   @include breakpoint(medium){
+   	display: block;
+   }
 
 	&--show-menu{
 		left: 0;
