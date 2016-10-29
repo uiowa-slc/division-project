@@ -9,10 +9,49 @@
 	@include grid-row;
 }
 
+body{
+	transition: background-color 1s;
+}
+
+.body--search-active{
+	background-color: #ddd;
+}
+
+
+/* Background Media */
+
+.background-media{
+	
+	&__bg-image{
+
+	}
+
+	&__image{
+
+	}
+	&__video{
+
+	}
+
+	&--grayscale{
+		
+	}
+
+}
+
+
 /* Main Content Styles: */
 
-.main-content{
 
+
+.main-content{
+	
+	&__container{
+		transition: filter 1s;
+	}
+	&__container--grayscale{
+		filter: grayscale(90%);
+	}
 	@include grid-column(12);
 	
 	@include breakpoint(large) {

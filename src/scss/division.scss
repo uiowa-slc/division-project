@@ -1,6 +1,11 @@
 @charset "utf-8";
 
+//Settings
 @import "settings/settings";
+
+
+// Libraries
+@import "lib/fa/font-awesome";
 @import "foundation";
 @import "motion-ui";
 
@@ -8,7 +13,7 @@
 @include foundation-grid;
 // @include foundation-flex-grid;
 @include foundation-typography;
-@include foundation-button;
+// @include foundation-button;
 @include foundation-forms;
 // @include foundation-range-input;
 @include foundation-accordion;
@@ -55,6 +60,9 @@
 @import "base/mixins";
 @import "base/main";
 
+
+
+
 // Components
 @import "components/typography";
 @import "components/breadcrumbs";
@@ -72,6 +80,7 @@
 @import "components/hero";
 @import "components/featured-page";
 @import "components/tile-grid";
+
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";

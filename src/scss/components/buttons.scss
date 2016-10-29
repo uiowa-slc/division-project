@@ -5,7 +5,7 @@ button, .button{
 
 /* css/scss/imports/buttons.scss
 ========================================================================== */
-.button--shaded {
+.button,.button--shaded {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
