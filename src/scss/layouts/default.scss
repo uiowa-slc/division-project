@@ -45,12 +45,14 @@ body{
 
 
 .main-content{
-	
+
 	&__container{
 		transition: filter 1s;
+
 	}
 	&__container--grayscale{
-		filter: grayscale(90%);
+		filter: grayscale(90%) blur(5px);
+		
 	}
 	@include grid-column(12);
 	

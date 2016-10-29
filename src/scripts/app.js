@@ -49,7 +49,7 @@ $("#site-search").focusout(function(){
   	if($("#site-search").hasClass("site-search--is-active")){
   		//alert('clicked outside of site search AND search is active!!');
   		//Not deactivating search right now on focus out for debugging purposes.
-  		//deactivateSearch();
+  		deactivateSearch();
   	}
 });
 
