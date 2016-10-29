@@ -95,7 +95,9 @@ function server(done) {
   browser.init({
     proxy: {
       target: "localhost:8888/division-project-4"
-    }
+    },
+    host:      'site1.domain.dev',
+    port:      3060
   });
   done();
 }

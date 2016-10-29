@@ -1,19 +1,16 @@
 .navigation__wrapper {
-	@include grid-column(12);
+	// @include grid-column(12);
 
 	margin-top: 0;
 	position: relative;
 	z-index: 1;
 	background-color: #fff;
-	&--dark	{
-		background-color: #242424;
-		margin-top: .5em;
-	}
+
+
 	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
 	@include breakpoint(medium) {
 		overflow: visible;
-
 	}
 	&:after{
 		transition: background-color 1s;
@@ -26,6 +23,13 @@
 		left: 1px;
 		content: "";
 
+	}
+	&--search-is-active{
+		overflow: hidden;
+	}
+	&--dark	{
+		background-color: #242424;
+		margin-top: .5em;
 	}
 
 	&--grayscale{
@@ -347,10 +351,15 @@
 }
 
 .site-search{
+	text-align: left;
 	transition: opacity 0.3s;
 	transition-timing-function: ease-in-out;
 	// border-left: 5px solid $yellow;
 	// border-right: 5px solid $yellow;
+
+	@include breakpoint(large){
+		text-align: center;
+	}
 	&--is-inactive{
 		@extend .sr-only;
 		opacity: 0;
@@ -394,7 +403,12 @@
 	}
 	&__form{
 		display: inline-block;
-		width: 82%;
+		width: 200px;
+		height: rem-calc(30);
+
+		@include breakpoint(large){
+			width: 82%;
+		}
 	}
 
 	&__form--is-inactive{
@@ -412,11 +426,13 @@
 	&__input{
 
 		width: 100%;
+
 		border: none;
 		font-size: rem-calc(18);
 		font-family: $body-font-family;
 		line-height: 1;
-		padding: rem-calc(20) 0;
+		
+		padding: rem-calc(10) 0;
 		&:focus{
 			border: none;
 		}

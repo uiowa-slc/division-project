@@ -25,6 +25,11 @@ function activateSearch(){
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
 	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
+
+	setTimeout(function(){
+	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
+	}, 5);
+	
 	document.getElementById("site-search__input").focus();	
 }
 
@@ -34,6 +39,9 @@ function deactivateSearch(){
 	$("#site-search").toggleClass("site-search--is-active site-search--is-inactive");	
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
 	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
+	setTimeout(function(){
+	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
+	}, 5);
 }
 
 $(".navigation__link--search").click(function(){
@@ -49,7 +57,7 @@ $("#site-search").focusout(function(){
   	if($("#site-search").hasClass("site-search--is-active")){
   		//alert('clicked outside of site search AND search is active!!');
   		//Not deactivating search right now on focus out for debugging purposes.
-  		deactivateSearch();
+  		// deactivateSearch();
   	}
 });
 
