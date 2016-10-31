@@ -22,9 +22,10 @@ class BlogFieldExtension extends DataExtension {
 
 
 		$fields->removeByName("BackgroundImage");
-
+		$fields->removeByName("FeaturedImage");
 		$fields->removeByName("Authors");
 		$fields->removeByName("AuthorNames");
+		$fields->removeByName("CustomSummary");
 
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryBy', 'Story author'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByEmail', 'Author email address'));
@@ -33,6 +34,7 @@ class BlogFieldExtension extends DataExtension {
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosBy', 'Photos or video by'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
+		$fields->addFieldToTab("Root.Main", new UploadField('FeaturedImage', 'Main Image (shows up on FB Shares)'), 'Content');
 
 
 		if ($this->owner->ClassName == "BlogEntry") {

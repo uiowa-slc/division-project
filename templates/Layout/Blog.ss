@@ -3,51 +3,54 @@
 	<div class="container clearfix">
 		<div class="white-cover"></div>
 	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
-        $Breadcrumbs
-        <h1>$Title</h1>
-        	$Content
-        	<hr />
             <% if $ArchiveYear %>
-                <p><%t Blog.Archive "Archive" %>:
+                <ul class="breadcrumbs">
+                    <li><a href="$Link">$MenuTitle</a></li>
+                    <li>Archive: <strong>
+                    <% if $ArchiveDay %>
+                    $ArchiveDate.Nice
+                    <% else_if $ArchiveMonth %>
+                        $ArchiveDate.format("F, Y")
+                    <% else %>
+                        $ArchiveDate.format("Y")
+                    <% end_if %>
+                        
+                    </strong></li>      
+                </ul>
+                <h1 class="heading--normal-case">
                 <% if $ArchiveDay %>
                     $ArchiveDate.Nice
-                <% else_if $ArchiveMonth %>
-                    $ArchiveDate.format("F, Y")
-                <% else %>
-                    $ArchiveDate.format("Y")
-                <% end_if %>
-                </p>
+                    <% else_if $ArchiveMonth %>
+                        $ArchiveDate.format("F, Y")
+                    <% else %>
+                        $ArchiveDate.format("Y")
+                    <% end_if %></h1>
             <% else_if $CurrentTag %>
-                <p><%t Blog.Tag "Tag" %>: $CurrentTag.Title </p>
-                <p><a href="{$Link}" class="btn">View all posts</a></p>
+                <ul class="breadcrumbs">
+                    <li><a href="$Link">$MenuTitle</a></li>
+                    <li>Tag: <strong>$CurrentTag.Title</strong></li>      
+                </ul>
+                <h1 class="heading--normal-case">Filed under: $CurrentTag.Title</h1>
             <% else_if $CurrentCategory %>
                 <p><%t Blog.Category "Category" %>: $CurrentCategory.Title </p>
             <% else %>
-                
+                <h1>$Title</h1>
             <% end_if %>
+        
 
-				<% if SelectedTag %>
-					<div class="selectedTag">
-						
-						Viewing entries tagged with : '<strong>$SelectedTag</strong>' <a href="$Link">View all entries.</a>
-						
-					</div>
-				<% else_if SelectedDate %>
-					<div class="selectedTag">
-					
-						<% _t('VIEWINGPOSTEDIN', 'Viewing entries posted in') %> <strong>$SelectedNiceDate</strong> <a href="$Link">View all entries.</a>
-						
-					</div>
-				<% end_if %>
+        	$Content
+        	<% if $Content %><hr /><% end_if %>
+
+
 				
-				<% if PaginatedList %>
-					<% loop PaginatedList %>
-						<% include BlogSummary %>
-					<% end_loop %>
-				<% else %>
-					<p><% _t('NOENTRIES', 'There are no entries.') %></p>
-				<% end_if %>
-				
+			<% if PaginatedList %>
+				<% loop PaginatedList %>
+					<% include BlogSummary %>
+				<% end_loop %>
+			<% else %>
+				<p><% _t('NOENTRIES', 'There are no entries.') %></p>
+			<% end_if %>
+			
 				<% include BlogPagination %>
         </section>
         <section class="sec-content hide-print">

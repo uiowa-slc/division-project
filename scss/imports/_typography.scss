@@ -53,6 +53,10 @@ h1 {
     }
 }
 
+.heading--normal-case{
+    text-transform: none;
+}
+
 h2 {
     @include rem(33);
 }
