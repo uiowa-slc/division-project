@@ -2,7 +2,7 @@
 class HomePage extends Page {
 
 	private static $db = array(
-		'LayoutType' => 'varchar(155)'
+	
 	);
 
 	private static $has_one = array(
@@ -13,11 +13,15 @@ class HomePage extends Page {
 		'BackgroundFeatures' => 'HomePageBackgroundFeature',
 	);
 
-	protected $layout_types = array(
+	public $layout_types = array(
 		'ShuffledBackgroundFeatures' => 'Shuffled Background Features and Hero Features (legacy)',
 		'BackgroundVideo' => 'Background Video',
 		'ImageSlider' => 'Image Slider'
 	);
+
+	public function getPageTypeTheme(){
+		return "dark";
+	}
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
@@ -28,13 +32,6 @@ class HomePage extends Page {
 		$f->removeByName('SidebarLabel');
 		$f->removeByName('SidebarItem');
 
-
-		$layoutOptionsField = DropdownField::create(
-  			'LayoutType',
-  			'Layout type',
-  			$this->layout_types
-		);
-		$f->addFieldToTab('Root.Main', $layoutOptionsField);
 
 
 		$this->getShuffledBackgroundFields($f);
@@ -124,13 +121,7 @@ class HomePage_Controller extends Page_Controller {
 		parent::init();
 
 	}
-	public function index() {
-		$page = $this->customise(array(
-				'BackgroundFeature' => $this->BackgroundFeatures()->Sort('RAND()')->First(),
-			));
 
-		return $page->renderWith(array('HomePage_'.$this->LayoutType, 'HomePage', 'Page'));
-	}
 	public function HomePageFeatures() {
 		$features = HomePageFeature::get();
 

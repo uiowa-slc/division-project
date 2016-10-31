@@ -60,11 +60,11 @@
 	}
 
 	&__link{
-		color: white;
+		color: $black;
 	}
 
-	&__link--black{
-		color: $black;
+	&__link--dark{
+		color: #fff;
 	}
 
 

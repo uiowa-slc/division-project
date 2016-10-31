@@ -1,8 +1,6 @@
 <div data-vide-bg="{$ThemeDir}/videos/dm_video.mp4" data-vide-options="loop: false, muted: false, position: 0% 0%">
 	<div class="header__screen">
-		<div class="header__container">
-			<% include HeaderDark %>
-		</div>
+		$Header(dark,overlay)
 	
 		<div class="hero hero--is-overlay">
 

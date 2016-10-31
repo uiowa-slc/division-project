@@ -1,7 +1,7 @@
 <li class="slider__slide <% if $First %>is-active<% end_if %>" style="background-image: url($Image.URL);">
 	<div class="header__screen header__screen--in-slider">
 		<%-- <div class="homepage-slider__shadow"></div> --%>
-		<div class="hero">
+		<div class="hero hero--is-overlay">
 
 			<div class="row">
 				<article class="hero-article">

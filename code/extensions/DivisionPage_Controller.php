@@ -16,9 +16,11 @@ class DivisionPage_Controller extends Extension {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array(
-	);
+	public function index() {
+		$page = $this->owner;
 
+		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, 'Page'));
+	}
 	public static function StaffSpotlightHandler($arguments, $content) {
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
 

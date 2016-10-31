@@ -12,7 +12,8 @@ class SiteConfigExtension extends DataExtension {
 		'VimeoLink' => 'Text',
 		'YouTubeLink' => 'Text',
 		'DisableDivisionBranding' => 'Boolean',
-		'ShowExitButton' => 'Boolean'
+		'ShowExitButton' => 'Boolean',
+		'UseDarkTheme' => 'Boolean'
 	);
 
 	static $has_one = array(
@@ -20,6 +21,7 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	public function updateCMSFields(FieldList $fields) {
+		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark header throughout site'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division of Student Life branding elements'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowExitButton', 'Show Exit Button'));
 

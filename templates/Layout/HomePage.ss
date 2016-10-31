@@ -1,9 +1,8 @@
 <div class="slider slider--homepage" role="region" aria-label="Featured News Items" data-orbit>
 	<ul class="slider__slides">
-		<div class="header__container--in-slider">
-			<% include HeaderDark %>
-		</div>
-
+		
+		$Header(auto,overlay)
+		
 		<% if $BackgroundFeatures.Count > 1 %>
 
 			<button class="slider__navigation slider__navigation--previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>

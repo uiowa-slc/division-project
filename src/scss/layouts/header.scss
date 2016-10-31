@@ -1,12 +1,18 @@
 
+
 .header__screen{
 	background-color: rgba(#333, 0.7);
-	
 	
 	background-repeat: no-repeat;
 	position: relative;
 	height: 100%;
 	
+	&----in-slider{
+		padding-top: 100px;
+		@include breakpoint(large) {
+			padding-top: 200px;
+		}
+	}
 
 	@include breakpoint(medium) {
 		background-color: rgba(#333, 0.5);
@@ -28,20 +34,23 @@
 	}
 }
 
-.header__screen--in-slider{
-	padding-top: 100px;
-	@include breakpoint(large) {
-		padding-top: 200px;
-	}
-}
-.header__container--in-slider{
-	position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 100%;
-    z-index: 9999;
-}
 .header__container{
+
+	&--dark{
+		background: #222;
+	}
+	&--overlay{
+		background: none;
+	}
+	&--in-slider{
+		
+		position: absolute;
+	    left: 50%;
+	    transform: translate(-50%, 0);
+	    width: 100%;
+	    z-index: 9999;
+	}
+
 
 }
 .header {
@@ -84,6 +93,7 @@
 	&--dark{
 
 		h1{
+			font-weight: normal;
 			a{
 				color: white;
 				text-shadow: 0.5px 0.866px 1px rgba(0, 0, 0, 0.39);

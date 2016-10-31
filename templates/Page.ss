@@ -43,7 +43,7 @@
     $TypeKit
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/app.css">
   </head>
-  <body class="{$ClassName} action--{$Action}">
+  <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
     <p class="show-for-sr"><a class="show-on-focus" href="#mainContent">Skip to Content</a></p>
     <!-- Add your site or app content here -->
     $Layout

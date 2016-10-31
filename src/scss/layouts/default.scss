@@ -18,26 +18,6 @@ body{
 }
 
 
-/* Background Media */
-
-.background-media{
-	
-	&__bg-image{
-
-	}
-
-	&__image{
-
-	}
-	&__video{
-
-	}
-
-	&--grayscale{
-		
-	}
-
-}
 
 
 /* Main Content Styles: */
@@ -110,6 +90,31 @@ body{
 	@include breakpoint(large) {
 		padding: rem-calc(70) 0;
 	}
+}
+
+
+//Page Media Types (eventually move elsewhere)
+
+/* Background Media */
+
+.background-media{
+	padding-bottom: rem-calc(300);
+	
+	&__bg-image{
+
+	}
+
+	&__image{
+
+	}
+	&__video{
+		
+	}
+
+	&--grayscale{
+		
+	}
+
 }
 
 

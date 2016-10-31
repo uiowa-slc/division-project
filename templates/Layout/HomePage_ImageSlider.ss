@@ -1,8 +1,7 @@
 <div class="slider slider--homepage" role="region" aria-label="Featured News Items" data-orbit data-auto-play="false">
 	<ul class="slider__slides">
-		<div class="header__container--in-slider">
-			<% include HeaderDark %>
-		</div>
+		
+		$Header(auto,overlay)
 
 		<% if $BackgroundFeatures.Count > 1 %>
 

@@ -4,7 +4,7 @@
 	margin-top: 0;
 	position: relative;
 	z-index: 1;
-	background-color: #fff;
+	// background-color: #fff;
 
 
 	overflow-x: scroll;
@@ -150,6 +150,7 @@
 
 	&__item--dark{
 		border: none;
+	
 		&:after{
 			background: none;
 		}

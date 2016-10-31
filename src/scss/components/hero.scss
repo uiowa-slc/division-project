@@ -4,20 +4,28 @@
 	@include breakpoint(medium) {
 		padding-top: rem-calc(150);
 		padding-bottom: rem-calc(90);
-
-		&--is-overlay{
-			padding-top: rem-calc(175);
-		}
 		&__aligner{
 			margin-left: 73px;
 		}
 	}
 
-
 	@include breakpoint(large) {
 		padding-top: rem-calc(100);
 	}
 
+
+
+	&--is-overlay{
+		@include breakpoint(medium) {
+			padding-top: rem-calc(300);
+			padding-bottom: rem-calc(90);
+		}
+		@include breakpoint(large) {
+			padding-top: rem-calc(300);
+			padding-bottom: rem-calc(90);
+		}
+
+	}
 
 
 }
