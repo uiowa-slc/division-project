@@ -41,7 +41,7 @@
 }
 
 .navigation {
-	width: 700px;
+	// width: 700px;
 	position: relative;
 	@include breakpoint(medium) {
 		width: auto;
@@ -52,6 +52,10 @@
 	padding: 0;
 	display: table;
 	text-align: center;
+
+	&--search-is-active{
+		width: auto;
+	}
 
 	&--dark:after{
 		background: none;
@@ -169,7 +173,7 @@
 
 	}
 	&__search-item{
-		position: static;
+		//position: static;
 	}
 
 	&__link{
@@ -201,6 +205,7 @@
 	}
 	&__link--in-search{
 		display: inline-block;
+		vertical-align: middle;
 	}
 	&__link--parent{
 
@@ -405,7 +410,7 @@
 		display: inline-block;
 		width: 200px;
 		height: rem-calc(30);
-
+		vertical-align: middle;
 		@include breakpoint(large){
 			width: 82%;
 		}
@@ -415,13 +420,6 @@
 		@extend .sr-only;
 	}
 
-	&__cancel-button{
-
-
-		&:hover{
-			cursor: pointer;
-		}
-	}
 
 	&__input{
 
@@ -440,7 +438,23 @@
 			color: $body-font-color;
 		}
 		@include breakpoint(large) {
-			margin: rem-calc(10) 0;
+			//margin: rem-calc(10) 0;
+		}
+	}
+
+	&__cancel-container{
+		position: absolute;
+		right: 0;
+
+		@include breakpoint(large){
+			position: static;
+		}
+	}
+	&__cancel-button{
+
+
+		&:hover{
+			cursor: pointer;
 		}
 	}
 

@@ -21,3 +21,4 @@
 	</div>
 	$BlockArea(AfterContent)
 </div>
+

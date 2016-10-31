@@ -29,6 +29,8 @@ function activateSearch(){
 	setTimeout(function(){
 	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
 	}, 5);
+
+	$(".navigation").toggleClass("navigation--search-is-active");
 	
 	document.getElementById("site-search__input").focus();	
 }
@@ -39,9 +41,13 @@ function deactivateSearch(){
 	$("#site-search").toggleClass("site-search--is-active site-search--is-inactive");	
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
 	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
+
 	setTimeout(function(){
 	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
 	}, 5);
+
+	$(".navigation").toggleClass("navigation--search-is-active");
+
 }
 
 $(".navigation__link--search").click(function(){
