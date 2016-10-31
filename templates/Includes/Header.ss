@@ -39,7 +39,7 @@
 						<input class="site-search__input" type="search" id="site-search__input" placeholder="Please enter a search term.">
 						<input type="submit" name="action_results" class="show-for-sr button button--shaded" value="Search">
 					</form>
-					<div class="navigation__link navigation__link--in-search site-search__icon"><i class="fa fa-lg fa-close site-search__cancel-button" aria-hidden="true"></i></div>
+					<div class="navigation__link navigation__link--in-search navigation__link--search-cancel site-search__icon"><i class="fa fa-lg fa-close site-search__cancel-button" aria-hidden="true"></i></div>
 				</div>
 		</ul>
 	</nav>

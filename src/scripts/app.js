@@ -54,7 +54,7 @@ $(".navigation__link--search").click(function(){
   	activateSearch();
 });
 
-$(".site-search__cancel-button").click(function(){
+$(".navigation__link--search-cancel").click(function(){
 	deactivateSearch();
 });
 

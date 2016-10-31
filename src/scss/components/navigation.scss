@@ -42,9 +42,10 @@
 
 .navigation {
 	// width: 700px;
-	position: relative;
+	position: static;
 	@include breakpoint(medium) {
 		width: auto;
+		position: relative;
 	}
 
 	list-style: none;
@@ -180,6 +181,7 @@
 		display: block;
 		font-size: rem-calc(18);
 		padding: rem-calc(15) rem-calc(15);
+		white-space: nowrap;
 		// @include breakpoint(medium) {
 		// 	padding: rem-calc(15) rem-calc(27);
 		// }
@@ -206,6 +208,10 @@
 	&__link--in-search{
 		display: inline-block;
 		vertical-align: middle;
+	}
+	&__link--search-cancel{
+		position: absolute;
+		right: 0;
 	}
 	&__link--parent{
 
