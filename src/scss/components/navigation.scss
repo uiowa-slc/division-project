@@ -173,9 +173,6 @@
 		 
 
 	}
-	&__search-item{
-		//position: static;
-	}
 
 	&__link{
 		display: block;
@@ -204,6 +201,28 @@
 		&:hover{
 			cursor: pointer;
 		}
+	}
+
+	&__link--search{
+		position: fixed;
+		background: white;
+		width: 50px;
+		height: 50px;
+		right: 0;
+
+		@include breakpoint(large){
+			position: static;
+			background: none;
+			width: auto;
+			height: auto;
+
+		}
+
+	}
+
+
+	&__link--search-is-active{
+		opacity: 0;
 	}
 	&__link--in-search{
 		display: inline-block;

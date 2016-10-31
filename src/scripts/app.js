@@ -25,6 +25,7 @@ function activateSearch(){
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
 	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
+	$(".navigation__link--search").toggleClass("navigation__link--search-is-active");
 
 	setTimeout(function(){
 	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
@@ -41,7 +42,7 @@ function deactivateSearch(){
 	$("#site-search").toggleClass("site-search--is-active site-search--is-inactive");	
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
 	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
-
+	$(".navigation__link--search").toggleClass("navigation__link--search-is-active");
 	setTimeout(function(){
 	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
 	}, 5);
