@@ -2,40 +2,57 @@
 
 .header__screen{
 	background-color: rgba(#333, 0.7);
-	
+	transition: all 1s linear;
 	background-repeat: no-repeat;
 	position: relative;
 	height: 100%;
 	
-	&----in-slider{
+	&--in-slider{
 		padding-top: 100px;
 		@include breakpoint(large) {
 			padding-top: 200px;
 		}
 	}
 
-	@include breakpoint(medium) {
-		background-color: rgba(#333, 0.5);
-		background-image: url(../images/shadow.png);
-		background-size: cover;
-		background-position-x: -600px;
+	&--fill-container{
+		position: absolute;
+		width: 100%;
 	}
-	@include breakpoint(large) {
-		background-size: contain;
-		background-position-x: -500px;
+	&--grayscale{
+		backdrop-filter: grayscale(90%);
 	}
-	@include breakpoint(xlarge) {
-		background-size: contain;
-		background-position-x: -400px;
+
+	&--thin{
+		background-color: rgba(#333, 0.3);
 	}
-	@include breakpoint(xxlarge) {
-		background-size: contain;
-		background-position-x: -300px;
+
+	&--with-shadow{
+		@include breakpoint(medium) {
+			background-color: rgba(#333, 0.5);
+			background-image: url(../images/shadow.png);
+			background-size: cover;
+			background-position-x: -600px;
+		}
+		@include breakpoint(large) {
+			background-size: contain;
+			background-position-x: -500px;
+		}
+		@include breakpoint(xlarge) {
+			background-size: contain;
+			background-position-x: -400px;
+		}
+		@include breakpoint(xxlarge) {
+			background-size: contain;
+			background-position-x: -300px;
+		}
+
 	}
+
+
 }
 
 .header__container{
-
+	position: relative;
 	&--dark{
 		background: #222;
 	}
@@ -93,7 +110,6 @@
 	&--dark{
 
 		h1{
-			font-weight: normal;
 			a{
 				color: white;
 				text-shadow: 0.5px 0.866px 1px rgba(0, 0, 0, 0.39);

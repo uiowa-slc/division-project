@@ -1,3 +1,4 @@
+
 .navigation__wrapper {
 	// @include grid-column(12);
 
@@ -30,6 +31,10 @@
 	&--dark	{
 		background-color: #242424;
 		margin-top: .5em;
+	}
+
+	&--search-is-active.navigation__wrapper--search-is-active{
+		background-color: white;
 	}
 
 	&--grayscale{
@@ -65,8 +70,8 @@
 		display: table-cell;
 		position: relative;
 		font-family: $header-font-family;
-		border-left: 1px solid white;
-		border-right: 1px solid white;
+		// border-left: 1px solid white;
+		// border-right: 1px solid white;
 		z-index: 2;
 		&:after{
 			background-color: $yellow;
@@ -389,7 +394,7 @@
 	// border-right: 5px solid $yellow;
 
 	@include breakpoint(large){
-		text-align: center;
+		// text-align: center;
 	}
 	&--is-inactive{
 		@extend .sr-only;
@@ -437,8 +442,10 @@
 		width: 200px;
 		height: rem-calc(30);
 		vertical-align: middle;
+		height: $nav-height;
 		@include breakpoint(large){
 			width: 82%;
+			height: rem-calc($nav-height-large);
 		}
 	}
 
@@ -455,17 +462,20 @@
 		font-size: rem-calc(18);
 		font-family: $body-font-family;
 		line-height: 1;
-		
-		padding: rem-calc(10) 0;
+		margin: 0;
+		padding: 0;
 		&:focus{
 			border: none;
 		}
 		&::placeholder{
 			color: $body-font-color;
 		}
+
+		height: $nav-height;
 		@include breakpoint(large) {
-			//margin: rem-calc(10) 0;
+			height: rem-calc($nav-height-large);
 		}
+
 	}
 
 	&__cancel-container{

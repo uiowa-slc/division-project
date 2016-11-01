@@ -16,7 +16,7 @@ class DivisionPage_Controller extends Extension {
 	 *
 	 * @var array
 	 */
-	public function index() {
+	public function index($r) {
 		$page = $this->owner;
 
 		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, 'Page'));

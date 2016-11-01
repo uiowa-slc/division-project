@@ -28,6 +28,7 @@ class Page extends SiteTree {
 
 	public $layout_types = array(
 		'MainImage' => 'Big Full Width Image',
+		'BackgroundImage' => 'Background Image',
 		'ImageSlider' => 'Image Slider',
 		'BackgroundVideo' => 'Background Video'
 	);
