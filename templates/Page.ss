@@ -47,6 +47,9 @@
     <p class="show-for-sr"><a class="show-on-focus" href="#mainContent">Skip to Content</a></p>
     <!-- Add your site or app content here -->
     $Layout
+
+    <% include Footer %>
+
     $BetterNavigator
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
     <script src="division-project/bower_components/vide/dist/jquery.vide.min.js"></script>

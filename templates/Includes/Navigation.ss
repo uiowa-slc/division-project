@@ -1,7 +1,7 @@
-	<div class="navigation__wrapper navigation__wrapper--{$DarkLight}">
+	<div class="navigation__wrapper navigation__wrapper--{$HeaderType} navigation__wrapper--{$DarkLight}">
 	<%-- <nav role="navigation" class="large-12 columns row" aria-label="Main menu"> --%>
 	<nav role="navigation" class="large-12 columns row" aria-label="Main menu">
-		<ul class="navigation navigation--{$DarkLight} clearfix">
+		<ul class="navigation navigation--{$DarkLight} navigation--{$HeaderType} clearfix">
 			<% loop $Menu(1) %>
 			<li class="navigation__item navigation__item--{$Top.DarkLight} <% if $FirstLast %>navigation__item--$FirstLast<% end_if %><% if $Children %> navigation__item--parent<% end_if %> navigation__item--{$LinkOrCurrent} navigation__item--{$LinkOrSection}">
 				<a class="navigation__link navigation__link--{$Top.DarkLight}<% if $Children %> navigation__link--parent<% end_if %>" href="$Link">$MenuTitle</a>

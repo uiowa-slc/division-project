@@ -1,7 +1,7 @@
 <div class="slider slider--homepage" role="region" aria-label="Featured News Items" data-orbit data-auto-play="false">
 	<ul class="slider__slides">
 		
-		$Header(auto,overlay)
+		$Header(auto,in-slider)
 
 		<% if $BackgroundFeatures.Count > 1 %>
 

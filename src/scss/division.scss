@@ -72,15 +72,18 @@
 @import "components/sidenav";
 @import "components/tables";
 @import "components/navigation";
+@import "components/site-search";
 @import "components/division-bar";
 @import "components/pagination";
 @import "components/buttons";
 @import "components/hero";
 @import "components/featured-page";
 @import "components/tile-grid";
+@import "components/profile";
 
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";
+@import "layouts/footer";
 
 @import "layouts/default";

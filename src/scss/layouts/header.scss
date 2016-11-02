@@ -54,13 +54,13 @@
 .header__container{
 	position: relative;
 	&--dark{
-		background: #222;
+		background: #242424;
 	}
 	&--overlay{
 		background: none;
 	}
 	&--in-slider{
-		
+		@extend .header__container--overlay;
 		position: absolute;
 	    left: 50%;
 	    transform: translate(-50%, 0);
@@ -72,10 +72,8 @@
 }
 .header {
 
-	// @include grid-row();
-
 	@include breakpoint(large) {
-		// margin-top: -30px;
+
 	}
 
 	h1 {
@@ -103,7 +101,6 @@
 
 		@include breakpoint(large) {
 			font-size: rem-calc(46);
-			//padding: 0.2em 0 .2em 0;
 		}
 	}
 

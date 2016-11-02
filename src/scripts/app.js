@@ -16,10 +16,33 @@ $('iframe').each(function(){
 
 });
 
+//Dropdowns on mobile/desktop:
+
+$('.navigation__item').click(function(event) {
+	
+  if (whatInput.ask() === 'touch') {
+    // do touch input things
+
+    if(!$(this).hasClass('navigation__item--is-hovered')){
+	    event.preventDefault();
+	    $('.navigation__item').removeClass('navigation__item--is-hovered');
+	    $(this).toggleClass('navigation__item--is-hovered')
+    }
+
+
+  } else if (whatInput.ask() === 'mouse') {
+    // do mouse things
+  }
+
+});
+
+$('#main-content__container').click(function(){
+	$('.navigation__item').removeClass('navigation__item--is-hovered');
+
+});
+
 
 //Search Code:
-
-
 function toggleSearchClasses(){
 	$("body").toggleClass("body--search-active");
 	$("#site-search__form").toggleClass("site-search__form--is-inactive site-search__form--is-active");
@@ -38,7 +61,6 @@ function toggleSearchClasses(){
 	document.getElementById("site-search__input").focus();	
 
 }
-
 
 $(".navigation__link--search").click(function(){
   	toggleSearchClasses();
