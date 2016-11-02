@@ -4,8 +4,14 @@
 	z-index: 1;
 	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
-
+	display: none;
 	@include breakpoint(medium) {
+	
+	}
+	@include breakpoint(medium) {
+		display: block;
+		width: auto;
+		position: relative;
 		overflow: visible;
 	}
 
@@ -58,17 +64,17 @@
 .navigation {
 	// width: 700px;
 	position: static;
+	
 
-	@include breakpoint(medium) {
-		width: auto;
-		position: relative;
-	}
+	display: table;
+	width: auto;
+	position: relative;
 
 
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-	display: table;
+
 	text-align: center;
 
 	&--search-is-active {
@@ -257,18 +263,8 @@
 	}
 
 	&__link--search {
-		position: fixed;
-		background: white;
-		width: 50px;
-		height: 50px;
-		right: 0;
 
-		@include breakpoint(large) {
-			position: static;
-			background: none;
-			width: auto;
-			height: auto;
-		}
+
 	}
 
 	&__link--search-is-active {
@@ -363,6 +359,24 @@
 				padding: rem-calc(14) rem-calc(14);
 			}
 		}
+	}
+
+	&__menu-text{
+		display: none;
+		padding-left: rem-calc(4);
+		@include breakpoint(375) {
+			display: inline;
+		}
+	}
+
+	&__toggle{
+		position: absolute;
+		left: 5px;
+		bottom: 0px;
+	}
+	&__toggle--search{
+		left: auto;
+		right: 20px;
 	}
 }
 

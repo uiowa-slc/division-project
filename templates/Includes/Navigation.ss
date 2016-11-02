@@ -1,5 +1,7 @@
-	<div class="navigation__wrapper navigation__wrapper--{$HeaderType} navigation__wrapper--{$DarkLight}">
-	<%-- <nav role="navigation" class="large-12 columns row" aria-label="Main menu"> --%>
+<div class="navigation__toggle navigation__item show-for-small-only">
+	<span class="navigation__link"><i class="fa fa-lg fa-bars site-search-button" aria-hidden="true"></i><span class="navigation__menu-text">Menu</span></span>
+</div>
+<div class="navigation__wrapper navigation__wrapper--{$HeaderType} navigation__wrapper--{$DarkLight}">
 	<nav role="navigation" class="large-12 columns row" aria-label="Main menu">
 		<ul class="navigation navigation--{$DarkLight} navigation--{$HeaderType} clearfix">
 			<% loop $Menu(1) %>
@@ -30,4 +32,7 @@
 			<% include SiteSearch %>
 		</ul>
 	</nav>
-	</div>
+</div>
+<div class="navigation__toggle navigation__toggle--search navigation__item show-for-small-only">
+	<span class="navigation__link"><i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i></span>
+</div>

@@ -18,14 +18,14 @@ $('iframe').each(function(){
 
 //Dropdowns on mobile/desktop:
 
-$('.navigation__item').click(function(event) {
+$('.navigation__item--parent').click(function(event) {
 	
   if (whatInput.ask() === 'touch') {
     // do touch input things
 
     if(!$(this).hasClass('navigation__item--is-hovered')){
 	    event.preventDefault();
-	    $('.navigation__item').removeClass('navigation__item--is-hovered');
+	    $('.navigation__item--parent').removeClass('navigation__item--is-hovered');
 	    $(this).toggleClass('navigation__item--is-hovered')
     }
 
@@ -69,6 +69,7 @@ $(".navigation__link--search").click(function(){
 
 $(".navigation__link--search-cancel").click(function(){
 	toggleSearchClasses();
+	document.getElementById("site-search__input").blur();
 });
 
 //When search form is out of focus, deactivate it.

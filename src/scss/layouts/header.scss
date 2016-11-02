@@ -53,6 +53,18 @@
 
 .header__container{
 	position: relative;
+		padding-bottom: rem-calc(20);
+		&:after {
+			transition: background-color 1s;
+			background-color: $yellow;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+		}
 	&--dark{
 		background: #242424;
 	}
@@ -67,7 +79,12 @@
 	    width: 100%;
 	    z-index: 9999;
 	}
-
+	@include breakpoint(medium){
+		padding-bottom: 0;
+		&:after{
+			background-color: transparent;
+		}
+	}
 
 }
 .header {
@@ -77,15 +94,17 @@
 	}
 
 	h1 {
-		font-size: rem-calc(29);
+		font-size: rem-calc(22);
 		font-weight: 600;
 		letter-spacing: 1px;
 		line-height: 1.1;
-		margin: 0;
+		margin: auto;
 		padding-top: 0;
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
+
+		width: 60%;
 		a{
 			color: $body-font-color;
 		}
@@ -94,7 +113,13 @@
 			text-decoration: none;
 		}
 
+		@include breakpoint(480) {
+			font-size: rem-calc(29);
+		}
+
 		@include breakpoint(medium) {
+			width: 100%;
+			margin: 0;
 			font-size: rem-calc(41);
 		}
 
