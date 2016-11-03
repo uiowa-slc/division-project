@@ -10,6 +10,17 @@
 		// text-align: center;
 	}
 
+	&--mobile{
+		height: auto;
+		top: auto;
+		bottom: 0;
+	}
+
+	&--desktop{
+		height: 100%;
+		top: 0;
+		right: 0;
+	}
 
 	&--is-inactive {
 		@extend .sr-only;
@@ -20,10 +31,10 @@
 	&--is-active {
 		position: absolute;
 		opacity: 1;
-		height: 100%;
+	
 		width: 100%;
-		right: 0;
-		top: 0;
+		
+
 		z-index: 999;
 		background-color: white;
 
@@ -59,7 +70,7 @@
 
 	&__form {
 		display: inline-block;
-		width: 200px;
+		width: 75%;
 		height: rem-calc(30);
 		vertical-align: middle;
 		height: $nav-height;

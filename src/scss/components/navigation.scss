@@ -1,31 +1,57 @@
 .navigation__wrapper {
-	margin-top: 0;
-	position: relative;
-	z-index: 1;
-	overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
-	display: none;
-	@include breakpoint(medium) {
+	opacity: 0;
+	visibility: hidden;
+	width: 100%;
+	position: fixed;
+	z-index: 98;
+	background: rgba(#fff, 0.95);
+	backdrop-filter: grayscale(90%);
+	top: 0;
 	
-	}
+	height: 0;
+
 	@include breakpoint(medium) {
+		background: transparent;
+		margin-top: 0;
+		position: relative;
+		z-index: 1;
 		display: block;
 		width: auto;
 		position: relative;
 		overflow: visible;
+		visibility: visible;
+		opacity: 1;
+		transition-duration: 0;
+		height: auto;
+		backdrop-filter: none;
+		&:after {
+			transition: background-color 1s;
+			background-color: $yellow;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+		}
 	}
 
 
-	&:after {
-		transition: background-color 1s;
-		background-color: $yellow;
+
+
+	&--mobile-menu-is-active{
 		display: block;
-		width: calc(100% - 1px);
-		height: 5px;
-		position: absolute;
-		bottom: 0;
-		left: 1px;
-		content: "";
+		visibility: visible;
+		opacity: 1;
+		height: 100%;
+		
+	}
+
+	&--has-transition{
+		@include breakpoint(small only){
+			transition: 0.3s all linear;
+		}
 	}
 
 	&--search-is-active {
@@ -59,23 +85,25 @@
 			background-color: desaturate($yellow, 90%);
 		}
 	}
+
 }
 
 .navigation {
 	// width: 700px;
-	position: static;
-	
-
-	display: table;
-	width: auto;
-	position: relative;
-
-
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-
 	text-align: center;
+	@include breakpoint(medium) {
+		position: static;
+		display: table;
+		width: auto;
+		position: relative;
+	}
+
+	&--mobile{
+
+	}
 
 	&--search-is-active {
 		width: auto;
@@ -103,39 +131,53 @@
 		background-color: $yellow;
 	}
 
+	&__mobile-close-button{
+		color: #ccc;
+		position: fixed;
+		left: 20px;
+		top: 20px;;
+		@include breakpoint(medium) {
+			display: none;
+		}
+	}
+
 	&__item {
-		display: table-cell;
-		position: relative;
-		font-family: $header-font-family;
+		padding: rem-calc(13) 0;
 
-		// border-left: 1px solid white;
-		// border-right: 1px solid white;
-		z-index: 2;
+		@include breakpoint(medium) {
+			display: table-cell;
+			position: relative;
+			padding: 0;
 
-		// &:after{
-		// 	background-color: $yellow;
-		// 	display: block;
-		// 	width: calc(100% - 1px);
-		// 	height: 5px;
-		// 	position: absolute;
-		// 	bottom: 0;
-		// 	left: 1px;
-		// 	content: "";
+			// border-left: 1px solid white;
+			// border-right: 1px solid white;
+			z-index: 2;
 
-		// }
-		&:hover:after {
-			background-color: $black;
-			display: block;
+			// &:after{
+			// 	background-color: $yellow;
+			// 	display: block;
+			// 	width: calc(100% - 1px);
+			// 	height: 5px;
+			// 	position: absolute;
+			// 	bottom: 0;
+			// 	left: 1px;
+			// 	content: "";
 
-			// width: calc(100% - 1px);
-			width: 100%;
-			height: 5px;
-			position: absolute;
-			bottom: 0;
+			// }
+			&:hover:after {
+				background-color: $black;
+				display: block;
 
-			// left: 1px;
-			content: "";
-			z-index: 1;
+				// width: calc(100% - 1px);
+				width: 100%;
+				height: 5px;
+				position: absolute;
+				bottom: 0;
+
+				// left: 1px;
+				content: "";
+				z-index: 1;
+			}
 		}
 
 		.navigation__link--parent {}
@@ -143,61 +185,67 @@
 
 	//We're on the current top nav page.
 	&__item--current {
-		&:after {
-			background-color: $black;
-			display: block;
+		@include breakpoint(medium) {
+			&:after {
+				background-color: $black;
+				display: block;
 
-			// width: calc(100% - 1px);
-			width: 100%;
-			height: 5px;
-			position: absolute;
-			bottom: 0;
+				// width: calc(100% - 1px);
+				width: 100%;
+				height: 5px;
+				position: absolute;
+				bottom: 0;
 
-			// left: 1px;
-			content: "";
-			z-index: 1;
+				// left: 1px;
+				content: "";
+				z-index: 1;
+			}
 		}
 	}
 
 	//If we're currently on a page with a top level ancestor
 	&__item--section {
-		&:after {
-			background-color: $black;
-			display: block;
+		@include breakpoint(medium) {
+			&:after {
+				background-color: $black;
+				display: block;
 
-			// width: calc(100% - 1px);
-			width: 100%;
-			height: 5px;
-			position: absolute;
-			bottom: 0;
+				// width: calc(100% - 1px);
+				width: 100%;
+				height: 5px;
+				position: absolute;
+				bottom: 0;
 
-			// left: 1px;
-			content: "";
-			z-index: 1;
+				// left: 1px;
+				content: "";
+				z-index: 1;
+			}
 		}
 	}
 
 	//If we're currently hovering over a nav item that has children
 	&__item--parent:hover, .navigation__item--parent.navigation__item--is-hovered {
-		&:after {
-			background-color: $black;
-			display: block;
+		@include breakpoint(medium) {
+			&:after {
+				background-color: $black;
+				display: block;
 
-			// width: calc(100% - 1px);
-			width: 100%;
-			height: 5px;
-			position: absolute;
-			bottom: 0;
+				// width: calc(100% - 1px);
+				width: 100%;
+				height: 5px;
+				position: absolute;
+				bottom: 0;
 
-			// left: 1px;
-			content: "";
-			z-index: 1;
-		}
+				// left: 1px;
+				content: "";
+				z-index: 1;
+			}
 
-		.subnav {
-			left: 0;
-			opacity: 1;
-			visibility: visible;
+			.subnav {
+				left: 0;
+				opacity: 1;
+				visibility: visible;
+			}
 		}
 	}
 
@@ -227,10 +275,22 @@
 	&__item--column {}
 
 	&__link {
-		display: block;
-		font-size: rem-calc(18);
+		color: #333;
+		text-transform: uppercase;
+		font-family: $header-font-family;
 		padding: rem-calc(15) rem-calc(15);
-		white-space: nowrap;
+		@include breakpoint(medium) {
+			display: block;
+			font-size: rem-calc(18);
+			
+			white-space: nowrap;
+			transition: none;
+			z-index: 2;
+			
+			
+			border-color: white;
+			position: relative;
+		}
 
 		// @include breakpoint(medium) {
 		// 	padding: rem-calc(15) rem-calc(27);
@@ -246,12 +306,8 @@
 		}
 
 
-		position: relative;
-		transition: none;
-		z-index: 2;
-		text-transform: uppercase;
-		color: #333;
-		border-color: white;
+		
+
 
 		&:hover, &:focus, &:active {
 			color: lighten($black, 20);
@@ -372,12 +428,30 @@
 	&__toggle{
 		position: absolute;
 		left: 5px;
-		bottom: 0px;
+		bottom: 0;
 	}
 	&__toggle--search{
 		left: auto;
-		right: 20px;
+		right: 0;
 	}
+
+	&__toggle--menu{
+		z-index: 99;
+	}
+	// &__toggle-icon{
+	// 	font-size: rem-calc(18);
+	// 	padding: rem-calc(15) rem-calc(15);
+	// 	font-family: $header-font-family;
+	// 	text-transform: uppercase;
+	// 	@include breakpoint(large) {
+	// 		padding: rem-calc(20) rem-calc(30);
+	// 	}
+
+	// 	@include breakpoint(xlarge) {
+	// 		padding: rem-calc(20) rem-calc(37);
+	// 		font-size: rem-calc(22);
+	// 	}		
+	// }
 }
 
 .subnav {

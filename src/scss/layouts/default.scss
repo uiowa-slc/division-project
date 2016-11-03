@@ -1,3 +1,8 @@
+.html--no-scroll{
+	overflow: hidden !important;
+	height: 100%;
+}
+
 #BetterNavigator{
 	display: none;
 	@include breakpoint(large) {
