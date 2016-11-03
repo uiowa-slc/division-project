@@ -111,7 +111,7 @@
 	}
 
 	&--overlay {
-		background-color: rgba(#242424, 0.8);
+		background-color: rgba(#242424, 0.95);
 	}
 
 	&--in-slider {
@@ -371,9 +371,14 @@
 		/*link layout if there are 7 or more items (don't push it) */
 		&:nth-last-child(n+8) .navigation__link,
 		&:nth-last-child(n+8) ~ * .navigation__link {
-			font-size: rem-calc(16);
+			font-size: rem-calc(13);
+
+			@include breakpoint(medium) {
+				font-size: rem-calc(16);
+			}
 
 			@include breakpoint(large) {
+				
 				padding: rem-calc(13) rem-calc(23);
 			}
 
@@ -390,6 +395,7 @@
 			font-size: rem-calc(14);
 
 			@include breakpoint(medium) {
+				font-size: rem-calc(14);
 				padding: rem-calc(13) rem-calc(16);
 			}
 
@@ -403,9 +409,10 @@
 		/* EMERGENCY BREAK GLASS IF NAVIGATION EXCEEDS 11 ITEMS */
 		&:nth-last-child(n+12) .navigation__link,
 		&:nth-last-child(n+12) ~ * .navigation__link {
-			font-size: rem-calc(14);
+			
 
 			@include breakpoint(medium) {
+				font-size: rem-calc(14);
 				padding: rem-calc(14) rem-calc(10);
 			}
 
