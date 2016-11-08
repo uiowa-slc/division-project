@@ -1,0 +1,27 @@
+//Page Media Types (eventually move elsewhere)
+
+/* Background Media */
+
+.bg-media{
+	padding-bottom: rem-calc(600);
+	position: relative; 
+	&--image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 400px;
+
+	}
+	&--video{
+		
+	}
+
+	&--fade{
+
+	}
+
+	&--grayscale{
+		filter: grayscale(90%);
+	}
+
+}

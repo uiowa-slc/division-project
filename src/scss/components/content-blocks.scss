@@ -1,0 +1,10 @@
+.content-block{
+	// border-top: 1px solid #e4e4e4;
+	padding: rem-calc(30) 0;
+	&__container{
+		
+		@include breakpoint(large) {
+			padding: rem-calc(70) 0;
+		}		
+	}
+}

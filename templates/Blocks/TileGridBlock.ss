@@ -1,4 +1,4 @@
-<section class="content-block content-block--padding">
+<section class="content-block__container content-block__container--padding">
 	<h2 class="content-block-header header--centered header--small">$Title</h2>
 	<div class="tile-grid row small-up-1 medium-up-2 large-up-3 xlarge-up-4">
 

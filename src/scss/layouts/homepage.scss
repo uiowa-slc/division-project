@@ -1,5 +1,6 @@
-.tagline{
+.tagline {
 	@include grid-column(12);
+
 	@include grid-column-position(center);
 
 	// padding-top: rem-calc(50);
@@ -10,60 +11,58 @@
 
 	@include breakpoint(large) {
 		@include grid-column(11);
+
 		@include grid-column-position(center);
+
 		// padding-top: rem-calc(100);
 		// padding-bottom: rem-calc(100);
 	}
 }
 
-.tagline__text{
+.tagline__text {
 	margin-bottom: rem-calc(20);
 	text-align: center;
 }
 
-.tagline__separator{
+.tagline__separator {
 	height: rem-calc(3);
 	width: 15%;
 	background-color: black;
 	margin: auto;
 }
 
-.welcome{
-
-	&__inner{
+.welcome {
+	&__inner {
 		@include grid-column(12);
+
 		@include breakpoint(large) {
 			@include grid-column(7);
-	
 		}
 	}
-	&__text{
+
+	&__text {
 		line-height: 2.4;
 	}
 
-	&__menu-inner{
+	&__menu-inner {
 		@include grid-column(9);
+
 		@include grid-column-position(center);
+
 		padding-top: rem-calc(20);
 		padding-bottom: rem-calc(20);
 	}
 
-	&__menu{
+	&__menu {
 		list-style-type: none;
 		text-align: center;
 		margin: 0;
 	}
 
-
-	&__menu-item{
+	&__menu-item {
 		display: inline-block;
 		padding: rem-calc(10) rem-calc(20);
 	}
 
-	&__menu-link{
-
-	}
+	&__menu-link {}
 }
-
-
-

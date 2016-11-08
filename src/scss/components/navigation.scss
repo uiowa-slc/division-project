@@ -1,4 +1,4 @@
-.navigation__wrapper {
+.nav__wrapper {
 	opacity: 0;
 	visibility: hidden;
 	width: 100%;
@@ -7,7 +7,6 @@
 	background: rgba(#fff, 0.95);
 	backdrop-filter: grayscale(90%);
 	top: 0;
-	
 	height: 0;
 
 	@include breakpoint(medium) {
@@ -24,6 +23,7 @@
 		transition-duration: 0;
 		height: auto;
 		backdrop-filter: none;
+
 		&:after {
 			transition: background-color 1s;
 			background-color: $yellow;
@@ -38,18 +38,15 @@
 	}
 
 
-
-
-	&--mobile-menu-is-active{
+	&--mobile-menu-is-active {
 		display: block;
 		visibility: visible;
 		opacity: 1;
 		height: 100%;
-		
 	}
 
-	&--has-transition{
-		@include breakpoint(small only){
+	&--has-transition {
+		@include breakpoint(small only) {
 			transition: 0.3s all linear;
 		}
 	}
@@ -60,7 +57,9 @@
 
 	&--dark {
 		background-color: #242424;
-		margin-top: .5em;
+
+		// margin-top: .5em;
+
 	}
 
 	&--overlay {
@@ -72,28 +71,28 @@
 	}
 
 	&--in-slider {
-		@extend .navigation__wrapper--overlay;
+		@extend .nav__wrapper--overlay;
 	}
 
-	&--search-is-active.navigation__wrapper--search-is-active {
+	&--search-is-active.nav__wrapper--search-is-active {
 		// background-color: white;
 
 	}
 
-	&--full.navigation__wrapper--grayscale {
+	&--full.nav__wrapper--grayscale {
 		&:after {
 			background-color: desaturate($yellow, 90%);
 		}
 	}
-
 }
 
-.navigation {
+.nav {
 	// width: 700px;
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
 	text-align: center;
+
 	@include breakpoint(medium) {
 		position: static;
 		display: table;
@@ -101,9 +100,8 @@
 		position: relative;
 	}
 
-	&--mobile{
 
-	}
+	&--mobile {}
 
 	&--search-is-active {
 		width: auto;
@@ -115,7 +113,7 @@
 	}
 
 	&--in-slider {
-		@extend .navigation--overlay;
+		@extend .nav--overlay;
 	}
 
 	&--dark:after {
@@ -123,19 +121,20 @@
 	}
 
 	//Inheritance... Not very BEM-friendly Any way to not do this?
-	&--full.navigation--dark .navigation__item:hover:after {
+	&--full.nav--dark .nav__item:hover:after {
 		background-color: $black;
 	}
 
-	&--overlay.navigation--dark .navigation__item--section:after {
+	&--overlay.nav--dark .nav__item--section:after {
 		background-color: $yellow;
 	}
 
-	&__mobile-close-button{
+	&__mobile-close-button {
 		color: #ccc;
 		position: fixed;
 		left: 20px;
-		top: 20px;;
+		top: 20px;
+
 		@include breakpoint(medium) {
 			display: none;
 		}
@@ -180,7 +179,8 @@
 			}
 		}
 
-		.navigation__link--parent {}
+
+		.nav__link--parent {}
 	}
 
 	//We're on the current top nav page.
@@ -224,7 +224,7 @@
 	}
 
 	//If we're currently hovering over a nav item that has children
-	&__item--parent:hover, .navigation__item--parent.navigation__item--is-hovered {
+	&__item--parent:hover, .nav__item--parent.nav__item--is-hovered {
 		@include breakpoint(medium) {
 			&:after {
 				background-color: $black;
@@ -249,6 +249,10 @@
 		}
 	}
 
+	/*-----------
+	"Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that."
+	-MLK, Jr.
+	------------*/
 	&__item--dark {
 		border: none;
 
@@ -264,7 +268,7 @@
 
 	//Make the fifth nav item and beyond's dropdown hang from the right:
 	&__item {
-		&:nth-child(n+5):hover, &:nth-child(n+5).navigation__item--is-hovered {
+		&:nth-child(n+5):hover, &:nth-child(n+5).nav__item--is-hovered {
 			.subnav--two-columns {
 				left: auto;
 				right: 0;
@@ -279,18 +283,17 @@
 		text-transform: uppercase;
 		font-family: $header-font-family;
 		padding: rem-calc(15) rem-calc(15);
+
 		@include breakpoint(medium) {
 			display: block;
 			font-size: rem-calc(18);
-			
 			white-space: nowrap;
 			transition: none;
 			z-index: 2;
-			
-			
 			border-color: white;
 			position: relative;
 		}
+
 
 		// @include breakpoint(medium) {
 		// 	padding: rem-calc(15) rem-calc(27);
@@ -306,9 +309,6 @@
 		}
 
 
-		
-
-
 		&:hover, &:focus, &:active {
 			color: lighten($black, 20);
 		}
@@ -318,10 +318,7 @@
 		}
 	}
 
-	&__link--search {
-
-
-	}
+	&__link--search {}
 
 	&__link--search-is-active {
 		opacity: 0;
@@ -363,22 +360,22 @@
 	}
 
 	/* -----------------*/
-	/* Adjust navigation__link padding and font size depending on how many items in the nav */
+	/* Adjust nav__link padding and font size depending on how many items in the nav */
 	/* http://alistapart.com/article/quantity-queries-for-css */
 	/* -----------------*/
 
 	&__item {
 		/*link layout if there are 7 or more items (don't push it) */
-		&:nth-last-child(n+8) .navigation__link,
-		&:nth-last-child(n+8) ~ * .navigation__link {
+		&:nth-last-child(n+8) .nav__link,
+		&:nth-last-child(n+8) ~ * .nav__link {
 			font-size: rem-calc(13);
 
 			@include breakpoint(medium) {
 				font-size: rem-calc(16);
 			}
 
+
 			@include breakpoint(large) {
-				
 				padding: rem-calc(13) rem-calc(23);
 			}
 
@@ -390,8 +387,8 @@
 		}
 
 		/*link layout if there are 9 or more items (you're insane) */
-		&:nth-last-child(n+10) .navigation__link,
-		&:nth-last-child(n+10) ~ * .navigation__link {
+		&:nth-last-child(n+10) .nav__link,
+		&:nth-last-child(n+10) ~ * .nav__link {
 			font-size: rem-calc(14);
 
 			@include breakpoint(medium) {
@@ -406,11 +403,9 @@
 			}
 		}
 
-		/* EMERGENCY BREAK GLASS IF NAVIGATION EXCEEDS 11 ITEMS */
-		&:nth-last-child(n+12) .navigation__link,
-		&:nth-last-child(n+12) ~ * .navigation__link {
-			
-
+		/* EMERGENCY BREAK GLASS IF nav EXCEEDS 11 ITEMS */
+		&:nth-last-child(n+12) .nav__link,
+		&:nth-last-child(n+12) ~ * .nav__link {
 			@include breakpoint(medium) {
 				font-size: rem-calc(14);
 				padding: rem-calc(14) rem-calc(10);
@@ -424,27 +419,30 @@
 		}
 	}
 
-	&__menu-text{
+	&__menu-text {
 		display: none;
 		padding-left: rem-calc(4);
+
 		@include breakpoint(375) {
 			display: inline;
 		}
 	}
 
-	&__toggle{
+	&__toggle {
 		position: absolute;
 		left: 5px;
 		bottom: 0;
 	}
-	&__toggle--search{
+
+	&__toggle--search {
 		left: auto;
 		right: 0;
 	}
 
-	&__toggle--menu{
+	&__toggle--menu {
 		z-index: 99;
 	}
+
 	// &__toggle-icon{
 	// 	font-size: rem-calc(18);
 	// 	padding: rem-calc(15) rem-calc(15);

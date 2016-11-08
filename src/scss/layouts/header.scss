@@ -1,98 +1,103 @@
-
-
-.header__screen{
+.header__screen {
 	background-color: rgba(#333, 0.7);
 	transition: all 1s linear;
 	background-repeat: no-repeat;
 	position: relative;
 	height: 100%;
-	
-	&--in-slider{
+
+	&--in-slider {
 		padding-top: 100px;
+
 		@include breakpoint(large) {
 			padding-top: 200px;
 		}
 	}
 
-	&--fill-container{
+	&--fill-container {
 		position: absolute;
 		width: 100%;
 	}
-	&--grayscale{
+
+	&--grayscale {
 		backdrop-filter: grayscale(90%);
 	}
 
-	&--thin{
+	&--thin {
 		background-color: rgba(#333, 0.3);
 	}
 
-	&--with-shadow{
+	&--with-shadow {
 		@include breakpoint(medium) {
 			background-color: rgba(#333, 0.5);
 			background-image: url(../images/shadow.png);
 			background-size: cover;
 			background-position-x: -600px;
 		}
+
+
 		@include breakpoint(large) {
 			background-size: contain;
 			background-position-x: -500px;
 		}
+
+
 		@include breakpoint(xlarge) {
 			background-size: contain;
 			background-position-x: -400px;
 		}
+
+
 		@include breakpoint(xxlarge) {
 			background-size: contain;
 			background-position-x: -300px;
 		}
-
 	}
-
-
 }
 
-.header__container{
+.header__container {
 	position: relative;
-		padding-bottom: rem-calc(20);
-		&:after {
-			transition: background-color 1s;
-			background-color: $yellow;
-			display: block;
-			width: calc(100% - 1px);
-			height: 5px;
-			position: absolute;
-			bottom: 0;
-			left: 1px;
-			content: "";
-		}
-	&--dark{
+	padding-bottom: rem-calc(20);
+
+	&:after {
+		transition: background-color 1s;
+		background-color: $yellow;
+		display: block;
+		width: calc(100% - 1px);
+		height: 5px;
+		position: absolute;
+		bottom: 0;
+		left: 1px;
+		content: "";
+	}
+
+	&--dark {
 		background: #242424;
 	}
-	&--overlay{
+
+	&--overlay {
 		background: none;
 	}
-	&--in-slider{
+
+	&--in-slider {
 		@extend .header__container--overlay;
+
 		position: absolute;
-	    left: 50%;
-	    transform: translate(-50%, 0);
-	    width: 100%;
-	    z-index: 9999;
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: 100%;
+		z-index: 9999;
 	}
-	@include breakpoint(medium){
+
+	@include breakpoint(medium) {
 		padding-bottom: 0;
-		&:after{
+
+		&:after {
 			background-color: transparent;
 		}
 	}
-
 }
+
 .header {
-
-	@include breakpoint(large) {
-
-	}
-
 	h1 {
 		font-size: rem-calc(22);
 		font-weight: 600;
@@ -103,9 +108,9 @@
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
-
 		width: 60%;
-		a{
+
+		a {
 			color: $body-font-color;
 		}
 
@@ -117,26 +122,25 @@
 			font-size: rem-calc(29);
 		}
 
+
 		@include breakpoint(medium) {
 			width: 100%;
-			margin: 0;
 			font-size: rem-calc(41);
 		}
 
 
 		@include breakpoint(large) {
 			font-size: rem-calc(46);
+			margin-bottom: rem-calc(20);
 		}
 	}
 
-	&--dark{
-
-		h1{
-			a{
+	&--dark {
+		h1 {
+			a {
 				color: white;
 				text-shadow: 0.5px 0.866px 1px rgba(0, 0, 0, 0.39);
 			}
 		}
-
 	}
 }

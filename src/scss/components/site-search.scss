@@ -3,20 +3,13 @@
 	transition: opacity 0.3s;
 	transition-timing-function: ease-in-out;
 
-	// border-left: 5px solid $yellow;
-	// border-right: 5px solid $yellow;
-
-	@include breakpoint(large) {
-		// text-align: center;
-	}
-
-	&--mobile{
+	&--mobile {
 		height: auto;
 		top: auto;
 		bottom: 0;
 	}
 
-	&--desktop{
+	&--desktop {
 		height: 100%;
 		top: 0;
 		right: 0;
@@ -24,22 +17,15 @@
 
 	&--is-inactive {
 		@extend .sr-only;
-
 		opacity: 0;
 	}
 
 	&--is-active {
 		position: absolute;
 		opacity: 1;
-	
 		width: 100%;
-		
-
 		z-index: 999;
 		background-color: white;
-
-		// background-image:url('../images/search-bg.png');
-		background-size: cover;
 
 		&:after {
 			transition: all 1s;

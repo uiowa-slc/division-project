@@ -1,5 +1,5 @@
-<section class="content-block content-block--padding">
-	<div class="row">
+<section class="content-block__container content-block__container--padding">
+	<div class="content-block row">
 		<div class="featured-page">
 			<div class="featured-page__text large-6 columns">
 				<h2 class="header--small">Multiculturalism and Diversity</h2>
