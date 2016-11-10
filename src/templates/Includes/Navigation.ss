@@ -16,7 +16,7 @@
 							<% end_loop %>
 						</ul>
 					<% else %>
-						<ul class="subnav--{$Top.DarkLight}">
+						<ul class="subnav subnav--{$Top.DarkLight}">
 							<% loop $Children %>
 								<li class="subnav__item <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLight}" href="$Link">$MenuTitle</a></li>
 							<% end_loop %>
