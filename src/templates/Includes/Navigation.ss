@@ -10,15 +10,15 @@
 				<a class="nav__link nav__link--{$Top.DarkLight}<% if $Children %> nav__link--parent<% end_if %>" href="$Link">$MenuTitle</a>
 				<% if $Children %>
 					<% if $Children.Count > 4 %>
-						<ul class="subnav subnav--two-columns">
+						<ul class="subnav subnav--{$Top.DarkLight} subnav--two-columns">
 							<% loop $Children %>
-								<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link" href="$Link">$MenuTitle.LimitCharacters(30)</a></li>
+								<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLight}" href="$Link">$MenuTitle.LimitCharacters(30)</a></li>
 							<% end_loop %>
 						</ul>
 					<% else %>
-						<ul class="subnav">
+						<ul class="subnav--{$Top.DarkLight}">
 							<% loop $Children %>
-								<li class="subnav__item <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link" href="$Link">$MenuTitle</a></li>
+								<li class="subnav__item <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLight}" href="$Link">$MenuTitle</a></li>
 							<% end_loop %>
 						</ul>
 					<% end_if %>
