@@ -11,7 +11,6 @@ $BlockArea(BeforeContent)
 	    $BlockArea(AfterContentConstrained)
 		$Form
 	</article>
-
 	<aside class="sidebar" data-sticky-container>
 		<% include SideNav %>
 		$BlockArea(Sidebar)
