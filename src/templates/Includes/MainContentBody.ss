@@ -1,5 +1,5 @@
 $BlockArea(BeforeContent)
-<div class="row">	
+<div class="row">
 	<article role="main" id="sticky-nav-area" class="main-content main-content--with-padding <% if $Children || $Menu(2) %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 		<div class="main-content__header">
 			<h1>$Title</h1>
@@ -14,6 +14,7 @@ $BlockArea(BeforeContent)
 
 	<aside class="sidebar" data-sticky-container>
 		<% include SideNav %>
+		$BlockArea(Sidebar)
 	</aside>
 </div>
 $BlockArea(AfterContent)
