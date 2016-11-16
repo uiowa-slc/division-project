@@ -34,6 +34,8 @@ gulp.task('default',
 // This happens every time a build starts
 function clean(done) {
   rimraf(PATHS.theme + '/' + PATHS.dist, done);
+  rimraf('templates/', done);
+  rimraf(PATHS.theme +'/templates/', done);
 }
 
 // Copy files out of the assets folder
