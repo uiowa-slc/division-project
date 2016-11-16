@@ -3,7 +3,7 @@ $Header
 
 	<!-- Background Image Feature -->
 	<% if $BackgroundImage %>
-		<div class="background-image" data-interchange="[$BackgroundImage.CroppedImage(600,400).URL, small], [$BackgroundImage.CroppedImage(1600,500).URL, medium]">
+		<div class="background-image" data-interchange="[$BackgroundImage.CroppedFocusedImage(600,400).URL, small], [$BackgroundImage.CroppedFocusedImage(1600,500).URL, medium]">
 			<% if $LayoutType == "MainImage" %>
 				<div class="column row">
 					<div class="background-image__header">
