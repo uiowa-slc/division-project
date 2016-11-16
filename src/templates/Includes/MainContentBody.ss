@@ -1,9 +1,13 @@
 $BlockArea(BeforeContent)
 <div class="row">
 	<article role="main" id="sticky-nav-area" class="main-content main-content--with-padding <% if $Children || $Menu(2) %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-		<div class="main-content__header">
-			<h1>$Title</h1>
-		</div>
+
+		<% if not $BackgroundImage %>
+			<div class="main-content__header">
+				<h1>$Title</h1>
+			</div>
+		<% end_if %>
+
 	    $BlockArea(BeforeContentConstrained)
 	    <div class="main-content__text">
 	    $Content
