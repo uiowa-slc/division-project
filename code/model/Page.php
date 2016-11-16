@@ -18,7 +18,7 @@ class Page extends SiteTree {
 
 	private static $belongs_many_many = array(
 		'TileGridBlocks' => 'TileGridBlock'
-	);	
+	);
 
 	private static $many_many_extraFields = array(
 		'SidebarItems' => array(
@@ -56,7 +56,7 @@ class Page extends SiteTree {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
+			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image (at least 1600px wide)"), "Content");
 			$layoutOptionsField = DropdownField::create(
 	  			'LayoutType',
 	  			'Layout type',
@@ -158,7 +158,7 @@ class Page extends SiteTree {
 	public function DarkLight(){
 		$siteConfig = SiteConfig::current_site_config();
 		$owner = $this;
-		
+
 		//If the page type forces a particular dark/light scheme (eg homepage), defer to that first.
 		if($owner->pageTypeTheme){
 			return $owner->pageTypeTheme;
@@ -207,7 +207,7 @@ class Page_Controller extends ContentController {
 		$template = new SSViewer('Header');
 		$siteConfig = SiteConfig::current_site_config();
 
-		
+
 		//If the page type forces a particular dark/light scheme (eg homepage), defer to that first.
 		if($theme == 'auto'){
 			if($this->pageTypeTheme){
@@ -221,7 +221,7 @@ class Page_Controller extends ContentController {
 			//default to light if all else fails:
 			}else{
 				$theme = 'light';
-			}	
+			}
 		}
 
 
