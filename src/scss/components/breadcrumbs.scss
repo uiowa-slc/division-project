@@ -1,0 +1,127 @@
+.breadcrumb {
+	background-color: #000;
+	height: 50px;
+	margin-bottom: 40px;
+	position: relative;
+	@include breakpoint(medium) {
+		height: auto;
+		margin-bottom: 0;
+	}
+	&__label { // visibly hiding the label "You are here"
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	&__list {
+		list-style: none;
+		margin: 0;
+		@include breakpoint(small down) {
+			padding-left: 40px; // including padding for home icon
+			white-space: nowrap;
+			overflow: auto;
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+	&__listitem {
+		display: inline-block;
+		font-size: rem-calc(14);
+		position: relative;
+		text-transform: uppercase;
+		&:first-of-type a {
+			padding-left: 0; // removes padding on home link
+		}
+		&:after { // adds arrow after each breadcrumb item
+			color: #999;
+			content: "\25B8";
+			display: inline-block;
+		}
+		&:last-child:after {
+			content: ""; // removes arrow on last item
+		}
+	}
+	&__anchor {
+		color: #ddd;
+		color: rgba(255,255,255,.65);
+		display: inline-block;
+		letter-spacing: .8px;
+		padding: 14px 14px;
+		@include breakpoint(medium) {
+			padding: 20px 15px;
+		}
+		&:hover, &:focus, &:active {
+			color: #fff;
+			text-decoration: none;
+		}
+		&--active {
+			color: #eee;
+		}
+	}
+	@include breakpoint(small down) {
+		&:after { // adds fade to right side of breadcrumbs on mobile
+			width: 20px;
+			height: 50px;
+			display: block;
+			position: absolute;
+			background-color: rgba(17,28,36,0);
+			background: -webkit-linear-gradient(left,rgba(17,28,36,0),#111c24);
+			background: linear-gradient(to right,rgba(17,28,36,0),#111c24);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00111c24',endColorstr='#ff111c24',GradientType=1);
+			top: 0;
+			right: 0;
+			content: "";
+		}
+	}
+}
+
+// Styling for Home button on mobile devices
+.breadcrumb__listitem:first-child {
+	@include breakpoint(small down) {
+		width: 50px;
+		height: 50px;
+		background-color: #222;
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: #fff;
+		z-index: 1;
+		&:after {
+			content: ''; //removes arrow
+		}
+		& .breadcrumb__anchor {
+			width: 50px;
+			height: 50px;
+			padding: 0;
+			position: relative;
+			&:before {
+				background-image: url(../images/home.png);
+				background-size: contain;
+				content: "";
+				width: 12px;
+				height: 12px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+			}
+		}
+		& .breadcrumb__name { //visibly hideing Home text
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			border: 0;
+			clip: rect(0 0 0 0);
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+		}
+	}
+}

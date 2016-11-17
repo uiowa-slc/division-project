@@ -13,7 +13,7 @@ $Header
 			<% end_if %>
 		</div>
 	<% end_if %>
-
+	$Breadcrumbs
 	<% include MainContentBody %>
 
 </div>
