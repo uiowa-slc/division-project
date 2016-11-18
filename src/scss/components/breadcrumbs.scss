@@ -7,16 +7,6 @@
 		height: auto;
 		margin-bottom: 0;
 	}
-	&__label { // visibly hiding the label "You are here"
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		width: 1px;
-	}
 	&__list {
 		list-style: none;
 		margin: 0;
@@ -24,7 +14,7 @@
 			padding-left: 40px; // including padding for home icon
 			white-space: nowrap;
 			overflow: auto;
-			overflow-x: auto;
+			overflow-x: scroll;
 			overflow-y: hidden;
 			-webkit-overflow-scrolling: touch;
 		}

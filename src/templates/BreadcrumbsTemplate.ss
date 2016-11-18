@@ -1,7 +1,6 @@
 <% if Pages %>
-	<nav role="navigation" class="breadcrumb no-print">
+	<nav aria-label="You are here:" role="navigation" class="breadcrumb no-print">
 		<div class="column row">
-		<p id="breadcrumblabel" class="breadcrumb__label">You are here:</p>
 		<ol aria-labelledby="breadcrumblabel" class="clearfix breadcrumb__list">
 			<li class="breadcrumb__listitem">
 				<a href="$Baseref" class="breadcrumb__anchor"><span class="breadcrumb__name">Home</span></a>
