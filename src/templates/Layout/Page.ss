@@ -1,5 +1,5 @@
 $Header
-<div class="main-content__container" id="main-content__container">
+<main class="main-content__container" id="main-content__container">
 
 	<!-- Background Image Feature -->
 	<% if $BackgroundImage %>
@@ -16,4 +16,4 @@ $Header
 	$Breadcrumbs
 	<% include MainContentBody %>
 
-</div>
+</main>
