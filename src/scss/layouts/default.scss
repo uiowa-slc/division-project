@@ -18,6 +18,9 @@
 
 body {
 	transition: background-color 1s;
+	@include breakpoint(medium) {
+		font-size: rem-calc(19);
+	}
 }
 
 .body--search-active {
@@ -29,7 +32,7 @@ body {
 .main-content {
 	@include grid-column(12);
 	@include breakpoint(large) {
-		@include grid-column(7);
+		@include grid-column(8);
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -43,7 +46,6 @@ body {
 
 	&--with-padding {
 		padding-top: rem-calc(20);
-
 		@include breakpoint(large) {
 			padding-top: rem-calc(40);
 		}
@@ -51,7 +53,7 @@ body {
 
 	&--with-sidebar {
 		@include breakpoint(large) {
-			@include grid-column-offset(1);
+			@include grid-column-offset(0);
 		}
 	}
 
@@ -73,14 +75,24 @@ body {
 			display: none;
 		}
 	}
+	&__header {
+		border-bottom: 4px solid rgba(0,0,0,.1);
+		margin: rem-calc(40 0 15);
+		& h1 {
+			@include breakpoint(large) {
+				font-size: rem-calc(65);
+			}
+		}
+	}
 }
 
 .sidebar {
 	@include grid-column(12);
-	margin-top: rem-calc(20);
+	margin: rem-calc(20 0);
 	@include breakpoint(large) {
 		@include grid-column(3);
 		@include grid-column-offset(1);
+		margin: rem-calc(40 0);
 	}
 }
 

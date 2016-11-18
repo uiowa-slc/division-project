@@ -1,16 +1,16 @@
 h1{
-	font-weight: bold;
+	font-weight: 600;
 }
-h2{
-	font-weight: normal;
-}
+// h2{
+// 	font-weight: normal;
+// }
 
 .subheader{
 	// @include grid-column-position(center);
 	font-family: $header-font-family;
 	text-transform: uppercase;
 	font-size:rem-calc(15);
-	font-weight: bold;
+	font-weight: 600;
 	&--white{
 		color: white;
 	}
