@@ -3,18 +3,23 @@
 	&__container{
 
 		@include breakpoint(large) {
-			margin-top: rem-calc(30);
+			// margin-top: rem-calc(30);
 		}
 	}
 }
 
-/* Text Block */
-.textblock {
-	&__header {
 
-	}
-	&__text {
 
+/* Before Content */
+.block_area_beforecontent {
+	background-color: #f8f8f8;
+
+	/* Text Block */
+	& .textblock {
+		padding: rem-calc(30 0);
+		@include breakpoint(large) {
+			padding: rem-calc(60 0);
+		}
 	}
 }
 

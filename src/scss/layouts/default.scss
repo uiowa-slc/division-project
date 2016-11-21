@@ -77,7 +77,7 @@ body {
 	}
 	&__header {
 		border-bottom: 4px solid rgba(0,0,0,.1);
-		margin: rem-calc(40 0 15);
+		margin: rem-calc(40 0 0);
 		& h1 {
 			@include breakpoint(large) {
 				font-size: rem-calc(65);

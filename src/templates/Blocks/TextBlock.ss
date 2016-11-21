@@ -1,6 +1,6 @@
 <section class="content-block__container">
 	<div class="content-block row column">
-		<div class="textblock">
+		<div class="">
 			<div class="$CSSClasses">
 				<%-- <h2 class="textblock__header">$Title</h2> --%>
 				<% if $Content %>
