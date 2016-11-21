@@ -2,7 +2,7 @@
 	<div class="content-block row column">
 		<div class="textblock">
 			<div class="$CSSClasses">
-				<h2 class="textblock__header">$Title</h2>
+				<%-- <h2 class="textblock__header">$Title</h2> --%>
 				<% if $Content %>
 					<div class="textblock__text">$Content</div>
 				<% end_if %>
