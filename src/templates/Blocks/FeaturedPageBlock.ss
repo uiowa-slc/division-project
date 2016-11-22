@@ -1,17 +1,25 @@
 <section class="content-block__container content-block__container--padding">
-	<div class="content-block row">
-		<div class="featured-page">
-			<div class="featured-page__text large-6 columns">
-				<h2 class="header--small">Multiculturalism and Diversity</h2>
-				<p>Given the evidence that binge drinking is an issue at the University, the Division of Student Life has spear-headed collaborative efforts on alcohol harm reduction. This plan involves education, bystander interference, communication, and policy review.</p>
-				<ul class="unstyled-list">
-					<li><a class="caret-link" href="#">Timeline and Support Structure</a></li>
-					<li></li>
-				</ul>
+	<div class="content-block">
+		<div class="featured-page row">
+			<div class="featured-page__media medium-6 medium-push-6 columns">
+				<div>
+				<a href="#">
+					<img src="{$ThemeDir}/dist/images/tile-example.jpg" alt="" class="featured-page__thumb">
+				</a>
+				</div>
 			</div>
-			<a href="#" class="tile tile--single large-6 columns" style="background-image: url('{$ThemeDir}/dist/images/tile-example.jpg')">
-				<div class="tile__text"><p>$Title</p></div>
-			</a>
+			<div class="featured-page__body medium-5 medium-pull-7 columns">
+				<h2 class="featured-page__title">
+					Multiculturalism and Diversity
+				</h2>
+				<hr class="featured-page__rule">
+				<div class="featured-page__desc">
+					Given the evidence that binge drinking is an issue at the University, the Division of Student Life has spear-headed collaborative efforts on alcohol harm reduction.
+				</div>
+				<div class="featured-page__button">
+					<a href="#">Learn More</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
