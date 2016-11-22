@@ -1,4 +1,4 @@
-<section class="content-block__container content-block__container--padding">
+<section class="content-block__container <% if $DarkThemeCheck %>content-block__container--dark<% end_if %> content-block__container--padding">
 	<div class="content-block">
 		<div class="featured-page row">
 			<div class="featured-page__media medium-6 medium-push-6 columns">

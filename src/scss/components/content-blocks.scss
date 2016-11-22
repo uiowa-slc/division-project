@@ -70,7 +70,7 @@
 /* After Content Constrained */
 .block_area_aftercontentconstrained .featured-page {
 	background-color: #f8f8f8;
-	margin: rem-calc(16px 0);
+	margin: rem-calc(40px 0);
 	padding: rem-calc(40 20);
 	&__media {
 		& a {
@@ -83,7 +83,7 @@
 	}
 }
 .block_area_aftercontentconstrained .content-block__container--dark .featured-page {
-	background-color: #111;
+	background-color: #222;
 }
 
 
@@ -125,9 +125,9 @@
 }
 
 .content-block__container--dark {
-	background-color: #111;
+	background-color: #222;
 	& .featured-page__body {
-		background-color: #111;
+		background-color: #222;
 		color: #fff;
 	}
 	& .featured-page__rule {
