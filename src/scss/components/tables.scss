@@ -1,0 +1,10 @@
+table {
+	margin: 1rem 0;
+}
+table thead th, table tbody td {
+	font-size: rem-calc(15);
+}
+table thead {
+    border: 0;
+    border-bottom: 2px solid #cacaca;
+}

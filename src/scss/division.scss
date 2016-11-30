@@ -42,7 +42,7 @@
 @include foundation-sticky;
 // @include foundation-reveal;
 // @include foundation-switch;
-// @include foundation-table;
+@include foundation-table;
 // @include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
@@ -84,5 +84,7 @@
 @import "layouts/header";
 @import "layouts/homepage";
 @import "layouts/footer";
+
+@import "layouts/staff";
 
 @import "layouts/default";
