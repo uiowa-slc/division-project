@@ -154,12 +154,12 @@ function watch() {
   // gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
 
   gulp.watch(PATHS.theme +'/src/templates/**/*.ss').on('all', gulp.series(themeHtml, browser.reload));
-  gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
+  gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', sass);
   gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
   gulp.watch('src/templates/**/*.ss').on('all', gulp.series(projectHtml, browser.reload));
-  gulp.watch('src/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
+  gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));
 }
