@@ -6,7 +6,8 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		"BackgroundImage" => "Image"
+		"BackgroundImage" => "Image",
+		'OgImage' => 'Image'
 	);
 
 	private static $many_many = array(
@@ -43,7 +44,7 @@ class DivisionPage extends DataExtension {
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		}
-
+		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Facebook Share Image (1200x630 or 560x292)"), "Content");
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		if (defined('FLICKR_USER')) {

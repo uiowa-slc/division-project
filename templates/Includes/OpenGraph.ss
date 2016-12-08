@@ -21,23 +21,26 @@
 <% else %>
 	<meta property="og:title" content="$Title" />
 
-	<% if $Image %>
-		<meta property="og:image" content="$Image.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$Image.ScaleWidth(600).Height" />
-
+	<% if $OgImage %>
+		<meta property="og:image" content="$OgImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$OgImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$OgImage.FocusFillMax(1200,630).Height" />
+	<% else_if $Image %>
+		<meta property="og:image" content="$Image.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$Image.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$Image.FocusFillMax(1200,630).Height" />
 	<% else_if $FeaturedImage %>
-		<meta property="og:image" content="$FeaturedImage.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$FeaturedImage.ScaleWidth(600).Height" />
+		<meta property="og:image" content="$FeaturedImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$FeaturedImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$FeaturedImage.FocusFillMax(1200,630).Height" />	
 	<% else_if $Photo %>
-		<meta property="og:image" content="$Photo.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$Photo.ScaleWidth(600).Height" />
+		<meta property="og:image" content="$Photo.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$Photo.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$Photo.FocusFillMax(1200,630).Height" />	
 	<% else_if $BackgroundImage %>
-		<meta property="og:image" content="$BackgroundImage(600).AbsoluteURL" />
-		<meta property="og:image:width" content="$BackgroundImage.Width" />
-		<meta property="og:image:height" content="$BackgroundImage.Height" />		
+		<meta property="og:image" content="$BackgroundImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$BackgroundImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$BackgroundImage.FocusFillMax(1200,630).Height" />		
 	<% else %>
 		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
 		<meta property="og:image:width" content="1200" />
