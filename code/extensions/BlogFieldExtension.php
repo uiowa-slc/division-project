@@ -12,6 +12,10 @@ class BlogFieldExtension extends DataExtension {
 		'ExternalURL'   => 'Text',
 	);
 
+	private static $layout_types = array (
+
+	);
+
 	public function getCMSFields() {
 		$this->extend('updateCMSFields', $fields);
 

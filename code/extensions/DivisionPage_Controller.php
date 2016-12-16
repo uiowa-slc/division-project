@@ -18,7 +18,7 @@ class DivisionPage_Controller extends Extension {
 	 */
 	public function index($r) {
 		$page = $this->owner;
-
+		// print_r($page->ClassName.'_'.$page->LayoutType);
 		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
 	}
 	public static function StaffSpotlightHandler($arguments, $content) {
