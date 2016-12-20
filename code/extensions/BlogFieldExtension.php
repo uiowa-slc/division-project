@@ -12,6 +12,15 @@ class BlogFieldExtension extends DataExtension {
 		'ExternalURL'   => 'Text',
 	);
 
+	public $layout_types = array(
+		'MainImage' => 'Big Full Width Image',
+		'BackgroundImage' => 'Background Image',
+		'ImageSlider' => 'Image Slider',
+		'BackgroundVideo' => 'Background Video',
+		'StaffGrid' => 'Grid View',
+		'StaffTable' => 'Table View'
+	);
+
 	public function getCMSFields() {
 		$this->extend('updateCMSFields', $fields);
 
@@ -23,13 +32,13 @@ class BlogFieldExtension extends DataExtension {
 
 		$fields->removeByName("BackgroundImage");
 
-		$fields->removeByName("Authors");
-		$fields->removeByName("AuthorNames");
+		// $fields->removeByName("Authors");
+		// $fields->removeByName("AuthorNames");
 
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryBy', 'Story author'));
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByEmail', 'Author email address'));
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByTitle', 'Author posiiton title'));
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByDept', 'Author department title'));
+		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryBy', 'Story author'));
+		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByEmail', 'Author email address'));
+		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByTitle', 'Author posiiton title'));
+		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByDept', 'Author department title'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosBy', 'Photos or video by'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
@@ -41,6 +50,29 @@ class BlogFieldExtension extends DataExtension {
 			$fields->renameField("Date", "Published Date");
 		}
 
+	}
+
+	public function RelatedNewsEntries(){
+		$holder = Blog::get()->First();
+		$tags = $this->owner->Tags()->limit(6);
+		$entries = new ArrayList();
+
+		foreach($tags as $tag){
+			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			if($taggedEntries){
+				foreach($taggedEntries as $taggedEntry){
+					if($taggedEntry->ID){
+						$entries->push($taggedEntry);
+					}
+				}
+			}
+
+		}
+
+		if($entries->count() > 1){
+			$entries->removeDuplicates();
+		}
+		return $entries;
 	}
 
 }
