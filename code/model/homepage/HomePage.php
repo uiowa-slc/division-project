@@ -13,7 +13,7 @@ class HomePage extends Page {
 		'BackgroundFeatures' => 'HomePageBackgroundFeature',
 	);
 
-	public $layout_types = array(
+	private static $layout_types = array(
 		'ShuffledBackgroundFeatures' => 'Shuffled Background Features and Hero Features (legacy)',
 		'BackgroundVideo' => 'Background Video',
 		'ImageSlider' => 'Image Slider'
