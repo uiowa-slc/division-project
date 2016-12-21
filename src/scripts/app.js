@@ -98,6 +98,39 @@ $("#site-search").focusout(function(){
   	}
 });
 
+$('input[name="Search"]').autoComplete({
+    minChars: 1,
+    source: function(term, suggest){
+        term = term.toLowerCase();
+        var choices = [['Australia', 'au'], ['Austria', 'at'], ['Brasil', 'br'], ];
+        var suggestions = [];
+        for (var i=0;i<choices.length;i++)
+            if (~(choices[i][0]+' '+choices[i][1]).toLowerCase().indexOf(term)) suggestions.push(choices[i]+console.log(choices[i]));
+        suggest(suggestions);
+        console.log("hello");
+    },
+    renderItem: function (item, search){
+        search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+        return '<div class="autocomplete-suggestion" data-langname="'+item[0]+'" data-lang="'+item[1]+'" data-val="'+search+item[0].replace(re, "<b>$1</b>")+'</div>';
+    },
+    onSelect: function(e, term, item){
+        alert('Item "'+item.data('langname')+' ('+item.data('lang')+')" selected by '+(e.type == 'keydown' ? 'pressing enter' : 'mouse click')+'.');
+    }
+});
+// $('input[name="Search"]').autoComplete({
+
+// 	minChars: 2,
+// 	source: function(term, suggest){
+// 		console.log("hello");
+// 		term = term.toLowerCase();
+// 		var choices = ['ActionScript', 'AppleScript', 'Asp','Johnson', 'James', 'Jameson'];
+// 		var matches = [];
+// 		for (var i=0; i<choices.length; i++)
+// 			if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]+console.log(choices[i]));
+// 		suggest(matches);
+// 	}
+// });
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Mobile Search:
