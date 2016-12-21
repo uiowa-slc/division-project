@@ -31,7 +31,7 @@ $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
-$global-weight-bold: bold;
+$global-weight-bold: 600;
 $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
@@ -54,7 +54,7 @@ $anchor-text-decoration-hover: none;
 /* Header Typography
 ----------------------------------------------------*/
 $header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: $global-weight-bold;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
@@ -70,9 +70,9 @@ $header-sizes: (
     'h1': 52,
     'h2': 40,
     'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h4': 26,
+    'h5': 24,
+    'h6': 20,
   ),
 );
 $header-color: inherit;
@@ -109,7 +109,6 @@ $block-grid-max: 8;
 
 
 /* Nav Settings */
-
 $nav-height: rem-calc(55);
 $nav-height-large: rem-calc(72);
 
@@ -120,7 +119,7 @@ $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 
 $lead-font-size: $global-font-size * 1.25;
-$lead-lineheight: 1.6;
+$lead-lineheight: 1.8;
 $subheader-lineheight: 1.4;
 $subheader-color: $dark-gray;
 $subheader-font-weight: $global-weight-normal;

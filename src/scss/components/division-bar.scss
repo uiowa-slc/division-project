@@ -3,7 +3,6 @@
 
 	max-width: none;
 	margin: auto;
-
 	padding-top: 10px;
 	padding-bottom: 20px;
 
@@ -13,13 +12,13 @@
 
 
 	&__uiowa {
-		 @include grid-column(50%);
+		@include grid-column(50%);
 	}
-
 
 	&__uiowa-logo {
 		display: block;
 		max-width: 130px;
+
 		@include breakpoint(medium) {
 			max-width: 180px;
 		}
@@ -27,46 +26,49 @@
 
 	&__menu {
 		@include grid-column(50%);
+
 		text-align: right;
-	    list-style: none;
-	    margin: 0;
-	    font-size: rem-calc(10);
+		list-style: none;
+		margin: 0;
+		font-size: rem-calc(10);
 
-	    @include breakpoint(medium) {
-	        font-size: rem-calc(16);
-	    }
+		@include breakpoint(medium) {
+			font-size: rem-calc(16);
+		}
 
-		li{
+
+		li {
 			display: inline-block;
 			margin: 0 5px;
-			&:first-of-type{
+
+			&:first-of-type {
 				margin-left: 0;
 			}
-			&:last-of-type{
+
+			&:last-of-type {
 				margin-right: 0;
 			}
 		}
 	}
-	
-	&__menu-item{
+
+	&__menu-item {
 		display: inline-block;
 		margin: 0 5px;
-		&:first-of-type{
+
+		&:first-of-type {
 			margin-left: 0;
 		}
-		&:last-of-type{
+
+		&:last-of-type {
 			margin-right: 0;
 		}
 	}
 
-	&__link{
+	&__link {
 		color: $black;
 	}
 
-	&__link--dark{
+	&__link--dark {
 		color: #fff;
 	}
-
-
-
 }

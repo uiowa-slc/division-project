@@ -1,0 +1,73 @@
+//Page Media Types (eventually move elsewhere)
+
+/* Background Media */
+
+.bg-media{
+	padding-bottom: rem-calc(600);
+	position: relative;
+	&--image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 400px;
+
+	}
+	&--video{
+
+	}
+
+	&--fade{
+
+	}
+
+	&--grayscale{
+		filter: grayscale(90%);
+	}
+
+}
+
+.background-image {
+	background-color: #111;
+	background-position: center;
+	background-size: cover;
+	color: #fff;
+	min-height: 250px;
+	position: relative;
+	&__header {
+		padding: rem-calc(150) 0 rem-calc(30);
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+	}
+
+	&__title {
+		margin: 0;
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+		@include breakpoint(large) {
+			font-size: rem-calc(65);
+		}
+	}
+	&:after {
+	background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.01, rgba(0,0,0,0)), color-stop(0.49, rgba(0,0,0,0)), to(rgba(0,0,0,0.7)));
+	background: -webkit-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: -moz-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: -o-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
+		content:'';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+	@include breakpoint(medium) {
+		min-height: 350px;
+	}
+	@include breakpoint(large) {
+		min-height: 450px;
+	}
+	@include breakpoint(xlarge) {
+		min-height: 500px;
+	}
+}

@@ -1,10 +1,1 @@
-<section class="content-block">
-	<div class="row">
-		<div class="main-content">
-			<div class="$CSSClasses">
-				<h2>$Title</h2>
-				<% if $Content %>$Content<% end_if %>
-			</div>
-		</div>
-	</div>
-</section>
+<section class="content-block__container"><div class="content-block row column"><div class=""><div class="$CSSClasses"> <%-- <h2 class="textblock__header">$Title</h2> --%> <% if $Content %> <div class="textblock__text">$Content</div> <% end_if %> </div></div></div></section>

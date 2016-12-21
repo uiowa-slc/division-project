@@ -9,8 +9,8 @@ $(document).foundation();
 var sliderOptions = {
 	containerClass: 'slider__slides', 
 	slideClass: 'slider__slide',
-	nextClass: 'slider__navigation--next',
-	prevClass: 'slider__navigation--previous',
+	nextClass: 'slider__nav--next',
+	prevClass: 'slider__nav--previous',
 
 };
 
@@ -33,13 +33,13 @@ $('iframe').each(function(){
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-$('.navigation__item--parent').click(function(event) {
+$('.nav__item--parent').click(function(event) {
   if (whatInput.ask() === 'touch') {
     // do touch input things
-    if(!$(this).hasClass('navigation__item--is-hovered')){
+    if(!$(this).hasClass('nav__item--is-hovered')){
 	    event.preventDefault();
-	    $('.navigation__item--parent').removeClass('navigation__item--is-hovered');
-	    $(this).toggleClass('navigation__item--is-hovered')
+	    $('.nav__item--parent').removeClass('nav__item--is-hovered');
+	    $(this).toggleClass('nav__item--is-hovered')
     }
   } else if (whatInput.ask() === 'mouse') {
     // do mouse things
@@ -48,7 +48,7 @@ $('.navigation__item--parent').click(function(event) {
 
 //If anything in the main content container is clicked, remove faux hover class.
 $('#main-content__container').click(function(){
-	$('.navigation__item').removeClass('navigation__item--is-hovered');
+	$('.nav__item').removeClass('nav__item--is-hovered');
 
 });
 
@@ -64,28 +64,28 @@ function toggleSearchClasses(){
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".header__screen").toggleClass("header__screen--grayscale");
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
-	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
-	$(".navigation__link--search").toggleClass("navigation__link--search-is-active");
+	$(".nav__wrapper").toggleClass("nav__wrapper--grayscale");
+	$(".nav__link--search").toggleClass("nav__link--search-is-active");
 
 	//HACK: wait for 5ms before changing focus. I don't think I need this anymore actually..
 	setTimeout(function(){
-	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
+	  $(".nav__wrapper").toggleClass("nav__wrapper--search-is-active");
 	}, 5);
 
-	$(".navigation").toggleClass("navigation--search-is-active");
+	$(".nav").toggleClass("nav--search-is-active");
 
 }
 
-$(".navigation__link--search").click(function(){
+$(".nav__link--search").click(function(){
   	toggleSearchClasses();
-  	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
+  	if($("#nav__wrapper").hasClass("nav__wrapper--mobile-menu-is-active")){
   		toggleMobileMenuClasses();
   		$("#site-search").appendTo('#header').addClass('site-search--mobile');
   	}
   	document.getElementById("site-search__input").focus();
 });
 
-$(".navigation__link--search-cancel").click(function(){
+$(".nav__link--search-cancel").click(function(){
 	toggleSearchClasses();
 	document.getElementById("site-search__input").blur();
 });
@@ -146,7 +146,7 @@ if (Foundation.MediaQuery.atLeast('medium')) {
 }
 
 
-$(".navigation__toggle--search").click(function(){
+$(".nav__toggle--search").click(function(){
   	toggleSearchClasses();
 
 
@@ -163,7 +163,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 	 	$("#site-search").removeClass("site-search--mobile");
 	 	$("#site-search").addClass("site-search--desktop");
 
-		$("#site-search").appendTo("#navigation");
+		$("#site-search").appendTo("#nav");
 
 
 	 	if($("#site-search").hasClass("site-search--is-active")){
@@ -186,25 +186,25 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-$(".navigation__toggle--menu").click(function(){
+$(".nav__toggle--menu").click(function(){
 	toggleMobileMenuClasses();
 
 });
 
-$(".navigation__mobile-close-button").click(function(){
+$(".nav__mobile-close-button").click(function(){
 	toggleMobileMenuClasses();
 });
 
 function toggleMobileMenuClasses(){
 
-	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--mobile-menu-is-active");
+	if($("#nav__wrapper").hasClass("nav__wrapper--mobile-menu-is-active")){
+		$("#nav__wrapper").toggleClass("nav__wrapper--mobile-menu-is-active");
 		setTimeout(function(){
-		 $("#navigation__wrapper").toggleClass("navigation__wrapper--has-transition");
+		 $("#nav__wrapper").toggleClass("nav__wrapper--has-transition");
 		}, 1000);
 	}else{
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--has-transition");
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--mobile-menu-is-active");
+		$("#nav__wrapper").toggleClass("nav__wrapper--has-transition");
+		$("#nav__wrapper").toggleClass("nav__wrapper--mobile-menu-is-active");
 	}
 
 	$("html").toggleClass("html--no-scroll");
@@ -214,7 +214,7 @@ function toggleMobileMenuClasses(){
 
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 	 if (oldSize == "small") {
-	 	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
+	 	if($("#nav__wrapper").hasClass("nav__wrapper--mobile-menu-is-active")){
 	 		toggleMobileMenuClasses();
 	 	}
 	 }

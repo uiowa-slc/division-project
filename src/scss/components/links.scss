@@ -1,17 +1,17 @@
 a {
-
 	@include transition;
-	&:hover, :active, :focus {
-		
-	}
+
+	&:hover, :active, :focus {}
+
 	&:focus {
 		outline: thin dotted;
 	}
 }
 
-.caret-link{
-	&:after{
+.caret-link {
+	&:after {
 		@include css-triangle(4px, $yellow, right);
+
 		margin-left: 7px;
 		display: inline-block;
 	}

@@ -8,17 +8,18 @@ class Page extends SiteTree {
 	);
 
 	private static $has_one = array(
-		"BackgroundImage" => "Image",
-		'FeatureHolderImage' => 'Image'
+		'BackgroundImage' => 'Image',
+		'FeatureHolderImage' => 'Image',
+		'OgImage' => 'Image'
 	);
 
 	private static $many_many = array(
-		"SidebarItems" => "SidebarItem",
+		'SidebarItems' => 'SidebarItem',
 	);
 
 	private static $belongs_many_many = array(
 		'TileGridBlocks' => 'TileGridBlock'
-	);	
+	);
 
 	private static $many_many_extraFields = array(
 		'SidebarItems' => array(
@@ -26,19 +27,19 @@ class Page extends SiteTree {
 		),
 	);
 
-	public $layout_types = array(
+	private static $layout_types = array(
 		'MainImage' => 'Big Full Width Image',
 		'BackgroundImage' => 'Background Image',
 		'ImageSlider' => 'Image Slider',
 		'BackgroundVideo' => 'Background Video'
 	);
 
-	private static $plural_name = "Pages";
+	private static $plural_name = 'Pages';
 
 	private static $defaults = array(
 
-		"Content" =>
-		"<h1>H1. This is a very large header.</h1>
+		'Content' =>
+		'<h1>H1. This is a very large header.</h1>
 <p>The first paragraph directly after an H1 is the lede paragraph and is styled with a larger font size than other paragraphs.</p>
 <h2>H2. This is a large header.</h2>
 <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient.</p>
@@ -49,25 +50,26 @@ class Page extends SiteTree {
 <h5>H5. This is small header.</h5>
 <p>Cum sociis natoque penatibus magnis parturient montes, nascetur ridiculus mus. Sed consectetur est.</p>
 <h6>H6. This is very small header.</h6>
-<p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>",
+<p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>',
 
 	);
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
+			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (at least 1600px wide)'), 'Content');
 			$layoutOptionsField = DropdownField::create(
 	  			'LayoutType',
 	  			'Layout type',
-	  			$this->layout_types
-			);
+	  			$this->LayoutTypes()
+			)->setEmptyString('(Default Layout)');
 			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
-
+		$f->addFieldToTab("Root.Main", new UploadField("OgImage", "Facebook-specific Share Image (More info: <a href='https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/'>Sharing content on Facebook: best practices &rarr;</a>)"), "Content");
+		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$parent = $this->Parent();
-		if((isset($parent)) && ($parent->ClassName == "FeatureHolderPage")){
-			$f->addFieldToTab("Root.Main", new UploadField("FeatureHolderImage", "Feature Holder Image (shown in parent)"), "Content");
+		if((isset($parent)) && ($parent->ClassName == 'FeatureHolderPage')){
+			$f->addFieldToTab('Root.Main', new UploadField('FeatureHolderImage', 'Feature Holder Image (shown in parent)'), 'Content');
 		}
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
@@ -76,21 +78,25 @@ class Page extends SiteTree {
 			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
 		}
 
-		$row = "SortOrder";
+		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
 		$sort->table          = 'Page_SidebarItems';
 		$sort->parentField    = 'PageID';
 		$sort->componentField = 'SidebarItemID';
 
-		$gridField = new GridField("SidebarItems", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
+		$gridField = new GridField('SidebarItems', 'Sidebar Items', $this->getSidebarItems(), $gridFieldConfig);
 
-		$f->addFieldToTab("Root.Widgets", new LabelField("SidebarLabel", "<h2>Add sidebar items below</h2>"));
-		$f->addFieldToTab("Root.Widgets", new LiteralField("SidebarManageLabel", '<p><a href="admin/sidebar-items" target="_blank">View and Manage Sidebar Items &raquo;</a></p>'));
-		$f->addFieldToTab("Root.Widgets", $gridField);// add the grid field to a tab in the CMS
+		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
+		// $f->addFieldToTab('Root.Widgets', new LiteralField('SidebarManageLabel', '<p><a href='admin/sidebar-items' target='_blank'>View and Manage Sidebar Items &raquo;</a></p>'));
+		$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
 
 		return $f;
 
+	}
+
+	public function LayoutTypes(){
+		return $this->stat('layout_types');
 	}
 
 	public function updateSettingsFields(FieldList $f) {
@@ -123,7 +129,7 @@ class Page extends SiteTree {
 			}
 		}
 		// add any custom URLs which are not SiteTree instances
-		$urls[] = "sitemap.xml";
+		$urls[] = 'sitemap.xml';
 		return $urls;
 	}
 	/**
@@ -158,19 +164,19 @@ class Page extends SiteTree {
 	public function DarkLight(){
 		$siteConfig = SiteConfig::current_site_config();
 		$owner = $this;
-		
+
 		//If the page type forces a particular dark/light scheme (eg homepage), defer to that first.
 		if($owner->pageTypeTheme){
 			return $owner->pageTypeTheme;
 		//Check page's individual CMS setting:
 		}elseif($owner->UseDarkThemeOnThisPage){
-			return "dark";
+			return 'dark';
 		//Otherwise, check global settings
 		}elseif($siteConfig->UseDarkTheme){
-			return "dark";
+			return 'dark';
 		}
 
-		return "light";
+		return 'light';
 
 
 	}
@@ -207,7 +213,7 @@ class Page_Controller extends ContentController {
 		$template = new SSViewer('Header');
 		$siteConfig = SiteConfig::current_site_config();
 
-		
+
 		//If the page type forces a particular dark/light scheme (eg homepage), defer to that first.
 		if($theme == 'auto'){
 			if($this->pageTypeTheme){
@@ -221,13 +227,13 @@ class Page_Controller extends ContentController {
 			//default to light if all else fails:
 			}else{
 				$theme = 'light';
-			}	
+			}
 		}
 
 
 		return $template->process($this->customise(new ArrayData(array(
-			"DarkLight" => $theme,
-			"HeaderType" => $headerType
+			'DarkLight' => $theme,
+			'HeaderType' => $headerType
 		))));
 	}
 
