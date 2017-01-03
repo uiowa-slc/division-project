@@ -5,7 +5,7 @@
 		</a>
 	<% else %>
 		<a href="$Link" class="stafflist__imglink">
-			<img src="division-project/images/dosl.png" alt="Photograph of $FirstName $LastName" class="stafflist__img">
+			<img src="{$ThemeDir}/dist/images/dosl.png" alt="Photograph of $FirstName $LastName" class="stafflist__img">
 		</a>
 	<% end_if %>
 	<p class="stafflist__text">
