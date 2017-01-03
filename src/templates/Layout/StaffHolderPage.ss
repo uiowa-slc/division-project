@@ -26,71 +26,6 @@ $Header
 				<% if $Teams %>
 					<% loop $Teams %>
 						<h2 class="stafflist__title">$Title</h2>
-						<%-- Table View --%>
-						<% if $Up.TableViewCheck %>
-							<table class="stack" summary="List of $Title Staff">
-								<thead>
-									<tr>
-										<th scope="col" width="20%">Name</th>
-										<th scope="col" width="37%">Title</th>
-										<th scope="col" width="26%">Email</th>
-										<th scope="col" width="17%">Phone</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% if $Up.SortLastName %>
-										<% loop $SortedStaffPages.Sort(LastName, ASC) %>
-											<% include StaffPageTableView %>
-										<% end_loop %>
-										<% else %>
-											<% loop $SortedStaffPages %>
-											<% include StaffPageTableView %>
-										<% end_loop %>
-									<% end_if %>
-								</tbody>
-							</table>
-						<% else %>
-							<%-- Grid View --%>
-							<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
-							<% if $Up.SortLastName %>
-								<% loop $SortedStaffPages.Sort(LastName, ASC) %>
-									<% include StaffPageListItem %>
-								<% end_loop %>
-								</ul>
-							<% else %>
-								<% loop $SortedStaffPages %>
-									<% include StaffPageListItem %>
-								<% end_loop %>
-								</ul>
-							<% end_if %>
-						<% end_if %>
-					<% end_loop %>
-				<% else %><%-- end if teams --%>
-					<%-- Table View --%>
-					<% if $Up.TableViewCheck %>
-						<table class="stack" summary="List of $Title Staff">
-							<thead>
-								<tr>
-									<th scope="col" width="20%">Name</th>
-									<th scope="col" width="37%">Title</th>
-									<th scope="col" width="26%">Email</th>
-									<th scope="col" width="17%">Phone</th>
-								</tr>
-							</thead>
-							<tbody>
-								<% if $Up.SortLastName %>
-									<% loop $SortedStaffPages.Sort(LastName, ASC) %>
-										<% include StaffPageTableView %>
-									<% end_loop %>
-									<% else %>
-										<% loop $SortedStaffPages %>
-										<% include StaffPageTableView %>
-									<% end_loop %>
-								<% end_if %>
-							</tbody>
-						</table>
-					<% else %>
-						<%-- Grid View --%>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
 						<% if $Up.SortLastName %>
 							<% loop $SortedStaffPages.Sort(LastName, ASC) %>
@@ -103,6 +38,19 @@ $Header
 							<% end_loop %>
 							</ul>
 						<% end_if %>
+					<% end_loop %>
+				<% else %><%-- end if teams --%>
+					<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
+					<% if $Up.SortLastName %>
+						<% loop $SortedStaffPages.Sort(LastName, ASC) %>
+							<% include StaffPageListItem %>
+						<% end_loop %>
+						</ul>
+					<% else %>
+						<% loop $SortedStaffPages %>
+							<% include StaffPageListItem %>
+						<% end_loop %>
+						</ul>
 					<% end_if %>
 				<% end_if %>
 				</div><%-- end stafflist --%>
@@ -112,12 +60,12 @@ $Header
 		</article>
 		<aside class="sidebar">
 			<% include SideNav %>
+
 			$BlockArea(Sidebar)
+
 		</aside>
 	</div>
+
 	$BlockArea(AfterContent)
 
-
 </main>
-
-
