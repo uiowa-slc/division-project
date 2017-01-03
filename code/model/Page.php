@@ -203,10 +203,43 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array(
+		'autoComplete'
 	);
-
+	private static $url_handlers = array (
+		'autoComplete' => 'autoComplete'
+	);
 	public function init() {
 		parent::init();
+
+	}
+	private function in_arrayi($needle, $haystack) {
+	    return in_array(strtolower($needle), array_map('strtolower', $haystack));
+	}
+	public function autoComplete($request){
+
+		$keyword = trim( $request->requestVar( 'query' ) );
+
+		$keyword = Convert::raw2sql( $keyword );
+
+		$pages = new ArrayList();
+		$pagesArray = array();
+
+		$suggestions = array('suggestions' => array());
+
+		$pages = SiteTree::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword,
+		    // 'Content:PartialMatch' => $keyword
+		))->limit(5);
+
+
+		//$pagesArray = $pages->map()->toArray();
+		$pagesArray = $pages->column('Title');
+		$suggestions['suggestions'] = $pagesArray;
+		// if(!$this->in_arrayi($keyword, $pagesArray)){
+		// 	array_unshift($pagesArray, $keyword);
+		// }
+		
+		return json_encode($suggestions);
 
 	}
 	public function Header($theme = 'auto', $headerType = 'full'){

@@ -1,6 +1,13 @@
 
 $(document).foundation();
 
+var bases = document.getElementsByTagName('base');
+var baseHref = null;
+
+if (bases.length > 0) {
+    baseHref = bases[0].href;
+}
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 // Start Foundation Orbit Slider:
@@ -97,6 +104,28 @@ $("#site-search").focusout(function(){
   		// deactivateSearch();
   	}
 });
+
+$('input[name="Search"]').autocomplete({
+    serviceUrl: baseHref+'/home/autoComplete',
+    deferRequestBy: 100,
+    triggerSelectOnValidInput: false,
+    minChars: 2,
+    // autoSelectFirst: true,
+    // appendTo: $('#site-search')
+    // width: $('#nav').outerWidth(),
+    onSelect: function (suggestion) {
+        $('#site-search__form').submit();
+    }
+});
+
+// $('input[name="Search"]').autoComplete({
+//     minChars: 2,
+//     source: function(term, response){
+//         try { xhr.abort(); } catch(e){}
+//         xhr = $.getJSON(baseHref+'/home/autoComplete', { q: term }, function(data){ response(data); });
+//     }
+
+// });
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/

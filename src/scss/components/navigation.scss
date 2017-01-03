@@ -346,6 +346,11 @@
 		}
 	}
 
+	&__link--light{
+		&:after{
+			border-color: $black transparent transparent;
+		}
+	}
 	&__link--dark {
 		color: white;
 		font-weight: bold;
