@@ -2,7 +2,6 @@
 class StaffHolderPage extends Page {
 
 	private static $db = array(
-		"TableViewCheck" => "Boolean",
 		"SortLastName" => "Boolean",
 	);
 
@@ -13,14 +12,20 @@ class StaffHolderPage extends Page {
 	private static $belongs_many_many = array(
 		"Teams" => "StaffTeam"
 	);
+	private static $layout_types = array(
+		'MainImage' => 'Big Full Width Image',
+		'BackgroundImage' => 'Background Image',
+		'ImageSlider' => 'Image Slider',
+		'BackgroundVideo' => 'Background Video',
+		'StaffTable' => 'Staff Table View'
+	);
 
 	private static $allowed_children = array("StaffPage", "VirtualPage", "UserDefinedForm");
 
 	public function getCMSFields(){
 		$f = parent::getCMSFields();
 
-		$f->addFieldToTab('Root.Settings', new CheckboxField('TableViewCheck','Use Table View'));
-		$f->addFieldToTab('Root.Settings', new CheckboxField('SortLastName','Sort Staff By Last Name'));
+		$f->addFieldToTab('Root.PageSettings', new CheckboxField('SortLastName','Sort Staff By Last Name'));
 
 		$f->addFieldToTab('Root.Main', new CheckboxSetField("Teams", 'Show the following staff teams on this page:', StaffTeam::get()->map('ID', 'Title')), 'Content');
 
