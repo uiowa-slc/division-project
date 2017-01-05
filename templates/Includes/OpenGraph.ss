@@ -19,7 +19,12 @@
   <% end_if %>
 
 <% else %>
-	<meta property="og:title" content="$Title" />
+
+	<% if $OgTitle %>
+		<meta property="og:title" content="$OgTitle.ATT" />
+	<% else %>
+		<meta property="og:title" content="$Title.ATT" />
+	<% end_if %>
 
 	<% if $OgImage %>
 		<meta property="og:image" content="$OgImage.FocusFillMax(1200,630).AbsoluteURL" />
@@ -46,7 +51,12 @@
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 	<% end_if %>
-	<meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
+
+	<% if $OgDescription %>
+		<meta property="og:description" content="$OgDescription.LimitCharacters(120).ATT" />
+	<% else %>
+		<meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
+	<% end_if %>
 
 
 <% end_if %>

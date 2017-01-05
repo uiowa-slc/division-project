@@ -2,6 +2,8 @@
 class DivisionPage extends DataExtension {
 
 	private static $db = array(
+		'OgTitle' => 'Text',
+		'OgDescription' => 'Text',
 		'PreventSearchEngineIndex' => 'Boolean',
 	);
 
@@ -44,7 +46,12 @@ class DivisionPage extends DataExtension {
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		}
-		$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Facebook Share Image (1200x630 or 560x292)"), "Content");
+		$f->addFieldToTab('Root.SocialMediaSettings', new LiteralField('SocialMediaInfo','<a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a>'));
+
+		$f->addFieldToTab("Root.SocialMediaSettings", new UploadField('OgImage', 'Social Share Image'));
+		$f->addFieldToTab('Root.SocialMediaSettings', new TextField('OgTitle', 'Social Share Title'));
+		$f->addFieldToTab('Root.SocialMediaSettings', new TextareaField('OgDescription', 'Social Share Description'));
+
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		if (defined('FLICKR_USER')) {

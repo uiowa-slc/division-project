@@ -20,3 +20,6 @@ HomePageFeature:
 HomePageHeroFeature:
   extensions:
     - Versioned("Stage","Live")
+LeftAndMain:
+  extra_requirements_css:
+    - division-project/css/cms.css
