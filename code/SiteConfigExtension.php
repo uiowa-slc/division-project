@@ -41,11 +41,12 @@ class SiteConfigExtension extends DataExtension {
 
 	public function TwitterHandle(){
 		$twitterLink = $this->owner->TwitterLink;
-
-		//parse the twitter link here
-		$twitterLink = explode('/', $twitterLink);
-
-		return $twitterLink[3];
+		if($twitterLink){
+			//parse the twitter link here
+			$twitterLink = explode('/', $twitterLink);
+			return $twitterLink[3];
+		}
+		return null;
 	}
 
 }

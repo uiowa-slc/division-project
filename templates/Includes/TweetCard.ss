@@ -18,11 +18,12 @@
 	<% else %>
 		<meta name="twitter:description" content="The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom." />
 	<% end_if %>
-
-  <% if $SiteConfig.PosterImage %>
+  <% if $BackgroundFeature.Image %>
+	<meta name="twitter:image" content="$BackgroundFeature.Image.FocusFillMax(1200,630).AbsoluteURL" />
+  <% else_if $SiteConfig.PosterImage %>
   	<meta name="twitter:image" content="$SiteConfig.PosterImage.AbsoluteURL"> 	 	
   <% else %>
-  		<meta name="twitter:image" content="{$BaseURL}division-project/images/og-dsl.png"> 	
+  		<meta name="twitter:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png"> 	
   <% end_if %>
 
 <% else %>
@@ -44,7 +45,7 @@
 	<% else_if $BackgroundImage %>
 		<meta name="twitter:image" content="$BackgroundImage.FocusFillMax(1200,630).AbsoluteURL" />		
 	<% else %>
-		<meta name="twitter:image" content="{$BaseHref}division-project/images/og-dsl.png" />
+		<meta name="twitter:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png" />
 	<% end_if %>
 
 	<% if $OgDescription %>

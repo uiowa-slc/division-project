@@ -1,3 +1,4 @@
+<%-- if we're on the home page --%> 
 <% if $URLSegment == "home" %>
 
 	<meta property="og:title" content="$SiteConfig.Title" />
@@ -8,16 +9,20 @@
 		<meta property="og:content" content="The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom." />
 	<% end_if %>
 
-  <% if $SiteConfig.PosterImage %>
+  <% if $BackgroundFeature.Image %>
+	<meta property="og:image" content="$BackgroundFeature.Image.FocusFillMax(1200,630).AbsoluteURL" />
+	<meta property="og:image:width" content="$BackgroundFeature.Image.FocusFillMax(1200,630).Width" />
+	<meta property="og:image:height" content="$BackgroundFeature.Image.FocusFillMax(1200,630).Height" />
+  <% else_if $SiteConfig.PosterImage %>
   	<meta property="og:image" content="$SiteConfig.PosterImage.AbsoluteURL" />
 	<meta property="og:image:width" content="$SiteConfig.PosterImage.Width" />
-	<meta property="og:image:height" content="$SiteConfig.PosterImage.Height" />  	
+	<meta property="og:image:height" content="$SiteConfig.PosterImage.Height" />
   <% else %>
-		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
+	<meta property="og:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
   <% end_if %>
-
+<%-- if we're on any page except home --%>
 <% else %>
 
 	<% if $OgTitle %>
@@ -47,7 +52,7 @@
 		<meta property="og:image:width" content="$BackgroundImage.FocusFillMax(1200,630).Width" />
 		<meta property="og:image:height" content="$BackgroundImage.FocusFillMax(1200,630).Height" />		
 	<% else %>
-		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
+		<meta property="og:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 	<% end_if %>
