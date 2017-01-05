@@ -18,7 +18,7 @@ $Header
 			<div class="main-content__text">
 				<div class="staffpage">
 					<% if $Photo %>
-						<img src="$Photo.ScaleWidth(770).URL" alt="$FirstName $LastName" class="staffpage__img">
+						<img src="$Photo.ScaleWidth(945).URL" alt="$FirstName $LastName" class="staffpage__img">
 					<% end_if %>
 					<h2>$Position</h2>
 					<ul>
@@ -42,6 +42,4 @@ $Header
 			$BlockArea(Sidebar)
 		</aside>
 	</div>
-
-	</section>
 </main>
