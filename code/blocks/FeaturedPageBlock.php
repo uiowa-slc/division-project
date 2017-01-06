@@ -3,17 +3,17 @@
 class FeaturedPageBlock extends Block{
 
 	private static $db = array(
-		"DarkThemeCheck" => "Boolean",
+
 	);
 
 	private static $has_one = array(
-
+		'PageTree' => 'SiteTree'
 	);
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', new CheckboxField('DarkThemeCheck','Use dark background'));
+		$fields->addFieldToTab('Root.Main', new TreeDropdownField("PageTreeID", "Select a Page:", "SiteTree"));
 
 		return $fields;
 	}
