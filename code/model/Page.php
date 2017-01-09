@@ -4,7 +4,8 @@ class Page extends SiteTree {
 	private static $db = array(
 		'PreventSearchEngineIndex' => 'Boolean',
 		'UseDarkThemeOnThisPage' => 'Boolean',
-		'LayoutType' => 'varchar(155)'
+		'LayoutType' => 'varchar(155)',
+		'YoutubeBackgroundEmbed' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -38,19 +39,6 @@ class Page extends SiteTree {
 
 	private static $defaults = array(
 
-		'Content' =>
-		'<h1>H1. This is a very large header.</h1>
-<p>The first paragraph directly after an H1 is the lede paragraph and is styled with a larger font size than other paragraphs.</p>
-<h2>H2. This is a large header.</h2>
-<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient.</p>
-<h3>H3. This is a medium header.</h3>
-<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh ut fermentum massa justo.</p>
-<h4>H4. This is a moderate header.</h4>
-<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl.</p>
-<h5>H5. This is small header.</h5>
-<p>Cum sociis natoque penatibus magnis parturient montes, nascetur ridiculus mus. Sed consectetur est.</p>
-<h6>H6. This is very small header.</h6>
-<p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>',
 
 	);
 
@@ -90,6 +78,14 @@ class Page extends SiteTree {
 		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
 		// $f->addFieldToTab('Root.Widgets', new LiteralField('SidebarManageLabel', '<p><a href='admin/sidebar-items' target='_blank'>View and Manage Sidebar Items &raquo;</a></p>'));
 		$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
+
+
+		$f->addFieldsToTab("Root.Main", array(
+			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
+      ));
+
+		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
+
 
 		return $f;
 
@@ -238,7 +234,7 @@ class Page_Controller extends ContentController {
 		// if(!$this->in_arrayi($keyword, $pagesArray)){
 		// 	array_unshift($pagesArray, $keyword);
 		// }
-		
+
 		return json_encode($suggestions);
 
 	}
