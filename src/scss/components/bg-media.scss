@@ -3,8 +3,9 @@
 /* Background Media */
 
 .bg-media{
-	padding-bottom: rem-calc(600);
+	padding-bottom: rem-calc(450);
 	position: relative;
+	overflow: hidden;
 	&--image{
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -23,6 +24,15 @@
 	&--grayscale{
 		filter: grayscale(90%);
 	}
+	@include breakpoint(medium) {
+		padding-bottom: rem-calc(500);
+	}
+	@include breakpoint(large) {
+		padding-bottom: rem-calc(650);
+	}
+	@include breakpoint(xlarge) {
+		padding-bottom: rem-calc(650);
+	}
 
 }
 
@@ -31,9 +41,11 @@
 	background-position: center;
 	background-size: cover;
 	color: #fff;
-	min-height: 250px;
+	min-height: 300px;
+	overflow: hidden;
 	position: relative;
 	&__header {
+		color: #fff;
 		padding: rem-calc(150) 0 rem-calc(30);
 		position: absolute;
 		bottom: 0;
@@ -70,4 +82,28 @@
 	@include breakpoint(xlarge) {
 		min-height: 500px;
 	}
+}
+
+
+
+.video-background {
+	background: #000;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.video-foreground,
+.video-background iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  // .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  // .video-foreground { width: 300%; left: -100%; }
 }
