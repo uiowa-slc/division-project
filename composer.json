@@ -5,8 +5,8 @@
         "minimum-stability": "stable",
         "require": {
             "php": ">=5.3.2",
-            "silverstripe/cms": "3.4.1",
-            "silverstripe/framework": "3.4.1",
+            "silverstripe/cms": "3.4.3",
+            "silverstripe/framework": "3.4.3",
             "silverstripe/installer": "*",
             "silverstripe-themes/simple": "*",
             "undefinedoffset/sortablegridfield": "*",
