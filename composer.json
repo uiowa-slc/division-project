@@ -15,7 +15,7 @@
             "colymba/gridfield-bulk-editing-tools": "*",
             "silverstripe/blog": "2.*",
             "silverstripe/widgets": "*",
-            "silverstripe/userforms": "4.*",
+            "silverstripe/userforms": "4.*@stable",
             "silverstripe/recaptcha": "*",
             "silverstripe/mathspamprotection" : "*",
             "simplepie/simplepie": "*",
