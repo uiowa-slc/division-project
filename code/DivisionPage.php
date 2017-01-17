@@ -46,11 +46,21 @@ class DivisionPage extends DataExtension {
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"), "Content");
 		}
-		$f->addFieldToTab('Root.SocialMediaSettings', new LiteralField('SocialMediaInfo','<a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a>'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></p>'));
 
-		$f->addFieldToTab("Root.SocialMediaSettings", new UploadField('OgImage', 'Social Share Image'));
-		$f->addFieldToTab('Root.SocialMediaSettings', new TextField('OgTitle', 'Social Share Title'));
-		$f->addFieldToTab('Root.SocialMediaSettings', new TextareaField('OgDescription', 'Social Share Description'));
+		$f->addFieldToTab("Root.SocialMediaSharing", new UploadField('OgImage', 'Social Share Image'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new TextareaField('OgDescription', 'Social Share Description'));
+
+		if($this->owner->getExistsOnLive() == true){
+			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="http://www.facebook.com/sharer/sharer.php?u='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-fb ss-button-social ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
+	Share Page On Facebook</span></a>'));
+			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('TwitterShareButton','<a href="https://twitter.com/intent/tweet?text='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-twitter ss-button-social ss-ui-button-twitter ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Twitter" role="button" aria-disabled="false"><span class="ui-button-text">
+			Share Page On Twitter</span></a>'));
+		}else{
+			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('ShareNotice','<p>The ability to share this page will appear after you\'ve published it.</p>'));
+		}
+
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
