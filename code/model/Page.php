@@ -177,6 +177,22 @@ class Page extends SiteTree {
 
 	}
 
+	public function NiceName() {
+		$niceNames = array(
+			'Page'                => '',
+			'StaffPage'    		 => 'Staff Member',
+			'BlogPost'        	 => 'News',
+			'Blog'       		    => '',
+			'SiteConfigExtension' => ''
+		);
+		if(isset($niceNames[$this->ClassName])){
+			$niceClassName = $niceNames[$this->ClassName];
+			return $niceClassName;
+		}else{
+			return preg_replace('/([a-z]+)([A-Z])/', '$1 $2', $this->getClassName());
+		}
+	}
+
 
 
 
