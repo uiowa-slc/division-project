@@ -110,7 +110,8 @@ $('input[name="Search"]').autocomplete({
     deferRequestBy: 100,
     triggerSelectOnValidInput: false,
     minChars: 2,
-    // autoSelectFirst: true,
+    autoSelectFirst: true,
+    type: 'post',
     // appendTo: $('#site-search')
     // width: $('#nav').outerWidth(),
     onSelect: function (suggestion) {
