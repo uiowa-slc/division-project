@@ -3,7 +3,8 @@
 class FeaturedPageBlock extends Block{
 
 	private static $db = array(
-		"FeaturePageSummary" => "Text",
+		"FeaturePageSummary" => "HTMLText",
+		'UseBackground' => 'Boolean',
 	);
 
 	private static $has_one = array(
@@ -15,11 +16,12 @@ class FeaturedPageBlock extends Block{
 		$fields = parent::getCMSFields();
 
 		$fields->addFieldToTab('Root.Main', new TreeDropdownField("PageTreeID", "Select a Page:", "SiteTree"));
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Overwrite Page Settings</h3>', '3', true ) );
+		$fields->addFieldToTab('Root.Main', new CheckboxField('UseBackground','Use image as background'));
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true ) );
 		$fields->addFieldToTab("Root.Main", new UploadField("FeaturePagePhoto", "Add an image"));
 
-		$fields->addFieldToTab('Root.Main', $myEditorField = new TextareaField("FeaturePageSummary", "Summary Text"));
-		$myEditorField->setRows(3);
+		$fields->addFieldToTab('Root.Main', $myEditorField = new HTMLEditorField("FeaturePageSummary", "Summary Text"));
+		$myEditorField->setRows(12);
 
 		return $fields;
 	}
