@@ -216,6 +216,20 @@
 			border-bottom: none;
 		}
 	}
+	& li img {
+		display: block;
+		margin-bottom: 8px;
+		@include breakpoint(mobile) {
+			float: right;
+			width: 175px;
+			margin-left: 1em;
+		}
+		@include breakpoint(large) {
+			float: none;
+			margin-left: 0;
+			width: auto;
+		}
+	}
 	& li a {
 		color: $body-font-color;
 		display: block;
