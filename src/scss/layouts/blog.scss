@@ -258,25 +258,6 @@
 	}
 }
 
-
-
-/* --------------------------------------------------
-Profile Pages
-----------------------------------------------------*/
-.blogprofile {
-	margin-bottom: 3em;
-	font-size: rem-calc(14);
-	& img {
-		display: block;
-		margin: 0 auto 1em;
-		border-radius: 50%;
-		border: 3px solid $yellow;
-	}
-	& h3 {
-		font-size: rem-calc(22);
-		text-align: center;
-	}
-}
 .bloglistitem {
 	padding: rem-calc(30 0);
 	border-top: 1px solid #e8e8e8;
@@ -342,9 +323,26 @@ Profile Pages
 	// padding-top: 0;
 }
 
+
+
 /* --------------------------------------------------
-Related News
+Profile Pages
 ----------------------------------------------------*/
+.blogprofile {
+	& img {
+		display: block;
+		border-radius: 50%;
+		border: 3px solid $yellow;
+	}
+	& h3 {
+		margin: 10px 0;
+	}
+}
+
+
+/* ----------------------------------------------------------
+Related News
+------------------------------------------------------------*/
 .relatednews {
 	overflow: hidden;
 	padding: 3em 0;
