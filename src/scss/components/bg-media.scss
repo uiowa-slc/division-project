@@ -99,11 +99,11 @@
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
-}
-
-@media (min-aspect-ratio: 16/9) {
-  // .video-foreground { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  // .video-foreground { width: 300%; left: -100%; }
+	@media (max-width: 550px) {
+		width: 150%;
+		left: -20%;
+	}
+	@include breakpoint(large) {
+		top: -20%;
+	}
 }
