@@ -199,10 +199,12 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array(
-		'autoComplete'
+		'autoComplete',
+		'autoCompleteResults'
 	);
 	private static $url_handlers = array (
-		'autoComplete' => 'autoComplete'
+		'autoComplete' => 'autoComplete',
+		'autoCompleteResults' => 'autoCompleteResults'
 	);
 	public function init() {
 		parent::init();
@@ -211,6 +213,15 @@ class Page_Controller extends ContentController {
 	private function in_arrayi($needle, $haystack) {
 	    return in_array(strtolower($needle), array_map('strtolower', $haystack));
 	}
+
+	public function autoCompleteResults($data, $form, $request) {
+        $data = array(
+            'Results' => $form->getResults(),
+            'Query' => $form->getSearchQuery(),
+            'Title' => _t('SearchForm.SearchResults', 'Search Results')
+        );
+        return $this->owner->customise($data)->renderWith(array('Page_results', 'Page'));
+    }
 	public function autoComplete($request){
 
 		$keyword = trim( $request->requestVar( 'query' ) );
