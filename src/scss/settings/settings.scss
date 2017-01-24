@@ -10,11 +10,12 @@ $foundation-palette: (
   alert: #F29DA8,
 );
 
-$light-gray: #e6e6e6;
+$light-gray: #f4f4f4;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #222;
 $white: #fefefe;
+$cream: #f8f6f3;
 
 $yellow: #ffcd00;
 
@@ -68,16 +69,16 @@ $header-sizes: (
   ),
   medium: (
     'h1': 52,
-    'h2': 40,
-    'h3': 31,
-    'h4': 26,
-    'h5': 24,
+    'h2': 36,
+    'h3': 30,
+    'h4': 25,
+    'h5': 22,
     'h6': 20,
   ),
 );
 $header-color: inherit;
-$header-lineheight: 1.4;
-$header-margin-bottom: 0.5rem;
+$header-lineheight: 1.3;
+$header-margin-bottom: 1rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
@@ -88,6 +89,7 @@ $header-small-font-color: $medium-gray;
 ----------------------------------------------------*/
 $breakpoints: (
   small: 0,
+  mobile: 480px,
   medium: 640px,
   large: 1024px,
   xlarge: 1200px,
@@ -102,7 +104,7 @@ $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
   small: 20px,
-  medium: 30px,
+  medium: 40px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -114,12 +116,12 @@ $nav-height-large: rem-calc(72);
 
 /* Content Typography
 ----------------------------------------------------*/
-$paragraph-lineheight: 1.6;
-$paragraph-margin-bottom: 1rem;
+$paragraph-lineheight: 1.5;
+$paragraph-margin-bottom: rem-calc(24);
 $paragraph-text-rendering: optimizeLegibility;
 
-$lead-font-size: $global-font-size * 1.25;
-$lead-lineheight: 1.8;
+$lead-font-size: $global-font-size * 1.3;
+$lead-lineheight: 1.5;
 $subheader-lineheight: 1.4;
 $subheader-color: $dark-gray;
 $subheader-font-weight: $global-weight-normal;
