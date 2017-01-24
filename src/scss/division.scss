@@ -62,7 +62,9 @@
 @import "components/typography";
 @import "components/breadcrumbs";
 @import "components/forms";
+@import "components/childpages";
 @import "components/links";
+@import "components/flickity";
 @import "components/lists";
 @import "components/quotes";
 @import "components/slider";
@@ -79,12 +81,14 @@
 @import "components/profile";
 @import "components/content-blocks";
 @import "components/bg-media";
+@import "components/widgets";
 
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";
 @import "layouts/footer";
-
+@import "layouts/locallist";
 @import "layouts/staff";
+@import "layouts/blog";
 
 @import "layouts/default";
