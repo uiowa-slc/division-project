@@ -1,6 +1,22 @@
 button, .button{
 	text-transform: uppercase;
-	
+}
+/* border effect */
+.border-effect {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    box-shadow: inset 0 0 0 1px #EAE6E3;
+    margin: 5px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
 }
 
 /* css/scss/imports/buttons.scss
@@ -45,7 +61,7 @@ button, .button{
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
- 
+
 }
 
 .button--hollow{
