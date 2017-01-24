@@ -34,7 +34,7 @@
       "silverstripe/secureassets":"dev-master",
       "studiobonito/silverstripe-typekit" : "*",
       "unclecheese/display-logic" : "*",
-      "sheadawson/silverstripe-blocks": "*",
+      "sheadawson/silverstripe-blocks": "1.1.1",
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*"
    },
