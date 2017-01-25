@@ -201,7 +201,7 @@
 		border-top: 4px solid #000;
 		font-size: rem-calc(14);
 		margin: rem-calc(0 20);
-		padding: rem-calc(24 0 14px);
+		padding: rem-calc(24 0 8px);
 		text-transform: uppercase;
 		letter-spacing: 1px;
 	}
@@ -234,7 +234,7 @@
 		color: $body-font-color;
 		display: block;
 		font-size: rem-calc(16);
-		padding: rem-calc(14 20);
+		padding: rem-calc(20);
 		position: relative;
 		&:hover, &:focus {
 			color: $anchor-color;
