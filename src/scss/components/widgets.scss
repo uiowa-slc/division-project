@@ -29,11 +29,15 @@
 		border-bottom: none;
 	}
 }
+.WidgetHolder li img {
+	display: block;
+	margin-bottom: 8px;
+}
 .WidgetHolder li a {
 	color: $body-font-color;
 	display: block;
 	font-size: rem-calc(16);
-	padding: rem-calc(14 20);
+	padding: rem-calc(20);
 	position: relative;
 	&:hover, &:focus {
 		color: $anchor-color;
