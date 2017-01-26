@@ -12,9 +12,11 @@ class BlogFieldExtension extends DataExtension {
 		'ExternalURL'   => 'Text',
 	);
 
-	private static $layout_types = array (
-
-
+	private static $layout_types = array(
+		'MainImage' => 'Big Full Width Image',
+		'BackgroundImage' => 'Background Image',
+		'ImageSlider' => 'Image Slider',
+		'BackgroundVideo' => 'Background Video'
 	);
 
 	public function getCMSFields() {

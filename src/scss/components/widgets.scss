@@ -1,0 +1,45 @@
+.WidgetHolder {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 1.875rem;
+	width: 100%;
+}
+.WidgetHolder h3 {
+	border-top: 4px solid #000;
+	font-size: rem-calc(14);
+	margin: rem-calc(0 20);
+	padding: rem-calc(24 0 14px);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.WidgetHolder:nth-child(even) h3 {
+	border-top-color: $yellow;
+}
+.WidgetHolder ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.WidgetHolder ul .arrow {
+    display: none;
+}
+.WidgetHolder li {
+	border-bottom: 1px solid #e5e5e5;
+	&:last-of-type {
+		border-bottom: none;
+	}
+}
+.WidgetHolder li img {
+	display: block;
+	margin-bottom: 8px;
+}
+.WidgetHolder li a {
+	color: $body-font-color;
+	display: block;
+	font-size: rem-calc(16);
+	padding: rem-calc(20);
+	position: relative;
+	&:hover, &:focus {
+		color: $anchor-color;
+	}
+}

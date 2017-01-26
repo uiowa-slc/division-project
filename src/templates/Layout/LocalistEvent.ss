@@ -102,7 +102,7 @@ $Header
 <% if RelatedEvents %>
 	<div class="relatedevents">
 		<h2 class="relatedevents-title text-center">Related Events</h2>
-		<ul class="column row small-up-2 medium-up-3 ">
+		<ul class="column row medium-up-3 ">
 			<% loop RelatedEvents.Limit(3) %>
 				<li class="column column-block">
 					<% include EventCard %>

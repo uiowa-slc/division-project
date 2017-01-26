@@ -1,6 +1,12 @@
+.block_area_aftercontentconstrained,
+.block_area_beforecontentconstrained {
+	@include breakpoint(medium) {
+		padding-right: rem-calc(20);
+	}
+}
 /* Before Content */
 .block_area_beforecontent, .block_area_aftercontent {
-	background-color: #f8f8f8;
+	background-color: $cream;
 
 	/* Text Block */
 	& .textblock {
@@ -10,33 +16,52 @@
 		}
 	}
 }
-
-
-
-/* Sidebar Text Block */
-.block_area_sidebar .textblock {
-	font-size: rem-calc(16);
+.block_area_aftercontentconstrained .content-block__container,
+.block_area_sidebar .content-block__container {
+	margin: 1.5em 0;
 }
 
-
-/* Featured Page */
-.featured-page {
+/* Featured Page
+======================================================================= */
+.featuredpageblock {
+	@include grid-row;
+	background-color: $cream;
+	padding: rem-calc(20);
 	&__media {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
 		& a {
 			display: block;
 		}
 	}
-	&__rule {
-		width: 80px;
-		height: 2px;
-		background-color: #444;
-		border: 0;
-		margin-right: 100%;
+	&__body--wimage {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
 	}
 	&__desc {
-		margin: rem-calc(16 0);
-		& p {
-			margin: 0;
+		margin: rem-calc(20 0);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: rem-calc(20);
+		font-size: rem-calc(28);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		& a {
+			color: $body-font-color;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -8px;
 		}
 	}
 	&__button {
@@ -45,9 +70,9 @@
 			color: #000;
 			display: inline-block;
 			font-weight: bold;
-			font-size: rem-calc(14);
-			letter-spacing: .8px;
-			padding: 14px 25px 14px;
+			font-size: rem-calc(12);
+			letter-spacing: 1px;
+			padding: 12px 24px 12px;
 			text-transform: uppercase;
 			&:hover, &:focus {
 				background-color: #000;
@@ -55,87 +80,277 @@
 			}
 		}
 	}
-}
-
-/* After Content */
-.block_area_aftercontent .featured-page {
-	padding: rem-calc(80 0);
-	&__media {
-		& a {
-			max-height: 350px;
-			overflow: hidden;
+	&__position {
+		font-size: 85%;
+		font-style: italic;
+		line-height: 1.5;
+	}
+	&__contact {
+		list-style: none;
+		margin: 0;
+		& li {
+			font-size: 85%;
+			& img {
+				margin-right: 5px;
+			}
 		}
 	}
-}
-/* After Content Constrained */
-.block_area_aftercontentconstrained .featured-page {
-	background-color: #f8f8f8;
-	margin: rem-calc(40px 0);
-	padding: rem-calc(40 20);
-	&__media {
-		& a {
-			max-height: 300px;
-			overflow: hidden;
-		}
-	}
-	&__title {
-		font-size: rem-calc(28);
+	@include breakpoint(mobile) {
+		padding: rem-calc(30 20);
 	}
 }
-.block_area_aftercontentconstrained .content-block__container--dark .featured-page {
-	background-color: #222;
-}
 
-
-
-/* Sidebar */
-.block_area_sidebar .featured-page {
-	margin-bottom: 50px;
-	& .columns {
-		@include breakpoint(large) {
-			width: auto;
-			margin-left: 0.9375rem;
-			margin-right: 0.9375rem;
-			float: none;
+.featuredpageblock-bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	color: #fff;
+	position: relative;
+	& .featuredpageblock__body {
+		float:none;
+		width: 100%;
+		&:after {
+			content: "";
+			height: 100%;
 			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+			background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.7) 80%);
 		}
-
+		@include breakpoint(medium) {
+			bottom: 0;
+			left: 0;
+			padding: rem-calc(40);
+			position: absolute;
+		}
 	}
+	& .featuredpageblock__desc, & .featuredpageblock__button, & .featuredpageblock__rule, & .featuredpageblock__title {
+		z-index: 2;
+		position: relative;
+	}
+	& .featuredpageblock__title {
+		font-size: rem-calc(45);
+		text-shadow: 1px 1px rgba(0,0,0,.2);
+		&:after {
+			background-color: #fff;
+		}
+	}
+	& .featuredpageblock__desc {
+		font-weight: bold;
+		line-height: 1.4;
+	}
+	@include breakpoint(medium) {
+		padding: 56.25% 0 0 0;
+	}
+}
+
+
+/* Sidebar --------------------------- */
+.block_area_sidebar .featuredpageblock {
 	&__media {
+		@include breakpoint(large) {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
+	}
+	@include breakpoint(large) {
 		padding: 0;
+		&__title {
+			font-size: rem-calc(20);
+			text-transform: uppercase;
+		}
+		&__desc {
+			font-size: rem-calc(16);
+		}
+		&__body, &__body--wimage {
+			width: 100%;
+			float: none !important;
+			padding: rem-calc(20);
+		}
+	}
+}
+/* After Content ------------------------- */
+.block_area_aftercontent .featuredpageblock {
+	@include breakpoint(large) {
+		padding: rem-calc(60 0);
+	}
+}
+
+
+
+/* Text Block
+======================================================================= */
+.block_area_sidebar .textblock {
+	font-size: rem-calc(16);
+}
+
+
+
+
+/* Related News
+======================================================================= */
+.block_area_sidebar .relatednewsblock {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 1.875rem;
+	width: 100%;
+	&__header {
+		border-top: 4px solid #000;
+		font-size: rem-calc(14);
+		margin: rem-calc(0 20);
+		padding: rem-calc(24 0 8px);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	& ul {
+		list-style: none;
+		margin: 0;
+	}
+	& li {
+		border-bottom: 1px solid #e5e5e5;
+		line-height: 1.4;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	& li img {
+		display: block;
+		margin-bottom: 8px;
+		@include breakpoint(mobile) {
+			float: right;
+			width: 175px;
+			margin-left: 1em;
+		}
+		@include breakpoint(large) {
+			float: none;
+			margin-left: 0;
+			width: auto;
+		}
+	}
+	& li a {
+		color: $body-font-color;
+		display: block;
+		font-size: rem-calc(16);
+		padding: rem-calc(20);
+		position: relative;
+		&:hover, &:focus {
+			color: $anchor-color;
+		}
+	}
+
+}
+
+
+
+
+/* Staff Member
+======================================================================= */
+
+.staffmemberblock {
+	@include grid-row;
+	background-color: $cream;
+	padding: rem-calc(20);
+	&__media {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
 		& a {
-			max-height: 250px;
-			overflow: hidden;
+			display: block;
 		}
 	}
 	&__body {
-		background-color: #f4f4f4;
-		padding: rem-calc(24);
-	}
-	&__title {
-		font-size: rem-calc(24);
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
 	}
 	&__desc {
-		font-size: rem-calc(16);
+		margin: rem-calc(20 0);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: 1em;
+		font-size: rem-calc(28);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
 	}
 	&__button {
-		margin-bottom: -50px;
-		text-align: center;
+		& a {
+			background: $yellow;
+			color: #000;
+			display: inline-block;
+			font-weight: bold;
+			font-size: rem-calc(12);
+			letter-spacing: 1px;
+			padding: 12px 24px 12px;
+			text-transform: uppercase;
+			&:hover, &:focus {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+	&__position {
+		font-size: 85%;
+		font-style: italic;
+		line-height: 1.5;
+	}
+	&__contact {
+		list-style: none;
+		margin: 0;
+		& li {
+			font-size: 85%;
+			& img {
+				margin-right: 5px;
+			}
+		}
+	}
+	@include breakpoint(mobile) {
+		padding: rem-calc(30 20);
 	}
 }
 
-.content-block__container--dark {
-	background-color: #222;
-	& .featured-page__body {
-		background-color: #222;
-		color: #fff;
+/* Sidebar ------------------------- */
+.block_area_sidebar .staffmemberblock {
+	&__media {
+		@include breakpoint(large) {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
 	}
-	& .featured-page__rule {
-		background-color: $yellow;
+	@include breakpoint(large) {
+		padding: 0;
+		&__title {
+			font-size: rem-calc(20);
+			text-transform: uppercase;
+		}
+		&__desc {
+			font-size: rem-calc(16);
+		}
+		&__body {
+			width: 100%;
+			float: none;
+			padding: rem-calc(20);
+		}
 	}
 }
-.block_area_sidebar {
-	& .content-block__container--dark {
-		background-color: #fff;
+/* After Content ----------------------- */
+.block_area_aftercontent .staffmemberblock {
+	@include breakpoint(large) {
+		padding: rem-calc(60 0);
 	}
 }

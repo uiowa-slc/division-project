@@ -27,6 +27,8 @@ class RelatedNewsBlock extends Block{
 			->setShouldLazyLoad(true);
 		$fields->addFieldToTab('Root.Main', $tagField);
 
+		$fields->renameField('Title', 'Title (default:Related News)');
+
 		return $fields;
 	}
 
@@ -36,7 +38,7 @@ class RelatedNewsBlock extends Block{
 		$entries = new ArrayList();
 
 		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->ID))->sort('PublishDate', 'DESC')->Limit(3);
 			if($taggedEntries){
 				foreach($taggedEntries as $taggedEntry){
 					if($taggedEntry->ID){
