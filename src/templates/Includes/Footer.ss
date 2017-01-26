@@ -5,7 +5,7 @@
 			<% if $SiteConfig.DisableDivisionBranding %>
 				<a href="http://uiowa.edu" class="hide-print footer-logo"><img src="division-project/images/ui-logo-footer.png" alt="The University of Iowa"></a>
 			<% else %>
-			<a href="http://studentlife.uiowa.edu" class="hide-print footer-logo"><img src="division-project/images/dosl-uiowa.png" alt="Division Of Student Life"></a>
+			<a href="http://studentlife.uiowa.edu" class="hide-print footer-logo"><img src="https://vp.studentlife.uiowa.edu/division-project/images/dosl-uiowa.png" alt="Division Of Student Life"></a>
 			<% end_if %>
 			<% if $SiteConfig.GroupSummary %>
 				$SiteConfig.GroupSummary
