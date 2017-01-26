@@ -133,7 +133,7 @@ function images() {
 function server(done) {
   browser.init({
     proxy: {
-      target: "localhost:8888/division-project-4"
+      target: "localhost:8888/"+PATHS.projectName
     },
     host:      'site1.domain.dev',
     port:      3060
