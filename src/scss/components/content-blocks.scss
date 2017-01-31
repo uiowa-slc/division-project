@@ -373,6 +373,41 @@
 /* ====================================================================
 Video Block
 ======================================================================= */
+.block_area_beforecontentconstrained .videoblock,
+.block_area_aftercontentconstrained .videoblock {
+	background-color: $cream;
+	margin-bottom: 1em;
+	&__media .flex-video {
+
+	}
+	&__body {
+		padding: rem-calc(0 20 20 20);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: 1em;
+		font-size: rem-calc(20);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
+	}
+	&__desc {
+		font-size: rem-calc(16);
+		& p {
+			margin-bottom: 0;
+		}
+	}
+}
 .block_area_beforecontent .videoblock,
 .block_area_aftercontent .videoblock {
 	@include grid-row;

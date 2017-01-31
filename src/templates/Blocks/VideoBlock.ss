@@ -8,14 +8,14 @@
 						<iframe src="https://player.vimeo.com/video/$VimeoEmbed" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					<% end_if %>
 				</div>
-			<%-- <div class="videoblock__body">
-				<h3 class="videoblock__body__title">$Title</h3>
+			<div class="videoblock__body">
+				<h3 class="videoblock__title">$Title</h3>
 				<% if $VideoSummary %>
-				<div class="videoblock__body__desc">
-					$VideoSummary
-				</div>
+					<div class="videoblock__desc">
+						$VideoSummary
+					</div>
 				<% end_if %>
-			</div> --%>
+			</div>
 		</div>
 	</div>
 </section>
