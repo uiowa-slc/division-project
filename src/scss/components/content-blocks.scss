@@ -18,7 +18,7 @@
 }
 .block_area_aftercontentconstrained .content-block__container,
 .block_area_sidebar .content-block__container {
-	margin: 1.5em 0;
+	margin: 2em 0;
 }
 
 /* Featured Page
@@ -192,6 +192,20 @@
 
 /* Related News
 ======================================================================= */
+.block_area_aftercontent .relatednewsblock {
+	& .bloglistitem {
+		padding-top: rem-calc(18);
+	}
+	& .bloglistitem__heading {
+		text-transform: capitalize;
+	}
+	& .bloglistitem__desc {
+		font-size: rem-calc(16);
+	}
+	& .byline__author img {
+		display: none;
+	}
+}
 .block_area_sidebar .relatednewsblock {
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
@@ -352,5 +366,83 @@
 .block_area_aftercontent .staffmemberblock {
 	@include breakpoint(large) {
 		padding: rem-calc(60 0);
+	}
+}
+
+
+/* ====================================================================
+Video Block
+======================================================================= */
+.block_area_beforecontent .videoblock,
+.block_area_aftercontent .videoblock {
+	@include grid-row;
+	background-color: $cream;
+	padding: rem-calc(20);
+	&__media {
+		@include breakpoint(large) {
+			@include grid-column(9);
+			padding-right: rem-calc(40) !important;
+		}
+	}
+	&__body {
+		@include breakpoint(large) {
+			@include grid-column(3);
+		}
+	}
+	&__desc {
+		margin: rem-calc(20 0);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: 1em;
+		font-size: rem-calc(28);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
+	}
+	@include breakpoint(large) {
+		padding: rem-calc(60 0);
+	}
+}
+
+/* Sidebar ------------------------------ */
+.block_area_sidebar .videoblock {
+	background-color: $cream;
+	&__title {
+		font-size: rem-calc(20);
+		text-transform: uppercase;
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
+	}
+	&__desc {
+		font-size: rem-calc(16);
+		margin: rem-calc(20 0);
+	}
+	&__body {
+		width: 100%;
+		float: none;
+		padding: rem-calc(20);
+		padding-top: 0;
 	}
 }
