@@ -156,7 +156,13 @@
 			padding: 0;
 		}
 	}
+	&__body {
+		@include breakpoint(large) {
+
+		}
+	}
 	@include breakpoint(large) {
+		background-color: $yellow;
 		padding: 0;
 		&__title {
 			font-size: rem-calc(20);
@@ -166,9 +172,21 @@
 			font-size: rem-calc(16);
 		}
 		&__body, &__body--wimage {
-			width: 100%;
+			background-color: #fefefe;
+			width: 92%;
 			float: none !important;
 			padding: rem-calc(20);
+			margin: 4%;
+			margin-top: -20px;
+			position: relative;
+		}
+		&__button a {
+			background-color: $black;
+			color: #fff;
+			&:hover, &:focus {
+				background-color: $yellow;
+				color: $black;
+			}
 		}
 	}
 }
@@ -481,3 +499,45 @@ Video Block
 		padding-top: 0;
 	}
 }
+
+
+/* ====================================================================
+Slideshow Block
+======================================================================= */
+.slideshowblock {
+	&__carousel {
+		margin-bottom: 2em;
+	}
+	&__cell {
+		width: 100%;
+	}
+	&__caption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		background: rgba(0,0,0,.8);
+		padding: 10px;
+		color: #fff;
+		font-size: rem-calc(16);
+	}
+	& .flickity-page-dots {
+		bottom: 10px;
+	}
+	& img {
+		display: block;
+	}
+}
+.block_area_beforecontent .slideshowblock {
+	padding: 1px;
+	&__cell {
+		width: 25%;
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+

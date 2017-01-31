@@ -1,0 +1,19 @@
+<section class="content-block__container content-block__container--padding">
+	<div class="content-block">
+		<div class="$CSSClasses">
+			<% if $SlideshowBlockImages %>
+				<div class="">
+					<% if $Title %><h3>$Title</h3><% end_if %>
+					<div class="slideshowblock__carousel" data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false }'>
+						<% loop SlideshowBlockImages %>
+							<div class="slideshowblock__cell">
+ 								<img src="$Image.CroppedFocusedImage(840, 600).URL" alt="$Caption">
+ 								<% if $Caption %><span class="slideshowblock__caption">$Caption</span><% end_if %>
+	 						</div>
+						<% end_loop %>
+					</div>
+				</div>
+			<% end_if %>
+		</div>
+	</div>
+</section>
