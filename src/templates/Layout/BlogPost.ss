@@ -11,7 +11,15 @@ $Header
 		<div class="column row">
 			<div class="main-content__header">
 				<h1>$Title</h1>
+				<% if $Summary %>
+					<div class="blogpost__summary">$Summary</div>
+				<% end_if %>
 			</div>
+			<% if $FeaturedImage %>
+				<% if FeaturedImage.Width >= 1200 %>
+					<p class="post-image">$FeaturedImage.CroppedFocusedImage(1200,700)</p>
+				<% end_if %>
+			<% end_if %>
 		</div>
 	<% end_if %>
 
@@ -22,8 +30,10 @@ $Header
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
-						<p class="post-image">$FeaturedImage.setWidth(840)</p>
+					<% if FeaturedImage.Width >= 700 && FeaturedImage.Width < 1200 %>
+						<p class="post-image">$FeaturedImage.SetWidth(840)</p>
 					<% end_if %>
+				<% end_if %>
 				<div class="content">
 
 					<div class="blogmeta clearfix">
@@ -36,12 +46,16 @@ $Header
 							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/linkedin_circle.png"></a></li>
 						</ul>
 					</div>
-
+					<% if $FeaturedImage %>
+						<% if FeaturedImage.Width < 700 %>
+							<img src="$FeaturedImage.URL" alt="" class="right post-image">
+						<% end_if %>
+					<% end_if %>
 					$Content
 				</div>
+				$BlockArea(AfterContentConstrained)
 				<% include TagsCategories %>
 			</div>
-			$BlockArea(AfterContentConstrained)
 			$Form
 		</article>
 		<aside class="sidebar">
@@ -57,8 +71,10 @@ $Header
 
 <% if $RelatedNewsEntries %>
 	<div class="relatednews">
-		<h2 class="relatednews-title text-center">Related News</h2>
-		<ul class="column row medium-up-3 ">
+		<div class="column row">
+			<h3 class="relatednews-title">Related News</h3>
+		</div>
+		<ul class="row medium-up-3 ">
 			<% loop $RelatedNewsEntries.limit(3) %>
 				<li class="column column-block">
 					<% include BlogCard %>
