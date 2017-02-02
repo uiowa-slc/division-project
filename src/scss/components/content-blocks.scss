@@ -505,27 +505,23 @@ Video Block
 Slideshow Block
 ======================================================================= */
 .slideshowblock {
-	&__carousel {
+	& .orbit {
 		margin-bottom: 2em;
+		max-height: 600px;
+		overflow: hidden;
 	}
-	&__cell {
-		width: 100%;
+	& .orbit-container {
+		height: auto !important;
+
 	}
-	&__caption {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		background: rgba(0,0,0,.8);
-		padding: 10px;
-		color: #fff;
-		font-size: rem-calc(16);
+	& .orbit-caption {
+		font-size: 16px;
 	}
-	& .flickity-page-dots {
-		bottom: 10px;
-	}
-	& img {
-		display: block;
+	& .orbit-previous, & .orbit-next {
+		background-color: #fefefe;
+		color: $black;
+		font-size: 16px;
+		padding: 2%;
 	}
 }
 .block_area_beforecontent .slideshowblock {

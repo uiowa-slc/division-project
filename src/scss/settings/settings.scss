@@ -158,6 +158,21 @@ $keystroke-padding: rem-calc(2 4 0);
 $keystroke-radius: $global-radius;
 $abbr-underline: 1px dotted $black;
 
+// 25. Orbit
+// ---------
+
+$orbit-bullet-background: $medium-gray;
+$orbit-bullet-background-active: $dark-gray;
+$orbit-bullet-diameter: 1.2rem;
+$orbit-bullet-margin: 0.1rem;
+$orbit-bullet-margin-top: 0.8rem;
+$orbit-bullet-margin-bottom: 0.8rem;
+$orbit-caption-background: rgba(0,0,0, 0.6);
+$orbit-caption-padding: rem-calc(10);
+$orbit-control-background-hover: rgba($black, 0);
+$orbit-control-padding: 1rem;
+$orbit-control-zindex: 10;
+
 /* Additional Foundation Settings
 ----------------------------------------------------*/
 @import "foundation-components-settings";
