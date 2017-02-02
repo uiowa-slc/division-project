@@ -13,11 +13,17 @@ $Header
 						<li class="article-list__item">
 							<article class="article-list__body clearfix">
 								<% if $BackgroundImage %>
-									<img src="$BackgroundImage.CroppedImage(180,150).URL" alt="$Title" class="article-list__img">
+									<a href="$Link" class="border-effect article-list__img">
+									<img src="$BackgroundImage.CroppedImage(180,150).URL" alt="$Title" >
+									</a>
 								<% else_if $Photo %>
-									<img src="$Photo.CroppedImage(180,150).URL" alt="$Title" class="article-list__img">
+									<a href="$Link" class="border-effect article-list__img">
+									<img src="$Photo.CroppedImage(180,150).URL" alt="$Title" >
+									</a>
 								<% else_if $FeaturedImage %>
-									<img src="$FeaturedImage.CroppedImage(180,150).URL" alt="$Title" class="article-list__img">
+									<a href="$Link" class="border-effect article-list__img">
+									<img src="$FeaturedImage.CroppedImage(180,150).URL" alt="$Title">
+									</a>
 								<% end_if %>
 								<% if $NiceName %><p class="article-list__type">$NiceName</p><% end_if %>
 								<h4 class="article-list__header">
