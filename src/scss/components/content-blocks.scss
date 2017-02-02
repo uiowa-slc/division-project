@@ -507,21 +507,43 @@ Slideshow Block
 .slideshowblock {
 	& .orbit {
 		margin-bottom: 2em;
-		max-height: 600px;
-		overflow: hidden;
 	}
 	& .orbit-container {
 		height: auto !important;
 
 	}
-	& .orbit-caption {
-		font-size: 16px;
+	& .orbit-slide {
+		background-color: #000;
+		padding-bottom: 100px;
 	}
-	& .orbit-previous, & .orbit-next {
+	& .orbit-caption {
+		background-color: transparent;
+		position: absolute;
+		padding-left: 125px;
+		height: 100px;
+		bottom: 0;
+		& span {
+			position: relative;
+			top: 50%;
+			display: block;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+	}
+	& .orbit-previous,
+	& .orbit-next {
 		background-color: #fefefe;
 		color: $black;
 		font-size: 16px;
-		padding: 2%;
+		width: 50px;
+		height: 100px;
+		bottom: -50px;
+		top: auto;
+	}
+	& .orbit-next {
+		left: 50px;
+		right: auto;
 	}
 }
 .block_area_beforecontent .slideshowblock {

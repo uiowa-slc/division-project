@@ -9,8 +9,8 @@
 						<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
 						<% loop SlideshowBlockImages %>
 							<li class="is-active orbit-slide">
-								<img class="orbit-image" src="$Image.CroppedFocusedImage(840, 600).URL" alt="<% if $Caption %>$Caption<% end_if %>">
-								<% if $Caption %><figcaption class="orbit-caption">$Caption</figcaption><% end_if %>
+								<img class="orbit-image" src="$Image.CroppedFocusedImage(840, 525).URL" alt="<% if $Caption %>$Caption<% end_if %>">
+								<% if $Caption %><figcaption class="orbit-caption"><span>$Caption</span></figcaption><% end_if %>
 							</li>
 						<% end_loop %>
 					</ul>
