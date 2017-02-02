@@ -2,8 +2,7 @@
 ----------------------------------------------------*/
 .stafflist {
 	&__item {
-		// font-size: rem-calc(17);
-		margin-bottom: rem-calc(40);
+		margin-bottom: rem-calc(50);
 	}
 	&__link {
 		display: block;
@@ -41,11 +40,14 @@
 			margin: 0;
 		}
 	}
+	&__name {
+		font-size: rem-calc(21);
+	}
 	&__position {
 		color: #666;
 		display: block;
 		font-size: rem-calc(14);
-		margin-top: 4px;
+		margin-top: 6px;
 	}
 }
 
