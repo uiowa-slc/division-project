@@ -17,6 +17,7 @@
 		margin: 0 0 12px 0;
 	}
 	&__img {
+		display: block;
 		@include breakpoint(mobile){
 			float: right;
 			margin-left: 1em;
@@ -44,9 +45,17 @@
 	& .blogmeta__byline {
 		color: #666;
 		float: none;
+		font-style: italic;
 		& p {
 			line-height: 1.5;
-			margin-bottom: 12px;
+			margin-bottom: 6px;
+			& a {
+				color: #666;
+			}
+		}
+		time {
+			border: none;
+			padding: 0;
 		}
 	}
 }
