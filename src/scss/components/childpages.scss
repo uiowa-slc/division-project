@@ -27,12 +27,12 @@ Child Pages
 		@include breakpoint(medium) {
 			float: left;
 			margin: 0;
-			width: 20%;
+			width: 25%;
 		}
 	}
 	&--withphoto .childpages__content {
 		@include breakpoint(medium) {
-			margin-left: 24%;
+			margin-left: 28%;
 			overflow: hidden;
 		}
 	}
