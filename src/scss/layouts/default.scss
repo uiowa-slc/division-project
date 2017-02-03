@@ -79,12 +79,13 @@ body {
 		}
 	}
 	&__header {
+		border-bottom: 4px solid rgba(0,0,0,.1);
 		margin: rem-calc(40 0 0);
+		padding-bottom: rem-calc(12);
 		& h1 {
-			border-bottom: 4px solid rgba(0,0,0,.1);
 			margin-bottom: 0;
 			margin-top: 0;
-			padding-bottom: .25em;
+			text-transform: capitalize;
 			@include breakpoint(large) {
 				// font-size: rem-calc(65);
 			}
