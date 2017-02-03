@@ -254,7 +254,7 @@
 
 		&:after {
 			//background: none;
-	
+
 		}
 
 		&:hover:after {
@@ -353,7 +353,7 @@
 	}
 	&__link--dark {
 		color: white;
-		font-weight: bold;
+		font-weight: 600;
 
 		&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark {
 			color: $black;
@@ -462,7 +462,7 @@
 	// 	@include breakpoint(xlarge) {
 	// 		padding: rem-calc(20) rem-calc(37);
 	// 		font-size: rem-calc(22);
-	// 	}		
+	// 	}
 	// }
 }
 

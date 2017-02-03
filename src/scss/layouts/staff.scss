@@ -42,6 +42,8 @@
 	}
 	&__name {
 		font-size: rem-calc(21);
+		font-family: $header-font-family;
+		font-weight: $header-font-weight;
 	}
 	&__position {
 		color: #666;
