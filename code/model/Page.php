@@ -44,6 +44,14 @@ class Page extends SiteTree {
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
+
+		$f->removeByName("ExtraMeta");
+
+		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
+			$f->removeFieldFromTab('Root.Main', 'Metadata');
+			$f->addFieldToTab('Root.MetaData', $metadataField);
+		}
+
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (at least 1600px wide)'), 'Content');
 			$layoutOptionsField = DropdownField::create(
@@ -53,7 +61,9 @@ class Page extends SiteTree {
 			)->setEmptyString('(Default Layout)');
 			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
-		$f->addFieldToTab("Root.Main", new UploadField("OgImage", "Facebook-specific Share Image (More info: <a href='https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/'>Sharing content on Facebook: best practices &rarr;</a>)"), "Content");
+		$f->addFieldToTab("Root.SocialMedia", $OgImage = new UploadField("OgImage", "Facebook-specific Share Image"));
+		$OgImage->setDescription("More info: <a href='https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/' target='_blank'>Sharing content on Facebook: best practices &rarr;</a>");
+
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$parent = $this->Parent();
 		if((isset($parent)) && ($parent->ClassName == 'FeatureHolderPage')){
