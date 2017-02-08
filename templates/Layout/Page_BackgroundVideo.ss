@@ -1,4 +1,9 @@
-$Header<main class="main-content__container" id="main-content__container"><div class="background-image"><div class="video-background"><div class="video-foreground"><div id="muteYouTubeVideoPlayer"></div><script async src="https://www.youtube.com/iframe_api"></script><script>function onYouTubeIframeAPIReady() {
+$Header<main class="main-content__container" id="main-content__container"><div class="backgroundvideo"><div id="ESEE" class="backgroundvideo__container" data-interchange="[http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg, small], [http://img.youtube.com/vi/$YoutubeBackgroundEmbed/maxresdefault.jpg, large]"><a href="http://www.youtube.com/embed/$YoutubeBackgroundEmbed" data-video="$YoutubeBackgroundEmbed" class="backgroundvideo__link"></a></div> <%-- <div class="video-background">
+			<div class="video-foreground">
+				<div id="muteYouTubeVideoPlayer"></div>
+				<script async src="https://www.youtube.com/iframe_api"></script>
+				<script>
+					function onYouTubeIframeAPIReady() {
 						var player;
 						player = new YT.Player('muteYouTubeVideoPlayer', {
 							videoId: '$YoutubeBackgroundEmbed', // YouTube Video ID
@@ -21,4 +26,7 @@ $Header<main class="main-content__container" id="main-content__container"><div c
 								}
 							}
 						});
-					}</script></div></div><div class="column row"><div class="background-image__header"><h1 class="background-image__title">$Title</h1> <% if ClassName == 'BlogPost' %><% include ByLine %><% end_if %> </div></div></div>$Breadcrumbs $EmbedCode <% include MainContentBody %> </main>
+					}
+				</script>
+			</div>
+		</div> --%> </div>$Breadcrumbs <% include MainContentBody %> </main>
