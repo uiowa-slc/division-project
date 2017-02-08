@@ -1,8 +1,45 @@
 
-
 $Header
 
-
+<%-- <% with Page(news) %>
+	<div class="bloglist-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+	<% loop $BlogPosts(3) %>
+		<% if $IsFeatured %>
+			<div class="carousel-cell">
+				<div class="expanded row small-collapse">
+					<div class="small-6 columns">
+						<% if $FeaturedImage %>
+						<a href="$Link" class="">
+							<img src="$FeaturedImage.CroppedImage(900,600).URL" alt="$Title">
+						</a>
+					<% else_if $BackgroundImage %>
+						<a href="$Link" class="">
+							<img src="$BackgroundImage.CroppedImage(900,600).URL" alt="$Title">
+						</a>
+					<% end_if %>
+					</div>
+					<div class="small-6 columns">
+						<div class="featured-content" style="padding: 2em;">
+							<h6>Featured News</h6>
+							<% if $ExternalLink %>
+								<h3><a href="$ExternalLink">$Title</a></h3>
+							<% else %>
+								<h3><a href="$Link">$Title</a></h3>
+							<% end_if %>
+							<p>$Content.LimitCharacters(100)</p>
+							<% if $ExternalLink %>
+								<p><a href="$ExternalLink" class="continue">Continue Reading</a></p>
+							<% else %>
+								<p><a href="$Link" class="continue">Continue Reading</a></p>
+							<% end_if %>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end_if %>
+	<% end_loop %><!-- end loop children -->
+	</div>
+<% end_with %> --%>
 
 <main class="main-content__container" id="main-content__container">
 	<!-- Background Image Feature -->
@@ -11,12 +48,6 @@ $Header
 	<% end_if %>
 
 	$Breadcrumbs
-
-	<div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
-		<div class="carousel-cell">...</div>
-		<div class="carousel-cell">...</div>
-		<div class="carousel-cell">...</div>
-	</div>
 
 	<% if not $BackgroundImage %>
 		<div class="column row">

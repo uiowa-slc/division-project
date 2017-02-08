@@ -69,6 +69,12 @@
 		}
 	}
 }
+.body--dark .breadcrumb {
+	background-color: $yellow;
+	&__anchor {
+		color: $black;
+	}
+}
 
 // Styling for Home button on mobile devices
 .breadcrumb__listitem:first-child {

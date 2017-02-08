@@ -9,13 +9,23 @@
 		</a>
 	<% end_if %>
 	<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage %>--wimage<% end_if %>">
-		<p class="bloglistitem__date">$PublishDate.format("F d, Y")</p>
-		<h4 class="bloglistitem__heading"><a href="$Link">$Title</a></h4>
+		<% if $Categories.exists %>
+			<p class="bloglistitem__category">
+			<% loop $Categories %>
+				<a href="$Link" class="bloglistitem__category">$Title</a><% if not Last %><% else %><% end_if %>
+			<% end_loop %>
+			</p>
+		<% end_if %>
+
+		<h3 class="bloglistitem__heading"><a href="$Link">$Title</a></h3>
 
 		<% if $Summary %>
 			<div class="bloglistitem__desc">$Summary</div>
 		<% else %>
-			<p class="bloglistitem__desc">$Content.LimitCharacters(160) <a href="$Link">Continue reading</a></p>
+			<p class="bloglistitem__desc">$Content.LimitCharacters(150) <a href="$Link">Continue reading</a></p>
 		<% end_if %>
+
+		<% include ByLine %>
+
 	</div>
 </article>

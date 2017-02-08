@@ -10,6 +10,10 @@ class SiteConfigExtension extends DataExtension {
 		'GroupSummary' => 'HTMLText',
 		'EmailAddress' => 'Text',
 		'VimeoLink' => 'Text',
+		'LinkedInLink' => 'Text',
+		'InstagramLink' => 'Text',
+		'PinterestLink' => 'Text',
+		'FlickrLink' => 'Text',
 		'YouTubeLink' => 'Text',
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
@@ -37,6 +41,10 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('FacebookLink', 'Facebook Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('VimeoLink', 'Vimeo Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('YouTubeLink', 'YouTube Account URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('LinkedInLink', 'LinkedIn Account URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('InstagramLink', 'Instagram Account URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('PinterestLink', 'Pinterest Account URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
 
 		return $fields;
 	}

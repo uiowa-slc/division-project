@@ -43,11 +43,6 @@
 
 		<%-- Summary --%>
 		<p class="eventcard-summary">$Content.Summary(30)</p>
-
-		<p class="eventcard-btn">
-			<%-- <a href="$Link" class="btn btn-default">View Event</a> --%>
-			<a class="hollow button tiny" href="$Link">View Event</a>
-		</p>
 	</div>
 </div>
 
