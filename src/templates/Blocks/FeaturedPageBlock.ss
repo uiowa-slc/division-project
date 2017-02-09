@@ -7,6 +7,8 @@
 					<div class="featuredpageblock__desc">
 						<% if $FeaturePageSummary %>
 							$FeaturePageSummary
+						<% else_if $PageTree.MetaDescription %>
+							$PageTree.MetaDescription.LimitCharacters(200)
 						<% else %>
 							$PageTree.Content.LimitCharacters(160)
 						<% end_if %>
@@ -46,6 +48,8 @@
 					<div class="featuredpageblock__desc">
 						<% if $FeaturePageSummary %>
 							$FeaturePageSummary
+						<% else_if $PageTree.MetaDescription %>
+							$PageTree.MetaDescription.LimitCharacters(200)
 						<% else %>
 							$PageTree.Content.LimitCharacters(160)
 						<% end_if %>
