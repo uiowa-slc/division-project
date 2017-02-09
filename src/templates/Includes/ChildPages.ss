@@ -9,7 +9,11 @@
 				<% end_if %>
 				<div class="childpages__content">
 					<h3 class="childpages__title">$Title</h3>
-					<p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
+					<% if $MetaDescription %>
+						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
+					<% else %>
+						<p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
+					<% end_if %>
 					<span class="childpages__link">Learn More</span>
 				</div>
 			</a>
