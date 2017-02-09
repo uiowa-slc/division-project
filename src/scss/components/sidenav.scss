@@ -69,9 +69,12 @@
 		position: relative;
 	}
 	&__section-title {
+		border-top: 4px solid #000;
 		font-size: rem-calc(14);
-		margin: 0;
-		padding: rem-calc(28 20 14px);
+		font-weight: 600;
+		letter-spacing: 1px;
+		margin: rem-calc(0 20);
+		padding: rem-calc(24 0);
 		text-transform: uppercase;
 		& a {
 			color: $body-font-color;
