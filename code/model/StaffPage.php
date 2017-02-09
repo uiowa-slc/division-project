@@ -26,7 +26,6 @@ class StaffPage extends Page {
 		SiteTree::enableCMSFieldsExtensions();
 
 		$fields->removeByName("Content");
-		$fields->removeByName("Metadata");
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
