@@ -37,6 +37,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextareaField('PhoneNumber', 'Phone Number(s)'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('EmailAddress', 'Email Address'));
 
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Social Media</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('TwitterLink', 'Twitter Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FacebookLink', 'Facebook Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('VimeoLink', 'Vimeo Account URL'));

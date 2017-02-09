@@ -122,6 +122,8 @@
 		transition: all .5s ease;
 		&:after {
 			content:'';
+			border-radius: 50%;
+			background-color: rgba(0,0,0,.4);
 			background-image: url(../images/play-button.png);
 			background-size: 72px 72px;
 			display: inline-block;
