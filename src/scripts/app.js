@@ -14,7 +14,7 @@ if (bases.length > 0) {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 var sliderOptions = {
-	containerClass: 'slider__slides', 
+	containerClass: 'slider__slides',
 	slideClass: 'slider__slide',
 	nextClass: 'slider__nav--next',
 	prevClass: 'slider__nav--previous',
@@ -206,7 +206,7 @@ function toggleMobileMenuClasses(){
 
 	$("html").toggleClass("html--no-scroll");
 
-	
+
 }
 
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
@@ -215,6 +215,23 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 	 		toggleMobileMenuClasses();
 	 	}
 	 }
+});
+
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Background Video
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+$('.backgroundvideo__link').click(function(e){
+	var that = $(this);
+	var video = that.data('video');
+	var width = $('img', that).width();
+	var height = $('img', that).height();
+	that.parent().addClass('on');
+	that.parent().prepend('<div class="flex-video widescreen"><iframe src="http://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+	that.hide();
+	e.preventDefault();
 });
 
 
