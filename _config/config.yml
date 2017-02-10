@@ -20,3 +20,6 @@ HomePageFeature:
 HomePageHeroFeature:
   extensions:
     - Versioned("Stage","Live") 
+ContentBlock:
+  extensions:
+    - ContentBlockExtension

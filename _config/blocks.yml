@@ -5,7 +5,7 @@ Page_Controller:
   extensions:
     - DivisionPage_Controller
 BlockManager:
-    use_default_blocks: false
+    use_default_blocks: true
     themes:
         division-subtheme:
           areas:
