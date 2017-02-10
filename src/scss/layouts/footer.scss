@@ -16,6 +16,9 @@
 		@include breakpoint(large) {
 			@include grid-column(4);
 		}
+		& p {
+			line-height: 1.4;
+		}
 	}
 	&__logo {
 		display: block;
@@ -73,7 +76,7 @@
 			& li a {
 				color: #eee;
 				display: inline-block;
-				font-size: rem-calc(16);
+				font-size: rem-calc(15);
 				padding: 12px 0;
 			}
 		}
@@ -103,6 +106,13 @@
 			float: right;
 			margin-left: 5px;
 			display: inline-block;
+		}
+		&:hover, &:focus {
+			color: #222;
+			background-color: $yellow;
+			&:after {
+				@include css-triangle(6px, #222, right);
+			}
 		}
 	}
 	&__socialmedia {

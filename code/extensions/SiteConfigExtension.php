@@ -18,7 +18,14 @@ class SiteConfigExtension extends DataExtension {
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
 		'UseDarkTheme' => 'Boolean',
-		'MailChimpFormEmbed' => 'HTMLText'
+		'MailChimpFormEmbed' => 'HTMLText',
+		'DonateButtonUrl' => 'Text',
+		'QuickLinkTitleOne' => 'Text',
+		'QuickLinkTitleTwo' => 'Text',
+		'QuickLinkTitleThree' => 'Text',
+		'QuickLinkURLOne' => 'Text',
+		'QuickLinkURLTwo' => 'Text',
+		'QuickLinkURLThree' => 'Text'
 	);
 
 	static $has_one = array(
@@ -37,6 +44,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextareaField('Address', 'Organization Address'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('PhoneNumber', 'Phone Number(s)'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('EmailAddress', 'Email Address'));
+		$fields->addFieldToTab('Root.Main', new TextField('DonateButtonUrl', 'Donation URL'));
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Social Media</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('TwitterLink', 'Twitter Account URL'));
@@ -48,9 +56,20 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('PinterestLink', 'Pinterest Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
 
+
+
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Quick Links</h3>', '3', true ) );
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleOne', 'Quick Link Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLOne', 'Quick Link URL'));
+
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleTwo', 'Quick Link Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLTwo', 'Quick Link URL'));
+
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleThree', 'Quick Link Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLThree', 'Quick Link URL'));
+
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Newsletter Signup</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextareaField('MailChimpFormEmbed', 'MailChimp Form Embed Code'));
-
 		$fields->addFieldToTab("Root.Main", $MailChimpFormEmbed = new TextareaField("MailChimpFormEmbed", "MailChimp Form Embed Code"));
 		$MailChimpFormEmbed->setDescription("More info: <a href='' target='_blank'>How to get this code &rarr;</a>");
 

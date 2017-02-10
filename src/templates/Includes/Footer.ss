@@ -36,13 +36,24 @@
 					<% loop Menu(1) %>
 						<li><a href="$Link">$MenuTitle</a></li>
 					<% end_loop %>
+					<% if $SiteConfig.QuickLinkTitleOne %>
+						<li><a href="$SiteConfig.QuickLinkURLOne">$SiteConfig.QuickLinkTitleOne</a></li>
+					<% end_if %>
+					<% if $SiteConfig.QuickLinkTitleTwo %>
+						<li><a href="$SiteConfig.QuickLinkURLTwo">$SiteConfig.QuickLinkTitleTwo</a></li>
+					<% end_if %>
+					<% if $SiteConfig.QuickLinkTitleThree %>
+						<li><a href="$SiteConfig.QuickLinkURLThree">$SiteConfig.QuickLinkTitleThree</a></li>
+					<% end_if %>
 				</ul>
 			</div>
 
 			<% if $SiteConfig.DisableDivisionBranding %>
 			<% else %>
 				<div class="footer__buttons">
-					<a href="http://givetoiowa.org/studentlife" class="footer__give">Give Online Now</a>
+					<% if $SiteConfig.DonateButtonUrl %>
+						<a href="$SiteConfig.DonateButtonUrl" class="footer__give" target="_blank">Give Online Now</a>
+					<% end_if %>
 					<a href="#" class="footer__give">Appointment</a>
 				</div>
 			<% end_if %>
@@ -81,7 +92,7 @@
 	<div class="footer__copyrightcontainer <% if $SiteConfig.MailChimpFormEmbed %>footer__copyrightcontainer--newsletter<% end_if %>">
 		<div class="footer__copyrightrow">
 			<div class="footer__copyright">
-				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank" class="footer__md">M+D</a></p>
+				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank" class="footer__md">Student Life Marketing and Design</a></p>
 			</div>
 
 			<div class="footer__newsletter">
