@@ -14,7 +14,7 @@ class HomePage extends Page {
 	);
 
 	private static $layout_types = array(
-		'ShuffledBackgroundFeatures' => 'Shuffled Background Features and Hero Features (legacy)',
+		'Legacy' => 'Old style - Shuffled Background Features and Hero Features',
 		'BackgroundVideo' => 'Background Video',
 		'ImageSlider' => 'Image Slider'
 	);
@@ -93,7 +93,7 @@ class HomePage extends Page {
 		$fieldList->push($homePageHeroFeatureGridField);
 		$fieldList->push($homePageFeatureGridField);
 
-		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo('ShuffledBackgroundFeatures')->end());
+		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
 		
 	}
 }
@@ -121,7 +121,13 @@ class HomePage_Controller extends Page_Controller {
 		parent::init();
 
 	}
-
+	public function index() {
+		$bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
+		$page = $this->customise(array(
+				'BackgroundFeature' => $bg
+			));
+		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
+	}
 	public function HomePageFeatures() {
 		$features = HomePageFeature::get();
 
