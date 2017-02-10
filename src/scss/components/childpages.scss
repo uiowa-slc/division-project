@@ -33,7 +33,6 @@ Child Pages
 	&--withphoto .childpages__content {
 		@include breakpoint(medium) {
 			margin-left: 28%;
-			overflow: hidden;
 		}
 	}
 	&__title {
