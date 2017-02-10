@@ -158,6 +158,17 @@
 	&__pinterest:before {background-image: url(../images/icon_pinterest.png);}
 	&__flickr:before {background-image: url(../images/icon_flickr.png);}
 
+	&__md {
+		display: inline-block;
+		text-indent: -9999em;
+		background-image: url(../images/md.png);
+		background-size: 41px 24px;
+		background-repeat: no-repeat;
+		width: 41px;
+		height: 24px;
+		position: relative;
+		top: 4px;
+	}
 	&__copyrightcontainer {
 		background-color: #fff;
 		color: #666;
@@ -169,32 +180,68 @@
 	}
 	&__copyright {
 		@include grid-column(12);
+		& p {
+			margin-bottom: 0;
+			line-height: 32px;
+		}
+	}
+	&__copyrightcontainer--newsletter {
+		& .footer__copyright {
+			@include breakpoint(medium) {
+				@include grid-column(6);
+			}
+		}
 	}
 	&__newsletter {
 		@include grid-column(12);
+		@include breakpoint(medium) {
+			@include grid-column(6);
+		}
 	}
 }
 
 /* MailChimp Signup */
-#mc_embed_signup form {display:block; position:relative; text-align:left; padding:0}
-#mc_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
+#mc_embed_signup form {
+	display:block;
+	position:relative;
+	text-align:left;
+	padding:0;
+	@include breakpoint(medium) {
+		float: right;
+		width: 280px;
+	}
+	@include breakpoint(large) {
+		float: right;
+		width: 380px;
+	}
+}
+#mc_embed_signup input {border:1px solid #ccc; -webkit-appearance:none;}
 #mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
 #mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
 #mc_embed_signup input:focus {border-color:#333;}
 #mc_embed_signup .button:hover {background-color:#777;}
 #mc_embed_signup .small-meta {font-size: 11px;}
 #mc_embed_signup .nowrap {white-space:nowrap;}
-#mc_embed_signup .clear {clear:none; display:inline;}
+#mc_embed_signup .clear {
+	clear:none;
+	display:inline;
+	float: left;
+	width: 100px;
+}
 
 #mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
 #mc_embed_signup input.email {
 	display:block;
 	padding: 0 0.4em;
-	margin: 0 4% 10px 0;
-	min-height: 32px;
-	width: 100%;
+	margin: 0 10px 0 0;
+	height: 32px;
+	width: 170px;
 	min-width: 130px;
 	border-radius: 3px;
+	float: left;
+	@include breakpoint(large) {
+		width: 270px;
+	}
 }
 #mc_embed_signup .button {
 	clear:both;
@@ -220,7 +267,7 @@
 #mc_embed_signup input.button {
 	display:block;
 	width:35%;
-	margin:0 0 10px 0;
+	margin:0;
 	min-width: 90px;
 }
 

@@ -17,7 +17,8 @@ class SiteConfigExtension extends DataExtension {
 		'YouTubeLink' => 'Text',
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
-		'UseDarkTheme' => 'Boolean'
+		'UseDarkTheme' => 'Boolean',
+		'MailChimpFormEmbed' => 'HTMLText'
 	);
 
 	static $has_one = array(
@@ -46,6 +47,12 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('InstagramLink', 'Instagram Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('PinterestLink', 'Pinterest Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
+
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Newsletter Signup</h3>', '3', true ) );
+		$fields->addFieldToTab('Root.Main', new TextareaField('MailChimpFormEmbed', 'MailChimp Form Embed Code'));
+
+		$fields->addFieldToTab("Root.Main", $MailChimpFormEmbed = new TextareaField("MailChimpFormEmbed", "MailChimp Form Embed Code"));
+		$MailChimpFormEmbed->setDescription("More info: <a href='' target='_blank'>How to get this code &rarr;</a>");
 
 		return $fields;
 	}

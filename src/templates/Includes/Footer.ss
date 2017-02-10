@@ -10,9 +10,12 @@
 				<div class="footer__summary">$SiteConfig.GroupSummary</div>
 			<% else_if $SiteConfig.DisableDivisionBranding %>
 				<div class="footer__summary"><p>In pursuing its missions of teaching, research, and service, the University seeks to advance scholarly and creative endeavor through leading-edge research and artistic production; to use this research and creativity to enhance undergraduate, graduate, and professional education, health care, and other services provided to the people of Iowa, the nation, and the world; and to educate students for success and personal fulfillment in a diverse world.</p></div>
+			<% else_if $SiteConfig.Tagline %>
+				<div class="footer__summary"><p>$SiteConfig.Tagline</p></div>
 			<% else %>
 				<div class="footer__summary"><p>The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom.</p></div>
 			<% end_if %>
+
 			<div class="footer__location">
 				<p>$SiteConfig.Address
 					<% if $SiteConfig.PhoneNumber %>
@@ -75,24 +78,16 @@
 			</ul>
 		</div>
 	</div>
-	<div class="footer__copyrightcontainer">
+	<div class="footer__copyrightcontainer <% if $SiteConfig.MailChimpFormEmbed %>footer__copyrightcontainer--newsletter<% end_if %>">
 		<div class="footer__copyrightrow">
 			<div class="footer__copyright">
-				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | Made by <a href="https://md.studentlife.uiowa.edu/" target="_blank">M+D</a></p>
+				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank" class="footer__md">M+D</a></p>
 			</div>
 
 			<div class="footer__newsletter">
-				<!-- Begin MailChimp Signup Form -->
-				<div id="mc_embed_signup">
-				<form action="//hawkshop.us4.list-manage.com/subscribe/post?u=765aef7fe0feeccd1e9d0941d&amp;id=0db4cdc35a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-					<div id="mc_embed_signup_scroll">
-						<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_765aef7fe0feeccd1e9d0941d_0db4cdc35a" tabindex="-1" value=""></div>
-						<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-					</div>
-				</form>
-				</div>
-				<!--End mc_embed_signup-->
+				<% if $SiteConfig.MailChimpFormEmbed %>
+					$SiteConfig.MailChimpFormEmbed
+				<% end_if %>
 			</div>
 		</div>
 	</div>
