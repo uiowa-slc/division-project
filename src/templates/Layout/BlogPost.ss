@@ -39,11 +39,10 @@ $Header
 					<div class="blogmeta clearfix">
 						<% include ByLine %>
 						<ul class="blogmeta__social">
-							<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/facebook_circle.png" alt="Share on Facebook"></a>
+							<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
 							</li>
-							<li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/twitter_circle.png" alt="Share on Twitter"></li>
-							<li><a href="javascript:window.open('https://plus.google.com/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on Google" target="_blank"><img src="{$ThemeDir}/dist/images/google_circle.png" alt="Share on Google"></a></li>
-							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/linkedin_circle.png"></a></li>
+							<li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/icon_twitter.png" alt="Share on Twitter"></li>
+							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png"></a></li>
 						</ul>
 					</div>
 					<% if $FeaturedImage %>

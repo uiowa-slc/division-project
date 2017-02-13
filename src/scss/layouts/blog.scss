@@ -42,6 +42,8 @@
 		margin: 0 8px;
 		& img {
 			display: block;
+			width: 24px;
+			height: 24px;
 		}
 	}
 	& a {
@@ -161,10 +163,10 @@
 	}
 }
 .main-content__text .blogmeta__social {
-	// display: none;
 	@include breakpoint(xxlarge) {
 		display: block;
 		float: none;
+		text-align: center;
 		& li {
 			margin: 0 5px;
 		}
