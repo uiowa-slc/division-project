@@ -1,5 +1,5 @@
 <footer class="footer" role="contentinfo">
-	<div class="footer__container">
+	<div class="footer__container <% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>footer__container--with-social<% end_if %>">
 		<div class="footer__info">
 			<% if $SiteConfig.DisableDivisionBranding %>
 				<a href="http://uiowa.edu" class="footer__logo"><img src="division-project/images/ui-logo-footer.png" alt="The University of Iowa"></a>
@@ -27,7 +27,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="footer__navigation">
+		<div class="footer__navigation <% if $SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>footer__navigation--with-buttons <% end_if %>">
 			<div class="">
 				<h3 class="footer__heading">Website Navigation</h3>
 			</div>
@@ -36,58 +36,56 @@
 					<% loop Menu(1) %>
 						<li><a href="$Link">$MenuTitle</a></li>
 					<% end_loop %>
-					<% if $SiteConfig.QuickLinkTitleOne %>
-						<li><a href="$SiteConfig.QuickLinkURLOne">$SiteConfig.QuickLinkTitleOne</a></li>
-					<% end_if %>
-					<% if $SiteConfig.QuickLinkTitleTwo %>
-						<li><a href="$SiteConfig.QuickLinkURLTwo">$SiteConfig.QuickLinkTitleTwo</a></li>
-					<% end_if %>
-					<% if $SiteConfig.QuickLinkTitleThree %>
-						<li><a href="$SiteConfig.QuickLinkURLThree">$SiteConfig.QuickLinkTitleThree</a></li>
-					<% end_if %>
 				</ul>
 			</div>
 
 			<% if $SiteConfig.DisableDivisionBranding %>
 			<% else %>
 				<div class="footer__buttons">
-					<% if $SiteConfig.DonateButtonUrl %>
-						<a href="$SiteConfig.DonateButtonUrl" class="footer__give" target="_blank">Give Online Now</a>
+					<% if $SiteConfig.ButtonUrlOne %>
+						<a href="$SiteConfig.ButtonUrlOne" class="footer__give" target="_blank">$SiteConfig.ButtonTextOne</a>
 					<% end_if %>
-					<a href="#" class="footer__give">Appointment</a>
+					<% if $SiteConfig.ButtonUrlTwo %>
+						<a href="$SiteConfig.ButtonUrlTwo" class="footer__give" target="_blank">$SiteConfig.ButtonTextTwo</a>
+					<% end_if %>
+					<% if $SiteConfig.ButtonUrlThree %>
+						<a href="$SiteConfig.ButtonUrlThree" class="footer__give" target="_blank">$SiteConfig.ButtonTextThree</a>
+					<% end_if %>
 				</div>
 			<% end_if %>
 		</div>
 
-		<div class="footer__socialmedia">
-			<h3 class="footer__heading">Social Media</h3>
-			<ul class="">
-				<% if $SiteConfig.FacebookLink %>
-					<li><a href="$SiteConfig.FacebookLink" target="_blank" class="footer__facebook">Facebook</a></li>
-				<% end_if %>
-				<% if $SiteConfig.TwitterLink %>
-					<li><a href="$SiteConfig.TwitterLink" target="_blank" class="footer__twitter">Twitter</a></li>
-				<% end_if %>
-				<% if $SiteConfig.VimeoLink %>
-					<li><a href="$SiteConfig.VimeoLink" target="_blank" class="footer__vimeo">Vimeo</li>
-				<% end_if %>
-				<% if $SiteConfig.YouTubeLink %>
-					<li><a href="$SiteConfig.YouTubeLink" target="_blank" class="footer__youtube">Youtube</a></li>
-				<% end_if %>
-				<% if $SiteConfig.InstagramLink %>
-					<li><a href="$SiteConfig.InstagramLink" target="_blank" class="footer__instagram">Instagram</a></li>
-				<% end_if %>
-				<% if $SiteConfig.LinkedInLink %>
-					<li><a href="$SiteConfig.LinkedInLink" target="_blank" class="footer__linkedin">LinkedIn</a></li>
-				<% end_if %>
-				<% if $SiteConfig.PinterestLink %>
-					<li><a href="$SiteConfig.PinterestLink" target="_blank" class="footer__pinterest">Pinterest</a></li>
-				<% end_if %>
-				<% if $SiteConfig.FlickrLink %>
-					<li><a href="$SiteConfig.FlickrLink" target="_blank" class="footer__flickr">Flickr</a></li>
-				<% end_if %>
-			</ul>
-		</div>
+		<% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>
+			<div class="footer__socialmedia">
+				<h3 class="footer__heading">Social Media</h3>
+				<ul class="">
+					<% if $SiteConfig.FacebookLink %>
+						<li><a href="$SiteConfig.FacebookLink" target="_blank" class="footer__facebook">Facebook</a></li>
+					<% end_if %>
+					<% if $SiteConfig.TwitterLink %>
+						<li><a href="$SiteConfig.TwitterLink" target="_blank" class="footer__twitter">Twitter</a></li>
+					<% end_if %>
+					<% if $SiteConfig.VimeoLink %>
+						<li><a href="$SiteConfig.VimeoLink" target="_blank" class="footer__vimeo">Vimeo</li>
+					<% end_if %>
+					<% if $SiteConfig.YouTubeLink %>
+						<li><a href="$SiteConfig.YouTubeLink" target="_blank" class="footer__youtube">Youtube</a></li>
+					<% end_if %>
+					<% if $SiteConfig.InstagramLink %>
+						<li><a href="$SiteConfig.InstagramLink" target="_blank" class="footer__instagram">Instagram</a></li>
+					<% end_if %>
+					<% if $SiteConfig.LinkedInLink %>
+						<li><a href="$SiteConfig.LinkedInLink" target="_blank" class="footer__linkedin">LinkedIn</a></li>
+					<% end_if %>
+					<% if $SiteConfig.PinterestLink %>
+						<li><a href="$SiteConfig.PinterestLink" target="_blank" class="footer__pinterest">Pinterest</a></li>
+					<% end_if %>
+					<% if $SiteConfig.FlickrLink %>
+						<li><a href="$SiteConfig.FlickrLink" target="_blank" class="footer__flickr">Flickr</a></li>
+					<% end_if %>
+				</ul>
+			</div>
+		<% end_if %>
 	</div>
 	<div class="footer__copyrightcontainer <% if $SiteConfig.MailChimpFormEmbed %>footer__copyrightcontainer--newsletter<% end_if %>">
 		<div class="footer__copyrightrow">
