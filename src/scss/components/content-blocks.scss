@@ -387,21 +387,6 @@
 			padding: 0;
 		}
 	}
-	@include breakpoint(large) {
-		padding: 0;
-		&__title {
-			font-size: rem-calc(20);
-			text-transform: uppercase;
-		}
-		&__desc {
-			font-size: rem-calc(16);
-		}
-		&__body {
-			width: 100%;
-			float: none;
-			padding: rem-calc(20);
-		}
-	}
 }
 /* After Content ----------------------- */
 .block_area_aftercontent .staffmemberblock {
@@ -416,78 +401,11 @@ Video Block
 ======================================================================= */
 .block_area_beforecontentconstrained .videoblock,
 .block_area_aftercontentconstrained .videoblock {
-	background-color: $cream;
 	margin-bottom: 1em;
-	&__media .flex-video {
-
-	}
-	&__body {
-		padding: rem-calc(0 20 20 20);
-	}
-	&__title {
-		margin-top: .5em;
-		margin-bottom: 1em;
-		font-size: rem-calc(20);
-		position: relative;
-		@include breakpoint(mobile) {
-			margin-top: 0;
-		}
-		&:after {
-			content: '';
-			height: 2px;
-			width: 50px;
-			background-color: $black;
-			position: absolute;
-			left: 0;
-			bottom: -12px;
-		}
-	}
-	&__desc {
-		font-size: rem-calc(16);
-		& p {
-			margin-bottom: 0;
-		}
-	}
 }
-.block_area_beforecontent .videoblock,
-.block_area_aftercontent .videoblock {
-	@include grid-row;
-	background-color: $cream;
-	padding: rem-calc(20);
-	&__media {
-		@include breakpoint(large) {
-			@include grid-column(9);
-			padding-right: rem-calc(40) !important;
-		}
-	}
-	&__body {
-		@include breakpoint(large) {
-			@include grid-column(3);
-		}
-	}
-	&__desc {
-		margin: rem-calc(20 0);
-	}
-	&__title {
-		margin-top: .5em;
-		margin-bottom: 1em;
-		font-size: rem-calc(28);
-		position: relative;
-		@include breakpoint(mobile) {
-			margin-top: 0;
-		}
-		&:after {
-			content: '';
-			height: 2px;
-			width: 50px;
-			background-color: $black;
-			position: absolute;
-			left: 0;
-			bottom: -12px;
-		}
-	}
+.block_area_sidebar .backgroundvideo__container {
 	@include breakpoint(large) {
-		padding: rem-calc(60 0);
+		height: 200px;
 	}
 }
 
