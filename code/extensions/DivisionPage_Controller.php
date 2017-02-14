@@ -134,4 +134,25 @@ class DivisionPage_Controller extends Extension {
 
 	}
 
+	public function NavLength(){
+		$menu = $this->owner->getMenu();
+		$count = $menu->Count();
+		$length = 'small';
+		if($count >= 7){
+			$length ='medium';
+		}elseif($count >= 9){
+			$length = 'large';
+		}elseif($count >= 11){
+			$length = 'xlarge';
+		}
+		return $length;
+
+	}
+	public function SidebarBlocks(){
+
+		$pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
+		return $pages;
+
+	}
 }
+
