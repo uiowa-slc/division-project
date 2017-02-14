@@ -478,7 +478,7 @@
 }
 
 .subnav__link {
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #eee;
 	display: block;
 	font-size: rem-calc(15);
 	line-height: 1.3;
@@ -488,6 +488,7 @@
 	transition: padding .1s ease-in-out;
 	color: $body-font-color;
 	&--light{
+		border-bottom: 1px solid #333;
 		color: white;
 		&:hover, &:focus {
 			color: #ddd;

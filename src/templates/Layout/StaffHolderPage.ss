@@ -16,7 +16,7 @@ $Header
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<article role="main" id="sticky-nav-area" class="main-content main-content--with-padding <% if $Children || $Menu(2) %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SideBarView %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 
 			$BlockArea(BeforeContentConstrained)
 

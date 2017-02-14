@@ -26,7 +26,7 @@ $Header
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding main-content--with-sidebar">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SideBarView %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
