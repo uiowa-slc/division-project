@@ -16,6 +16,7 @@
 		}
 	}
 }
+.block_area_beforecontentconstrained .content-block__container,
 .block_area_aftercontentconstrained .content-block__container,
 .block_area_sidebar .content-block__container {
 	margin: 2em 0;
@@ -385,6 +386,14 @@
 			width: 100%;
 			float: none;
 			padding: 0;
+		}
+	}
+	&__body {
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+			padding: 0;
+			margin-top: 18px;
 		}
 	}
 }

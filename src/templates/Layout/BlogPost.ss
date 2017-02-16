@@ -5,6 +5,15 @@ $Header
 		<% include FeaturedImage %>
 	<% end_if %>
 
+	<% if $YoutubeBackgroundEmbed %>
+		<div class="backgroundvideo">
+			<div id="ESEE" class="backgroundvideo__container" data-interchange="[http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg, small], [http://img.youtube.com/vi/$YoutubeBackgroundEmbed/maxresdefault.jpg, large]">
+				<a href="http://www.youtube.com/embed/$YoutubeBackgroundEmbed" data-video="$YoutubeBackgroundEmbed" class="backgroundvideo__link">
+				</a>
+			</div>
+		</div>
+	<% end_if %>
+
 	$Breadcrumbs
 
 	<% if not $BackgroundImage %>

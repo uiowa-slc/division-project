@@ -1,11 +1,15 @@
 <article class="bloglistitem clearfix ">
 	<% if $FeaturedImage %>
-		<a href="$Link" class="bloglistitem__img">
+		<a href="$Link" class="bloglistitem__img border-effect">
 			<img src="$FeaturedImage.CroppedImage(500,333).URL" alt="$Title">
 		</a>
 	<% else_if $BackgroundImage %>
-		<a href="$Link" class="bloglistitem__img">
+		<a href="$Link" class="bloglistitem__img border-effect">
 			<img src="$BackgroundImage.CroppedImage(500,333).URL" alt="$Title">
+		</a>
+	<% else_if $YoutubeBackgroundEmbed %>
+		<a href="$Link" class="bloglistitem__img border-effect">
+			<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" alt="$Title">
 		</a>
 	<% end_if %>
 	<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage %>--wimage<% end_if %>">

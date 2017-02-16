@@ -10,7 +10,7 @@
 						<% else_if $PageTree.MetaDescription %>
 							$PageTree.MetaDescription.LimitCharacters(200)
 						<% else %>
-							$PageTree.Content.LimitCharacters(160)
+							$PageTree.Content.FirstSentence.LimitCharacters(200)
 						<% end_if %>
 					</div>
 					<div class="featuredpageblock__button">
@@ -38,8 +38,14 @@
 							<img src="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" alt="">
 						</a>
 					</div>
+				<% else_if $PageTree.YoutubeBackgroundEmbed %>
+					<div class="featuredpageblock__media">
+						<a href="$PageTree.Link" class="border-effect">
+							<img src="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="">
+						</a>
+					</div>
 				<% end_if %>
-				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage %>--wimage<% end_if %>">
+				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 					<h3 class="featuredpageblock__title">
 						<a href="$PageTree.Link">
 							<% if $Title %>$Title<% else %>$PageTree.Title<% end_if %>
@@ -51,7 +57,7 @@
 						<% else_if $PageTree.MetaDescription %>
 							$PageTree.MetaDescription.LimitCharacters(200)
 						<% else %>
-							$PageTree.Content.LimitCharacters(160)
+							$PageTree.Content.FirstSentence.LimitCharacters(160)
 						<% end_if %>
 					</div>
 					<div class="featuredpageblock__button">
