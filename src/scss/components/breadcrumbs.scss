@@ -37,10 +37,10 @@
 		}
 	}
 	&__anchor {
-		color: #ddd;
-		color: rgba(255,255,255,.65);
+		color: #fff;
 		display: inline-block;
 		letter-spacing: .8px;
+		opacity: .75;
 		padding: 14px 14px;
 		@include breakpoint(medium) {
 			padding: 20px 15px;
@@ -48,9 +48,14 @@
 		&:hover, &:focus, &:active {
 			color: #fff;
 			text-decoration: none;
+			opacity: 1;
 		}
 		&--active {
-			color: #eee;
+			color: $yellow;
+			font-weight: normal;
+			&:hover, &:focus, &:active {
+				color: $yellow;
+			}
 		}
 	}
 	@include breakpoint(small down) {
