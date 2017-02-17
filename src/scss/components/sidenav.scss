@@ -54,11 +54,11 @@
 			& .sidenav__link {
 				color: #eee;
 				font-size: rem-calc(14);
-				padding: rem-calc(10 20 10 28);
+				padding: rem-calc(10 20 10 30);
 				&:before {
 					content: '- ';
 					position: absolute;
-					left: 18px;
+					left: 20px;
 					top: 9px;
 				}
 				&:hover, &:focus {
