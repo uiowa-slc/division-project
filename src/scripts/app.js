@@ -98,10 +98,10 @@ $(".nav__link--search-cancel").click(function(){
 });
 
 //When search form is out of focus, deactivate it.
-$("#site-search").focusout(function(){
-  	if($("#site-search").hasClass("site-search--is-active")){
+$("#site-search__form").focusout(function(){
+  	if($("#site-search__form").hasClass("site-search__form--is-active")){
   		//Not deactivating search right now on focus out for debugging purposes.
-  		// deactivateSearch();
+  		toggleSearchClasses();
   	}
 });
 
