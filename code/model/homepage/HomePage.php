@@ -20,7 +20,12 @@ class HomePage extends Page {
 	);
 
 	public function getPageTypeTheme(){
-		return "dark";
+		if($this->LayoutType == 'Legacy'){
+			return "light";
+		}else{
+			return "dark";
+		}
+		
 	}
 
 	public function getCMSFields() {

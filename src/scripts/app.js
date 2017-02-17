@@ -155,7 +155,8 @@ $(".nav__toggle--search").click(function(){
 
 //If we're resizing from mobile to anything else, toggle the mobile search if it's active.
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
-	 if (oldSize == "small") {
+
+	 if (newSize == "medium") {
 	 	//alert('hey');
 	 	$("#site-search").removeClass("site-search--mobile");
 	 	$("#site-search").addClass("site-search--desktop");
@@ -166,7 +167,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 	 	if($("#site-search").hasClass("site-search--is-active")){
 	 		// toggleSearchClasses();
 	 	}
-	 }else if(newSize == "small"){
+	 }else if(newSize == "mobile"){
 	 	$("#site-search").appendTo('#header');
  		$("#site-search").removeClass("site-search--desktop");
  		$("#site-search").addClass("site-search--mobile");

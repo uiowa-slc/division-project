@@ -7,6 +7,7 @@ class RelatedNewsBlock extends Block{
 	);
 
 	private static $has_one = array(
+		'Blog' => 'Blog'
 
 	);
 	private static $many_many = array(
@@ -27,18 +28,36 @@ class RelatedNewsBlock extends Block{
 			->setShouldLazyLoad(true);
 		$fields->addFieldToTab('Root.Main', $tagField);
 
+		$treeField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map());
+		$treeField->setEmptyString('(Any blog on this site)');
+
+		$fields->addFieldToTab('Root.Main', $treeField);
+
+
 		$fields->renameField('Title', 'Title (default:Related News)');
 
 		return $fields;
 	}
 
 	public function RelatedNewsEntries(){
-		$holder = Blog::get()->First();
+
+		if($this->Blog){
+			$holder = $this->Blog;
+		}else{
+			$holder = null;
+		}
+		
+
 		$tags = $this->PageTags()->limit(6);
 		$entries = new ArrayList();
 
 		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->ID))->sort('PublishDate', 'DESC')->Limit(3);
+			if($holder){
+				$taggedEntries = $tag->BlogPosts()->filter(array('ParentID' => $holder->ID))->exclude(array("ID"=>$this->ID))->sort('PublishDate', 'DESC')->Limit(3);
+			}else{
+				$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->ID))->sort('PublishDate', 'DESC')->Limit(3);
+			}
+			
 			if($taggedEntries){
 				foreach($taggedEntries as $taggedEntry){
 					if($taggedEntry->ID){

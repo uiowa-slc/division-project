@@ -46,7 +46,7 @@
 	}
 
 	&--has-transition {
-		@include breakpoint(small only) {
+		@include breakpoint(small) {
 			transition: 0.3s all linear;
 		}
 	}

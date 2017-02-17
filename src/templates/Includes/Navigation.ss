@@ -1,4 +1,4 @@
-<div class="nav__toggle nav__toggle--menu show-for-small-only">
+<div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">
 	<div class="nav__link nav__link--{$DarkLight}"><i class="fa fa-lg fa-bars" aria-hidden="true"></i><span class="nav__menu-text">Menu</span></div>
 </div>
 <div class="nav__wrapper nav__wrapper--{$HeaderType} nav__wrapper--{$DarkLight}" id="nav__wrapper">
@@ -34,6 +34,6 @@
 		</ul>
 	</nav>
 </div>
-<div class="nav__toggle nav__toggle--search show-for-small-only">
+<div class="nav__toggle nav__toggle--search show-for-small hide-for-medium">
 	<div class="nav__link nav__link--{$DarkLight}"><i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i></span>
 </div>

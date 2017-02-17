@@ -60,11 +60,19 @@
 		width: 75%;
 		height: rem-calc(30);
 		vertical-align: middle;
-		height: $nav-height;
+		height: $nav-height-small;
+
+		@include breakpoint(large) {
+			height: $nav-height;
+		}
 
 		@include breakpoint(xlarge) {
 			width: 82%;
 			height: rem-calc($nav-height-large);
+
+			&--nav-small, &--nav-medium{
+				height: $nav-height;
+			}
 		}
 	}
 
@@ -80,6 +88,17 @@
 		line-height: 1;
 		margin: 0;
 		padding: 0;
+		
+		height: $nav-height-small;
+		@include breakpoint(large) {
+			height: $nav-height;
+		}
+		@include breakpoint(xlarge) {
+			height: rem-calc($nav-height-large);
+			&--nav-small, &--nav-medium{
+				height: $nav-height;
+			}
+		}
 
 		&:focus {
 			border: none;
@@ -89,11 +108,7 @@
 			color: $body-font-color;
 		}
 
-		height: $nav-height;
 
-		@include breakpoint(xlarge) {
-			height: rem-calc($nav-height-large);
-		}
 	}
 
 	&__cancel-container {
