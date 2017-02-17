@@ -11,14 +11,16 @@ $BlockArea(BeforeContent)
 
 <div class="row">
 
-	<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SideBarView %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+	<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 		$BlockArea(BeforeContentConstrained)
 		<div class="main-content__text">
 			$Content
 		</div>
 		$BlockArea(AfterContentConstrained)
 		$Form
-		<% include ChildPages %>
+		<% if $ShowChildPages %>
+			<% include ChildPages %>
+		<% end_if %>
 	</article>
 	<aside class="sidebar">
 		<% include SideNav %>

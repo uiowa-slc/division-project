@@ -14,7 +14,7 @@ $Header
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SideBarView %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			<div class="main-content__text">
 				<% with CurrentProfile %>
 					<div class="clearfix blogprofile">
