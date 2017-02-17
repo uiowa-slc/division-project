@@ -5,6 +5,15 @@ $Header
 		<% include FeaturedImage %>
 	<% end_if %>
 
+	<% if $YoutubeBackgroundEmbed %>
+		<div class="backgroundvideo">
+			<div id="ESEE" class="backgroundvideo__container" data-interchange="[http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg, small], [http://img.youtube.com/vi/$YoutubeBackgroundEmbed/maxresdefault.jpg, large]">
+				<a href="http://www.youtube.com/embed/$YoutubeBackgroundEmbed" data-video="$YoutubeBackgroundEmbed" class="backgroundvideo__link">
+				</a>
+			</div>
+		</div>
+	<% end_if %>
+
 	$Breadcrumbs
 
 	<% if not $BackgroundImage %>
@@ -26,7 +35,7 @@ $Header
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding main-content--with-sidebar">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SideBarView %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				<% if $FeaturedImage %>

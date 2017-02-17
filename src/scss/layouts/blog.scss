@@ -272,19 +272,6 @@
 			width: 200px;
 			margin-top: 1.5em;
 		}
-		&:after {
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			content: "";
-			box-shadow: inset 0 0 0 1px #EAE6E3;
-			margin: 5px;
-			opacity: 0.4;
-			pointer-events: none;
-		}
 	}
 	&__content {
 		&--wimage {

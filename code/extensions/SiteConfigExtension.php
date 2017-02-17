@@ -19,7 +19,12 @@ class SiteConfigExtension extends DataExtension {
 		'ShowExitButton' => 'Boolean',
 		'UseDarkTheme' => 'Boolean',
 		'MailChimpFormEmbed' => 'HTMLText',
-		'DonateButtonUrl' => 'Text',
+		'ButtonTextOne' => 'Text',
+		'ButtonUrlOne' => 'Text',
+		'ButtonTextTwo' => 'Text',
+		'ButtonUrlTwo' => 'Text',
+		'ButtonTextThree' => 'Text',
+		'ButtonUrlThree' => 'Text',
 		'QuickLinkTitleOne' => 'Text',
 		'QuickLinkTitleTwo' => 'Text',
 		'QuickLinkTitleThree' => 'Text',
@@ -44,7 +49,14 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextareaField('Address', 'Organization Address'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('PhoneNumber', 'Phone Number(s)'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('EmailAddress', 'Email Address'));
-		$fields->addFieldToTab('Root.Main', new TextField('DonateButtonUrl', 'Donation URL'));
+
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Footer Buttons</h3>', '3', true ) );
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextOne', 'Button Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonUrlOne', 'Button URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextTwo', 'Button Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonUrlTwo', 'Button URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextThree', 'Button Title'));
+		$fields->addFieldToTab('Root.Main', new TextField('ButtonUrlThree', 'Button URL'));
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Social Media</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('TwitterLink', 'Twitter Account URL'));
@@ -58,7 +70,7 @@ class SiteConfigExtension extends DataExtension {
 
 
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Quick Links</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Header Quick Links</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleOne', 'Quick Link Title'));
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLOne', 'Quick Link URL'));
 
