@@ -5,7 +5,8 @@ class Page extends SiteTree {
 		'PreventSearchEngineIndex' => 'Boolean',
 		'UseDarkThemeOnThisPage' => 'Boolean',
 		'LayoutType' => 'varchar(155)',
-		'YoutubeBackgroundEmbed' => 'Text'
+		'YoutubeBackgroundEmbed' => 'Text',
+		'ShowChildPages' => 'Boolean(1)'
 	);
 
 	private static $has_one = array(
@@ -109,6 +110,7 @@ class Page extends SiteTree {
 		$f = parent::getSettingsFields();
 		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', new CheckboxField('UseDarkThemeOnThisPage', 'Use dark header on this page only'));
+		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
 
 		return $f;
 

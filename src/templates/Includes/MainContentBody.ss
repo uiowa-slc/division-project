@@ -18,7 +18,9 @@ $BlockArea(BeforeContent)
 		</div>
 		$BlockArea(AfterContentConstrained)
 		$Form
-		<% include ChildPages %>
+		<% if $ShowChildPages %>
+			<% include ChildPages %>
+		<% end_if %>
 	</article>
 	<aside class="sidebar">
 		<% include SideNav %>
