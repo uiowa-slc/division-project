@@ -105,9 +105,12 @@ class Page extends SiteTree {
 		return $this->stat('layout_types');
 	}
 
-	public function updateSettingsFields(FieldList $f) {
+	public function getSettingsFields() {
+		$f = parent::getSettingsFields();
 		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', new CheckboxField('UseDarkThemeOnThisPage', 'Use dark header on this page only'));
+
+		return $f;
 
 	}
 
