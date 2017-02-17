@@ -37,7 +37,7 @@
       "sheadawson/silverstripe-blocks": "1.1.1",
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
-      "silverstripe/activedirectory": "dev-master"
+      "silverstripe/activedirectory": "dev-master#7d582a54c7a6db817c581af27c48f85ff27d7998"
    },
    "repositories":[  
       {  
