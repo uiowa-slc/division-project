@@ -10,7 +10,7 @@ Director:
 Member:
   extensions:
     - SAMLMemberExtension
-    - AdMemberExtension
+    - ActiveDirectoryMemberExtension
 
   claims_field_mappings:
     'urn:oid:2.5.4.42' : 'FirstName'
