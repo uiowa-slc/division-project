@@ -13,6 +13,8 @@ class UpcomingEventsBlock extends Block{
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 
+		$fields->renameField('Title', 'Title (default:Upcoming Events)');
+
 		return $fields;
 	}
 

@@ -647,11 +647,15 @@ Slideshow Block
 			& .eventcard-content {
 				margin-left: 0;
 			}
+			& .eventcard-imgwrap div {
+				height: 200px;
+			}
 		}
 	}
 	& .eventcard-summary {
 		display: none;
 	}
+
 	@include breakpoint(large) {
 		padding: rem-calc(0 0 60 0);
 	}
