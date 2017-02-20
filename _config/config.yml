@@ -30,3 +30,5 @@ BlogCategory:
 LeftAndMain:
   extra_requirements_css:
     - division-project/css/cms.css
+SSViewer:
+  theme: division-subtheme
