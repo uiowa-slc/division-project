@@ -620,6 +620,51 @@ Slideshow Block
 
 /* Upcoming Events
 ======================================================================= */
+.block_area_beforecontent .upcomingeventsblock,
+.block_area_aftercontent .upcomingeventsblock {
+	@include grid-row;
+	padding: rem-calc(20);
+	&__header {
+		@include grid-column(12);
+	}
+	&__title {
+		margin-top: 0;
+		border-top: 5px solid #ffcd00;
+		padding-top: 60px;
+		text-transform: uppercase;
+		display: inline-block;
+	}
+	& .eventcard {
+		@include grid-column(12);
+		@include breakpoint(large) {
+			border-top: 0;
+			@include grid-column(4);
+			& .eventcard-imgwrap {
+				float: none;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			& .eventcard-content {
+				margin-left: 0;
+			}
+		}
+	}
+	& .eventcard-summary {
+		display: none;
+	}
+	@include breakpoint(large) {
+		padding: rem-calc(0 0 60 0);
+	}
+}
+.block_area_beforecontent .upcomingeventsblock {
+	&__title {
+		margin-top: 0;
+		border-top: none;
+		padding-top: 60px;
+		text-transform: uppercase;
+		display: inline-block;
+	}
+}
 .block_area_sidebar .upcomingeventsblock {
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
