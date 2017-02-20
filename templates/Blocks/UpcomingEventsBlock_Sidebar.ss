@@ -1,0 +1,1 @@
+<section class="content-block__container"><div class="content-block row column"><div class="$CSSClasses"><h3 class="upcomingeventsblock__header"><% if $Title %>$Title<% else %>Upcoming Events<% end_if %></h3> <% with $CurrentPage.LocalistCalendar %> <% loop $EventList.Limit(3) %> <% include EventCard %> <% end_loop %> <% end_with %> </div></div></section>

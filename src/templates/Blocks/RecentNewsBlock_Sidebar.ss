@@ -2,10 +2,10 @@
 	<div class="content-block row column">
 		<div class="">
 			<div class="$CSSClasses">
-				<h2 class="relatednewsblock__header"><% if $Title %>$Title<% else %>Related News<% end_if %></h2>
+				<h2 class="recentnewsblock__header"><% if $Title %>$Title<% else %>Recent News<% end_if %></h2>
 				<ul>
 					<% loop $Entries.limit(3) %>
-						<% include RelatedNewsContent %>
+						<% include RecentNewsContent %>
 					<% end_loop %>
 				</ul>
 			</div>
