@@ -67,8 +67,9 @@ class RecentNewsBlock extends Block{
 		switch ($this->FilterBy){
 
 			case 'Blog':
-				if($this->Blog){
-					$holder = $this->Blog;
+
+				if($this->obj('Blog')->exists()){
+					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
 				}else{
 					$entries = BlogPost::get()->exclude(array('ID' => $this->ID));
@@ -76,7 +77,7 @@ class RecentNewsBlock extends Block{
 				break;
 
 			case 'Tag':
-				$tags = BlogTag::get();
+				$tags = $this->Tags();
 				foreach($tags as $tag){
 					$tagEntries = $tag->BlogPosts();
 					$entries->merge($tagEntries);
@@ -84,7 +85,7 @@ class RecentNewsBlock extends Block{
 				break;
 		
 			case 'Category':
-				$cats = BlogCategory::get();
+				$cats = $this->Categories();
 				foreach($cats as $cat){
 					$catEntries = $cat->BlogPosts();
 					$entries->merge($catEntries);
