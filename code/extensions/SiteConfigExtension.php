@@ -2,7 +2,7 @@
 
 class SiteConfigExtension extends DataExtension {
 
-	static $db = array(
+	private static $db = array(
 		'TwitterLink' => 'Text',
 		'Address' => 'Text',
 		'PhoneNumber' => 'Text',
@@ -33,7 +33,7 @@ class SiteConfigExtension extends DataExtension {
 		'QuickLinkURLThree' => 'Text'
 	);
 
-	static $has_one = array(
+	private static $has_one = array(
 		'PosterImage' => 'Image'
 	);
 
