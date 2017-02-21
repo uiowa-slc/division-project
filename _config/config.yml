@@ -5,6 +5,7 @@ Page:
   extensions:
     - DivisionPage
     - WidgetPageExtension
+    - OpenGraphExtension
 Page_Controller:
   extensions:
     - DivisionPage_Controller
@@ -26,3 +27,8 @@ ContentBlock:
 BlogCategory:
   extensions:
     - BlogCategoryExtension
+LeftAndMain:
+  extra_requirements_css:
+    - division-project/css/cms.css
+SSViewer:
+  theme: division-subtheme

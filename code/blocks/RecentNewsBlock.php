@@ -18,7 +18,7 @@ class RecentNewsBlock extends Block{
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->renameField('Title', 'Title (default:Related News)');
+		$fields->renameField('Title', 'Title (default:Recent News)');
 		$fields->removeByName('FilterTagMethod');
 		$fields->removeByName('Tags');
 		$fields->removeByName('Categories');
@@ -27,7 +27,7 @@ class RecentNewsBlock extends Block{
 		$cats = BlogCategory::get();
 		//Debug::show($tags->map());
 
-		$fields->addFieldsToTab('Root.Main', 
+		$fields->addFieldsToTab('Root.Main',
 			array(
 				$filterBy = DropdownField::create(
 				  'FilterBy',
@@ -55,20 +55,21 @@ class RecentNewsBlock extends Block{
 		$tagField->displayIf('FilterBy')->isEqualTo('Tag');
 		$catField->displayIf('FilterBy')->isEqualTo('Category');
 		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
-		
+
 		return $fields;
 	}
 
 	public function Entries(){
-  
+
 
 		$entries = new ArrayList();
 
 		switch ($this->FilterBy){
 
 			case 'Blog':
-				if($this->Blog){
-					$holder = $this->Blog;
+
+				if($this->obj('Blog')->exists()){
+					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
 				}else{
 					$entries = BlogPost::get()->exclude(array('ID' => $this->ID));
@@ -76,19 +77,19 @@ class RecentNewsBlock extends Block{
 				break;
 
 			case 'Tag':
-				$tags = BlogTag::get();
+				$tags = $this->Tags();
 				foreach($tags as $tag){
 					$tagEntries = $tag->BlogPosts();
 					$entries->merge($tagEntries);
-				}	
+				}
 				break;
-		
+
 			case 'Category':
-				$cats = BlogCategory::get();
+				$cats = $this->Categories();
 				foreach($cats as $cat){
 					$catEntries = $cat->BlogPosts();
 					$entries->merge($catEntries);
-				}	
+				}
 				break;
 
 		}
