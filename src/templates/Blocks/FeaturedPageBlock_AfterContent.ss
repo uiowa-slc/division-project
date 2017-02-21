@@ -1,5 +1,5 @@
 <% if $UseBackground %>
-	<section class="content-block__container content-block__container--padding featuredpageblock-bg" style="background-image: url(<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% end_if %>)">
+	<section class="content-block__container content-block__container--padding featuredpageblock-bg" style="background-image: url(<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1200,400).URL<% end_if %>)">
 		<div class="content-block">
 			<div class="$CSSClasses">
 				<div class="featuredpageblock__body">
@@ -54,6 +54,18 @@
 							</a>
 						<% end_if %>
 					</div>
+				<% else_if $PageTree.FeaturedImage %>
+					<div class="featuredpageblock__media">
+						<% if $FeaturePageExternalUrl %>
+							<a href="$FeaturePageExternalUrl" class="border-effect">
+								<img src="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
+							</a>
+						<% else %>
+							<a href="$PageTree.Link" class="border-effect">
+								<img src="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
+							</a>
+						<% end_if %>
+					</div>
 				<% else_if $PageTree.YoutubeBackgroundEmbed %>
 					<div class="featuredpageblock__media">
 						<% if $FeaturePageExternalUrl %>
@@ -67,7 +79,7 @@
 						<% end_if %>
 					</div>
 				<% end_if %>
-				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed %>--wimage<% end_if %>">
+				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>--wimage<% end_if %>">
 					<h3 class="featuredpageblock__title">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl">
