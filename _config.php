@@ -33,3 +33,5 @@ ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'B
 ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
 ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));
 ShortcodeParser::get()->register('button', array('DivisionPage_Controller', 'ButtonHandler'));
+
+Authenticator::register_authenticator('SAMLAuthenticator');

@@ -62,16 +62,16 @@ $gallery.find('video').each( function( i, video ) {
 // Start Foundation Orbit Slider:
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-var sliderOptions = {
-	containerClass: 'slider__slides',
-	slideClass: 'slider__slide',
-	nextClass: 'slider__nav--next',
-	prevClass: 'slider__nav--previous',
+// var sliderOptions = {
+// 	containerClass: 'slider__slides',
+// 	slideClass: 'slider__slide',
+// 	nextClass: 'slider__nav--next',
+// 	prevClass: 'slider__nav--previous',
 
-};
+// };
 
 
-var slider = new Foundation.Orbit($('.slider'), sliderOptions);
+// var slider = new Foundation.Orbit($('.slider'), sliderOptions);
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
