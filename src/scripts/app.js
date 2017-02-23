@@ -8,6 +8,43 @@ if (bases.length > 0) {
     baseHref = bases[0].href;
 }
 
+
+var $carousel = $('.carousel').flickity({
+	imagesLoaded: true,
+	percentPosition: false,
+	selectedAttraction: 0.015,
+	friction: 0.3,
+	prevNextButtons: false,
+	draggable: true,
+	autoPlay: true,
+	autoPlay: 8000,
+	pauseAutoPlayOnHover: false,
+	bgLazyLoad: true,
+});
+
+var $imgs = $carousel.find('.carousel-cell .cell-bg');
+// get transform property
+var docStyle = document.documentElement.style;
+var transformProp = typeof docStyle.transform == 'string' ?
+  'transform' : 'WebkitTransform';
+// get Flickity instance
+var flkty = $carousel.data('flickity');
+
+$carousel.on( 'scroll.flickity', function() {
+  flkty.slides.forEach( function( slide, i ) {
+    var img = $imgs[i];
+    var x = ( slide.target + flkty.x ) * -1/3;
+    img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+  });
+});
+
+$('.carousel-nav-cell').click(function() {
+	flkty.stopPlayer();
+});
+
+
+
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 // Start Foundation Orbit Slider:
