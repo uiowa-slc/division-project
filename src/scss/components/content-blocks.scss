@@ -244,7 +244,8 @@
 		}
 	}
 	@include breakpoint(large) {
-		padding: rem-calc(80 0);
+		min-height: 500px;
+		padding: rem-calc(100 0);
 	}
 }
 
@@ -260,6 +261,10 @@
 /* Recent News
 ======================================================================= */
 .block_area_aftercontent .recentnewsblock {
+	& ul {
+		list-style: none;
+		margin: 0;
+	}
 	& .bloglistitem {
 		padding-top: rem-calc(18);
 	}
@@ -324,6 +329,7 @@
 	}
 
 }
+
 
 
 /* Related News
@@ -643,6 +649,9 @@ Slideshow Block
 				float: none;
 				width: 100%;
 				margin-bottom: 10px;
+			}
+			& .eventcard-title a {
+				color: $black;
 			}
 			& .eventcard-content {
 				margin-left: 0;

@@ -13,7 +13,7 @@
 			border-bottom: none;
 		}
 		&--current {
-			background-color: #000;
+			background-color: #111;
 			border-top: 4px solid $yellow;
 			& > a {
 				color: #fff;
@@ -21,7 +21,7 @@
 			}
 		}
 		&--section {
-			background-color: #000;
+			background-color: #111;
 			border-top: 4px solid $yellow;
 			& > a {
 				color: #fff;
@@ -104,7 +104,7 @@
 		position: relative;
 	}
 	&__section-title {
-		border-top: 4px solid #000;
+		border-top: 4px solid #111;
 		font-size: rem-calc(14);
 		font-weight: 600;
 		letter-spacing: 1px;
