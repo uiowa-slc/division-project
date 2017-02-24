@@ -1,4 +1,6 @@
 .hero {
+	z-index: 200;
+	position: relative;
 	color: white;
 
 	@include breakpoint(medium) {

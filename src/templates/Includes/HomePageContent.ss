@@ -1,14 +1,15 @@
 $BlockArea(BeforeContent)
-<%-- <section class="content-block">
+<section class="content-block">
 	<div class="row">
 		<article class="tagline" role="main">
-			<h1 class="text-heading--centered text-heading--small">Our Mission And Vision</h1>
+			<h3 class="tagline__heading">Our Mission And Vision</h3>
+
 			<p class="tagline__text">$SiteConfig.Tagline</p>
 			<div class="tagline__separator"></div>
 		</article>
 	</div>
-</section> --%>
-<section class="content-block">
+</section>
+<%-- <section class="content-block">
 	<div class="row">
 		<div class="welcome__inner">
 			<p class="welcome__text">Welcome to the Office of the Vice President website, a branch of the Division of Student Life. We work with students to create and promote a multitude of educational opportunities that complement the opportunities that students have within the curriculum they study.</p>
@@ -39,10 +40,10 @@ $BlockArea(BeforeContent)
 			</ul>
 		</div>
 	</div>
-</section>
+</section> --%>
 
 
-<section class="content-block">
+<%-- <section class="content-block">
 	<h2 class="content-block-header header--centered header--small">Initiatives and Engagement</h2>
 	<div class="tile-grid row small-up-1 medium-up-2 large-up-3 xlarge-up-4">
 		<% loop ChildrenOf("initiatives") %>
@@ -51,9 +52,9 @@ $BlockArea(BeforeContent)
 			</a>
 		<% end_loop %>
 	</div>
-</section>
+</section> --%>
 
-<section class="content-block content-block--padding">
+<%-- <section class="content-block content-block--padding">
 	<div class="row">
 		<div class="featured-page">
 			<div class="featured-page__text large-6 columns">
@@ -69,4 +70,5 @@ $BlockArea(BeforeContent)
 			</a>
 		</div>
 	</div>
-</section>
+</section> --%>
+$BlockArea(AfterContent)

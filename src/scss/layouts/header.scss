@@ -75,7 +75,8 @@
 	}
 
 	&--overlay {
-		background: none;
+		background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
+		z-index: 101;
 	}
 
 	&--in-slider {
@@ -147,9 +148,9 @@
 	&--full{
 		h1 {
 			@include breakpoint(large) {
-			
+
 				margin-bottom: 0;
-			}			
+			}
 		}
 	}
 }

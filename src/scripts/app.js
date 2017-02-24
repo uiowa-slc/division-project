@@ -42,6 +42,18 @@ $('.carousel-nav-cell').click(function() {
 	flkty.stopPlayer();
 });
 
+var $gallery = $('.carousel').flickity();
+
+function onLoadeddata( event ) {
+	var cell = $gallery.flickity( 'getParentCell', event.target );
+	$gallery.flickity( 'cellSizeChange', cell && cell.element );
+}
+
+$gallery.find('video').each( function( i, video ) {
+	video.play();
+	$( video ).on( 'loadeddata', onLoadeddata );
+});
+
 
 
 

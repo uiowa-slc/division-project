@@ -12,7 +12,7 @@
 			<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" alt="$Title">
 		</a>
 	<% end_if %>
-	<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage %>--wimage<% end_if %>">
+	<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 		<% if $Categories.exists %>
 			<p class="bloglistitem__category">
 			<% loop $Categories %>
