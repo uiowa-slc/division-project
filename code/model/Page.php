@@ -71,6 +71,9 @@ class Page extends SiteTree {
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextareaField('OgDescription', 'Social Share Description'));
 
 		if($this->owner->getExistsOnLive() == true){
+			//https://developers.facebook.com/tools/debug/sharing/?q=
+			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="https://developers.facebook.com/tools/debug/sharing/?q='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
+	Preview Facebook Share</span></a>'));
 			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="http://www.facebook.com/sharer/sharer.php?u='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-fb ss-button-social ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
 	Share Page On Facebook</span></a>'));
 			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('TwitterShareButton','<a href="https://twitter.com/intent/tweet?text='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-twitter ss-button-social ss-ui-button-twitter ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Twitter" role="button" aria-disabled="false"><span class="ui-button-text">
