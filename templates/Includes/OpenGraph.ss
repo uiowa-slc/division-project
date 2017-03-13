@@ -1,3 +1,4 @@
+<%-- if we're on the home page --%> 
 <% if $URLSegment == "home" %>
 
 	<meta property="og:title" content="$SiteConfig.Title" />
@@ -8,42 +9,59 @@
 		<meta property="og:content" content="The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom." />
 	<% end_if %>
 
-  <% if $SiteConfig.PosterImage %>
+  <% if $BackgroundFeature.Image %>
+	<meta property="og:image" content="$BackgroundFeature.Image.FocusFillMax(1200,630).AbsoluteURL" />
+	<meta property="og:image:width" content="$BackgroundFeature.Image.FocusFillMax(1200,630).Width" />
+	<meta property="og:image:height" content="$BackgroundFeature.Image.FocusFillMax(1200,630).Height" />
+  <% else_if $SiteConfig.PosterImage %>
   	<meta property="og:image" content="$SiteConfig.PosterImage.AbsoluteURL" />
 	<meta property="og:image:width" content="$SiteConfig.PosterImage.Width" />
-	<meta property="og:image:height" content="$SiteConfig.PosterImage.Height" />  	
+	<meta property="og:image:height" content="$SiteConfig.PosterImage.Height" />
   <% else %>
-		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
+	<meta property="og:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
   <% end_if %>
-
+<%-- if we're on any page except home --%>
 <% else %>
-	<meta property="og:title" content="$Title" />
 
-	<% if $Image %>
-		<meta property="og:image" content="$Image.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$Image.ScaleWidth(600).Height" />
-
-	<% else_if $FeaturedImage %>
-		<meta property="og:image" content="$FeaturedImage.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$FeaturedImage.ScaleWidth(600).Height" />
-	<% else_if $Photo %>
-		<meta property="og:image" content="$Photo.ScaleWidth(600).AbsoluteURL" />
-		<meta property="og:image:width" content="600" />
-		<meta property="og:image:height" content="$Photo.ScaleWidth(600).Height" />
-	<% else_if $BackgroundImage %>
-		<meta property="og:image" content="$BackgroundImage(600).AbsoluteURL" />
-		<meta property="og:image:width" content="$BackgroundImage.Width" />
-		<meta property="og:image:height" content="$BackgroundImage.Height" />		
+	<% if $OgTitle %>
+		<meta property="og:title" content="$OgTitle.ATT" />
 	<% else %>
-		<meta property="og:image" content="{$BaseHref}division-project/images/og-dsl.png" />
+		<meta property="og:title" content="$Title.ATT" />
+	<% end_if %>
+
+	<% if $OgImage %>
+		<meta property="og:image" content="$OgImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$OgImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$OgImage.FocusFillMax(1200,630).Height" />
+	<% else_if $Image %>
+		<meta property="og:image" content="$Image.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$Image.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$Image.FocusFillMax(1200,630).Height" />
+	<% else_if $FeaturedImage %>
+		<meta property="og:image" content="$FeaturedImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$FeaturedImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$FeaturedImage.FocusFillMax(1200,630).Height" />	
+	<% else_if $Photo %>
+		<meta property="og:image" content="$Photo.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$Photo.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$Photo.FocusFillMax(1200,630).Height" />	
+	<% else_if $BackgroundImage %>
+		<meta property="og:image" content="$BackgroundImage.FocusFillMax(1200,630).AbsoluteURL" />
+		<meta property="og:image:width" content="$BackgroundImage.FocusFillMax(1200,630).Width" />
+		<meta property="og:image:height" content="$BackgroundImage.FocusFillMax(1200,630).Height" />		
+	<% else %>
+		<meta property="og:image" content="{$absoluteBaseURL}division-project/images/og-dsl.png" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 	<% end_if %>
-	<meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
+
+	<% if $OgDescription %>
+		<meta property="og:description" content="$OgDescription.LimitCharacters(120).ATT" />
+	<% else %>
+		<meta property="og:description" content="$Content.LimitCharacters(120).ATT" />
+	<% end_if %>
 
 
 <% end_if %>

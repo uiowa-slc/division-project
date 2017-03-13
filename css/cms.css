@@ -1,0 +1,16 @@
+#tab-Root_SocialMediaSharing{
+	color: #5c8bed;
+}
+
+.cms .ss-ui-button.ss-button-social{
+	color: white;
+	text-shadow: none;
+}
+
+.cms .ss-ui-button.ss-button-fb{
+	background: #3b5998;
+}
+
+.cms .ss-ui-button.ss-button-twitter{
+	background: #00aced;
+}
