@@ -9,7 +9,7 @@ class DivisionPage extends DataExtension {
 
 	private static $has_one = array(
 		"BackgroundImage" => "Image",
-		'FeatureHolderImage' => 'Image'
+		'FeatureHolderImage' => 'Image',
 		'OgImage' => 'Image'
 
 	);
