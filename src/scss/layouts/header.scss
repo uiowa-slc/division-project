@@ -70,7 +70,7 @@
 		content: "";
 	}
 
-	&--dark {
+	&--dark-header {
 		background: #242424;
 	}
 
@@ -110,6 +110,7 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		width: 60%;
+		transition: opacity 0.3s linear;
 
 		a {
 			color: $body-font-color;
@@ -135,8 +136,7 @@
 			margin-bottom: rem-calc(20);
 		}
 	}
-
-	&--dark {
+	&--dark-header {
 		h1 {
 			a {
 				color: white;

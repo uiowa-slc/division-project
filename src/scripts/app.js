@@ -134,7 +134,7 @@ function toggleSearchClasses(){
 
 $(".nav__link--search").click(function(){
   	toggleSearchClasses();
-  	if($("#nav__wrapper").hasClass("nav__wrapper--mobile-menu-is-active")){
+  	if($("#mobile-nav__wrapper").hasClass("mobile-nav__wrapper--mobile-menu-is-active")){
   		toggleMobileMenuClasses();
   		$("#site-search").appendTo('#header').addClass('site-search--mobile');
   	}
@@ -238,20 +238,44 @@ $(".nav__toggle--menu").click(function(){
 
 });
 
+$('.nav__toggle--menu').on('click', function(){
+$('.nav__menu-icon').toggleClass('is-clicked'); 
+$('.cd-header').toggleClass('menu-is-open');
+
+//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
+if( $('.cd-primary-nav').hasClass('is-visible') ) {
+  $('.cd-primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
+    $('body').removeClass('overflow-hidden');
+  });
+} else {
+  $('.cd-primary-nav').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
+    $('body').addClass('overflow-hidden');
+  }); 
+}
+});
+
 $(".nav__mobile-close-button").click(function(){
 	toggleMobileMenuClasses();
 });
 
 function toggleMobileMenuClasses(){
 
-	if($("#nav__wrapper").hasClass("nav__wrapper--mobile-menu-is-active")){
-		$("#nav__wrapper").toggleClass("nav__wrapper--mobile-menu-is-active");
+	if($("#mobile-nav__wrapper").hasClass("mobile-nav__wrapper--mobile-menu-is-active")){
+
+		$("#header").toggleClass("header--mobile-menu-is-active");
+		$("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--mobile-menu-is-active");
+		$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
+		$("#nav__menu-text").toggleClass("nav__menu-text--menu-is-active");
+		$("#nav__link--mobile").toggleClass("nav__menu-link--menu-is-active");
 		setTimeout(function(){
-		 $("#nav__wrapper").toggleClass("nav__wrapper--has-transition");
+		 $("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");
 		}, 1000);
 	}else{
-		$("#nav__wrapper").toggleClass("nav__wrapper--has-transition");
-		$("#nav__wrapper").toggleClass("nav__wrapper--mobile-menu-is-active");
+		$("#header").toggleClass("header--mobile-menu-is-active");
+		$("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");
+		$("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--mobile-menu-is-active");
+		$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
+		$("#nav__menu-text").toggleClass("nav__menu-text--menu-is-active");
 	}
 
 	$("html").toggleClass("html--no-scroll");

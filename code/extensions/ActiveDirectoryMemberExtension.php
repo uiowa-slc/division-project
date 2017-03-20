@@ -19,6 +19,7 @@
 
 
 			if($silverstripeRoles){
+
 				if(strpos('IMU-MD-WEB-ADMINS',$silverstripeRoles) !== false){
 					$adminGroup->Members()->add($this->owner);
 				}elseif(strpos('IMU-MD-WEB-EDITORS', $silverstripeRoles) !== false){
@@ -30,12 +31,12 @@
 			}
 
 
-			if(!$guid){
+			//if(!$guid){
 				$guidLookup = $this->lookupGuid($email);
 				if($guidLookup){
 					$this->owner->GUID = $guidLookup;
 				}
-			}
+			//}
 
 
 		}
@@ -59,9 +60,10 @@
 			    if ($ldapbind) {
 
 			    	//do stuff
-						$result = ldap_search($ldapconn,$ldaptree, "mail=".$email, array("mail","objectGUID")) or die ("Error in search query: ".ldap_error($ldapconn));
+						$result = ldap_search($ldapconn,$ldaptree, "mail=".$email, array("mail","objectGUID", "memberOf")) or die ("Error in search query: ".ldap_error($ldapconn));
+						
 			        	$data = ldap_get_entries($ldapconn, $result);
-
+			        	//print_r($data);
 			        	if($data["count"] == 1){
 			        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
 			        		// echo "<p>Found a GUID (".$memberGuid.") matching the email <strong>".$member->Email."</strong>, adding it to the local member's GUID field.</p>";

@@ -3,7 +3,7 @@
 class SlideshowBlock extends Block{
 
 	private static $db = array(
-
+		'UseExif' => 'Boolean'
 	);
 
 	private static $has_one = array(

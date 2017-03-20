@@ -58,24 +58,8 @@ $header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
 $header-font-weight: 800;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-sizes: (
-  small: (
-    'h1': 32,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 17,
-    'h6': 16,
-  ),
-  medium: (
-    'h1': 52,
-    'h2': 36,
-    'h3': 30,
-    'h4': 25,
-    'h5': 22,
-    'h6': 20,
-  ),
-);
+
+
 $header-color: inherit;
 $header-lineheight: 1.3;
 $header-margin-bottom: 1rem;
@@ -83,6 +67,24 @@ $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
 
+$header-styles: (
+  'small': (
+    'h1': ('fs': 32, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom), 
+    'h2': ('fs': 20, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h3': ('fs': 19, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h4': ('fs': 18, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h5': ('fs': 17, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h6': ('fs': 16, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom)
+  ),
+  'medium': (
+    'h1': ('fs': 52, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h2': ('fs': 36, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h3': ('fs': 30, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h4': ('fs': 25, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h5': ('fs': 22, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
+    'h6': ('fs': 20, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom)
+  )
+);
 
 
 /* Breakpoints

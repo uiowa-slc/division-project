@@ -1,6 +1,6 @@
 <div class="homepage__header">
 
-	$Header(dark,overlay)
+	$Header(dark-header,overlay)
 
 	<div class="carousel">
 		<div class="carousel-cell">

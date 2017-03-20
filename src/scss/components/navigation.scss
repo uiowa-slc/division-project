@@ -1,13 +1,48 @@
-.nav__wrapper {
-	opacity: 0;
-	visibility: hidden;
-	width: 100%;
+.mobile-nav__wrapper{
 	position: fixed;
-	z-index: 98;
-	background: rgba(#fff, 0.95);
-	backdrop-filter: grayscale(90%);
+	left: 0;
 	top: 0;
-	height: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background: rgba(#222, 0.99);
+	z-index: 12;
+	text-align: center;
+	// padding: 50px 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	overflow: auto;
+
+	/* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+
+	&--mobile-menu-is-active {
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+}
+
+.mobile-nav__list{
+	margin: 0;
+}
+
+.nav__wrapper {
+	display: none;
 
 	@include breakpoint(medium) {
 		background: transparent;
@@ -23,7 +58,11 @@
 		transition-duration: 0;
 		height: auto;
 		backdrop-filter: none;
-
+		-webkit-transform: none;
+		-moz-transform: none;
+		-ms-transform: none;
+		-o-transform: none;
+		transform: none;
 		&:after {
 			transition: background-color 1s;
 			background-color: $yellow;
@@ -37,17 +76,9 @@
 		}
 	}
 
-
-	&--mobile-menu-is-active {
-		display: block;
-		visibility: visible;
-		opacity: 1;
-		height: 100%;
-	}
-
 	&--has-transition {
 		@include breakpoint(small) {
-			transition: 0.3s all linear;
+			// transition: 0.3s opacity linear;
 		}
 	}
 
@@ -55,7 +86,7 @@
 		overflow: hidden;
 	}
 
-	&--dark {
+	&--dark-header {
 		background-color: #242424;
 	}
 
@@ -112,30 +143,22 @@
 		@extend .nav--overlay;
 	}
 
-	&--dark:after {
+	&--dark-header:after {
 		background: none;
 	}
 
 	//Inheritance... Not very BEM-friendly Any way to not do this?
-	&--full.nav--dark .nav__item:hover:after {
+	&--full.nav--dark-header .nav__item:hover:after {
 		background-color: $black;
 	}
 
-	&--overlay.nav--dark .nav__item--section:after {
+	&--overlay.nav--dark-header .nav__item--section:after {
 		background-color: $yellow;
 	}
 
 
 }
-.nav__mobile-close-button {
-	color: #ccc;
-	position: fixed;
-	left: 20px;
-	top: 20px;
-	@include breakpoint(medium) {
-		display: none;
-	}
-}
+
 
 .nav__item {
 	padding: rem-calc(13) 0;
@@ -219,7 +242,7 @@
 "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that."
 -MLK, Jr.
 ------------*/
-.nav__item--dark {
+.nav__item--dark-header {
 	border: none;
 
 	&:after {
@@ -248,8 +271,10 @@
 	text-transform: uppercase;
 	font-family: $header-font-family;
 	padding: rem-calc(15) rem-calc(15);
-
+	position: relative;
+	font-size: rem-calc(16);
 	@include breakpoint(medium) {
+		
 		display: block;
 		font-size: rem-calc(18);
 		white-space: nowrap;
@@ -278,7 +303,12 @@
 	&:hover {
 		cursor: pointer;
 	}
+
+	&--mobile{
+		color: #fff;
+	}
 }
+
 
 .nav__link--search {}
 
@@ -308,16 +338,22 @@
 	}
 }
 
-.nav__link--light{
+.nav__link--mobile{
+
+}
+.nav__menu-link--menu-is-active{
+	background: #222;
+}
+.nav__link--light-header{
 	&:after{
 		border-color: $black transparent transparent;
 	}
 }
-.nav__link--dark {
+.nav__link--dark-header {
 	color: white;
 	font-weight: 600;
 
-	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark {
+	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
 		color: $black;
 		background: white;
 		&:after {
@@ -388,12 +424,15 @@
 	}
 }
 
-.nav__menu-text {
-	display: none;
-	padding-left: rem-calc(4);
-
-	@include breakpoint(375) {
-		display: inline;
+.nav__mobile-header{
+	padding: rem-calc(20) 0;
+	h1.nav__mobile-headtext{
+		font-size: rem-calc(24);
+		//text-transform: capitalize;
+		padding: rem-calc(5);
+		border-bottom: rem-calc(2) $yellow solid;
+		color: white;
+		width: 100%;
 	}
 }
 
@@ -401,6 +440,36 @@
 	position: absolute;
 	left: 5px;
 	bottom: 0;
+
+	&:hover{
+		.nav__menu-icon{
+			background-color: #fff;
+			&:before, &:after{
+				background-color: #fff;
+			}
+			&--menu-is-active{
+				background: none;
+			}
+		}
+
+		.nav__menu-icon--dark-header{
+			background-color: #111;
+			&:before, &:after{
+				background-color: #111;
+			}
+			&.is-clicked{
+				background: none;
+			}
+		}
+
+		.nav__menu-text--light-header{
+			color: #fff;
+		}
+
+		.nav__menu-text--dark-header{
+			color: #222;
+		}
+	}
 }
 
 .nav__toggle--search {
@@ -410,7 +479,172 @@
 
 .nav__toggle--menu {
 	z-index: 99;
+	width: rem-calc(50);
+	left: 0;
+
+	@include breakpoint(375) {
+		width: rem-calc(100);
+	}
 }
+
+.nav__menu-text {
+	display: inline-block;
+	padding-left: rem-calc(4);
+	padding-top: rem-calc(3);
+	color: #222;
+	opacity: 0;
+
+
+	&--menu-is-active{
+		color: white;
+	}
+
+	@include breakpoint(375) {
+		opacity: 1;
+	}
+}
+.nav__menu-icon {
+	/* this span is the central line of the menu icon */
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	bottom: auto;
+	left: 1em;
+	right: auto;
+	-webkit-transform: translateX(0) translateY(-50%);
+	-moz-transform: translateX(0) translateY(-50%);
+	-ms-transform: translateX(0) translateY(-50%);
+	-o-transform: translateX(0) translateY(-50%);
+	transform: translateX(0) translateY(-50%);
+	width: 18px;
+	height: 2px;
+	// background-color: #000;
+	-webkit-transition: background-color 0.3s;
+	-moz-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+	&:before{
+		top: -5px;
+	}
+
+	&:after{
+		top: 5px;
+	}
+	@include breakpoint(375) {
+		left: auto;
+		right: 1.2em;
+	}
+	/* these are the upper and lower lines in the menu icon */
+	@include breakpoint(601) {
+
+		-webkit-transform: translateX(0) translateY(-50%);
+		-moz-transform: translateX(0) translateY(-50%);
+		-ms-transform: translateX(0) translateY(-50%);
+		-o-transform: translateX(0) translateY(-50%);
+		transform: translateX(0) translateY(-50%);
+	}
+
+	&--dark-header {
+		background-color: #fff;
+		// border-color: #fff;
+		color: #fff;
+		&:before, &:after{
+			background-color: #fff;
+			border-color: #fff;
+			color: #fff;
+		}
+	}
+
+	&--light-header{
+		background-color: #222;
+		// border-color: #222;
+		color: #222;
+		&:before, &:after{
+			background-color: #222;
+			border-color: #222;
+			color: #222;
+		}
+	}	
+	&--menu-is-active{	
+		background-color: #fff;
+		&:before, &:after{
+			background-color: #fff;
+		}
+		background: none;
+		&:before{
+		top: 0;
+		-webkit-transform: rotate(135deg);
+		-moz-transform: rotate(135deg);
+		-ms-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		transform: rotate(135deg);	
+		}
+		&:after{
+		top: 0;
+		-webkit-transform: rotate(225deg);
+		-moz-transform: rotate(225deg);
+		-ms-transform: rotate(225deg);
+		-o-transform: rotate(225deg);
+		transform: rotate(225deg);				
+		}
+	}
+	&:before, &:after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		// background-color: #000;
+		right: 0;
+		-webkit-transition: -webkit-transform .3s, top .3s, background-color 0.3s;
+		-moz-transition: -moz-transform .3s, top .3s, background-color 0.3s;
+		transition: transform .3s, top .3s, background-color 0.3s;		
+	}
+
+	&::before{
+		// top: -5px;
+	}
+
+	&::after{
+		// top: 5px;
+	}
+
+	&.is-clicked{
+		//background-color: rgba(255, 255, 255, 0);
+	}
+
+	&.is-clicked::before, &.is-clicked::after{
+		//background-color: #000;
+	}
+
+	// &.is-clicked::before{
+	// 	top: 0;
+	// 	-webkit-transform: rotate(135deg);
+	// 	-moz-transform: rotate(135deg);
+	// 	-ms-transform: rotate(135deg);
+	// 	-o-transform: rotate(135deg);
+	// 	transform: rotate(135deg);		
+	// }
+
+	// &.is-clicked::after{
+	// 	top: 0;
+	// 	-webkit-transform: rotate(225deg);
+	// 	-moz-transform: rotate(225deg);
+	// 	-ms-transform: rotate(225deg);
+	// 	-o-transform: rotate(225deg);
+	// 	transform: rotate(225deg);		
+	// }
+
+}
+
+// .nav__menu-icon--menu-is-active.nav__menu-icon--light-header{	
+	
+// 		background-color: #fff;
+// 		&:before, &:after{
+// 			background-color: #fff;
+// 		}
+// 		&.is-clicked{
+// 			background: none;
+// 		}
+// }
 
 .subnav {
 	background-color: #fff;
@@ -432,7 +666,7 @@
 		display: block;
 	}
 
-	&--light{
+	&--light-header{
 		background: #242424;
 		box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 	}
@@ -487,7 +721,7 @@
 	text-transform: none;
 	transition: padding .1s ease-in-out;
 	color: $body-font-color;
-	&--light{
+	&--light-header{
 		border-bottom: 1px solid #333;
 		color: white;
 		&:hover, &:focus {
