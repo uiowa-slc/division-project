@@ -60,10 +60,7 @@ $header-font-style: normal;
 $header-lineheight: 1.4;
 $header-margin-bottom: rem-calc(18);
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-<<<<<<< HEAD
 
-
-=======
 // commenting out - this was updated to use $header-styles below
 // $header-sizes: (
 //   small: (
@@ -101,32 +98,13 @@ $header-styles: (
     'h6': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
   ),
 );
->>>>>>> 1459c26cc728ce40c8a453d419b1ccea5c4aec65
+
 $header-color: inherit;
 $header-lineheight: 1.3;
 $header-margin-bottom: 1rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-
-$header-styles: (
-  'small': (
-    'h1': ('fs': 32, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom), 
-    'h2': ('fs': 20, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h3': ('fs': 19, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h4': ('fs': 18, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h5': ('fs': 17, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h6': ('fs': 16, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom)
-  ),
-  'medium': (
-    'h1': ('fs': 52, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h2': ('fs': 36, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h3': ('fs': 30, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h4': ('fs': 25, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h5': ('fs': 22, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom),
-    'h6': ('fs': 20, 'lh': $header-lineheight, 'mt': 0, 'mb': $header-margin-bottom)
-  )
-);
 
 
 /* Breakpoints

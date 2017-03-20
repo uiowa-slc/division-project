@@ -338,7 +338,7 @@
 	}
 }
 
-.nav__link--mobile{
+.nav__link--mobile-toggle{
 
 }
 .nav__menu-link--menu-is-active{
@@ -457,7 +457,7 @@
 			&:before, &:after{
 				background-color: #111;
 			}
-			&.is-clicked{
+			&.nav__menu-icon--menu-is-active{
 				background: none;
 			}
 		}
@@ -486,7 +486,7 @@
 		width: rem-calc(100);
 	}
 }
-
+ 
 .nav__menu-text {
 	display: inline-block;
 	padding-left: rem-calc(4);
@@ -499,9 +499,17 @@
 		color: white;
 	}
 
+	&--dark-header{
+		
+	}
+
 	@include breakpoint(375) {
 		opacity: 1;
 	}
+}
+
+.nav__menu-text--dark-header{
+	color: white;
 }
 .nav__menu-icon {
 	/* this span is the central line of the menu icon */
@@ -599,52 +607,8 @@
 		transition: transform .3s, top .3s, background-color 0.3s;		
 	}
 
-	&::before{
-		// top: -5px;
-	}
-
-	&::after{
-		// top: 5px;
-	}
-
-	&.is-clicked{
-		//background-color: rgba(255, 255, 255, 0);
-	}
-
-	&.is-clicked::before, &.is-clicked::after{
-		//background-color: #000;
-	}
-
-	// &.is-clicked::before{
-	// 	top: 0;
-	// 	-webkit-transform: rotate(135deg);
-	// 	-moz-transform: rotate(135deg);
-	// 	-ms-transform: rotate(135deg);
-	// 	-o-transform: rotate(135deg);
-	// 	transform: rotate(135deg);		
-	// }
-
-	// &.is-clicked::after{
-	// 	top: 0;
-	// 	-webkit-transform: rotate(225deg);
-	// 	-moz-transform: rotate(225deg);
-	// 	-ms-transform: rotate(225deg);
-	// 	-o-transform: rotate(225deg);
-	// 	transform: rotate(225deg);		
-	// }
-
 }
 
-// .nav__menu-icon--menu-is-active.nav__menu-icon--light-header{	
-	
-// 		background-color: #fff;
-// 		&:before, &:after{
-// 			background-color: #fff;
-// 		}
-// 		&.is-clicked{
-// 			background: none;
-// 		}
-// }
 
 .subnav {
 	background-color: #fff;
