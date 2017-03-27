@@ -105,6 +105,13 @@ body {
 	}
 }
 
+.dp-sticky{
+	@include breakpoint(large) {
+		position: sticky;
+		top: 0;
+	}
+}
+
 /* SilverStripe / TinyMCE Image Styles (non BEM!!) */
 
 img.right {
