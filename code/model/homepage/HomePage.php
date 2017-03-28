@@ -21,9 +21,9 @@ class HomePage extends Page {
 
 	public function getPageTypeTheme(){
 		if($this->LayoutType == 'Legacy'){
-			return "light";
+			return "light-header";
 		}else{
-			return "dark";
+			return "dark-header";
 		}
 
 	}

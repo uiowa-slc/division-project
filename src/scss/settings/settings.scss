@@ -60,6 +60,7 @@ $header-font-style: normal;
 $header-lineheight: 1.4;
 $header-margin-bottom: rem-calc(18);
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+
 // commenting out - this was updated to use $header-styles below
 // $header-sizes: (
 //   small: (
@@ -97,13 +98,13 @@ $header-styles: (
     'h6': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
   ),
 );
+
 $header-color: inherit;
 $header-lineheight: 1.3;
 $header-margin-bottom: 1rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-
 
 
 /* Breakpoints
