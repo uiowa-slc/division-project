@@ -56,7 +56,7 @@
 }
 /* Nav */
 .carousel-nav {
-	// border-top: 1px solid rgba(255,255,255,.3);
+	display: none;
 	position: absolute;
 	bottom: 0;
 	z-index: 320;
@@ -66,6 +66,9 @@
 	right: 0;
 	@include grid-row;
 	@include grid-column(12);
+	@include breakpoint(large) {
+		display: block;
+	}
 }
 .carousel-nav .carousel-nav-cell {
 	// border-top: 4px solid transparent;
@@ -74,7 +77,7 @@
 	font-weight: bold;
 	padding: 50px 10px;
 	width: 25%;
-    float: left;
+   float: left;
 	transition: all .7s ease-in-out;
 	padding-right: rem-calc(50);
 	cursor: pointer;
@@ -89,7 +92,7 @@
 }
 /* Dots */
 .carousel .flickity-page-dots {
-	bottom: 114px;
+	bottom: 30px;
 	left: 0;
 	right: 0;
 	max-width: 75rem;
@@ -97,6 +100,9 @@
 	margin-right: auto;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
+	@include breakpoint(large) {
+		bottom: 114px;
+	}
 }
 /* dots are lines */
 .carousel .flickity-page-dots .dot {
@@ -132,7 +138,7 @@
 	position: relative;
 	color: #fff;
 	position: absolute;
-	bottom: 240px;
+	bottom: 90px;
 	left: 0;
 	right: 0;
 	z-index: 20;
@@ -146,60 +152,82 @@
 		font-weight: bold;
 		letter-spacing: 1px;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-		padding-left: 60px;
+		@include breakpoint(large) {
+			padding-left: 60px;
+		}
 	}
 	& h2 {
-		font-size: rem-calc(60);
+		font-size: rem-calc(30);
 		margin: 20px 0 5px;
 		line-height: 1.2;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.2);
 		position: relative;
-		padding-left: 60px;
-		&:before {
-			content: '';
-			width: 40px;
-			height: 86%;
-			background: #ffcd00;
-			position: absolute;
-			top: 5%;
-			left: 0;
+		@include breakpoint(medium) {
+			font-size: rem-calc(60);
+		}
+		@include breakpoint(large) {
+			padding-left: 60px;
+			&:before {
+				content: '';
+				width: 40px;
+				height: 86%;
+				background: #ffcd00;
+				position: absolute;
+				top: 5%;
+				left: 0;
+			}
 		}
 	}
 	& p {
 		font-weight: 600;
 		font-style: italic;
-		padding-left: 60px;
 		margin: 0;
+		@include breakpoint(large) {
+			padding-left: 60px;
+		}
 	}
 	& .cell-btn {
 		background: transparent;
 		color: #fff;
 		display: inline-block;
-		border: 1px solid $yellow;
+		border: 1px solid #fff;
 		padding: 10px 15px;
 		font-size: rem-calc(12);
 		line-height: 1;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		font-weight: bold;
-		margin-left: 60px;
 		margin-top: 25px;
 		&:hover, &:focus {
 			background: $yellow;
 			color: #333;
 		}
+		@include breakpoint(large) {
+			margin-left: 60px;
+		}
+	}
+	@include breakpoint(large) {
+		bottom: 240px;
 	}
 }
 .carousel .inner .cell-text {
-	@include grid-column(7);
+	width: 100%;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	@include breakpoint(large) {
+		width: 50%;
+		padding: 0;
+	}
 }
 
+
+
 .tagline {
-	@include grid-column(12);
+	@include grid-column(11);
 	@include grid-column-position(center);
 	font-size: rem-calc(29);
 	text-align: center;
-	padding: rem-calc(100 0);
+	padding: rem-calc(50 0);
 	&__heading {
 		font-size: rem-calc(15);
 		font-weight: 600;
@@ -208,8 +236,11 @@
 		margin-top: 0;
 	}
 	&__text {
-		font-size: rem-calc(30);
+		font-size: rem-calc(18);
 		line-height: 1.7;
+		@include breakpoint(medium) {
+			font-size: rem-calc(30);
+		}
 	}
 	&__separator {
 		height: rem-calc(3);
@@ -219,7 +250,7 @@
 	}
 	@include breakpoint(large) {
 		@include grid-column(10);
-		@include grid-column-position(center);
+		padding: rem-calc(100 0);
 	}
 }
 .HomePage .block_area_aftercontent {
@@ -231,6 +262,7 @@
 }
 .HomePage .block_area_aftercontent .recentnewsblock {
 	overflow: hidden;
+	padding: rem-calc(50 0);
 	& .recentnews-title {
 		margin-top: 0;
 		text-transform: uppercase;
@@ -242,7 +274,7 @@
 		}
 	}
 	@include breakpoint(large) {
-		padding: rem-calc(100 0);
+		padding: rem-calc(150 0);
 	}
 }
 
@@ -256,37 +288,9 @@
 .HomePage .block_area_aftercontent .upcomingeventsblock__title {
 	text-align: center;
 	border-top: none;
-	padding-top: 100px;
+	padding-top: 150px;
 	display: block;
 }
-// .welcome {
-// 	&__inner {
-// 		@include grid-column(12);
-// 		@include breakpoint(large) {
-// 			@include grid-column(7);
-// 		}
-// 	}
-// 	&__text {
-// 		line-height: 2.4;
-// 	}
-// 	&__menu-inner {
-// 		@include grid-column(9);
-// 		@include grid-column-position(center);
-
-// 		padding-top: rem-calc(20);
-// 		padding-bottom: rem-calc(20);
-// 	}
-// 	&__menu {
-// 		list-style-type: none;
-// 		text-align: center;
-// 		margin: 0;
-// 	}
-// 	&__menu-item {
-// 		display: inline-block;
-// 		padding: rem-calc(10) rem-calc(20);
-// 	}
-// 	&__menu-link {}
-// }
 
 .carousel .carousel-cell.is-selected .cell-text {
 	-webkit-animation-name: fadeInRight;
