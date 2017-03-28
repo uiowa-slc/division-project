@@ -1,5 +1,5 @@
 <% if $UseBackground %>
-	<section class="content-block__container content-block__container--padding featuredpageblock-bg" style="background-image: url(<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1200,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1200,400).URL<% end_if %>)">
+	<section class="content-block__container content-block__container--padding featuredpageblock-bg" style="background-image: url(<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1400,500).URL<% end_if %>)">
 		<div class="content-block">
 			<div class="$CSSClasses">
 				<div class="featuredpageblock__body">
