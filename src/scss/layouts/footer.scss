@@ -5,7 +5,7 @@
 	background: #111;
 	color: #eee;
 	&__container {
-		padding: rem-calc(30 0);
+		padding: rem-calc(60 0);
 		@include grid-row;
 	}
 	&__info {

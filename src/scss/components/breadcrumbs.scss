@@ -75,9 +75,18 @@
 	}
 }
 .body--dark .breadcrumb {
-	background-color: $yellow;
+	background-color: transparent;
+	top: 1px;
 	&__anchor {
 		color: $black;
+	}
+	&__listitem:first-child {
+		background-color: #fff;
+	}
+	@include breakpoint(small down) {
+		&:after { // adds fade to right side of breadcrumbs on mobile
+			display: none;
+		}
 	}
 }
 
