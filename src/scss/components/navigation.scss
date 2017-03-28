@@ -86,7 +86,7 @@
 		overflow: hidden;
 	}
 
-	&--dark-header {
+	&--dark {
 		background-color: #242424;
 	}
 
@@ -143,16 +143,16 @@
 		@extend .nav--overlay;
 	}
 
-	&--dark-header:after {
+	&--dark:after {
 		background: none;
 	}
 
 	//Inheritance... Not very BEM-friendly Any way to not do this?
-	&--full.nav--dark-header .nav__item:hover:after {
+	&--full.nav--dark .nav__item:hover:after {
 		background-color: $black;
 	}
 
-	&--overlay.nav--dark-header .nav__item--section:after {
+	&--overlay.nav--dark .nav__item--section:after {
 		background-color: $yellow;
 	}
 
@@ -242,7 +242,7 @@
 "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that."
 -MLK, Jr.
 ------------*/
-.nav__item--dark-header {
+.nav__item--dark {
 	border: none;
 
 	&:after {
@@ -274,7 +274,7 @@
 	position: relative;
 	font-size: rem-calc(16);
 	@include breakpoint(medium) {
-		
+
 		display: block;
 		font-size: rem-calc(18);
 		white-space: nowrap;
@@ -349,11 +349,11 @@
 		border-color: $black transparent transparent;
 	}
 }
-.nav__link--dark-header {
+.nav__link--dark {
 	color: white;
 	font-weight: 600;
 
-	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
+	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark {
 		color: $black;
 		background: white;
 		&:after {
@@ -452,7 +452,7 @@
 			}
 		}
 
-		.nav__menu-icon--dark-header{
+		.nav__menu-icon--dark{
 			background-color: #111;
 			&:before, &:after{
 				background-color: #111;
@@ -466,7 +466,7 @@
 			color: #fff;
 		}
 
-		.nav__menu-text--dark-header{
+		.nav__menu-text--dark{
 			color: #222;
 		}
 	}
@@ -486,7 +486,7 @@
 		width: rem-calc(100);
 	}
 }
- 
+
 .nav__menu-text {
 	display: inline-block;
 	padding-left: rem-calc(4);
@@ -499,8 +499,8 @@
 		color: white;
 	}
 
-	&--dark-header{
-		
+	&--dark{
+
 	}
 
 	@include breakpoint(375) {
@@ -508,7 +508,7 @@
 	}
 }
 
-.nav__menu-text--dark-header{
+.nav__menu-text--dark{
 	color: white;
 }
 .nav__menu-icon {
@@ -551,7 +551,7 @@
 		transform: translateX(0) translateY(-50%);
 	}
 
-	&--dark-header {
+	&--dark {
 		background-color: #fff;
 		// border-color: #fff;
 		color: #fff;
@@ -571,8 +571,8 @@
 			border-color: #222;
 			color: #222;
 		}
-	}	
-	&--menu-is-active{	
+	}
+	&--menu-is-active{
 		background-color: #fff;
 		&:before, &:after{
 			background-color: #fff;
@@ -584,7 +584,7 @@
 		-moz-transform: rotate(135deg);
 		-ms-transform: rotate(135deg);
 		-o-transform: rotate(135deg);
-		transform: rotate(135deg);	
+		transform: rotate(135deg);
 		}
 		&:after{
 		top: 0;
@@ -592,7 +592,7 @@
 		-moz-transform: rotate(225deg);
 		-ms-transform: rotate(225deg);
 		-o-transform: rotate(225deg);
-		transform: rotate(225deg);				
+		transform: rotate(225deg);
 		}
 	}
 	&:before, &:after{
@@ -604,7 +604,7 @@
 		right: 0;
 		-webkit-transition: -webkit-transform .3s, top .3s, background-color 0.3s;
 		-moz-transition: -moz-transform .3s, top .3s, background-color 0.3s;
-		transition: transform .3s, top .3s, background-color 0.3s;		
+		transition: transform .3s, top .3s, background-color 0.3s;
 	}
 
 }
