@@ -86,7 +86,7 @@
 		overflow: hidden;
 	}
 
-	&--dark {
+	&--dark-header {
 		background-color: #242424;
 	}
 
@@ -143,16 +143,16 @@
 		@extend .nav--overlay;
 	}
 
-	&--dark:after {
+	&--dark-header:after {
 		background: none;
 	}
 
 	//Inheritance... Not very BEM-friendly Any way to not do this?
-	&--full.nav--dark .nav__item:hover:after {
+	&--full.nav--dark-header .nav__item:hover:after {
 		background-color: $black;
 	}
 
-	&--overlay.nav--dark .nav__item--section:after {
+	&--overlay.nav--dark-header .nav__item--section:after {
 		background-color: $yellow;
 	}
 
@@ -242,7 +242,7 @@
 "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that."
 -MLK, Jr.
 ------------*/
-.nav__item--dark {
+.nav__item--dark-header {
 	border: none;
 
 	&:after {
@@ -349,11 +349,11 @@
 		border-color: $black transparent transparent;
 	}
 }
-.nav__link--dark {
+.nav__link--dark-header {
 	color: white;
 	font-weight: 600;
 
-	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark {
+	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
 		color: $black;
 		background: white;
 		&:after {
@@ -452,7 +452,7 @@
 			}
 		}
 
-		.nav__menu-icon--dark{
+		.nav__menu-icon--dark-header{
 			background-color: #111;
 			&:before, &:after{
 				background-color: #111;
@@ -466,7 +466,7 @@
 			color: #fff;
 		}
 
-		.nav__menu-text--dark{
+		.nav__menu-text--dark-header{
 			color: #222;
 		}
 	}
@@ -499,7 +499,7 @@
 		color: white;
 	}
 
-	&--dark{
+	&--dark-header{
 
 	}
 
@@ -508,7 +508,7 @@
 	}
 }
 
-.nav__menu-text--dark{
+.nav__menu-text--dark-header{
 	color: white;
 }
 .nav__menu-icon {
@@ -551,7 +551,7 @@
 		transform: translateX(0) translateY(-50%);
 	}
 
-	&--dark {
+	&--dark-header {
 		background-color: #fff;
 		// border-color: #fff;
 		color: #fff;

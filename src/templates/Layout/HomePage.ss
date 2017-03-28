@@ -1,7 +1,7 @@
 
 <div class="homepage__header">
 
-	$Header(dark-header,overlay)
+	$Header("dark-header","overlay")
 
 	<% if $NewHomePageHeroFeatures %>
 		<div class="carousel">

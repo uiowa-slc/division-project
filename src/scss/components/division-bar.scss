@@ -85,11 +85,17 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
-	}
-	&__link--dark {
-		color: #fff;
-		&:hover, &:focus {
+		&--dark-header {
 			color: #fff;
+			&:hover, &:focus {
+				color: #fff;
+			}
 		}
 	}
+	// &__link--dark-header {
+	// 	color: #fff;
+	// 	&:hover, &:focus {
+	// 		color: #fff;
+	// 	}
+	// }
 }

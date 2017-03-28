@@ -1,7 +1,7 @@
 <div data-vide-bg="{$ThemeDir}/videos/dm_video.mp4" data-vide-options="loop: false, muted: false, position: 0% 0%">
 	<div class="header__screen header__screen--with-shadow">
-		$Header(dark,overlay)
-	
+		$Header(dark-header,overlay)
+
 		<div class="hero hero--is-overlay">
 
 			<div class="row">
@@ -20,11 +20,11 @@
 							<article class="hero-related__article">
 								<p><em>September 25, 2016</em></p>
 								<p>Curabitur blandit tempus porttitor.</p>
-							</article>		
+							</article>
 							<article class="hero-related__article">
 								<p><em>September 25, 2016</em></p>
 								<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-							</article>	
+							</article>
 						</div>
 					</div>
 				</div>
