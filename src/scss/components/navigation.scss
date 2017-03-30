@@ -20,14 +20,15 @@
 	-ms-transform: translateY(-100%);
 	-o-transform: translateY(-100%);
 	transform: translateY(-100%);
-	-webkit-transition-property: -webkit-transform;
-	-moz-transition-property: -moz-transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.4s;
-	-moz-transition-duration: 0.4s;
-	transition-duration: 0.4s;
+
 
 	&--mobile-menu-is-active {
+		-webkit-transition-property: -webkit-transform;
+		-moz-transition-property: -moz-transform;
+		transition-property: transform;
+		-webkit-transition-duration: 0.4s;
+		-moz-transition-duration: 0.4s;
+		transition-duration: 0.4s;
 		-webkit-transform: translateY(0);
 		-moz-transform: translateY(0);
 		-ms-transform: translateY(0);

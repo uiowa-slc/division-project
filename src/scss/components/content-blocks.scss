@@ -557,7 +557,7 @@ Video Block
 
 
 /* ====================================================================
-Slideshow Block
+Slideshow Block OLD ORBIT
 ======================================================================= */
 .slideshowblock {
 	& .orbit {
@@ -611,6 +611,9 @@ Slideshow Block
 		right: auto;
 	}
 }
+
+
+
 .block_area_beforecontent .slideshowblock,
 .block_area_aftercontent .slideshowblock {
 	padding: 1px;
@@ -626,6 +629,43 @@ Slideshow Block
 		margin: 0;
 		padding: 20px 40px;
 	}
+}
+
+/* NEW Slideshow */
+.slideshow{
+
+}
+.slideshow__caption{
+	background-color: #000;
+	padding: rem-calc(10);
+	color: white;
+}
+
+.slideshow__title{
+	text-align :center;
+}
+
+.slideshow__img{
+	max-width: none;
+	width: 100%;
+}
+
+.slideshow__slide{
+	width: 100%;
+
+}
+
+
+.slideshow__slide--multiple-slides{
+	padding: 0 rem-calc(10);
+}
+
+.slideshow__slide--multiple-slides{
+	width: 33%;
+}
+
+.slideshow__slide--no-title{
+	padding: rem-calc(20) rem-calc(10);
 }
 
 /* Upcoming Events

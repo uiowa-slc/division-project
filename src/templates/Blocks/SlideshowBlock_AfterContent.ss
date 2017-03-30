@@ -2,20 +2,15 @@
 	<div class="content-block">
 		<div class="$CSSClasses">
 			<% if $SlideshowBlockImages %>
-				<% if $Title %>
-					<div class="row column"><h3>$Title</h3></div>
-				<% end_if %>
-				<div class="orbit" role="region" <% if $Title %>aria-label="$Title"<% end_if %> data-orbit data-auto-play="false">
-					<ul class="orbit-container">
-						<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-						<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-						<% loop SlideshowBlockImages %>
-							<li class="is-active orbit-slide">
-								<img class="orbit-image" src="$Image.CroppedFocusedImage(1200, 600).URL" alt="<% if $Caption %>$Caption<% end_if %>">
-								<% if $Caption %><figcaption class="orbit-caption"><span>$Caption</span></figcaption><% end_if %>
-							</li>
-						<% end_loop %>
-					</ul>
+				<% if $Title %><h3 class="slideshow__title">$Title</h3><% end_if %>
+				<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
+					<% loop SlideshowBlockImages %>
+						<div class="slideshow__slide slideshow__slide--multiple-slides <% if not $Up.Title %>slideshow__slide--no-title<% end_if %>">
+							
+						<img class="slideshow__img" src="$Image.CroppedFocusedImage(840, 525).URL" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+							<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
+						</div>
+					<% end_loop %>
 				</div>
 			<% end_if %>
 		</div>

@@ -54,8 +54,10 @@ $gallery.find('video').each( function( i, video ) {
 	$( video ).on( 'loadeddata', onLoadeddata );
 });
 
-
-
+var $slideshow = $('.slideshow').flickity({
+	//adaptiveHeight: true,
+	imagesLoaded: true
+});
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
