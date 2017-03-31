@@ -7,7 +7,25 @@ var baseHref = null;
 if (bases.length > 0) {
     baseHref = bases[0].href;
 }
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Lazy Loading Images:
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+var myLazyLoad = new LazyLoad({
+    // example of options object -> see options section
+    elements_selector: ".dp-lazy"
+    // throttle: 200,
+    // data_src: "src",
+    // data_srcset: "srcset",
+    // callback_set: function() { /* ... */ }
+});
 
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Big Carousel (Home Page):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
 
 var $carousel = $('.carousel').flickity({
 	imagesLoaded: true,
@@ -53,11 +71,24 @@ $gallery.find('video').each( function( i, video ) {
 	video.play();
 	$( video ).on( 'loadeddata', onLoadeddata );
 });
-
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Slideshow block (in content):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
 var $slideshow = $('.slideshow').flickity({
 	//adaptiveHeight: true,
-	imagesLoaded: true
+	imagesLoaded: true,
+	lazyLoad: true
 });
+
+var slideshowflk = $slideshow.data('flickity');
+
+$slideshow.on( 'select.flickity', function() {
+	console.log( 'Flickity select ' + slideshowflk.selectedIndex );
+	//slideshowflk.reloadCells();
+  
+})
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -163,21 +194,11 @@ $('input[name="Search"]').autocomplete({
     minChars: 2,
     autoSelectFirst: true,
     type: 'post',
-    // appendTo: $('#site-search')
-    // width: $('#nav').outerWidth(),
     onSelect: function (suggestion) {
         $('#site-search__form').submit();
     }
 });
 
-// $('input[name="Search"]').autoComplete({
-//     minChars: 2,
-//     source: function(term, response){
-//         try { xhr.abort(); } catch(e){}
-//         xhr = $.getJSON(baseHref+'/home/autoComplete', { q: term }, function(data){ response(data); });
-//     }
-
-// });
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
