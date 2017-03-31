@@ -182,8 +182,8 @@ $(".nav__link--search-cancel").click(function(){
 //When search form is out of focus, deactivate it.
 $("#site-search__form").focusout(function(){
   	if($("#site-search__form").hasClass("site-search__form--is-active")){
-  		//Not deactivating search right now on focus out for debugging purposes.
-  		toggleSearchClasses();
+  		//Comment out the following line if you need to use WebKit/Blink inspector tool on the search (so it doesn't lose focus):
+  		//toggleSearchClasses();
   	}
 });
 
@@ -292,7 +292,7 @@ function toggleMobileMenuClasses(){
 		$("#nav__link--mobile").toggleClass("nav__menu-link--menu-is-active");
 		setTimeout(function(){
 		 $("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");
-		}, 1000);
+		}, 500);
 	}else{
 		$("#header").toggleClass("header--mobile-menu-is-active");
 		$("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");
