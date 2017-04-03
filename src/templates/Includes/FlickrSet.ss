@@ -1,4 +1,13 @@
-	<% if $Type == "slideshow" %>
+
+
+<div>
+			<iframe class="flickr-slideshow dp-lazy" data-original="https://www.flickr.com/photos/{$FlickrUser}/sets/{$Photoset.ID}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+
+</div>
+
+
+<%-- 	<% if $Type == "slideshow" %>
 
 		<% if $Photoset %>
 			<iframe class="flickr-slideshow lazy" src="https://www.flickr.com/photos/{$FlickrUser}/sets/{$Photoset}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
@@ -27,4 +36,4 @@
 				<% if $Description || $Title %><p><% if $Title %><strong>$Title</strong><br /><% end_if %> <% if $Description %>$Description<% end_if %></p><% end_if %></div>
 			<% end_loop %>
 		</div>
-	<% end_if %>
+	<% end_if %> --%>

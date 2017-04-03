@@ -1,73 +1,58 @@
+
 <div class="homepage__header">
 
-	$Header(dark-header,overlay)
+	$Header("dark-header","overlay")
 
-	<div class="carousel">
-		<div class="carousel-cell">
-			<div class="cell-bg">
-				<div class="fullwidth-video">
-					<video muted="" loop="" autoplay src="{$ThemeDir}/dist/images/2016-Timelapse-HD-1.mp4" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
+	<% if $NewHomePageHeroFeatures %>
+		<div class="carousel">
+			<% loop NewHomePageHeroFeatures %>
+				<div class="carousel-cell">
+					<% if $Image %>
+						<div class="cell-bg" data-flickity-bg-lazyload="$Image.CroppedFocusedImage(1400,900).URL">
+							<div class="inner">
+								<div class="cell-text">
+									<span>Featured Page</span>
+									<h2>$Title</h2>
+									<% if $ExternalLink %>
+										<a href="$ExternalLink" target="_blank" class="cell-btn">$ButtonText</a>
+									<% else %>
+										<a href="$AssociatedPage.Link" class="cell-btn">$ButtonText</a>
+									<% end_if %>
+								</div>
+							</div>
+						</div>
+					<% else_if $Video %>
+						<div class="cell-bg">
+							<div class="fullwidth-video">
+								<video muted="" loop="" autoplay src="$Video.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
+							</div>
+							<div class="inner">
+								<div class="cell-text">
+									<span>Featured Page</span>
+									<h2>$Title</h2>
+									<% if $ExternalLink %>
+										<a href="$ExternalLink" target="_blank" class="cell-btn">$ButtonText</a>
+									<% else %>
+										<a href="$AssociatedPage.Link" class="cell-btn">$ButtonText</a>
+									<% end_if %>
+								</div>
+							</div>
+						</div>
+					<% end_if %>
 				</div>
-				<div class="inner">
-					<div class="cell-text">
-						<span>Featured Page</span>
-						<h2>2016 Division of Student Life Annual Report</h2>
-						<%-- <p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis.</p> --%>
-						<a href="#" class="cell-btn">See The Report</a>
-					</div>
-				</div>
+			<% end_loop %>
+		</div>
+	<% end_if %>
 
-			</div>
-		</div>
-		<div class="carousel-cell">
-			<div class="cell-bg" data-flickity-bg-lazyload="{$ThemeDir}/dist/images/tom.jpg">
-				<div class="inner">
-					<div class="cell-text">
-						<span>Featured Article</span>
-						<h2>Pharetra Tristique Malesuada Commodo</h2>
-						<a href="#" class="cell-btn">Read The Full Story</a>
-					</div>
+	<% if $NewHomePageHeroFeatures %>
+		<div class="carousel-nav" data-flickity='{ "asNavFor": ".carousel", "contain": true, "pageDots": false, "prevNextButtons": false, "autoPlay": true }'>
+			<% loop NewHomePageHeroFeatures %>
+				<div class="carousel-nav-cell">
+					$Title
 				</div>
-			</div>
+			<% end_loop %>
 		</div>
-		<div class="carousel-cell" >
-			<div class="cell-bg" <%-- data-flickity-bg-lazyload="{$ThemeDir}/dist/images/iowaedge.jpg" --%>>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/ZYWuEzmwMyw?rel=0&autoplay=1&controls=0&loop=1&showinfo=0&modestbranding=1&wmode=transparent&disablekb=1" frameborder="0" allowfullscreen></iframe>
-				<div class="inner">
-					<div class="cell-text">
-						<span>Featured Article</span>
-						<h2>Tristique Ultricies Consectetur Fermentum</h2>
-						<a href="#" class="cell-btn">Read The Full Story</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="carousel-cell" data-flickity-bg-lazyload="{$ThemeDir}/dist/images/stroll.jpg">
-			<div class="cell-bg">
-				<div class="inner">
-					<div class="cell-text">
-						<span>Featured Article</span>
-						<h2>Nibh Cursus Ornare Vehicula Porta</h2>
-						<a href="#" class="cell-btn">Read The Full Story</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="carousel-nav" data-flickity='{ "asNavFor": ".carousel", "contain": true, "pageDots": false, "prevNextButtons": false, "autoPlay": true }'>
-		<div class="carousel-nav-cell">
-			2016 Division of Student Life Annual Report
-		</div>
-		<div class="carousel-nav-cell">
-			Pharetra Tristique Malesuada Commodo
-		</div>
-		<div class="carousel-nav-cell">
-			Tristique Ultricies Consectetur Fermentum
-		</div>
-		<div class="carousel-nav-cell">
-			Nibh Cursus Ornare Vehicula Porta
-		</div>
-	</div>
+	<% end_if %>
 
 		<%-- <div class="hero hero--is-overlay">
 

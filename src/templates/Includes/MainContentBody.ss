@@ -22,7 +22,7 @@ $BlockArea(BeforeContent)
 			<% include ChildPages %>
 		<% end_if %>
 	</article>
-	<aside class="sidebar">
+	<aside class="sidebar dp-sticky">
 		<% include SideNav %>
 		<% if $SideBarView %>
 			$SideBarView

@@ -7,7 +7,25 @@ var baseHref = null;
 if (bases.length > 0) {
     baseHref = bases[0].href;
 }
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Lazy Loading Images:
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+var myLazyLoad = new LazyLoad({
+    // example of options object -> see options section
+    elements_selector: ".dp-lazy"
+    // throttle: 200,
+    // data_src: "src",
+    // data_srcset: "srcset",
+    // callback_set: function() { /* ... */ }
+});
 
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Big Carousel (Home Page):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
 
 var $carousel = $('.carousel').flickity({
 	imagesLoaded: true,
@@ -53,9 +71,24 @@ $gallery.find('video').each( function( i, video ) {
 	video.play();
 	$( video ).on( 'loadeddata', onLoadeddata );
 });
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Slideshow block (in content):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+var $slideshow = $('.slideshow').flickity({
+	//adaptiveHeight: true,
+	imagesLoaded: true,
+	lazyLoad: true
+});
 
+var slideshowflk = $slideshow.data('flickity');
 
-
+$slideshow.on( 'select.flickity', function() {
+	console.log( 'Flickity select ' + slideshowflk.selectedIndex );
+	//slideshowflk.reloadCells();
+  
+})
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -149,8 +182,8 @@ $(".nav__link--search-cancel").click(function(){
 //When search form is out of focus, deactivate it.
 $("#site-search__form").focusout(function(){
   	if($("#site-search__form").hasClass("site-search__form--is-active")){
-  		//Not deactivating search right now on focus out for debugging purposes.
-  		toggleSearchClasses();
+  		//Comment out the following line if you need to use WebKit/Blink inspector tool on the search (so it doesn't lose focus):
+  		//toggleSearchClasses();
   	}
 });
 
@@ -161,21 +194,11 @@ $('input[name="Search"]').autocomplete({
     minChars: 2,
     autoSelectFirst: true,
     type: 'post',
-    // appendTo: $('#site-search')
-    // width: $('#nav').outerWidth(),
     onSelect: function (suggestion) {
         $('#site-search__form').submit();
     }
 });
 
-// $('input[name="Search"]').autoComplete({
-//     minChars: 2,
-//     source: function(term, response){
-//         try { xhr.abort(); } catch(e){}
-//         xhr = $.getJSON(baseHref+'/home/autoComplete', { q: term }, function(data){ response(data); });
-//     }
-
-// });
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -234,7 +257,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 
 $(".nav__toggle--menu").click(function(){
-	toggleMobileMenuClasses();
+	// toggleMobileMenuClasses();
 
 });
 
@@ -269,7 +292,7 @@ function toggleMobileMenuClasses(){
 		$("#nav__link--mobile").toggleClass("nav__menu-link--menu-is-active");
 		setTimeout(function(){
 		 $("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");
-		}, 1000);
+		}, 500);
 	}else{
 		$("#header").toggleClass("header--mobile-menu-is-active");
 		$("#mobile-nav__wrapper").toggleClass("mobile-nav__wrapper--has-transition");

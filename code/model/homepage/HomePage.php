@@ -2,7 +2,7 @@
 class HomePage extends Page {
 
 	private static $db = array(
-	
+
 	);
 
 	private static $has_one = array(
@@ -14,9 +14,9 @@ class HomePage extends Page {
 	);
 
 	private static $layout_types = array(
-		'Legacy' => 'Old style - Shuffled Background Features and Hero Features',
-		'BackgroundVideo' => 'Background Video',
-		'ImageSlider' => 'Image Slider'
+		'Legacy' => 'Old style - Shuffled Background Features and Hero Features'
+		// 'BackgroundVideo' => 'Background Video',
+		// 'ImageSlider' => 'Image Slider'
 	);
 
 	public function getPageTypeTheme(){
@@ -25,7 +25,7 @@ class HomePage extends Page {
 		}else{
 			return "dark-header";
 		}
-		
+
 	}
     public function getOpenGraph_description() {
         return SiteConfig::current_site_config()->Tagline;
@@ -52,7 +52,7 @@ class HomePage extends Page {
 
 
 
-		
+
 		$this->extend('updateCMSFields', $f);
 
 
@@ -63,8 +63,10 @@ class HomePage extends Page {
 
 	public function getShuffledBackgroundFields($f){
 
+		$legacyFieldList = new FieldList();
 		$fieldList = new FieldList();
 
+		// Legacy fields
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 		$gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
@@ -86,7 +88,7 @@ class HomePage extends Page {
 		$bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		if (!Permission::check('ADMIN')) {
 			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
-			
+
 		}
 
 		$homePageBackgroundFeatureGridField = GridField::create('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
@@ -94,14 +96,42 @@ class HomePage extends Page {
 
 		$homePageFeatureGridField = GridField::create('HomePageFeature', 'Features below the background image (Only the first three are shown)', HomePageFeature::get(), $homePageFeatureGridFieldConfig);
 
-		
-		$fieldList->push($homePageBackgroundFeatureGridField);
-		$fieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
-		$fieldList->push($homePageHeroFeatureGridField);
-		$fieldList->push($homePageFeatureGridField);
 
-		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
-		
+		$legacyFieldList->push($homePageBackgroundFeatureGridField);
+		$legacyFieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
+		$legacyFieldList->push($homePageHeroFeatureGridField);
+		$legacyFieldList->push($homePageFeatureGridField);
+
+
+
+		// Begin Default Slider fields
+		$newgridFieldConfig = GridFieldConfig_RecordEditor::create();
+		$newgridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		$newgridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+
+		$newhomePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
+		$newhomePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+
+		$newhomePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
+		$newhomePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+
+		$newbgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
+		$newbgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		if (!Permission::check('ADMIN')) {
+			$newgridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+
+		}
+
+		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $gridFieldConfig);
+
+		$fieldList->push($newHomePageHeroFeatureGridField);
+
+
+
+
+		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
+		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo(null)->end());
+
 	}
 }
 class HomePage_Controller extends Page_Controller {
@@ -144,6 +174,13 @@ class HomePage_Controller extends Page_Controller {
 
 	public function HomePageHeroFeatures() {
 		$features = HomePageHeroFeature::get();
+
+		return $features;
+
+	}
+
+	public function NewHomePageHeroFeatures() {
+		$features = NewHomePageHeroFeature::get();
 
 		return $features;
 

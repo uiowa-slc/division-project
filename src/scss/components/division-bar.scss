@@ -85,12 +85,17 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
-	}
-	&__link--dark-header {
-		color: #fff;
-		font-weight: bold;
-		&:hover, &:focus {
+		&--dark-header {
 			color: #fff;
+			&:hover, &:focus {
+				color: #fff;
+			}
 		}
 	}
+	// &__link--dark-header {
+	// 	color: #fff;
+	// 	&:hover, &:focus {
+	// 		color: #fff;
+	// 	}
+	// }
 }
