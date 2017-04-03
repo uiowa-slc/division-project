@@ -12,6 +12,9 @@ Page_Controller:
 BlogPost:
   extensions:
     - BlogFieldExtension
+BlogTag:
+  extensions:
+    - BlogTagExtension
 SiteConfig:
   extensions:
     - SiteConfigExtension
@@ -32,3 +35,9 @@ LeftAndMain:
     - division-project/css/cms.css
 SSViewer:
   theme: division-subtheme
+TopicHolder_Controller:
+  extensions:
+    - TopicHolderControllerSearchExtension
+Topic_Controller:
+  extensions:
+    - TopicControllerSearchExtension
