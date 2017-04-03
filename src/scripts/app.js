@@ -257,7 +257,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 
 $(".nav__toggle--menu").click(function(){
-	toggleMobileMenuClasses();
+	// toggleMobileMenuClasses();
 
 });
 

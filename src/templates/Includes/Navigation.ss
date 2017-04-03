@@ -6,24 +6,9 @@
         <span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span>
       </a> --%>
 <div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">
-	<div class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></div>
+	<div class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle" data-toggle="offCanvas"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></div>
 </div>
 
-<div class="mobile-nav__wrapper" id="mobile-nav__wrapper">
-	<nav class="mobile-nav" aria-label="Main menu">
-		<div class="nav__mobile-header show-for-small hide-for-medium"><h1 class="nav__mobile-headtext">$SiteConfig.Title</h1></div>
-		<ul class="mobile-nav__list">
-			<% loop $Menu(1) %>
-				<li class="nav__item"><a href="$Link" class="nav__link nav__link--mobile">$MenuTitle</a></li>
-			<% end_loop %>
-			<li class="nav__item nav__search-item" id="nav__search-item" >
-				<div class="nav__link nav__link--mobile nav__link--search">
-					<span>Search</span> <i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i>
-				</div>
-			</li>
-		</ul>
-	</nav>
-</div>
 <div class="nav__wrapper nav__wrapper--{$HeaderType} nav__wrapper--{$DarkLight}" id="nav__wrapper">
 	<%-- <div class="nav__mobile-close-button"><i class="fa fa-lg fa-close site-search__cancel-button" aria-hidden="true"></i></div> --%>
 
