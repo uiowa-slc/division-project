@@ -99,7 +99,7 @@ $Header
 		</div>
 
 
-		<aside class="sidebar">
+		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
 			<% if $SideBarView %>
 				$SideBarView

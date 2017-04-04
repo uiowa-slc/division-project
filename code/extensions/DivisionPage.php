@@ -44,8 +44,8 @@ class DivisionPage extends DataExtension {
 
 	);
 
-	public function getCMSFields() {
-		$f = parent::getCMSFields();
+	public function updateCMSFields(FieldList $f) {
+		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
 
@@ -114,12 +114,12 @@ class DivisionPage extends DataExtension {
 		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
 
 
-		return $f;
+		// return $f;
 
 	}
 
 	public function LayoutTypes(){
-		return $this->stat('layout_types');
+		return $this->owner->stat('layout_types');
 	}
 
 	public function getSettingsFields() {

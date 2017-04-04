@@ -66,7 +66,7 @@ $Header
 			</div>
 			$Form
 		</article>
-		<aside class="sidebar">
+		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
 			<% if $SideBarView %>
 				$SideBarView
