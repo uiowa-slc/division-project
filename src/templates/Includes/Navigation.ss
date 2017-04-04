@@ -9,7 +9,7 @@
 	<div class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></div>
 </div>
 
-<div class="mobile-nav__wrapper" id="mobile-nav__wrapper">
+<%-- <div class="mobile-nav__wrapper" id="mobile-nav__wrapper">
 	<nav class="mobile-nav" aria-label="Main menu">
 		<div class="nav__mobile-header show-for-small hide-for-medium"><h1 class="nav__mobile-headtext">$SiteConfig.Title</h1></div>
 		<ul class="mobile-nav__list">
@@ -23,12 +23,12 @@
 			</li>
 		</ul>
 	</nav>
-</div>
+</div> --%>
 <div class="nav__wrapper nav__wrapper--{$HeaderType} nav__wrapper--{$DarkLight}" id="nav__wrapper">
 	<%-- <div class="nav__mobile-close-button"><i class="fa fa-lg fa-close site-search__cancel-button" aria-hidden="true"></i></div> --%>
 
 	<nav role="nav" class="" aria-label="Main menu">
-		
+
 		<ul class="nav nav--{$DarkLight} nav--{$HeaderType} clearfix" id="nav">
 			<% loop $Menu(1) %>
 			<li class="nav__item nav__item--{$Top.DarkLight} <% if $FirstLast %>nav__item--$FirstLast<% end_if %><% if $Children %> nav__item--parent<% end_if %> nav__item--{$LinkOrCurrent} nav__item--{$LinkOrSection}">
@@ -47,6 +47,7 @@
 							<% end_loop %>
 						</ul>
 					<% end_if %>
+					<button aria-hidden="true" class="second-level--open"><svg class="dropdownarrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.4 8.8"><path d="M12.8,0l1.6,1.6L7.2,8.8,0,1.6,1.7,0,7.3,5.6Z" transform="translate(0 0)"></path></svg></button>
 				<% end_if %>
 			</li>
 			<% end_loop %>

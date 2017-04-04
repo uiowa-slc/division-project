@@ -42,7 +42,7 @@
 }
 
 .nav__wrapper {
-	display: none;
+	// display: none;
 
 	@include breakpoint(medium) {
 		background: transparent;
@@ -113,18 +113,23 @@
 		}
 	}
 }
+.nav__wrapper nav {
+	padding: 1em 1em 0;
+	@include breakpoint(medium) {
+		padding: 0;
+	}
+}
 
 .nav {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-	text-align: center;
-
 	@include breakpoint(medium) {
 		position: static;
 		display: table;
 		width: auto;
 		position: relative;
+		text-align: center;
 	}
 
 
@@ -161,7 +166,7 @@
 
 
 .nav__item {
-	padding: rem-calc(13) 0;
+	// padding: rem-calc(13) 0;
 
 	@include breakpoint(medium) {
 		display: table-cell;
@@ -243,7 +248,7 @@
 -MLK, Jr.
 ------------*/
 .nav__item--dark-header {
-	border: none;
+	border-top: 1px solid #444;
 
 	&:after {
 
@@ -251,6 +256,9 @@
 
 	&:hover:after {
 		background-color: $yellow;
+	}
+	@include breakpoint(medium) {
+		border:none;
 	}
 }
 
@@ -268,18 +276,20 @@
 
 .nav__link {
 	color: #333;
-	text-transform: uppercase;
-	font-family: $header-font-family;
-	padding: rem-calc(15) rem-calc(15);
+	display:block;
+	font-family: $body-font-family;
+	padding: rem-calc(15) 0;
 	position: relative;
 	font-size: rem-calc(16);
 	@include breakpoint(medium) {
-
 		display: block;
 		font-size: rem-calc(18);
+		font-family: $header-font-family;
 		white-space: nowrap;
 		transition: none;
+		text-transform: uppercase;
 		z-index: 2;
+		padding: rem-calc(15) rem-calc(15);
 		border-color: white;
 		position: relative;
 	}
@@ -351,16 +361,17 @@
 }
 .nav__link--dark-header {
 	color: white;
-	font-weight: 600;
-
+	font-weight: 500;
 	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
 		color: $black;
-		background: white;
+		// background: white;
 		&:after {
 			border-color: $black transparent transparent;
 		}
 	}
-
+	@include breakpoint(medium) {
+		font-weight: 600;
+	}
 
 }
 
@@ -370,11 +381,11 @@
 /* -----------------*/
 
 .nav__item {
+	position: relative;
 	/*link layout if there are 7 or more items (don't push it) */
 	&:nth-last-child(n+8) .nav__link,
 	&:nth-last-child(n+8) ~ * .nav__link {
-		font-size: rem-calc(13);
-
+		font-size: rem-calc(18);
 		@include breakpoint(medium) {
 			font-size: rem-calc(16);
 		}
@@ -439,8 +450,10 @@
 .nav__toggle {
 	position: absolute;
 	left: 5px;
-	bottom: 0;
-
+	top: 0;
+	& .nav__link {
+		padding: rem-calc(15) rem-calc(15);
+	}
 	&:hover{
 		.nav__menu-icon{
 			background-color: #fff;
@@ -453,9 +466,9 @@
 		}
 
 		.nav__menu-icon--dark-header{
-			background-color: #111;
+			// background-color: #111;
 			&:before, &:after{
-				background-color: #111;
+				// background-color: #111;
 			}
 			&.nav__menu-icon--menu-is-active{
 				background: none;
@@ -647,9 +660,8 @@
 		@include grid-layout(2);
 		width: rem-calc(500);
 	}
-
-
 }
+
 .subnav__item {
 	float: none;
 	position: static;
@@ -693,3 +705,76 @@
 		}
 	}
 }
+
+
+
+
+.header {
+	max-height: 64px;
+	overflow: hidden;
+	transition: max-height 0.2s linear;
+}
+#header.open {
+	max-height: 2500px;
+}
+
+/* new subnav */
+.subnav {
+	background: #242424;
+	box-shadow: none;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	opacity: 1;
+	display: block;
+	margin: 0;
+	width: 100%;
+	visibility: visible;
+
+	opacity: 0;
+	max-height: 0;
+	transition: all 0.25s ease-in;
+}
+.nav li.nav__item--opened ul.subnav {
+	border-top: 1px solid #333;
+	padding-top: 15px;
+	max-height: 1000px;
+	opacity: 1;
+	padding-bottom: 15px;
+}
+.subnav__item--column {
+	width: 100%;
+	float: none;
+	padding: 9;
+}
+.subnav__link {
+	border-bottom: none;
+	padding: 8px 0;
+	color: #ddd;
+}
+/* button */
+.nav button.second-level--open {
+	position: absolute;
+	right: 0;
+	top: 0;
+	outline: 0;
+	border-left: 1px solid #333;
+	padding: 21px 12px 21px 17px;
+	background-color: transparent;
+}
+.nav button.second-level--open > svg {
+	fill: $yellow;
+	width: 15px;
+	-webkit-transition: transform 0.2s ease-in;
+	-moz-transition: transform 0.2s ease-in;
+	-ms-transition: transform 0.2s ease-in;
+	-o-transition: transform 0.2s ease-in;
+	transition: transform 0.2s ease-in;
+}
+.nav .nav__item--opened button.second-level--open svg {
+	transform: rotateX(180deg);
+}
+
+
+
