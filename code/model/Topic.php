@@ -2,15 +2,30 @@
 
 class Topic extends BlogPost {
 
-	
+	private static $many_many = array(
+		'TopicQuestions' => 'TopicQuestion'
+	);
 
-    public function AllTags()
-    {
-        //$blog = $this;
+    public function AllTags(){
         $tags = BlogTag::get()->filter(array('BlogID' => $this->ParentID))->sort('Title ASC');
         return $tags;
     }
 
+	public function getCMSFields(){
+		
+		$fields = parent::getCMSFields();
+
+		$qField = TagField::create(
+						'TopicQuestions',
+						'Questions relevant to this topic:',
+						TopicQuestion::get(),
+						$this->TopicQuestions()
+					)->setShouldLazyLoad(true)->setCanCreate(false);
+
+		$fields->addFieldToTab('Root.Main', $qField, 'Content');
+		return $fields;
+
+	}
 
 }
 

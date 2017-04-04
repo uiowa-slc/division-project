@@ -14,4 +14,7 @@ class BlogTagExtension extends DataExtension {
 		'Image.CMSThumbnail', 'Title'
 	);
 
+	private static $singular_name = 'Tag';
+
+	private static $plural_name = 'Tags';
 }
