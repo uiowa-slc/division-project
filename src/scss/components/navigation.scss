@@ -1,51 +1,4 @@
-.nav-mobile{
-	@include menu-base;
-	@include menu-direction(vertical);
-
-	&__item{
-		// border-bottom: 1px solid #ccc;
-
-	}
-
-	&__link{
-		color: white;
-		font-size: rem-calc(16);
-		padding-bottom: rem-calc(4);
-		border-bottom: 1px solid #4c4c4c;
-		&:hover{
-			color: #ccc;
-			background-color: #222;
-		}
-		&--home{
-			font-size: rem-calc(22);
-			font-family: $header-font-family;
-			// font-weight: bold;
-			text-transform: uppercase;
-		}
-	}
-
-	&__info{
-		color: white;
-		font-size: rem-calc(13);
-		margin: rem-calc(5);
-	}
-
-	&__dsl-logo{
-		
-		img{
-			margin: rem-calc(10) 0;
-			max-width: 75%;
-		}
-	}
-
-
-}
-
-
-
 .nav__wrapper {
-	display: none;
-
 	@include breakpoint(medium) {
 		background: transparent;
 		margin-top: 0;
@@ -93,7 +46,7 @@
 	}
 
 	&--overlay {
-		background-color: transparent;
+		background-color: rgba(#111, 0.95);
 
 		&:after {
 			background-color: transparent;
@@ -115,20 +68,24 @@
 		}
 	}
 }
+.nav__wrapper nav {
+	padding: 0 1em 0;
+	@include breakpoint(medium) {
+		padding: 0;
+	}
+}
 
 .nav {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-	text-align: center;
-
 	@include breakpoint(medium) {
 		position: static;
 		display: table;
 		width: auto;
 		position: relative;
+		text-align: center;
 	}
-
 
 	&--mobile {}
 
@@ -165,7 +122,6 @@
 
 
 .nav__item {
-	padding: rem-calc(13) 0;
 
 	@include breakpoint(medium) {
 		display: table-cell;
@@ -247,15 +203,38 @@
 -MLK, Jr.
 ------------*/
 .nav__item--dark-header {
-	border: none;
+	border-top: 1px solid #444;
 
 	&:after {
 
 	}
-
+	&:hover > a {
+		background-color: #fff;
+		color: #222;
+		&:after {
+			border-color: #222 transparent transparent;
+		}
+	}
 	&:hover:after {
 		background-color: $yellow;
 	}
+	@include breakpoint(medium) {
+		border:none;
+	}
+	&.nav__item--parent.nav__item--is-hovered > a {
+		background-color: transparent;
+		color: #fff;
+	}
+	@include breakpoint(medium) {
+		&.nav__item--parent.nav__item--is-hovered > a {
+			background-color: #fff;
+			color: #222;
+		}
+	}
+}
+.nav__item--parent.nav__item--is-hovered > a {
+	background-color: #fff;
+	color: #222;
 }
 
 //Make the fifth nav item and beyond's dropdown hang from the right:
@@ -272,18 +251,20 @@
 
 .nav__link {
 	color: #333;
-	text-transform: uppercase;
-	font-family: $header-font-family;
-	padding: rem-calc(15) rem-calc(15);
+	display:block;
+	font-family: $body-font-family;
+	padding: rem-calc(15) 0;
 	position: relative;
 	font-size: rem-calc(16);
 	@include breakpoint(medium) {
-
 		display: block;
 		font-size: rem-calc(18);
+		font-family: $header-font-family;
 		white-space: nowrap;
 		transition: none;
+		text-transform: uppercase;
 		z-index: 2;
+		padding: rem-calc(15) rem-calc(15);
 		border-color: white;
 		position: relative;
 	}
@@ -355,8 +336,7 @@
 }
 .nav__link--dark-header {
 	color: white;
-	font-weight: 600;
-
+	font-weight: 500;
 	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
 		color: $black;
 		background: white;
@@ -364,7 +344,9 @@
 			border-color: $black transparent transparent;
 		}
 	}
-
+	@include breakpoint(medium) {
+		font-weight: 600;
+	}
 
 }
 
@@ -374,11 +356,11 @@
 /* -----------------*/
 
 .nav__item {
+	position: relative;
 	/*link layout if there are 7 or more items (don't push it) */
 	&:nth-last-child(n+8) .nav__link,
 	&:nth-last-child(n+8) ~ * .nav__link {
-		font-size: rem-calc(13);
-
+		font-size: rem-calc(18);
 		@include breakpoint(medium) {
 			font-size: rem-calc(16);
 		}
@@ -443,8 +425,16 @@
 .nav__toggle {
 	position: absolute;
 	left: 5px;
-	bottom: 0;
-
+	top: 0;
+	& .nav__link {
+		padding: rem-calc(15) rem-calc(15);
+	}
+	& .nav__link--dark-header {
+		&:hover, &:focus, &:active {
+			background-color:transparent;
+			color: #fff;
+		}
+	}
 	&:hover{
 		.nav__menu-icon{
 			background-color: #fff;
@@ -457,9 +447,9 @@
 		}
 
 		.nav__menu-icon--dark-header{
-			background-color: #111;
+			// background-color: #111;
 			&:before, &:after{
-				background-color: #111;
+				// background-color: #111;
 			}
 			&.nav__menu-icon--menu-is-active{
 				background: none;
@@ -471,9 +461,12 @@
 		}
 
 		.nav__menu-text--dark-header{
-			color: #222;
+			color: #fff;
 		}
 	}
+}
+.header--overlay.open .nav__toggle--menu .nav__link {
+	background-color: rgba(#111, 0.95);
 }
 
 .nav__toggle--search {
@@ -482,7 +475,7 @@
 }
 
 .nav__toggle--menu {
-	z-index: 16;
+	z-index: 99;
 	width: rem-calc(50);
 	left: 0;
 
@@ -615,24 +608,13 @@
 
 
 .subnav {
-	background-color: #fff;
-	position: absolute;
-	left: -9999px;
-	top: 100%;
-	min-width: rem-calc(300);
-	list-style: none;
-	opacity: 0;
-	box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
-	margin-top: -1px;
-	visibility: hidden;
-	padding: 30px 10px;
-	z-index: 1;
-	margin-left: 0;
-	display: none;
-
-	@include breakpoint(medium) {
-		display: block;
-	}
+	box-shadow: none;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	max-height: 0;
+	margin: 0;
+	transition: all 0.25s ease-in;
 
 	&--light-header{
 		background: #242424;
@@ -646,14 +628,31 @@
 		visibility: visible;
 	}
 
-	&--two-columns {
-		@include grid-row;
-		@include grid-layout(2);
-		width: rem-calc(500);
+	@include breakpoint(medium) {
+		background-color: #fff;
+		position: absolute;
+		left: -9999px;
+		top: 100%;
+		min-width: rem-calc(300);
+		list-style: none;
+		opacity: 0;
+		box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		margin-top: -1px;
+		visibility: hidden;
+		padding: 30px 10px;
+		z-index: 1;
+		margin-left: 0;
+		display: block;
+		max-height: none;
+		transition: none;
+		&--two-columns {
+			@include grid-row;
+			@include grid-layout(2);
+			width: rem-calc(500);
+		}
 	}
-
-
 }
+
 .subnav__item {
 	float: none;
 	position: static;
@@ -697,3 +696,64 @@
 		}
 	}
 }
+
+
+/* new subnav */
+.subnav {
+	@media (max-width: 640px) {
+		&--dark-header {
+			// background: #242424;
+		}
+	}
+}
+.nav li.nav__item--opened ul.subnav {
+	@media (max-width: 640px) {
+		border-top: 1px solid #333;
+		padding-top: 15px;
+		max-height: 1000px;
+		padding-bottom: 15px;
+	}
+}
+.subnav__item--column {
+	@media (max-width: 640px) {
+		width: 100%;
+		float: none;
+		padding: 9;
+	}
+
+}
+.subnav__link {
+	@media (max-width: 640px) {
+		border-bottom: none;
+		padding: 8px 0;
+		color: #ddd;
+	}
+
+}
+/* button */
+.nav button.second-level--open {
+	position: absolute;
+	right: 0;
+	top: 0;
+	outline: 0;
+	border-left: 1px solid #333;
+	padding: 21px 12px 21px 17px;
+	background-color: transparent;
+	@include breakpoint(medium) {
+		display: none;
+	}
+}
+.nav button.second-level--open > svg {
+	fill: $yellow;
+	width: 15px;
+	-webkit-transition: transform 0.2s ease-in;
+	-moz-transition: transform 0.2s ease-in;
+	-ms-transition: transform 0.2s ease-in;
+	-o-transition: transform 0.2s ease-in;
+	transition: transform 0.2s ease-in;
+}
+.nav .nav__item--opened button.second-level--open svg {
+	transform: rotateX(180deg);
+}
+
+

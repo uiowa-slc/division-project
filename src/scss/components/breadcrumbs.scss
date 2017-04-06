@@ -1,7 +1,6 @@
 .breadcrumb {
 	background-color: #111;
 	height: 50px;
-	margin-bottom: 40px;
 	position: relative;
 	@include breakpoint(medium) {
 		height: auto;

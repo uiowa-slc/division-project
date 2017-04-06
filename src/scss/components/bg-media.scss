@@ -5,7 +5,6 @@
 .bg-media{
 	padding-bottom: rem-calc(450);
 	position: relative;
-	overflow: hidden;
 	&--image{
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -26,6 +25,7 @@
 	}
 	@include breakpoint(medium) {
 		padding-bottom: rem-calc(500);
+		overflow: hidden;
 	}
 	@include breakpoint(large) {
 		padding-bottom: rem-calc(650);

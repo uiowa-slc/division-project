@@ -44,14 +44,9 @@
   <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
     <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
     <!-- Add your site or app content here -->
-    <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
 
-      <% include NavMobile %>
-    </div>
-
-    <div class="off-canvas-content" data-off-canvas-content>
       $Layout
-    </div>
+
     
 
     <% include Footer %>
