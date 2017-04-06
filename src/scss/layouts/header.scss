@@ -99,6 +99,9 @@
 
 .header {
 	position: relative;
+	max-height: 64px;
+	overflow: hidden;
+	transition: max-height 0.2s linear;
 	h1 {
 		font-size: rem-calc(22);
 		font-weight: 600;
@@ -153,4 +156,11 @@
 			}
 		}
 	}
+	@include breakpoint(medium) {
+		max-height: none;
+		overflow: visible;
+	}
+}
+#header.open {
+	max-height: 2500px;
 }

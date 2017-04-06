@@ -1,49 +1,4 @@
-.mobile-nav__wrapper{
-	position: fixed;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	background: rgba(#222, 0.99);
-	z-index: 12;
-	text-align: center;
-	// padding: 50px 0;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	overflow: auto;
-
-	/* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
-	-webkit-overflow-scrolling: touch;
-	-webkit-transform: translateY(-100%);
-	-moz-transform: translateY(-100%);
-	-ms-transform: translateY(-100%);
-	-o-transform: translateY(-100%);
-	transform: translateY(-100%);
-	-webkit-transition-property: -webkit-transform;
-	-moz-transition-property: -moz-transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.4s;
-	-moz-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-
-	&--mobile-menu-is-active {
-		-webkit-transform: translateY(0);
-		-moz-transform: translateY(0);
-		-ms-transform: translateY(0);
-		-o-transform: translateY(0);
-		transform: translateY(0);
-	}
-
-}
-
-.mobile-nav__list{
-	margin: 0;
-}
-
 .nav__wrapper {
-	// display: none;
-
 	@include breakpoint(medium) {
 		background: transparent;
 		margin-top: 0;
@@ -132,7 +87,6 @@
 		text-align: center;
 	}
 
-
 	&--mobile {}
 
 	&--search-is-active {
@@ -166,7 +120,6 @@
 
 
 .nav__item {
-	// padding: rem-calc(13) 0;
 
 	@include breakpoint(medium) {
 		display: table-cell;
@@ -253,13 +206,23 @@
 	&:after {
 
 	}
-
+	&:hover > a {
+		background-color: #fff;
+		color: #222;
+		&:after {
+			border-color: #222 transparent transparent;
+		}
+	}
 	&:hover:after {
 		background-color: $yellow;
 	}
 	@include breakpoint(medium) {
 		border:none;
 	}
+}
+.nav__item--parent.nav__item--is-hovered > a {
+	background-color: #fff;
+	color: #222;
 }
 
 //Make the fifth nav item and beyond's dropdown hang from the right:
@@ -364,7 +327,7 @@
 	font-weight: 500;
 	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
 		color: $black;
-		// background: white;
+		background: white;
 		&:after {
 			border-color: $black transparent transparent;
 		}
@@ -624,24 +587,13 @@
 
 
 .subnav {
-	background-color: #fff;
-	position: absolute;
-	left: -9999px;
-	top: 100%;
-	min-width: rem-calc(300);
-	list-style: none;
-	opacity: 0;
-	box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
-	margin-top: -1px;
-	visibility: hidden;
-	padding: 30px 10px;
-	z-index: 1;
-	margin-left: 0;
-	display: none;
-
-	@include breakpoint(medium) {
-		display: block;
-	}
+	box-shadow: none;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	max-height: 0;
+	margin: 0;
+	transition: all 0.25s ease-in;
 
 	&--light-header{
 		background: #242424;
@@ -655,10 +607,28 @@
 		visibility: visible;
 	}
 
-	&--two-columns {
-		@include grid-row;
-		@include grid-layout(2);
-		width: rem-calc(500);
+	@include breakpoint(medium) {
+		background-color: #fff;
+		position: absolute;
+		left: -9999px;
+		top: 100%;
+		min-width: rem-calc(300);
+		list-style: none;
+		opacity: 0;
+		box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		margin-top: -1px;
+		visibility: hidden;
+		padding: 30px 10px;
+		z-index: 1;
+		margin-left: 0;
+		display: block;
+		max-height: none;
+		transition: none;
+		&--two-columns {
+			@include grid-row;
+			@include grid-layout(2);
+			width: rem-calc(500);
+		}
 	}
 }
 
@@ -707,51 +677,37 @@
 }
 
 
-
-
-.header {
-	max-height: 64px;
-	overflow: hidden;
-	transition: max-height 0.2s linear;
-}
-#header.open {
-	max-height: 2500px;
-}
-
 /* new subnav */
 .subnav {
-	background: #242424;
-	box-shadow: none;
-	padding: 0;
-	overflow: hidden;
-	position: relative;
-	left: 0;
-	opacity: 1;
-	display: block;
-	margin: 0;
-	width: 100%;
-	visibility: visible;
-
-	opacity: 0;
-	max-height: 0;
-	transition: all 0.25s ease-in;
+	@media (max-width: 640px) {
+		&--dark-header {
+			background: #242424;
+		}
+	}
 }
 .nav li.nav__item--opened ul.subnav {
-	border-top: 1px solid #333;
-	padding-top: 15px;
-	max-height: 1000px;
-	opacity: 1;
-	padding-bottom: 15px;
+	@media (max-width: 640px) {
+		border-top: 1px solid #333;
+		padding-top: 15px;
+		max-height: 1000px;
+		padding-bottom: 15px;
+	}
 }
 .subnav__item--column {
-	width: 100%;
-	float: none;
-	padding: 9;
+	@media (max-width: 640px) {
+		width: 100%;
+		float: none;
+		padding: 9;
+	}
+
 }
 .subnav__link {
-	border-bottom: none;
-	padding: 8px 0;
-	color: #ddd;
+	@media (max-width: 640px) {
+		border-bottom: none;
+		padding: 8px 0;
+		color: #ddd;
+	}
+
 }
 /* button */
 .nav button.second-level--open {
@@ -762,6 +718,9 @@
 	border-left: 1px solid #333;
 	padding: 21px 12px 21px 17px;
 	background-color: transparent;
+	@include breakpoint(medium) {
+		display: none;
+	}
 }
 .nav button.second-level--open > svg {
 	fill: $yellow;
