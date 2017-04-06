@@ -56,7 +56,7 @@
 
 .header__container {
 	position: relative;
-	padding-bottom: rem-calc(20);
+	// padding-bottom: rem-calc(20);
 	&:after {
 		transition: background-color 1s;
 		background-color: $yellow;
@@ -98,6 +98,10 @@
 }
 
 .header {
+	position: relative;
+	max-height: 53px;
+	overflow: hidden;
+	transition: max-height 0.2s linear;
 	h1 {
 		font-size: rem-calc(22);
 		font-weight: 600;
@@ -152,4 +156,11 @@
 			}
 		}
 	}
+	@include breakpoint(medium) {
+		max-height: none;
+		overflow: visible;
+	}
+}
+#header.open {
+	max-height: 2500px;
 }
