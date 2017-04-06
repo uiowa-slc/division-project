@@ -44,13 +44,13 @@
   <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
     <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
     <!-- Add your site or app content here -->
-
+    <% if $SiteConfig.ShowExitButton %>
+    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <% end_if %>
       $Layout
 
     
-    <% if $SiteConfig.ShowExitButton %>
-    <a class="exit-button" href="http://weather.com"></a>
-    <% end_if %>
+
     <% include Footer %>
 
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
