@@ -1,5 +1,5 @@
 <% if $UseBackground %>
-	<section class="content-block__container content-block__container--padding featuredpageblock-bg" style="background-image: url(<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1400,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1400,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1400,400).URL<% end_if %>)">
+	<section class="content-block__container content-block__container--padding featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1400,500).URL<% end_if %>">
 		<div class="content-block">
 			<div class="$CSSClasses">
 				<div class="featuredpageblock__body">
@@ -34,11 +34,11 @@
 					<div class="featuredpageblock__media">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="">
 							</a>
 						<% end_if %>
 					</div>
@@ -46,11 +46,11 @@
 					<div class="featuredpageblock__media">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" width="600" height="425"alt="">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="">
 							</a>
 						<% end_if %>
 					</div>
@@ -58,11 +58,11 @@
 					<div class="featuredpageblock__media">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" alt="">
 							</a>
 						<% end_if %>
 					</div>
@@ -70,11 +70,11 @@
 					<div class="featuredpageblock__media">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="">
 							</a>
 						<% end_if %>
 					</div>

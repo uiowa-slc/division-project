@@ -49,6 +49,12 @@ class DivisionPage extends DataExtension {
 		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
+		$config = SiteConfig::current_site_config(); 
+
+		if(!$config->GoogleAnalyticsID) {
+			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
+				"<p class=\"message error\">Google Analytics ID hasn't been set for this site. You can set it in <a href=\"admin/settings/\">the settings</a></p>"), "Title");
+		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
