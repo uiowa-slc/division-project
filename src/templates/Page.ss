@@ -48,7 +48,9 @@
       $Layout
 
     
-
+    <% if $SiteConfig.ShowExitButton %>
+    <a class="exit-button" href="http://weather.com"></a>
+    <% end_if %>
     <% include Footer %>
 
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>

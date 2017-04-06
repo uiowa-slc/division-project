@@ -12,14 +12,13 @@
 			$silverstripeRoles = $this->owner->obj('silverstripeRoles')->getValue();
 			$adminGroup = Group::get()->filter(array('Title' => 'Administrators'))->First();
 			$contentEditorsGroup = Group::get()->filter(array('Title' => 'Content Authors'))->First();
-			$guid = $this->owner->obj('GUID')->getValue();
+			$guid = $this->owner->GUID;
 			$email = $this->owner->obj('Email')->getValue();
 
 
 
-
+			//If SilverStripeRoles comes through the federated request:
 			if($silverstripeRoles){
-
 				if(strpos('IMU-MD-WEB-ADMINS',$silverstripeRoles) !== false){
 					$adminGroup->Members()->add($this->owner);
 				}elseif(strpos('IMU-MD-WEB-EDITORS', $silverstripeRoles) !== false){
@@ -30,13 +29,13 @@
 				}
 			}
 
-
-			//if(!$guid){
+			//If the local user doesn't have a GUID yet, look it up:
+			if(!$guid){
 				$guidLookup = $this->lookupGuid($email);
 				if($guidLookup){
 					$this->owner->GUID = $guidLookup;
 				}
-			//}
+			}
 
 
 		}
