@@ -46,7 +46,7 @@
 	}
 
 	&--overlay {
-		background-color: transparent;
+		background-color: rgba(#111, 0.95);
 
 		&:after {
 			background-color: transparent;
@@ -69,7 +69,7 @@
 	}
 }
 .nav__wrapper nav {
-	padding: 1em 1em 0;
+	padding: 0 1em 0;
 	@include breakpoint(medium) {
 		padding: 0;
 	}
@@ -218,6 +218,16 @@
 	}
 	@include breakpoint(medium) {
 		border:none;
+	}
+	&.nav__item--parent.nav__item--is-hovered > a {
+		background-color: transparent;
+		color: #fff;
+	}
+	@include breakpoint(medium) {
+		&.nav__item--parent.nav__item--is-hovered > a {
+			background-color: #fff;
+			color: #222;
+		}
 	}
 }
 .nav__item--parent.nav__item--is-hovered > a {
@@ -417,6 +427,12 @@
 	& .nav__link {
 		padding: rem-calc(15) rem-calc(15);
 	}
+	& .nav__link--dark-header {
+		&:hover, &:focus, &:active {
+			background-color:transparent;
+			color: #fff;
+		}
+	}
 	&:hover{
 		.nav__menu-icon{
 			background-color: #fff;
@@ -443,9 +459,12 @@
 		}
 
 		.nav__menu-text--dark-header{
-			color: #222;
+			color: #fff;
 		}
 	}
+}
+.header--overlay.open .nav__toggle--menu .nav__link {
+	background-color: rgba(#111, 0.95);
 }
 
 .nav__toggle--search {
@@ -681,7 +700,7 @@
 .subnav {
 	@media (max-width: 640px) {
 		&--dark-header {
-			background: #242424;
+			// background: #242424;
 		}
 	}
 }
