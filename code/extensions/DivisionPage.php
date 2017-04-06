@@ -43,6 +43,7 @@ class DivisionPage extends DataExtension {
 
 
 	);
+	private static $hide_from_hierarchy = array('BlogPost','Topic');
 
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();

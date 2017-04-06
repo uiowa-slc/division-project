@@ -20,6 +20,8 @@ class BlogFieldExtension extends DataExtension {
 		'BackgroundVideo' => 'Background Video'
 	);
 
+
+
 	public function getCMSFields() {
 		$this->extend('updateCMSFields', $fields);
 
