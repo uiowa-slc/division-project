@@ -44,8 +44,8 @@ class DivisionPage extends DataExtension {
 
 	);
 
-	public function getCMSFields() {
-		$f = parent::getCMSFields();
+	public function updateCMSFields(FieldList $f) {
+		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
 
@@ -104,7 +104,7 @@ class DivisionPage extends DataExtension {
 
 		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
 		// $f->addFieldToTab('Root.Widgets', new LiteralField('SidebarManageLabel', '<p><a href='admin/sidebar-items' target='_blank'>View and Manage Sidebar Items &raquo;</a></p>'));
-		$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
+		//$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
 
 
 		$f->addFieldsToTab("Root.Main", array(
@@ -114,12 +114,12 @@ class DivisionPage extends DataExtension {
 		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
 
 
-		return $f;
+		// return $f;
 
 	}
 
 	public function LayoutTypes(){
-		return $this->stat('layout_types');
+		return $this->owner->stat('layout_types');
 	}
 
 	public function getSettingsFields() {

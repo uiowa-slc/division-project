@@ -26,7 +26,7 @@ $Header
 			</div>
 			<% if $FeaturedImage %>
 				<% if FeaturedImage.Width >= 1200 %>
-					<p class="post-image">$FeaturedImage.CroppedFocusedImage(1200,700)</p>
+					<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.CroppedFocusedImage(1200,700).URL" width="1200" height="700" alt="" role="presentation" /></p>
 				<% end_if %>
 			<% end_if %>
 		</div>
@@ -40,7 +40,7 @@ $Header
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
 					<% if FeaturedImage.Width >= 700 && FeaturedImage.Width < 1200 %>
-						<p class="post-image">$FeaturedImage.SetWidth(840)</p>
+						<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.SetWidth(840).URL" alt="" role="presentation" width="840" height="$FeaturedImage.SetWidth(840).Height" /></p>
 					<% end_if %>
 				<% end_if %>
 				<div class="content">
@@ -56,7 +56,7 @@ $Header
 					</div>
 					<% if $FeaturedImage %>
 						<% if FeaturedImage.Width < 700 %>
-							<img src="$FeaturedImage.URL" alt="" class="right post-image">
+							<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.URL" alt="" class="right post-image">
 						<% end_if %>
 					<% end_if %>
 					$Content
@@ -66,7 +66,7 @@ $Header
 			</div>
 			$Form
 		</article>
-		<aside class="sidebar">
+		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
 			<% if $SideBarView %>
 				$SideBarView

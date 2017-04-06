@@ -53,7 +53,7 @@ class HomePage extends Page {
 
 
 
-		$this->extend('updateCMSFields', $f);
+		//$this->extend('updateCMSFields', $f);
 
 
 
