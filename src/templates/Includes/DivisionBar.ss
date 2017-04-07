@@ -1,7 +1,11 @@
 <div class="division-bar division-bar--{$DarkLight}">
 
 	<div class="division-bar__uiowa">
-		<a href="https://uiowa.edu/"><img src="{$ThemeDir}/dist/images/uiowa--{$DarkLight}.png" class="division-bar__uiowa-logo" alt="The University of Iowa" /></a>
+		<a href="https://uiowa.edu/"><% if $HeaderType =="overlay" %>
+		<img src="{$ThemeDir}/dist/images/uiowa--overlay-header.png" class="division-bar__uiowa-logo" alt="The University of Iowa" />
+	<% else %>
+		<img src="{$ThemeDir}/dist/images/uiowa--{$DarkLight}.png" class="division-bar__uiowa-logo" alt="The University of Iowa" />
+	<% end_if %></a>
 	</div>
 
 	<% if $SiteConfig.QuickLinkTitleOne %>

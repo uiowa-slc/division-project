@@ -235,6 +235,15 @@
 	color: #222;
 }
 
+.nav__item--light-header {
+	&:hover > a {
+		background-color: #242424;
+		color: #fff;
+		&:after {
+			border-color: #fff transparent transparent;
+		}
+	}
+}
 //Make the fifth nav item and beyond's dropdown hang from the right:
 .nav__item {
 	&:nth-child(n+5):hover, &:nth-child(n+5).nav__item--is-hovered {
@@ -618,7 +627,12 @@
 		background: #242424;
 		box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 	}
-
+	&--dark-header {
+		background-color: #fff;
+		@include breakpoint(medium) {
+			box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		}
+	}
 
 	&--show-menu {
 		left: 0;
@@ -627,14 +641,12 @@
 	}
 
 	@include breakpoint(medium) {
-		background-color: #fff;
 		position: absolute;
 		left: -9999px;
 		top: 100%;
 		min-width: rem-calc(300);
 		list-style: none;
 		opacity: 0;
-		box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 		margin-top: -1px;
 		visibility: hidden;
 		padding: 30px 10px;
