@@ -53,7 +53,7 @@ class DivisionPage extends DataExtension {
 
 		if(!$config->GoogleAnalyticsID) {
 			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
-				"<p class=\"message error\">Google Analytics ID hasn't been set for this site. You can set it in <a href=\"admin/settings/\">the settings</a></p>"), "Title");
+				"<p class=\"message warning\">Google Analytics ID hasn't been set for this site. <a href=\"admin/settings/\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
 		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
@@ -70,7 +70,7 @@ class DivisionPage extends DataExtension {
 			)->setEmptyString('(Default Layout)');
 			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
-		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></p>'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
 		$f->addFieldToTab("Root.SocialMediaSharing", new UploadField('OgImage', 'Social Share Image'));
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
