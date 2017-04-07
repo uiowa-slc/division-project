@@ -45,7 +45,7 @@
     <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
     <!-- Add your site or app content here -->
     <% if $SiteConfig.ShowExitButton %>
-    <a class="exit-button dp-lazy" data-original="division-project/src/images/exit.gif" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
     <% end_if %>
       $Layout
 
