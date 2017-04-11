@@ -7,7 +7,7 @@
 					</a>
 				</div>
 			<% else_if $VimeoEmbed %>
-				<iframe src="https://player.vimeo.com/video/$VimeoEmbed" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<iframe class="dp-lazy" data-original="https://player.vimeo.com/video/$VimeoEmbed" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			<% end_if %>
 		</div>
 	</div>
