@@ -27,6 +27,18 @@ body {
 	background-color: #ddd;
 }
 
+/* Prevents img without src to appear */
+img:not([src]) {
+    visibility: hidden;
+}
+
+/* Fixes Firefox anomaly */
+@-moz-document url-prefix() {
+    img:-moz-loading {
+        visibility: hidden;
+    }
+}
+
 /* Main Content/Article Body Styles: */
 
 .main-content {
@@ -102,6 +114,13 @@ body {
 		@include grid-column(3);
 		@include grid-column-offset(1);
 		margin: rem-calc(40 0);
+	}
+}
+
+.dp-sticky{
+	@include breakpoint(large) {
+		position: sticky;
+		top: 0;
 	}
 }
 

@@ -29,7 +29,7 @@
 		font-size: rem-calc(10);
 
 		@include breakpoint(medium) {
-			font-size: rem-calc(16);
+			font-size: rem-calc(13);
 		}
 		li {
 			display: inline-block;
@@ -85,12 +85,21 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
+		&--dark-header {
+			color: $yellow;
+			&:hover, &:focus {
+				color:$yellow;
+			}
+		}
 	}
-	&__link--dark-header {
-		color: #fff;
-		font-weight: bold;
-		&:hover, &:focus {
+}
+.header__container--overlay .division-bar {
+	&__link {
+		&--dark-header {
 			color: #fff;
+			&:hover, &:focus {
+				color: #fff;
+			}
 		}
 	}
 }

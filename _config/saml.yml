@@ -55,13 +55,13 @@ SAMLConfiguration:
   debug: true
   SP:
     entityId: "https://md.studentlife.uiowa.edu/sp"
-    privateKey: "/local/www/certs/saml[PROD].pem"
-    x509cert: "/local/www/certs/saml[PROD].crt"
+    privateKey: "/local/www/certs/saml.pem"
+    x509cert: "/local/www/certs/saml.crt"
     nameIdFormat: "urn:oid:1.2.840.113556.1.4.2"
   IdP:
-    entityId: "iowafed-test:idp:uiowa.edu"
-    x509cert: "/local/www/certs/idp-test.uiowa.edu.SAMLsigning_8443.cert"
-    singleSignOnService: "https://idp-test.uiowa.edu/idp/profile/SAML2/Redirect/SSO"
+    entityId: "urn:mace:incommon:uiowa.edu"
+    x509cert: "/local/www/certs/uiowa_idp_prod_public_cert.pem"
+    singleSignOnService: "https://idp.uiowa.edu/idp/profile/SAML2/Redirect/SSO"
   Security:
     signatureAlgorithm: "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
 ---

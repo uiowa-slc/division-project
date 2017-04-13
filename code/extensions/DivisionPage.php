@@ -43,11 +43,18 @@ class DivisionPage extends DataExtension {
 
 
 	);
+	private static $hide_from_hierarchy = array('BlogPost','Topic');
 
-	public function getCMSFields() {
-		$f = parent::getCMSFields();
+	public function updateCMSFields(FieldList $f) {
+		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
+		$config = SiteConfig::current_site_config(); 
+
+		if(!$config->GoogleAnalyticsID) {
+			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
+				"<p class=\"message warning\">Google Analytics ID hasn't been set for this site. <a href=\"admin/settings/\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
+		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
@@ -63,7 +70,7 @@ class DivisionPage extends DataExtension {
 			)->setEmptyString('(Default Layout)');
 			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
-		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></p>'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
 		$f->addFieldToTab("Root.SocialMediaSharing", new UploadField('OgImage', 'Social Share Image'));
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
@@ -104,7 +111,7 @@ class DivisionPage extends DataExtension {
 
 		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
 		// $f->addFieldToTab('Root.Widgets', new LiteralField('SidebarManageLabel', '<p><a href='admin/sidebar-items' target='_blank'>View and Manage Sidebar Items &raquo;</a></p>'));
-		$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
+		//$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
 
 
 		$f->addFieldsToTab("Root.Main", array(
@@ -114,12 +121,12 @@ class DivisionPage extends DataExtension {
 		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
 
 
-		return $f;
+		// return $f;
 
 	}
 
 	public function LayoutTypes(){
-		return $this->stat('layout_types');
+		return $this->owner->stat('layout_types');
 	}
 
 	public function getSettingsFields() {
@@ -163,7 +170,7 @@ class DivisionPage extends DataExtension {
 
 
 	}
-
+	//Frontend labels for various page types when the user sees them in site search results:
 	public function NiceName() {
 		$niceNames = array(
 			'Page'                => '',

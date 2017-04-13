@@ -1,11 +1,12 @@
-//SilverStripe only likes to give the "action" class to submit/login buttons. Extend this class/element combo with either Foundation button mixin, or button class:
+//SilverStripe likes to give one class, "action" to submit/login buttons. Extend this class/element combo with either 
+//Foundation button mixin, or button class:
 input.action{
 	// Foundation button:
 	//@include button();
 	//Custom button from components/button
 	@extend .button;
 	@extend .button--shaded-large;
-
+	margin-bottom: rem-calc(10);
 }
 
 //SilverStripe likes to put radio buttons (optionset field) in unordered lists. Remove bullets:

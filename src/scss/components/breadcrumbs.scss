@@ -1,7 +1,6 @@
 .breadcrumb {
-	background-color: #111;
+	background-color: #242424;
 	height: 50px;
-	margin-bottom: 40px;
 	position: relative;
 	@include breakpoint(medium) {
 		height: auto;
@@ -74,10 +73,19 @@
 		}
 	}
 }
-.body--dark .breadcrumb {
-	background-color: $yellow;
+.body--dark-header .breadcrumb {
+	background-color: transparent;
+	top: 1px;
 	&__anchor {
 		color: $black;
+	}
+	&__listitem:first-child {
+		background-color: #fff;
+	}
+	@include breakpoint(small down) {
+		&:after { // adds fade to right side of breadcrumbs on mobile
+			display: none;
+		}
 	}
 }
 

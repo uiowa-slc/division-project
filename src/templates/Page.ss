@@ -1,10 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <% base_tag %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <% if $MetaDescription %><meta name="description" content="$MetaDescription.LimitCharacters(160)"><% end_if %>
+    <% if $MetaDescription %>
+      <meta name="description" content="$MetaDescription.LimitCharacters(160)">
+    <% else %>
+      <meta name="description" content="$Content.ATT.LimitCharacters(160)">
+    <% end_if %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if $URLSegment = 'home' %>
       <title>$SiteConfig.Title | The University of Iowa</title>
@@ -26,7 +30,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <meta name="apple-mobile-web-app-title" content="$SiteConfig.Title">
     <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
@@ -44,20 +48,25 @@
   <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
     <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
     <!-- Add your site or app content here -->
-    $Layout
+    <% if $SiteConfig.ShowExitButton %>
+    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <% end_if %>
+      $Layout
+
+    
 
     <% include Footer %>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
-    <script src="division-project/bower_components/vide/dist/jquery.vide.min.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <% if $SiteConfig.GoogleAnalyticsID %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-XXXXX-X', 'auto');
+      ga('create', '$SiteConfig.GoogleAnalyticsID', 'auto');
       ga('send', 'pageview');
     </script>
+    <% end_if %>
   </body>
 </html>

@@ -1,30 +1,4 @@
-	<% if $Type == "slideshow" %>
+<div>
+	<iframe class="flickr-slideshow dp-lazy" data-original="https://www.flickr.com/photos/{$FlickrUser}/sets/{$Photoset.ID}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+</div>
 
-		<% if $Photoset %>
-			<iframe class="flickr-slideshow lazy" src="https://www.flickr.com/photos/{$FlickrUser}/sets/{$Photoset}/player/" width="100%" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-		<% else %>
-			<div class="flexslider">
-				<ul class="slides">
-					<% loop $Photos %>
-					<li><a href="$Large1024Url"><img src="$Medium800Url" role="presentation" alt=""></a></li>
-					<% end_loop %>
-				</ul>
-			</div>
-		<% end_if %>
-	<% else_if $Type == "gallery" %>
-		<ul class="large-block-grid-{$Columns} slideshow-container">
-			<% loop $Photos %>
-				<li>
-					<p><a href="$Large1024Url" title="$Description"><img data-src="$Medium800Url" src="<% include PlaceholderLargeSrc %>" /></a></p>
-					<% if $Description || $Title %><p><% if $Title %><strong>$Title</strong><br /><% end_if %> <% if $Description %>$Description<% end_if %></p><% end_if %></div>
-				</li>
-			<% end_loop %>
-		</ul>
-	<% else_if $Type == "grid" %>
-		<div class="slideshow-grid-container">
-			<% loop $Photos %>
-				<div class="slideshow-grid-item slideshow-grid-item--width{$Up.Columns} <% if $MultipleOf(5) && $Up.Columns == "2" %>slideshow-grid-item--width4<% else_if $MultipleOf(4) && $Up.Columns == "3" %>slideshow-grid-item--width4<% end_if %>"><p><a href="$Large1024Url" title="$Description"><img src="$Medium800Url" role="presentation" alt="" /></a></p>
-				<% if $Description || $Title %><p><% if $Title %><strong>$Title</strong><br /><% end_if %> <% if $Description %>$Description<% end_if %></p><% end_if %></div>
-			<% end_loop %>
-		</div>
-	<% end_if %>

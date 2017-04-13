@@ -14,15 +14,16 @@ class SlideshowBlock extends Block{
 		'SlideshowBlockImages' => 'SlideshowBlockImage'
 	);
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$fields = new FieldList();
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
 		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
+		$gridFieldConfig->addComponent(new GridFieldBulkUpload('Image', 'SlideshowBlockImage'));
 
 		$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
-		$fields->addFieldToTab("Root.Main", $gridField);
+		$fields->push($gridField);
 
 
 		return $fields;
