@@ -250,6 +250,7 @@
 	}
 	@include breakpoint(large) {
 		@include grid-column(10);
+		@include grid-column-position(center);
 		padding: rem-calc(100 0);
 	}
 }

@@ -156,6 +156,9 @@
 			}
 		}
 	}
+	@include breakpoint(mobile) {
+		max-height: 73px;
+	}
 	@include breakpoint(medium) {
 		max-height: none;
 		overflow: visible;
@@ -163,4 +166,30 @@
 }
 #header.open {
 	max-height: 2500px;
+}
+
+a.skip-link {
+	display: block;
+	background-color: #686e78;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 100;
+	padding: 20px;
+	text-align: center;
+	-webkit-transform: translateY(-300%);
+	-ms-transform: translateY(-300%);
+	transform: translateY(-300%);
+	-webkit-transition: top .35s,-webkit-transform .35s;
+	transition: top .35s,-webkit-transform .35s;
+	transition: transform .35s,top .35s;
+	transition: transform .35s,top .35s,-webkit-transform .35s;
+}
+a.skip-link:focus, a.skip-link:active {
+	outline: 0;
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
 }

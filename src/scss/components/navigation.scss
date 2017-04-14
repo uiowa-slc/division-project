@@ -1,4 +1,5 @@
 .nav__wrapper {
+	visibility: hidden;
 	@include breakpoint(medium) {
 		background: transparent;
 		margin-top: 0;
@@ -41,8 +42,18 @@
 		overflow: hidden;
 	}
 
+	&--light-header {
+		background-color: #242424;
+		@include breakpoint(medium) {
+			background: transparent;
+		}
+	}
+
 	&--dark-header {
 		background-color: #242424;
+		@include breakpoint(medium) {
+			background: transparent;
+		}
 	}
 
 	&--overlay {
@@ -50,6 +61,9 @@
 
 		&:after {
 			background-color: transparent;
+		}
+		@include breakpoint(medium) {
+			background: transparent;
 		}
 	}
 
@@ -67,6 +81,9 @@
 			background-color: desaturate($yellow, 90%);
 		}
 	}
+}
+.header.open .nav__wrapper {
+	visibility: visible;
 }
 .nav__wrapper nav {
 	padding: 0 1em 0;
@@ -175,7 +192,9 @@
 }
 
 //If we're currently hovering over a nav item that has children
-.nav__item--parent:hover, .nav__item--parent.nav__item--is-hovered {
+.nav__item--parent:hover,
+.nav__item--parent.focused,
+.nav__item--parent.nav__item--is-hovered {
 	@include breakpoint(medium) {
 		&:after {
 			background-color: $black;
@@ -194,6 +213,11 @@
 			visibility: visible;
 		}
 	}
+}
+.subnav.show-menu {
+	left: 0;
+	opacity: 1;
+	visibility: visible;
 }
 
 /*-----------
@@ -236,12 +260,16 @@
 }
 
 .nav__item--light-header {
+	border-top: 1px solid #444;
 	&:hover > a {
 		background-color: #242424;
 		color: #fff;
 		&:after {
 			border-color: #fff transparent transparent;
 		}
+	}
+	@include breakpoint(medium) {
+		border:none;
 	}
 }
 //Make the fifth nav item and beyond's dropdown hang from the right:
@@ -299,10 +327,20 @@
 	&--mobile{
 		color: #fff;
 	}
+	&--mobile-toggle {
+		width: 100%;
+		text-align: left;
+		text-transform: none;
+	}
 }
 
 
-.nav__link--search {}
+.nav__link--search {
+	& span {
+		text-indent: -999em;
+		display: inline-block;
+	}
+}
 
 .nav__link--search-is-active {
 	opacity: 0;
@@ -337,22 +375,35 @@
 	background: #222;
 }
 .nav__link--light-header{
+	color: white;
+	&:hover, &:focus {
+		text-decoration: underline;
+	}
 	&:after{
 		border-color: $black transparent transparent;
+	}
+	@include breakpoint(medium) {
+		color: $black;
 	}
 }
 .nav__link--dark-header {
 	color: white;
 	font-weight: 500;
-	&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
-		color: $black;
-		background: white;
+	&:hover, &:focus {
+		text-decoration: underline;
 		&:after {
-			border-color: $black transparent transparent;
+
 		}
 	}
 	@include breakpoint(medium) {
 		font-weight: 600;
+		&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
+			color: $black;
+			background: white;
+			&:after {
+				border-color: $black transparent transparent;
+			}
+		}
 	}
 
 }
@@ -479,6 +530,9 @@
 .nav__toggle--search {
 	left: auto;
 	right: 0;
+	& .nav__link--light-header {
+		color: $black;
+	}
 }
 
 .nav__toggle--menu {
@@ -612,7 +666,19 @@
 	}
 
 }
-
+.nav__link--light-header.nav__link--mobile-toggle {
+	&:hover, &:focus {
+		& .nav__menu-icon--light-header {
+			// background-color: #fff;
+			&:before, &:after {
+				background-color: #fff;
+			}
+		}
+	}
+}
+.header--light-header.open .nav__link--light-header.nav__link--mobile-toggle {
+	background-color: $black;
+}
 
 .subnav {
 	box-shadow: none;
@@ -624,12 +690,16 @@
 	transition: all 0.25s ease-in;
 
 	&--light-header{
-		background: #242424;
-		box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+
+		@include breakpoint(medium) {
+			background-color: #242424;
+			box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		}
 	}
 	&--dark-header {
-		background-color: #fff;
+
 		@include breakpoint(medium) {
+			background-color: #fff;
 			box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 		}
 	}
@@ -716,12 +786,19 @@
 		}
 	}
 }
+.subnav[aria-hidden="true"] {
+	@media (max-width: 640px) {
+		visibility: hidden;
+		height: 0;
+	}
+}
 .nav li.nav__item--opened ul.subnav {
 	@media (max-width: 640px) {
 		border-top: 1px solid #333;
 		padding-top: 15px;
 		max-height: 1000px;
 		padding-bottom: 15px;
+		background-color: #1f1f1f;
 	}
 }
 .subnav__item--column {
@@ -737,9 +814,19 @@
 		border-bottom: none;
 		padding: 8px 0;
 		color: #ddd;
+		&:hover, &:focus {
+			color: #ddd;
+			text-decoration: underline;
+		}
 	}
-
 }
+.nav .nav__item--parent .nav__link--parent {
+	margin-right: 50px;
+	@include breakpoint(medium) {
+		margin-right: 0;
+	}
+}
+
 /* button */
 .nav button.second-level--open {
 	position: absolute;
@@ -747,8 +834,13 @@
 	top: 0;
 	outline: 0;
 	border-left: 1px solid #333;
-	padding: 21px 12px 21px 17px;
+	padding: 0;
+	width: 50px;
+	height: 58px;
 	background-color: transparent;
+	&:hover, &:focus {
+		background-color: #1f1f1f;
+	}
 	@include breakpoint(medium) {
 		display: none;
 	}
