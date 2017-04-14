@@ -4,7 +4,11 @@
     <% base_tag %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <% if $MetaDescription %><meta name="description" content="$MetaDescription.LimitCharacters(160)"><% end_if %>
+    <% if $MetaDescription %>
+      <meta name="description" content="$MetaDescription.LimitCharacters(160)">
+    <% else %>
+      <meta name="description" content="$Content.ATT.LimitCharacters(160)">
+    <% end_if %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if $URLSegment = 'home' %>
       <title>$SiteConfig.Title | The University of Iowa</title>
@@ -54,7 +58,6 @@
     <% include Footer %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
-    <script src="division-project/bower_components/vide/dist/jquery.vide.min.js"></script>
     <% if $SiteConfig.GoogleAnalyticsID %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

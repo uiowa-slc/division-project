@@ -170,7 +170,7 @@ class DivisionPage extends DataExtension {
 
 
 	}
-
+	//Frontend labels for various page types when the user sees them in site search results:
 	public function NiceName() {
 		$niceNames = array(
 			'Page'                => '',
