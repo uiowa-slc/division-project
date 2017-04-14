@@ -87,7 +87,7 @@ var slideshowflk = $slideshow.data('flickity');
 $slideshow.on( 'select.flickity', function() {
 	console.log( 'Flickity select ' + slideshowflk.selectedIndex );
 	//slideshowflk.reloadCells();
-  
+
 })
 
 /*-------------------------------------------------*/
@@ -262,8 +262,20 @@ $('.nav__toggle--menu').on('click', function(){
 	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
 	$(this).parent().toggleClass('open');
 });
+
 $('.second-level--open').click(function(){
 	$(this).parent().toggleClass('nav__item--opened');
+	if ($(this).next().attr('aria-hidden') == 'true') {
+		$(this).next().attr('aria-hidden', 'false')
+	} else {
+		$(this).next().attr('aria-hidden', 'true')
+	}
+
+	if ($(this).attr('aria-expanded') == 'false') {
+		$(this).attr('aria-expanded', 'true')
+	} else {
+		$(this).next().attr('aria-expanded', 'false')
+	}
 });
 
 
