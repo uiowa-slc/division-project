@@ -42,14 +42,14 @@
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
   <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
-    <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
+    <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
     <!-- Add your site or app content here -->
     <% if $SiteConfig.ShowExitButton %>
     <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
     <% end_if %>
       $Layout
 
-    
+
 
     <% include Footer %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
