@@ -38,7 +38,7 @@
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
       "silverstripe/activedirectory": "3.*",
-      "olliepop/fbpagefeed": "dev-fb-sdk5.4"
+      "olliepop/fbpagefeed": "dev-master"
    },
    "repositories":[  
       {  

@@ -1,0 +1,32 @@
+
+
+/* Text Block
+======================================================================= */
+.block_area_sidebar .textblock {
+	font-size: rem-calc(16);
+}
+
+/* Textblock
+======================================================================= */
+.block_area_sidebar .textblock {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 1em;
+	padding: rem-calc(20);
+	& h1, h2, h3, h4, h5, h6 {
+		margin: .25em 0 .5em;
+	}
+	& h1 {
+		font-size: rem-calc(32);
+	}
+	& h2 {
+		font-size: rem-calc(22);
+	}
+	& h3 {
+		font-size: rem-calc(20);
+	}
+	& h4 {
+		font-size: rem-calc(19);
+	}
+}
+

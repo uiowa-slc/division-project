@@ -81,12 +81,19 @@
 @import "components/featured-page";
 @import "components/tile-grid";
 @import "components/profile";
-@import "components/content-blocks";
 @import "components/bg-media";
 @import "components/widgets";
 @import "components/exit-button";
 
-@import "components/blocks/flickr-slideshow";
+@import "components/content-blocks/content-blocks";
+@import "components/content-blocks/featuredpage";
+@import "components/content-blocks/flickr-slideshow";
+@import "components/content-blocks/news";
+@import "components/content-blocks/slideshow";
+@import "components/content-blocks/staff-members";
+@import "components/content-blocks/text-block";
+@import "components/content-blocks/upcoming-events";
+@import "components/content-blocks/video";
 
 // Layouts
 @import "layouts/header";

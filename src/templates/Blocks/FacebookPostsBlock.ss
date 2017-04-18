@@ -6,23 +6,10 @@
 
 <section class="content-block__container">
 	<div class="content-block row column">
-		<div class="$CSSClasses">
-			<h2 class="recentnewsblock__header"><% if $Title %>$Title<% else %>Recent News<% end_if %></h2>
+		<div class="newsblock">
+			<h2 class="newsblock__header"><% if $Title %>$Title<% else %>From Facebook<% end_if %></h2>
 			<% loop $Entries.limit(3) %>
-				<article class="bloglistitem clearfix ">
-					<% if $ImageSource %>
-						<a href="$URL" class="bloglistitem__img border-effect">
-							<img src="$ImageSource.URL" alt="$Title">
-						</a>
-					<% end_if %>
-					<div class="bloglistitem__content<% if $ImageSource %>--wimage<% end_if %>">
-						<p class="bloglistitem__category">
-							<a href="$URL" class="bloglistitem__category"><i class="fa fa-facebook"></i> Facebook</a>
-						</p>
-						<p class="bloglistitem__desc">$Content</p>
-						<p class="bloglistitem__date">Posted $TimePosted.NiceUS</p>
-					</div>
-				</article>
+				<% include FbPostCard %>
 			<% end_loop %>
 			<br>
 		</div>
