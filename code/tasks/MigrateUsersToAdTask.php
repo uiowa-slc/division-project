@@ -49,6 +49,7 @@
 			        	if($data["count"] == 1){
 			        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
 			        		echo "<p>Found a GUID (".$memberGuid.") matching the email <strong>".$member->Email."</strong>, adding it to the local member's GUID field.</p>";
+			        		$member->Password = '';
 			        		$member->GUID = $memberGuid;
 			        		$member->write();
 			        		echo "<p><strong>Done.</strong></p>";

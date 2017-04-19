@@ -38,6 +38,10 @@ class SiteConfigExtension extends DataExtension {
 		'PosterImage' => 'Image'
 	);
 
+	private static $defaults = array(
+		'TypeKitID' => 'ggu1mkb'
+	);
+
 	public function updateCMSFields(FieldList $fields) {
 		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark header throughout site'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division of Student Life branding elements'));
