@@ -1,7 +1,7 @@
 <% if $Entries %>
 <section class="content-block__container recentnews">
 	<div class="content-block row">
-		<div class="$CSSClasses">
+		<div class="newsblock">
 			<div class="column">
 				<h3 class="newsblock-title text-center"><% if $Title %>$Title<% else %>Recent News<% end_if %></h3>
 			</div>
