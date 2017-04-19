@@ -6,8 +6,11 @@
 	<% base_tag %>
 	<meta charset="utf-8">
 	
-	<meta name="description" content="" /> 
+	<% if $MetaDescription %>
+	<meta name="description" content="$MetaDescription.ATT" />
+	<% end_if %> 
 	<meta name="viewport" content="width=device-width">
+	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
 	<% include OpenGraph %>
