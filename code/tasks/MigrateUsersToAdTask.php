@@ -41,23 +41,39 @@
 			        $members = Member::get();
 
 			        foreach($members as $member){
+
 			        	echo '<hr />';
 			        	echo '<h2>Working on user: '.$member->Email.'</h2>';
-			        	$result = ldap_search($ldapconn,$ldaptree, "mail=".$member->Email, array("mail","objectGUID")) or die ("Error in search query: ".ldap_error($ldapconn));
-			        	$data = ldap_get_entries($ldapconn, $result);
+			        	if($member->GUID){
+			        		echo '<p>User already has an Active Directory GUID associated... skipping..</p>';
+		 					
 
-			        	if($data["count"] == 1){
-			        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
-			        		echo "<p>Found a GUID (".$memberGuid.") matching the email <strong>".$member->Email."</strong>, adding it to the local member's GUID field.</p>";
-			        		$member->Password = '';
-			        		$member->GUID = $memberGuid;
-			        		$member->write();
-			        		echo "<p><strong>Done.</strong></p>";
-			        	}elseif($data["count"] == 0){
-			        		echo "<p>No results found for <strong>".$member->Email."</strong>.</p>";
-			        	}elseif($data["count" > 1]){
-			        		echo "<p>Multiple results found for <strong>".$member->Email."</strong>, so I'm going to skip it because this is weird and unexpected.</p>";
+
+			        	}else{
+				        	$result = ldap_search($ldapconn,$ldaptree, "mail=".$member->Email, array("mail","objectGUID")) or die ("Error in search query: ".ldap_error($ldapconn));
+				        	$data = ldap_get_entries($ldapconn, $result);
+
+				        	if($data["count"] == 1){
+				        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
+				        		echo "<p>Found an AD GUID (".$memberGuid.") matching the email <strong>".$member->Email."</strong>, adding it to the local member's GUID field.</p>";
+				      			$member->Password = Member::create_new_password();
+			 					$member->write();
+
+			 					$oldPasswords = $member->LoggedPasswords();
+			 					foreach($oldPasswords as $oldPassword){
+			 						$oldPassword->delete();
+			 					}
+			        			echo '<p><strong>...And Old Passwords TRASHED</strong></p>';
+				        		$member->GUID = $memberGuid;
+				        		$member->write();
+				        		echo "<p><strong>Done.</strong></p>";
+				        	}elseif($data["count"] == 0){
+				        		echo "<p>No Active Directory GUID results found for <strong>".$member->Email."</strong>.</p>";
+				        	}elseif($data["count" > 1]){
+				        		echo "<p>Multiple results found for <strong>".$member->Email."</strong>, so I'm going to skip it because this is weird and unexpected.</p>";
+				        	}		        		
 			        	}
+
 			       	}
 
 			    } else {
