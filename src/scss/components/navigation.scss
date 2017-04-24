@@ -231,10 +231,12 @@
 
 	}
 	&:hover > a {
-		background-color: #fff;
-		color: #222;
-		&:after {
-			border-color: #222 transparent transparent;
+		@include breakpoint(medium) {
+			background-color: #fff;
+			color: #222;
+			&:after {
+				border-color: #222 transparent transparent;
+			}
 		}
 	}
 	&:hover:after {
@@ -335,12 +337,7 @@
 }
 
 
-.nav__link--search {
-	& span {
-		text-indent: -999em;
-		display: inline-block;
-	}
-}
+.nav__link--search {}
 
 .nav__link--search-is-active {
 	opacity: 0;
