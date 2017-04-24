@@ -1,0 +1,120 @@
+
+
+
+
+
+
+/* ====================================================================
+Slideshow Block OLD ORBIT
+======================================================================= */
+.slideshowblock {
+	& .orbit {
+		margin-bottom: 2em;
+	}
+	& .orbit-container {
+		height: auto !important;
+
+	}
+	& .orbit-slide {
+		padding-bottom: 50px;
+		max-height: 750px !important;
+		@include breakpoint(large) {
+			padding-bottom: 100px;
+		}
+	}
+	& .orbit-caption {
+		background-color: #000;
+		position: absolute;
+		padding-left: 125px;
+		height: 50px;
+		bottom: 0;
+		& span {
+			position: relative;
+			top: 50%;
+			display: block;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		@include breakpoint(large) {
+			height: 100px;
+		}
+	}
+	& .orbit-previous,
+	& .orbit-next {
+		background-color: #fefefe;
+		color: $black;
+		font-size: 16px;
+		width: 50px;
+		height: 50px;
+		bottom: -25px;
+		top: auto;
+		@include breakpoint(large) {
+			height: 100px;
+			bottom: -50px;
+		}
+	}
+	& .orbit-next {
+		left: 50px;
+		right: auto;
+	}
+}
+
+
+
+.block_area_beforecontent .slideshowblock,
+.block_area_aftercontent .slideshowblock {
+	padding: 1px;
+	& .orbit {
+		margin-bottom: 0;
+	}
+	&__title {
+		background-color: #222;
+		background-color: rgba(0,0,0,.9);
+		position: absolute;
+		z-index: 10;
+		color: #fff;
+		margin: 0;
+		padding: 20px 40px;
+	}
+}
+
+
+/* ====================================================================
+Slideshow Block NEW
+======================================================================= */
+.slideshow{
+
+}
+.slideshow__caption{
+	background-color: #000;
+	padding: rem-calc(10);
+	color: white;
+}
+
+.slideshow__title{
+	text-align :center;
+}
+
+.slideshow__img{
+	max-width: none;
+	width: 100%;
+}
+
+.slideshow__slide{
+	width: 100%;
+
+}
+
+
+.slideshow__slide--multiple-slides{
+	padding: 0 rem-calc(10);
+}
+
+.slideshow__slide--multiple-slides{
+	width: 33%;
+}
+
+.slideshow__slide--no-title{
+	padding: rem-calc(20) rem-calc(10);
+}

@@ -1,0 +1,44 @@
+/* ====================================================================
+Video Block
+======================================================================= */
+.block_area_beforecontentconstrained .videoblock,
+.block_area_aftercontentconstrained .videoblock {
+	margin-bottom: 1em;
+}
+.block_area_sidebar .backgroundvideo__container {
+	@include breakpoint(large) {
+		height: 200px;
+	}
+}
+
+/* Sidebar ------------------------------ */
+.block_area_sidebar .videoblock {
+	background-color: $cream;
+	&__title {
+		font-size: rem-calc(20);
+		text-transform: uppercase;
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
+	}
+	&__desc {
+		font-size: rem-calc(16);
+		margin: rem-calc(20 0);
+	}
+	&__body {
+		width: 100%;
+		float: none;
+		padding: rem-calc(20);
+		padding-top: 0;
+	}
+}

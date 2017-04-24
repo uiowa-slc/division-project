@@ -3,7 +3,7 @@
 
 	<% if $NotFirstPage %>
 		<li class="pagination-previous">
-			<a href="{$PrevLink}" aria-label="Next page">Previous</a>
+			<a href="{$PrevLink}" aria-label="Previous page">Previous</a>
 		</li>
 	<% else %>
 		<li class="pagination-previous disabled">Previous</li>

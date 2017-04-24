@@ -3,12 +3,12 @@
 	<div class="content-block row">
 		<div class="newsblock">
 			<div class="column">
-				<h3 class="newsblock-title text-center"><% if $Title %>$Title<% else %>Recent News<% end_if %></h3>
+				<h3 class="recentnews-title text-center"><% if $Title %>$Title<% else %>From Facebook<% end_if %></h3>
 			</div>
 			<ul class="medium-up-3 ">
 				<% loop $Entries.limit(3) %>
 					<li class="column column-block">
-						<% include BlogCard %>
+						<% include FbPostCard%>
 					</li>
 				<% end_loop %>
 			</ul>
