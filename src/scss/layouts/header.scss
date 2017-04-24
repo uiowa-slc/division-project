@@ -56,7 +56,7 @@
 
 .header__container {
 	position: relative;
-	// padding-bottom: rem-calc(20);
+	z-index: 10;
 	&:after {
 		transition: background-color 1s;
 		background-color: $yellow;
