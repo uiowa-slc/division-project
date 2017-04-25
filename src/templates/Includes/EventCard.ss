@@ -3,13 +3,13 @@
 	<%-- image --%>
 	<div class="eventcard-imgwrap">
 		<% if $Image %>
-			<a href="$Link"><div style="background-image: url($Image.URL);"></div></a>
+			<a href="$Link"><div style="background-image: url($Image.URL);">$Title</div></a>
 			<%-- <img src="$Image.URL" alt="$Title" class="eventcard-img"> --%>
 		<% else_if $Venue.ImageURL %>
-			<a href="$Link"><div style="background-image: url($Venue.ImageURL);"></div></a>
+			<a href="$Link"><div style="background-image: url($Venue.ImageURL);">$Title</div></a>
 			<%-- <img src="$Venue.ImageURL" alt="$Venue.Title" class="eventcard-img"> --%>
 		<% else %>
-			<a href="$Link"><div style="background-image: url({$ThemeDir}/images/LocalistEventPlaceholder.jpg);"></div></a>
+			<a href="$Link"><div style="background-image: url({$ThemeDir}/images/LocalistEventPlaceholder.jpg);">$Title</div></a>
 			<%-- <img src="{$ThemeDir}/images/LocalistEventPlaceholder.jpg" alt="$Title" class="eventcard-img"> --%>
 		<% end_if %>
 	</div>
