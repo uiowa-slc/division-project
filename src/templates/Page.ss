@@ -55,23 +55,7 @@
 
 
     <% include Footer %>
-  <script>
-  // Listen to the Initialized event
-  window.addEventListener('LazyLoad::Initialized', function (e) {
-      // Get the instance and puts it in the lazyLoadInstance variable
-      lazyLoadInstance = e.detail.instance;
-  }, false);
 
-  // Set the lazyload options for async usage
-  lazyLoadOptions = {
-    // example of options object -> see options section
-    elements_selector: ".dp-lazy"
-    // throttle: 200,
-    // data_src: "src",
-    // data_srcset: "srcset",
-    // callback_set: function() { /* ... */ }
-  };
-  </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
     <% if $SiteConfig.GoogleAnalyticsID %>
