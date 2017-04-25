@@ -1,15 +1,20 @@
 <?php
-class LandingPage extends Page {
+class LandingPageSection extends DataObject {
 
 	private static $db = array(
+		'Title' => 'Varchar(155)',
+		'Content' => 'HTMLText',
+		'SortOrder' => 'Int'
 
 	);
 
 	private static $has_one = array(
-
-
+		'LandingPage' => 'LandingPage'
 	);
 
+	private static $default_sort = array(
+		'SortOrder'
+	);
 	//public static $allowed_children = array ("BranchPersonPage");
 
 	function getCMSFields() {
@@ -22,12 +27,4 @@ class LandingPage extends Page {
 		return $fields;
 	}
 
-}class LandingPage_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-	}
 }

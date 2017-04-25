@@ -36,13 +36,11 @@
             that.cache = {};
             that.last_val = '';
 
-            var siteSearchDiv = $('.site-search');
-
             that.updateSC = function(resize, next){
                 that.sc.css({
-                    top: siteSearchDiv.offset().top + that.outerHeight(),
-                    left: siteSearchDiv.offset().left,
-                    width: siteSearchDiv.outerWidth()
+                    top: that.offset().top + that.outerHeight(),
+                    left: that.offset().left,
+                    width: that.outerWidth()
                 });
                 if (!resize) {
                     that.sc.show();

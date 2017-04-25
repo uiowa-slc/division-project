@@ -87,7 +87,7 @@ img:not([src]) {
 	}
 
 	&__text {
-		//Hack to disable in-content headerrs (DEPRECATED!!!)
+		//Hack to disable in-content headers
 		h1 {
 			display: none;
 		}
