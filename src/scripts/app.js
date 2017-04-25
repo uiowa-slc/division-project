@@ -12,14 +12,14 @@ if (bases.length > 0) {
 // Lazy Loading Images:
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-var myLazyLoad = new LazyLoad({
-    // example of options object -> see options section
-    elements_selector: ".dp-lazy"
-    // throttle: 200,
-    // data_src: "src",
-    // data_srcset: "srcset",
-    // callback_set: function() { /* ... */ }
-});
+// var myLazyLoad = new LazyLoad({
+//     // example of options object -> see options section
+//     elements_selector: ".dp-lazy"
+//     // throttle: 200,
+//     // data_src: "src",
+//     // data_srcset: "srcset",
+//     // callback_set: function() { /* ... */ }
+// });
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
