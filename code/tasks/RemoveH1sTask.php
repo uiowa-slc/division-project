@@ -17,7 +17,7 @@ class RemoveH1sTask extends BuildTask{
 
 			if($pageContent != ''){
 				$doc = new DOMDocument();
-				$doc->loadHTML($pageContent);
+				$doc->loadHTML('<?xml version="1.0" encoding="UTF-8"?>' . "\n" .$pageContent);
 				$headings = $doc->getElementsByTagName('h1');
 				$heading = $headings->item(0);
 
@@ -27,6 +27,7 @@ class RemoveH1sTask extends BuildTask{
 					echo '<li>Working on page <strong>'.$page->Title.'</strong> h1 finder found and removed this node: <em>'.$heading->textContent.'</em></li>';
 
 					$heading->parentNode->removeChild($heading);
+				
 					$page->Content = $doc->saveHTML();
 				}else{
 					echo '<li>Working on page <strong>'.$page->Title.'</strong> and <strong>no h1 was found...</strong></li>';
