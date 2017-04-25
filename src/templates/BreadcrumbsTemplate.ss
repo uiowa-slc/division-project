@@ -1,14 +1,14 @@
 <% if Pages %>
-	<nav id="breadcrumblabel" aria-label="You are here:" role="navigation" class="breadcrumb no-print">
+	<nav aria-label="Breadcrumb" class="breadcrumb no-print">
 		<div class="column row">
-			<ol aria-labelledby="breadcrumblabel" class="clearfix breadcrumb__list">
+			<ol class="clearfix breadcrumb__list">
 				<li class="breadcrumb__listitem">
 					<a href="$Baseref" class="breadcrumb__anchor"><span class="breadcrumb__name">Home</span></a>
 				</li>
 				<% loop Pages %>
 					<% if Last %>
 						<li class="breadcrumb__listitem">
-							<strong class="breadcrumb__anchor breadcrumb__anchor--active" aria-current="page">$Title.XML</strong>
+							<a href="$Link" class="breadcrumb__anchor breadcrumb__anchor--active" aria-current="page">$Title.XML</a>
 						</li>
 					<% else %>
 						<li class="breadcrumb__listitem">
