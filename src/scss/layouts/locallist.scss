@@ -23,6 +23,9 @@ Calendar Holder Page
 .eventcard-title {
 	margin-top: 0;
 	margin-bottom: 10px;
+	& a:hover, & a:focus {
+		text-decoration: underline;
+	}
 }
 .eventcard-content {
 	font-size: 16px;
@@ -46,6 +49,7 @@ Calendar Holder Page
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: relative;
+	text-indent: -999em;
 }
 .eventcard-venue,
 .eventcard-dates {

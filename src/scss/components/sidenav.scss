@@ -63,6 +63,7 @@
 				}
 				&:hover, &:focus {
 					background-color: #222;
+					text-decoration: underline;
 				}
 			}
 			&.sidenav__item--current {
@@ -105,6 +106,9 @@
 		font-size: rem-calc(16);
 		padding: rem-calc(14 20);
 		position: relative;
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
 	}
 	&__section-title {
 		border-top: 4px solid #111;

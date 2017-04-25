@@ -28,6 +28,9 @@
 			}
 			& .eventcard-title a {
 				color: $black;
+				&:hover, &:focus {
+					text-decoration: underline;
+				}
 			}
 			& .eventcard-content {
 				margin-left: 0;

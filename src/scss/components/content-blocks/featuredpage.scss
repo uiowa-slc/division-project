@@ -32,6 +32,9 @@
 		}
 		& a {
 			color: $body-font-color;
+			&:hover, &:focus {
+				text-decoration: underline;
+			}
 		}
 		&:after {
 			content: '';
