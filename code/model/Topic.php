@@ -6,6 +6,10 @@ class Topic extends BlogPost {
 		'TopicQuestions' => 'TopicQuestion'
 	);
 
+	private static $belongs_many_many = array(
+		'Locations' => 'LocationPage'
+	);
+
     public function AllTags(){
         $tags = BlogTag::get()->filter(array('BlogID' => $this->ParentID))->sort('Title ASC');
         return $tags;
