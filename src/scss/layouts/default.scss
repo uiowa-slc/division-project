@@ -48,12 +48,12 @@ img:not([src]) {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		a:after {
-			@include css-triangle(6px, $anchor-color, right);
-			// margin-bottom: 4px;
-			margin-left: 5px;
-			display: inline-block;
-		}
+		// a:after {
+		// 	@include css-triangle(6px, $anchor-color, right);
+		// 	// margin-bottom: 4px;
+		// 	margin-left: 5px;
+		// 	display: inline-block;
+		// }
 	}
 
 	&--with-padding {
@@ -87,7 +87,7 @@ img:not([src]) {
 	}
 
 	&__text {
-		//Hack to disable in-content headerrs (DEPRECATED!!!)
+		//Hack to disable in-content headers
 		h1 {
 			display: none;
 		}

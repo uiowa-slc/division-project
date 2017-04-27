@@ -1,5 +1,8 @@
 'use strict';
 
+// for dev: "npm start" 
+// for production: "npm run-script build"
+
 import plugins  from 'gulp-load-plugins';
 import yargs    from 'yargs';
 import browser  from 'browser-sync';
@@ -110,7 +113,7 @@ function javascript() {
   PATHS.javascript.push(PATHS.theme + '/src/scripts/app.js');
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.babel({ignore: ['what-input.js']}))
+    .pipe($.babel({ignore: ['what-input.js', 'lazyload.transpiled.js']}))
     .pipe($.concat('app.js'))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })

@@ -1,5 +1,5 @@
 .breadcrumb {
-	background-color: #111;
+	background-color: #242424;
 	height: 50px;
 	position: relative;
 	@include breakpoint(medium) {
@@ -46,7 +46,7 @@
 		}
 		&:hover, &:focus, &:active {
 			color: #fff;
-			text-decoration: none;
+			text-decoration: underline;
 			opacity: 1;
 		}
 		&--active {
@@ -80,7 +80,7 @@
 		color: $black;
 	}
 	&__listitem:first-child {
-		background-color: #fff;
+		background-color: transparent;
 	}
 	@include breakpoint(small down) {
 		&:after { // adds fade to right side of breadcrumbs on mobile

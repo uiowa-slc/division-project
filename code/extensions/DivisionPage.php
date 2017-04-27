@@ -49,6 +49,16 @@ class DivisionPage extends DataExtension {
 		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
+		$config = SiteConfig::current_site_config(); 
+
+		if(!$config->GoogleAnalyticsID) {
+			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
+				"<p class=\"message warning\">Google Analytics ID hasn't been set for this site. <a href=\"admin/settings/\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
+		}
+		if(!$config->TypeKitID) {
+			$f->addFieldToTab("Root.Main", new LiteralField("TypeKitWarning",
+				"<p class=\"message warning\">Typekit ID hasn't been set for this site. <a href=\"admin/settings/#Root_TypeKit\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
+		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
@@ -64,7 +74,7 @@ class DivisionPage extends DataExtension {
 			)->setEmptyString('(Default Layout)');
 			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
-		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></p>'));
+		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
 		$f->addFieldToTab("Root.SocialMediaSharing", new UploadField('OgImage', 'Social Share Image'));
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
@@ -164,7 +174,7 @@ class DivisionPage extends DataExtension {
 
 
 	}
-
+	//Frontend labels for various page types when the user sees them in site search results:
 	public function NiceName() {
 		$niceNames = array(
 			'Page'                => '',

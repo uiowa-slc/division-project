@@ -2,11 +2,11 @@
 	<a href="$Link" class="stafflist__link">
 		<% if $Photo %>
 			<div class="stafflist__img">
-				<img src="$Photo.Fill(350,234).URL" alt="Photograph of $FirstName $LastName">
+				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.Fill(350,234).URL" width="350" height="234" alt="Photograph of $FirstName $LastName">
 			</div>
 		<% else %>
 			<div href="$Link" class="stafflist__img">
-				<img src="{$ThemeDir}/dist/images/dosl.png" alt="Photograph of $FirstName $LastName">
+				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="350" height="234" alt="Placeholder photo for $FirstName $LastName">
 			</div>
 		<% end_if %>
 		<div class="stafflist__text">

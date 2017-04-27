@@ -4,7 +4,7 @@
     <% base_tag %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <% if $MetaDescription %><meta name="description" content="$MetaDescription.LimitCharacters(160)"><% end_if %>
+    $MetaTags
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if $URLSegment = 'home' %>
       <title>$SiteConfig.Title | The University of Iowa</title>
@@ -16,43 +16,48 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Web Application Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="division-project/src/favicons/manifest.json">
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Web Starter Kit">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
-
+    <meta name="application-name" content="$SiteConfig.Title">
+    
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="$SiteConfig.Title">
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <link rel="apple-touch-icon" sizes="180x180" href="division-project/src/favicons/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" href="division-project/src/favicons/favicon-32x32.png?v=2" sizes="32x32">
+    <link rel="icon" type="image/png" href="division-project/src/favicons/favicon-16x16.png?v=2" sizes="16x16">
+    <link rel="icon" type="image/png" href="division-project/src/favicons/favicon-192x192.png?v=2" sizes="192x192">
 
-    <!-- Color the status bar on mobile devices -->
-    <meta name="theme-color" content="#2F3BA2">
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
+    <link rel="manifest" href="division-project/src/favicons/manifest.json">
+    <link rel="mask-icon" href="division-project/src/favicons/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="division-project/src/favicons/favicon.ico">
+    <meta name="msapplication-config" content="division-project/src/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+
+    <% if $PreventSearchEngineIndex %>
+      <meta name="robots" content="noindex">
+    <% end_if %>
+
     $TypeKit
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
   <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
-    <p class="show-for-sr"><a class="show-on-focus" href="#main-content__container">Skip to Content</a></p>
+    <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
     <!-- Add your site or app content here -->
-
+    <% if $SiteConfig.ShowExitButton %>
+    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <% end_if %>
       $Layout
 
-    
+
 
     <% include Footer %>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
-    <script src="division-project/bower_components/vide/dist/jquery.vide.min.js"></script>
     <% if $SiteConfig.GoogleAnalyticsID %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

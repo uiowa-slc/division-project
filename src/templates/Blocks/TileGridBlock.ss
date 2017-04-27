@@ -5,14 +5,14 @@
 	<% if $Holder %>
 	<% with $Holder %>
 		<% loop $Children %>
-			<a href="$Link" class="tile column" style="background-image: url('$BackgroundImage.URL')">
+			<a href="$Link" class="tile column dp-lazy" data-original="$BackgroundImage.URL">
 				<div class="tile__text"><h2 class="tile__header">$Title</h2></div>
 			</a>
 		<% end_loop %>
 	<% end_with %>
 	<% else_if $CustomPages %>
 		<% loop $CustomPages %>
-			<a href="$Link" class="tile column" style="background-image: url('$BackgroundImage.URL')">
+			<a href="$Link" class="tile column dp-lazy" data-original="$BackgroundImage.URL">
 				<div class="tile__text"><h2 class="tile__header">$Title</h2></div>
 			</a>
 		<% end_loop %>

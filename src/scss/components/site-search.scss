@@ -57,7 +57,7 @@
 
 	&__form {
 		display: inline-block;
-		width: 75%;
+		width: 100%;
 		height: rem-calc(30);
 		vertical-align: middle;
 		height: $nav-height-small;
@@ -67,7 +67,6 @@
 		}
 
 		@include breakpoint(xlarge) {
-			width: 82%;
 			height: rem-calc($nav-height-large);
 
 			&--nav-small, &--nav-medium{
@@ -81,14 +80,13 @@
 	}
 
 	&__input {
-		width: 100%;
+		width: calc(100% - 110px);
 		border: none;
 		font-size: rem-calc(18);
 		font-family: $body-font-family;
 		line-height: 1;
-		margin: 0;
+		margin: 0 auto;
 		padding: 0;
-		
 		height: $nav-height-small;
 		@include breakpoint(large) {
 			height: $nav-height;
@@ -123,6 +121,45 @@
 	&__cancel-button {
 		&:hover {
 			cursor: pointer;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		left: 1px;
+		top: 1px;
+		width: 49px;
+		height: 47px;
+		&:hover, &:focus {
+			background-color: #242424;
+			color: #fff;
+			cursor: pointer;
+		}
+		@include breakpoint(large) {
+			height: 43px;
+		}
+		@include breakpoint(xlarge) {
+			height: 49px;
+		}
+	}
+	&__icon {
+		font-size: rem-calc(18);
+		padding: 0;
+		width: 50px;
+		height: 47px;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		&:hover, &:focus {
+			background-color: #242424;
+			color: #fff;
+			cursor: pointer;
+		}
+		@include breakpoint(large) {
+			height: 43px;
+		}
+		@include breakpoint(xlarge) {
+			height: 49px;
 		}
 	}
 

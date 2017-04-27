@@ -1,4 +1,5 @@
 <?php
+GD::set_default_quality(80);
 
 // add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
@@ -28,7 +29,10 @@ HtmlEditorConfig::get('cms')->setOption('paste_auto_cleanup_on_paste', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_remove_styles', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_remove_styles_if_webkit', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
-GD::set_default_quality(80);
+
+
+HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,address,pre,h2,h3,h4,h5,h6');
+
 ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'BlogFeedHandler'));
 ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
 ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));

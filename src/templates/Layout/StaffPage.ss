@@ -18,7 +18,7 @@ $Header
 			<div class="main-content__text">
 				<div class="staffpage">
 					<% if $Photo %>
-						<img src="$Photo.ScaleWidth(945).URL" alt="$FirstName $LastName" class="staffpage__img">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo.ScaleWidth(945).URL" width="945" height="$Photo.ScaleWidth(945).Height" alt="" role="presentation" class="staffpage__img">
 					<% end_if %>
 					<h2>$Position</h2>
 					<ul>

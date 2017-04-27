@@ -5,7 +5,7 @@
 				<a href="http://uiowa.edu" class="footer__logo"><img class="dp-lazy" data-original="division-project/images/ui-logo-footer.png" alt="The University of Iowa"></a>
 			<% else %>
 				<a href="http://studentlife.uiowa.edu" class="footer__logo"><img class="dp-lazy" width="300" height="81
-			" data-original="{$ThemeDir}/dist/images/dosl-uiowa.png" alt="Division Of Student Life"></a>
+			" data-original="{$ThemeDir}/dist/images/dosl-uiowa.png" alt="Division Of Student Life Logo"></a>
 			<% end_if %>
 			<% if $SiteConfig.GroupSummary %>
 				<div class="footer__summary">$SiteConfig.GroupSummary</div>
@@ -93,12 +93,11 @@
 			<div class="footer__copyright">
 				<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank" class="footer__md">Student Life Marketing and Design</a></p>
 			</div>
-
+			<% if $SiteConfig.MailChimpFormEmbed %>
 			<div class="footer__newsletter">
-				<% if $SiteConfig.MailChimpFormEmbed %>
-					$SiteConfig.MailChimpFormEmbed
-				<% end_if %>
+				$SiteConfig.MailChimpFormEmbed
 			</div>
+			<% end_if %>
 		</div>
 	</div>
 </footer>

@@ -1,0 +1,209 @@
+
+
+/* Featured Page
+======================================================================= */
+.featuredpageblock {
+	@include grid-row;
+	background-color: $cream;
+	padding: rem-calc(20);
+	&__media {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
+		& a {
+			display: block;
+		}
+	}
+	&__body--wimage {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
+	}
+	&__desc {
+		margin: rem-calc(20 0);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: rem-calc(20);
+		font-size: rem-calc(28);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		& a {
+			color: $body-font-color;
+			&:hover, &:focus {
+				text-decoration: underline;
+			}
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -8px;
+		}
+	}
+	&__button {
+		& a {
+			background: $yellow;
+			color: #000;
+			display: inline-block;
+			font-weight: bold;
+			font-size: rem-calc(12);
+			letter-spacing: 1px;
+			padding: 12px 24px 12px;
+			text-transform: uppercase;
+			&:hover, &:focus {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+	&__position {
+		font-size: 85%;
+		font-style: italic;
+		line-height: 1.5;
+	}
+	&__contact {
+		list-style: none;
+		margin: 0;
+		& li {
+			font-size: 85%;
+			& img {
+				margin-right: 5px;
+			}
+		}
+	}
+	@include breakpoint(mobile) {
+		padding: rem-calc(40 20);
+	}
+}
+
+.featuredpageblock-bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	color: #fff;
+	position: relative;
+	& .featuredpageblock__body {
+		float:none;
+		width: 100%;
+		&:after {
+			content: "";
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+			background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.7) 80%);
+		}
+		@include breakpoint(medium) {
+			bottom: 0;
+			left: 0;
+			padding: rem-calc(40);
+			position: absolute;
+		}
+	}
+	& .featuredpageblock__desc, & .featuredpageblock__button, & .featuredpageblock__rule, & .featuredpageblock__title {
+		z-index: 2;
+		position: relative;
+	}
+	& .featuredpageblock__title {
+		font-size: rem-calc(45);
+		line-height: 1.2;
+		text-shadow: 1px 1px rgba(0,0,0,.2);
+		&:after {
+			background-color: #fff;
+		}
+	}
+	& .featuredpageblock__desc {
+		font-weight: bold;
+		line-height: 1.4;
+	}
+	@include breakpoint(medium) {
+		padding: 56.25% 0 0 0;
+	}
+}
+
+/* Sidebar --------------------------- */
+.block_area_sidebar .featuredpageblock {
+	&__media {
+		@include breakpoint(large) {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
+	}
+	&__body {
+		@include breakpoint(large) {
+
+		}
+	}
+	@include breakpoint(large) {
+		background-color: $yellow;
+		padding: 0;
+		&__title {
+			font-size: rem-calc(20);
+			text-transform: uppercase;
+		}
+		&__desc {
+			font-size: rem-calc(16);
+		}
+		&__body, &__body--wimage {
+			background-color: #fefefe;
+			width: 92%;
+			float: none !important;
+			padding: rem-calc(20);
+			margin: 4%;
+			margin-top: -20px;
+			position: relative;
+		}
+		&__button a {
+			background-color: $black;
+			color: #fff;
+			&:hover, &:focus {
+				background-color: $yellow;
+				color: $black;
+			}
+		}
+	}
+}
+/* After Content ------------------------- */
+.block_area_beforecontent .featuredpageblock-bg,
+.block_area_aftercontent .featuredpageblock-bg {
+	padding: 0;
+	&:after {
+		content: "";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+		background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.7) 80%);
+	}
+}
+.block_area_beforecontent .featuredpageblock-bg .featuredpageblock,
+.block_area_aftercontent .featuredpageblock-bg .featuredpageblock {
+	background-color: transparent;
+	@include grid-row;
+	&__body {
+		position: relative;
+		@include grid-column(11);
+		&:after {
+			display: none;
+		}
+		@include breakpoint(medium) {
+			@include grid-column(8);
+		}
+	}
+	@include breakpoint(large) {
+		min-height: 500px;
+		padding: rem-calc(100 0);
+	}
+}
+
