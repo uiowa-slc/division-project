@@ -4,7 +4,6 @@ class DivisionPage extends DataExtension {
 		'OgTitle' => 'Text',
 		'OgDescription' => 'Text',
 		'PreventSearchEngineIndex' => 'Boolean',
-		'UseDarkThemeOnThisPage' => 'Boolean',
 		'LayoutType' => 'varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Text',
 		'ShowChildPages' => 'Boolean(1)'
@@ -114,9 +113,6 @@ class DivisionPage extends DataExtension {
 		$gridField = new GridField('SidebarItems', 'Sidebar Items', $this->owner->getSidebarItems(), $gridFieldConfig);
 
 		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
-		// $f->addFieldToTab('Root.Widgets', new LiteralField('SidebarManageLabel', '<p><a href='admin/sidebar-items' target='_blank'>View and Manage Sidebar Items &raquo;</a></p>'));
-		//$f->addFieldToTab('Root.Widgets', $gridField);// add the grid field to a tab in the CMS
-
 
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
@@ -124,8 +120,6 @@ class DivisionPage extends DataExtension {
 
 		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
 
-
-		// return $f;
 
 	}
 
@@ -136,7 +130,6 @@ class DivisionPage extends DataExtension {
 	public function getSettingsFields() {
 		$f = parent::getSettingsFields();
 		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
-		$f->addFieldToTab('Root.Settings', new CheckboxField('UseDarkThemeOnThisPage', 'Use dark header on this page only'));
 		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
 
 		return $f;
