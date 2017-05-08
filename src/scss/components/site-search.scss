@@ -25,7 +25,7 @@
 		position: absolute;
 		opacity: 1;
 		width: 100%;
-		z-index: 16;
+		z-index: 100;
 		background-color: white;
 
 		&:after {
@@ -129,11 +129,14 @@
 		left: 1px;
 		top: 1px;
 		width: 49px;
-		height: 47px;
+		height: 42px;
 		&:hover, &:focus {
 			background-color: #242424;
 			color: #fff;
 			cursor: pointer;
+		}
+		@include breakpoint(medium) {
+			height: 47px;
 		}
 		@include breakpoint(large) {
 			height: 43px;
@@ -146,7 +149,7 @@
 		font-size: rem-calc(18);
 		padding: 0;
 		width: 50px;
-		height: 47px;
+		height: 42px;
 		position: absolute;
 		top: 1px;
 		right: 1px;
@@ -154,6 +157,9 @@
 			background-color: #242424;
 			color: #fff;
 			cursor: pointer;
+		}
+		@include breakpoint(medium) {
+			height: 47px;
 		}
 		@include breakpoint(large) {
 			height: 43px;

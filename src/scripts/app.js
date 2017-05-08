@@ -149,6 +149,9 @@ $('#main-content__container').click(function(){
 
 function toggleSearchClasses(){
 	$("body").toggleClass("body--search-active");
+	$('.nav-collapse').removeClass('open');
+	$('.nav__menu-icon').removeClass('is-clicked');
+	$("#nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 	$("#site-search__form").toggleClass("site-search__form--is-inactive site-search__form--is-active");
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".header__screen").toggleClass("header__screen--grayscale");
@@ -260,7 +263,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 $('.nav__toggle--menu').on('click', function(){
 	$('.nav__menu-icon').toggleClass('is-clicked');
 	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
-	$(this).parent().toggleClass('open');
+	$('.nav-collapse').toggleClass('open');
 });
 
 $('.second-level--open').click(function(){

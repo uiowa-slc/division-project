@@ -4,12 +4,14 @@
 	max-width: none;
 	margin: auto;
 	padding-top: 10px;
-	padding-bottom: 20px;
+	// padding-bottom: 20px;
 	@include breakpoint(large) {
 		padding-bottom: 0;
 	}
 	&__uiowa {
-		@include grid-column(50%);
+		@include breakpoint(400) {
+			@include grid-column(50%);
+		}
 	}
 	&__uiowa-logo {
 		display: block;
@@ -21,12 +23,16 @@
 		}
 	}
 	&__menu {
+		display: none;
 		@include grid-column(50%);
-
 		text-align: right;
 		list-style: none;
 		margin: 0;
 		font-size: rem-calc(10);
+		@include breakpoint(400) {
+			display: block;
+		}
+
 
 		@include breakpoint(medium) {
 			font-size: rem-calc(14);

@@ -1,7 +1,5 @@
 
-<div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">
-	<button class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle" aria-controls="nav__wrapper"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></button>
-</div>
+
 
 
 <div class="nav__wrapper nav__wrapper--{$HeaderType} nav__wrapper--{$DarkLight}" id="nav__wrapper">
@@ -41,6 +39,8 @@
 		</ul>
 	</nav>
 </div>
-<div class="nav__toggle nav__toggle--search show-for-small hide-for-medium">
-	<div class="nav__link nav__link--{$DarkLight}"><i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i></div>
-</div>
+
+
+
+
+

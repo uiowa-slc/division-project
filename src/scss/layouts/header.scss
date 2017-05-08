@@ -99,16 +99,15 @@
 
 .header {
 	position: relative;
-	max-height: 53px;
 	overflow: hidden;
 	transition: max-height 0.2s linear;
 	h1 {
 		font-size: rem-calc(22);
 		font-weight: 600;
 		letter-spacing: 1px;
-		line-height: 1.1;
+		line-height: 1;
 		margin: auto;
-		padding-top: 0;
+		padding: 20px 0 25px;
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -131,12 +130,14 @@
 		@include breakpoint(medium) {
 			width: 100%;
 			font-size: rem-calc(41);
+			padding: 20px 0 5px;
 		}
 
 
 		@include breakpoint(large) {
 			font-size: rem-calc(46);
 			margin-bottom: rem-calc(20);
+			padding: 5px 0 5px;
 		}
 	}
 	&--dark-header {
@@ -157,15 +158,20 @@
 		}
 	}
 	@include breakpoint(mobile) {
-		max-height: 73px;
+		// max-height: 73px;
 	}
 	@include breakpoint(medium) {
 		max-height: none;
 		overflow: visible;
+		padding-bottom: 0;
 	}
 }
-#header.open {
+.nav-collapse.open {
 	max-height: 2500px;
+	padding-bottom: 5px;
+	@include breakpoint(medium) {
+		padding-bottom: 0;
+	}
 }
 
 a.skip-link {
