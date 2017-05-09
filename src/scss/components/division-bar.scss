@@ -43,14 +43,20 @@
 	height: 41px;
 }
 
-#uiowa-bar svg {
+.uiowalogo {
 	width: auto;
 	height: 24px;
-	fill: #FFCD00;
+	fill: $yellow;
 }
-// #uiowa-bar.overlay svg {
-// 	fill: #FFF;
-// }
+.uiowalogo--dark-header {
+	fill: $yellow;
+}
+.uiowalogo--light-header {
+	fill: #000;
+}
+.uiowalogo--overlay {
+	fill: $yellow;
+}
 
 #uiowa-bar #wordmark-link {
 	display: block;
