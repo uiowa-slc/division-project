@@ -81,14 +81,19 @@
 	transition: all .7s ease-in-out;
 	padding-right: rem-calc(50);
 	cursor: pointer;
+	position: relative;
 }
 .carousel-nav .carousel-nav-cell:before {
-	font-size: 50px;
-	line-height: 80px;
+	content:'';
+	background-color: rgba(255,255,255,.3);
+	height: 4px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-
-.carousel-nav .carousel-nav-cell.is-nav-selected {
-	// border-top: 4px solid $yellow;
+.carousel-nav .carousel-nav-cell.is-nav-selected:before {
+	background-color: $yellow;
 }
 /* Dots */
 .carousel .flickity-page-dots {
