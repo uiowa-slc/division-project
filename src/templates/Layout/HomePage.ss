@@ -44,7 +44,7 @@
 		</div>
 	<% end_if %>
 
-	<% if $NewHomePageHeroFeatures %>
+	<% if $NewHomePageHeroFeatures && $NewHomePageHeroFeatures.Count > 1 %>
 		<div class="carousel-nav" data-flickity='{ "asNavFor": ".carousel", "contain": true, "pageDots": false, "prevNextButtons": false, "autoPlay": true }'>
 			<% loop NewHomePageHeroFeatures %>
 				<div class="carousel-nav-cell">

@@ -1,4 +1,5 @@
 .nav__wrapper {
+	display: none;
 	visibility: hidden;
 	@include breakpoint(medium) {
 		background: transparent;
@@ -82,7 +83,8 @@
 		}
 	}
 }
-.header.open .nav__wrapper {
+.nav-collapse.open .nav__wrapper {
+	display: block;
 	visibility: visible;
 }
 .nav__wrapper nav {
@@ -137,7 +139,6 @@
 
 
 .nav__item {
-
 	@include breakpoint(medium) {
 		display: table-cell;
 		position: relative;
@@ -464,6 +465,12 @@
 		}
 	}
 }
+.nav__search-item {
+	display: none;
+	@include breakpoint(medium) {
+		display: block;
+	}
+}
 
 .nav__mobile-header{
 	padding: rem-calc(20) 0;
@@ -480,7 +487,7 @@
 .nav__toggle {
 	position: absolute;
 	left: 5px;
-	top: 0;
+	bottom: 5px;
 	& .nav__link {
 		padding: rem-calc(15) rem-calc(15);
 	}
@@ -520,6 +527,9 @@
 		}
 	}
 }
+.header.open .nav__toggle {
+
+}
 .header--overlay.open .nav__toggle--menu .nav__link {
 	background-color: rgba(#111, 0.95);
 }
@@ -537,7 +547,7 @@
 	width: rem-calc(50);
 	left: 0;
 
-	@include breakpoint(375) {
+	@include breakpoint(425) {
 		width: rem-calc(100);
 	}
 }
@@ -548,7 +558,8 @@
 	padding-top: rem-calc(3);
 	color: #222;
 	opacity: 0;
-
+	font-family: $header-font-family;
+	text-transform: uppercase;
 
 	&--menu-is-active{
 		color: white;
@@ -558,7 +569,7 @@
 
 	}
 
-	@include breakpoint(375) {
+	@include breakpoint(425) {
 		opacity: 1;
 	}
 }
