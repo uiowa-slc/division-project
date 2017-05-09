@@ -107,7 +107,7 @@
 		letter-spacing: 1px;
 		line-height: 1;
 		margin: auto;
-		padding: 20px 0 25px;
+		padding: 5px 0 25px;
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -122,8 +122,9 @@
 			text-decoration: none;
 		}
 
-		@include breakpoint(480) {
+		@include breakpoint(600) {
 			font-size: rem-calc(29);
+			padding-top: 20px;
 		}
 
 
@@ -156,9 +157,6 @@
 				margin-bottom: 0;
 			}
 		}
-	}
-	@include breakpoint(mobile) {
-		// max-height: 73px;
 	}
 	@include breakpoint(medium) {
 		max-height: none;
