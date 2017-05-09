@@ -78,22 +78,25 @@ $Header
 </main>
 
 <% if $RelatedNewsEntries %>
-	<div class="relatednews">
-		<div class="column row">
-			<h3 class="relatednews-title">Related News</h3>
+<div class="block_area block_area_aftercontent">
+	<section class="content-block__container recentnews">
+		<div class="content-block row">
+			<div class="newsblock">
+				<div class="column">
+					<h3 class="newsblock-title text-center">Related News</h3>
+				</div>
+				<ul class="medium-up-3 ">
+					<% loop $RelatedNewsEntries.limit(3) %>
+						<li class="column column-block">
+							<% include BlogCard %>
+						</li>
+					<% end_loop %>
+				</ul>
+			</div>
 		</div>
-		<ul class="row medium-up-3 ">
-			<% loop $RelatedNewsEntries.limit(3) %>
-				<li class="column column-block">
-					<% include BlogCard %>
-				</li>
-			<% end_loop %>
-		</ul>
-	</div>
+	</section>
+</div>
 <% end_if %>
-
-
-
 
 
 
