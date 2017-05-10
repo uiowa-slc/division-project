@@ -16,3 +16,14 @@ a {
 		display: inline-block;
 	}
 }
+a[href$=".pdf"]:after {
+	content:' (PDF)';
+	background: url(../images/Adobe_PDF_file_icon_24x24.png) no-repeat center top;
+	background-size: cover;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: middle;
+	text-indent: -999em;
+}
