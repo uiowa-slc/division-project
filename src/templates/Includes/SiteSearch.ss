@@ -1,4 +1,4 @@
-<div class="site-search site-search--is-inactive" id="site-search">
+<div class="nav__item site-search site-search--is-inactive" id="site-search">
 	<%-- <div class="nav__link nav__link--in-search site-search__icon">
 		<i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i>
 	</div> --%>

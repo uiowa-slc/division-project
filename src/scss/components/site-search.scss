@@ -1,3 +1,29 @@
+.nav__item {
+	position: relative;
+	/*link layout if there are 7 or more items (don't push it), not including site search  */
+	&:nth-last-child(n+9) .site-search__submit,
+	&:nth-last-child(n+9) .site-search__icon{
+		@include breakpoint(medium) {
+			height: 47px;
+		}
+		@include breakpoint(large) {
+			height: 43px;
+		}
+		@include breakpoint(xlarge) {
+			height: 49px;
+		}
+	}
+
+	/*link layout if there are 9 or more items (you're insane) */
+	&:nth-last-child(n+11) .site-search__submit {
+
+	}
+
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 11 ITEMS */
+	&:nth-last-child(n+13) .site-search__submit {
+
+	}
+}
 .site-search {
 	text-align: left;
 	transition: opacity 0.3s;
@@ -135,16 +161,10 @@
 			color: #fff;
 			cursor: pointer;
 		}
-		@include breakpoint(medium) {
-			height: 47px;
-		}
-		@include breakpoint(large) {
-			height: 43px;
-		}
-		@include breakpoint(xlarge) {
-			height: 49px;
-		}
+
 	}
+
+
 	&__icon {
 		font-size: rem-calc(18);
 		padding: 0;
@@ -158,17 +178,18 @@
 			color: #fff;
 			cursor: pointer;
 		}
+	}
+	&__submit, &__icon, &__input{
 		@include breakpoint(medium) {
 			height: 47px;
 		}
 		@include breakpoint(large) {
-			height: 43px;
+			height: 66px;
 		}
 		@include breakpoint(xlarge) {
-			height: 49px;
-		}
+			height: 66px;
+		}		
 	}
-
 	// &__icon{
 	// 	display: inline-block;
 	// 	font-size: rem-calc(18);
