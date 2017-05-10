@@ -294,7 +294,7 @@ $('.backgroundvideo__link').click(function(e){
 	var width = $('img', that).width();
 	var height = $('img', that).height();
 	that.parent().addClass('on');
-	that.parent().prepend('<div class="flex-video widescreen"><iframe src="http://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+	that.parent().prepend('<div class="flex-video widescreen"><iframe src="https://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
 	that.hide();
 	e.preventDefault();
 });
