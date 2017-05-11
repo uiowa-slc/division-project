@@ -25,9 +25,9 @@ function loadConfig() {
   return yaml.load(ymlFile);
 }
 
-// Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
+ gulp.series(clean, gulp.parallel(dpHtml, themeHtml, sass, javascript, images, copy)));
+
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
