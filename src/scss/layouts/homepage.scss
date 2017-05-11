@@ -226,7 +226,9 @@
 }
 
 
-
+.tagline__container {
+	background-color: #fff;
+}
 .tagline {
 	@include grid-column(11);
 	@include grid-column-position(center);

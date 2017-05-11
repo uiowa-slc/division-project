@@ -51,7 +51,7 @@ $Header
 							<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
 							</li>
 							<li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/icon_twitter.png" alt="Share on Twitter"></li>
-							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png"></a></li>
+							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png" alt="share on linkedid"></a></li>
 						</ul>
 					</div>
 					<% if $FeaturedImage %>
@@ -79,11 +79,11 @@ $Header
 
 <% if $RelatedNewsEntries %>
 <div class="block_area block_area_aftercontent">
-	<section class="content-block__container recentnews">
+	<section class="content-block__container recentnews" aria-labelledby="RelatedNewsSection">
 		<div class="content-block row">
 			<div class="newsblock">
 				<div class="column">
-					<h3 class="newsblock-title text-center">Related News</h3>
+					<h3 class="newsblock-title text-center" id="RelatedNewsSection">Related News</h3>
 				</div>
 				<ul class="medium-up-3 ">
 					<% loop $RelatedNewsEntries.limit(3) %>

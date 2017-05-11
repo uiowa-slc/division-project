@@ -1,14 +1,13 @@
 $BlockArea(BeforeContent)
-<section class="content-block">
+<%-- <section class="content-block">
 	<div class="row">
 		<article class="tagline" role="main">
 			<h3 class="tagline__heading">Our Mission And Vision</h3>
-
 			<p class="tagline__text">$SiteConfig.Tagline</p>
 			<div class="tagline__separator"></div>
 		</article>
 	</div>
-</section>
+</section> --%>
 <%-- <section class="content-block">
 	<div class="row">
 		<div class="welcome__inner">

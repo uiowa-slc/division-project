@@ -1,4 +1,12 @@
-$BlockArea(BeforeContent)<section class="content-block"><div class="row"><article class="tagline" role="main"><h3 class="tagline__heading">Our Mission And Vision</h3><p class="tagline__text">$SiteConfig.Tagline</p><div class="tagline__separator"></div></article></div></section> <%-- <section class="content-block">
+$BlockArea(BeforeContent) <%-- <section class="content-block">
+	<div class="row">
+		<article class="tagline" role="main">
+			<h3 class="tagline__heading">Our Mission And Vision</h3>
+			<p class="tagline__text">$SiteConfig.Tagline</p>
+			<div class="tagline__separator"></div>
+		</article>
+	</div>
+</section> --%> <%-- <section class="content-block">
 	<div class="row">
 		<div class="welcome__inner">
 			<p class="welcome__text">Welcome to the Office of the Vice President website, a branch of the Division of Student Life. We work with students to create and promote a multitude of educational opportunities that complement the opportunities that students have within the curriculum they study.</p>

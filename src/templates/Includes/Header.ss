@@ -1,7 +1,10 @@
 <div class="header__container header__container--{$DarkLight} header__container--{$HeaderType}">
 	<% include DivisionBar %>
 	<header id="header" class="header header--{$DarkLight} header--{$HeaderType}" role="banner">
-		<h1><a href="$BaseUrl" class="header__link--{$DarkLight}">$SiteConfig.Title</a></h1>
+
+		<div itemscope="" itemtype="http://schema.org/Organization">
+			<h1><a href="$BaseUrl" class="header__link--{$DarkLight}" itemprop="url">$SiteConfig.Title</a></h1>
+		</div>
 
 		<div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">
 			<button class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle" aria-controls="nav__wrapper"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></button>
