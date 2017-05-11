@@ -27,7 +27,7 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, gulp.parallel(projectHtml, themeHtml, sass, javascript, images, copy)));
+ gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -48,7 +48,7 @@ function copy() {
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist));
 }
 
-function projectHtml(){
+function dpHtml(){
     return gulp.src('src/templates/**/*.ss')
     .pipe($.newer('templates/'))
     .pipe($.if('*.ss', $.htmlmin({
@@ -161,7 +161,7 @@ function watch() {
   gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
-  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(projectHtml, browser.reload));
+  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml, browser.reload));
   gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));
