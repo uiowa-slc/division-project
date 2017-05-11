@@ -38,6 +38,7 @@ var $carousel = $('.carousel').flickity({
 	autoPlay: 8000,
 	pauseAutoPlayOnHover: false,
 	bgLazyLoad: true,
+	pageDots: false
 });
 
 var $imgs = $carousel.find('.carousel-cell .cell-bg');
@@ -149,6 +150,9 @@ $('#main-content__container').click(function(){
 
 function toggleSearchClasses(){
 	$("body").toggleClass("body--search-active");
+	$('.nav-collapse').removeClass('open');
+	$('.nav__menu-icon').removeClass('is-clicked');
+	$("#nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 	$("#site-search__form").toggleClass("site-search__form--is-inactive site-search__form--is-active");
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".header__screen").toggleClass("header__screen--grayscale");
@@ -260,7 +264,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 $('.nav__toggle--menu').on('click', function(){
 	$('.nav__menu-icon').toggleClass('is-clicked');
 	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
-	$(this).parent().toggleClass('open');
+	$('.nav-collapse').toggleClass('open');
 });
 
 $('.second-level--open').click(function(){
@@ -290,7 +294,7 @@ $('.backgroundvideo__link').click(function(e){
 	var width = $('img', that).width();
 	var height = $('img', that).height();
 	that.parent().addClass('on');
-	that.parent().prepend('<div class="flex-video widescreen"><iframe src="http://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+	that.parent().prepend('<div class="flex-video widescreen"><iframe src="https://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
 	that.hide();
 	e.preventDefault();
 });

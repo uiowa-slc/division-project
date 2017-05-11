@@ -1,3 +1,29 @@
+.nav__item {
+	position: relative;
+	/*link layout if there are 7 or more items (don't push it), not including site search  */
+	&:nth-last-child(n+9) .site-search__submit,
+	&:nth-last-child(n+9) .site-search__icon{
+		@include breakpoint(medium) {
+			height: 47px;
+		}
+		@include breakpoint(large) {
+			height: 43px;
+		}
+		@include breakpoint(xlarge) {
+			height: 49px;
+		}
+	}
+
+	/*link layout if there are 9 or more items (you're insane) */
+	&:nth-last-child(n+11) .site-search__submit {
+
+	}
+
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 11 ITEMS */
+	&:nth-last-child(n+13) .site-search__submit {
+
+	}
+}
 .site-search {
 	text-align: left;
 	transition: opacity 0.3s;
@@ -25,7 +51,7 @@
 		position: absolute;
 		opacity: 1;
 		width: 100%;
-		z-index: 16;
+		z-index: 100;
 		background-color: white;
 
 		&:after {
@@ -129,24 +155,21 @@
 		left: 1px;
 		top: 1px;
 		width: 49px;
-		height: 47px;
+		height: 42px;
 		&:hover, &:focus {
 			background-color: #242424;
 			color: #fff;
 			cursor: pointer;
 		}
-		@include breakpoint(large) {
-			height: 43px;
-		}
-		@include breakpoint(xlarge) {
-			height: 49px;
-		}
+
 	}
+
+
 	&__icon {
 		font-size: rem-calc(18);
 		padding: 0;
 		width: 50px;
-		height: 47px;
+		height: 42px;
 		position: absolute;
 		top: 1px;
 		right: 1px;
@@ -155,14 +178,18 @@
 			color: #fff;
 			cursor: pointer;
 		}
+	}
+	&__submit, &__icon, &__input{
+		@include breakpoint(medium) {
+			height: 47px;
+		}
 		@include breakpoint(large) {
-			height: 43px;
+			height: 66px;
 		}
 		@include breakpoint(xlarge) {
-			height: 49px;
-		}
+			height: 66px;
+		}		
 	}
-
 	// &__icon{
 	// 	display: inline-block;
 	// 	font-size: rem-calc(18);
