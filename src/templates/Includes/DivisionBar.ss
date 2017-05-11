@@ -9,7 +9,7 @@
 			</a>
 			<% if $SiteConfig.QuickLinkTitleOne %>
 				<div id="uiowa-search">
-					<ul class="links">
+					<ul class="links links--{$DarkLight} links--{$HeaderType}">
 						<% if $SiteConfig.QuickLinkTitleOne %>
 						<li class="division-bar__menu-item"><a class="division-bar__link division-bar__link--{$DarkLight}" href="$SiteConfig.QuickLinkURLOne">$SiteConfig.QuickLinkTitleOne</a></li>
 						<% end_if %>
