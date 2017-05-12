@@ -413,7 +413,7 @@
 
 .nav__item {
 	position: relative;
-	/*link layout if there are 7 or more items (don't push it) */
+	/*link layout if there are 8 or more items (don't push it) */
 	&:nth-last-child(n+9) .nav__link,
 	&:nth-last-child(n+9) ~ * .nav__link {
 		font-size: rem-calc(18);
@@ -433,7 +433,7 @@
 		}
 	}
 
-	/*link layout if there are 9 or more items (you're insane) */
+	/*link layout if there are 10 or more items (you're insane) */
 	&:nth-last-child(n+11) .nav__link,
 	&:nth-last-child(n+11) ~ * .nav__link {
 		font-size: rem-calc(14);
@@ -450,7 +450,7 @@
 		}
 	}
 
-	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 11 ITEMS */
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
 	&:nth-last-child(n+13) .nav__link,
 	&:nth-last-child(n+13) ~ * .nav__link {
 		@include breakpoint(medium) {
