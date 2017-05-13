@@ -4,7 +4,7 @@
 	$Header("dark-header","overlay")
 
 	<% if $NewHomePageHeroFeatures %>
-		<div class="carousel">
+		<div class="carousel" id="main-content__container">
 			<% loop NewHomePageHeroFeatures %>
 				<div class="carousel-cell">
 					<% if $Image %>
