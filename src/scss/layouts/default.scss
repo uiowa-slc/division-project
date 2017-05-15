@@ -91,6 +91,9 @@ img:not([src]) {
 		h1 {
 			display: none;
 		}
+		& > h2:first-child, & > h3:first-child {
+			margin-top: 0;
+		}
 	}
 	&__header {
 		border-bottom: 4px solid rgba(0,0,0,.1);

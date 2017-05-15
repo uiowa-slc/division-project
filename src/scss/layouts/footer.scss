@@ -49,6 +49,9 @@
 			font-size: rem-calc(14);
 			margin-bottom: 12px;
 		}
+		& a {
+			color: #eee;
+		}
 	}
 	&__navigation {
 		@include grid-column(12);

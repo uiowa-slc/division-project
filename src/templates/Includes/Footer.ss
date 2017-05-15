@@ -23,7 +23,7 @@
 						<br /><br />$SiteConfig.PhoneNumber
 					<% end_if %>
 					<% if $SiteConfig.EmailAddress %>
-						<br /><br />$SiteConfig.EmailAddress
+						<br /><br /><a href="mailto:$SiteConfig.EmailAddress">$SiteConfig.EmailAddress</a>
 					<% end_if %>
 				</p>
 			</div>
