@@ -338,7 +338,9 @@
 }
 
 
-.nav__link--search {}
+.nav__link--search {
+	display: inline;
+}
 
 .nav__link--search-is-active {
 	opacity: 0;
