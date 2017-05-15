@@ -4,6 +4,7 @@ class RecentNewsBlock extends Block{
 
 	private static $db = array(
 		'FilterBy' => "Enum('Blog,Tag,Category')",
+		'Limit' => 'Int'
 
 	);
 
@@ -14,6 +15,10 @@ class RecentNewsBlock extends Block{
 	private static $many_many = array(
 		'Tags' => 'BlogTag',
 		'Categories' => 'BlogCategory'
+	);
+
+	private static $defaults = array(
+		'Limit' => 3
 	);
 
 	function getCMSFields() {
@@ -56,6 +61,7 @@ class RecentNewsBlock extends Block{
 		$catField->displayIf('FilterBy')->isEqualTo('Category');
 		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
 
+		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
 		return $fields;
 	}
 
@@ -63,6 +69,12 @@ class RecentNewsBlock extends Block{
 
 
 		$entries = new ArrayList();
+
+		if($this->Limit){
+			$limit = $this->Limit;
+		}else{
+			$limit = 3;
+		}
 
 		switch ($this->FilterBy){
 
@@ -94,7 +106,7 @@ class RecentNewsBlock extends Block{
 
 		}
 
-		return $entries->sort('PublishDate DESC');
+		return $entries->sort('PublishDate DESC')->limit($limit);
 	}
 
 }
