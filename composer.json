@@ -27,7 +27,6 @@
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
-      "md/silverstripe-flickr":"*",
       "silverstripe-australia/gridfieldextensions":"*",
       "jonom/silverstripe-betternavigator":"3.*",
       "thisisbd/silverstripe-maintenance-mode":"*",
@@ -52,10 +51,6 @@
       {  
          "type":"vcs",
          "url":"https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
-      },
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
       },
       {
          "type": "vcs",
