@@ -221,11 +221,13 @@
 }
 .carousel .inner .cell-text {
 	width: 100%;
-	padding-left: 0.625rem;
-	padding-right: 0.625rem;
+	padding-left: 2%;
+	padding-right: 2%;
 	@include breakpoint(large) {
-		width: 50%;
-		padding: 0;
+		width: 54%;
+	}
+	@media only screen and (max-height: 750px) and (min-width: 1024px) {
+		width: 96%;
 	}
 }
 
