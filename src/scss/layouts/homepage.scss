@@ -5,11 +5,14 @@
 	background-size: cover;
 	position: relative;
 	& .header__container {
-		background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
+		background: linear-gradient(180deg,rgba(0,0,0,.8),transparent);
 		position: absolute;
 		top: 0;
 		z-index: 300;
 		width: 100%;
+		@include breakpoint(medium) {
+			background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
+		}
 	}
 	@media only screen and (min-height: 900px) and (min-width: 769px) {
 		height: 900px;
@@ -106,7 +109,8 @@
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
 	@include breakpoint(large) {
-		bottom: 114px;
+		display: none;
+		visibility: hidden;
 	}
 }
 /* dots are lines */
