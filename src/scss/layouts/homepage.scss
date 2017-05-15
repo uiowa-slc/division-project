@@ -1,5 +1,5 @@
 .homepage__header {
-	height: 100vh;
+	height: 90vh;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -20,7 +20,7 @@
 }
 .carousel {
 	background: #111;
-	height: 100vh;
+	height: 90vh;
 	z-index: 200;
 	@media only screen and (min-height: 900px) and (min-width: 769px) {
 		height: 900px;
@@ -32,7 +32,7 @@
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	height: 90vh;
 	@media only screen and (min-height: 900px) and (min-width: 769px) {
 		height: 900px;
 	}
@@ -443,6 +443,12 @@
 	transform: translate3d(0,0,0);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	right: 0;
+    bottom: 0;
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
 }
 
 .fullwidth-video video {
@@ -464,5 +470,23 @@
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	opacity: 1;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	min-width: 100%;
+	height: auto;
+	min-height: 100%;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
 }
 

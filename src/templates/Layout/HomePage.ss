@@ -24,7 +24,7 @@
 					<% else_if $Video %>
 						<div class="cell-bg">
 							<div class="fullwidth-video">
-								<video muted="" loop="" autoplay src="$Video.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
+								<video playsinline autoplay muted loop autoplay src="$Video.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;" <% if $VideoPoster %>poster="$VideoPoster.CroppedFocusedImage(1400,900).URL"<% end_if %>></video>
 							</div>
 							<div class="inner">
 								<div class="cell-text">
