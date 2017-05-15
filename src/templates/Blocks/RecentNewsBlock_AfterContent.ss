@@ -6,7 +6,7 @@
 				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title %>$Title<% else %>Recent News<% end_if %></h3>
 			</div>
 			<ul class="medium-up-3 ">
-				<% loop $Entries.limit(3) %>
+				<% loop $Entries %>
 					<li class="column column-block">
 						<% include BlogCard %>
 					</li>
