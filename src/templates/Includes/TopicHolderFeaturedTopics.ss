@@ -3,7 +3,7 @@
   <% loop $BlogPosts.Sort('RAND()').Limit(3) %>
     <li>
       <a href="$Link">
-      <h3><i class="fa fa-file-text-o fa-lg fa-fw"></i>$Title</h3>
+      <h3><i class="fa fa-file-o fa-lg fa-fw"></i>$Title</h3>
       <p>$Content.LimitCharacters(100)</p>
       </a>
     </li>

@@ -26,7 +26,7 @@ function loadConfig() {
 }
 
 gulp.task('build',
- gulp.series(clean, gulp.parallel(dpHtml, themeHtml, sass, javascript, images, copy)));
+ gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
 
 
 // Build the site, run the server, and watch for file changes

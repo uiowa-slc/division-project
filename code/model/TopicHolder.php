@@ -22,7 +22,7 @@ class TopicHolder extends Blog {
 
 		$fields->addFieldToTab('Root.Questions', $questionGridField);
 
-		$fields->removeByName('Categories');
+		//$fields->removeByName('Categories');
 		return $fields;
 
 	}
@@ -34,12 +34,19 @@ class TopicHolder extends Blog {
         return $tags;
     }
 
+    public function AllCats()
+    {
+        //$blog = $this;
+        $cats = BlogCategory::get()->filter(array('BlogID' => $this->ID));
 
+        return $cats;
+    }
 }
 
 
 class TopicHolder_Controller extends Blog_Controller{
-
-
+	private static $allowed_actions = array(
+		'SearchForm'
+	);
 
 }

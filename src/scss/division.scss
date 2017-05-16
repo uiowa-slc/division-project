@@ -84,6 +84,7 @@
 @import "components/bg-media";
 @import "components/widgets";
 @import "components/exit-button";
+@import "components/topic-search-form";
 
 @import "components/content-blocks/content-blocks";
 @import "components/content-blocks/featuredpage";
@@ -102,6 +103,7 @@
 @import "layouts/locallist";
 @import "layouts/staff";
 @import "layouts/blog";
+@import "layouts/topics";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

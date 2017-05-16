@@ -57,7 +57,12 @@ $BlockArea(AfterContent)
 <div class="topic-subnav">
   <div class="row">
     <div class="large-12 large-centered columns">
-        <% include TopicHolderSearchForm %>
+        <div class="topic-search__container row">
+        <div class="large-9 columns large-centered">
+          <h2 class="text-center">Search for a topic below:</h2>
+          $SearchForm
+        </div>
+      </div>
         <hr />
         <% with $Parent %>
           <% include TopicHolderFeaturedTopics %>

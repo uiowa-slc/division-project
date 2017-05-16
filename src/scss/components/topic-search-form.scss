@@ -1,0 +1,19 @@
+.topic-search-form{
+	@include grid-row;
+
+	&__input{
+		@include grid-column(10);
+		// border: none;
+		height: 55px;
+	}
+
+	input.action.topic-search-form__search-button{
+		@include grid-column(2);
+		border: none;
+		background-image: linear-gradient(to bottom, $yellow, lighten($yellow, 10));
+		color: #222;
+		height: 55px;
+		border-radius: 0;
+	}
+}
+
