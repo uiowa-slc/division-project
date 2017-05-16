@@ -26,7 +26,7 @@
 						<br /><% if $SiteConfig.PhoneLabel %>$SiteConfig.PhoneLabel <% end_if %><span itemprop="telephone">$SiteConfig.PhoneNumber</span>
 					<% end_if %>
 					<% if $SiteConfig.PhoneNumberAlt %>
-						<br /><% if $SiteConfig.PhoneLabelAlt %>$SiteConfig.PhoneLabelAlt <% end_if %><span itemprop="telephone">$SiteConfig.PhoneNumberAlt</span>
+						<br /><% if $SiteConfig.PhoneLabelAlt %>$SiteConfig.PhoneLabelAlt <% end_if %>$SiteConfig.PhoneNumberAlt
 					<% end_if %>
 					<% if $SiteConfig.Fax %>
 						<br />Fax: <span itemprop="faxNumber">$SiteConfig.Fax</span>
@@ -66,32 +66,33 @@
 		</div>
 
 		<% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>
-			<div class="footer__socialmedia">
+			<div class="footer__socialmedia" itemscope itemtype="http://schema.org/Organization">
+				<link itemprop="url" href="$BaseUrl">
 				<h3 class="footer__heading">Social Media</h3>
 				<ul class="">
 					<% if $SiteConfig.FacebookLink %>
-						<li><a href="$SiteConfig.FacebookLink" target="_blank" class="footer__facebook">Facebook</a></li>
+						<li><a href="$SiteConfig.FacebookLink" target="_blank" class="footer__facebook" itemprop="sameAs">Facebook</a></li>
 					<% end_if %>
 					<% if $SiteConfig.TwitterLink %>
-						<li><a href="$SiteConfig.TwitterLink" target="_blank" class="footer__twitter">Twitter</a></li>
+						<li><a href="$SiteConfig.TwitterLink" target="_blank" class="footer__twitter" itemprop="sameAs">Twitter</a></li>
 					<% end_if %>
 					<% if $SiteConfig.VimeoLink %>
-						<li><a href="$SiteConfig.VimeoLink" target="_blank" class="footer__vimeo">Vimeo</li>
+						<li><a href="$SiteConfig.VimeoLink" target="_blank" class="footer__vimeo" itemprop="sameAs">Vimeo</li>
 					<% end_if %>
 					<% if $SiteConfig.YouTubeLink %>
-						<li><a href="$SiteConfig.YouTubeLink" target="_blank" class="footer__youtube">Youtube</a></li>
+						<li><a href="$SiteConfig.YouTubeLink" target="_blank" class="footer__youtube" itemprop="sameAs">Youtube</a></li>
 					<% end_if %>
 					<% if $SiteConfig.InstagramLink %>
-						<li><a href="$SiteConfig.InstagramLink" target="_blank" class="footer__instagram">Instagram</a></li>
+						<li><a href="$SiteConfig.InstagramLink" target="_blank" class="footer__instagram" itemprop="sameAs">Instagram</a></li>
 					<% end_if %>
 					<% if $SiteConfig.LinkedInLink %>
-						<li><a href="$SiteConfig.LinkedInLink" target="_blank" class="footer__linkedin">LinkedIn</a></li>
+						<li><a href="$SiteConfig.LinkedInLink" target="_blank" class="footer__linkedin" itemprop="sameAs">LinkedIn</a></li>
 					<% end_if %>
 					<% if $SiteConfig.PinterestLink %>
-						<li><a href="$SiteConfig.PinterestLink" target="_blank" class="footer__pinterest">Pinterest</a></li>
+						<li><a href="$SiteConfig.PinterestLink" target="_blank" class="footer__pinterest" itemprop="sameAs">Pinterest</a></li>
 					<% end_if %>
 					<% if $SiteConfig.FlickrLink %>
-						<li><a href="$SiteConfig.FlickrLink" target="_blank" class="footer__flickr">Flickr</a></li>
+						<li><a href="$SiteConfig.FlickrLink" target="_blank" class="footer__flickr" itemprop="sameAs">Flickr</a></li>
 					<% end_if %>
 				</ul>
 			</div>
