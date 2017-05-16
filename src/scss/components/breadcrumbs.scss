@@ -9,6 +9,8 @@
 	&__list {
 		list-style: none;
 		margin: 0;
+		overflow: hidden;
+		white-space: nowrap;
 		@include breakpoint(small down) {
 			padding-left: 40px; // including padding for home icon
 			white-space: nowrap;
