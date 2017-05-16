@@ -9,6 +9,8 @@
 	&__list {
 		list-style: none;
 		margin: 0;
+		overflow: hidden;
+		white-space: nowrap;
 		@include breakpoint(small down) {
 			padding-left: 40px; // including padding for home icon
 			white-space: nowrap;
@@ -36,10 +38,11 @@
 		}
 	}
 	&__anchor {
+
 		color: #fff;
 		display: inline-block;
 		letter-spacing: .8px;
-		opacity: .75;
+		opacity: 1;
 		padding: 14px 14px;
 		@include breakpoint(medium) {
 			padding: 20px 15px;
@@ -104,6 +107,7 @@
 			content: ''; //removes arrow
 		}
 		& .breadcrumb__anchor {
+			background-color: #fefefe;
 			width: 50px;
 			height: 50px;
 			padding: 0;

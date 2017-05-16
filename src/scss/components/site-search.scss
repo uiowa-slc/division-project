@@ -1,25 +1,36 @@
 .nav__item {
 	position: relative;
-	/*link layout if there are 7 or more items (don't push it), not including site search  */
+	/*link layout if there are 8 or more items (don't push it), not including site search  */
 	&:nth-last-child(n+9) .site-search__submit,
-	&:nth-last-child(n+9) .site-search__icon{
+	&:nth-last-child(n+9) ~ * .site-search__icon,
+
+	&:nth-last-child(n+9) .site-search__submit,
+	&:nth-last-child(n+9) ~ * .site-search__submit,
+
+	&:nth-last-child(n+9) .site-search__icon,
+	&:nth-last-child(n+9) ~ * .site-search__icon
+
+	&:nth-last-child(n+9) .site-search__input,
+	&:nth-last-child(n+9) ~ * .site-search__input
+
+	 {
 		@include breakpoint(medium) {
-			height: 47px;
+			height: rem-calc(47);
 		}
 		@include breakpoint(large) {
-			height: 43px;
+			height: rem-calc(43);
 		}
 		@include breakpoint(xlarge) {
-			height: 49px;
+			height: rem-calc(49);
 		}
 	}
 
-	/*link layout if there are 9 or more items (you're insane) */
+	/*link layout if there are 10 or more items (you're insane) */
 	&:nth-last-child(n+11) .site-search__submit {
 
 	}
 
-	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 11 ITEMS */
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
 	&:nth-last-child(n+13) .site-search__submit {
 
 	}
@@ -89,14 +100,14 @@
 		height: $nav-height-small;
 
 		@include breakpoint(large) {
-			height: $nav-height;
+			// height: $nav-height;
 		}
 
 		@include breakpoint(xlarge) {
-			height: rem-calc($nav-height-large);
+			// height: rem-calc($nav-height-large);
 
 			&--nav-small, &--nav-medium{
-				height: $nav-height;
+				// height: $nav-height;
 			}
 		}
 	}
@@ -115,13 +126,13 @@
 		padding: 0;
 		height: $nav-height-small;
 		@include breakpoint(large) {
-			height: $nav-height;
+			// height: $nav-height;
 		}
 		@include breakpoint(xlarge) {
-			height: rem-calc($nav-height-large);
-			&--nav-small, &--nav-medium{
-				height: $nav-height;
-			}
+			// height: rem-calc($nav-height-large);
+			// &--nav-small, &--nav-medium{
+			// 	height: $nav-height;
+			// }
 		}
 
 		&:focus {

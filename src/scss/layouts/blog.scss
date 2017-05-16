@@ -279,7 +279,7 @@
 		}
 	}
 	&__date {
-		color: #666;
+		color: #545454;
 		font-size: rem-calc(12);
 		letter-spacing: 1px;
 		margin: 0;
@@ -302,12 +302,15 @@
 		}
 	}
 	&__desc {
-		color: #666;
+		color: #545454;
 		font-size: rem-calc(17);
 		margin-bottom: 0;
+		& a {
+			text-decoration: underline;
+		}
 	}
 	&__category {
-		color: #666;
+		color: #545454;
 		text-transform: uppercase;
 		font-style: normal;
 		font-size: rem-calc(12);
@@ -320,7 +323,7 @@
 			position: relative;
 			transition: all .2s ease-in-out;
 			&:hover, &:focus {
-				color: #666;
+				color: #545454;
 				border-bottom-color: #ddd;
 			}
 		}
@@ -334,10 +337,10 @@
 	}
 	& .blogmeta__byline {
 		float: none;
-		color: #666;
+		color: #545454;
 		margin-top: 18px;
 		& a {
-			color: #666;
+			color: #545454;
 		}
 	}
 }

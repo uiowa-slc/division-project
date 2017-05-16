@@ -29,7 +29,7 @@
 				<% end_if %>
 			</li>
 			<% end_loop %>
-			<li class="nav__item nav__item--{$DarkLight} nav__search-item" id="nav__search-item" >
+			<li class="nav__item nav__item--{$DarkLight} nav__search-item" id="nav__search-item">
 				<button class="nav__link nav__link--{$DarkLight} nav__link--search">
 					<span class="show-for-sr">search</span>
 					<i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i>

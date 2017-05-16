@@ -44,10 +44,13 @@
 		font-weight: 600;
 
 	}
-	&__location {
+	&__address {
 		& p {
 			font-size: rem-calc(14);
 			margin-bottom: 12px;
+		}
+		& a {
+			color: #eee;
 		}
 	}
 	&__navigation {
@@ -198,7 +201,7 @@
 	}
 	&__copyrightcontainer {
 		background-color: #fff;
-		color: #666;
+		color: #555;
 		font-size: rem-calc(13);
 		padding: rem-calc(12 0);
 	}
@@ -211,7 +214,7 @@
 			margin-bottom: 0;
 			line-height: 32px;
 		}
-		& a:hover, & a:focus {
+		& a {
 			text-decoration: underline;
 		}
 	}

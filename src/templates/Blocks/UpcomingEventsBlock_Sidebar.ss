@@ -1,7 +1,7 @@
-<section class="content-block__container">
+<section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="$CSSClasses">
-			<h3 class="upcomingeventsblock__header"><% if $Title %>$Title<% else %>Upcoming Events<% end_if %></h3>
+			<h3 id="Block$ID" class="upcomingeventsblock__header"><% if $Title %>$Title<% else %>Upcoming Events<% end_if %></h3>
 			<% with $CurrentPage.LocalistCalendar %>
 				<% loop $EventList.Limit(3) %>
 					<% include EventCard %>

@@ -91,6 +91,19 @@ img:not([src]) {
 		h1 {
 			display: none;
 		}
+		& > h2:first-child, & > h3:first-child {
+			margin-top: 0;
+		}
+
+		img{
+			width: 100%;
+			display: block;
+			@include breakpoint(medium) {
+				width: auto;
+				display: inherit;
+			}
+
+		}
 	}
 	&__header {
 		border-bottom: 4px solid rgba(0,0,0,.1);

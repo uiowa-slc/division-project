@@ -38,7 +38,7 @@ var $carousel = $('.carousel').flickity({
 	autoPlay: 8000,
 	pauseAutoPlayOnHover: false,
 	bgLazyLoad: true,
-	pageDots: false
+	pageDots: true
 });
 
 var $imgs = $carousel.find('.carousel-cell .cell-bg');

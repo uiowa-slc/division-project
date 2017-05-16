@@ -5,8 +5,15 @@ class SiteConfigExtension extends DataExtension {
 	private static $db = array(
 		'GoogleAnalyticsID' => 'Text',
 		'TwitterLink' => 'Text',
-		'Address' => 'Text',
+		'Address1' => 'Text',
+		'City' => 'Text',
+		'State' => 'Text',
+		'Zipcode' => 'Text',
+		'PhoneLabel' => 'Text',
 		'PhoneNumber' => 'Text',
+		'PhoneLabelAlt' => 'Text',
+		'PhoneNumberAlt' => 'Text',
+		'Fax' => 'Text',
 		'FacebookLink' => 'Text',
 		'GroupSummary' => 'HTMLText',
 		'EmailAddress' => 'Text',
@@ -51,9 +58,17 @@ class SiteConfigExtension extends DataExtension {
 
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
 
-		$fields->addFieldToTab('Root.Main', new TextareaField('Address', 'Organization Address'));
-		$fields->addFieldToTab('Root.Main', new TextareaField('PhoneNumber', 'Phone Number(s)'));
-		$fields->addFieldToTab('Root.Main', new TextareaField('EmailAddress', 'Email Address'));
+		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Address</h3>', '3', true ) );
+		$fields->addFieldToTab('Root.Main', new TextField('Address1', 'Street Address'));
+		$fields->addFieldToTab('Root.Main', new TextField('City', 'City'));
+		$fields->addFieldToTab('Root.Main', new TextField('State', 'State'));
+		$fields->addFieldToTab('Root.Main', new TextField('Zipcode', 'Zip Code'));
+		$fields->addFieldToTab('Root.Main', new TextField('Fax', 'Fax Number'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneLabel', 'Phone Label (Phone:)'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumber', 'Main Phone Number'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneLabelAlt', 'Alternate Phone Label'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumberAlt', 'Alternate Phone Number'));
+		$fields->addFieldToTab('Root.Main', new TextField('EmailAddress', 'Email Address'));
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Footer Buttons</h3>', '3', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextOne', 'Button Title'));

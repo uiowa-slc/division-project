@@ -4,7 +4,7 @@
 			<div class="newsblock">
 				<h2 class="newsblock__header"><% if $Title %>$Title<% else %>Recent News<% end_if %></h2>
 				<ul>
-					<% loop $Entries.limit(3) %>
+					<% loop $Entries %>
 						<% include RecentNewsContent %>
 					<% end_loop %>
 				</ul>
