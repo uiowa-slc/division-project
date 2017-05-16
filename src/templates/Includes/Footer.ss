@@ -19,6 +19,7 @@
 
 			<div class="footer__address" itemscope itemtype="http://schema.org/PostalAddress">
 				<p>
+					$SiteConfig.Title<br />
 					<span itemprop="streetAddress">$SiteConfig.Address1</span>
 					<% if $SiteConfig.City %><br /><span itemprop="addressLocality">$SiteConfig.City</span><% end_if %><% if $SiteConfig.State %>, <span itemprop="addressRegion">$SiteConfig.State</span><% end_if %><% if $SiteConfig.Zipcode %><span itemprop="postalCode">$SiteConfig.Zipcode</span><% end_if %><br />
 					<% if $SiteConfig.PhoneNumber %>
