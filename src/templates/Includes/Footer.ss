@@ -17,13 +17,21 @@
 				<div class="footer__summary"><p>The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom.</p></div>
 			<% end_if %>
 
-			<div class="footer__location">
-				<p>$SiteConfig.Address
+			<div class="footer__address" itemscope itemtype="http://schema.org/PostalAddress">
+				<p>
+					<span itemprop="streetAddress">$SiteConfig.Address1</span>
+					<% if $SiteConfig.City %><br /><span itemprop="addressLocality">$SiteConfig.City</span><% end_if %><% if $SiteConfig.State %>, <span itemprop="addressRegion">$SiteConfig.State</span><% end_if %><% if $SiteConfig.Zipcode %><span itemprop="postalCode">$SiteConfig.Zipcode</span><% end_if %><br />
 					<% if $SiteConfig.PhoneNumber %>
-						<br /><br />$SiteConfig.PhoneNumber
+						<br /><% if $SiteConfig.PhoneLabel %>$SiteConfig.PhoneLabel <% end_if %><span itemprop="telephone">$SiteConfig.PhoneNumber</span>
+					<% end_if %>
+					<% if $SiteConfig.PhoneNumberAlt %>
+						<br /><% if $SiteConfig.PhoneLabelAlt %>$SiteConfig.PhoneLabelAlt <% end_if %><span itemprop="telephone">$SiteConfig.PhoneNumberAlt</span>
+					<% end_if %>
+					<% if $SiteConfig.Fax %>
+						<br />Fax: <span itemprop="faxNumber">$SiteConfig.Fax</span>
 					<% end_if %>
 					<% if $SiteConfig.EmailAddress %>
-						<br /><br /><a href="mailto:$SiteConfig.EmailAddress">$SiteConfig.EmailAddress</a>
+						<br /><a href="mailto:$SiteConfig.EmailAddress"><span itemprop="email">$SiteConfig.EmailAddress</span></a>
 					<% end_if %>
 				</p>
 			</div>
