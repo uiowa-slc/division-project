@@ -67,7 +67,7 @@
 
 		<% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>
 			<div class="footer__socialmedia" itemscope itemtype="http://schema.org/Organization">
-				<link itemprop="url" href="$BaseUrl">
+				<link itemprop="url" href="$AbsoluteBaseURL">
 				<h3 class="footer__heading">Social Media</h3>
 				<ul class="">
 					<% if $SiteConfig.FacebookLink %>
