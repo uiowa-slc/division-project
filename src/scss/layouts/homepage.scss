@@ -1,5 +1,5 @@
 .homepage__header {
-	height: 90vh;
+	height: 94vh;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -20,7 +20,7 @@
 }
 .carousel {
 	background: #111;
-	height: 90vh;
+	height: 94vh;
 	z-index: 200;
 	@media only screen and (min-height: 900px) and (min-width: 769px) {
 		height: 900px;
@@ -32,7 +32,7 @@
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 90vh;
+	height: 94vh;
 	@media only screen and (min-height: 900px) and (min-width: 769px) {
 		height: 900px;
 	}
@@ -78,7 +78,7 @@
 	color: #fff;
 	font-size: rem-calc(13);
 	font-weight: bold;
-	padding: 50px 10px;
+	padding: 40px 10px;
 	width: 25%;
    float: left;
 	transition: all .7s ease-in-out;
