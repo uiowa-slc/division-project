@@ -49,6 +49,6 @@ class TopicHolderControllerSearchExtension extends Extension{
 		);
 
 
-		return $this->owner->customise($data)->renderWith(array('TopicHolder_results', 'Page'));
+		return $this->owner->customise($data)->renderWith(array($this->owner->ClassName.'_results', 'TopicHolder_results', 'Page'));
 	}
 }

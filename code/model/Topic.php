@@ -3,7 +3,8 @@
 class Topic extends BlogPost {
 
 	private static $many_many = array(
-		'TopicQuestions' => 'TopicQuestion'
+		'Questions' => 'TopicQuestion',
+		'Links' => 'TopicLink'
 	);
 
 	private static $belongs_many_many = array(
@@ -18,15 +19,51 @@ class Topic extends BlogPost {
 	public function getCMSFields(){
 		
 		$fields = parent::getCMSFields();
+		$fields->removeByName('AuthorNames');
+		$fields->removeByName('PhotosBy');
+		$fields->removeByName('PhotosByEmail');
+
+		$fields->removeByName('Blocks');
+		$fields->removeByName('MetaData');
+		$fields->removeByName('Widgets');
 
 		$qField = TagField::create(
-						'TopicQuestions',
+						'Questions',
 						'Questions relevant to this topic:',
 						TopicQuestion::get(),
-						$this->TopicQuestions()
+						$this->Questions()
 					)->setShouldLazyLoad(true)->setCanCreate(false);
 
 		$fields->addFieldToTab('Root.Main', $qField, 'Content');
+
+		$linkGrid = new GridField(
+			'Links',
+			'Links relevant to this topic',
+			$this->Links(),
+			GridFieldConfig::create()
+				->addComponent(new GridFieldButtonRow('before'))
+				->addComponent(new GridFieldToolbarHeader())
+				->addComponent(new GridFieldTitleHeader())
+				->addComponent(new GridFieldEditableColumns())
+				->addComponent(new GridFieldDeleteAction())
+				->addComponent(new GridFieldAddNewInlineButton())
+		);
+
+		
+		$linkGrid->getConfig()->getComponentByType('GridFieldEditableColumns')->setDisplayFields(array(
+			'Title' => array(
+				'title' => 'Link Description',
+				'field' => 'TextField'
+			),
+			'URL' => array(
+				'title' => 'Link URL (include https://)',
+				'field' => 'TextField'
+			)
+		));
+		$fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
+		$fields->addFieldToTab('Root.RelatedLinks', $linkGrid);
+
+
 		return $fields;
 
 	}

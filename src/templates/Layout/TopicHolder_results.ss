@@ -62,7 +62,9 @@ $BlockArea(BeforeContent)
 
         <% end_if %>
         <hr />
-        <% include TopicHolderSearchForm %>
+        <% with $SearchForm %>
+        <% include TopicSearchForm %>
+        <% end_with %>
         <% include TopicHolderAllTopics %>
     </div>
     $BlockArea(AfterContentConstrained)
