@@ -27,4 +27,7 @@ BlockManager:
             #  - ContentBlock
     #use_default_blocks: true # Disable/enable the default Block types (ContentBlock) (default if undeclared: true)
     #block_area_preview: false # Disable block area preview button in CMS (default if undeclared: true)
-
+Topic:
+  extensions:
+    - Addressable
+    - Geocodable

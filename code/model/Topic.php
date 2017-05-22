@@ -22,11 +22,19 @@ class Topic extends BlogPost {
 		$fields->removeByName('AuthorNames');
 		$fields->removeByName('PhotosBy');
 		$fields->removeByName('PhotosByEmail');
+		$fields->removeByName('Authors');
+		//$fields->removeByName('Questions');
+		$fields->removeByName('IsFeatured');
+		$fields->removeByName('SummaryQuestions');
+		$fields->removeByName('ExternalURL');
+
+		$fields->removeByName('CustomSummary');
+		$fields->removeByName('Metadata');
 
 		$fields->removeByName('Blocks');
 		$fields->removeByName('MetaData');
 		$fields->removeByName('Widgets');
-
+		$fields->renameField('Suburb', 'City');
 		$qField = TagField::create(
 						'Questions',
 						'Questions relevant to this topic:',
@@ -68,6 +76,20 @@ class Topic extends BlogPost {
 
 	}
 
+	/**
+	 * Returns a static google map of the address, linking out to the address.
+	 *
+	 * @param int $width
+	 * @param int $height
+	 * @return string
+	 */
+	public function GoogleMapFrame() {
+		$data = $this->owner->customise(array(
+			'Address' => rawurlencode($this->getFullAddress()),
+			'GoogleAPIKey' => Config::inst()->get('GoogleGeocoding', 'google_api_key')
+		));
+		return $data->renderWith('TopicGoogleMap');
+	}
 }
 
 

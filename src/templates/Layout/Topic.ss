@@ -22,9 +22,31 @@ $BlockArea(BeforeContent)
   <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
     $BlockArea(BeforeContentConstrained)
     <div class="main-content__text">
-        $Content
-        $Form
 
+        <% if $Address %>
+          <div class="row">
+            <div class="large-8 columns">
+              $Content
+              $Form
+            </div>
+            <div class="large-4 columns">
+              $GoogleMapFrame
+            </div>
+          </div>
+          
+        <% else %>
+          $Content
+          $Form
+        <% end_if %>
+        
+        <% if $Links %>
+          <h2>Relevant links</h2>
+          <ul>
+          <% loop $Links %>
+            <li><a href="$URL" target="_blank"><% if $Title %>$Title<% else %>$URL.LimitCharacters(50)<% end_if %></a></li>
+          <% end_loop %>
+          </ul>
+        <% end_if %>
         <% if $Tags %>
   
           <p class="tags">
