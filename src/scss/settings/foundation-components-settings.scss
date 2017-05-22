@@ -317,10 +317,10 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
-$tab-background-active: $light-gray;
+$tab-background: $black;
+$tab-background-active: #444;
 $tab-item-font-size: rem-calc(14);
-$tab-item-background-hover: $white;
+$tab-item-background-hover: #333;
 $tab-item-padding: rem-calc(15) rem-calc(10);
 $tab-expand-max: 6;
 $tab-content-background: $white;

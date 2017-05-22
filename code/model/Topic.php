@@ -8,7 +8,7 @@ class Topic extends BlogPost {
 	);
 
 	private static $belongs_many_many = array(
-		'Locations' => 'LocationPage'
+	
 	);
 
     public function AllTags(){
