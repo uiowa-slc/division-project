@@ -22,28 +22,6 @@ $BlockArea(BeforeContent)
   <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
     $BlockArea(BeforeContentConstrained)
     <div class="main-content__text">
- <% if $CurrentTag %>
-          <div class="row">
-          <div class="large-12 columns large-centered">
-          <% with $CurrentTag %>
-            <h2>Topics tagged with "<em>$Title</em>":</h2>
-              <ul class="large-block-grid-2">
-              <% loop $BlogPosts %>
-                <li>
-                  <h3><i class="fa fa-file-text-o fa-lg fa-fw"></i><a href="$Link">$Title</a></h3>
-                  <p>$Content.LimitCharacters(100)</p>
-                </li>
-              <% end_loop %>
-              </ul>
-          <% end_with %>
-          
-          </div>
-        </div>
-
-        
- 
-        <hr />
-        <% end_if %>
         <% if $Query %>
           <h2>Search results for "<em>{$Query}</em>"</h2>
           <% if $Results %>
