@@ -4,7 +4,8 @@ class RecentNewsBlock extends Block{
 
 	private static $db = array(
 		'FilterBy' => "Enum('Blog,Tag,Category')",
-		'Limit' => 'Int'
+		'Limit' => 'Int',
+		'SortBy' => "Enum('Recent,Random,Featured')",
 
 	);
 
@@ -18,7 +19,8 @@ class RecentNewsBlock extends Block{
 	);
 
 	private static $defaults = array(
-		'Limit' => 3
+		'Limit' => 3,
+		'SortBy' => 'Recent'
 	);
 
 	function getCMSFields() {
@@ -79,7 +81,6 @@ class RecentNewsBlock extends Block{
 		switch ($this->FilterBy){
 
 			case 'Blog':
-
 				if($this->obj('Blog')->exists()){
 					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
@@ -106,7 +107,20 @@ class RecentNewsBlock extends Block{
 
 		}
 
-		return $entries->sort('PublishDate DESC')->limit($limit);
+		switch($this->SortBy){
+			case 'Random':
+				$entries->sort('RAND()');
+				break;
+
+			case 'Featured':
+				$entries->sort('IsFeatured, PublishDate DESC');
+				break;
+			default:
+				$entries->sort('PublishDate DESC');
+				break;
+		}
+
+		return $entries->limit($limit);
 	}
 
 }
