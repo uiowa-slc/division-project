@@ -42,13 +42,13 @@ class RecentNewsBlock extends Block{
 
 				$tagField = ListboxField::create(
 					'Tags',
-					'Show news tagged with ANY of the following tags:',
+					'Show entries tagged with ANY of the following tags:',
 					$tags->map()->toArray()
 				)->setMultiple(true),
 
 				$catField = ListboxField::create(
 					'Categories',
-					'Show news tagged with ANY of the following categories:',
+					'Show entries tagged with ANY of the following categories:',
 					$cats->map()->toArray()
 				)->setMultiple(true),
 

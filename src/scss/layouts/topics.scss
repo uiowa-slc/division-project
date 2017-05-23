@@ -2,3 +2,12 @@
 	margin: 0;
 	list-style-type: none;
 }
+
+.topic__google-map{
+	width: 100%;
+
+	@include breakpoint(medium) {
+		width: rem-calc(300);
+		height: rem-calc(300);
+	}
+}

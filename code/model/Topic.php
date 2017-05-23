@@ -23,11 +23,11 @@ class Topic extends BlogPost {
 		$fields->removeByName('PhotosBy');
 		$fields->removeByName('PhotosByEmail');
 		$fields->removeByName('Authors');
-		//$fields->removeByName('Questions');
+		$fields->removeByName('Questions');
 		$fields->removeByName('IsFeatured');
 		$fields->removeByName('SummaryQuestions');
 		$fields->removeByName('ExternalURL');
-
+		$fields->removeByName('LayoutType');
 		$fields->removeByName('CustomSummary');
 		$fields->removeByName('Metadata');
 
@@ -42,7 +42,7 @@ class Topic extends BlogPost {
 						$this->Questions()
 					)->setShouldLazyLoad(true)->setCanCreate(false);
 
-		$fields->addFieldToTab('Root.Main', $qField, 'Content');
+		$fields->addFieldToTab('Root.Questions', $qField);
 
 		$linkGrid = new GridField(
 			'Links',
@@ -83,7 +83,7 @@ class Topic extends BlogPost {
 	 * @param int $height
 	 * @return string
 	 */
-	public function GoogleMapFrame() {
+	public function GoogleMap() {
 		$data = $this->owner->customise(array(
 			'Address' => rawurlencode($this->getFullAddress()),
 			'GoogleAPIKey' => Config::inst()->get('GoogleGeocoding', 'google_api_key')
