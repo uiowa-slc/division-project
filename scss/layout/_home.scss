@@ -253,12 +253,17 @@
 	margin-left: 0;
 }
 
-.module .media {
+.module .media img {
 	border-bottom: 4px solid $yellow;
 }
 
 .module .media img, .module .media object, .module .media embed {
 	width: 100%;
+}
+
+.module .media a{
+	color: #222;
+	
 }
 
 .module .inner {
