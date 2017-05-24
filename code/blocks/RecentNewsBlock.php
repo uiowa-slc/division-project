@@ -26,6 +26,7 @@ class RecentNewsBlock extends Block{
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->renameField('Title', 'Title (default:Recent News)');
+		$fields->removeByName('SortBy');
 		$fields->removeByName('FilterTagMethod');
 		$fields->removeByName('Tags');
 		$fields->removeByName('Categories');
@@ -109,14 +110,17 @@ class RecentNewsBlock extends Block{
 
 		switch($this->SortBy){
 			case 'Random':
-				$entries->sort('RAND()');
+				foreach($entries as $entry) {
+				    $entry->__Sort = mt_rand();
+				}
+				$entries = $entries->sort('__Sort');
 				break;
 
 			case 'Featured':
-				$entries->sort('IsFeatured, PublishDate DESC');
+				$entries = $entries->sort('IsFeatured, PublishDate DESC');
 				break;
 			default:
-				$entries->sort('PublishDate DESC');
+				$entries = $entries->sort('PublishDate DESC');
 				break;
 		}
 
