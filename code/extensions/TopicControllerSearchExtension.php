@@ -12,7 +12,7 @@ class TopicControllerSearchExtension extends Extension{
 			if($this->owner->request && $this->owner->request->getVar('Search')) {
 				$searchText = $this->owner->request->getVar('Search');
 			}
-			$searchField = new TextField('TopicSearch', false, '');
+			$searchField = new TextField('Search', false, '');
 			$searchField->setAttribute('placeholder', 'Search for entries under '.$this->owner->getParent()->Title);
 			$searchField->addExtraClass('topic-search-form__input');
 			$fields = new FieldList(

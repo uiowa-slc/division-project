@@ -41,6 +41,25 @@ class TopicHolder extends Blog {
 
         return $cats;
     }
+
+    public function TopicsByLetter(){
+    	$alphas = range('A', 'Z');
+    	$letterArrayList = new ArrayList();
+
+    	//print_r($topics->toArray());
+    	foreach($alphas as $letter){
+    		$letterTopics = Topic::get()->filter(array('Title:StartsWith' => $letter, 'ParentID' => $this->ID));
+
+    		if($letterTopics->Count() > 0){
+        		$letterArrayData = new ArrayData(array('Letter' => $letter, 'Topics' => $letterTopics));
+    			$letterArrayList->push($letterArrayData);			
+    		}
+    		 
+    	}
+
+    	//print_r($letterArrayList->toArray());
+    	return $letterArrayList;
+    }
 }
 
 

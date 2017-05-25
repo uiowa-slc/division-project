@@ -67,7 +67,23 @@ class Topic extends BlogPost {
 		return $fields;
 
 	}
+    public function TopicsByLetter(){
+    	$alphas = range('A', 'Z');
+    	$letterArrayList = new ArrayList();
 
+    	foreach($alphas as $letter){
+    		$letterTopics = Topic::get()->filter(array('Title:StartsWith' => $letter, 'ParentID' => $this->ParentID));
+
+    		if($letterTopics->Count() > 0){
+        		$letterArrayData = new ArrayData(array('Letter' => $letter, 'Topics' => $letterTopics));
+    			$letterArrayList->push($letterArrayData);			
+    		}
+    		 
+    	}
+
+    	//print_r($letterArrayList);
+    	return $letterArrayList;
+    }
 }
 
 

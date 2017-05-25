@@ -2,3 +2,9 @@
 	margin: 0;
 	list-style-type: none;
 }
+
+.topic-list__see-more{
+	text-transform: uppercase;
+	font-family: $header-font-family;
+	font-size: rem-calc(14);
+}

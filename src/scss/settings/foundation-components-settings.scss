@@ -317,16 +317,18 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $black;
-$tab-background-active: #444;
+$tab-background: none;
+$tab-background-active: #eee;
 $tab-item-font-size: rem-calc(14);
-$tab-item-background-hover: #333;
+$tab-item-background-hover: #efefef;
 $tab-item-padding: rem-calc(15) rem-calc(10);
 $tab-expand-max: 6;
 $tab-content-background: $white;
 $tab-content-border: none;
 $tab-content-color: foreground($tab-background, $primary-color);
 $tab-content-padding: 1rem;
+$tab-color: #222;
+$tab-active-color: #333;
 
 // 33. Thumbnail
 // -------------
