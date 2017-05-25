@@ -48,7 +48,7 @@
 		display: block;
 	}
 }
-.BlogPost .post-image {
+.post-image {
 	margin-bottom: 1em;
 	position: relative;
 	&:after {
@@ -65,10 +65,10 @@
 		pointer-events: none;
 	}
 }
-.BlogPost .main-content__text .post-image {
+.main-content__text .post-image {
 	margin-bottom: 2em;
 }
-.BlogPost .content .post-image {
+.content .post-image {
 	max-width: 450px;
 	margin-bottom: 1em;
 }

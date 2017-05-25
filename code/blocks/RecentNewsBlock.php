@@ -4,7 +4,8 @@ class RecentNewsBlock extends Block{
 
 	private static $db = array(
 		'FilterBy' => "Enum('Blog,Tag,Category')",
-		'Limit' => 'Int'
+		'Limit' => 'Int',
+		'SortBy' => "Enum('Recent,Random,Featured')",
 
 	);
 
@@ -18,12 +19,14 @@ class RecentNewsBlock extends Block{
 	);
 
 	private static $defaults = array(
-		'Limit' => 3
+		'Limit' => 3,
+		'SortBy' => 'Recent'
 	);
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->renameField('Title', 'Title (default:Recent News)');
+		$fields->removeByName('SortBy');
 		$fields->removeByName('FilterTagMethod');
 		$fields->removeByName('Tags');
 		$fields->removeByName('Categories');
@@ -42,13 +45,13 @@ class RecentNewsBlock extends Block{
 
 				$tagField = ListboxField::create(
 					'Tags',
-					'Show news tagged with ANY of the following tags:',
+					'Show entries tagged with ANY of the following tags:',
 					$tags->map()->toArray()
 				)->setMultiple(true),
 
 				$catField = ListboxField::create(
 					'Categories',
-					'Show news tagged with ANY of the following categories:',
+					'Show entries tagged with ANY of the following categories:',
 					$cats->map()->toArray()
 				)->setMultiple(true),
 
@@ -79,7 +82,6 @@ class RecentNewsBlock extends Block{
 		switch ($this->FilterBy){
 
 			case 'Blog':
-
 				if($this->obj('Blog')->exists()){
 					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
@@ -106,7 +108,23 @@ class RecentNewsBlock extends Block{
 
 		}
 
-		return $entries->sort('PublishDate DESC')->limit($limit);
+		switch($this->SortBy){
+			case 'Random':
+				foreach($entries as $entry) {
+				    $entry->__Sort = mt_rand();
+				}
+				$entries = $entries->sort('__Sort');
+				break;
+
+			case 'Featured':
+				$entries = $entries->sort('IsFeatured, PublishDate DESC');
+				break;
+			default:
+				$entries = $entries->sort('PublishDate DESC');
+				break;
+		}
+
+		return $entries->limit($limit);
 	}
 
 }

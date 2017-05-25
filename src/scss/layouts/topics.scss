@@ -3,8 +3,17 @@
 	list-style-type: none;
 }
 
+
 .topic-list__see-more{
 	text-transform: uppercase;
 	font-family: $header-font-family;
 	font-size: rem-calc(14);
+
+.topic__google-map{
+	width: 100%;
+
+	@include breakpoint(medium) {
+		width: rem-calc(300);
+		height: rem-calc(300);
+	}
 }
