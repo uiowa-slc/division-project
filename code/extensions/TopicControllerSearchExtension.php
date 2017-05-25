@@ -5,7 +5,7 @@ class TopicControllerSearchExtension extends Extension{
 
 	public static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
-	public function SearchForm() {
+	public function TopicSearchForm() {
 			
 			$searchText =  'Searching under '.$this->owner->getParent()->Title;
 
@@ -24,7 +24,7 @@ class TopicControllerSearchExtension extends Extension{
 			$actions = new FieldList(
 				$action //this is the only real change to tell the form to use a different function for the action
 			);
-			$form = new SearchForm($this->owner, 'SearchForm', $fields, $actions);
+			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
 			$form->setTemplate('TopicSearchForm');
 			return $form;
