@@ -38,12 +38,16 @@ class TopicLink extends DataObject {
 
 	protected function onBeforeWrite(){
 		$link = $this->URL;
-		 if( $ret = parse_url($link)) {
-		  if(!isset($ret["scheme"])){
-		   	$parsedLink = "http://{$link}";
-		   	$this->URL = $parsedLink;
-		   }
+
+		if($link != ''){
+			 if( $ret = parse_url($link)) {
+			  if(!isset($ret["scheme"])){
+			   	$parsedLink = "http://{$link}";
+			   	$this->URL = $parsedLink;
+			   }
+			}
 		}
+
 		parent::onBeforeWrite();
 	}
 
