@@ -224,9 +224,9 @@
 	padding-left: 2%;
 	padding-right: 2%;
 	@include breakpoint(large) {
-		width: 54%;
+		width: 60%;
 	}
-	@media only screen and (max-height: 750px) and (min-width: 1024px) {
+	@media only screen and (max-height: 800px) and (min-width: 1024px) {
 		width: 96%;
 	}
 }

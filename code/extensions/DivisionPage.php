@@ -105,10 +105,6 @@ class DivisionPage extends DataExtension {
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
-		if (defined('FLICKR_USER')) {
-			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
-		}
-
 		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
