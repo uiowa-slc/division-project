@@ -226,7 +226,7 @@
 	@include breakpoint(large) {
 		width: 60%;
 	}
-	@media only screen and (max-height: 750px) and (min-width: 1024px) {
+	@media only screen and (max-height: 800px) and (min-width: 1024px) {
 		width: 96%;
 	}
 }
