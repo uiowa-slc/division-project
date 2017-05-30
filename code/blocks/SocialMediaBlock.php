@@ -13,7 +13,7 @@ class SocialMediaBlock extends Block{
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->removeByName("Title");
+		//$fields->removeByName("Title");
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><br><h3>Twitter</h3>', '3', true ) );
 		$fields->addFieldToTab("Root.Main", new TextField("TwitterUserTimelineURL", "Twitter Timeline URL"));
