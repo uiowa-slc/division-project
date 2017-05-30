@@ -26,7 +26,7 @@ $Header
         <div class="blogmeta clearfix">
           <div class="blogmeta__byline clearfix">
           <p>
-            <% loop $Categories.Limit(1) %><span href="$URL" class="topic-single__byline-cat">$Title</span><% end_loop %>
+            <% loop $Categories.Limit(1) %><a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>
           </p>
           </div>
           <ul class="blogmeta__social">
