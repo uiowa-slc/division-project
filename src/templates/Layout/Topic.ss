@@ -11,7 +11,15 @@ $Header
     <div class="column row">
       <div class="main-content__header">
         <h1>$Title</h1>
+        <% if $Summary %>
+          <div class="blogpost__summary">$Summary</div>
+        <% end_if %>
       </div>
+      <% if $FeaturedImage %>
+        <% if FeaturedImage.Width >= 1200 %>
+          <p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.CroppedFocusedImage(1200,700).URL" width="1200" height="700" alt="" role="presentation" /></p>
+        <% end_if %>
+      <% end_if %>
     </div>
   <% end_if %>
 
