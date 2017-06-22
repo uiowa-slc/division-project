@@ -75,12 +75,7 @@ class DivisionPage extends DataExtension {
 			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
 		}
 
-		$row = "SortOrder";
-		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
-
-		$sort->table          = 'Page_SidebarItems';
-		$sort->parentField    = 'PageID';
-		$sort->componentField = 'SidebarItemID';
+		$gridFieldConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
 
 		$gridField = new GridField("SidebarItemsGridField", "Sidebar Items", $this->getSidebarItems(), $gridFieldConfig);
 
