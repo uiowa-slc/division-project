@@ -191,7 +191,7 @@ $("#site-search__form").focusout(function(){
   	}
 });
 
-$('input[name="Search"]').autocomplete({
+$('input#site-search__input').autocomplete({
     serviceUrl: baseHref+'/home/autoComplete',
     deferRequestBy: 100,
     triggerSelectOnValidInput: false,

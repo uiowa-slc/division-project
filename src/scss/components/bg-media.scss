@@ -50,6 +50,16 @@
 		position: absolute;
 		bottom: 0;
 		z-index: 1;
+
+
+	}
+
+	&__header--has-content{
+		padding-top: rem-calc(40);
+		position: relative;
+		@include breakpoint(large) {
+			padding: rem-calc(150) 0 rem-calc(30);
+		}
 	}
 
 	&__title {

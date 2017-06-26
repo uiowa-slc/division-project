@@ -1,0 +1,21 @@
+.tabs-title {
+	float:none !important;
+	display:inline-block;
+}
+
+.tabs {
+	text-align:center;
+}
+.tabs-title > a{
+	border-bottom: 2px solid #333;
+}
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
+	border-bottom: 2px solid $yellow;
+	&:after{
+		height: rem-calc(3);
+		display: block;
+		background: $yellow;
+
+	}
+
+}

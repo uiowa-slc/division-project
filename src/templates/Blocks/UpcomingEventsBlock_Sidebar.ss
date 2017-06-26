@@ -6,7 +6,10 @@
 				<% loop $EventList.Limit(3) %>
 					<% include EventCard %>
 				<% end_loop %>
+
 			<% end_with %>
+
 		</div>
+		<p class="text-center"><a href="$Link" class="keep-reading">See full calendar</a></p>
 	</div>
 </section>

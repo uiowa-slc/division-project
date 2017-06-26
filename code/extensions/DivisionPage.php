@@ -44,6 +44,12 @@ class DivisionPage extends DataExtension {
 	);
 	private static $hide_from_hierarchy = array('BlogPost','Topic');
 
+	public function ClassAncestry(){
+		$ancestryArray = ClassInfo::ancestry($this->owner->ClassName);
+		$ancestryString = implode(' ',$ancestryArray);
+
+		return $ancestryString;
+	}
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();
 

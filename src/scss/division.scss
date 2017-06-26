@@ -43,7 +43,7 @@
 // @include foundation-reveal;
 // @include foundation-switch;
 @include foundation-table;
-// @include foundation-tabs;
+@include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
 // @include foundation-tooltip;
@@ -84,6 +84,8 @@
 @import "components/bg-media";
 @import "components/widgets";
 @import "components/exit-button";
+@import "components/topic-search-form";
+@import "components/tabs";
 
 @import "components/content-blocks/content-blocks";
 @import "components/content-blocks/featuredpage";
@@ -102,6 +104,7 @@
 @import "layouts/locallist";
 @import "layouts/staff";
 @import "layouts/blog";
+@import "layouts/topics";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

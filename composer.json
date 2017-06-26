@@ -37,7 +37,8 @@
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
       "silverstripe/activedirectory": "3.*",
-      "olliepop/fbpagefeed": "dev-master"
+      "olliepop/fbpagefeed": "dev-master",
+      "silverstripe-australia/addressable" : "*"
    },
    "repositories":[  
       {  

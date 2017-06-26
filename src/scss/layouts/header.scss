@@ -101,7 +101,7 @@
 	position: relative;
 	overflow: hidden;
 	transition: max-height 0.2s linear;
-	h1 {
+	&__site-title {
 		font-size: rem-calc(22);
 		font-weight: 600;
 		letter-spacing: 1px;
@@ -142,7 +142,7 @@
 		}
 	}
 	&--dark-header {
-		h1 {
+		.header__site-title {
 			a {
 				color: white;
 				text-shadow: 0.5px 0.866px 1px rgba(0, 0, 0, 0.39);
@@ -151,7 +151,7 @@
 	}
 
 	&--full{
-		h1 {
+		.header__site-title {
 			@include breakpoint(large) {
 
 				margin-bottom: 0;

@@ -3,8 +3,7 @@
 class TextBlock extends ContentBlock{
     
     private static $db = array(
-        'ExternalLink' => 'Text',
-        'RSSFeedLink' => 'Text'
+        'ExternalLink' => 'Varchar(155)'
     );
 
     private static $has_one = array(
@@ -19,7 +18,7 @@ class TextBlock extends ContentBlock{
      */
     public function singular_name()
     {
-        return _t('TextBlock.SINGULARNAME', 'Text Block');
+        return _t('TextBlock.SINGULARNAME', 'Text+Image Block');
     }
 
     /**
@@ -29,6 +28,20 @@ class TextBlock extends ContentBlock{
      */
     public function plural_name()
     {
-        return _t('TextBlock.PLURALNAME', 'Text Blocks');
+        return _t('TextBlock.PLURALNAME', 'Text+Image Blocks');
+    }
+
+    public function getCMSFields() {
+        $f = parent::getCMSFields();
+
+        $f->removeByName('LinkedPageID');
+        $f->renameField('ExternalLink', 'Link (include http://)');
+        $f->addFieldToTab('Root.Main', TextField::create('Title'), 'ExternalLink');
+        $f->addFieldToTab('Root.Main', UploadField::create('Image', 'Image (crops to 600x425 in main content area)'));
+        $f->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
+ 
+
+        return $f;
+
     }
 }

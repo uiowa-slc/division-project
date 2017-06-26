@@ -124,13 +124,15 @@
 	&--dark-header:after {
 		background: none;
 	}
-
+	&--no-bg{
+		background: none;
+	}
 	//Inheritance... Not very BEM-friendly Any way to not do this?
 	&--full.nav--dark-header .nav__item:hover:after {
 		background-color: $black;
 	}
 
-	&--overlay.nav--dark-header .nav__item--section:after {
+	&--overlay.nav--dark-header .nav__item--section:after, &--no-bg.nav--dark-header .nav__item--section:after {
 		background-color: $yellow;
 	}
 
