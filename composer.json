@@ -60,6 +60,10 @@
       {
          "type": "vcs",
          "url": "https://github.com/StudentLifeMarketingAndDesign/fbpagefeed"
+      },
+      {
+          "type": "vcs",
+          "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
       }
    ]
 }
