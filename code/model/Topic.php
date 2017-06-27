@@ -28,7 +28,6 @@ class Topic extends BlogPost {
 		$fields->removeByName('SummaryQuestions');
 		$fields->removeByName('ExternalURL');
 		$fields->removeByName('LayoutType');
-		$fields->removeByName('CustomSummary');
 		$fields->removeByName('Metadata');
 
 		$fields->removeByName('Blocks');

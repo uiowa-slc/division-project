@@ -47,7 +47,3 @@ Topic_Controller:
 Page_Controller:
   extensions:
     - FlickrShortcodeControllerExtension
-Topic:
-  extensions:
-    - Addressable
-    - Geocodable
