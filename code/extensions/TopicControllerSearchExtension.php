@@ -19,7 +19,7 @@ class TopicControllerSearchExtension extends Extension{
 				$searchField
 			);
 
-			$action = FormAction::create('results', _t('SearchForm.GO', 'Go'));
+			$action = FormAction::create('results', _t('SearchForm.GO', 'Search'));
 			$action->addExtraClass('topic-search-form__search-button');
 			$actions = new FieldList(
 				$action //this is the only real change to tell the form to use a different function for the action
