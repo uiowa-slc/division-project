@@ -1,147 +1,159 @@
-.html--no-scroll{
+.html--no-scroll {
 	overflow: hidden !important;
 	height: 100%;
 }
 
-#BetterNavigator{
+#BetterNavigator {
 	display: none;
+
 	@include breakpoint(large) {
 		display: block;
 	}
 }
-.container{
+
+.container {
 	//Container utility class.
 	@include grid-row;
 }
 
-body{
+body {
 	transition: background-color 1s;
+	@include breakpoint(medium) {
+		font-size: rem-calc(19);
+	}
 }
 
-.body--search-active{
+.body--search-active {
 	background-color: #ddd;
 }
 
+/* Prevents img without src to appear */
+img:not([src]) {
+    visibility: hidden;
+}
 
+/* Fixes Firefox anomaly */
+@-moz-document url-prefix() {
+    img:-moz-loading {
+        visibility: hidden;
+    }
+}
 
+/* Main Content/Article Body Styles: */
 
-/* Main Content Styles: */
-
-
-
-.main-content{
-
-	&__container{
-		transition: filter 1s;
-
-	}
-	&__container--grayscale{
-		filter: grayscale(90%);
-		
-	}
-
-	&__text{
-		//Hack to disable in-content headerrs (DEPRECATED!!!)
-		h1{ display: none;}
-	}
+.main-content {
 	@include grid-column(12);
-	
 	@include breakpoint(large) {
-		@include grid-column(7);
-		
-		
-	}	
-
-
-	h1,h2,h3,h4,h5,h6{
-		a:after{
-			@include css-triangle(6px, $anchor-color, right);
-			margin-bottom: 4px;
-			margin-left: 5px;
-			display: inline-block;
-
-		}
+		@include grid-column(9);
 	}
 
-	&--with-padding{
+	h1, h2, h3, h4, h5, h6 {
+		// a:after {
+		// 	@include css-triangle(6px, $anchor-color, right);
+		// 	// margin-bottom: 4px;
+		// 	margin-left: 5px;
+		// 	display: inline-block;
+		// }
+	}
+
+	&--with-padding {
 		padding-top: rem-calc(20);
 		@include breakpoint(large) {
 			padding-top: rem-calc(40);
 		}
 	}
 
-	&--with-sidebar{
+	&--with-sidebar {
 		@include breakpoint(large) {
-			@include grid-column-offset(1);
-			
-		}		
+			@include grid-column-offset(0);
+		}
+		& .main-content__text {
+			@include breakpoint(medium) {
+				padding-right: rem-calc(20);
+			}
+		}
 	}
 
-	&--full-width{
+	&--full-width {
 		@include grid-column-position(center);
 	}
-}
 
-.sidebar{
-	@include grid-column(12);
-	margin-top: rem-calc(20);
-
-	@include breakpoint(large) {
-		@include grid-column(3);
-		@include grid-column-offset(1);
-		// padding-top: 40px;
+	&__container {
+		transition: filter 1s;
 	}
 
-}
-
-.content-block{
-	border-top: 1px solid #e4e4e4;
-	padding: rem-calc(30) 0;
-	@include breakpoint(large) {
-		padding: rem-calc(70) 0;
-	}
-}
-
-
-//Page Media Types (eventually move elsewhere)
-
-/* Background Media */
-
-.bg-media{
-	padding-bottom: rem-calc(600);
-	position: relative; 
-	&--image{
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		height: 400px;
-
-	}
-	&--video{
-		
-	}
-
-	&--fade{
-
-	}
-
-	&--grayscale{
+	&__container--grayscale {
 		filter: grayscale(90%);
 	}
 
+	&__text {
+		//Hack to disable in-content headers
+		h1 {
+			display: none;
+		}
+		& > h2:first-child, & > h3:first-child {
+			margin-top: 0;
+		}
+
+		img{
+			display: block;
+			float: none !important;
+			@include breakpoint(medium) {
+				width: auto;
+				display: inherit;
+				float: inherit;
+			}
+
+		}
+	}
+	&__header {
+		border-bottom: 4px solid rgba(0,0,0,.1);
+		margin: rem-calc(40 0 0);
+		padding-bottom: rem-calc(12);
+		& h1 {
+			margin-bottom: 0;
+			margin-top: 0;
+			//text-transform: capitalize;
+			@include breakpoint(large) {
+				// font-size: rem-calc(65);
+			}
+		}
+	}
 }
 
+.sidebar {
+	@include grid-column(12);
+	margin: rem-calc(20 0);
+	@include breakpoint(large) {
+		@include grid-column(3);
+		@include grid-column-offset(1);
+		margin: rem-calc(40 0);
+	}
+}
+
+.dp-sticky{
+	@include breakpoint(large) {
+		position: sticky;
+		top: 0;
+	}
+}
 
 /* SilverStripe / TinyMCE Image Styles (non BEM!!) */
 
-img.right{
-	@extend .float-right;
-	padding-left: 10px;
-	padding-bottom: 10px;
+img.right {
+	float: none !important;
+	@include breakpoint(medium) {
+		float: right !important;
+		margin-left: 1em;
+		margin-bottom: 1em;
+	}
 }
 
-img.left{
-	@extend .float-left;
-	padding-right: 10px;
-	padding-bottom: 10px;
+img.left {
+	float: none !important;
+	@include breakpoint(medium) {
+		float: right !important;
+		margin-right: 1em;
+		margin-bottom: 1em;
+	}
 }

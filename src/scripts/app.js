@@ -1,21 +1,111 @@
 
 $(document).foundation();
 
+var bases = document.getElementsByTagName('base');
+var baseHref = null;
+
+if (bases.length > 0) {
+    baseHref = bases[0].href;
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Lazy Loading Images:
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+var myLazyLoad = new LazyLoad({
+    // example of options object -> see options section
+    elements_selector: ".dp-lazy"
+    // throttle: 200,
+    // data_src: "src",
+    // data_srcset: "srcset",
+    // callback_set: function() { /* ... */ }
+});
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Big Carousel (Home Page):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+var $carousel = $('.carousel').flickity({
+	imagesLoaded: true,
+	percentPosition: false,
+	selectedAttraction: 0.015,
+	friction: 0.3,
+	prevNextButtons: false,
+	draggable: true,
+	autoPlay: true,
+	autoPlay: 8000,
+	pauseAutoPlayOnHover: false,
+	bgLazyLoad: true,
+	pageDots: true
+});
+
+var $imgs = $carousel.find('.carousel-cell .cell-bg');
+// get transform property
+var docStyle = document.documentElement.style;
+var transformProp = typeof docStyle.transform == 'string' ?
+  'transform' : 'WebkitTransform';
+// get Flickity instance
+var flkty = $carousel.data('flickity');
+
+$carousel.on( 'scroll.flickity', function() {
+  flkty.slides.forEach( function( slide, i ) {
+    var img = $imgs[i];
+    var x = ( slide.target + flkty.x ) * -1/3;
+    img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+  });
+});
+
+$('.carousel-nav-cell').click(function() {
+	flkty.stopPlayer();
+});
+
+var $gallery = $('.carousel').flickity();
+
+function onLoadeddata( event ) {
+	var cell = $gallery.flickity( 'getParentCell', event.target );
+	$gallery.flickity( 'cellSizeChange', cell && cell.element );
+}
+
+$gallery.find('video').each( function( i, video ) {
+	video.play();
+	$( video ).on( 'loadeddata', onLoadeddata );
+});
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Slideshow block (in content):
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+var $slideshow = $('.slideshow').flickity({
+	//adaptiveHeight: true,
+	imagesLoaded: true,
+	lazyLoad: true
+});
+
+var slideshowflk = $slideshow.data('flickity');
+
+$slideshow.on( 'select.flickity', function() {
+	console.log( 'Flickity select ' + slideshowflk.selectedIndex );
+	//slideshowflk.reloadCells();
+
+})
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 // Start Foundation Orbit Slider:
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-var sliderOptions = {
-	containerClass: 'slider__slides', 
-	slideClass: 'slider__slide',
-	nextClass: 'slider__navigation--next',
-	prevClass: 'slider__navigation--previous',
+// var sliderOptions = {
+// 	containerClass: 'slider__slides',
+// 	slideClass: 'slider__slide',
+// 	nextClass: 'slider__nav--next',
+// 	prevClass: 'slider__nav--previous',
 
-};
+// };
 
 
-var slider = new Foundation.Orbit($('.slider'), sliderOptions);
+// var slider = new Foundation.Orbit($('.slider'), sliderOptions);
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -33,13 +123,13 @@ $('iframe').each(function(){
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-$('.navigation__item--parent').click(function(event) {
+$('.nav__item--parent').click(function(event) {
   if (whatInput.ask() === 'touch') {
     // do touch input things
-    if(!$(this).hasClass('navigation__item--is-hovered')){
+    if(!$(this).hasClass('nav__item--is-hovered')){
 	    event.preventDefault();
-	    $('.navigation__item--parent').removeClass('navigation__item--is-hovered');
-	    $(this).toggleClass('navigation__item--is-hovered')
+	    $('.nav__item--parent').removeClass('nav__item--is-hovered');
+	    $(this).toggleClass('nav__item--is-hovered')
     }
   } else if (whatInput.ask() === 'mouse') {
     // do mouse things
@@ -48,7 +138,7 @@ $('.navigation__item--parent').click(function(event) {
 
 //If anything in the main content container is clicked, remove faux hover class.
 $('#main-content__container').click(function(){
-	$('.navigation__item').removeClass('navigation__item--is-hovered');
+	$('.nav__item').removeClass('nav__item--is-hovered');
 
 });
 
@@ -60,43 +150,59 @@ $('#main-content__container').click(function(){
 
 function toggleSearchClasses(){
 	$("body").toggleClass("body--search-active");
+	$('.nav-collapse').removeClass('open');
+	$('.nav__menu-icon').removeClass('is-clicked');
+	$("#nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 	$("#site-search__form").toggleClass("site-search__form--is-inactive site-search__form--is-active");
 	$("#site-search").toggleClass("site-search--is-inactive site-search--is-active");
 	$(".header__screen").toggleClass("header__screen--grayscale");
 	$(".main-content__container").toggleClass("main-content__container--grayscale");
-	$(".navigation__wrapper").toggleClass("navigation__wrapper--grayscale");
-	$(".navigation__link--search").toggleClass("navigation__link--search-is-active");
+	$(".nav__wrapper").toggleClass("nav__wrapper--grayscale");
+	$(".nav__link--search").toggleClass("nav__link--search-is-active");
 
 	//HACK: wait for 5ms before changing focus. I don't think I need this anymore actually..
 	setTimeout(function(){
-	  $(".navigation__wrapper").toggleClass("navigation__wrapper--search-is-active");
+	  $(".nav__wrapper").toggleClass("nav__wrapper--search-is-active");
 	}, 5);
 
-	$(".navigation").toggleClass("navigation--search-is-active");
+	$(".nav").toggleClass("nav--search-is-active");
 
 }
 
-$(".navigation__link--search").click(function(){
+$(".nav__link--search").click(function(){
   	toggleSearchClasses();
-  	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
+  	if($("#mobile-nav__wrapper").hasClass("mobile-nav__wrapper--mobile-menu-is-active")){
   		toggleMobileMenuClasses();
   		$("#site-search").appendTo('#header').addClass('site-search--mobile');
   	}
   	document.getElementById("site-search__input").focus();
 });
 
-$(".navigation__link--search-cancel").click(function(){
+$(".nav__link--search-cancel").click(function(){
 	toggleSearchClasses();
 	document.getElementById("site-search__input").blur();
 });
 
 //When search form is out of focus, deactivate it.
-$("#site-search").focusout(function(){
-  	if($("#site-search").hasClass("site-search--is-active")){
-  		//Not deactivating search right now on focus out for debugging purposes.
-  		// deactivateSearch();
+$("#site-search__form").focusout(function(){
+  	if($("#site-search__form").hasClass("site-search__form--is-active")){
+  		//Comment out the following line if you need to use WebKit/Blink inspector tool on the search (so it doesn't lose focus):
+  		//toggleSearchClasses();
   	}
 });
+
+$('input#site-search__input').autocomplete({
+    serviceUrl: baseHref+'/home/autoComplete',
+    deferRequestBy: 100,
+    triggerSelectOnValidInput: false,
+    minChars: 2,
+    autoSelectFirst: true,
+    type: 'post',
+    onSelect: function (suggestion) {
+        $('#site-search__form').submit();
+    }
+});
+
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -113,7 +219,7 @@ if (Foundation.MediaQuery.atLeast('medium')) {
 }
 
 
-$(".navigation__toggle--search").click(function(){
+$(".nav__toggle--search").click(function(){
   	toggleSearchClasses();
 
 
@@ -125,18 +231,19 @@ $(".navigation__toggle--search").click(function(){
 
 //If we're resizing from mobile to anything else, toggle the mobile search if it's active.
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
-	 if (oldSize == "small") {
+
+	 if (newSize == "medium") {
 	 	//alert('hey');
 	 	$("#site-search").removeClass("site-search--mobile");
 	 	$("#site-search").addClass("site-search--desktop");
 
-		$("#site-search").appendTo("#navigation");
+		$("#site-search").appendTo("#nav");
 
 
 	 	if($("#site-search").hasClass("site-search--is-active")){
 	 		// toggleSearchClasses();
 	 	}
-	 }else if(newSize == "small"){
+	 }else if(newSize == "mobile"){
 	 	$("#site-search").appendTo('#header');
  		$("#site-search").removeClass("site-search--desktop");
  		$("#site-search").addClass("site-search--mobile");
@@ -153,38 +260,43 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-$(".navigation__toggle--menu").click(function(){
-	toggleMobileMenuClasses();
-
+/* new stuff added my Brandon - lazy coding */
+$('.nav__toggle--menu').on('click', function(){
+	$('.nav__menu-icon').toggleClass('is-clicked');
+	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
+	$('.nav-collapse').toggleClass('open');
 });
 
-$(".navigation__mobile-close-button").click(function(){
-	toggleMobileMenuClasses();
-});
-
-function toggleMobileMenuClasses(){
-
-	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--mobile-menu-is-active");
-		setTimeout(function(){
-		 $("#navigation__wrapper").toggleClass("navigation__wrapper--has-transition");
-		}, 1000);
-	}else{
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--has-transition");
-		$("#navigation__wrapper").toggleClass("navigation__wrapper--mobile-menu-is-active");
+$('.second-level--open').click(function(){
+	$(this).parent().toggleClass('nav__item--opened');
+	if ($(this).next().attr('aria-hidden') == 'true') {
+		$(this).next().attr('aria-hidden', 'false')
+	} else {
+		$(this).next().attr('aria-hidden', 'true')
 	}
 
-	$("html").toggleClass("html--no-scroll");
+	if ($(this).attr('aria-expanded') == 'false') {
+		$(this).attr('aria-expanded', 'true')
+	} else {
+		$(this).next().attr('aria-expanded', 'false')
+	}
+});
 
-	
-}
 
-$(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
-	 if (oldSize == "small") {
-	 	if($("#navigation__wrapper").hasClass("navigation__wrapper--mobile-menu-is-active")){
-	 		toggleMobileMenuClasses();
-	 	}
-	 }
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Background Video
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+$('.backgroundvideo__link').click(function(e){
+	var that = $(this);
+	var video = that.data('video');
+	var width = $('img', that).width();
+	var height = $('img', that).height();
+	that.parent().addClass('on');
+	that.parent().prepend('<div class="flex-video widescreen"><iframe src="https://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+	that.hide();
+	e.preventDefault();
 });
 
 

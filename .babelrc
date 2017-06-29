@@ -1,4 +1,5 @@
 {
 	"presets": ["es2015"],
-  "compact": false
+	// "only": "gulpfile.babel.js",
+	"compact": false
 }

@@ -1,0 +1,24 @@
+.block_area_aftercontentconstrained,
+.block_area_beforecontentconstrained {
+	@include breakpoint(medium) {
+		padding-right: rem-calc(20);
+	}
+}
+/* Before Content */
+.block_area_beforecontent, .block_area_aftercontent {
+	background-color: $cream;
+
+	/* Text Block */
+	& .textblock {
+		padding: rem-calc(30 0);
+		@include breakpoint(large) {
+			padding: rem-calc(60 0);
+		}
+	}
+}
+.block_area_beforecontentconstrained .content-block__container,
+.block_area_aftercontentconstrained .content-block__container,
+.block_area_sidebar .content-block__container {
+	margin: 2em 0;
+}
+

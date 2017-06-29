@@ -15,9 +15,13 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-sites": "~6.2.3",
-    "motion-ui": "~1.2.2",
-    "vide": "^0.5.0"
+    "foundation-sites": "~6.3.0",
+    "motion-ui": "*",
+    "vide": "^0.5.0",
+    "jquery-auto-complete": "^1.0.7",
+    "devbridge-autocomplete": "^1.2.27",
+    "vanilla-lazyload": "*",
+    "flickity" : "*"
   },
   "private": true
 }

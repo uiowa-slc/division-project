@@ -1,0 +1,32 @@
+@import "lib/fa/font-awesome";
+
+#tab-Root_SocialMediaSharing{
+	color: #5c8bed;
+	&:before{
+		  display: inline-block;
+		  font: normal normal normal 16px/1 FontAwesome;
+		  font-size: inherit;
+		  text-rendering: auto;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		  content: "\f045";
+		  margin-right: 5px;
+	}
+}
+
+.cms .ss-ui-button.ss-button-social{
+	color: white;
+	text-shadow: none;
+}
+
+.cms .ss-ui-button.ss-button-fb{
+	background: #3b5998;
+}
+
+.cms .ss-ui-button.ss-button-twitter{
+	background: #00aced;
+}
+
+.cms .ss-gridfield {
+	overflow-x: visible;
+}

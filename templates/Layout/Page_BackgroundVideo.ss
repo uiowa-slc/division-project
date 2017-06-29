@@ -1,9 +1,1 @@
-
-<div class="bg-media bg-media--video" data-vide-bg="{$ThemeDir}/videos/dm_video.mp4" data-vide-options="loop: false, muted: false, position: 0% 0%, bgColor: '#222'">
-	<div class="header__screen header__screen--fill-container header__screen--thin"></div>
-	$Header(dark,overlay)
-</div>
-
-<div class="main-content__container main-content--has-video-bg">
-	<% include MainContentBody %>
-</div>
+$Header<main class="main-content__container" id="main-content__container"><div class="backgroundvideo"><div id="ESEE" class="backgroundvideo__container" data-interchange="[http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg, small], [http://img.youtube.com/vi/$YoutubeBackgroundEmbed/maxresdefault.jpg, large]"><a href="http://www.youtube.com/embed/$YoutubeBackgroundEmbed" data-video="$YoutubeBackgroundEmbed" class="backgroundvideo__link"></a></div></div>$Breadcrumbs <% include MainContentBody %> </main>

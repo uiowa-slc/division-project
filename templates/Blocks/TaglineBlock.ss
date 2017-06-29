@@ -1,9 +1,1 @@
-<section class="content-block">
-	<div class="row">
-		<article class="tagline" role="main">
-			<h1 class="content-block-header header--centered header--small">Our Mission And Vision</h1>
-			<p class="tagline__text">$SiteConfig.Tagline</p>
-			<div class="tagline__separator"></div>
-		</article>
-	</div>
-</section>
+<section class="content-block__container tagline__container" aria-labelledby="Block$ID"><div class="content-block row"><article class="tagline" role="main"><h3 id="Block$ID" class="content-block-header header--centered header--small tagline__heading">Our Mission And Vision</h3><p class="tagline__text">$SiteConfig.Tagline</p><div class="tagline__separator"></div></article></div></section>

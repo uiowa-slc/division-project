@@ -1,0 +1,133 @@
+
+
+/* Upcoming Events
+======================================================================= */
+.block_area_beforecontent .upcomingeventsblock,
+.block_area_aftercontent .upcomingeventsblock {
+	@include grid-row;
+	padding: rem-calc(20);
+	&__header {
+		@include grid-column(12);
+	}
+	&__title {
+		margin-top: 0;
+		border-top: 5px solid #ffcd00;
+		padding-top: 60px;
+		text-transform: uppercase;
+		display: inline-block;
+	}
+	& .eventcard {
+		@include grid-column(12);
+		@include breakpoint(large) {
+			border-top: 0;
+			@include grid-column(4);
+			& .eventcard-imgwrap {
+				float: none;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			& .eventcard-title a {
+				color: $black;
+				&:hover, &:focus {
+					text-decoration: underline;
+				}
+			}
+			& .eventcard-content {
+				margin-left: 0;
+			}
+			& .eventcard-imgwrap div {
+				height: 200px;
+			}
+		}
+	}
+	& .eventcard-summary {
+		display: none;
+	}
+
+	@include breakpoint(large) {
+		padding: rem-calc(0 0 60 0);
+	}
+}
+.block_area_beforecontent .upcomingeventsblock {
+	&__title {
+		margin-top: 0;
+		border-top: none;
+		padding-top: 60px;
+		text-transform: uppercase;
+		display: inline-block;
+	}
+}
+.block_area_sidebar .upcomingeventsblock {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 1.875rem;
+	width: 100%;
+	&__header {
+		border-top: 4px solid #000;
+		font-size: rem-calc(14);
+		font-weight: 600;
+		margin: rem-calc(0 20);
+		padding: rem-calc(24 0 8px);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	& .eventcard {
+		padding: rem-calc(20);
+		&:first-of-type {
+			border-top: none;
+		}
+	}
+	& .eventcard-imgwrap {
+		float: none;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	& .eventcard-content {
+		font-size: rem-calc(14);
+		margin-left: 0;
+	}
+	& .eventcard-summary {
+		display: none;
+	}
+	& .eventcard-title {
+		font-size: rem-calc(18);
+		& a {
+			color: $body-font-color;
+			&:hover, &:focus {
+				color: $anchor-color;
+			}
+		}
+	}
+	& li {
+		border-bottom: 1px solid #e5e5e5;
+		line-height: 1.4;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	& li img {
+		display: block;
+		margin-bottom: 8px;
+		@include breakpoint(mobile) {
+			float: right;
+			width: 175px;
+			margin-left: 1em;
+		}
+		@include breakpoint(large) {
+			float: none;
+			margin-left: 0;
+			width: auto;
+		}
+	}
+	& li a {
+		color: $body-font-color;
+		display: block;
+		font-size: rem-calc(16);
+		padding: rem-calc(20);
+		position: relative;
+		&:hover, &:focus {
+			color: $anchor-color;
+		}
+	}
+
+}

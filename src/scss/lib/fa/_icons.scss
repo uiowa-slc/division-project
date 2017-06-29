@@ -1,6 +1,54 @@
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
-
+/*.icon-file-o:before {
+  content: "\f016";
+}
+.icon-share-square-o:before {
+  content: "\f045";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-mail-reply:before {
+  content: "\f112";
+}
+.icon-reply:before {
+  content: "\f112";
+}
+.icon-soundcloud:before {
+  content: "\f1be";
+}
+.icon-envelope-o:before {
+  content: "\e905";
+}
+.icon-twitter:before {
+  content: "\e903";
+}
+.icon-facebook:before {
+  content: "\e904";
+}
+.icon-bars:before {
+  content: "\e900";
+}
+.icon-navicon:before {
+  content: "\e900";
+}
+.icon-reorder:before {
+  content: "\e900";
+}
+.icon-close:before {
+  content: "\e901";
+}
+.icon-remove:before {
+  content: "\e901";
+}
+.icon-times:before {
+  content: "\e901";
+}
+.icon-search:before {
+  content: "\e902";
+}
+*/
 .#{$fa-css-prefix}-glass:before { content: $fa-var-glass; }
 .#{$fa-css-prefix}-music:before { content: $fa-var-music; }
 .#{$fa-css-prefix}-search:before { content: $fa-var-search; }

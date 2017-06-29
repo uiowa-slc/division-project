@@ -1,6 +1,7 @@
 <?php
 class DivisionPage_Controller extends Extension {
 
+
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
 	 * permissions or conditions required to allow the user to access it.
@@ -16,122 +17,117 @@ class DivisionPage_Controller extends Extension {
 	 *
 	 * @var array
 	 */
+	private static $allowed_actions = array(
+		'autoComplete',
+		'autoCompleteResults'
+	);
+	private static $url_handlers = array (
+		'autoComplete' => 'autoComplete',
+		'autoCompleteResults' => 'autoCompleteResults'
+	);
+	public function init() {
+		parent::init();
+	}
+
 	public function index($r) {
 		$page = $this->owner;
-
 		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
 	}
-	public static function StaffSpotlightHandler($arguments, $content) {
-		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
 
-		$blogHolder = DataObject::get_by_id('Blog', 133);
+	public function NavLength(){
+		$menu = $this->owner->getMenu();
+		$count = $menu->Count();
+		$length = 'small';
+		if($count >= 7){
+			$length ='medium';
+		}elseif($count >= 9){
+			$length = 'large';
+		}elseif($count >= 11){
+			$length = 'xlarge';
+		}
+		return $length;
 
-		$tag = BlogTag::get()->filter(array('Title:PartialMatch' => 'Faces'))->First();
+	}
+	public function SidebarBlocks(){
 
-		if ($tag) {
-			$latestStaffSpotlight = $tag->BlogPosts()->sort('PublishDate DESC')->First();
-			//print_r($latestStaffSpotlight);
-			if ($latestStaffSpotlight) {
+		$pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
+		return $pages;
 
-				$customise = array();
-				/*** SET DEFAULTS ***/
-				$customise['BlogPage']       = $latestStaffSpotlight;
-				$customise['SidebarContent'] = $content;
+	}
 
-				//overide the defaults with the arguments supplied
-				$customise = array_merge($customise, $arguments);
 
-				//get our YouTube template
-				$template = new SSViewer('SidebarSpotlight');
+	private function in_arrayi($needle, $haystack) {
+	    return in_array(strtolower($needle), array_map('strtolower', $haystack));
+	}
 
-				//return the customised template
-				return $template->process(new ArrayData($customise));
+	public function autoCompleteResults($data, $form, $request) {
+        $data = array(
+            'Results' => $form->getResults(),
+            'Query' => $form->getSearchQuery(),
+            'Title' => _t('SearchForm.SearchResults', 'Search Results')
+        );
+        return $this->owner->customise($data)->renderWith(array('Page_results', 'Page'));
+    }
+	public function autoComplete($request){
+
+		$keyword = trim( $request->requestVar( 'query' ) );
+
+		$keyword = Convert::raw2sql( $keyword );
+
+		$pages = new ArrayList();
+		$pagesArray = array();
+
+		$suggestions = array('suggestions' => array());
+
+		$pages = SiteTree::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword,
+		    // 'Content:PartialMatch' => $keyword
+		))->limit(5);
+
+
+		//$pagesArray = $pages->map()->toArray();
+		$pagesArray = $pages->column('Title');
+		$suggestions['suggestions'] = $pagesArray;
+		// if(!$this->in_arrayi($keyword, $pagesArray)){
+		// 	array_unshift($pagesArray, $keyword);
+		// }
+
+		return json_encode($suggestions);
+
+	}
+	public function Header($theme = 'auto', $headerType = 'full'){
+		$template = new SSViewer('Header');
+		$siteConfig = SiteConfig::current_site_config();
+		
+		
+		//If the page type forces a particular dark/light scheme (eg homepage), defer to that first.
+		if($theme == 'auto'){
+			if($this->owner->pageTypeTheme){
+				$theme = $this->owner->pageTypeTheme;
+				
+
+			//Check page's individual CMS setting:
+			}elseif($this->owner->UseDarkThemeOnThisPage){
+
+				$theme = 'dark-header';
+			//Otherwise, check global settings
+			}elseif($siteConfig->UseDarkTheme){
+				$theme = 'dark-header';
+
+			//default to light if all else fails:
+			}else{
+				$theme = 'light-header';
 			}
 		}
 
-	}
-	public static function BlogFeedHandler($arguments) {
-		//example: [blogfeed page="news" tags="assessment"]Assessment News[/blogfeed]
 
-		if (empty($arguments['page'])) {
-			return;
-		}
-
-		$pageURLSegment = $arguments['page'];
-		$page           = Page::get()->filter("URLSegment", $pageURLSegment)->First();
-		//print_r($page);
-		if ($page) {
-
-			$customise = array();
-			/*** SET DEFAULTS ***/
-			$customise['BlogPage'] = $page;
-			if (isset($arguments['tag'])) {
-				$customise['Tag'] = $arguments['tag'];
-				$blogTag          = BlogTag::get()->filter(array('Title:PartialMatch' => $arguments['tag']))->First();
-
-				if (isset($blogTag)) {
-					$customise['BlogPosts'] = $blogTag->BlogPosts();
-				}
-
-			} else {
-				$customise['BlogPosts'] = $page->getBlogPosts();
-			}
-
-			//overide the defaults with the arguments supplied
-			$customise = array_merge($customise, $arguments);
-
-			//get our YouTube template
-			$template = new SSViewer('SidebarBlogFeed');
-
-			//return the customised template
-			return $template->process(new ArrayData($customise));
-		}
-
+		return $template->process($this->owner->customise(new ArrayData(array(
+			'DarkLight' => $theme,
+			'HeaderType' => $headerType
+		))));
 	}
 
-	public static function RSSFeedHandler($arguments) {
 
-		if (empty($arguments['url'])) {
-			return;
-		}
-
-		$feedURL    = $arguments['url'];
-		$controller = new Page_Controller();
-
-		$feedItems = $controller->RSSDisplay(5, $feedURL);
-
-		if ($feedItems) {
-
-			$customise              = array();
-			$customise['FeedItems'] = $feedItems;
-			$customise              = array_merge($customise, $arguments);
-
-			$template = new SSViewer('SidebarRssFeed');
-			//return the customised template
-			return $template->process(new ArrayData($customise));
-		}
-	}
-
-	public static function ButtonHandler($arguments, $caption = null, $parser = null) {
-
-		if (empty($arguments['url'])) {
-			return;
-		}
-
-		$customise = array();
-		/*** SET DEFAULTS ***/
-		$customise['Link']    = $arguments['url'];
-		$customise['Caption'] = $caption?Convert::raw2xml($caption):false;
-
-		//overide the defaults with the arguments supplied
-		$customise = array_merge($customise, $arguments);
-
-		//get our YouTube template
-		$template = new SSViewer('Button');
-
-		//return the customised template
-		return $template->process(new ArrayData($customise));
-
-	}
 
 }
+

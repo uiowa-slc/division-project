@@ -5,39 +5,40 @@
    "minimum-stability":"dev",
    "require":{  
       "php":">=5.3.2",
-      "silverstripe/cms":"3.4.1",
-      "silverstripe/framework":"3.4.1",
+      "silverstripe/cms":"3.6.0",
+      "silverstripe/framework":"3.6.0",
       "silverstripe/installer":"*",
       "silverstripe-themes/simple":"*",
-      "undefinedoffset/sortablegridfield":"*",
-      "unclecheese/betterbuttons":"*",
-      "unclecheese/eventcalendar":"*",
-      "colymba/gridfield-bulk-editing-tools":"*",
+      "undefinedoffset/sortablegridfield":"0.6.*",
+      "unclecheese/betterbuttons":"1.3.*",
+      "unclecheese/eventcalendar":"1.*",
+      "colymba/gridfield-bulk-editing-tools":"2.1.*",
       "silverstripe/blog":"2.*",
       "silverstripe/widgets":"*",
-      "silverstripe/userforms":"3.*",
-      "silverstripe/recaptcha":"*",
-      "silverstripe/mathspamprotection":"*",
+      "silverstripe/userforms":"4.*",
+      "undefinedoffset/silverstripe-nocaptcha":"0.4.*",
+      "silverstripe/mathspamprotection":"2.*",
       "simplepie/simplepie":"*",
-      "silverstripe/googlesitemaps":"*",
-      "silverstripe/timepickerfield":"*",
-      "jonom/focuspoint":"*",
+      "silverstripe/googlesitemaps":"1.6.*",
+      "silverstripe/timepickerfield":"1.1.*",
+      "jonom/focuspoint":"2.4.*",
       "md/rss-display":"*",
       "md/ac-json-events":"dev-master",
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
-      "md/silverstripe-flickr":"*",
-      "silverstripe-australia/gridfieldextensions":"*",
-      "jonom/silverstripe-betternavigator":"2.1.0",
-      "thisisbd/silverstripe-maintenance-mode":"*",
-      "silverstripe/secureassets":"dev-master",
+      "silverstripe-australia/gridfieldextensions":"1.4.*",
+      "jonom/silverstripe-betternavigator":"3.*",
+      "thisisbd/silverstripe-maintenance-mode":"1.*",
+      "silverstripe/secureassets":"1.1.*",
       "studiobonito/silverstripe-typekit" : "*",
-      "rywa/silverstripe-foundation-forms" : "dev-master",
-      "unclecheese/display-logic" : "*",
-      "sheadawson/silverstripe-blocks": "*",
+      "unclecheese/display-logic" : "1.5.*",
+      "sheadawson/silverstripe-blocks": "1.1.1",
       "unisolutions/silverstripe-copybutton": "*",
-      "micschk/silverstripe-gridfieldsitetreebuttons": "*"
+      "micschk/silverstripe-gridfieldsitetreebuttons": "*",
+      "silverstripe/activedirectory": "3.*",
+      "olliepop/fbpagefeed": "dev-master",
+      "silverstripe-australia/addressable" : "*"
    },
    "repositories":[  
       {  
@@ -52,9 +53,17 @@
          "type":"vcs",
          "url":"https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
       },
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr"
+      {
+         "type": "vcs",
+         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+      },
+      {
+         "type": "vcs",
+         "url": "https://github.com/StudentLifeMarketingAndDesign/fbpagefeed"
+      },
+      {
+          "type": "vcs",
+          "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
       }
    ]
 }

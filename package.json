@@ -22,6 +22,9 @@
     "gulp-extname": "^0.2.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.2.1",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-newer": "^1.0.0",
+    "gulp-size": "^2.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
@@ -42,7 +45,12 @@
     "email": "foundation@zurb.com"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0"
+  }
 }

@@ -1,17 +1,12 @@
-h1{
-	font-weight: bold;
+h1,h2,h3,h4,h5,h6 {
+	margin-top: 1.25em;
 }
-h2{
-	font-weight: normal;
-}
-
 .subheader{
 	// @include grid-column-position(center);
 	font-family: $header-font-family;
 	text-transform: uppercase;
 	font-size:rem-calc(15);
-	font-weight: bold;
-
+	font-weight: 600;
 	&--white{
 		color: white;
 	}
@@ -23,7 +18,9 @@ h2{
 	font-weight: bold;
 	text-transform: uppercase;
 }
-
+.header--caps{
+	text-transform: uppercase;
+}
 .header--centered{
 	text-align: center;
 }
@@ -31,4 +28,43 @@ h2{
 .content-block-header{
 	margin-bottom: rem-calc(30);
 	letter-spacing: 0.1em;
+}
+
+blockquote {
+	border-left: 6px solid $yellow;
+	font-family: georgia, serif;
+	font-size: 110%;
+	font-style: italic;
+	padding-left: 1.5em;
+	margin: 1em 0;
+	position: relative;
+	& p {
+		margin: 0;
+		line-height: 1.8;
+	}
+}
+blockquote.left {
+	float: left;
+	width: 40%;
+	margin: 1em 1em 1em 0;
+	padding-right: 0;
+	&:before {
+		content: '';
+	}
+}
+blockquote.right {
+	float: right;
+	width: 40%;
+	margin: 1em 0 1em 1em;
+	padding-right: 0;
+	&:before {
+		content: '';
+	}
+}
+blockquote small {
+	text-align: right;
+	display: block;
+	margin-top: 1em;
+	text-transform: uppercase;
+	font-size: 70%;
 }

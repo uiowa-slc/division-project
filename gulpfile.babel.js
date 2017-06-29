@@ -1,5 +1,8 @@
 'use strict';
 
+// for dev: "npm start" 
+// for production: "npm run-script build"
+
 import plugins  from 'gulp-load-plugins';
 import yargs    from 'yargs';
 import browser  from 'browser-sync';
@@ -22,9 +25,9 @@ function loadConfig() {
   return yaml.load(ymlFile);
 }
 
-// Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, gulp.parallel(sass, javascript, images, copy)));
+ gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
+
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -34,6 +37,8 @@ gulp.task('default',
 // This happens every time a build starts
 function clean(done) {
   rimraf(PATHS.theme + '/' + PATHS.dist, done);
+  rimraf('templates/', done);
+  rimraf(PATHS.theme +'/templates/', done);
 }
 
 // Copy files out of the assets folder
@@ -43,11 +48,48 @@ function copy() {
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist));
 }
 
+function dpHtml(){
+    return gulp.src('src/templates/**/*.ss')
+    .pipe($.newer('templates/'))
+    .pipe($.if('*.ss', $.htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: false,
+      removeRedundantAttributes: true,
+      removeEmptyAttributes: false,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeOptionalTags: false
+    })))
+    // Output files
+    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
+    .pipe(gulp.dest('templates/'));
+}
+
+function themeHtml(){
+    return gulp.src(PATHS.theme +'/src/templates/**/*.ss')
+    .pipe($.newer(PATHS.theme +'/templates/'))
+    .pipe($.if('*.ss', $.htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: false,
+      removeRedundantAttributes: true,
+      removeEmptyAttributes: false,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeOptionalTags: false
+    })))
+    // Output files
+    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
+    .pipe(gulp.dest(PATHS.theme +'/templates/'));  
+}
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
-  return gulp.src(PATHS.theme + '/scss/*.scss')
+  return gulp.src(PATHS.theme + '/src/scss/*.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -68,10 +110,10 @@ function sass() {
 // In production, the file is minified
 function javascript() {
   //Add theme's app.js to the list of js we're compiling
-  PATHS.javascript.push(PATHS.theme + '/scripts/app.js');
+  PATHS.javascript.push(PATHS.theme + '/src/scripts/app.js');
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe($.babel({ignore: ['what-input.js', 'lazyload.transpiled.js']}))
     .pipe($.concat('app.js'))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
@@ -83,7 +125,7 @@ function javascript() {
 // Copy images to the "themes" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src(['src/images/**/*',PATHS.theme + '/images/**/*' ])
+  return gulp.src(['src/images/**/*',PATHS.theme + '/src/images/**/*' ])
     .pipe($.if(PRODUCTION, $.imagemin({
       progressive: true
     })))
@@ -94,7 +136,7 @@ function images() {
 function server(done) {
   browser.init({
     proxy: {
-      target: "localhost:8888/division-project-4"
+      target: "localhost:8888/"+PATHS.projectName
     },
     host:      'site1.domain.dev',
     port:      3060
@@ -114,13 +156,13 @@ function watch() {
   // gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
   // gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
 
-  gulp.watch(PATHS.theme +'/templates/**/*.ss').on('all', gulp.series(browser.reload));
-  gulp.watch(PATHS.theme + '/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
-  gulp.watch(PATHS.theme + '/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
-  gulp.watch(PATHS.theme + '/images/**/*').on('all', gulp.series(images, browser.reload));
+  gulp.watch(PATHS.theme +'/src/templates/**/*.ss').on('all', gulp.series(themeHtml, browser.reload));
+  gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', sass);
+  gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
+  gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
-  gulp.watch('templates/**/*.ss').on('all', gulp.series(browser.reload));
-  gulp.watch('src/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
+  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml, browser.reload));
+  gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));
 }

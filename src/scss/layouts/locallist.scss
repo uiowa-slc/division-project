@@ -1,0 +1,167 @@
+/* ---------------------------------------------------------------
+Calendar Holder Page
+--------------------------------------------------------------- */
+/* Featured Events */
+.locallist-carousel {
+
+}
+.locallist-carousel .carousel-cell {
+	width: 100%;
+}
+
+
+
+
+
+.column-block {
+	margin-bottom: 1em;
+}
+.eventcard {
+	padding: rem-calc(40 0);
+	border-top: 1px solid #e5e5e5;
+}
+.eventcard-title {
+	margin-top: 0;
+	margin-bottom: 10px;
+	& a:hover, & a:focus {
+		text-decoration: underline;
+	}
+}
+.eventcard-content {
+	font-size: 16px;
+	position: relative;
+	@include breakpoint(small) {
+		margin-left: 35%;
+	}
+}
+.eventcard-imgwrap {
+	display: none;
+	@include breakpoint(small) {
+		display: block;
+		float: left;
+		width: 30%;
+	}
+}
+.eventcard-imgwrap div {
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	text-indent: -999em;
+}
+.eventcard-venue,
+.eventcard-dates {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 22px;
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 4px;
+		background-size: cover;
+		width: 16px;
+		height: 16px;
+		opacity: .35;
+	}
+}
+.eventcard-venue:before {background-image: url(../images/location-bw.png);}
+.eventcard-dates:before {background-image: url(../images/calendar-bw.png);}
+
+.eventcard-summary {
+	margin: 10px 0 0;
+}
+.eventcard .icon {
+	fill: $anchor-color;
+}
+.eventcard-btn {
+	margin-bottom: 0;
+	@include breakpoint(medium) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+	}
+}
+
+/* ---------------------------------------------------------------
+Calendar Page
+--------------------------------------------------------------- */
+.event-title {
+	border-top: 1px solid #eee;
+	padding-top: 1em;
+	margin-bottom: 5px;
+	+ p {
+		margin-top: 0;
+	}
+	&:first-of-type {
+		margin-top: 0;
+	}
+}
+.event-venue {
+	padding-left: 35px;
+	position: relative;
+	&:before {
+		content: '';
+		background-image: url(../images/location-bw.png);
+		position: absolute;
+		left: 0;
+		top: 4px;
+		background-size: cover;
+		width: 32px;
+		height: 32px;
+		opacity: .35;
+	}
+}
+
+/* ---------------------------------------------------------------
+Related Events
+--------------------------------------------------------------- */
+.relatedevents {
+	background: $cream;
+	overflow: hidden;
+	padding: 2em 0 2.5em;
+}
+.relatedevents ul {
+	list-style: none;
+	margin: 0 auto;
+}
+.relatedevents .eventcard {
+	border-top: 0;
+}
+.relatedevents .eventcard-content {
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+.relatedevents .eventcard-imgwrap {
+	@include breakpoint(small) {
+		display: none;
+	}
+	@include breakpoint(medium) {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+}
+.relatedevents .eventcard-imgwrap div {
+	height: 200px;
+}
+.relatedevents .eventcard-title {
+	font-size: 20px;
+}
+.relatedevents h2 {
+	font-size: 28px;
+	margin-top: 0;
+	@include breakpoint(medium) {
+		font-size: 45px;
+	}
+}
+.relatedevents .eventcard-summary {
+	display: none;
+}
+.relatedevents .eventcard-btn {
+	display: none;
+}

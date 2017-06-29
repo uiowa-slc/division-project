@@ -1,0 +1,18 @@
+<% if $RelatedNewsEntries %>
+<section class="content-block__container">
+	<div class="content-block row">
+		<div class="newsblock">
+			<div class="column">
+				<h3 class="newsblock-title text-center"><% if $Title %>$Title<% else %>Related News<% end_if %></h3>
+			</div>
+			<ul class="medium-up-3 ">
+				<% loop $RelatedNewsEntries.limit(3) %>
+					<li class="column column-block">
+						<% include BlogCard %>
+					</li>
+				<% end_loop %>
+			</ul>
+		</div>
+	</div>
+</section>
+<% end_if %>

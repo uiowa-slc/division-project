@@ -1,0 +1,116 @@
+
+/* ----------------------------------------------------------
+News
+------------------------------------------------------------*/
+.newsblock {
+	overflow: hidden;
+	padding: 0 0 60px 0;
+	background-color: $cream;
+}
+.newsblock-title {
+	margin-top: 0;
+	border-top: 5px solid $yellow;
+	padding-top: 60px;
+	text-transform: uppercase;
+	display: inline-block;
+}
+.newsblock ul {
+	list-style: none;
+	margin: 0 auto;
+}
+.newsblock .bloglistitem {
+	border: none;
+	padding-top: rem-calc(18);
+	@media (min-width: 480px) {
+		&__img {
+			float: right;
+			width: 30%;
+			margin-top: 6px;
+			margin-bottom: .75em;
+			margin-left: .75em;
+		}
+		&__content--wimage {
+			margin-right: 0;
+		}
+	}
+	@include breakpoint(large) {
+		&__img {
+			width: 38%;
+		}
+	}
+	& .bloglistitem__heading a:hover, & .bloglistitem__heading a:focus {
+		color: $anchor-color;
+	}
+}
+/* News
+======================================================================= */
+.block_area_aftercontent .newsblock {
+	& ul {
+		list-style: none;
+		margin: 0;
+	}
+	& .bloglistitem {
+		padding-top: rem-calc(18);
+	}
+	& .bloglistitem__heading {
+		//text-transform: capitalize;
+	}
+	& .bloglistitem__desc {
+		font-size: rem-calc(16);
+	}
+	& .byline__author img {
+		display: none;
+	}
+}
+.block_area_sidebar .newsblock {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 1.875rem;
+	width: 100%;
+	&__header {
+		border-top: 4px solid #000;
+		font-size: rem-calc(14);
+		font-weight: 600;
+		margin: rem-calc(0 20);
+		padding: rem-calc(24 0 8px);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	& ul {
+		list-style: none;
+		margin: 0;
+	}
+	& li {
+		border-bottom: 1px solid #e5e5e5;
+		line-height: 1.4;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	& li img {
+		display: block;
+		margin-bottom: 8px;
+		@include breakpoint(mobile) {
+			float: right;
+			width: 175px;
+			margin-left: 1em;
+		}
+		@include breakpoint(large) {
+			float: none;
+			margin-left: 0;
+			width: auto;
+		}
+	}
+	& li a {
+		color: $body-font-color;
+		display: block;
+		font-size: rem-calc(16);
+		padding: rem-calc(20);
+		position: relative;
+		&:hover, &:focus {
+			color: $anchor-color;
+		}
+	}
+
+}
+

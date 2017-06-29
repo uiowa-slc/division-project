@@ -26,7 +26,6 @@ class StaffPage extends Page {
 		SiteTree::enableCMSFieldsExtensions();
 
 		$fields->removeByName("Content");
-		$fields->removeByName("Metadata");
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
@@ -82,16 +81,16 @@ class StaffPage_Controller extends Page_Controller {
 		parent::init();
 
 	}
-	public function NewsPosts() {
+	// public function NewsPosts() {
 
-		$memberId = $this->EmailAddress;
+	// 	$memberId = $this->EmailAddress;
 
-		if (isset($memberId)) {
-			$url = 'http://studentlife.uiowa.edu/news/rss?member='.$memberId;
-			return $this->RSSDisplay(20, $url);
-		} else {
-			return false;
-		}
+	// 	if (isset($memberId)) {
+	// 		$url = 'http://studentlife.uiowa.edu/news/rss?member='.$memberId;
+	// 		return $this->RSSDisplay(20, $url);
+	// 	} else {
+	// 		return false;
+	// 	}
 
-	}
+	// }
 }

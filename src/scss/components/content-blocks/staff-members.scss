@@ -1,0 +1,104 @@
+
+
+
+/* Staff Member
+======================================================================= */
+
+.staffmemberblock {
+	@include grid-row;
+	background-color: $cream;
+	padding: rem-calc(20);
+	&__media {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
+		& a {
+			display: block;
+		}
+	}
+	&__body {
+		@include breakpoint(mobile) {
+			@include grid-column(6);
+		}
+	}
+	&__desc {
+		margin: rem-calc(20 0);
+	}
+	&__title {
+		margin-top: .5em;
+		margin-bottom: 1em;
+		font-size: rem-calc(28);
+		position: relative;
+		@include breakpoint(mobile) {
+			margin-top: 0;
+		}
+		&:after {
+			content: '';
+			height: 2px;
+			width: 50px;
+			background-color: $black;
+			position: absolute;
+			left: 0;
+			bottom: -12px;
+		}
+	}
+	&__button {
+		& a {
+			background: $yellow;
+			color: #000;
+			display: inline-block;
+			font-weight: bold;
+			font-size: rem-calc(12);
+			letter-spacing: 1px;
+			padding: 12px 24px 12px;
+			text-transform: uppercase;
+			&:hover, &:focus {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+	&__position {
+		font-size: 85%;
+		font-style: italic;
+		line-height: 1.5;
+	}
+	&__contact {
+		list-style: none;
+		margin: 0;
+		& li {
+			font-size: 85%;
+			& img {
+				margin-right: 5px;
+			}
+		}
+	}
+	@include breakpoint(mobile) {
+		padding: rem-calc(30 20);
+	}
+}
+
+/* Sidebar ------------------------- */
+.block_area_sidebar .staffmemberblock {
+	&__media {
+		@include breakpoint(large) {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
+	}
+	&__body {
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+			padding: 0;
+			margin-top: 18px;
+		}
+	}
+}
+/* After Content ----------------------- */
+.block_area_aftercontent .staffmemberblock {
+	@include breakpoint(large) {
+		padding: rem-calc(60 0);
+	}
+}

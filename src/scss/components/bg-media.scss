@@ -1,0 +1,152 @@
+//Page Media Types (eventually move elsewhere)
+
+/* Background Media */
+
+.bg-media{
+	padding-bottom: rem-calc(450);
+	position: relative;
+	&--image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 400px;
+
+	}
+	&--video{
+
+	}
+
+	&--fade{
+
+	}
+
+	&--grayscale{
+		filter: grayscale(90%);
+	}
+	@include breakpoint(medium) {
+		padding-bottom: rem-calc(500);
+		overflow: hidden;
+	}
+	@include breakpoint(large) {
+		padding-bottom: rem-calc(650);
+	}
+	@include breakpoint(xlarge) {
+		padding-bottom: rem-calc(650);
+	}
+
+}
+
+.background-image {
+	background-color: #242424;
+	background-position: center;
+	background-size: cover;
+	color: #fff;
+	min-height: 300px;
+	overflow: hidden;
+	position: relative;
+	&__header {
+		color: #fff;
+		padding: rem-calc(150) 0 rem-calc(30);
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+
+
+	}
+
+	&__header--has-content{
+		padding-top: rem-calc(40);
+		position: relative;
+		@include breakpoint(large) {
+			padding: rem-calc(150) 0 rem-calc(30);
+		}
+	}
+
+	&__title {
+		margin: 0;
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+		@include breakpoint(large) {
+			font-size: rem-calc(65);
+		}
+	}
+	&:after {
+	background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.01, rgba(0,0,0,0)), color-stop(0.49, rgba(0,0,0,0)), to(rgba(0,0,0,0.7)));
+	background: -webkit-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: -moz-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: -o-linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	background: linear-gradient(rgba(0,0,0,0) 1%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.7) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
+		content:'';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+	@include breakpoint(medium) {
+		min-height: 350px;
+	}
+	@include breakpoint(large) {
+		min-height: 450px;
+	}
+	@include breakpoint(xlarge) {
+		min-height: 500px;
+	}
+}
+
+
+
+.backgroundvideo {
+	position: relative;
+	&__container {
+		background-color: #000;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		height: 260px;
+		transition: all 0.5s ease;
+		position: relative;
+		overflow: hidden;
+		@include breakpoint(medium) {
+			height: 440px;
+		}
+		@include breakpoint(large) {
+			height: 500px;
+			background-position: center top;
+		}
+	}
+	&__container.on {
+		background: #000;
+		height: auto;
+		background-image: none !important;
+		transition: all 0.5s ease;
+	}
+	&__link {
+		background-color: rgba(0,0,0,0);
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transition: all .5s ease;
+		&:after {
+			content:'';
+			border-radius: 50%;
+			background-color: rgba(0,0,0,.4);
+			background-image: url(../images/play-button.png);
+			background-size: 72px 72px;
+			display: inline-block;
+			width: 72px;
+			height: 72px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -36px;
+			margin-left: -36px;
+		}
+		&:hover, &:focus {
+			background-color: rgba(0,0,0,.2);
+		}
+	}
+}
