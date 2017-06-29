@@ -31,7 +31,7 @@
       "jonom/silverstripe-betternavigator":"3.*",
       "thisisbd/silverstripe-maintenance-mode":"1.*",
       "silverstripe/secureassets":"1.1.*",
-      "studiobonito/silverstripe-typekit" : "*",
+      "plato-creative/silverstripe-typekit" : "*",
       "unclecheese/display-logic" : "1.5.*",
       "sheadawson/silverstripe-blocks": "1.1.1",
       "unisolutions/silverstripe-copybutton": "*",
