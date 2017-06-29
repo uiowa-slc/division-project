@@ -64,6 +64,10 @@
       {
           "type": "vcs",
           "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
-      }
+      },
+     {
+          "type": "vcs",
+          "url": "https://github.com/PlatoCreative/silverstripe-typekit"
+     }  
    ]
 }
