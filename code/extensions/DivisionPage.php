@@ -60,10 +60,6 @@ class DivisionPage extends DataExtension {
 			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
 				"<p class=\"message warning\">Google Analytics ID hasn't been set for this site. <a href=\"admin/settings/\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
 		}
-		if(!$config->TypeKitID) {
-			$f->addFieldToTab("Root.Main", new LiteralField("TypeKitWarning",
-				"<p class=\"message warning\">Typekit ID hasn't been set for this site. <a href=\"admin/settings/#Root_TypeKit\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
-		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
