@@ -96,6 +96,11 @@ class HomePage extends Page {
 		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo('ShuffledBackgroundFeatures')->end());
 		
 	}
+
+	public function getRandomBackgroundFeature(){
+		$bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
+		return $bg;
+	}
 }
 class HomePage_Controller extends Page_Controller {
 

@@ -19,7 +19,7 @@ class DivisionPage_Controller extends Extension {
 	public function index($r) {
 		$page = $this->owner;
 
-		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, 'Page'));
+		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
 	}
 	public static function StaffSpotlightHandler($arguments, $content) {
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
