@@ -36,7 +36,7 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department URL (optional)"));
 
-		$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team <a href="admin/pages/edit/show/14" target="_blank">(Manage Teams)</a>', StaffTeam::get()->map('ID', 'Name')));
+		$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team', StaffTeam::get()->map('ID', 'Name')));
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
