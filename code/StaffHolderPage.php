@@ -26,7 +26,8 @@ class StaffHolderPage extends Page {
 		
 		
 		$gridField = new GridField("StaffTeam", "Staff Teams", StaffTeam::get(), $gridFieldConfig);
-		$f->addFieldToTab("Root.Main", $gridField, "Content"); // add the grid field to a tab in the CMS	
+		$f->addFieldToTab("Root.Main", $gridField, "Content"); // add the grid field to a tab in the CMS
+		      $this->extend('updateCMSFields', $f);
 		return $f;
 	}
 	
