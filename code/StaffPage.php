@@ -19,7 +19,9 @@ class StaffPage extends Page {
 	private static $belongs_many_many = array(
 		"Teams" => "StaffTeam",
 	);
-
+	private static $defaults = array(
+		'Content' => ''
+	);
 	public function getCMSFields() {
 		SiteTree::disableCMSFieldsExtensions();
 		$fields = parent::getCMSFields();
