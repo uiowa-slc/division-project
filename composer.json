@@ -5,8 +5,8 @@
    "minimum-stability":"dev",
    "require":{  
       "php":">=5.3.2",
-      "silverstripe/cms":"3.6.0",
-      "silverstripe/framework":"3.6.0",
+      "silverstripe/cms":"3.6.1",
+      "silverstripe/framework":"3.6.1",
       "silverstripe/installer":"*",
       "silverstripe-themes/simple":"*",
       "undefinedoffset/sortablegridfield":"0.6.*",
@@ -27,7 +27,7 @@
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
-      "silverstripe-australia/gridfieldextensions":"1.4.*",
+      "symbiote/silverstripe-addressable":"1.4.*",
       "jonom/silverstripe-betternavigator":"3.*",
       "thisisbd/silverstripe-maintenance-mode":"1.*",
       "silverstripe/secureassets":"1.1.*",
@@ -38,7 +38,7 @@
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
       "silverstripe/activedirectory": "3.*",
       "olliepop/fbpagefeed": "dev-master",
-      "silverstripe-australia/addressable" : "*"
+      "symbiote/silverstripe-addressable" : "*"
    },
    "repositories":[  
       {  
