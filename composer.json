@@ -29,7 +29,7 @@
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
-      "symbiote/silverstripe-addressable":"1.4.*",
+      "symbiote/silverstripe-addressable":"2.*",
       "jonom/silverstripe-betternavigator":"3.*",
       "thisisbd/silverstripe-maintenance-mode":"1.*",
       "silverstripe/secureassets":"1.1.*",
@@ -39,8 +39,7 @@
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
       "silverstripe/activedirectory": "3.*",
-      "olliepop/fbpagefeed": "dev-master",
-      "symbiote/silverstripe-addressable" : "*"
+      "olliepop/fbpagefeed": "dev-master"
    },
    "repositories":[  
       {  
