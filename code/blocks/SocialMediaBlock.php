@@ -11,7 +11,7 @@ class SocialMediaBlock extends Block{
 
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		//$fields->removeByName("Title");
 

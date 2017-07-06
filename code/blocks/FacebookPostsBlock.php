@@ -17,7 +17,7 @@ class FacebookPostsBlock extends Block{
         // $this->appID = $siteConfig->FBAppID;
         // $this->appSecret = $siteConfig->FBAppSecret;
         // $this->accessToken = $siteConfig->FBAccessToken;
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$siteConfig = \SiteConfig::current_site_config();
 

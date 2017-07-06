@@ -23,7 +23,7 @@ class RecentNewsBlock extends Block{
 		'SortBy' => 'Recent'
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->renameField('Title', 'Title (default:Recent News)');
 		$fields->removeByName('SortBy');
