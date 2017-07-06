@@ -86,7 +86,7 @@ var $slideshow = $('.slideshow').flickity({
 var slideshowflk = $slideshow.data('flickity');
 
 $slideshow.on( 'select.flickity', function() {
-	console.log( 'Flickity select ' + slideshowflk.selectedIndex );
+	//console.log( 'Flickity select ' + slideshowflk.selectedIndex );
 	//slideshowflk.reloadCells();
 
 })

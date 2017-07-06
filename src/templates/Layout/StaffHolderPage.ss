@@ -40,15 +40,9 @@ $Header
 					<% end_loop %>
 				<% else %><%-- end if teams --%>
 					<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
-					<% if $Up.SortLastName %>
-						<% loop $SortedStaffPages.Sort(LastName, ASC) %>
+						<% loop $Children %>
 							<% include StaffPageListItem %>
 						<% end_loop %>
-					<% else %>
-						<% loop $SortedStaffPages %>
-							<% include StaffPageListItem %>
-						<% end_loop %>
-					<% end_if %>
 					</ul>
 				<% end_if %>
 				</div><%-- end stafflist --%>

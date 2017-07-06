@@ -41,7 +41,12 @@ class StaffHolderPage extends Page {
 	}
 
 	public function Children(){
-		$staffPages = parent::Children()->sort('LastName');
+		if($this->SortLastName){
+			$staffPages = parent::Children()->sort('LastName');
+		}else{
+			$staffPages = parent::Children();
+		}
+		
 		$this->extend('alterChildren', $staffPages);
 		return $staffPages;
 	}
