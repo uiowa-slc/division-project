@@ -182,11 +182,5 @@ class DivisionPage extends DataExtension {
 		}
 	}
 
-	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
-		$owner = $this->owner;
-		print_r($owner->Breadcrumbs());
-		// return $this->owner->Breadcrumbs(20, false, false, true);
-	}
-
 
 }

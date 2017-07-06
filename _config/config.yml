@@ -3,3 +3,5 @@ Member:
   log_last_visited: false
 TypeKit:
   typekitID: ggu1mkb
+SSViewer:
+  theme: 'division-subtheme'
