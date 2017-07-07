@@ -125,13 +125,9 @@ class DivisionPage extends DataExtension {
 		return $this->owner->stat('layout_types');
 	}
 
-	public function getSettingsFields() {
-		$f = parent::getSettingsFields();
+	public function updateSettingsFields($f) {
 		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
-
-		return $f;
-
 	}
 
 	public function getSidebarItems() {
