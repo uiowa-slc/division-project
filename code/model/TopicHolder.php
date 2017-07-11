@@ -3,7 +3,8 @@
 class TopicHolder extends Blog {
 
 	private static $db = array(
-
+        'ShowCategoriesTab' => 'Boolean(1)',
+        'ShowTagsTab' => 'Boolean(1)',
 	);
 
 	private static $allowed_children = array('Topic');
@@ -14,18 +15,22 @@ class TopicHolder extends Blog {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		//$fields->addFieldToTab("Root.Settings", new CheckboxField('ExpandAllTopicsByDefault', 'Expand all topics by default'));
-
 		$questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
 		$questionGridField->setConfig($questionGridFieldConfig);
 
 		$fields->addFieldToTab('Root.Questions', $questionGridField);
 
-		//$fields->removeByName('Categories');
 		return $fields;
-
 	}
+    public function getSettingsFields(){
+        $fields = parent::getSettingsFields();
+
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
+        return $fields;
+
+    }
     public function AllTags()
     {
         //$blog = $this;

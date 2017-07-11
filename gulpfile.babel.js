@@ -113,7 +113,7 @@ function javascript() {
   PATHS.javascript.push(PATHS.theme + '/src/scripts/app.js');
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.babel({ignore: ['what-input.js', 'lazyload.transpiled.js']}))
+    .pipe($.babel({ignore: ['what-input.js', 'lazyload.js']}))
     .pipe($.concat('app.js'))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
