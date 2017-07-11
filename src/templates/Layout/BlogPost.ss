@@ -1,6 +1,5 @@
 $Header
 <main class="main-content__container" id="main-content__container">
-<%-- test --%>
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
