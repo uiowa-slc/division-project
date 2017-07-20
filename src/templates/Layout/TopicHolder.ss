@@ -110,7 +110,7 @@ $BlockArea(BeforeContent)
       <% if not $BackgroundImage || $IsFilterActive %>
         <div class="topic-search__container row">
           <div class="large-9 columns large-centered">
-            <h2 class="text-center">Search for a more topics below:</h2>
+            <h2 class="text-center">Search for more topics below:</h2>
             $TopicSearchForm
           </div>
         </div>
