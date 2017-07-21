@@ -43,9 +43,9 @@ function clean(done) {
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-function copy() {
+function copy(done) {
   return gulp.src(PATHS.assets)
-    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist));
+    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist), done);
 }
 
 function dpHtml(){
