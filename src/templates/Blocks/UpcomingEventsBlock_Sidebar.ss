@@ -10,6 +10,6 @@
 			<% end_with %>
 
 		</div>
-		<p class="text-center"><a href="$Link" class="keep-reading">See full calendar</a></p>
+		<p class="text-center"><a href="$CurrentPage.LocalistCalendar.Link" class="keep-reading">See full calendar</a></p>
 	</div>
 </section>

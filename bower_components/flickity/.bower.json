@@ -1,0 +1,53 @@
+{
+  "name": "flickity",
+  "description": "Touch, responsive, flickable carousels",
+  "main": [
+    "js/index.js",
+    "css/flickity.css"
+  ],
+  "dependencies": {
+    "desandro-matches-selector": "^2.0.0",
+    "ev-emitter": "^1.0.2",
+    "fizzy-ui-utils": "^2.0.0",
+    "get-size": "^2.0.0",
+    "tap-listener": "^2.0.0",
+    "unidragger": "^2.2.3"
+  },
+  "devDependencies": {
+    "flickity-imagesloaded": "^2.0.0",
+    "flickity-as-nav-for": "^2.0.0",
+    "jquery-bridget": "^2.0.0",
+    "qunit": "^2.0.0"
+  },
+  "keywords": [
+    "gallery",
+    "carousel",
+    "touch"
+  ],
+  "homepage": "http://flickity.metafizzy.co",
+  "authors": [
+    "Metafizzy"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "sandbox",
+    "package.json",
+    "gulpfile.js",
+    "notes.md"
+  ],
+  "version": "2.0.9",
+  "_release": "2.0.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.9",
+    "commit": "8b676a81029e567c1c8e911b6f6d9d7fcf52764e"
+  },
+  "_source": "https://github.com/metafizzy/flickity.git",
+  "_target": "*",
+  "_originalSource": "flickity"
+}
