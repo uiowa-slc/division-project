@@ -9,7 +9,7 @@ body, td, pre{
 @import "settings/division-settings";
 @import "subtheme-settings";
 
-@import "foundation";
+@import "lib/foundation/scss/foundation";
 
 @include foundation-global-styles;
 @include foundation-typography;

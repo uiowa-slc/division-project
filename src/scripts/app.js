@@ -304,7 +304,9 @@ $('.backgroundvideo__link').click(function(e){
 // Topic Tabs
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-$('#topic-tabs').foundation('selectTab', $('.tabs-panel').first());
+if ($('#topic-tabs').length) {
+	$('#topic-tabs').foundation('selectTab', $('.tabs-panel').first());
+}
 
 
 /*-------------------------------------------------*/
