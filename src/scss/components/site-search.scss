@@ -67,7 +67,7 @@
 
 		&:after {
 			transition: all 1s;
-			background-color: $yellow;
+			background-color: $highlight;
 			display: block;
 			width: 100%;
 			height: 5px;
@@ -80,7 +80,7 @@
 		// &:before{
 		// 	transition: all 1s;
 
-		// 	background-color: $yellow;
+		// 	background-color: $highlight;
 		// 	display: block;
 		// 	width: 100%;
 		// 	height: 5px;

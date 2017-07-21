@@ -22,7 +22,7 @@
 		transform: none;
 		&:after {
 			transition: background-color 1s;
-			background-color: $yellow;
+			background-color: $highlight;
 			display: block;
 			width: calc(100% - 1px);
 			height: 5px;
@@ -79,7 +79,7 @@
 
 	&--full.nav__wrapper--grayscale {
 		&:after {
-			background-color: desaturate($yellow, 90%);
+			background-color: desaturate($highlight, 90%);
 		}
 	}
 }
@@ -133,7 +133,7 @@
 	}
 
 	&--overlay.nav--dark-header .nav__item--section:after, &--no-bg.nav--dark-header .nav__item--section:after {
-		background-color: $yellow;
+		background-color: $highlight;
 	}
 
 
@@ -243,7 +243,7 @@
 		}
 	}
 	&:hover:after {
-		background-color: $yellow;
+		background-color: $highlight;
 	}
 	@include breakpoint(medium) {
 		border:none;
@@ -482,7 +482,7 @@
 		font-size: rem-calc(24);
 		//text-transform: capitalize;
 		padding: rem-calc(5);
-		border-bottom: rem-calc(2) $yellow solid;
+		border-bottom: rem-calc(2) $highlight solid;
 		color: white;
 		width: 100%;
 	}

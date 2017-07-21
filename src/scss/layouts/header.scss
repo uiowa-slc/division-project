@@ -59,7 +59,7 @@
 	z-index: 10;
 	&:after {
 		transition: background-color 1s;
-		background-color: $yellow;
+		background-color: $highlight;
 		display: block;
 		width: calc(100% - 1px);
 		height: 5px;

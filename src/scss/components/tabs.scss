@@ -10,11 +10,11 @@
 	border-bottom: 2px solid #333;
 }
 .tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
-	border-bottom: 2px solid $yellow;
+	border-bottom: 2px solid $highlight;
 	&:after{
 		height: rem-calc(3);
 		display: block;
-		background: $yellow;
+		background: $highlight;
 
 	}
 

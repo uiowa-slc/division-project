@@ -19,6 +19,9 @@ $cream: #f8f6f3;
 
 $yellow: #ffcd00;
 
+//Main Highlight color:
+$highlight: $yellow;
+
 @include add-foundation-colors;
 
 $global-width: rem-calc(1200);

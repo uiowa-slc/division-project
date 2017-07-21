@@ -68,7 +68,7 @@
 
 	&__header {
 		@include breakpoint(medium) {
-			border-left: rem-calc(40) solid $yellow;
+			border-left: rem-calc(40) solid $highlight;
 			padding-left: rem-calc(30);
 			margin-bottom: rem-calc(50);
 		}

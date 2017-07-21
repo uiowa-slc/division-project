@@ -40,7 +40,7 @@
 		margin-top: 20px;
 		margin-bottom: 10px;
 		padding-bottom: 10px;
-		border-bottom: 2px solid $yellow;
+		border-bottom: 2px solid $highlight;
 		font-weight: 600;
 
 	}
@@ -126,7 +126,7 @@
 		}
 		&:hover, &:focus {
 			color: #222;
-			background-color: $yellow;
+			background-color: $highlight;
 			&:after {
 				@include css-triangle(6px, #222, right);
 			}
@@ -279,7 +279,7 @@
 }
 #mc_embed_signup .button {
 	clear:both;
-	background: $yellow;
+	background: $highlight;
 	border: 0 none;
 	border-radius:4px;
 	letter-spacing:.03em;

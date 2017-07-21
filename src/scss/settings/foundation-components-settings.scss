@@ -238,7 +238,7 @@ $pagination-item-padding: rem-calc(3 10);
 $pagination-item-spacing: rem-calc(1);
 $pagination-radius: 2px;
 $pagination-item-background-hover: $light-gray;
-$pagination-item-background-current: $yellow;
+$pagination-item-background-current: $highlight;
 $pagination-item-color-current: background($pagination-item-background-current);
 $pagination-item-color-disabled: $medium-gray;
 $pagination-ellipsis-color: $black;

@@ -96,7 +96,7 @@
 	left: 0;
 }
 .carousel-nav .carousel-nav-cell.is-nav-selected:before {
-	background-color: $yellow;
+	background-color: $highlight;
 }
 /* Dots */
 .carousel .flickity-page-dots {
@@ -125,7 +125,7 @@
 }
 .carousel .flickity-page-dots .dot.is-selected {
     opacity: 1;
-    background-color: $yellow;
+    background-color: $highlight;
 }
 /* fade stuff */
 // .carousel .flickity-slider {
@@ -208,7 +208,7 @@
 		font-weight: bold;
 		margin-top: 25px;
 		&:hover, &:focus {
-			background: $yellow;
+			background: $highlight;
 			color: #333;
 		}
 		@include breakpoint(large) {
@@ -259,7 +259,7 @@
 		height: rem-calc(3);
 		width: 10%;
 		margin: 20px auto 0;
-		background-color: $yellow;
+		background-color: $highlight;
 	}
 	@include breakpoint(large) {
 		@include grid-column(10);

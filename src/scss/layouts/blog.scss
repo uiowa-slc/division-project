@@ -3,7 +3,7 @@
 
 }
 .bloglist-carousel .carousel-cell {
-	background-color: $yellow;
+	background-color: $highlight;
 	width: 100%;
 }
 
@@ -230,7 +230,7 @@
 	position: relative;
 	padding-left: 1rem;
 	margin: 1em 0 0;
-	border-left: 2px solid $yellow;
+	border-left: 2px solid $highlight;
 	font-style: italic;
 }
 .BlogPost .main-content__text img.left {
@@ -247,7 +247,7 @@
 	font-size: rem-calc(13);
 }
 .blog-post-meta .tags a {
-	background-color: $yellow;
+	background-color: $highlight;
 	border-radius: 3px;
 	color: #000;
 	display: inline-block;
@@ -255,7 +255,7 @@
 	margin-bottom: 3px;
 	padding: 3px 8px 2px;
 	&:hover, &:focus {
-		background-color: darken($yellow, 5);
+		background-color: darken($highlight, 5);
 	}
 }
 
@@ -374,7 +374,7 @@ Profile Pages
 	& img {
 		display: block;
 		border-radius: 50%;
-		border: 3px solid $yellow;
+		border: 3px solid $highlight;
 	}
 	& h3 {
 		margin: 10px 0;
