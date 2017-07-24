@@ -63,6 +63,12 @@ img:not([src]) {
 		}
 	}
 
+	&--with-exit-button-padding{
+		@include breakpoint(large) {
+			padding-left: rem-calc(15);
+		}
+	}
+
 	&--with-sidebar {
 		@include breakpoint(large) {
 			@include grid-column-offset(0);
