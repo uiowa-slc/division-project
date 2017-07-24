@@ -67,6 +67,9 @@ img:not([src]) {
 		@include breakpoint(large) {
 			padding-left: rem-calc(50);
 		}
+		@include breakpoint(xxlarge) {
+			padding-left: 0;
+		}
 	}
 
 	&--with-sidebar {
