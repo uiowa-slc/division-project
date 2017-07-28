@@ -8,7 +8,9 @@
 			<% loop NewHomePageHeroFeatures %>
 				<div class="carousel-cell">
 					<% if $Image %>
-						<div class="cell-bg" data-flickity-bg-lazyload="$Image.CroppedFocusedImage(1500,900).URL">
+						<% with $Image %>
+						<div class="cell-bg" data-flickity-bg-lazyload="$CroppedFocusedImage(1500,900).URL" <% if $FocusX || $FocusY %>style="background-position: $PercentageX% $PercentageY%;"<% end_if %>>
+						<% end_with %>
 							<div class="inner">
 								<div class="cell-text">
 									<span>Featured Page</span>
