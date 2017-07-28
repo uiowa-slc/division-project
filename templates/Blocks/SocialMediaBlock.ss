@@ -4,4 +4,4 @@
 					js = d.createElement(s); js.id = id;
 					js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=142327899218761";
 					fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="$FacebookPageUrl" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div> <% end_if %> </div></div></div></section>
+					}(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="$FacebookPageUrl" data-tabs="$Tabs" <% if $FacebookPluginHeader %> data-small-header="true" <% else %> data-small-header="false" <% end_if %> data-adapt-container-width="true" <% if $FacebookPluginCover %> data-hide-cover="true" <% else %> data-hide-cover="false" <% end_if %> data-width="500" <% if $FacebookPluginFaces %> data-show-facepile="true" <% else %> data-show-facepile="false" <% end_if %>></div> <% end_if %> </div></div></div></section>

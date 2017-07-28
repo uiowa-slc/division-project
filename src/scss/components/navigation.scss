@@ -279,7 +279,8 @@
 }
 //Make the fifth nav item and beyond's dropdown hang from the right:
 .nav__item {
-	&:nth-child(n+5):hover, &:nth-child(n+5).nav__item--is-hovered {
+	&:nth-child(n+5),
+	&:nth-child(n+5).nav__item--is-hovered {
 		.subnav--two-columns {
 			left: auto;
 			right: 0;
@@ -399,7 +400,11 @@
 	}
 	@include breakpoint(medium) {
 		font-weight: 600;
-		&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
+		&:hover,
+		&:focus,
+		&:active,
+		&.hover,
+		.subnav--light.subnav--open .subnav__link--dark-header {
 			color: $black;
 			background: white;
 			&:after {
@@ -531,9 +536,7 @@
 		}
 	}
 }
-.header.open .nav__toggle {
 
-}
 .header--overlay.open .nav__toggle--menu .nav__link {
 	background-color: rgba(#111, 0.95);
 }
@@ -724,7 +727,7 @@
 
 	@include breakpoint(medium) {
 		position: absolute;
-		left: -9999px;
+		// left: -9999px;
 		top: 100%;
 		min-width: rem-calc(300);
 		list-style: none;
@@ -755,6 +758,10 @@
 
 	&:before {
 		display: none;
+	}
+	&:not(.subnav__item--column) {
+		padding-right: .625rem;
+		padding-left: .625rem;
 	}
 }
 
@@ -798,10 +805,10 @@
 		}
 	}
 }
-.subnav[aria-hidden="true"] {
+.nav__item--opened .subnav {
 	@media (max-width: 640px) {
-		visibility: hidden;
-		height: 0;
+		visibility: visible;
+		height: auto;
 	}
 }
 .nav li.nav__item--opened ul.subnav {

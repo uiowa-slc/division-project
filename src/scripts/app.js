@@ -260,7 +260,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-/* new stuff added my Brandon - lazy coding */
+/* new stuff added my Brandon */
 $('.nav__toggle--menu').on('click', function(){
 	$('.nav__menu-icon').toggleClass('is-clicked');
 	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
@@ -268,19 +268,21 @@ $('.nav__toggle--menu').on('click', function(){
 });
 
 $('.second-level--open').click(function(){
+	// add opened class to li
 	$(this).parent().toggleClass('nav__item--opened');
-	if ($(this).next().attr('aria-hidden') == 'true') {
-		$(this).next().attr('aria-hidden', 'false')
-	} else {
-		$(this).next().attr('aria-hidden', 'true')
-	}
 
 	if ($(this).attr('aria-expanded') == 'false') {
-		$(this).attr('aria-expanded', 'true')
+		$(this).attr('aria-expanded', 'true');
+		$(this).prev().attr('aria-hidden', 'false');
 	} else {
-		$(this).next().attr('aria-expanded', 'false')
+		$(this).attr('aria-expanded', 'false');
+		$(this).prev().attr('aria-hidden', 'true');
 	}
 });
+
+
+
+// $(".nav-nav").accessibleMegaMenu();
 
 
 /*-------------------------------------------------*/

@@ -1,6 +1,6 @@
 <section class="content-block__container">
 	<div class="content-block row column">
-		<div class="row">
+		<div class="">
 			<div class="$CSSClasses">
 				<% if $Image %>
 					<% if $ExternalLink %>
