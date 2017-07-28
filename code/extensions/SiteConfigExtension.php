@@ -23,6 +23,7 @@ class SiteConfigExtension extends DataExtension {
 		'PinterestLink' => 'Text',
 		'FlickrLink' => 'Text',
 		'YouTubeLink' => 'Text',
+		'Github' => 'Text',
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
 		'UseDarkTheme' => 'Boolean',
@@ -87,6 +88,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('InstagramLink', 'Instagram Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('PinterestLink', 'Pinterest Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('Github', 'Github Account URL'));
 
 
 
