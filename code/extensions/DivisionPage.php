@@ -31,8 +31,6 @@ class DivisionPage extends DataExtension {
 
 	private static $layout_types = array(
 		'MainImage' => 'Big Full Width Image',
-		'BackgroundImage' => 'Background Image',
-		'ImageSlider' => 'Image Slider',
 		'BackgroundVideo' => 'Background Video'
 	);
 
