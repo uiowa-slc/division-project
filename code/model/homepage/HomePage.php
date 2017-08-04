@@ -58,44 +58,44 @@ class HomePage extends Page {
 
 	public function getShuffledBackgroundFields($f){
 
-		$legacyFieldList = new FieldList();
+		// $legacyFieldList = new FieldList();
 		$fieldList = new FieldList();
 
-		// Legacy fields
-		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		$gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+		// // Legacy fields
+		// $gridFieldConfig = GridFieldConfig_RecordEditor::create();
+		// $gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		// $gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
 
-		$homePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$homePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		// $homePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
+		// $homePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
-		$homePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
-		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
-		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType('GridFieldAddNewMultiClass')->setClasses(
-			array(
-				'HomePageFeature',
-				'HomePageFacebookFeature',
-				'HomePageTwitterFeature',
-			)
-		);
+		// $homePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
+		// $homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+		// $homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType('GridFieldAddNewMultiClass')->setClasses(
+		// 	array(
+		// 		'HomePageFeature',
+		// 		'HomePageFacebookFeature',
+		// 		'HomePageTwitterFeature',
+		// 	)
+		// );
 
-		$bgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-		if (!Permission::check('ADMIN')) {
-			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+		// $bgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
+		// $bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		// if (!Permission::check('ADMIN')) {
+		// 	$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
 
-		}
+		// }
 
-		$homePageBackgroundFeatureGridField = GridField::create('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
-		$homePageHeroFeatureGridField       = GridField::create('HomePageHeroFeature', 'Hero features that overlap the background (Only the first two are shown)', HomePageHeroFeature::get(), $gridFieldConfig);
+		// $homePageBackgroundFeatureGridField = GridField::create('BackgroundFeatures', 'Background images and taglines', $this->BackgroundFeatures(), $bgImagesGridFieldConfig);
+		// $homePageHeroFeatureGridField       = GridField::create('HomePageHeroFeature', 'Hero features that overlap the background (Only the first two are shown)', HomePageHeroFeature::get(), $gridFieldConfig);
 
-		$homePageFeatureGridField = GridField::create('HomePageFeature', 'Features below the background image (Only the first three are shown)', HomePageFeature::get(), $homePageFeatureGridFieldConfig);
+		// $homePageFeatureGridField = GridField::create('HomePageFeature', 'Features below the background image (Only the first three are shown)', HomePageFeature::get(), $homePageFeatureGridFieldConfig);
 
 
-		$legacyFieldList->push($homePageBackgroundFeatureGridField);
-		$legacyFieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
-		$legacyFieldList->push($homePageHeroFeatureGridField);
-		$legacyFieldList->push($homePageFeatureGridField);
+		// $legacyFieldList->push($homePageBackgroundFeatureGridField);
+		// $legacyFieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
+		// $legacyFieldList->push($homePageHeroFeatureGridField);
+		// $legacyFieldList->push($homePageFeatureGridField);
 
 
 
@@ -103,29 +103,22 @@ class HomePage extends Page {
 		$newgridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$newgridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 		$newgridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+		$newgridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 
-		$newhomePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$newhomePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-
-		$newhomePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
-		$newhomePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
-
-		$newbgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$newbgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		if (!Permission::check('ADMIN')) {
 			$newgridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
 
 		}
 
-		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $gridFieldConfig);
+		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $newgridFieldConfig);
 		$shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
 
 		$fieldList->push($shuffleHomePageFeaturesField);
 		$fieldList->push($newHomePageHeroFeatureGridField);
 
 
-		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
-		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($fieldList)->displayIf('LayoutType')->isEqualTo(null)->end());
+		// $f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
+		$f->addFieldsToTab('Root.Main', $fieldList);
 
 	}
 }
