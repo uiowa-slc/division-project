@@ -6,6 +6,12 @@
 		padding-top: rem-calc(5);
 	}
 
+	&__icon{
+		@include breakpoint(large) {
+			padding-right: rem-calc(10);
+		}
+	}
+
 	&__heading-container{
 
 	}

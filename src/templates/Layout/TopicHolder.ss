@@ -60,7 +60,7 @@ $BlockArea(BeforeContent)
 
                 <a href="$Link">
                 <div class="row collapse">
-                  <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw"></i></div>
+                  <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
                   <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
 
                   <p class="bloglistitem__category">
@@ -88,7 +88,7 @@ $BlockArea(BeforeContent)
 
                   <a href="$Link">
                   <div class="row collapse">
-                    <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw"></i></div>
+                    <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
                     <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
 
                     <p class="bloglistitem__category">
