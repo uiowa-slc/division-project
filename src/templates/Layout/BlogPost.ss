@@ -59,9 +59,9 @@ $Header
 						<% end_if %>
 					<% end_if %>
 					$Content
-<%-- 					<% if $ExternalURL %>
+					<% if $ExternalURL %>
 						<p><a href="$ExternalURL" class="button--shaded" target="_blank">$ExternalURLText</a></p>
-					<% end_if %> --%>
+					<% end_if %>
 				</div>
 				$BlockArea(AfterContentConstrained)
 				<% include TagsCategories %>

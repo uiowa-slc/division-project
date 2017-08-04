@@ -2,7 +2,7 @@
 class HomePage extends Page {
 
 	private static $db = array(
-
+		'ShuffleHomePageFeatures' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -15,8 +15,6 @@ class HomePage extends Page {
 
 	private static $layout_types = array(
 		'Legacy' => 'Old style - Shuffled Background Features and Hero Features'
-		// 'BackgroundVideo' => 'Background Video',
-		// 'ImageSlider' => 'Image Slider'
 	);
 
 	public function getPageTypeTheme(){
@@ -123,10 +121,10 @@ class HomePage extends Page {
 		}
 
 		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $gridFieldConfig);
+		$shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
 
+		$fieldList->push($shuffleHomePageFeaturesField);
 		$fieldList->push($newHomePageHeroFeatureGridField);
-
-
 
 
 		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
@@ -180,8 +178,12 @@ class HomePage_Controller extends Page_Controller {
 	}
 
 	public function NewHomePageHeroFeatures() {
-		$features = NewHomePageHeroFeature::get();
-
+		if($this->ShuffleHomePageFeatures){
+			$features = NewHomePageHeroFeature::get()->sort('RAND()');
+		}else{
+			$features = NewHomePageHeroFeature::get();
+		}
+		
 		return $features;
 
 	}
