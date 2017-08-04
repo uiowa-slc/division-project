@@ -66,12 +66,6 @@ class DivisionPage extends DataExtension {
 
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (at least 1600px wide)'), 'Content');
-			$layoutOptionsField = DropdownField::create(
-	  			'LayoutType',
-	  			'Layout type',
-	  			$this->owner->LayoutTypes()
-			)->setEmptyString('(Default Layout)');
-			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
@@ -126,6 +120,12 @@ class DivisionPage extends DataExtension {
 	public function updateSettingsFields($f) {
 		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
+			$layoutOptionsField = DropdownField::create(
+	  			'LayoutType',
+	  			'Layout type',
+	  			$this->owner->LayoutTypes()
+			)->setEmptyString('(Default Layout)');
+			$f->addFieldToTab('Root.Settings', $layoutOptionsField, 'ParentType');
 	}
 
 	public function getSidebarItems() {
