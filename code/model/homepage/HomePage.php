@@ -25,9 +25,6 @@ class HomePage extends Page {
 		}
 
 	}
-    public function getOpenGraph_description() {
-        return SiteConfig::current_site_config()->Tagline;
-    }
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
