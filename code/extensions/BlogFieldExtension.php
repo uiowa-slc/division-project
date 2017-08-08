@@ -77,9 +77,9 @@ class BlogFieldExtension extends DataExtension {
 	public function ExternalURLText(){
 
 		$domains = array(
-			'now.imu.uiowa.edu' => 'Read more on Iowa Now',
+			'now.uiowa.edu' => 'Read more on Iowa Now',
 			'afterclass.uiowa.edu' => 'See event on After Class',
-			'events.uiowa.edu' => 'See event on the UI Events Calendar',
+			'events.uiowa.edu' => 'See event on the UI Event Calendar',
 		);
 
 		$externalURL = $this->owner->ExternalURL;
