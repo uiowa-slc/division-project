@@ -27,7 +27,7 @@
 
 <% else %>
 
-	<section class="content-block__container content-block__container--padding">
+	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding">
 		<div class="content-block">
 			<div class="$CSSClasses">
 				<% if $FeaturePagePhoto %>
@@ -80,7 +80,7 @@
 					</div>
 				<% end_if %>
 				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>--wimage<% end_if %>">
-					<h3 class="featuredpageblock__title">
+					<h3 id="Block$ID" class="featuredpageblock__title">
 						<% if $FeaturePageExternalUrl %>
 							<a href="$FeaturePageExternalUrl">
 								<% if $Title %>$Title<% else %>$PageTree.Title<% end_if %>

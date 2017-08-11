@@ -1,4 +1,4 @@
-<section class="content-block__container content-block__container--padding">
+<section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
 	<div class="content-block">
 		<div class="$CSSClasses">
 			<% if $StaffPage.Photo %>
@@ -9,7 +9,7 @@
 				</div>
 			<% end_if %>
 			<div class="staffmemberblock__body">
-				<h3 class="staffmemberblock__title">$StaffPage.Title</h3>
+				<h3 id="Block$ID" class="staffmemberblock__title">$StaffPage.Title</h3>
 				<div class="staffmemberblock__desc">
 					<p class="staffmemberblock__position">$StaffPage.Position</p>
 					<ul class="staffmemberblock__contact">
