@@ -5,6 +5,7 @@ class TopicHolder extends Blog {
 	private static $db = array(
         'ShowCategoriesTab' => 'Boolean(1)',
         'ShowTagsTab' => 'Boolean(1)',
+        'ShowLastUpdated' => 'Boolean(1)'
 	);
 
 	private static $allowed_children = array('Topic');
@@ -25,7 +26,7 @@ class TopicHolder extends Blog {
 	}
     public function getSettingsFields(){
         $fields = parent::getSettingsFields();
-
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
         return $fields;
