@@ -97,9 +97,9 @@ img:not([src]) {
 
 	&__text {
 		//Hack to disable in-content headers
-		h1 {
-			display: none;
-		}
+		// h1 {
+		// 	display: none;
+		// }
 		& > h2:first-child, & > h3:first-child {
 			margin-top: 0;
 		}
