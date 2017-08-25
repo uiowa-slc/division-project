@@ -11,38 +11,36 @@ class RemoveH1sTask extends BuildTask{
 		echo '<p>Gathering all pages..</p>';
 		$pages = SiteTree::get();
 		echo '<ul>';
+		$matches = array();
+		if($pages->Count() == 0){
+			echo '<li>all h1s have been destroyed, captain.</li>';
+			echo '</ul>';
+			return ;
+		}
 		foreach($pages as $page){
 
 			$pageContent = $page->Content;
+			if (preg_match('{<h1(\s[^<>]*)?>(.*?)</h1>}', $pageContent, $matches)){
+				echo '<li>Match found on <a href="'.$page->Link().'" target="_blank">'.$page->Title.'</a>, removing in-content h1: "'.htmlentities($matches[0]).'".';
 
-			if($pageContent != ''){
-				$doc = new DOMDocument();
-				$doc->loadHTML('<?xml version="1.0" encoding="UTF-8"?>' . "\n" .$pageContent);
-				$headings = $doc->getElementsByTagName('h1');
-				$heading = $headings->item(0);
+				$htmlReplaced = preg_replace('{<h1(\s[^<>]*)?>(.*?)</h1>}', '', $pageContent);
 
-				// echo $items->item(0)->textContent;
-				if($heading){
-					//print_r($heading->parentNode);
-					echo '<li>Working on page <strong>'.$page->Title.'</strong> h1 finder found and removed this node: <em>'.$heading->textContent.'</em></li>';
+				//print_r($htmlReplaced);
+				$page->Content = $htmlReplaced;
+				// echo '<ul><li><pre>';
+				// print_r($page->Content);
+				// echo '</pre></li></ul>';
+				$page->write();
 
-					$heading->parentNode->removeChild($heading);
-				
-					$page->Content = $doc->saveHTML();
-				}else{
-					echo '<li>Working on page <strong>'.$page->Title.'</strong> and <strong>no h1 was found...</strong></li>';
+				if($page->isPublished()){
+					$page->publish('Stage', 'Live');
 				}
-
 			}
-
-			$page->write();
-
-			if($page->isPublished()){
-				$page->publish('Stage', 'Live');
-			}
+			// print_r($matches);
 					
 		}
 		echo '</ul>';
+		echo '<p>Done.</p>';
 
 	}
 

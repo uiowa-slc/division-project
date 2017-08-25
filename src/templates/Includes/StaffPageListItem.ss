@@ -2,7 +2,7 @@
 	<a href="$Link" class="stafflist__link">
 		<% if $Photo %>
 			<div class="stafflist__img">
-				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.Fill(350,234).URL" width="350" height="234" alt="Photograph of $FirstName $LastName">
+				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.FocusFill(350,234).URL" width="350" height="234" alt="Photograph of $FirstName $LastName">
 			</div>
 		<% else %>
 			<div href="$Link" class="stafflist__img">
