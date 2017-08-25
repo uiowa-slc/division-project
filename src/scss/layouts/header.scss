@@ -174,7 +174,7 @@
 
 a.skip-link {
 	display: block;
-	background-color: #666;
+	background-color: #555;
 	color: #fff;
 	position: absolute;
 	top: -100%;
@@ -191,4 +191,5 @@ a.skip-link {
 a.skip-link:focus, a.skip-link:active {
 	outline: 0;
 	top: 0;
+	text-decoration: underline;
 }

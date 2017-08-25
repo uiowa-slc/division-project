@@ -34,7 +34,10 @@ $Header
         <div class="blogmeta clearfix">
           <div class="blogmeta__byline clearfix">
           <p>
-            <% loop $Categories.Limit(1) %><a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>
+            <% if $Tags %>
+              <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %><br />
+            <% end_if %>
+            <% if $Parent.ShowLastUpdated %>Last updated: $LastEdited.NiceUS<% end_if %>
           </p>
           </div>
           <ul class="blogmeta__social">
