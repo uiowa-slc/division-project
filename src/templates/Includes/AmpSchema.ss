@@ -16,13 +16,7 @@
 	<% end_if %>
 	"publisher": {
 		"@type": "Organization",
-		"name": "$SiteConfig.Title",
-		"logo": {
-			"@type": "ImageObject",
-			"url": "http://cdn.ampproject.org/logo.jpg",
-			"width": 600,
-			"height": 60
-		}
+		"name": "$SiteConfig.Title"
 	},
 	<% if $FeaturedImage %>
 		"image": {

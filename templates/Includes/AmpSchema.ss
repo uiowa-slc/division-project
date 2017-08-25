@@ -7,13 +7,7 @@
 	"dateModified": "$LastEdited.format(c)", <% if $Credits %> "author": { <% loop $Credits %> "@type": "Person",
 			"name": "$Name.XML" <% end_loop %> }, <% end_if %> "publisher": {
 		"@type": "Organization",
-		"name": "$SiteConfig.Title",
-		"logo": {
-			"@type": "ImageObject",
-			"url": "http://cdn.ampproject.org/logo.jpg",
-			"width": 600,
-			"height": 60
-		}
+		"name": "$SiteConfig.Title"
 	}, <% if $FeaturedImage %> "image": {
 			"@type": "ImageObject",
 			"url": "$FeaturedImage.CroppedFocusedImage(1024,682).URL",
