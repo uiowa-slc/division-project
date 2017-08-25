@@ -4,6 +4,8 @@
 	line-height: 1.5;
 	background: #fff;
 	color: #444;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	}
 	.masthead {
 	background-color: #111;
