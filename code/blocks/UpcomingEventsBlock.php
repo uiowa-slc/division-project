@@ -4,52 +4,111 @@ class UpcomingEventsBlock extends Block{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
-		'EventTag' => 'Text'
+		'Source' => 'Enum(array("Localist calendar on this site","General Interest","Type","Venue","Department"))',
+		'EventTypeFilterID'       => 'Int',
+		'DepartmentFilterID'      => 'Int',
+		'VenueFilterID'           => 'Int',
+		'GeneralInterestFilterID' => 'Int'
 	);
 
 	private static $has_one = array(
 
 	);
-	function EventListLimited(){
+	public function EventListLimited(){
 		$calendar = LocalistCalendar::get()->First();
 
 		$eventList = $calendar->EventList(7);
 
 		return $eventList;
 	}
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->removeByName('Source');
+		$calendar = LocalistCalendar::getOrCreate();
+
+		$sourceArray = singleton('UpcomingEventsBlock')->dbObject('Source')->enumValues();
+
+		$types      = $calendar->TypeList();
+		$typesArray = $types->map();
+
+		$departments      = $calendar->DepartmentList();
+		$departmentsArray = $departments->map();
+
+		$venues      = $calendar->VenuesList();
+		$venuesArray = $venues->map();
+
+		$genInterests      = $calendar->GeneralInterestList();
+		$genInterestsArray = $genInterests->map();	
 
 		$fields->renameField('Title', 'Title (default:Upcoming Events)');
+
+		if(!$calendar->IsInDB()){
+			unset($sourceArray['Localist calendar on this site']);
+		}
+		$sourceField = DropdownField::create('Source', 'Event source', $sourceArray);
+
+		$fields->addFieldToTab('Root.Main', $sourceField);
+
+		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter entire UI calendar by this general interest', $genInterestsArray);
+		$genInterestDropDownField->setEmptyString('(No Filter)');
+
+		$typeListBoxField = new DropdownField('EventTypeFilterID', 'Filter the calendar by this Localist event type:', $typesArray);
+		$typeListBoxField->setEmptyString('(No Filter)');
+
+		$departmentDropDownField = new DropdownField('DepartmentFilterID', 'Filter the calendar by this Localist department', $departmentsArray);
+		$departmentDropDownField->setEmptyString('(No Filter)');
+
+		$venueDropDownField = new DropdownField('VenueFilterID', 'Filter the calendar by this Localist Venue', $venuesArray);
+		$venueDropDownField->setEmptyString('(No Filter)');
+
+		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter the calendar by this Localist General Interest', $genInterestsArray);
+		$genInterestDropDownField->setEmptyString('(No Filter)');
+
+		$fields->addFieldToTab('Root.Main', $typeListBoxField);
+		$fields->addFieldToTab(' Root.Main', $departmentDropDownField);
+		$fields->addFieldToTab(' Root.Main', $venueDropDownField);
+		$fields->addFieldToTab(' Root.Main', $genInterestDropDownField);
+
+		$genInterestDropDownField->displayIf('Source')->isEqualTo('General Interest');
+		$venueDropDownField->displayIf('Source')->isEqualTo('Venue');
+		$departmentDropDownField->displayIf('Source')->isEqualTo('Department');
+		$typeListBoxField->displayIf('Source')->isEqualTo('Type');
+
 
 		return $fields;
 	}
 
-	function EventList() {
+	public function Calendar(){
+		
+		
 
-		if (isset($this->EventTag)) {
-			$calendar = LocalistCalendar::get()->First();
-			$term = $this->EventTag;
-
-			$termFiltered = urlencode($term);
-
-			$events = $calendar->EventList(
-				$days = '200',
-				$startDate = null,
-				$endDate = null,
-				$venue = null,
-				$keyword = null,
-				$type = $term,
-				$distinct = 'true',
-				$enableFilter = false,
-				$searchTerm = null
-			);
-			return $events;
-
-		} else {
-			return null;
+		// print_r($calendar);
+		
+		if($this->Source == 'Localist calendar on this site'){
+			$calendar = LocalistCalendar::getOrCreate();
+			return $calendar;
 		}
 
+		$calendar = LocalistCalendar::create();
+		
+		$generalInterestId = $this->GeneralInterestFilterID;
+		$typeId = $this->EventTypeFilterID;
+		$venueId = $this->VenueFilterID;
+		$deptId = $this->DepartmentFilterID;
+
+		if($this->Source == 'General Interest'){
+			$calendar->GeneralInterestFilterID = urlencode($generalInterestId);
+		}elseif($this->Source == 'Type'){
+			$calendar->EventTypeFilterID = urlencode($typeId);
+		}elseif($this->Source == 'Venue'){
+			$calendar->VenueFilterID = urlencode($venueId);
+		}elseif($this->Source == 'Department'){
+			$calendar->DepartmentFilterID = urlencode($deptId);
+		}
+
+		
+		return $calendar;
 	}
+
 
 }
