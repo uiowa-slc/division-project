@@ -37,8 +37,9 @@
 	                          <p> $Content.Summary(50) <a href="$Link"> Continue Reading </a> </p>
 	                          <% else %>
 	                          <a href="$Link" class="initiatives-link no-image"> 
-	                             	<p class="NoLogo">$Title</p>  
-	                             	<img data-src="{$ThemeDir}/images/no-image-initiative.jpg" role="presentation" alt="" class="initiatives-img"> 			                          	 		 		
+	                          		<img data-src="division-project/images/placeholder.png" src="<% include PlaceholderLargeSrc %>"role="presentation" alt="" class="initiatives-img"> 
+	                             	<h2> $Title </h2>
+	                             				                          	 		 		
 	                             </a>
 	                          <% end_if %>
 		                    </li>
