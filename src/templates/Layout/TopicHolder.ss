@@ -83,7 +83,7 @@ $BlockArea(BeforeContent)
           <h2>Topics tagged as "{$Title}": </h2>
            <% if $BlogPosts %>
               <ul class="featured-topic-list row large-up-2">
-                <% loop $BlogPosts.Limit(5) %>
+                <% loop $BlogPosts %>
                 <li class="featured-topic-list__item column column-block">
 
                   <a href="$Link">

@@ -22,3 +22,10 @@
 	margin: 2em 0;
 }
 
+.content-block-header{
+	margin-bottom: rem-calc(30);
+	letter-spacing: 0.1em;
+	&--with-padding{
+		padding-top: rem-calc(20);
+	}
+}
