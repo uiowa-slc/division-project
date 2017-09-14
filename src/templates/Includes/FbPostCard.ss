@@ -5,7 +5,11 @@
 		</a>
 	<% end_if %>
 	<div class="bloglistitem__content<% if $ImageSource %>--wimage<% end_if %>">
-		<a href="$URL" target="_blank">
+		<% if $URL %>
+			<a href="$URL" target="_blank">
+		<% else %>
+			<a href="$SiteConfig.FacebookLink" target="_blank">
+		<% end_if %>
 			<p class="bloglistitem__desc">$Content</p>
 			<p class="bloglistitem__date"><i class="fa fa-facebook"></i> Posted $TimePosted.NiceUS<span class="sr-only">Via Facebook</span></a>
 		</p></p>
