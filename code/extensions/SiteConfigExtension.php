@@ -4,6 +4,7 @@ class SiteConfigExtension extends DataExtension {
 
 	private static $db = array(
 		'GoogleAnalyticsID' => 'Text',
+		'DisableUITracking' => 'Boolean',
 		'TwitterLink' => 'Text',
 		'Address1' => 'Text',
 		'City' => 'Text',
@@ -55,6 +56,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division of Student Life branding elements'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowExitButton', 'Show Exit Button'));
 		$fields->addFieldToTab('Root.Main', new TextField('GoogleAnalyticsID', 'Google Analytics ID (UA-XXXXX-X)'));
+		$fields->addFieldToTab('Root.Main', new TextField('UITrackingID', 'UI Tracking ID (edu.uiowa.XXXX)'));
 		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Facebook Share Image (1200 x 630)'));
 
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
@@ -108,6 +110,19 @@ class SiteConfigExtension extends DataExtension {
 		$MailChimpFormEmbed->setDescription("More info: <a href='' target='_blank'>How to get this code &rarr;</a>");
 
 		return $fields;
+	}
+
+	public function UITrackingID(){
+		$config = SiteConfig::current_site_config(); 
+
+		$prefix = 'uiowa.edu.md-';
+		$filter = URLSegmentFilter::create();
+		$siteName = $config->Title;
+
+		$filteredSiteName = $filter->filter($siteName);
+
+		return $prefix.$filteredSiteName;
+
 	}
 
 }
