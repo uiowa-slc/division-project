@@ -52,9 +52,23 @@
 		text-align: center;
 		max-width: 1160px;
 		@include breakpoint(320) {
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
+		}
+		@include breakpoint(medium) {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+		}
+		@include breakpoint(large) {
+			display: table;
+			column-count: none;
+			display: flex;
 		}
 	}
 	&__listitem {
@@ -62,13 +76,18 @@
 			flex: 1 0 auto;
 			text-align: center;
 		}
+		@include breakpoint(large) {
+			display: table-cell;
+		}
 	}
 	&__item {
 		color: #fff;
 		display: block;
+		font-family: $header-font-family;
+		font-size: 16px;
 		padding: rem-calc(10 40);
 		position: relative;
-		font-family: $header-font-family;
+
 		text-transform: uppercase;
 		&--title {
 			font-weight: bold;
