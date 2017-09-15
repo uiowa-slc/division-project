@@ -42,6 +42,7 @@
 
 	<div class="row">
 		<article role="main" id="page-content" class="main-content main-content--with-padding main-content--full-width">
+			$Breadcrumbs
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				<h1>$Title</h1>
