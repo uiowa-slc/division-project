@@ -6,8 +6,12 @@
 				<ul>
 					<% loop $Entries.limit(3) %>
 						<li>
-							<a href="$URL" class="clearfix">
-								<% if $ImageSource %>
+							<% if $URL %>
+								<a href="$URL" target="_blank" class="clearfix">
+							<% else %>
+								<a href="$SiteConfig.FacebookLink" target="_blank" class="clearfix">
+							<% end_if %>
+									<% if $ImageSource %>
 									<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$ImageSource.URL" width="$ImageSource.Width" height="$ImageSource.Height" alt="$Title">
 								<% end_if %>
 								$Content.LimitCharacters(100)<br>
