@@ -5,7 +5,7 @@ var bases = document.getElementsByTagName('base');
 var baseHref = null;
 
 if (bases.length > 0) {
-    baseHref = bases[0].href;
+	 baseHref = bases[0].href;
 }
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -13,12 +13,12 @@ if (bases.length > 0) {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 var myLazyLoad = new LazyLoad({
-    // example of options object -> see options section
-    elements_selector: ".dp-lazy"
-    // throttle: 200,
-    // data_src: "src",
-    // data_srcset: "srcset",
-    // callback_set: function() { /* ... */ }
+	 // example of options object -> see options section
+	 elements_selector: ".dp-lazy"
+	 // throttle: 200,
+	 // data_src: "src",
+	 // data_srcset: "srcset",
+	 // callback_set: function() { /* ... */ }
 });
 
 /*-------------------------------------------------*/
@@ -51,9 +51,9 @@ var flkty = $carousel.data('flickity');
 
 $carousel.on( 'scroll.flickity', function() {
   flkty.slides.forEach( function( slide, i ) {
-    var img = $imgs[i];
-    var x = ( slide.target + flkty.x ) * -1/3;
-    img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+	 var img = $imgs[i];
+	 var x = ( slide.target + flkty.x ) * -1/3;
+	 img.style[ transformProp ] = 'translateX(' + x  + 'px)';
   });
 });
 
@@ -125,14 +125,14 @@ $('iframe').each(function(){
 
 $('.nav__item--parent').click(function(event) {
   if (whatInput.ask() === 'touch') {
-    // do touch input things
-    if(!$(this).hasClass('nav__item--is-hovered')){
-	    event.preventDefault();
-	    $('.nav__item--parent').removeClass('nav__item--is-hovered');
-	    $(this).toggleClass('nav__item--is-hovered')
-    }
+	 // do touch input things
+	 if(!$(this).hasClass('nav__item--is-hovered')){
+		 event.preventDefault();
+		 $('.nav__item--parent').removeClass('nav__item--is-hovered');
+		 $(this).toggleClass('nav__item--is-hovered')
+	 }
   } else if (whatInput.ask() === 'mouse') {
-    // do mouse things
+	 // do mouse things
   }
 });
 
@@ -170,12 +170,12 @@ function toggleSearchClasses(){
 }
 
 $(".nav__link--search").click(function(){
-  	toggleSearchClasses();
-  	if($("#mobile-nav__wrapper").hasClass("mobile-nav__wrapper--mobile-menu-is-active")){
-  		toggleMobileMenuClasses();
-  		$("#site-search").appendTo('#header').addClass('site-search--mobile');
-  	}
-  	document.getElementById("site-search__input").focus();
+	toggleSearchClasses();
+	if($("#mobile-nav__wrapper").hasClass("mobile-nav__wrapper--mobile-menu-is-active")){
+		toggleMobileMenuClasses();
+		$("#site-search").appendTo('#header').addClass('site-search--mobile');
+	}
+	document.getElementById("site-search__input").focus();
 });
 
 $(".nav__link--search-cancel").click(function(){
@@ -185,22 +185,22 @@ $(".nav__link--search-cancel").click(function(){
 
 //When search form is out of focus, deactivate it.
 $("#site-search__form").focusout(function(){
-  	if($("#site-search__form").hasClass("site-search__form--is-active")){
-  		//Comment out the following line if you need to use WebKit/Blink inspector tool on the search (so it doesn't lose focus):
-  		//toggleSearchClasses();
-  	}
+	if($("#site-search__form").hasClass("site-search__form--is-active")){
+		//Comment out the following line if you need to use WebKit/Blink inspector tool on the search (so it doesn't lose focus):
+		//toggleSearchClasses();
+	}
 });
 
 $('input#site-search__input').autocomplete({
-    serviceUrl: baseHref+'/home/autoComplete',
-    deferRequestBy: 100,
-    triggerSelectOnValidInput: false,
-    minChars: 2,
-    autoSelectFirst: true,
-    type: 'post',
-    onSelect: function (suggestion) {
-        $('#site-search__form').submit();
-    }
+	 serviceUrl: baseHref+'/home/autoComplete',
+	 deferRequestBy: 100,
+	 triggerSelectOnValidInput: false,
+	 minChars: 2,
+	 autoSelectFirst: true,
+	 type: 'post',
+	 onSelect: function (suggestion) {
+		  $('#site-search__form').submit();
+	 }
 });
 
 
@@ -220,36 +220,36 @@ if (Foundation.MediaQuery.atLeast('medium')) {
 
 
 $(".nav__toggle--search").click(function(){
-  	toggleSearchClasses();
+	toggleSearchClasses();
 
 
 
-  	//append our site search div to the header.
-  	$("#site-search").appendTo('#header').addClass('site-search--mobile');
-  	document.getElementById("site-search__input").focus();
+	//append our site search div to the header.
+	$("#site-search").appendTo('#header').addClass('site-search--mobile');
+	document.getElementById("site-search__input").focus();
 });
 
 //If we're resizing from mobile to anything else, toggle the mobile search if it's active.
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 
 	 if (newSize == "medium") {
-	 	//alert('hey');
-	 	$("#site-search").removeClass("site-search--mobile");
-	 	$("#site-search").addClass("site-search--desktop");
+		//alert('hey');
+		$("#site-search").removeClass("site-search--mobile");
+		$("#site-search").addClass("site-search--desktop");
 
 		$("#site-search").appendTo("#nav");
 
 
-	 	if($("#site-search").hasClass("site-search--is-active")){
-	 		// toggleSearchClasses();
-	 	}
+		if($("#site-search").hasClass("site-search--is-active")){
+			// toggleSearchClasses();
+		}
 	 }else if(newSize == "mobile"){
-	 	$("#site-search").appendTo('#header');
- 		$("#site-search").removeClass("site-search--desktop");
- 		$("#site-search").addClass("site-search--mobile");
-	 	if($("#site-search").hasClass("site-search--is-active")){
-	 		// toggleSearchClasses();
-	 	}
+		$("#site-search").appendTo('#header');
+		$("#site-search").removeClass("site-search--desktop");
+		$("#site-search").addClass("site-search--mobile");
+		if($("#site-search").hasClass("site-search--is-active")){
+			// toggleSearchClasses();
+		}
 	 }
 
 });
@@ -283,6 +283,50 @@ $('.second-level--open').click(function(){
 
 
 // $(".nav-nav").accessibleMegaMenu();
+
+
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Smooth Scroll Anchors
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+	 // On-page links
+	 if (
+		location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+		&&
+		location.hostname == this.hostname
+	 ) {
+		// Figure out element to scroll to
+		var target = $(this.hash);
+		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		// Does a scroll target exist?
+		if (target.length) {
+		  // Only prevent default if animation is actually gonna happen
+		  event.preventDefault();
+		  $('html, body').animate({
+			 scrollTop: target.offset().top
+		  }, 1000, function() {
+			 // Callback after animation
+			 // Must change focus!
+			 var $target = $(target);
+			 $target.focus();
+			 if ($target.is(":focus")) { // Checking if the target was focused
+				return false;
+			 } else {
+				$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+				$target.focus(); // Set focus again
+			 };
+		  });
+		}
+	 }
+  });
 
 
 /*-------------------------------------------------*/
