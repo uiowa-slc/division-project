@@ -26,6 +26,7 @@
       "jonom/focuspoint":"2.4.*",
       "md/rss-display":"*",
       "md/ac-json-events":"dev-master",
+      "md/division-analytics":"1.*",
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
@@ -46,6 +47,10 @@
       {  
          "type":"vcs",
          "url":"https://github.com/StudentLifeMarketingAndDesign/division-bar"
+      },
+      {  
+         "type":"vcs",
+         "url":"https://github.com/StudentLifeMarketingAndDesign/division-analytics"
       },
       {  
          "type":"vcs",
