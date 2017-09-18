@@ -13,12 +13,13 @@
 			<% end_if %>
 
 		</div>
+		<!--
 		<% if $Calendar.EventList.Count > 0 %>
 			<div class="text-center"><a class="button-outlined" href="$Calendar.Link">See all events</a></div>
 		<% else %>
 			<div class="text-center"><p>No events are currently listed.</p><a class="button-outlined" href="https://afterclass.uiowa.edu" target="_blank">See more events on campus</a></div>
 
-		<% end_if %>
+		<% end_if %>-->
 		
 	</div>
 </section>
