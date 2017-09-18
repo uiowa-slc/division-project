@@ -7,7 +7,7 @@ class DivisionPage extends DataExtension {
 		'LayoutType' => 'varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Text',
 		'ShowChildPages' => 'Boolean(1)',
-		'ShowChildPagesInDropdownMenu' => 'Boolean(1)'
+		'ShowChildrenInDropdown' => 'Boolean(1)'
 	);
 
 	private static $has_one = array(
@@ -31,8 +31,8 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $layout_types = array(
-		'MainImage' => 'Big Full Width Image',
-		'BackgroundVideo' => 'Background Video'
+		'BackgroundVideo' => 'Background Video, Overlay',
+		'BackgroundImage' => 'Background Image, Overlay'
 	);
 
 	private static $plural_name = 'Pages';
@@ -126,7 +126,7 @@ class DivisionPage extends DataExtension {
 	public function updateSettingsFields($f) {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
-		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPagesInDropdownMenu','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
 			$layoutOptionsField = DropdownField::create(
 	  			'LayoutType',
 	  			'Layout type',

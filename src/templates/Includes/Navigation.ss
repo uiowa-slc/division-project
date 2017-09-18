@@ -9,8 +9,8 @@
 		<ul class="nav nav--{$DarkLight} nav--{$HeaderType} clearfix main-nav" id="nav">
 			<% loop $Menu(1) %>
 			<li class="nav__item nav__item--{$Top.DarkLight} <% if $FirstLast %>nav__item--$FirstLast<% end_if %><% if $Children %> nav__item--parent<% end_if %> nav__item--{$LinkOrCurrent} nav__item--{$LinkOrSection}">
-				<a id="nav-$Pos" class="nav__link nav__link--{$Top.DarkLight}<% if $Children %> nav__link--parent<% end_if %>" href="$Link">$MenuTitle</a>
-				<% if $Children and $ShowChildrenInDropdownMenu %>
+				<a id="nav-$Pos" class="nav__link nav__link--{$Top.DarkLight}<% if $Children && $ShowChildrenInDropdown %> nav__link--parent<% end_if %>" href="$Link">$MenuTitle</a>
+				<% if $Children && $ShowChildrenInDropdown %>
 
 					<% if $Children.Count > 4 %>
 						<ul class="subnav subnav--{$Top.DarkLight} subnav--two-columns" aria-labelledby="nav-$Pos" id="subnav-$Pos">
