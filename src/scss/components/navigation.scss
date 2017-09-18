@@ -9,7 +9,7 @@
 		display: block;
 		width: auto;
 		position: relative;
-		overflow: scroll;
+		overflow: visible;
 		visibility: visible;
 		opacity: 1;
 		transition-duration: 0;
@@ -31,9 +31,6 @@
 			left: 1px;
 			content: "";
 		}
-	}
-	@include breakpoint(xlarge) {
-		overflow: visible;
 	}
 	&--has-transition {
 		@include breakpoint(small) {
