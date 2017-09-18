@@ -6,7 +6,8 @@ class DivisionPage extends DataExtension {
 		'PreventSearchEngineIndex' => 'Boolean',
 		'LayoutType' => 'varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Text',
-		'ShowChildPages' => 'Boolean(1)'
+		'ShowChildPages' => 'Boolean(1)',
+		'ShowChildPagesInDropdownMenu' => 'Boolean(1)'
 	);
 
 	private static $has_one = array(
@@ -123,8 +124,9 @@ class DivisionPage extends DataExtension {
 	}
 
 	public function updateSettingsFields($f) {
-		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
-		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPagesInDropdownMenu','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
 			$layoutOptionsField = DropdownField::create(
 	  			'LayoutType',
 	  			'Layout type',
