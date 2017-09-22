@@ -3,17 +3,33 @@
 	<% include DivisionBar %>
 </div>
 
+
+
 <% if $HeaderImage %>
-<div class="lp-header" data-interchange="[$HeaderImage.CroppedFocusedImage(600,400).URL, small], [$HeaderImage.CroppedFocusedImage(1600,800).URL, medium]">
-	<div class="lp-header__container">
-		<% if $HeaderLogo %>
-			<img src="$HeaderLogo.URL" alt="" class="lp-header__img">
-		<% end_if %>
-		<% if $HeaderText %>
-			<h2 class="lp-header__title">$HeaderText</h2>
-		<% end_if %>
-	</div>
-</div>
+	
+	<% if $HeaderText %>
+		<div class="lp-header <% if $HeaderLogo %>lp-header--is-overlay<% end_if %>" data-interchange="[$HeaderImage.CroppedFocusedImage(600,400).URL, small], [$HeaderImage.CroppedFocusedImage(1600,800).URL, medium]">
+			<div class="lp-header__container">
+				<% if $HeaderLogo %>
+					<img src="$HeaderLogo.URL" alt="" class="lp-header__img">
+				<% end_if %>
+				<% if $HeaderText %>
+					<h2 class="lp-header__title">$HeaderText</h2>
+				<% end_if %>
+			</div>
+		</div>
+	<% else %>
+
+		<div class="lp-hero">
+			<img src="$HeaderImage.URL" class="lp-hero__img" />
+		</div>
+
+
+
+	<% end_if %>
+
+
+
 <% end_if %>
 
 <!-- Section Menu -->
@@ -42,7 +58,9 @@
 
 	<div class="row">
 		<article role="main" id="page-content" class="main-content main-content--with-padding main-content--full-width">
-			$Breadcrumbs
+			<% if $ShowBreadcrumbs %>
+				$Breadcrumbs
+			<% end_if %>
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				<h1>$Title</h1>
@@ -54,6 +72,18 @@
 						<hr>
 						<h2 >$Title</h2>
 						$Content
+
+						<% if $Images %>
+							<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
+								<% loop Images %>
+									<div class="slideshow__slide">
+										
+									<img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+											<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
+									</div>
+								<% end_loop %>
+							</div>
+						<% end_if %>
 					</div>
 				<% end_loop %>
 			<% end_if %>

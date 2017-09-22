@@ -12,6 +12,10 @@ class LandingPageSection extends DataObject {
 		'LandingPage' => 'LandingPage'
 	);
 
+	private static $has_many = array(
+		'Images' => 'Image'
+	);
+
 	private static $default_sort = array(
 		'SortOrder'
 	);
@@ -19,10 +23,10 @@ class LandingPageSection extends DataObject {
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->removeByName("SortOrder");
+		$fields->removeByName("Images");
 
-		//$fields->removeFieldFromTab('Root.Content.Main', 'Content');
-		//$fields->addFieldToTab('Root.Main', new CheckboxField('HideTextTitle','Hide Text Title'), "Content");
-		//$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField('Content','Content'));
+		$fields->addFieldToTab('Root.Main', UploadField::create('Images'));
 
 		return $fields;
 	}

@@ -1,6 +1,13 @@
 <?php
 class DivisionImageExtension extends DataExtension {
+
+    private static $db = array(
+        'Caption' => 'Text'
+    );
 	
+    private static $has_one = array(
+        'LandingPageSection' => 'LandingPageSection'
+    );
     public function Exif(){
         //echo "hello";
         //http://www.v-nessa.net/2010/08/02/using-php-to-extract-image-exif-data
