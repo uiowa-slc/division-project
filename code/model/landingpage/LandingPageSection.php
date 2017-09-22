@@ -4,7 +4,8 @@ class LandingPageSection extends DataObject {
 	private static $db = array(
 		'Title' => 'Varchar(155)',
 		'Content' => 'HTMLText',
-		'SortOrder' => 'Int'
+		'SortOrder' => 'Int',
+		'VideoID' => 'Varchar(11)'
 
 	);
 
@@ -27,7 +28,7 @@ class LandingPageSection extends DataObject {
 		$fields->removeByName("Images");
 
 		$fields->addFieldToTab('Root.Main', UploadField::create('Images'));
-
+		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
 		return $fields;
 	}
 
