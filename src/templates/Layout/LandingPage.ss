@@ -88,7 +88,7 @@
 						<% if $VideoID %>
 							<div class="flex-video">
 								<iframe id="player" type="text/html" width="640" height="390"
-								  src="http://www.youtube.com/embed/{$VideoID}"
+								  src="http://www.youtube.com/embed/{$VideoID}?enablejsapi=1"
 								  frameborder="0"></iframe>
 							</div>
 						<% end_if %>
