@@ -13,10 +13,10 @@ $BlockArea(BeforeContent)
 
 	<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 		$BlockArea(BeforeContentConstrained)
+		<% if $MainImage %>
+			<img class="main-content__main-img" src="$MainImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
+		<% end_if %>
 		<div class="main-content__text">
-			<% if $MainImage %>
-				<img src="$MainImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
-			<% end_if %>
 			$Content
 		</div>
 		$BlockArea(AfterContentConstrained)
