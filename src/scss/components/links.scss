@@ -27,3 +27,15 @@ a[href$=".pdf"]:after {
 	vertical-align: middle;
 	text-indent: -999em;
 }
+
+a[href$=".doc"]:after,a[href$=".docx"]:after {
+	content:' (Word Document)';
+	background: url(../images/word-doc-icon.png) no-repeat center top;
+	background-size: cover;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: middle;
+	text-indent: -999em;
+}

@@ -37,7 +37,7 @@ $Header
 				</div>
 				$Content
 		</article>
-		<aside class="sidebar" data-sticky-container>
+		<aside class="sidebar" class="dp-sticky">
 			<% include SideNav %>
 			$BlockArea(Sidebar)
 		</aside>

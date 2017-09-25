@@ -50,7 +50,7 @@ $Header
 			$BlockArea(AfterContentConstrained)
 			$Form
 		</article>
-		<aside class="sidebar">
+		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
 
 			$BlockArea(Sidebar)
