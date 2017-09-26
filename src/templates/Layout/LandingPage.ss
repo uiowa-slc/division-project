@@ -45,6 +45,17 @@
 					<a href="#$Title" class="lp-menu__item">$Title</a>
 				</li>
 			<% end_loop %>
+			<% if $FacebookLink %>
+				<li class="lp-menu__listitem">
+					<a href="$FacebookLink" class="lp-menu__item" target="_blank"><i class="fa fa-facebook"></i></a>
+				</li>
+			<% end_if %>
+			<% if $TwitterLink %>
+				<li class="lp-menu__listitem">
+					<a href="$TwitterLink" class="lp-menu__item" target="_blank"><i class="fa fa-twitter"></i></a>
+				</li>
+			<% end_if %>
+
 		</ul>
 	</nav>
 </div>
@@ -62,6 +73,9 @@
 				$Breadcrumbs
 			<% end_if %>
 			$BlockArea(BeforeContentConstrained)
+			<% if $SecondaryImage %>
+				<img class="main-content__main-img" src="$SecondaryImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
+			<% end_if %>
 			<div class="main-content__text">
 				<h1>$Title</h1>
 				$Content
