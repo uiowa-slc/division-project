@@ -6,6 +6,7 @@ class LandingPage extends Page {
 		'ShowBreadcrumbs' => 'Boolean(1)',
 		'FacebookLink' => 'Varchar(2083)',
 		'TwitterLink' => 'Varchar(2083)',
+		'InstagramLink' => 'Varchar(2083)',
 		'HeaderImageAltText' => 'Text'
 	);
 	private static $has_one = array(
@@ -35,6 +36,7 @@ class LandingPage extends Page {
 				$fields->addFieldToTab('Root.Main', GridField::create('Sections', 'Sections', $this->Sections(), $sectionsConf), 'Content');
 		$fields->addFieldToTab('Root.Main', TextField::create('FacebookLink','Facebook page link'));
 		$fields->addFieldToTab('Root.Main', TextField::create('TwitterLink','Twitter page link'));
+		$fields->addFieldToTab('Root.Main', TextField::create('InstagramLink','Instagram page link'));
 
 		return $fields;
 	}

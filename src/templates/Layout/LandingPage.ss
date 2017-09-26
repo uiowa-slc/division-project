@@ -55,7 +55,11 @@
 					<a href="$TwitterLink" class="lp-menu__item" target="_blank"><i class="fa fa-twitter"></i></a>
 				</li>
 			<% end_if %>
-
+			<% if $InstagramLink %>
+				<li class="lp-menu__listitem">
+					<a href="$InstagramLink" class="lp-menu__item" target="_blank"><i class="fa fa-instagram"></i></a>
+				</li>
+			<% end_if %>
 		</ul>
 	</nav>
 </div>
