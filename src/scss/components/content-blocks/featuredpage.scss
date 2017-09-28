@@ -48,7 +48,7 @@
 	}
 	&__button {
 		& a {
-			background: $yellow;
+			background: $highlight;
 			color: #000;
 			display: inline-block;
 			font-weight: bold;
@@ -144,7 +144,7 @@
 		}
 	}
 	@include breakpoint(large) {
-		background-color: $yellow;
+		background-color: $highlight;
 		padding: 0;
 		&__title {
 			font-size: rem-calc(20);
@@ -166,7 +166,7 @@
 			background-color: $black;
 			color: #fff;
 			&:hover, &:focus {
-				background-color: $yellow;
+				background-color: $highlight;
 				color: $black;
 			}
 		}

@@ -4,12 +4,17 @@ class LandingPageSection extends DataObject {
 	private static $db = array(
 		'Title' => 'Varchar(155)',
 		'Content' => 'HTMLText',
-		'SortOrder' => 'Int'
+		'SortOrder' => 'Int',
+		'VideoID' => 'Varchar(11)'
 
 	);
 
 	private static $has_one = array(
 		'LandingPage' => 'LandingPage'
+	);
+
+	private static $has_many = array(
+		'Images' => 'Image'
 	);
 
 	private static $default_sort = array(
@@ -19,11 +24,11 @@ class LandingPageSection extends DataObject {
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->removeByName("SortOrder");
+		$fields->removeByName("Images");
 
-		//$fields->removeFieldFromTab('Root.Content.Main', 'Content');
-		//$fields->addFieldToTab('Root.Main', new CheckboxField('HideTextTitle','Hide Text Title'), "Content");
-		//$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField('Content','Content'));
-
+		$fields->addFieldToTab('Root.Main', UploadField::create('Images'));
+		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
 		return $fields;
 	}
 

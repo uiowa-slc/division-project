@@ -53,10 +53,10 @@
 			opacity: 1;
 		}
 		&--active {
-			color: $yellow;
+			color: $highlight;
 			font-weight: normal;
 			&:hover, &:focus, &:active {
-				color: $yellow;
+				color: $highlight;
 			}
 		}
 	}

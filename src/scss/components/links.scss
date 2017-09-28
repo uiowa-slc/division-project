@@ -10,7 +10,7 @@ a {
 
 .caret-link {
 	&:after {
-		@include css-triangle(4px, $yellow, right);
+		@include css-triangle(4px, $highlight, right);
 
 		margin-left: 7px;
 		display: inline-block;
@@ -19,6 +19,18 @@ a {
 a[href$=".pdf"]:after {
 	content:' (PDF)';
 	background: url(../images/Adobe_PDF_file_icon_24x24.png) no-repeat center top;
+	background-size: cover;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: middle;
+	text-indent: -999em;
+}
+
+a[href$=".doc"]:after,a[href$=".docx"]:after {
+	content:' (Word Document)';
+	background: url(../images/word-doc-icon.png) no-repeat center top;
 	background-size: cover;
 	width: 14px;
 	height: 14px;

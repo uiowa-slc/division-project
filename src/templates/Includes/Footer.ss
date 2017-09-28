@@ -94,6 +94,9 @@
 					<% if $SiteConfig.FlickrLink %>
 						<li><a href="$SiteConfig.FlickrLink" target="_blank" class="footer__flickr" itemprop="sameAs">Flickr</a></li>
 					<% end_if %>
+					<% if $SiteConfig.Github %>
+						<li><a href="$SiteConfig.Github" target="_blank" class="footer__github" itemprop="sameAs">Github</a></li>
+					<% end_if %>
 				</ul>
 			</div>
 		<% end_if %>

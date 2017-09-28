@@ -6,8 +6,10 @@ body, td, pre{
 }
 
 
-@import "settings/settings";
-@import "foundation";
+@import "settings/division-settings";
+@import "settings/subtheme";
+
+@import "lib/foundation/scss/foundation";
 
 @include foundation-global-styles;
 @include foundation-typography;
@@ -36,7 +38,7 @@ body{
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
-	color: $yellow;
+	color: $highlight;
 	background-color: #222;
 	background-image: -moz-linear-gradient(top, #333, #222);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333), to(#222));
@@ -53,10 +55,10 @@ body{
 	position: relative;
 	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
 	&:hover, &:focus {
-		color: $yellow;
+		color: $highlight;
 		text-decoration: underline;
 	}
 	& a {
-		color: $yellow;
+		color: $highlight;
 	}
 }

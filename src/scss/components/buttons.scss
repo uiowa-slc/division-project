@@ -21,7 +21,7 @@ button, .button{
 
 /* css/scss/imports/buttons.scss
 ========================================================================== */
-.button,.button--shaded {
+.button, {
 	display: inline-block;
 	*display: inline;
 	/* IE7 inline-block hack */
@@ -34,7 +34,7 @@ button, .button{
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
-	color: $yellow;
+	color: $highlight;
 	background-color: #222;
 	background-image: -moz-linear-gradient(top, #333, #222);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333), to(#222));
@@ -51,11 +51,11 @@ button, .button{
 	position: relative;
 	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
 	&:hover, &:focus {
-		color: $yellow;
+		color: $highlight;
 		text-decoration: underline;
 	}
 	& a {
-		color: $yellow;
+		color: $highlight;
 	}
 }
 
@@ -69,6 +69,11 @@ button, .button{
 	&:hover,&:active,&:focus{
 		background: none;
 	}
+}
+
+.button--hollow-dark{
+	color: #333;
+	border-color: #333;
 }
 
 .button--shaded:hover,
@@ -155,6 +160,18 @@ input[type="button"].button--shaded-block {
 .button--shaded {
 	// border-color: #c5c5c5;
 	// border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+
+.button-outlined{
+	border: 1px solid #282828;
+	padding: .625rem;
+	text-transform: uppercase;
+	font-size: .75rem;
+	margin: .625rem 0;
+	display: inline-block;
+	text-align: center;
+	transition: all .3s linear;
+	color: #222;
 }
 
 .button-primary {

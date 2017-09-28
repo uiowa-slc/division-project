@@ -6,7 +6,8 @@ class DivisionPage extends DataExtension {
 		'PreventSearchEngineIndex' => 'Boolean',
 		'LayoutType' => 'varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Text',
-		'ShowChildPages' => 'Boolean(1)'
+		'ShowChildPages' => 'Boolean(1)',
+		'ShowChildrenInDropdown' => 'Boolean(1)'
 	);
 
 	private static $has_one = array(
@@ -30,10 +31,8 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $layout_types = array(
-		'MainImage' => 'Big Full Width Image',
-		'BackgroundImage' => 'Background Image',
-		'ImageSlider' => 'Image Slider',
-		'BackgroundVideo' => 'Background Video'
+		'BackgroundVideo' => 'Background Video, Overlay',
+		'BackgroundImage' => 'Background Image, Overlay'
 	);
 
 	private static $plural_name = 'Pages';
@@ -44,20 +43,17 @@ class DivisionPage extends DataExtension {
 	);
 	private static $hide_from_hierarchy = array('BlogPost','Topic');
 
+	public function ClassAncestry(){
+		$ancestryArray = ClassInfo::ancestry($this->owner->ClassName);
+		$ancestryString = implode(' ',$ancestryArray);
+
+		return $ancestryString;
+	}
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();
 
 		$f->removeByName("ExtraMeta");
 		$config = SiteConfig::current_site_config(); 
-
-		if(!$config->GoogleAnalyticsID) {
-			$f->addFieldToTab("Root.Main", new LiteralField("AnalyticsWarning",
-				"<p class=\"message warning\">Google Analytics ID hasn't been set for this site. <a href=\"admin/settings/\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
-		}
-		if(!$config->TypeKitID) {
-			$f->addFieldToTab("Root.Main", new LiteralField("TypeKitWarning",
-				"<p class=\"message warning\">Typekit ID hasn't been set for this site. <a href=\"admin/settings/#Root_TypeKit\"><em>You can set it in the site's settings &rarr;</em></a></p>"), "Title");
-		}
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
@@ -66,12 +62,6 @@ class DivisionPage extends DataExtension {
 
 		if (Permission::check('ADMIN')) {
 			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (at least 1600px wide)'), 'Content');
-			$layoutOptionsField = DropdownField::create(
-	  			'LayoutType',
-	  			'Layout type',
-	  			$this->owner->LayoutTypes()
-			)->setEmptyString('(Default Layout)');
-			$f->addFieldToTab('Root.Main', $layoutOptionsField);
 		}
 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
@@ -99,10 +89,6 @@ class DivisionPage extends DataExtension {
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
-		if (defined('FLICKR_USER')) {
-			$f->renameField('Content', 'Content <a href="https://github.com/StudentLifeMarketingAndDesign/silverstripe-flickr/blob/master/docs/Shortcodes.MD" target="_blank">(Flickr guide&nbsp;&rarr;)</a>');
-		}
-
 		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
@@ -127,13 +113,16 @@ class DivisionPage extends DataExtension {
 		return $this->owner->stat('layout_types');
 	}
 
-	public function getSettingsFields() {
-		$f = parent::getSettingsFields();
-		$f->addFieldToTab('Root.Settings', new CheckboxField('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
-		$f->addFieldToTab('Root.Settings', new CheckboxField('ShowChildPages','Show child pages if available (Yes)'));
-
-		return $f;
-
+	public function updateSettingsFields($f) {
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+			$layoutOptionsField = DropdownField::create(
+	  			'LayoutType',
+	  			'Layout type',
+	  			$this->owner->LayoutTypes()
+			)->setEmptyString('(Default Layout)');
+			$f->addFieldToTab('Root.Settings', $layoutOptionsField, 'ParentType');
 	}
 
 	public function getSidebarItems() {
@@ -184,11 +173,6 @@ class DivisionPage extends DataExtension {
 		}
 	}
 
-	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
-		$owner = $this->owner;
-		print_r($owner->Breadcrumbs());
-		// return $this->owner->Breadcrumbs(20, false, false, true);
-	}
 
 
 }

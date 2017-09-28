@@ -3,7 +3,7 @@
 	<header id="header" class="header header--{$DarkLight} header--{$HeaderType}" role="banner">
 
 		<div itemscope="" itemtype="http://schema.org/Organization">
-			<h1 itemprop="name"><a href="$AbsoluteBaseURL" class="header__link--{$DarkLight}" itemprop="url">$SiteConfig.Title</a></h1>
+			<h1 class="header__site-title" itemprop="name"><a href="$AbsoluteBaseURL" class="header__link--{$DarkLight}" itemprop="url">$SiteConfig.Title</a></h1>
 		</div>
 
 		<div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">

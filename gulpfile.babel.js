@@ -43,9 +43,9 @@ function clean(done) {
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-function copy() {
+function copy(done) {
   return gulp.src(PATHS.assets)
-    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist));
+    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist), done);
 }
 
 function dpHtml(){
@@ -100,8 +100,8 @@ function sass() {
     }))
     // Comment in the pipe below to run UnCSS in production
     //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
-    .pipe($.if(PRODUCTION, $.cssnano()))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe($.cssnano())
+    .pipe($.sourcemaps.write('../maps'))
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/css'))
     .pipe(browser.reload({ stream: true }));
 }
@@ -113,12 +113,12 @@ function javascript() {
   PATHS.javascript.push(PATHS.theme + '/src/scripts/app.js');
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.babel({ignore: ['what-input.js', 'lazyload.transpiled.js']}))
+    .pipe($.babel({ignore: ['what-input.js', 'lazyload.js']}))
     .pipe($.concat('app.js'))
-    .pipe($.if(PRODUCTION, $.uglify()
+    .pipe($.uglify()
       .on('error', e => { console.log(e); })
-    ))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    )
+    .pipe($.sourcemaps.write('../maps'))
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'));
 }
 
@@ -126,9 +126,9 @@ function javascript() {
 // In production, the images are compressed
 function images() {
   return gulp.src(['src/images/**/*',PATHS.theme + '/src/images/**/*' ])
-    .pipe($.if(PRODUCTION, $.imagemin({
+    .pipe($.imagemin({
       progressive: true
-    })))
+    }))
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/images'));
 }
 

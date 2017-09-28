@@ -23,15 +23,34 @@ class OpenGraphExtension extends DataExtension {
         return Director::protocolAndHost() . $url;
     }
     public function getOpenGraph_type() {
+
         return 'website';
     }
     public function getOpenGraph_locale() {
         return i18n::get_locale();
     }
+
     public function getOpenGraph_description() {
-        $content = $this->owner->obj('Content')->LimitCharacters(300);
-        $content = Convert::raw2att($content);
-        return $content;
+        $page = $this->owner->data();
+        $tries = array(
+            'OgDescription',
+            'MetaDescription',
+            'Content'
+        );
+
+        foreach($tries as $t) {
+            $i = $page->hasValue($t);
+
+            if($i){
+                
+
+                $content = $this->owner->obj($t)->LimitCharacters(300);
+                $content = Convert::raw2att($content);
+                return $content;
+            }
+        }
+
+        return SiteConfig::current_site_config()->obj('Tagline');
   
     }
     public function getOpenGraph_site_name() {
@@ -44,6 +63,7 @@ class OpenGraphExtension extends DataExtension {
             'OgImage',
             'FeaturedImage',
             'MainImage',
+            'HeaderImage',
             'Photo',
             'BackgroundImage',
         );

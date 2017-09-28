@@ -8,7 +8,7 @@
             <h1 class="background-image__title text-center">$Title</h1>
             <div class="topic-search__container row">
               <div class="large-9 columns large-centered">
-                <h2 class="text-center">Search for a topic below:</h2>
+                <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
                   $TopicSearchForm
               </div>
             </div>           
@@ -20,7 +20,7 @@
       <% if not $BackgroundImage %>
         <div class="topic-search__container row">
           <div class="large-9 columns large-centered">
-            <h2 class="text-center">Search for more topics below:</h2>
+            <h2 class="text-center"><% if $TopicHolder.Heading %>$TopicHolder.Heading <% else %>Search for a topic below:<% end_if %></h2>
                 $TopicSearchForm
                 <div class="row small-up-2 large-up-3">
                 <% with TopicHolder %>
@@ -37,7 +37,7 @@
                         <% end_if %>
                         </ul>
                       <% else %>
-                        <p>No jobs are currently listed.</p>
+                        <p><% if $TopicHolder.NoTopicsText %>$TopicHolder.NoTopicsText <% else %>No jobs are currently listed.<% end_if %></p>
                     <% end_if %>
                   </div>
                 <% end_loop %>

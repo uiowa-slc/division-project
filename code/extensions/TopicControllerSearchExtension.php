@@ -5,26 +5,26 @@ class TopicControllerSearchExtension extends Extension{
 
 	public static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
-	public function SearchForm() {
+	public function TopicSearchForm() {
 			
 			$searchText =  'Searching under '.$this->owner->getParent()->Title;
 
 			if($this->owner->request && $this->owner->request->getVar('Search')) {
 				$searchText = $this->owner->request->getVar('Search');
 			}
-			$searchField = new TextField('TopicSearch', false, '');
+			$searchField = new TextField('Search', false, '');
 			$searchField->setAttribute('placeholder', 'Search for entries under '.$this->owner->getParent()->Title);
 			$searchField->addExtraClass('topic-search-form__input');
 			$fields = new FieldList(
 				$searchField
 			);
 
-			$action = FormAction::create('results', _t('SearchForm.GO', 'Go'));
+			$action = FormAction::create('results', _t('SearchForm.GO', 'Search'));
 			$action->addExtraClass('topic-search-form__search-button');
 			$actions = new FieldList(
 				$action //this is the only real change to tell the form to use a different function for the action
 			);
-			$form = new SearchForm($this->owner, 'SearchForm', $fields, $actions);
+			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
 			$form->setTemplate('TopicSearchForm');
 			return $form;
@@ -49,6 +49,6 @@ class TopicControllerSearchExtension extends Extension{
 		);
 
 
-		return $this->owner->customise($data)->renderWith(array('TopicHolder_results', 'Page'));
+		return $this->owner->customise($data)->renderWith(array($this->owner->Parent()->ClassName.'_results', 'TopicHolder_results', 'Page'));
 	}
 }

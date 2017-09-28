@@ -9,7 +9,7 @@ News
 }
 .newsblock-title {
 	margin-top: 0;
-	border-top: 5px solid $yellow;
+	border-top: 5px solid $highlight;
 	padding-top: 60px;
 	text-transform: uppercase;
 	display: inline-block;
@@ -53,7 +53,7 @@ News
 		padding-top: rem-calc(18);
 	}
 	& .bloglistitem__heading {
-		text-transform: capitalize;
+		//text-transform: capitalize;
 	}
 	& .bloglistitem__desc {
 		font-size: rem-calc(16);

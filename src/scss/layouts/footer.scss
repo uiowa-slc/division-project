@@ -40,7 +40,7 @@
 		margin-top: 20px;
 		margin-bottom: 10px;
 		padding-bottom: 10px;
-		border-bottom: 2px solid $yellow;
+		border-bottom: 2px solid $highlight;
 		font-weight: 600;
 
 	}
@@ -51,6 +51,7 @@
 		}
 		& a {
 			color: #eee;
+			text-decoration: underline;
 		}
 	}
 	&__navigation {
@@ -125,7 +126,7 @@
 		}
 		&:hover, &:focus {
 			color: #222;
-			background-color: $yellow;
+			background-color: $highlight;
 			&:after {
 				@include css-triangle(6px, #222, right);
 			}
@@ -187,6 +188,7 @@
 	&__linkedin:before {background-image: url(../images/icon_linkedin.png);}
 	&__pinterest:before {background-image: url(../images/icon_pinterest.png);}
 	&__flickr:before {background-image: url(../images/icon_flickr.png);}
+	&__github:before {background-image: url(../images/icon_github.png);}
 
 	&__md {
 		display: inline-block;
@@ -278,7 +280,7 @@
 }
 #mc_embed_signup .button {
 	clear:both;
-	background: $yellow;
+	background: $highlight;
 	border: 0 none;
 	border-radius:4px;
 	letter-spacing:.03em;

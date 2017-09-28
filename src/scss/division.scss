@@ -1,12 +1,9 @@
 @charset "utf-8";
 
-//Settings
-@import "settings/settings";
-
 
 // Libraries
 @import "lib/fa/font-awesome";
-@import "foundation";
+@import "lib/foundation/scss/foundation";
 // @import "motion-ui";
 
 // Foundation
@@ -43,7 +40,7 @@
 // @include foundation-reveal;
 // @include foundation-switch;
 @include foundation-table;
-// @include foundation-tabs;
+@include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
 // @include foundation-tooltip;
@@ -78,13 +75,13 @@
 @import "components/pagination";
 @import "components/buttons";
 @import "components/hero";
-@import "components/featured-page";
-@import "components/tile-grid";
 @import "components/profile";
 @import "components/bg-media";
 @import "components/widgets";
 @import "components/exit-button";
 @import "components/topic-search-form";
+@import "components/tabs";
+@import "components/userforms";
 
 @import "components/content-blocks/content-blocks";
 @import "components/content-blocks/featuredpage";
@@ -95,11 +92,13 @@
 @import "components/content-blocks/text-block";
 @import "components/content-blocks/upcoming-events";
 @import "components/content-blocks/video";
+@import "components/content-blocks/tile-grid";
 
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";
 @import "layouts/footer";
+@import "layouts/landingpage";
 @import "layouts/locallist";
 @import "layouts/staff";
 @import "layouts/blog";

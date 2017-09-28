@@ -1,30 +1,40 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-  <!-- Background Image Feature -->
-  <% if $BackgroundImage %>
+   <% if $BackgroundImage && not $IsFilterActive %>
     <div class="background-image" data-interchange="[$BackgroundImage.CroppedFocusedImage(600,400).URL, small], [$BackgroundImage.CroppedFocusedImage(1600,500).URL, medium]">
-      <%-- <% if $LayoutType == "MainImage" %> --%>
         <div class="column row">
           <div class="background-image__header background-image__header--has-content">
             <h1 class="background-image__title text-center">$Title</h1>
             <div class="topic-search__container row">
               <div class="large-9 columns large-centered">
-                <h2 class="text-center">Search for a topic below:</h2>
-                $SearchForm
+                <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
+                $TopicSearchForm
               </div>
             </div>           
           </div>
         </div>
-      <%-- <% end_if %> --%>
     </div>
   <% end_if %>
+
+  <!-- Background Image Feature -->
+
   $Breadcrumbs
 
-<% if not $BackgroundImage %>
+<% if not $BackgroundImage || $IsFilterActive %>
   <div class="column row">
     <div class="main-content__header">
+    <% if $IsFilterActive %>
+      <% if $CurrentCategory %>
+        <h1>Category: $CurrentCategory.Title</h1>
+      <% else_if $CurrentTag %>
+        <h1>Tag: $CurrentTag.Title</h1>
+      <% end_if %>
+      
+    <% else %>
       <h1>$Title</h1>
+    <% end_if %>
+      
     </div>
   </div>
 <% end_if %>
@@ -33,45 +43,82 @@ $BlockArea(BeforeContent)
 
 <div class="row">
 
-  <article role="main" class="main-content main-content--with-padding main-content--full-width">
+  <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
     $BlockArea(BeforeContentConstrained)
     <div class="main-content__text">
       $Content
     </div>
-        <% if $CurrentTag %>
-  
-            <% with $CurrentTag %>
-              <h2>Topics tagged with "<em>$Title</em>":</h2>
-                <ul>
+      <% if $CurrentCategory %>
+        <% with $CurrentCategory %>
+          $Content
+          <h2>Listed under "{$Title}": </h2>
+           <% if $BlogPosts %>
+            <ul class="featured-topic-list row large-up-2">
+
+            <% loop $BlogPosts %>
+              <li class="featured-topic-list__item column column-block">
+
+                <a href="$Link">
+                <div class="row collapse">
+                  <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
+                  <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
+
+                  <p class="bloglistitem__category">
+                  <% loop $Categories.Limit(1) %><span href="$URL" class="bloglistitem__category">$Title</span><% end_loop %>
+                </p></div>
+
+                </div>
+
+                </a>
+              </li>
+            <% end_loop %>
+            </ul>
+            <% else %>
+              <p>No topics are currently listed.</p>
+          <% end_if %>           
+        <% end_with %>
+      <% else_if $CurrentTag %>
+        <% with $CurrentTag %>
+          $Content
+          <h2>Listed under "{$Title}": </h2>
+           <% if $BlogPosts %>
+              <ul class="featured-topic-list row large-up-2">
                 <% loop $BlogPosts %>
-                  <li>
-                    <h3><i class="fa fa-file-text-o fa-lg fa-fw" aria-hidden="true"></i><a href="$Link">$Title</a></h3>
-                    <p>$Content.LimitCharacters(100)</p>
-                  </li>
+                <li class="featured-topic-list__item column column-block">
+
+                  <a href="$Link">
+                  <div class="row collapse">
+                    <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
+                    <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
+
+                    <p class="bloglistitem__category">
+                    <% loop $Categories.Limit(1) %><span href="$URL" class="bloglistitem__category">$Title</span><% end_loop %>
+                  </p></div>
+
+                  </div>
+
+                  </a>
+                </li>
                 <% end_loop %>
-                </ul>
-            <% end_with %>
-            
+              </ul>
+            <% else %>
+              <p><% if $NoTopicsText %>$NoTopicsText<% else %>No topics currently listed.<% end_if %></p>
+          <% end_if %>           
+        <% end_with %>
+      <% end_if %>
 
-          <hr />
-
-        <% else %>
-
-
-        <% end_if %>
-        <% if not $BackgroundImage %>
+      <% if not $BackgroundImage || $IsFilterActive %>
         <div class="topic-search__container row">
           <div class="large-9 columns large-centered">
-            <h2 class="text-center">Search for a topic below:</h2>
-            $SearchForm
+            <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
+            $TopicSearchForm
           </div>
         </div>
-         <hr />
-        <% end_if %>
-       
-        <% include TopicHolderFeaturedTopics %>
-        <hr />
-        <% include TopicHolderAllTopics %>
+       <hr />
+      <% end_if %>
+    
+
+      <% include TopicHolderAllTopics %>
 
     $BlockArea(AfterContentConstrained)
     $Form
@@ -79,13 +126,13 @@ $BlockArea(BeforeContent)
       <% include ChildPages %>
     <% end_if %>
   </article>
-<%--   <aside class="sidebar">
+  <aside class="sidebar dp-sticky">
     <% include SideNav %>
     <% if $SideBarView %>
       $SideBarView
     <% end_if %>
     $BlockArea(Sidebar)
-  </aside> --%>
+  </aside>
 </div>
 $BlockArea(AfterContent)
 

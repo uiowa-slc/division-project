@@ -13,7 +13,7 @@ class FeaturedPageBlock extends Block{
 		"FeaturePagePhoto" => "Image"
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$fields->addFieldToTab('Root.Main', new TreeDropdownField("PageTreeID", "Select a Page:", "SiteTree"));

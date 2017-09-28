@@ -14,7 +14,7 @@ class RelatedNewsBlock extends Block{
 		'PageTags' => 'BlogTag',
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$tags = BlogTag::get();

@@ -44,7 +44,7 @@
     $TypeKit
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
-  <body class="{$ClassName} body--{$DarkLight} action--{$Action}">
+  <body class="{$ClassName} {$ClassAncestry} body--{$DarkLight} action--{$Action}">
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
     <!-- Add your site or app content here -->
     <% if $SiteConfig.ShowExitButton %>
@@ -58,15 +58,7 @@
     $BetterNavigator
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
-    <% if $SiteConfig.GoogleAnalyticsID %>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', '$SiteConfig.GoogleAnalyticsID', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <% end_if %>
+
+    $Analytics
   </body>
 </html>

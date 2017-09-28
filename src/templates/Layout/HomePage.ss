@@ -8,7 +8,9 @@
 			<% loop NewHomePageHeroFeatures %>
 				<div class="carousel-cell">
 					<% if $Image %>
-						<div class="cell-bg" data-flickity-bg-lazyload="$Image.CroppedFocusedImage(1400,900).URL">
+						<% with $Image %>
+						<div class="cell-bg" data-flickity-bg-lazyload="$CroppedFocusedImage(1500,900).URL" <% if $FocusX || $FocusY %>style="background-position: $PercentageX% $PercentageY%;"<% end_if %>>
+						<% end_with %>
 							<div class="inner">
 								<div class="cell-text">
 									<span>Featured Page</span>
@@ -24,7 +26,7 @@
 					<% else_if $Video %>
 						<div class="cell-bg">
 							<div class="fullwidth-video">
-								<video playsinline autoplay muted loop autoplay src="$Video.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;" <% if $VideoPoster %>poster="$VideoPoster.CroppedFocusedImage(1400,900).URL"<% end_if %>></video>
+								<video playsinline autoplay muted loop autoplay src="$Video.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;" <% if $VideoPoster %>poster="$VideoPoster.CroppedFocusedImage(1500,900).URL"<% end_if %>></video>
 							</div>
 							<div class="inner">
 								<div class="cell-text">

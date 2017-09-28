@@ -22,7 +22,7 @@
 		transform: none;
 		&:after {
 			transition: background-color 1s;
-			background-color: $yellow;
+			background-color: $highlight;
 			display: block;
 			width: calc(100% - 1px);
 			height: 5px;
@@ -32,7 +32,6 @@
 			content: "";
 		}
 	}
-
 	&--has-transition {
 		@include breakpoint(small) {
 			// transition: 0.3s opacity linear;
@@ -79,7 +78,7 @@
 
 	&--full.nav__wrapper--grayscale {
 		&:after {
-			background-color: desaturate($yellow, 90%);
+			background-color: desaturate($highlight, 90%);
 		}
 	}
 }
@@ -133,7 +132,7 @@
 	}
 
 	&--overlay.nav--dark-header .nav__item--section:after, &--no-bg.nav--dark-header .nav__item--section:after {
-		background-color: $yellow;
+		background-color: $highlight;
 	}
 
 
@@ -243,7 +242,7 @@
 		}
 	}
 	&:hover:after {
-		background-color: $yellow;
+		background-color: $highlight;
 	}
 	@include breakpoint(medium) {
 		border:none;
@@ -279,7 +278,8 @@
 }
 //Make the fifth nav item and beyond's dropdown hang from the right:
 .nav__item {
-	&:nth-child(n+5):hover, &:nth-child(n+5).nav__item--is-hovered {
+	&:nth-child(n+5),
+	&:nth-child(n+5).nav__item--is-hovered {
 		.subnav--two-columns {
 			left: auto;
 			right: 0;
@@ -399,7 +399,11 @@
 	}
 	@include breakpoint(medium) {
 		font-weight: 600;
-		&:hover, &:focus, &:active, .subnav--light.subnav--show-menu .subnav__link--dark-header {
+		&:hover,
+		&:focus,
+		&:active,
+		&.hover,
+		.subnav--light.subnav--open .subnav__link--dark-header {
 			color: $black;
 			background: white;
 			&:after {
@@ -482,7 +486,7 @@
 		font-size: rem-calc(24);
 		//text-transform: capitalize;
 		padding: rem-calc(5);
-		border-bottom: rem-calc(2) $yellow solid;
+		border-bottom: rem-calc(2) $highlight solid;
 		color: white;
 		width: 100%;
 	}
@@ -531,9 +535,7 @@
 		}
 	}
 }
-.header.open .nav__toggle {
 
-}
 .header--overlay.open .nav__toggle--menu .nav__link {
 	background-color: rgba(#111, 0.95);
 }
@@ -724,7 +726,7 @@
 
 	@include breakpoint(medium) {
 		position: absolute;
-		left: -9999px;
+		// left: -9999px;
 		top: 100%;
 		min-width: rem-calc(300);
 		list-style: none;
@@ -755,6 +757,10 @@
 
 	&:before {
 		display: none;
+	}
+	&:not(.subnav__item--column) {
+		padding-right: .625rem;
+		padding-left: .625rem;
 	}
 }
 
@@ -798,10 +804,10 @@
 		}
 	}
 }
-.subnav[aria-hidden="true"] {
+.nav__item--opened .subnav {
 	@media (max-width: 640px) {
-		visibility: hidden;
-		height: 0;
+		visibility: visible;
+		height: auto;
 	}
 }
 .nav li.nav__item--opened ul.subnav {
@@ -858,7 +864,7 @@
 	}
 }
 .nav button.second-level--open > svg {
-	fill: $yellow;
+	fill: #fff;
 	width: 15px;
 	-webkit-transition: transform 0.2s ease-in;
 	-moz-transition: transform 0.2s ease-in;

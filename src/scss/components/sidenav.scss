@@ -14,15 +14,15 @@
 		}
 		&--current {
 			background-color: #111;
-			// border-top: 4px solid $yellow;
+			// border-top: 4px solid $highlight;
 			& > a {
-				color: $yellow;
+				color: $highlight;
 				font-weight: bold;
 			}
 		}
 		&--section {
 			background-color: #111;
-			// border-top: 4px solid $yellow;
+			// border-top: 4px solid $highlight;
 			& > a {
 				color: #fff;
 				padding: rem-calc(20 20);
@@ -70,7 +70,7 @@
 				background-color: #222;
 				& > a {
 					background-color: #222;
-					color: $yellow;
+					color: $highlight;
 				}
 			}
 			&.sidenav__item--section {
@@ -95,7 +95,7 @@
 			&.sidenav__item--current {
 				& a {
 					background-color: #282828;
-					color: $yellow;
+					color: $highlight;
 				}
 			}
 		}
