@@ -17,7 +17,7 @@ class TopicHolderSearchBlock extends Block {
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
-        $field = DropdownField::create('TopicHolderID', 'Select a Topic:', TopicHolder::get()->map('ID', 'Title'));
+        $field = DropdownField::create('TopicHolderID', 'Select a Topic Holder:', TopicHolder::get()->map('ID', 'Title'));
         $fields->addFieldToTab('Root.Main', $field);
         $fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
 

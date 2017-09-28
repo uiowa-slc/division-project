@@ -6,7 +6,7 @@
             <h1 class="background-image__title text-center">$Title</h1>
             <div class="topic-search__container row">
               <div class="large-9 columns large-centered">
-                <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
+                <h2 class="text-center"><% if $TopicHolder.Heading %>$TopicHolder.Heading <% else %>Search for a topic below:<% end_if %></h2>
                   $TopicSearchForm
               </div>
             </div>           
