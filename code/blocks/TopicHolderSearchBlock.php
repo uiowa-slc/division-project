@@ -40,13 +40,13 @@ class TopicHolderSearchBlock_Controller extends Block_Controller {
         );
 
         public function TopicSearchForm(){
-            $searchText =  'Searching under '.$this->Title;
+            $searchText =  'Searching under '.$this->TopicHolder()->Title;
 
             if($this->owner->request && $this->owner->request->getVar('Search')) {
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search for entries under '.$this->Title);
+            $searchField->setAttribute('placeholder', 'Search for entries under '.$this->TopicHolder()->Title);
             $searchField->addExtraClass('topic-search-form__input');
             $fields = new FieldList(
                 $searchField
