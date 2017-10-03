@@ -51,7 +51,7 @@ $Header
 
 									<p class="childpages__summary">
 										$DateRange<% if AllDay %> <% _t('Calendar.ALLDAY','All Day') %><% else %><% if StartTime %> $TimeRange<% end_if %><% end_if %></p>
-
+									<% if $Event.Location %><strong>Location:</strong> $Event.Location <% end_if %>
 									$Event.Content.FirstSentence.LimitCharacters(200)</p>
 							
 								<span class="childpages__link">Learn More</span>

@@ -27,7 +27,10 @@ $Header
 					  <p><strong>Date: </strong>$DateRange<% if AllDay %> <% _t('Calendar.ALLDAY','All Day') %><% else %><% if StartTime %> $TimeRange<% end_if %><% end_if %></p>
 					  <p><a href="$ICSLink" class="button"><% _t('CalendarEvent.ADD','Add this to Calendar') %></a></p>
 					  <% end_with %>
-
+						<% if $Location %>
+							<p><strong>Location:</strong><br />$Location
+							</p>
+						<% end_if %>
 						  <% if OtherDates %>
 						  <div class="event-calendar-other-dates">
 							<h5 class="event-title">All Dates</h5>
