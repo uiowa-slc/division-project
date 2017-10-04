@@ -1,7 +1,11 @@
 <footer class="footer" role="contentinfo">
 	<div class="footer__container <% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>footer__container--with-social<% end_if %>">
 		<div class="footer__info">
-			<% if $SiteConfig.DisableDivisionBranding %>
+			<% if $SiteConfig.FooterLogo %>
+				<div class="footer__logo">
+					<img class="dp-lazy" data-original="$SiteConfig.FooterLogo.URL" alt="$SiteConfig.Title Logo">
+				</div>
+			<% else_if $SiteConfig.DisableDivisionBranding %>
 				<a href="http://uiowa.edu" class="footer__logo"><img class="dp-lazy" data-original="division-project/images/ui-logo-footer.png" alt="The University of Iowa"></a>
 			<% else %>
 				<a href="http://studentlife.uiowa.edu" class="footer__logo"><img class="dp-lazy" width="300" height="81
@@ -39,7 +43,7 @@
 		</div>
 		<div class="footer__navigation <% if $SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>footer__navigation--with-buttons <% end_if %>">
 			<div class="">
-				<h3 class="footer__heading">Website Navigation</h3>
+				<h3 class="footer__heading">Quick Links</h3>
 			</div>
 			<div class="footer__links">
 				<ul class="clearfix">
