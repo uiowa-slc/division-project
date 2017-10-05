@@ -22,23 +22,27 @@
 			<% end_if %>
 
 			<div class="footer__address" itemscope itemtype="http://schema.org/PostalAddress">
+				<% with $SiteConfig %>
 				<p>
-					$SiteConfig.Title<br />
-					<span itemprop="streetAddress">$SiteConfig.Address1</span>
-					<% if $SiteConfig.City %><br /><span itemprop="addressLocality">$SiteConfig.City</span><% end_if %><% if $SiteConfig.State %>, <span itemprop="addressRegion">$SiteConfig.State</span><% end_if %><% if $SiteConfig.Zipcode %><span itemprop="postalCode">$SiteConfig.Zipcode</span><% end_if %><br />
-					<% if $SiteConfig.PhoneNumber %>
-						<br /><% if $SiteConfig.PhoneLabel %>$SiteConfig.PhoneLabel <% end_if %><span itemprop="telephone">$SiteConfig.PhoneNumber</span>
-					<% end_if %>
-					<% if $SiteConfig.PhoneNumberAlt %>
-						<br /><% if $SiteConfig.PhoneLabelAlt %>$SiteConfig.PhoneLabelAlt <% end_if %>$SiteConfig.PhoneNumberAlt
-					<% end_if %>
-					<% if $SiteConfig.Fax %>
-						<br />Fax: <span itemprop="faxNumber">$SiteConfig.Fax</span>
-					<% end_if %>
-					<% if $SiteConfig.EmailAddress %>
-						<br /><a href="mailto:$SiteConfig.EmailAddress"><span itemprop="email">$SiteConfig.EmailAddress</span></a>
+					<% if $Address1 || $PhoneNumber || $PhoneNumberAlt || $Fax || $EmailAddress %>
+						$Title<br />
+						<span itemprop="streetAddress">$Address1</span>
+						<% if $City %><br /><span itemprop="addressLocality">$City</span><% end_if %><% if $State %>, <span itemprop="addressRegion">$State</span><% end_if %><% if $Zipcode %><span itemprop="postalCode">$Zipcode</span><% end_if %><br />
+						<% if $PhoneNumber %>
+							<br /><% if $PhoneLabel %>$PhoneLabel <% end_if %><span itemprop="telephone">$PhoneNumber</span>
+						<% end_if %>
+						<% if $PhoneNumberAlt %>
+							<br /><% if $PhoneLabelAlt %>$PhoneLabelAlt <% end_if %>$PhoneNumberAlt
+						<% end_if %>
+						<% if $Fax %>
+							<br />Fax: <span itemprop="faxNumber">$Fax</span>
+						<% end_if %>
+						<% if $EmailAddress %>
+							<br /><a href="mailto:$EmailAddress"><span itemprop="email">$EmailAddress</span></a>
+						<% end_if %>
 					<% end_if %>
 				</p>
+				<% end_with %>
 			</div>
 		</div>
 		<div class="footer__navigation <% if $SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>footer__navigation--with-buttons <% end_if %>">
