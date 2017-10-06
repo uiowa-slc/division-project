@@ -33,6 +33,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "jonom/silverstripe-betternavigator": "*",
                 "thisisbd/silverstripe-maintenance-mode" : "*",
+                "thezenmonkey/silverstripe-amp": "dev-master",
 		"silverstripe/secureassets" : "dev-master"
         },
         "repositories": [
