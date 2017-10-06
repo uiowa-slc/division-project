@@ -1,0 +1,16 @@
+.profile {
+	@include media-object-container;
+
+	&__media {
+		@include media-object-section(0);
+		// @include media-object-stack;
+		width: 158px;
+	}
+
+	&__image {}
+
+	&__text {
+		@include media-object-section(rem-calc(20));
+		// @include media-object-stack;
+	}
+}

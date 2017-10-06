@@ -1,0 +1,879 @@
+.nav__wrapper {
+	display: none;
+	visibility: hidden;
+	@include breakpoint(medium) {
+		background: transparent;
+		margin-top: 0;
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: auto;
+		position: relative;
+		overflow: visible;
+		visibility: visible;
+		opacity: 1;
+		transition-duration: 0;
+		height: auto;
+		backdrop-filter: none;
+		-webkit-transform: none;
+		-moz-transform: none;
+		-ms-transform: none;
+		-o-transform: none;
+		transform: none;
+		&:after {
+			transition: background-color 1s;
+			background-color: $highlight;
+			display: block;
+			width: calc(100% - 1px);
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			content: "";
+		}
+	}
+	&--has-transition {
+		@include breakpoint(small) {
+			// transition: 0.3s opacity linear;
+		}
+	}
+
+	&--search-is-active {
+		overflow: hidden;
+	}
+
+	&--light-header {
+		background-color: #242424;
+		@include breakpoint(medium) {
+			background: transparent;
+		}
+	}
+
+	&--dark-header {
+		background-color: #242424;
+		@include breakpoint(medium) {
+			background: transparent;
+		}
+	}
+
+	&--overlay {
+		background-color: rgba(#111, 0.95);
+
+		&:after {
+			background-color: transparent;
+		}
+		@include breakpoint(medium) {
+			background: transparent;
+		}
+	}
+
+	&--in-slider {
+		@extend .nav__wrapper--overlay;
+	}
+
+	&--search-is-active.nav__wrapper--search-is-active {
+		// background-color: white;
+
+	}
+
+	&--full.nav__wrapper--grayscale {
+		&:after {
+			background-color: desaturate($highlight, 90%);
+		}
+	}
+}
+.nav-collapse.open .nav__wrapper {
+	display: block;
+	visibility: visible;
+}
+.nav__wrapper nav {
+	padding: 0 1em 0;
+	@include breakpoint(medium) {
+		padding: 0;
+	}
+}
+
+.nav {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	@include breakpoint(medium) {
+		position: static;
+		display: table;
+		width: auto;
+		position: relative;
+		text-align: center;
+	}
+
+	&--mobile {}
+
+	&--search-is-active {
+		width: auto;
+		background-color: white;
+	}
+
+	&--overlay {
+		background-color: rgba(#111, 0.95);
+	}
+
+	&--in-slider {
+		@extend .nav--overlay;
+	}
+
+	&--dark-header:after {
+		background: none;
+	}
+	&--no-bg{
+		background: none;
+	}
+	//Inheritance... Not very BEM-friendly Any way to not do this?
+	&--full.nav--dark-header .nav__item:hover:after {
+		background-color: $black;
+	}
+
+	&--overlay.nav--dark-header .nav__item--section:after, &--no-bg.nav--dark-header .nav__item--section:after {
+		background-color: $highlight;
+	}
+
+
+}
+
+
+.nav__item {
+	@include breakpoint(medium) {
+		display: table-cell;
+		position: relative;
+		padding: 0;
+		z-index: 2;
+		&:hover:after {
+			background-color: $black;
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			content: "";
+			z-index: 1;
+		}
+	}
+
+
+	.nav__link--parent {}
+}
+
+//We're on the current top nav page.
+.nav__item--current {
+	@include breakpoint(medium) {
+		&:after {
+			background-color: $black;
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			content: "";
+			z-index: 1;
+		}
+	}
+}
+
+//If we're currently on a page with a top level ancestor
+.nav__item--section {
+	@include breakpoint(medium) {
+		&:after {
+			background-color: $black;
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			content: "";
+			z-index: 1;
+		}
+	}
+}
+
+//If we're currently hovering over a nav item that has children
+.nav__item--parent:hover,
+.nav__item--parent.focused,
+.nav__item--parent.nav__item--is-hovered {
+	@include breakpoint(medium) {
+		&:after {
+			background-color: $black;
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			content: "";
+			z-index: 1;
+		}
+
+		.subnav {
+			left: 0;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+.subnav.show-menu {
+	left: 0;
+	opacity: 1;
+	visibility: visible;
+}
+
+/*-----------
+"Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that."
+-MLK, Jr.
+------------*/
+.nav__item--dark-header {
+	border-top: 1px solid #444;
+
+	&:after {
+
+	}
+	&:hover > a {
+		@include breakpoint(medium) {
+			background-color: #fff;
+			color: #222;
+			&:after {
+				border-color: #222 transparent transparent;
+			}
+		}
+	}
+	&:hover:after {
+		background-color: $highlight;
+	}
+	@include breakpoint(medium) {
+		border:none;
+	}
+	&.nav__item--parent.nav__item--is-hovered > a {
+		background-color: transparent;
+		color: #fff;
+	}
+	@include breakpoint(medium) {
+		&.nav__item--parent.nav__item--is-hovered > a {
+			background-color: #fff;
+			color: #222;
+		}
+	}
+}
+.nav__item--parent.nav__item--is-hovered > a {
+	background-color: #fff;
+	color: #222;
+}
+
+.nav__item--light-header {
+	border-top: 1px solid #444;
+	&:hover > a {
+		background-color: #242424;
+		color: #fff;
+		&:after {
+			border-color: #fff transparent transparent;
+		}
+	}
+	@include breakpoint(medium) {
+		border:none;
+	}
+}
+//Make the fifth nav item and beyond's dropdown hang from the right:
+.nav__item {
+	&:nth-child(n+5),
+	&:nth-child(n+5).nav__item--is-hovered {
+		.subnav--two-columns {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+.nav__item--column {}
+
+.nav__link {
+	color: #333;
+	display:block;
+	font-family: $body-font-family;
+	padding: rem-calc(15) 0;
+	position: relative;
+	font-size: rem-calc(16);
+	@include breakpoint(medium) {
+		display: block;
+		font-size: rem-calc(18);
+		font-family: $header-font-family;
+		white-space: nowrap;
+		transition: none;
+		text-transform: uppercase;
+		z-index: 2;
+		padding: rem-calc(15) rem-calc(15);
+		border-color: white;
+		position: relative;
+	}
+
+	@include breakpoint(large) {
+		padding: rem-calc(20) rem-calc(30);
+	}
+
+	@include breakpoint(xlarge) {
+		padding: rem-calc(20) rem-calc(37);
+		font-size: rem-calc(22);
+	}
+
+	&:hover, &:focus, &:active {
+		color: white;
+		background: #242424;
+		&:after{
+			border-color: white transparent transparent;
+		}
+	}
+	&:hover {
+		cursor: pointer;
+	}
+
+	&--mobile{
+		color: #fff;
+	}
+	&--mobile-toggle {
+		width: 100%;
+		text-align: left;
+		text-transform: none;
+	}
+}
+
+
+.nav__link--search {
+	display: inline;
+}
+
+.nav__link--search-is-active {
+	opacity: 0;
+}
+
+.nav__link--in-search {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nav__link--search-cancel {
+	position: absolute;
+	right: 0;
+}
+
+.nav__link--parent {
+	@include breakpoint(large) {
+		&:after {
+			@include css-triangle(4px, white, down);
+
+			display: inline-block;
+			margin-left: 7px;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.nav__link--mobile-toggle{
+
+}
+.nav__menu-link--menu-is-active{
+	background: #222;
+}
+.nav__link--light-header{
+	color: white;
+	&:hover, &:focus {
+		text-decoration: underline;
+	}
+	&:after{
+		border-color: $black transparent transparent;
+	}
+	@include breakpoint(medium) {
+		color: $black;
+	}
+}
+.nav__link--dark-header {
+	color: white;
+	font-weight: 500;
+	&:hover, &:focus {
+		text-decoration: underline;
+		&:after {
+
+		}
+	}
+	@include breakpoint(medium) {
+		font-weight: 600;
+		&:hover,
+		&:focus,
+		&:active,
+		&.hover,
+		.subnav--light.subnav--open .subnav__link--dark-header {
+			color: $black;
+			background: white;
+			&:after {
+				border-color: $black transparent transparent;
+			}
+		}
+	}
+
+}
+
+/* -----------------*/
+/* Adjust nav__link padding and font size depending on how many items in the nav */
+/* http://alistapart.com/article/quantity-queries-for-css */
+/* -----------------*/
+
+.nav__item {
+	position: relative;
+	/*link layout if there are 8 or more items (don't push it) */
+	&:nth-last-child(n+9) .nav__link,
+	&:nth-last-child(n+9) ~ * .nav__link {
+		font-size: rem-calc(18);
+		@include breakpoint(medium) {
+			font-size: rem-calc(16);
+		}
+
+
+		@include breakpoint(large) {
+			padding: rem-calc(13) rem-calc(23);
+		}
+
+
+		@include breakpoint(xlarge) {
+			font-size: rem-calc(20);
+			padding: rem-calc(13) rem-calc(30);
+		}
+	}
+
+	/*link layout if there are 10 or more items (you're insane) */
+	&:nth-last-child(n+11) .nav__link,
+	&:nth-last-child(n+11) ~ * .nav__link {
+		font-size: rem-calc(14);
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(14);
+			padding: rem-calc(13) rem-calc(16);
+		}
+
+
+		@include breakpoint(xlarge) {
+			font-size: rem-calc(16);
+			padding: rem-calc(15) rem-calc(20);
+		}
+	}
+
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
+	&:nth-last-child(n+13) .nav__link,
+	&:nth-last-child(n+13) ~ * .nav__link {
+		@include breakpoint(medium) {
+			font-size: rem-calc(14);
+			padding: rem-calc(14) rem-calc(10);
+		}
+
+
+		@include breakpoint(xlarge) {
+			font-size: rem-calc(16);
+			padding: rem-calc(14) rem-calc(14);
+		}
+	}
+}
+.nav__search-item {
+	display: none;
+	@include breakpoint(medium) {
+		display: block;
+	}
+}
+
+.nav__mobile-header{
+	padding: rem-calc(20) 0;
+	h1.nav__mobile-headtext{
+		font-size: rem-calc(24);
+		//text-transform: capitalize;
+		padding: rem-calc(5);
+		border-bottom: rem-calc(2) $highlight solid;
+		color: white;
+		width: 100%;
+	}
+}
+
+.nav__toggle {
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	& .nav__link {
+		padding: rem-calc(15) rem-calc(15);
+	}
+	& .nav__link--dark-header {
+		&:hover, &:focus, &:active {
+			background-color:transparent;
+			color: #fff;
+		}
+	}
+	&:hover{
+		.nav__menu-icon{
+			background-color: #fff;
+			&:before, &:after{
+				background-color: #fff;
+			}
+			&--menu-is-active{
+				background: none;
+			}
+		}
+
+		.nav__menu-icon--dark-header{
+			// background-color: #111;
+			&:before, &:after{
+				// background-color: #111;
+			}
+			&.nav__menu-icon--menu-is-active{
+				background: none;
+			}
+		}
+
+		.nav__menu-text--light-header{
+			color: #fff;
+		}
+
+		.nav__menu-text--dark-header{
+			color: #fff;
+		}
+	}
+}
+
+.header--overlay.open .nav__toggle--menu .nav__link {
+	background-color: rgba(#111, 0.95);
+}
+
+.nav__toggle--search {
+	left: auto;
+	right: 0;
+	& .nav__link--light-header {
+		color: $black;
+	}
+}
+
+.nav__toggle--menu {
+	z-index: 99;
+	width: rem-calc(50);
+	left: 0;
+
+	@include breakpoint(425) {
+		width: rem-calc(100);
+	}
+}
+
+.nav__menu-text {
+	display: inline-block;
+	padding-left: rem-calc(4);
+	padding-top: rem-calc(3);
+	color: #222;
+	opacity: 0;
+	font-family: $header-font-family;
+	text-transform: uppercase;
+
+	&--menu-is-active{
+		color: white;
+	}
+
+	&--dark-header{
+
+	}
+
+	@include breakpoint(425) {
+		opacity: 1;
+	}
+}
+
+.nav__menu-text--dark-header{
+	color: white;
+}
+.nav__menu-icon {
+	/* this span is the central line of the menu icon */
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	bottom: auto;
+	left: 1em;
+	right: auto;
+	-webkit-transform: translateX(0) translateY(-50%);
+	-moz-transform: translateX(0) translateY(-50%);
+	-ms-transform: translateX(0) translateY(-50%);
+	-o-transform: translateX(0) translateY(-50%);
+	transform: translateX(0) translateY(-50%);
+	width: 18px;
+	height: 2px;
+	// background-color: #000;
+	-webkit-transition: background-color 0.3s;
+	-moz-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+	&:before{
+		top: -5px;
+	}
+
+	&:after{
+		top: 5px;
+	}
+	@include breakpoint(375) {
+		left: auto;
+		right: 1.2em;
+	}
+	/* these are the upper and lower lines in the menu icon */
+	@include breakpoint(601) {
+
+		-webkit-transform: translateX(0) translateY(-50%);
+		-moz-transform: translateX(0) translateY(-50%);
+		-ms-transform: translateX(0) translateY(-50%);
+		-o-transform: translateX(0) translateY(-50%);
+		transform: translateX(0) translateY(-50%);
+	}
+
+	&--dark-header {
+		background-color: #fff;
+		// border-color: #fff;
+		color: #fff;
+		&:before, &:after{
+			background-color: #fff;
+			border-color: #fff;
+			color: #fff;
+		}
+	}
+
+	&--light-header{
+		background-color: #222;
+		// border-color: #222;
+		color: #222;
+		&:before, &:after{
+			background-color: #222;
+			border-color: #222;
+			color: #222;
+		}
+	}
+	&--menu-is-active{
+		background-color: #fff;
+		&:before, &:after{
+			background-color: #fff;
+		}
+		background: none;
+		&:before{
+		top: 0;
+		-webkit-transform: rotate(135deg);
+		-moz-transform: rotate(135deg);
+		-ms-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		transform: rotate(135deg);
+		}
+		&:after{
+		top: 0;
+		-webkit-transform: rotate(225deg);
+		-moz-transform: rotate(225deg);
+		-ms-transform: rotate(225deg);
+		-o-transform: rotate(225deg);
+		transform: rotate(225deg);
+		}
+	}
+	&:before, &:after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		// background-color: #000;
+		right: 0;
+		-webkit-transition: -webkit-transform .3s, top .3s, background-color 0.3s;
+		-moz-transition: -moz-transform .3s, top .3s, background-color 0.3s;
+		transition: transform .3s, top .3s, background-color 0.3s;
+	}
+
+}
+.nav__link--light-header.nav__link--mobile-toggle {
+	&:hover, &:focus {
+		& .nav__menu-icon--light-header {
+			// background-color: #fff;
+			&:before, &:after {
+				background-color: #fff;
+			}
+		}
+	}
+}
+.header--light-header.open .nav__link--light-header.nav__link--mobile-toggle {
+	background-color: $black;
+}
+
+.subnav {
+	box-shadow: none;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	max-height: 0;
+	margin: 0;
+	transition: all 0.25s ease-in;
+
+	&--light-header{
+
+		@include breakpoint(medium) {
+			background-color: #242424;
+			box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		}
+	}
+	&--dark-header {
+
+		@include breakpoint(medium) {
+			background-color: #fff;
+			box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		}
+	}
+
+	&--show-menu {
+		left: 0;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@include breakpoint(medium) {
+		position: absolute;
+		// left: -9999px;
+		top: 100%;
+		min-width: rem-calc(300);
+		list-style: none;
+		opacity: 0;
+		margin-top: -1px;
+		visibility: hidden;
+		padding: 30px 10px;
+		z-index: 1;
+		margin-left: 0;
+		display: block;
+		max-height: none;
+		transition: none;
+		&--two-columns {
+			@include grid-row;
+			@include grid-layout(2);
+			width: rem-calc(500);
+		}
+	}
+}
+
+.subnav__item {
+	float: none;
+	position: static;
+
+	&:first-of-type {
+		border-top: none;
+	}
+
+	&:before {
+		display: none;
+	}
+	&:not(.subnav__item--column) {
+		padding-right: .625rem;
+		padding-left: .625rem;
+	}
+}
+
+.subnav__search-item {}
+
+.subnav__item--column {
+	@include grid-column(6);
+}
+
+.subnav__item--last {
+	border-bottom: none;
+
+	@include grid-column-end;
+}
+
+.subnav__link {
+	border-bottom: 1px solid #eee;
+	display: block;
+	font-size: rem-calc(15);
+	line-height: 1.3;
+	padding: 15px 0;
+	text-align: left;
+	text-transform: none;
+	transition: padding .1s ease-in-out;
+	color: $body-font-color;
+	&--light-header{
+		border-bottom: 1px solid #333;
+		color: white;
+		&:hover, &:focus {
+			color: #ddd;
+		}
+	}
+}
+
+
+/* new subnav */
+.subnav {
+	@media (max-width: 640px) {
+		&--dark-header {
+			// background: #242424;
+		}
+	}
+}
+.nav__item--opened .subnav {
+	@media (max-width: 640px) {
+		visibility: visible;
+		height: auto;
+	}
+}
+.nav li.nav__item--opened ul.subnav {
+	@media (max-width: 640px) {
+		border-top: 1px solid #333;
+		padding-top: 15px;
+		max-height: 1000px;
+		padding-bottom: 15px;
+		background-color: #1f1f1f;
+	}
+}
+.subnav__item--column {
+	@media (max-width: 640px) {
+		width: 100%;
+		float: none;
+		padding: 9;
+	}
+
+}
+.subnav__link {
+	@media (max-width: 640px) {
+		border-bottom: none;
+		padding: 8px 0;
+		color: #ddd;
+		&:hover, &:focus {
+			color: #ddd;
+			text-decoration: underline;
+		}
+	}
+}
+.nav .nav__item--parent .nav__link--parent {
+	margin-right: 50px;
+	@include breakpoint(medium) {
+		margin-right: 0;
+	}
+}
+
+/* button */
+.nav button.second-level--open {
+	position: absolute;
+	right: 0;
+	top: 0;
+	outline: 0;
+	border-left: 1px solid #333;
+	padding: 0;
+	width: 50px;
+	height: 58px;
+	background-color: transparent;
+	&:hover, &:focus {
+		background-color: #1f1f1f;
+	}
+	@include breakpoint(medium) {
+		display: none;
+	}
+}
+.nav button.second-level--open > svg {
+	fill: #fff;
+	width: 15px;
+	-webkit-transition: transform 0.2s ease-in;
+	-moz-transition: transform 0.2s ease-in;
+	-ms-transition: transform 0.2s ease-in;
+	-o-transition: transform 0.2s ease-in;
+	transition: transform 0.2s ease-in;
+}
+.nav .nav__item--opened button.second-level--open svg {
+	transform: rotateX(180deg);
+}
+
+

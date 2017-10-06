@@ -1,0 +1,127 @@
+.lp-header {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+	height: rem-calc(400);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	&__container {
+		max-width: 90%;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		@include breakpoint(medium) {
+			max-width: 50%;
+		}
+	}
+	&__title {
+		margin: 0;
+		color: #fff;
+		text-transform: uppercase;
+		font-size: rem-calc(30);
+		line-height: 1.1;
+		margin-top: 10px;
+		text-shadow: 1px 1px rgba(0,0,0,.4);
+		@include breakpoint(medium) {
+			font-size: rem-calc(50);
+		}
+	}
+
+	&--has-overlay{
+		&:after {
+			content:'';
+			background-color: rgba(51,51,51,.3);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}		
+	}
+
+	@include breakpoint(medium) {
+		height: rem-calc(600);
+	}
+	@include breakpoint(large) {
+		height: rem-calc(750);
+	}
+}
+
+.lp-hero{
+	&__img{
+		width: 100%;
+		display: block;
+	}
+
+}
+.lp-menu {
+	background-color: $black;
+	&__list {
+		list-style: none;
+		margin: 0 auto;
+		text-align: center;
+		max-width: 1160px;
+		@include breakpoint(320) {
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		@include breakpoint(medium) {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+		}
+		@include breakpoint(large) {
+			display: table;
+			column-count: none;
+			display: flex;
+		}
+	}
+	&__listitem {
+		@include breakpoint(320) {
+			flex: 1 0 auto;
+			text-align: center;
+		}
+		@include breakpoint(large) {
+			display: table-cell;
+		}
+	}
+	&__item {
+		color: #fff;
+		display: block;
+		font-family: $header-font-family;
+		font-size: 16px;
+		padding: rem-calc(10 40);
+		position: relative;
+
+		text-transform: uppercase;
+		&--title {
+			font-weight: bold;
+		}
+		&--active {
+			background-color: #333;
+		}
+		&:hover, &:focus {
+			background-color: #333;
+			color: #fff;
+		}
+	}
+}
+
+
+
+.sectionmenu.dp-sticky {
+	z-index: 1;
+}
+.lp-section{
+	padding-bottom: rem-calc(20);
+}
+.lp-section:focus {
+	outline: none;
+}

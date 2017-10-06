@@ -1,19 +1,7 @@
-Controller:
-  extensions:
-    - SS_MinifiedResponseExtension
 Member:
   log_num_visits: false
   log_last_visited: false
-Page:
-  extensions:
-    - DivisionPage
-    - WidgetPageExtension
-Page_Controller:
-  extensions:
-    - DivisionPage_Controller
-BlogPost:
-  extensions:
-    - BlogFieldExtension
-SiteConfig:
-  extensions:
-    - SiteConfigExtension
+TypeKit:
+  typekitID: ggu1mkb
+SSViewer:
+  theme: 'division-subtheme'

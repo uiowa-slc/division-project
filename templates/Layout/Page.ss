@@ -1,16 +1,1 @@
-<% include BackgroundImage %>
-<div class="gradient">
-	<div class="container clearfix">
-		<div class="white-cover"></div>
-	    <article class="main-content <% if $BackgroundImage %>margin-top<% end_if %>" role="main">
-	    	$Breadcrumbs
-	    	$Content
-	    	$Form
-	    </article>
-	    <section class="sec-content hide-print">
-	    	<% include SideNav %>
-	    </section>
-	</div>
-</div>
-<% include TopicsAndNews %> 
-
+$Header<main class="main-content__container" id="main-content__container"> <% if $BackgroundImage %> <% include FeaturedImage %> <% end_if %> $Breadcrumbs <% include MainContentBody %> </main>

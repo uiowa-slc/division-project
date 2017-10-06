@@ -1,0 +1,255 @@
+.nav__item {
+	position: relative;
+	/*link layout if there are 8 or more items (don't push it), not including site search  */
+	&:nth-last-child(n+9) .site-search__submit,
+	&:nth-last-child(n+9) ~ * .site-search__icon,
+
+	&:nth-last-child(n+9) .site-search__submit,
+	&:nth-last-child(n+9) ~ * .site-search__submit,
+
+	&:nth-last-child(n+9) .site-search__icon,
+	&:nth-last-child(n+9) ~ * .site-search__icon
+
+	&:nth-last-child(n+9) .site-search__input,
+	&:nth-last-child(n+9) ~ * .site-search__input
+
+	 {
+		@include breakpoint(medium) {
+			height: rem-calc(47);
+		}
+		@include breakpoint(large) {
+			height: rem-calc(43);
+		}
+		@include breakpoint(xlarge) {
+			height: rem-calc(49);
+		}
+	}
+
+	/*link layout if there are 10 or more items (you're insane) */
+	&:nth-last-child(n+11) .site-search__submit {
+
+	}
+
+	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
+	&:nth-last-child(n+13) .site-search__submit {
+
+	}
+}
+.site-search {
+	text-align: left;
+	transition: opacity 0.3s;
+	transition-timing-function: ease-in-out;
+
+	&--mobile {
+		height: auto;
+		top: auto;
+		bottom: 0;
+	}
+
+	&--desktop {
+		height: 100%;
+		top: 0;
+		right: 0;
+	}
+
+	&--is-inactive {
+		@extend .sr-only;
+
+		opacity: 0;
+	}
+
+	&--is-active {
+		position: absolute;
+		opacity: 1;
+		width: 100%;
+		z-index: 100;
+		background-color: white;
+
+		&:after {
+			transition: all 1s;
+			background-color: $highlight;
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			content: "";
+		}
+
+		// &:before{
+		// 	transition: all 1s;
+
+		// 	background-color: $highlight;
+		// 	display: block;
+		// 	width: 100%;
+		// 	height: 5px;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	content: "";
+		// }
+
+	}
+
+	&__form {
+		display: inline-block;
+		width: 100%;
+		height: rem-calc(30);
+		vertical-align: middle;
+		height: $nav-height-small;
+
+		@include breakpoint(large) {
+			// height: $nav-height;
+		}
+
+		@include breakpoint(xlarge) {
+			// height: rem-calc($nav-height-large);
+
+			&--nav-small, &--nav-medium{
+				// height: $nav-height;
+			}
+		}
+	}
+
+	&__form--is-inactive {
+		@extend .sr-only;
+	}
+
+	&__input {
+		width: calc(100% - 110px);
+		border: none;
+		font-size: rem-calc(18);
+		font-family: $body-font-family;
+		line-height: 1;
+		margin: 0 auto;
+		padding: 0;
+		height: $nav-height-small;
+		@include breakpoint(large) {
+			// height: $nav-height;
+		}
+		@include breakpoint(xlarge) {
+			// height: rem-calc($nav-height-large);
+			// &--nav-small, &--nav-medium{
+			// 	height: $nav-height;
+			// }
+		}
+
+		&:focus {
+			border: none;
+		}
+
+		&::placeholder {
+			color: $body-font-color;
+		}
+
+
+	}
+
+	&__cancel-container {
+		position: absolute;
+		right: 0;
+
+		@include breakpoint(large) {
+			position: static;
+		}
+	}
+
+	&__cancel-button {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		left: 1px;
+		top: 1px;
+		width: 49px;
+		height: 42px;
+		&:hover, &:focus {
+			background-color: #242424;
+			color: #fff;
+			cursor: pointer;
+		}
+
+	}
+
+
+	&__icon {
+		font-size: rem-calc(18);
+		padding: 0;
+		width: 50px;
+		height: 42px;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		&:hover, &:focus {
+			background-color: #242424;
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+	&__submit, &__icon, &__input{
+		@include breakpoint(medium) {
+			height: 47px;
+		}
+		@include breakpoint(large) {
+			height: 66px;
+		}
+		@include breakpoint(xlarge) {
+			height: 66px;
+		}		
+	}
+	// &__icon{
+	// 	display: inline-block;
+	// 	font-size: rem-calc(18);
+	// 	padding: rem-calc(15) rem-calc(15);
+	// 	// @include breakpoint(medium) {
+	// 	// 	padding: rem-calc(15) rem-calc(27);
+	// 	// }
+	// 	@include breakpoint(large) {
+	// 		padding: rem-calc(20) rem-calc(30);
+	// 	}
+	// 	@include breakpoint(xlarge) {
+	// 		padding: rem-calc(20) rem-calc(37);
+	// 		font-size: rem-calc(22);
+	// 	}
+	// }
+}
+
+.autocomplete-suggestions {
+	text-align: left;
+	cursor: default;
+	background: #fff;
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
+	padding: rem-calc(5);
+	/* core styles should not be changed */
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	max-height: 254px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+.autocomplete-suggestion {
+	position: relative;
+	padding: rem-calc(14);
+	line-height: 23px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.02em;
+	color: #333;
+}
+
+.autocomplete-suggestion strong {
+	font-weight: normal;
+	color: #1f8dd6;
+}
+
+.autocomplete-selected{
+	background: #f0f0f0;
+}

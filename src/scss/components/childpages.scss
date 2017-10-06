@@ -1,0 +1,74 @@
+/* ---------------------------------------------------------------
+Child Pages
+--------------------------------------------------------------- */
+.childpages {
+	margin: 2em 0;
+	&__page {
+		border-bottom: 1px solid #e5e5e5;
+		border-top: 1px solid #fff;
+		padding: rem-calc(30 0);
+		&:first-of-type {
+			border-top: 1px solid #e5e5e5;
+		}
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	&__blocklink {
+		display: block;
+		overflow: hidden;
+		text-decoration: none;
+	}
+	&__img {
+		display: block;
+		float: right;
+		margin: rem-calc(0 0 15 15);
+		width: 25%;
+		@include breakpoint(medium) {
+			float: left;
+			margin: 0;
+			width: 25%;
+		}
+	}
+	&--withphoto .childpages__content {
+		@include breakpoint(medium) {
+			margin-left: 28%;
+		}
+	}
+	&__title {
+		color: $body-font-color;
+		margin: 0;
+	}
+	&__summary {
+		color: $body-font-color;
+		font-size: rem-calc(16);
+		margin-top: rem-calc(5);
+	}
+	&__link {
+		border-bottom: 4px solid $highlight;
+		color: $body-font-color;
+		display: block;
+		float: left;
+		font-size: rem-calc(12);
+		font-weight: bold;
+		letter-spacing: 1px;
+		padding: rem-calc(5 0);
+		position: relative;
+		text-transform: uppercase;
+		transition: .15s ease-in-out;
+		&::after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 4px;
+			background: #000;
+			transition: width .3s;
+			position: absolute;
+			bottom: -4px;
+		}
+	}
+	&__blocklink:hover .childpages__link::after,
+	&__blocklink:focus .childpages__link::after {
+		width: 100%;
+	}
+}

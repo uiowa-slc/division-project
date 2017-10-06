@@ -1,0 +1,20 @@
+.quote{
+	font-style: italic;
+	font-weight: bold;
+	color: #333333;
+	font-family: "Georgia", serif;
+	font-size: rem-calc(13);
+	p{line-height: 2.3;}
+}
+
+.quote--no-border{
+	border: none;
+}
+
+.quote__attribution{
+	text-transform: uppercase;
+	color: #959595;
+	font-family: $body-font-family;
+	font-style: normal;
+	font-size: rem-calc(13);
+}

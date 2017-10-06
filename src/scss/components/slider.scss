@@ -1,0 +1,70 @@
+.slider {
+	@include orbit-wrapper;
+	background-color: #333;
+	color: $white;
+
+	&__slides {
+		@include orbit-container;
+		height: auto !important;
+	}
+
+	&__slide {
+		@include orbit-slide;
+		background-size: cover;
+		max-height: none !important;
+	}
+
+	&__navigation {
+		@include orbit-control;
+		height: 100%;
+		width: 5%;
+	}
+
+	&__navigation--next {
+		@include orbit-next;
+	}
+
+	&__navigation--previous {
+		@include orbit-previous;
+	}
+
+	&--homepage {}
+
+	&__shadow--homepage {
+		position: absolute;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		width: 0;
+		height: 0;
+		border: 100px solid #1abc9c;
+		border-right-color: rgba(255, 255, 255, 0);
+		-webkit-border-radius: 100px;
+		border-radius: 100px;
+		font: normal 100%/normal Arial, Helvetica, sans-serif;
+		color: rgba(0, 0, 0, 1);
+		-o-text-overflow: clip;
+		text-overflow: clip;
+
+		&:before {
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			content: "";
+			top: -70px;
+			left: -20px;
+			border: none;
+			-webkit-border-radius: 15px;
+			border-radius: 15px;
+			font: normal 16px/normal Arial, Helvetica, sans-serif;
+			color: rgba(0, 0, 0, 0.9);
+			-o-text-overflow: clip;
+			text-overflow: clip;
+			background: rgba(255, 255, 255, 1);
+			text-shadow: none;
+		}
+	}
+}

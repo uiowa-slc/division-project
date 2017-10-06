@@ -1,16 +1,1 @@
-<header class="header clearfix" role="banner">
-	<div class="container">
-		
-		<h1><a href="{$BaseHref}" class="logo">$SiteConfig.Title</a></h1>
-		
-		<nav role="navigation" class="nav-main-wrapper clearfix hide-print">
-			<h2 class="nav-title"><a href="#">Menu <span></span></a></h2>
-			<ul class="nav-main clearfix">
-				<% loop Menu(1) %>
-					<li class="<% if $LinkOrSection = section %>active<% end_if %>"><a href="$Link">$MenuTitle</a></li>
-				<% end_loop %>
-			</ul>
-		</nav>
-
-	</div><!-- end .container -->
-</header>
+<div class="header__container header__container--{$DarkLight} header__container--{$HeaderType}"> <% include DivisionBar %> <header id="header" class="header header--{$DarkLight} header--{$HeaderType}" role="banner"><div itemscope itemtype="http://schema.org/Organization"><h1 class="header__site-title" itemprop="name"><a href="$AbsoluteBaseURL" class="header__link--{$DarkLight}" itemprop="url">$SiteConfig.Title</a></h1></div><div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium"><button class="nav__link nav__link--{$DarkLight} nav__link--mobile-toggle" aria-controls="nav__wrapper"><span class="nav__menu-icon nav__menu-icon--{$DarkLight}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLight}" id="nav__menu-text">Menu</span></button></div><div class="nav__toggle nav__toggle--search show-for-small hide-for-medium"><button class="nav__link nav__link--{$DarkLight}"><span class="show-for-sr">search</span> <i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i></button></div></header><div class="nav-collapse"> <% include Navigation %> </div></div>

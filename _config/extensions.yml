@@ -1,0 +1,49 @@
+Page:
+  extensions:
+    - DivisionPage
+    - WidgetPageExtension
+    - OpenGraphExtension
+Page_Controller:
+  extensions:
+    - DivisionPage_Controller
+BlogPost:
+  extensions:
+    - BlogFieldExtension
+BlogTag:
+  extensions:
+    - BlogTagExtension
+SiteConfig:
+  extensions:
+    - SiteConfigExtension
+HomePageFeature:
+  extensions:
+    - Versioned("Stage","Live")
+HomePageHeroFeature:
+  extensions:
+    - Versioned("Stage","Live") 
+NewHomePageHeroFeature:
+  extensions:
+    - Versioned("Stage","Live")
+ContentBlock:
+  extensions:
+    - ContentBlockExtension
+BlogCategory:
+  extensions:
+    - BlogCategoryExtension
+Image:
+  extensions:
+    - DivisionImageExtension
+LeftAndMain:
+  extra_requirements_css:
+    - division-project/css/cms.css
+SSViewer:
+  theme: division-subtheme
+TopicHolder_Controller:
+  extensions:
+    - TopicHolderControllerSearchExtension
+Topic_Controller:
+  extensions:
+    - TopicControllerSearchExtension
+Page_Controller:
+  extensions:
+    - FlickrShortcodeControllerExtension
