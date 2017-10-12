@@ -5,22 +5,19 @@
 			<div class="upcomingeventsblock__header">
 				<h3 id="Block$ID" class="upcomingeventsblock__title"><% if $Title %>$Title<% else %>Upcoming Events<% end_if %></h3>
 			</div>
-		
 
-			<% if $Source == "Localist calendar on this site" %>
-				<% if $EventList %>
-					<% loop $EventList %>
-						<% include EventCard %>
+			<% if $Source == "SilverStripe calendar on this site" %>
+				<% if $Calendar.UpcomingEvents.Count > 0 %>
+					<% loop $Calendar.UpcomingEvents.Limit(3) %>
+						<% include SsEventCard %>
 					<% end_loop %>
 				<% else %>
 					<p>No upcoming events currently listed.</p>
 				<% end_if %>
-
-			<% else_if $Source == "SilverStripe calendar on this site" %>
-
-				<% if $Calendar.UpcomingEvents.Count > 0 %>
-					<% loop $Calendar.UpcomingEvents.Limit(3) %>
-						<% include SsEventCard %>
+			<% else %>
+				<% if $EventList %>
+					<% loop $EventList %>
+						<% include EventCard %>
 					<% end_loop %>
 				<% else %>
 					<p>No upcoming events currently listed.</p>

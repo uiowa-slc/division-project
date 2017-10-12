@@ -92,7 +92,7 @@ class UpcomingEventsBlock extends Block{
 	public function Calendar(){
 		
 		if($this->Source == 'Localist calendar on this site'){
-			$calendar = LocalistCalendar::getOrCreate();
+			$calendar = LocalistCalendar::get()->First();
 			return $calendar;
 		}elseif($this->Source == 'SilverStripe calendar on this site'){
 			$calendar = Calendar::get()->First();
@@ -116,6 +116,7 @@ class UpcomingEventsBlock extends Block{
 			$calendar->DepartmentFilterID = urlencode($deptId);
 		}
 
+		//Debug::show($calendar->Link());
 		return $calendar;
 	}
 
