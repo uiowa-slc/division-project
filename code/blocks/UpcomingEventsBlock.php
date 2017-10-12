@@ -14,10 +14,15 @@ class UpcomingEventsBlock extends Block{
 	private static $has_one = array(
 
 	);
-	public function EventListLimited(){
-		$calendar = LocalistCalendar::get()->First();
 
-		$eventList = $calendar->EventList(7);
+	private static $defaults = array(
+		'LimitEvents' => 3
+	);
+	public function EventList(){
+		$calendar = $this->Calendar();
+		$numEvents = $this->LimitEvents;
+
+		$eventList = $calendar->EventListLimited($numEvents);
 
 		return $eventList;
 	}
@@ -80,10 +85,6 @@ class UpcomingEventsBlock extends Block{
 
 	public function Calendar(){
 		
-		
-
-		// print_r($calendar);
-		
 		if($this->Source == 'Localist calendar on this site'){
 			$calendar = LocalistCalendar::getOrCreate();
 			return $calendar;
@@ -106,7 +107,6 @@ class UpcomingEventsBlock extends Block{
 			$calendar->DepartmentFilterID = urlencode($deptId);
 		}
 
-		
 		return $calendar;
 	}
 

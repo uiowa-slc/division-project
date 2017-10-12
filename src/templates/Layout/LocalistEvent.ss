@@ -16,10 +16,8 @@ $Header
 
 			<div class="main-content__text">
 				<div class="locallistevent">
-					<% if $Image %>
+					<% if $Image.URL %>
 						<div style="background-image: url($Image.URL);" class="locallistevent__img"></div>
-					<% else_if $Venue.ImageURL %>
-						<div style="background-image: url($Venue.ImageURL);" class="locallistevent__img"></div>
 					<% end_if %>
 
 					<%-- Content --%>
