@@ -1,7 +1,7 @@
-<p class="text-center show-for-medium">Filter topics:</p>
+<p class="text-center show-for-medium">Filter:</p>
 <ul class="tabs" data-tabs id="topic-tabs">
 <%-- KEEP WEIRD LI SPACING BELOW, PLEASE: --%>
-  <% if $ShowCategoriesTab%><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel1">Category</a></li><% end_if %><% if $ShowTagsTab%><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel2">Tag</a></li><% end_if %><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel3">All topics by title</a>
+  <% if $ShowCategoriesTab%><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel1">Category</a></li><% end_if %><% if $ShowTagsTab%><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel2">Tag</a></li><% end_if %><li class="tabs-title"><a class="topic-single__filter-tab" href="#panel3"><% if $AllTopicsHeading %>$AllTopicsHeading<% else %>All topics by title<% end_if %></a>
   </li>
 </ul>
 
@@ -9,7 +9,7 @@
 <div class="tabs-content" data-tabs-content="topic-tabs">
   <% if $ShowCategoriesTab %>
   <div class="tabs-panel" id="panel1">
-    <h2 class="topic-list__heading">Topics by category:</h2>
+    <h2 class="topic-list__heading"><% if $CategoryTabHeading %>$CategoryTabHeading<% else %>Topics by category:<% end_if %></h2>
       <div class="row small-up-2 large-up-3"> 
         <% loop $AllCats.Sort('Title ASC') %>
           <div class="column column-block">
@@ -24,7 +24,7 @@
                 <% end_if %>
                 </ul>
               <% else %>
-                <p>No topics currently listed.</p>
+                <p><% if $NoTopicsText %>$NoTopicsText<% else %>No topics currently listed.<% end_if %></p>
             <% end_if %>
           </div>
         <% end_loop %>
@@ -34,7 +34,7 @@
 
   <% if $ShowTagsTab %>
   <div class="tabs-panel" id="panel2">
-    <h2 class="topic-list__heading">Topics by tag:</h2>
+    <h2 class="topic-list__heading"><% if $TagTabHeading %>$TagTabHeading<% else %>Topics by tag:<% end_if %></h2>
       <div class="row small-up-2 large-up-3"> 
         <% loop $AllTags.Sort('Title ASC') %>
           <div class="column column-block">
@@ -49,7 +49,7 @@
                 <% end_if %>
                 </ul>
               <% else %>
-                <p>No topics currently listed.</p>
+                <p><% if $NoTopicsText %>$NoTopicsText<% else %>No topics currently listed.<% end_if %></p>
             <% end_if %>
           </div>
         <% end_loop %>
@@ -57,7 +57,7 @@
     </div>
     <% end_if %>    
     <div class="tabs-panel" id="panel3">
-      <h2 class="topic-list__heading">All topics by title:</h2>
+      <h2 class="topic-list__heading"><% if $TagTabHeading %>$TagTabHeading<% else %>All topics by title:<% end_if %></h2>
         <ul class="topic-list topic-list--three-columns">
           <% loop $TopicsByLetter %>
             <li class="topic-list__item"><h4>$Letter</h4></li>

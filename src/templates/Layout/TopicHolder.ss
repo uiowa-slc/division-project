@@ -8,7 +8,7 @@ $Header
             <h1 class="background-image__title text-center">$Title</h1>
             <div class="topic-search__container row">
               <div class="large-9 columns large-centered">
-                <h2 class="text-center">Search for a topic below:</h2>
+                <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
                 $TopicSearchForm
               </div>
             </div>           
@@ -51,7 +51,7 @@ $BlockArea(BeforeContent)
       <% if $CurrentCategory %>
         <% with $CurrentCategory %>
           $Content
-          <h2>Topics listed under "{$Title}": </h2>
+          <h2>Listed under "{$Title}": </h2>
            <% if $BlogPosts %>
             <ul class="featured-topic-list row large-up-2">
 
@@ -80,7 +80,7 @@ $BlockArea(BeforeContent)
       <% else_if $CurrentTag %>
         <% with $CurrentTag %>
           $Content
-          <h2>Topics tagged as "{$Title}": </h2>
+          <h2>Listed under "{$Title}": </h2>
            <% if $BlogPosts %>
               <ul class="featured-topic-list row large-up-2">
                 <% loop $BlogPosts %>
@@ -102,7 +102,7 @@ $BlockArea(BeforeContent)
                 <% end_loop %>
               </ul>
             <% else %>
-              <p>No topics are currently listed.</p>
+              <p><% if $NoTopicsText %>$NoTopicsText<% else %>No topics currently listed.<% end_if %></p>
           <% end_if %>           
         <% end_with %>
       <% end_if %>
@@ -110,7 +110,7 @@ $BlockArea(BeforeContent)
       <% if not $BackgroundImage || $IsFilterActive %>
         <div class="topic-search__container row">
           <div class="large-9 columns large-centered">
-            <h2 class="text-center">Search for more topics below:</h2>
+            <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
             $TopicSearchForm
           </div>
         </div>

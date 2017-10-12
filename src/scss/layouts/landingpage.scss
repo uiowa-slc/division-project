@@ -28,21 +28,33 @@
 			font-size: rem-calc(50);
 		}
 	}
-	&:after {
-		content:'';
-		background-color: rgba(51,51,51,.3);
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+
+	&--has-overlay{
+		&:after {
+			content:'';
+			background-color: rgba(51,51,51,.3);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}		
 	}
+
 	@include breakpoint(medium) {
 		height: rem-calc(600);
 	}
 	@include breakpoint(large) {
 		height: rem-calc(750);
 	}
+}
+
+.lp-hero{
+	&__img{
+		width: 100%;
+		display: block;
+	}
+
 }
 .lp-menu {
 	background-color: $black;
@@ -101,8 +113,14 @@
 		}
 	}
 }
+
+
+
 .sectionmenu.dp-sticky {
 	z-index: 1;
+}
+.lp-section{
+	padding-bottom: rem-calc(20);
 }
 .lp-section:focus {
 	outline: none;

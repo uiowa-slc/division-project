@@ -63,6 +63,7 @@ class OpenGraphExtension extends DataExtension {
             'OgImage',
             'FeaturedImage',
             'MainImage',
+            'HeaderImage',
             'Photo',
             'BackgroundImage',
         );

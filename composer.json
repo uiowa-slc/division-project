@@ -41,7 +41,8 @@
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
       "silverstripe/activedirectory": "3.*",
       "olliepop/fbpagefeed": "dev-master",
-      "sheadawson/silverstripe-linkable": "1.3.*"
+      "sheadawson/silverstripe-linkable": "1.3.*",
+      "silverstripe-rebelalliance/youtubefield" : "*"
    },
    "repositories":[  
       {  

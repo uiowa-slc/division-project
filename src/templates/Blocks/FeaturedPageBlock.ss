@@ -14,7 +14,7 @@
 						<% end_if %>
 					</div>
 					<div class="featuredpageblock__button">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">Learn More</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">Learn More</a>
@@ -32,7 +32,7 @@
 			<div class="$CSSClasses">
 				<% if $FeaturePagePhoto %>
 					<div class="featuredpageblock__media">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
@@ -44,7 +44,7 @@
 					</div>
 				<% else_if $PageTree.BackgroundImage %>
 					<div class="featuredpageblock__media">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
@@ -56,7 +56,7 @@
 					</div>
 				<% else_if $PageTree.FeaturedImage %>
 					<div class="featuredpageblock__media">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
@@ -68,7 +68,7 @@
 					</div>
 				<% else_if $PageTree.YoutubeBackgroundEmbed %>
 					<div class="featuredpageblock__media">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="$PageTree.Title">
 							</a>
@@ -81,7 +81,7 @@
 				<% end_if %>
 				<div class="featuredpageblock__body<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>--wimage<% end_if %>">
 					<h3 id="Block$ID" class="featuredpageblock__title">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl">
 								<% if $Title %>$Title<% else %>$PageTree.Title<% end_if %>
 							</a>
@@ -101,7 +101,7 @@
 						<% end_if %>
 					</div>
 					<div class="featuredpageblock__button">
-						<% if $FeaturePageExternalUrl %>
+						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">Learn More</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">Learn More</a>

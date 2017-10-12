@@ -55,6 +55,13 @@ class DivisionPage extends DataExtension {
 		$f->removeByName("ExtraMeta");
 		$config = SiteConfig::current_site_config(); 
 
+		$layoutOptionsField = DropdownField::create(
+  			'LayoutType',
+  			'Layout type',
+  			$this->owner->LayoutTypes()
+		)->setEmptyString('(Default Layout)');
+		$f->addFieldToTab('Root.Main', $layoutOptionsField);
+
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
 			$f->addFieldToTab('Root.MetaData', $metadataField);
@@ -117,12 +124,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
-			$layoutOptionsField = DropdownField::create(
-	  			'LayoutType',
-	  			'Layout type',
-	  			$this->owner->LayoutTypes()
-			)->setEmptyString('(Default Layout)');
-			$f->addFieldToTab('Root.Settings', $layoutOptionsField, 'ParentType');
+
 	}
 
 	public function getSidebarItems() {

@@ -114,6 +114,20 @@ img:not([src]) {
 			}
 		}
 	}
+
+	&__main-img{
+		padding-left: rem-calc(10);
+		padding-bottom: rem-calc(10);
+		padding-top: rem-calc(10);
+
+		display: block;
+
+		@include breakpoint(medium) {
+		float: right;
+	}
+
+
+	}
 	&__header {
 		border-bottom: 4px solid rgba(0,0,0,.1);
 		margin: rem-calc(40 0 0);

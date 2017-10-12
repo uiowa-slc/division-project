@@ -4,7 +4,7 @@ class UpcomingEventsBlock extends Block{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
-		'Source' => 'Enum(array("Localist calendar on this site","General Interest","Type","Venue","Department"))',
+		'Source' => 'Enum(array("Localist calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department"))',
 		'EventTypeFilterID'       => 'Int',
 		'DepartmentFilterID'      => 'Int',
 		'VenueFilterID'           => 'Int',
@@ -31,6 +31,8 @@ class UpcomingEventsBlock extends Block{
 		$fields->removeByName('Source');
 		$calendar = LocalistCalendar::getOrCreate();
 
+		$ssCalendar = Calendar::get()->First();
+
 		$sourceArray = singleton('UpcomingEventsBlock')->dbObject('Source')->enumValues();
 
 		$types      = $calendar->TypeList();
@@ -49,6 +51,10 @@ class UpcomingEventsBlock extends Block{
 
 		if(!$calendar->IsInDB()){
 			unset($sourceArray['Localist calendar on this site']);
+		}
+
+		if(!$ssCalendar){
+			unset($sourceArray['SilverStripe calendar on this site']);
 		}
 		$sourceField = DropdownField::create('Source', 'Event source', $sourceArray);
 
@@ -87,6 +93,9 @@ class UpcomingEventsBlock extends Block{
 		
 		if($this->Source == 'Localist calendar on this site'){
 			$calendar = LocalistCalendar::getOrCreate();
+			return $calendar;
+		}elseif($this->Source == 'SilverStripe calendar on this site'){
+			$calendar = Calendar::get()->First();
 			return $calendar;
 		}
 

@@ -42,7 +42,8 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'PosterImage' => 'Image'
+		'PosterImage' => 'Image',
+		'FooterLogo' => 'Image'
 	);
 
 	private static $defaults = array(
@@ -53,7 +54,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark Header Throughout Dite'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division Of Student Life Branding Elements'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowExitButton', 'Show Exit Button'));
-
+		$fields->addFieldToTab('Root.Main', new UploadField('FooterLogo', 'Custom Logo for use in footer'));
 		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Facebook Share Image (1200 x 630)'));
 
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
@@ -110,7 +111,7 @@ class SiteConfigExtension extends DataExtension {
 	}
 
 	public function UITrackingID(){
-		$config = SiteConfig::current_site_config(); 
+		$config = SiteConfig::current_site_config();
 
 		$prefix = 'uiowa.edu.md-';
 		$filter = URLSegmentFilter::create();
