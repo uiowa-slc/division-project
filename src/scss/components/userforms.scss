@@ -6,4 +6,10 @@
 	.message{
 		color: red;
 	}
+	.requiredField label{
+		&:before{
+			content: '* ';
+			color: red;
+		}
+	}
 }
