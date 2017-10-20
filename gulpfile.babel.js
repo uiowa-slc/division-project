@@ -26,7 +26,7 @@ function loadConfig() {
 }
 
 gulp.task('build',
- gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
+ gulp.series(clean, copy, sass, revreplace, javascript, gulp.parallel(dpHtml, themeHtml, images)));
 
 
 // Build the site, run the server, and watch for file changes
@@ -49,7 +49,9 @@ function copy(done) {
 }
 
 function dpHtml(){
+    // var manifest = gulp.src(PATHS.theme + '/' + 'rev-manifest.json');
     return gulp.src('src/templates/**/*.ss')
+    // .pipe($.revReplace({manifest: manifest, replaceInExtensions: ['.ss']}))
     .pipe($.newer('templates/'))
     .pipe($.if('*.ss', $.htmlmin({
       removeComments: true,
@@ -86,6 +88,23 @@ function themeHtml(){
     .pipe(gulp.dest(PATHS.theme +'/templates/'));  
 }
 
+ function revreplace(){
+  var manifest = gulp.src(PATHS.theme + '/rev-manifest.json');
+  return gulp.src('src/templates/Page.ss')
+    .pipe($.revReplace({manifest: manifest, replaceInExtensions: ['.ss']}))
+    .pipe($.htmlmin({
+          removeComments: true,
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          removeAttributeQuotes: false,
+          removeRedundantAttributes: true,
+          removeEmptyAttributes: false,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          removeOptionalTags: false
+        }))
+    .pipe(gulp.dest(PATHS.theme +'/templates/'));
+};
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
@@ -102,7 +121,12 @@ function sass() {
     //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
     .pipe($.cssnano())
     .pipe($.sourcemaps.write('../maps'))
+    .pipe($.rev())
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/css'))
+    .pipe($.rev.manifest({
+      merge: true
+    }))
+    .pipe(gulp.dest(PATHS.theme + '/'))
     .pipe(browser.reload({ stream: true }));
 }
 
@@ -119,7 +143,11 @@ function javascript() {
       .on('error', e => { console.log(e); })
     )
     .pipe($.sourcemaps.write('../maps'))
-    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'));
+    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'))
+    .pipe($.rev())
+    .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'))
+    .pipe($.rev.manifest({merge: true,}))
+    .pipe(gulp.dest(PATHS.theme + '/'))
 }
 
 // Copy images to the "themes" folder
@@ -156,13 +184,13 @@ function watch() {
   // gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
   // gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
 
-  gulp.watch(PATHS.theme +'/src/templates/**/*.ss').on('all', gulp.series(themeHtml, browser.reload));
-  gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', sass);
-  gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
+  gulp.watch(PATHS.theme +'/src/templates/**/*.ss').on('all', gulp.series(themeHtml, revreplace, browser.reload));
+  gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', gulp.series(sass, revreplace, browser.reload));
+  gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, revreplace, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
-  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml, browser.reload));
-  gulp.watch('src/scss/**/*.scss').on('all', sass);
-  gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
+  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml,revreplace, browser.reload));
+  gulp.watch('src/scss/**/*.scss').on('all', gulp.series(sass, revreplace, browser.reload));
+  gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, revreplace, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));
 }
