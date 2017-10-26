@@ -103,6 +103,7 @@
 	transition: max-height 0.2s linear;
 	&__site-title {
 		font-size: rem-calc(22);
+		font-size: calc(22px + 24 * ((100vw - 320px) / (1024 - 320)));
 		font-weight: 600;
 		letter-spacing: 1px;
 		line-height: 1;
@@ -123,14 +124,12 @@
 		}
 
 		@include breakpoint(600) {
-			font-size: rem-calc(29);
 			padding-top: 20px;
 		}
 
 
 		@include breakpoint(medium) {
 			width: 100%;
-			font-size: rem-calc(41);
 			padding: 20px 0 5px;
 		}
 

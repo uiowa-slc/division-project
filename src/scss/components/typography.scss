@@ -1,6 +1,36 @@
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 1.25em;
 }
+h1 {
+  font-size: calc(32px + 20 * ((100vw - 320px) / (1024 - 320)));
+  @include breakpoint(large) {
+		font-size: rem-calc(52);
+	}
+}
+h2 {
+  font-size: calc(20px + 16 * ((100vw - 320px) / (1024 - 320)));
+  @include breakpoint(large) {
+		font-size: rem-calc(36);
+	}
+}
+h3 {
+  font-size: calc(19px + 11 * ((100vw - 320px) / (1024 - 320)));
+  @include breakpoint(large) {
+		font-size: rem-calc(30);
+	}
+}
+h4 {
+  font-size: calc(18px + 7 * ((100vw - 320px) / (1024 - 320)));
+  @include breakpoint(large) {
+		font-size: rem-calc(25);
+	}
+}
+h5 {
+  font-size: calc(17px + 5 * ((100vw - 320px) / (1024 - 320)));
+  @include breakpoint(large) {
+		font-size: rem-calc(22);
+	}
+}
 .subheader{
 	// @include grid-column-position(center);
 	font-family: $header-font-family;
