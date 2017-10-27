@@ -1,3 +1,28 @@
 .userform-progress .progress-bar{
 	background-color: $secondary-color;
 }
+
+.userform{
+	.message{
+		color: red;
+	}
+	.requiredField label{
+		&:before{
+			content: '* ';
+			color: red;
+		}
+	}
+	.optionset.requiredField legend{
+		&:before{
+			content: '* ';
+			color: red;
+		}		
+	}
+	.optionset.requiredField label{
+		&:before{
+			content: '';
+			color: #222;
+		}
+	}
+
+}

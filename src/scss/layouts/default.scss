@@ -18,7 +18,9 @@
 
 body {
 	transition: background-color 1s;
-	@include breakpoint(medium) {
+	font-size: rem-calc(16);
+	font-size: calc(16px + 3 * ((100vw - 320px) / (1024 - 320)));
+	@include breakpoint(large) {
 		font-size: rem-calc(19);
 	}
 }

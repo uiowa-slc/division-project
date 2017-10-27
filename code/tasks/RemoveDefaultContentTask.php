@@ -38,6 +38,7 @@ class RemoveDefaultContentTask extends BuildTask{
 <h6>H6. This is very small header.</h6>
 <p>Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.</p>#
 ';
+		$needles[4] = '<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>.</p><p>You can now access the <a href="http://docs.silverstripe.org">developer documentation</a>, or begin the <a href="http://www.silverstripe.org/learn/lessons">SilverStripe lessons</a>.</p>';
 		$pages = SiteTree::get();
 		echo '<ul>';
 		$matches = array();
