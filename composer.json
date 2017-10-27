@@ -43,7 +43,7 @@
       "olliepop/fbpagefeed": "dev-master",
       "sheadawson/silverstripe-linkable": "1.3.*",
       "silverstripe-rebelalliance/youtubefield" : "*",
-      "thezenmonkey/silverstripe-amp": "dev-master"
+      "md/silverstripe-amp": "dev-master"
    },
    "repositories":[  
       {  
