@@ -167,15 +167,14 @@
 	}
 	& h2 {
 		font-size: rem-calc(30);
+		font-size: calc(30px + 30 * ((100vw - 320px) / (1024 - 320)));
 		margin: 20px 0 5px;
 		line-height: 1.2;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.2);
 		position: relative;
-		@include breakpoint(medium) {
-			font-size: rem-calc(60);
-		}
 		@include breakpoint(large) {
 			padding-left: 60px;
+			font-size: rem-calc(60);
 			&:before {
 				content: '';
 				width: 40px;

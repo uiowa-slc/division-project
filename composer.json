@@ -42,7 +42,8 @@
       "silverstripe/activedirectory": "3.*",
       "olliepop/fbpagefeed": "dev-master",
       "sheadawson/silverstripe-linkable": "1.3.*",
-      "silverstripe-rebelalliance/youtubefield" : "*"
+      "silverstripe-rebelalliance/youtubefield" : "*",
+      "md/silverstripe-amp": "dev-master"
    },
    "repositories":[  
       {  
