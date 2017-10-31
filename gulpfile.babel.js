@@ -124,7 +124,8 @@ function sass() {
     .pipe($.rev())
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/css'))
     .pipe($.rev.manifest({
-      merge: true
+      merge: true,
+      base: PATHS.theme
     }))
     .pipe(gulp.dest(PATHS.theme + '/'))
     .pipe(browser.reload({ stream: true }));
@@ -146,7 +147,10 @@ function javascript() {
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'))
     .pipe($.rev())
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist + '/scripts'))
-    .pipe($.rev.manifest({merge: true,}))
+    .pipe($.rev.manifest({
+      merge: true,
+      base: PATHS.theme
+    }))
     .pipe(gulp.dest(PATHS.theme + '/'))
 }
 
