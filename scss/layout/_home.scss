@@ -215,7 +215,10 @@
 	border-radius: 2px;
 	margin-bottom: 1em;
 	min-height: 305px;
-
+	a{
+		color: #222;
+		
+	}
 	@media screen and (min-width: $break-small) {
 		float: left;
 		margin-left: 2.7624309392265194%;
