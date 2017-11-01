@@ -51,7 +51,7 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	public function updateCMSFields(FieldList $fields) {
-		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark Header Throughout Dite'));
+		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark Header Throughout Site'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division Of Student Life Branding Elements'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowExitButton', 'Show Exit Button'));
 		$fields->addFieldToTab('Root.Main', new UploadField('FooterLogo', 'Custom Logo for use in footer'));
