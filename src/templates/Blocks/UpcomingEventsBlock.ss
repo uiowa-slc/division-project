@@ -3,7 +3,7 @@
 	<div class="content-block">
 		<div class="$CSSClasses">
 			<div class="upcomingeventsblock__header">
-				<h3 id="Block$ID" class="upcomingeventsblock__title"><% if $Title %>$Title<% else %>Upcoming Events<% end_if %></h3>
+				<h3 id="Block$ID" class="upcomingeventsblock__title"><% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %></h3>
 			</div>
 
 			<% if $Source == "SilverStripe calendar on this site" %>

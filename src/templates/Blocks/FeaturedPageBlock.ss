@@ -3,7 +3,7 @@
 		<div class="content-block">
 			<div class="$CSSClasses featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(900,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(900,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(900,400).URL<% end_if %>">
 				<div class="featuredpageblock__body">
-					<h3 id="Block$ID" class="featuredpageblock__title"><% if $Title %>$Title<% else %>$PageTree.Title<% end_if %></h3>
+					<h3 id="Block$ID" class="featuredpageblock__title"><% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %></h3>
 					<div class="featuredpageblock__desc">
 						<% if $FeaturePageSummary %>
 							$FeaturePageSummary
@@ -83,11 +83,11 @@
 					<h3 id="Block$ID" class="featuredpageblock__title">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl">
-								<% if $Title %>$Title<% else %>$PageTree.Title<% end_if %>
+								<% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %>
 							</a>
 						<% else %>
 							<a href="$PageTree.Link">
-								<% if $Title %>$Title<% else %>$PageTree.Title<% end_if %>
+								<% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %>
 							</a>
 						<% end_if %>
 					</h3>

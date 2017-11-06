@@ -2,8 +2,8 @@
 	<div class="content-block">
 		<div class="$CSSClasses">
 			<% if $SlideshowBlockImages %>
-				<% if $Title %><h3 class="slideshow__title">$Title</h3><% end_if %>
-				<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
+				<% if $Title && $ShowTitle %><h3 class="slideshow__title">$Title</h3><% end_if %>
+				<div class="slideshow" role="region" <% if $Title && $ShowTitle %>aria-label="$Title"<% end_if %>>
 					<% loop SlideshowBlockImages %>
 						<div class="slideshow__slide">
 							

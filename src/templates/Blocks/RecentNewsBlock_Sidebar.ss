@@ -2,7 +2,7 @@
 	<div class="content-block row column">
 		<div class="">
 			<div class="newsblock">
-				<h2 id="Block$ID" class="newsblock__header"><% if $Title %>$Title<% else %>Recent News<% end_if %></h2>
+				<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
 				<ul>
 					<% loop $Entries %>
 						<% include RecentNewsContent %>

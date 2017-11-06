@@ -113,7 +113,7 @@ $slideshow.on( 'select.flickity', function() {
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 $('iframe').each(function(){
-	if(!($(this).parent().hasClass('responsive-embed'))){
+	if((!$(this).parent().hasClass('responsive-embed')) && (!$(this).parent().hasClass('unresponsive-embed'))){
 		$(this).wrap( "<div class='responsive-embed widescreen'></div>" );
 	}
 });

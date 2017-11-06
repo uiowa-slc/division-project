@@ -3,7 +3,7 @@
 	<div class="content-block row">
 		<div class="newsblock">
 			<div class="column">
-				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title %>$Title<% else %>Recent News<% end_if %></h3>
+				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
 			</div>
 			<ul class="medium-up-3 ">
 				<% loop $Entries %>

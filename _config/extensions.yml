@@ -27,6 +27,9 @@ NewHomePageHeroFeature:
 ContentBlock:
   extensions:
     - ContentBlockExtension
+Block:
+  extensions:
+    - DivisionBlockExtension
 BlogCategory:
   extensions:
     - BlogCategoryExtension
