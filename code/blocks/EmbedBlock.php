@@ -20,8 +20,28 @@ class EmbedBlock extends Block{
     private static $singular_name = 'Embed Block';  
 
     public function getCMSFields() {
+
+        $self = $this;
         $fields = FieldList::create();
+        // BlockArea - display areas field if on page edit controller
+        if (Controller::curr()->class == 'CMSPageEditController') {
+            $currentPage = Controller::curr()->currentPage();
+            $areas = $self->blockManager->getAreasForPageType($currentPage->ClassName);
+            $fields->push(
+                $blockAreaField = DropdownField::create('ManyMany[BlockArea]', _t('Block.BlockArea', 'Block Area'), $areas),
+                'ClassName'
+            );
+
+            if (count($areas) > 1) {
+                $blockAreaField->setEmptyString('(Select one)');
+            }
+
+            if (BlockManager::config()->get('block_area_preview')) {
+                $blockAreaField->setRightTitle($currentPage->areasPreviewButton());
+            }
+        }
         $fields->push(TextField::create('Title'));
+        $fields->push(CheckboxField::create('ShowTitle'));
         $fields->push(TextField::create('EmbeddedURL', 'Embed URL (include https://)'));
         $fields->push(DropdownField::create(
             'EmbedMethod',
