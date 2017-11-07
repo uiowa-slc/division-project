@@ -66,8 +66,8 @@ class EmbedBlock extends Block{
         $fields->push($heightField = TextField::create('Height', 'Height (examples: "720px", "100%")'));
 
         $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
-        $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
-        $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
+        // $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
+        // $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
 
         return $fields;
     }

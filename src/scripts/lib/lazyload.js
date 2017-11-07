@@ -13,7 +13,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         threshold: 300,
         throttle: 150,
         data_src: "original",
-        data_srcset: "originalSet",
+        data_srcset: "original-set",
         class_loading: "loading",
         class_loaded: "loaded",
         class_error: "error",
@@ -88,6 +88,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     };
 
+    var dataPrefix = "data-";
+
+    var getData = function getData(element, attribute) {
+        return element.getAttribute(dataPrefix + attribute);
+    };
+
+    var setData = function setData(element, attribute, value) {
+        return element.setAttribute(dataPrefix + attribute, value);
+    };
+
     var setSourcesForPicture = function setSourcesForPicture(element, srcsetDataAttribute) {
         var parent = element.parentElement;
         if (parent.tagName !== "PICTURE") {
@@ -96,7 +106,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         for (var i = 0; i < parent.children.length; i++) {
             var pictureChild = parent.children[i];
             if (pictureChild.tagName === "SOURCE") {
-                var sourceSrcset = pictureChild.dataset[srcsetDataAttribute];
+                var sourceSrcset = getData(pictureChild, srcsetDataAttribute);
                 if (sourceSrcset) {
                     pictureChild.setAttribute("srcset", sourceSrcset);
                 }
@@ -106,10 +116,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var setSources = function setSources(element, srcsetDataAttribute, srcDataAttribute) {
         var tagName = element.tagName;
-        var elementSrc = element.dataset[srcDataAttribute];
+        var elementSrc = getData(element, srcDataAttribute);
         if (tagName === "IMG") {
             setSourcesForPicture(element, srcsetDataAttribute);
-            var imgSrcset = element.dataset[srcsetDataAttribute];
+            var imgSrcset = getData(element, srcsetDataAttribute);
             if (imgSrcset) {
                 element.setAttribute("srcset", imgSrcset);
             }
@@ -125,8 +135,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             return;
         }
         if (elementSrc) {
-            element.style.backgroundImage = "url(" + elementSrc + ")";
+            element.style.backgroundImage = 'url("' + elementSrc + '")';
         }
+    };
+
+    var supportsClassList = "classList" in document.createElement("p");
+
+    var addClass = function addClass(element, className) {
+        if (supportsClassList) {
+            element.classList.add(className);
+            return;
+        }
+        element.className += (element.className ? " " : "") + className;
+    };
+
+    var removeClass = function removeClass(element, className) {
+        if (supportsClassList) {
+            element.classList.remove(className);
+            return;
+        }
+        element.className = element.className.replace(new RegExp("(^|\\s+)" + className + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, "");
     };
 
     /*
@@ -162,8 +190,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
                 element.removeEventListener("load", loadCallback);
                 element.removeEventListener("error", errorCallback);
-                element.classList.remove(settings.class_loading);
-                element.classList.add(settings.class_error);
+                removeClass(element, settings.class_loading);
+                addClass(element, settings.class_error);
                 callCallback(settings.callback_error, element);
             };
 
@@ -172,8 +200,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 if (!settings) {
                     return;
                 }
-                element.classList.remove(settings.class_loading);
-                element.classList.add(settings.class_loaded);
+                removeClass(element, settings.class_loading);
+                addClass(element, settings.class_loaded);
                 element.removeEventListener("load", loadCallback);
                 element.removeEventListener("error", errorCallback);
                 /* Calling LOAD callback */
@@ -183,7 +211,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             if (element.tagName === "IMG" || element.tagName === "IFRAME") {
                 element.addEventListener("load", loadCallback);
                 element.addEventListener("error", errorCallback);
-                element.classList.add(settings.class_loading);
+                addClass(element, settings.class_loading);
             }
 
             setSources(element, settings.data_srcset, settings.data_src);
@@ -208,17 +236,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
                 if (isBot || isInsideViewport(element, settings.container, settings.threshold)) {
                     if (firstLoop) {
-                        element.classList.add(settings.class_initial);
+                        addClass(element, settings.class_initial);
                     }
                     /* Start loading the image */
                     this._reveal(element);
                     /* Marking the element as processed. */
                     processedIndexes.push(i);
-                    element.dataset.wasProcessed = true;
+                    setData(element, "was-processed", true);
                 }
             }
             /* Removing processed elements from this._elements. */
-            while (processedIndexes.length > 0) {
+            while (processedIndexes.length) {
                 elements.splice(processedIndexes.pop(), 1);
                 /* Calling the end loop callback */
                 callCallback(settings.callback_processed, elements.length);
@@ -242,7 +270,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             for (i = 0; i < elementsLength; i++) {
                 var element = elements[i];
                 /* If the element has already been processed, skip it */
-                if (element.dataset.wasProcessed) {
+                if (getData(element, "was-processed")) {
                     elementsToPurge.push(i);
                 }
             }
@@ -271,32 +299,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          */
 
         handleScroll: function handleScroll() {
-            var _this = this;
-
             var throttle = this._settings.throttle;
 
             if (throttle !== 0) {
-                (function () {
-                    var getTime = function getTime() {
-                        new Date().getTime();
-                    };
-                    var now = getTime();
-                    var remainingTime = throttle - (now - _this._previousLoopTime);
-                    if (remainingTime <= 0 || remainingTime > throttle) {
-                        if (_this._loopTimeout) {
-                            clearTimeout(_this._loopTimeout);
-                            _this._loopTimeout = null;
-                        }
-                        _this._previousLoopTime = now;
-                        _this._loopThroughElements();
-                    } else if (!_this._loopTimeout) {
-                        _this._loopTimeout = setTimeout(function () {
-                            this._previousLoopTime = getTime();
-                            this._loopTimeout = null;
-                            this._loopThroughElements();
-                        }.bind(_this), remainingTime);
+                var now = Date.now();
+                var remainingTime = throttle - (now - this._previousLoopTime);
+                if (remainingTime <= 0 || remainingTime > throttle) {
+                    if (this._loopTimeout) {
+                        clearTimeout(this._loopTimeout);
+                        this._loopTimeout = null;
                     }
-                })();
+                    this._previousLoopTime = now;
+                    this._loopThroughElements();
+                } else if (!this._loopTimeout) {
+                    this._loopTimeout = setTimeout(function () {
+                        this._previousLoopTime = Date.now();
+                        this._loopTimeout = null;
+                        this._loopThroughElements();
+                    }.bind(this), remainingTime);
+                }
             } else {
                 this._loopThroughElements();
             }
