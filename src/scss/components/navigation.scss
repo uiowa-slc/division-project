@@ -293,7 +293,7 @@
 	color: #333;
 	display:block;
 	font-family: $body-font-family;
-	padding: rem-calc(15) 0;
+	padding: rem-calc(15) 1vw;
 	position: relative;
 	font-size: rem-calc(16);
 	@include breakpoint(medium) {
@@ -304,17 +304,19 @@
 		transition: none;
 		text-transform: uppercase;
 		z-index: 2;
-		padding: rem-calc(15) rem-calc(15);
+		padding: rem-calc(15) rem-calc(15);w
+		padding: rem-calc(15) 1vw;
 		border-color: white;
 		position: relative;
 	}
 
 	@include breakpoint(large) {
 		padding: rem-calc(20) rem-calc(30);
+		padding: rem-calc(20) 2vw;
 	}
 
 	@include breakpoint(xlarge) {
-		padding: rem-calc(20) rem-calc(37);
+		// padding: rem-calc(20) rem-calc(37);
 		font-size: rem-calc(22);
 	}
 
