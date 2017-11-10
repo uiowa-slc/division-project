@@ -36,7 +36,6 @@
 	  <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 	<![endif]-->
-	<% include GoogleAnalytics %>
 </head>
 
 <body class="{$ClassName} loading">
@@ -64,18 +63,8 @@
     <% include Footer %>
     <% include MdBar %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript">
-	function downloadJSAtOnload() {
-	var element = document.createElement("script");
-	element.src = "$ThemeDir/build/build.js";
-	document.body.appendChild(element);
-	}
-	if (window.addEventListener)
-	window.addEventListener("load", downloadJSAtOnload, false);
-	else if (window.attachEvent)
-	window.attachEvent("onload", downloadJSAtOnload);
-	else window.onload = downloadJSAtOnload;
-	</script>
+	<script src="$ThemeDir/build/build.js"></script>
+	$Analytics
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
