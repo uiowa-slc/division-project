@@ -304,19 +304,16 @@
 		transition: none;
 		text-transform: uppercase;
 		z-index: 2;
-		padding: rem-calc(15) rem-calc(15);w
 		padding: rem-calc(15) 1vw;
 		border-color: white;
 		position: relative;
 	}
 
 	@include breakpoint(large) {
-		padding: rem-calc(20) rem-calc(30);
 		padding: rem-calc(20) 2vw;
 	}
 
 	@include breakpoint(xlarge) {
-		// padding: rem-calc(20) rem-calc(37);
 		font-size: rem-calc(22);
 	}
 
