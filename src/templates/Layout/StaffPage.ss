@@ -33,6 +33,15 @@ $Header
 								<% end_if %>
 							</li>
 						<% end_if %>
+						<% if $OtherWebsiteLink %>
+							<li><a href="$OtherWebsiteLink" target="_blank">
+								<% if $OtherWebsiteLabel %>
+									$OtherWebsiteLabel
+								<% else %>
+									Website
+								<% end_if %>
+							</a></li>
+						<% end_if %>
 					</ul>
 				</div>
 				$Content

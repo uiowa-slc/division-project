@@ -9,11 +9,17 @@ class StaffPage extends Page {
 		"Phone"          => "Text",
 		"DepartmentURL"  => "Text",
 		"DepartmentName" => "Text",
+		"OtherWebsiteLink" => "Varchar(155)",
+		"OtherWebsiteLabel" => "Varchar(155)"
 
 	);
 
 	private static $has_one = array(
 		"Photo" => "Image",
+	);
+
+	private static $defaults = array(
+		"OtherWebsiteLabel" => "Website"
 	);
 
 	private static $belongs_many_many = array(
@@ -33,7 +39,10 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
 		$fields->addFieldToTab("Root.Main", new TextField("Phone", "Phone (XXX-XXX-XXXX)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
-		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department URL (optional)"));
+		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department or Website URL (optional)"));
+		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLink", "Other website URL (include http:// or https://)"));
+		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLabel", "Other website label (default: \"Website\""));
+
 
 		$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team <a href="admin/pages/edit/show/14" target="_blank">(Manage Teams)</a>', StaffTeam::get()->map('ID', 'Name')));
 
