@@ -70,9 +70,12 @@ class HomePage extends Page {
 
 		// Legacy fields
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		$gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
 
+		$gridFieldConfig->addComponent($sortable = new GridFieldSortableRows('SortOrder'));
+		$sortable->setUpdateVersionedStage('Live');
+
+		$gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+		
 		$homePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$homePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
@@ -108,7 +111,10 @@ class HomePage extends Page {
 
 		// Begin Default Slider fields
 		$newgridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$newgridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		$newgridFieldConfig->addComponent($newSortable = new GridFieldSortableRows('SortOrder'));
+
+		$newSortable->setUpdateVersionedStage('Live');
+		
 		$newgridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
 		$newgridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 

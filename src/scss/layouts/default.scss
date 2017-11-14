@@ -6,7 +6,7 @@
 #BetterNavigator {
 	display: none;
 
-	@include breakpoint(large) {
+	@media screen and (min-width: 64em) {
 		display: block;
 	}
 }
