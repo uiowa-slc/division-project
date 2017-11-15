@@ -49,6 +49,7 @@ class DivisionPage extends DataExtension {
 
 		return $ancestryString;
 	}
+
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();
 

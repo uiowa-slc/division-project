@@ -1,4 +1,3 @@
-
 <% if not $BackgroundImage %>
 	<div class="column row">
 		<div class="main-content__header">
