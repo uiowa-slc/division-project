@@ -30,6 +30,9 @@ ContentBlock:
 Block:
   extensions:
     - DivisionBlockExtension
+Calendar:
+  extensions:
+    - DivisionCalendarExtension
 BlogCategory:
   extensions:
     - BlogCategoryExtension
