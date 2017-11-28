@@ -105,6 +105,9 @@
 					<% if $SiteConfig.Github %>
 						<li><a href="$SiteConfig.Github" target="_blank" class="footer__github" itemprop="sameAs">Github</a></li>
 					<% end_if %>
+					<% if $SiteConfig.Snapchat %>
+						<li><a href="https://www.snapchat.com/add/$SiteConfig.Snapchat" target="_blank" class="footer__snapchat" itemprop="sameAs">Snapchat</a></li>
+					<% end_if %>
 				</ul>
 			</div>
 		<% end_if %>
