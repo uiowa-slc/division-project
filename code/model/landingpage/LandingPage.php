@@ -18,6 +18,9 @@ class LandingPage extends Page {
 		'Sections' => 'LandingPageSection'
 	);
 
+	private static $allowed_children = array(
+		'LandingSubpage'
+	);
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
