@@ -67,12 +67,12 @@
 
 
 
-<main id="top" class="main-content__container">
+<div id="top" class="main-content__container">
 
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<article role="main" id="page-content" class="main-content main-content--with-padding main-content--full-width">
+		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
 			<% if $ShowBreadcrumbs %>
 				$Breadcrumbs
 			<% end_if %>
@@ -116,7 +116,17 @@
 			$BlockArea(AfterContentConstrained)
 			$Form
 		</article>
+
+		<% if $Children %>
+		<aside class="sidebar dp-sticky">
+			<% include SideNav %>
+			<% if $SideBarView %>
+				$SideBarView
+			<% end_if %>
+			$BlockArea(Sidebar)
+		</aside>
+	<% end_if %>
 	</div>
 	<br>
 	$BlockArea(AfterContent)
-</main>
+</div>

@@ -1,0 +1,1 @@
+<main class="main-content__container" id="main-content__container"> <% if $BackgroundImage %> <% include FeaturedImage %> <% end_if %> <% include MainContentBody %> </main>
