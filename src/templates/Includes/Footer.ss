@@ -1,3 +1,4 @@
+<% cached %>
 <footer class="footer" role="contentinfo">
 	<div class="footer__container <% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>footer__container--with-social<% end_if %>">
 		<div class="footer__info">
@@ -125,3 +126,4 @@
 		</div>
 	</div>
 </footer>
+<% end_cached %>
