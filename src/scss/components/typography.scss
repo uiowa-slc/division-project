@@ -55,7 +55,16 @@ h5 {
 	text-align: center;
 }
 
-
+/* to fix long urls that break layout */
+.main-content__text p {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
 
 blockquote {
 	border-left: 6px solid $highlight;
