@@ -44,7 +44,8 @@
       "sheadawson/silverstripe-linkable": "1.3.*",
       "silverstripe-rebelalliance/youtubefield" : "*",
       "md/silverstripe-amp": "dev-master",
-      "nathancox/sortableuploadfield": "*"
+      "nathancox/sortableuploadfield": "*",
+      "dimsemenov/magnific-popup": "*"
    },
    "repositories":[  
       {  
