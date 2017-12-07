@@ -27,7 +27,7 @@ class LandingPageSection extends DataObject {
 		$fields->removeByName("SortOrder");
 		$fields->removeByName("Images");
 
-		$fields->addFieldToTab('Root.Main', UploadField::create('Images'));
+		$fields->addFieldToTab('Root.Main', SortableUploadField::create('Images'));
 		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
 		return $fields;
 	}
