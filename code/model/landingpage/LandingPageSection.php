@@ -6,7 +6,8 @@ class LandingPageSection extends DataObject {
 		'Content' => 'HTMLText',
 		'SortOrder' => 'Int',
 		'VideoID' => 'Varchar(11)',
-		'EventSearchTerm' => 'Varchar(155)'
+		'EventSearchTerm' => 'Varchar(155)',
+		'FullImagePopup' => 'Boolean'
 
 	);
 
@@ -28,9 +29,9 @@ class LandingPageSection extends DataObject {
 		$fields->removeByName("SortOrder");
 		$fields->removeByName("Images");
 
-
 		$fields->addFieldToTab('Root.Main', TextField::create('EventSearchTerm', 'Show Localist events with this search term (can be a tag or category)'));
 		$fields->addFieldToTab('Root.Main', SortableUploadField::create('Images'));
+		$fields->addFieldToTab('Root.Main', new CheckboxField('FullImagePopup', 'Enable Full Image Popups'));
 		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
 		return $fields;
 	}
