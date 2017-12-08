@@ -92,15 +92,27 @@
 						$Content
 
 						<% if $Images %>
+							<% if $FullImagePopup %>
 							<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
-								<% loop Images %>
-									<div class="slideshow__slide">
-										
-									<img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
-											<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
-									</div>
-								<% end_loop %>
-							</div>
+									<% loop Images %>
+										<div class="slideshow__slide">
+											
+										<a href="$Link" class="popup-link"><img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
+												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
+										</div>
+									<% end_loop %>
+								</div>
+							<% else %>
+								<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
+									<% loop Images %>
+										<div class="slideshow__slide">
+											
+										<img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
+										</div>
+									<% end_loop %>
+								</div>
+							<% end_if %>
 						<% end_if %>
 
 						<% if $VideoID %>
