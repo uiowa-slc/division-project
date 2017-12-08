@@ -113,7 +113,16 @@
 		}
 	}
 }
-
+.lp-event__image-link{
+	display: block;
+	@include breakpoint(medium) {
+		padding-top: rem-calc(20);
+	}
+}
+.lp-event__image{
+	display: block;
+	width: 100%;
+}
 
 
 .sectionmenu.dp-sticky {

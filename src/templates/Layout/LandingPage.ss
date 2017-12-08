@@ -110,6 +110,15 @@
 								  frameborder="0"></iframe>
 							</div>
 						<% end_if %>
+						<% if $EventSearchTerm %>
+							<% if $EventList %>
+								<% loop $EventList %>
+									<% include LandingPageEvent %>
+								<% end_loop %>
+							<% end_if %>
+						<% else %>
+							<p>No events currently listed. Please check back soon for the full event list.</p>
+						<% end_if %>
 					</div>
 				<% end_loop %>
 			<% end_if %>
