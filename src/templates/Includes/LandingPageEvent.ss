@@ -43,4 +43,6 @@
 	</div>
 
 </div>
+<% if not $Last %>
 <hr />	
+<% end_if %>

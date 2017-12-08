@@ -355,25 +355,6 @@ if ($('#topic-tabs').length) {
 	$('#topic-tabs').foundation('selectTab', $('.tabs-panel').first());
 }
 
-
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
-//Automatic full height silder, not working yet..
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
-
-// function setDimensions(){
-//    var windowsHeight = $(window).height();
-
-//    $('.orbit-container').css('height', windowsHeight + 'px');
-//   // $('.orbit-container').css('max-height', windowsHeight + 'px');
-
-//    $('.orbit-slide').css('height', windowsHeight + 'px');
-//    $('.orbit-slide').css('max-height', windowsHeight + 'px');
-// }
-
-// $(window).resize(function() {
-//     setDimensions();
-// });
-
-// setDimensions();
+$('.popup-link').magnificPopup({
+  type: 'image'
+});

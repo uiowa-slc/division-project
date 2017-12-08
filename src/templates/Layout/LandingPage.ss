@@ -127,9 +127,9 @@
 								<% loop $EventList %>
 									<% include LandingPageEvent %>
 								<% end_loop %>
+							<% else %>
+								<p>No events currently listed. Please check back soon for the full event list.</p>
 							<% end_if %>
-						<% else %>
-							<p>No events currently listed. Please check back soon for the full event list.</p>
 						<% end_if %>
 					</div>
 				<% end_loop %>
