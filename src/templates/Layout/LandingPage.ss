@@ -95,13 +95,9 @@
 							<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
 								<% loop Images %>
 									<div class="slideshow__slide">
-									<% if $FullImagePopup %>
-									<a href="$FullSizeImage.Link" class="popup-link link--dashed article__artwork-credit article__full-size-image"><img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
-											<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
-									<% else %>
+										
 									<img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
 											<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
-									<% end_if %>
 									</div>
 								<% end_loop %>
 							</div>

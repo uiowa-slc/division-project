@@ -377,7 +377,3 @@ if ($('#topic-tabs').length) {
 // });
 
 // setDimensions();
-
-$('.popup-link').magnificPopup({
-  type: 'image'
-});
