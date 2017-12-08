@@ -1,3 +1,4 @@
+<% cached %>
 <footer class="footer" role="contentinfo">
 	<div class="footer__container <% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>footer__container--with-social<% end_if %>">
 		<div class="footer__info">
@@ -105,6 +106,9 @@
 					<% if $SiteConfig.Github %>
 						<li><a href="$SiteConfig.Github" target="_blank" class="footer__github" itemprop="sameAs">Github</a></li>
 					<% end_if %>
+					<% if $SiteConfig.Snapchat %>
+						<li><a href="https://www.snapchat.com/add/$SiteConfig.Snapchat" target="_blank" class="footer__snapchat" itemprop="sameAs">Snapchat</a></li>
+					<% end_if %>
 				</ul>
 			</div>
 		<% end_if %>
@@ -122,3 +126,4 @@
 		</div>
 	</div>
 </footer>
+<% end_cached %>

@@ -145,6 +145,26 @@ img:not([src]) {
 			}
 		}
 	}
+
+	/* SilverStripe / TinyMCE Image Styles (non BEM!!) */
+
+	img.right {
+		float: none !important;
+		@include breakpoint(medium) {
+			float: right !important;
+			margin-left: 1em;
+			margin-bottom: 1em;
+		}
+	}
+
+	img.left {
+		float: none !important;
+		@include breakpoint(medium) {
+			float: left !important;
+			margin-right: 1em;
+			margin-bottom: 1em;
+		}
+	}
 }
 
 .sidebar {
@@ -164,22 +184,3 @@ img:not([src]) {
 	}
 }
 
-/* SilverStripe / TinyMCE Image Styles (non BEM!!) */
-
-img.right {
-	float: none !important;
-	@include breakpoint(medium) {
-		float: right !important;
-		margin-left: 1em;
-		margin-bottom: 1em;
-	}
-}
-
-img.left {
-	float: none !important;
-	@include breakpoint(medium) {
-		float: right !important;
-		margin-right: 1em;
-		margin-bottom: 1em;
-	}
-}

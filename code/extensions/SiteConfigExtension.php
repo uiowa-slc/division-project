@@ -23,6 +23,7 @@ class SiteConfigExtension extends DataExtension {
 		'FlickrLink' => 'Text',
 		'YouTubeLink' => 'Text',
 		'Github' => 'Text',
+		'Snapchat' => 'Text',
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
 		'UseDarkTheme' => 'Boolean',
@@ -89,7 +90,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('PinterestLink', 'Pinterest Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('Github', 'Github Account URL'));
-
+		$fields->addFieldToTab('Root.Main', new TextField('Snapchat', 'Snapchat Username'));
 
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Header Quick Links</h3>', '3', true ) );

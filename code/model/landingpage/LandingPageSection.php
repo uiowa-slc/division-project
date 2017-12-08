@@ -30,8 +30,7 @@ class LandingPageSection extends DataObject {
 
 
 		$fields->addFieldToTab('Root.Main', TextField::create('EventSearchTerm', 'Show Localist events with this search term (can be a tag or category)'));
-
-		$fields->addFieldToTab('Root.Main', UploadField::create('Images'));
+		$fields->addFieldToTab('Root.Main', SortableUploadField::create('Images'));
 		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
 		return $fields;
 	}
