@@ -80,7 +80,8 @@ $gallery.find('video').each( function( i, video ) {
 var $slideshow = $('.slideshow').flickity({
 	//adaptiveHeight: true,
 	imagesLoaded: true,
-	lazyLoad: true
+	lazyLoad: true,
+	pageDots: false
 });
 
 var slideshowflk = $slideshow.data('flickity');
@@ -90,22 +91,16 @@ $slideshow.on( 'select.flickity', function() {
 	//slideshowflk.reloadCells();
 
 })
+$('.slideshow').each(function() { // the containers for all your galleries
+    $(this).magnificPopup({
+        delegate: 'a', // the selector for gallery item
+        type: 'image',
+        gallery: {
+          enabled:true
+        }
+    });
+});
 
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
-// Start Foundation Orbit Slider:
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
-// var sliderOptions = {
-// 	containerClass: 'slider__slides',
-// 	slideClass: 'slider__slide',
-// 	nextClass: 'slider__nav--next',
-// 	prevClass: 'slider__nav--previous',
-
-// };
-
-
-// var slider = new Foundation.Orbit($('.slider'), sliderOptions);
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -355,6 +350,3 @@ if ($('#topic-tabs').length) {
 	$('#topic-tabs').foundation('selectTab', $('.tabs-panel').first());
 }
 
-$('.popup-link').magnificPopup({
-  type: 'image'
-});
