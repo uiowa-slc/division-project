@@ -165,6 +165,8 @@ class OpenGraphExtension extends DataExtension {
                 $tags .= "<meta property=\"og:$k\" content=\"$val\" />\n";
             }
         }
+
+        $tags.="<meta property=\"fb:app_id\" content=\"127918570561161\" />\n";
         return $tags;
     }
 }
