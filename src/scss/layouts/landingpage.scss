@@ -58,6 +58,7 @@
 }
 .lp-menu {
 	background-color: $black;
+	z-index: 999;
 	&__list {
 		list-style: none;
 		margin: 0 auto;
