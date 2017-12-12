@@ -42,7 +42,7 @@
 			</li>
 			<% loop $Sections %>
 				<li class="lp-menu__listitem">
-					<a href="#$Title" class="lp-menu__item">$Title</a>
+					<a href="#$NiceTitle" class="lp-menu__item">$Title</a>
 				</li>
 			<% end_loop %>
 			<% if $FacebookLink %>
@@ -86,7 +86,7 @@
 			</div>
 			<% if $Sections %>
 				<% loop $Sections %>
-					<div class="lp-section" id="$Title" data-magellan-target="$Title">
+					<div class="lp-section" id="$NiceTitle" data-magellan-target="$Title">
 						<hr>
 						<h2 >$Title</h2>
 						$Content

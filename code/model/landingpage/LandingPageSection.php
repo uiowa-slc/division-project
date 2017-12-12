@@ -36,6 +36,10 @@ class LandingPageSection extends DataObject {
 		return $fields;
 	}
 
+	public function NiceTitle(){
+		$filter = new URLSegmentFilter();
+		return $filter->filter($this->owner->Title);
+	}
 	public function EventList(){
 		if($term = $this->EventSearchTerm){
 			$calendar = LocalistCalendar::getOrCreate();
