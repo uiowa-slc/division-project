@@ -16,6 +16,7 @@
                 "undefinedoffset/sortablegridfield": "*",
                 "colymba/gridfield-bulk-editing-tools":"dev-master",
                 "undefinedoffset/silverstripe-nocaptcha":"*",
+                "silverstripe/mathspamprotection":"*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
