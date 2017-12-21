@@ -9,6 +9,7 @@
                 "silverstripe/recipe-cms": "^1",
                 "silverstripe/reports": "*",
                 "silverstripe/installer": "*",
+                "silverstripe/siteconfig": "*",
                 "silverstripe-themes/simple": "*",
                 "undefinedoffset/sortablegridfield": "*",
                 "silverstripe/tagfield": "*",
