@@ -11,6 +11,7 @@
                 "silverstripe/installer": "*",
                 "silverstripe/siteconfig": "*",
                 "silverstripe-themes/simple": "*",
+                "unclecheese/betterbuttons":"dev-master",
                 "undefinedoffset/sortablegridfield": "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
