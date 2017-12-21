@@ -19,6 +19,7 @@
                 "thisisbd/silverstripe-maintenance-mode":"dev-master",
                 "silverstripe/activedirectory": "*",
                 "olliepop/fbpagefeed": "dev-master",
+                "silverstripe-rebelalliance/youtubefield" : "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
