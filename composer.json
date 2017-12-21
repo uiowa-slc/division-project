@@ -30,7 +30,7 @@
                 "jonom/silverstripe-betternavigator": "*",
                 "symbiote/silverstripe-multivaluefield": "4.*",
                 "silverstripe/asset-admin": "*",
-                "md/silverstripe-blocks": "dev-master",
+                "md/silverstripe-blocks": "dev-master"
    },
    "repositories":[  
       {  
