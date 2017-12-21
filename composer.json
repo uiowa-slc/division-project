@@ -31,7 +31,6 @@
                 "symbiote/silverstripe-multivaluefield": "4.*",
                 "silverstripe/asset-admin": "*",
                 "md/silverstripe-blocks": "dev-master",
-                "md/silverstripe-amp": "dev-master"
    },
    "repositories":[  
       {  
