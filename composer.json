@@ -14,6 +14,7 @@
                 "unclecheese/betterbuttons":"dev-master",
                 "unclecheese/eventcalendar":"1.*",
                 "undefinedoffset/sortablegridfield": "*",
+                "colymba/gridfield-bulk-editing-tools":"dev-master",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
