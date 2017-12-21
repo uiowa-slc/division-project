@@ -19,7 +19,7 @@
                 "thisisbd/silverstripe-maintenance-mode":"dev-master",
                 "silverstripe/activedirectory": "*",
                 "olliepop/fbpagefeed": "dev-master",
-                "silverstripe-rebelalliance/youtubefield" : "*",
+                "edgarindustries/youtubefield" : "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
@@ -30,7 +30,7 @@
                 "jonom/silverstripe-betternavigator": "*",
                 "symbiote/silverstripe-multivaluefield": "4.*",
                 "silverstripe/asset-admin": "*",
-                "md/silverstripe-blocks": "dev-master"  
+                "md/silverstripe-blocks": "dev-master"
    },
    "repositories":[  
       {  
