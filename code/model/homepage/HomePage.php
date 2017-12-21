@@ -17,14 +17,6 @@ class HomePage extends Page {
 		'Legacy' => 'Old style - Shuffled Background Features and Hero Features'
 	);
 
-	public function getPageTypeTheme(){
-		if($this->LayoutType == 'Legacy'){
-			return "light-header";
-		}else{
-			return "dark-header";
-		}
-
-	}
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
