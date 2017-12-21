@@ -18,6 +18,7 @@
                 "undefinedoffset/silverstripe-nocaptcha":"*",
                 "thisisbd/silverstripe-maintenance-mode":"dev-master",
                 "silverstripe/activedirectory": "*",
+                "olliepop/fbpagefeed": "dev-master",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
