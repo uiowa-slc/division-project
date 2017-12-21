@@ -12,6 +12,7 @@
                 "silverstripe/siteconfig": "*",
                 "silverstripe-themes/simple": "*",
                 "unclecheese/betterbuttons":"dev-master",
+                "unclecheese/eventcalendar":"1.*",
                 "undefinedoffset/sortablegridfield": "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
