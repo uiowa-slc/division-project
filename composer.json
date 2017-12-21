@@ -17,6 +17,7 @@
                 "colymba/gridfield-bulk-editing-tools":"dev-master",
                 "undefinedoffset/silverstripe-nocaptcha":"*",
                 "thisisbd/silverstripe-maintenance-mode":"dev-master",
+                "silverstripe/activedirectory": "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
                 "silverstripe/widgets": "*",
