@@ -24,9 +24,9 @@ class DirectoryPage extends BlogPost {
 	private static $has_many = array(
 	);
 
-	static $singular_name = 'Directory Page';
+	private static $singular_name = 'Directory Page';
 
-	static $plural_name = 'Directory Pages';
+	private static $plural_name = 'Directory Pages';
 	/* This is a GLOBAL change that should happen on all CISL sites */
 
 	public function getCMSFields(){

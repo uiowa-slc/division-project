@@ -15,9 +15,9 @@ class ReportPage extends BlogPost {
 	private static $has_many = array(
 	);
 
-	static $singular_name = 'Report';
+	private static $singular_name = 'Report';
 
-	static $plural_name = 'Reports';
+	private static $plural_name = 'Reports';
 	/* This is a GLOBAL change that should happen on all CISL sites */
 
 	public function getCMSFields() {

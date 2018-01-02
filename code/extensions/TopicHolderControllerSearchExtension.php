@@ -11,7 +11,7 @@ class TopicHolderControllerSearchExtension extends Extension{
 
 
 
-	public static $allowed_actions = array('TopicSearchForm', 'topicresults');
+	private static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
 	public function TopicSearchForm() {
 		

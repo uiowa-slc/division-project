@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Blog\Controllers\BlogPostController;
+use SilverStripe\Blog\Model\BlogPostController;
 class ReportPageController extends BlogPostController {
 
 	/**

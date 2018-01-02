@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Blog\Controllers\BlogController;
+use SilverStripe\Blog\Model\BlogController;
 class TopicHolderController extends BlogController{
 	private static $allowed_actions = array(
 		'SearchForm'

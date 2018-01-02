@@ -16,9 +16,9 @@ class ReportsHolder extends Blog {
 	private static $has_many = array(
 	);
 
-	static $singular_name = 'Report Holder';
+	private static $singular_name = 'Report Holder';
 
-	static $plural_name = 'Report Holders';
+	private static $plural_name = 'Report Holders';
 
 	private static $allowed_children = array("ReportPage", BlogPost::class);
 

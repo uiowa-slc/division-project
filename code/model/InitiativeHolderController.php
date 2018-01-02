@@ -1,7 +1,7 @@
 <?php
 class InitiativeHolderController extends PageController {
 
-	//public static $allowed_actions = array ( "legislation" );
+	//private static $allowed_actions = array ( "legislation" );
 	
 	public function init() {
 		parent::init();
