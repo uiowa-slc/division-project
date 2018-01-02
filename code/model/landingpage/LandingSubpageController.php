@@ -2,7 +2,7 @@
 
 class LandingSubpageController extends PageController {
 
-	public static $allowed_actions = array(
+	private static $allowed_actions = array(
 	);
 
 	public function init() {

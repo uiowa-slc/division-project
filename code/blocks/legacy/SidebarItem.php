@@ -11,7 +11,6 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridField;
-use PageController;
 use SilverStripe\ORM\DataObject;
 
 class SidebarItem extends DataObject {
