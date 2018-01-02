@@ -16,7 +16,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\DataExtension;
-use DivisionPageController;
+use MD\DivisionProject\DivisionPageController;
 class DivisionPage extends DataExtension {
 	private static $db = array(
 		'OgTitle' => 'Text',
