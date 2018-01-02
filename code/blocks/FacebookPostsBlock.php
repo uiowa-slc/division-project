@@ -1,4 +1,6 @@
 <?php
+namespace SheaDawson\Blocks\Model;
+
 use Olliepop\FBPageFeed\FBPageFeedService;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\LiteralField;

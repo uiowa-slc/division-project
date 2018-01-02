@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;

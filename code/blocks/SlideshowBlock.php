@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;

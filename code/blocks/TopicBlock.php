@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 class TopicBlock extends RecentNewsBlock{
 

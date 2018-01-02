@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;

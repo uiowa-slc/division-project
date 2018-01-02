@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Control\Controller;
@@ -6,7 +7,6 @@ use SilverStripe\CMS\Controllers\CMSPageEditController;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
-use MD\DivisionProject\Blocks\Model;
 
 class EmbedBlock extends Block{
     

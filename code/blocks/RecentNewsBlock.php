@@ -1,4 +1,5 @@
 <?php
+namespace SheaDawson\Blocks\Model;
 
 use SilverStripe\Blog\Model\Blog;
 use SilverStripe\Blog\Model\BlogTag;

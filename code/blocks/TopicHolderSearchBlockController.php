@@ -1,10 +1,11 @@
 <?php
+use SheaDawson\Blocks\Controllers\BlockController;
 
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
-class TopicHolderSearchBlockController extends Block_Controller {
+class TopicHolderSearchBlockController extends BlockController {
 
         private static $allowed_actions = array(
             'TopicSearchForm',
