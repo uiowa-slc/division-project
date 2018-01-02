@@ -1,5 +1,19 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridField;
+use PageController;
+use SilverStripe\ORM\DataObject;
+
 class SidebarItem extends DataObject {
 
 	private static $db = array(
@@ -13,8 +27,8 @@ class SidebarItem extends DataObject {
 	);
 
 	private static $has_one = array(
-		"Image" => "Image",
-		"AssociatedPage" => "SiteTree",
+		"Image" => Image::class,
+		"AssociatedPage" => SiteTree::class,
 	);
 
 	private static $belongs_many_many = array(
@@ -33,7 +47,7 @@ class SidebarItem extends DataObject {
 	function getCMSFields() {
 		$fields = new FieldList();
 
-		$treeDropdown = new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree");
+		$treeDropdown = new TreeDropdownField("AssociatedPageID", "Link to this page", SiteTree::class);
 		//$treeDropdown->setEmptyString('(None)');
 
 		$fields->push(new TextField('Title', 'Title'));
@@ -43,12 +57,12 @@ class SidebarItem extends DataObject {
 		$fields->push(new CheckboxField('UseExternalLink', 'Or use the external link below'));
 		$fields->push(new TextField('ExternalLink', 'External Link'));
 		$fields->push(new TextField('RSSFeedLink', 'Display the following RSS feed after the header, title. Content is displayed below the feed.'));
-		$fields->push(new UploadField('Image', 'Image'));
+		$fields->push(new UploadField(Image::class, Image::class));
 
 		$fields->push(new HTMLEditorField('Content', 'Content'));
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+		$gridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
 
 		$gridField = new GridField("SidebarItems", "Pages that use this sidebar", $this->Pages(), $gridFieldConfig);
 
@@ -74,7 +88,7 @@ class SidebarItem extends DataObject {
 
 	public function FeedItems() {
 		if ($this->RSSFeedLink) {
-			$controller = new Page_Controller();
+			$controller = new PageController();
 			return $controller->RSSDisplay(4, $this->RSSFeedLink);
 		}
 	}

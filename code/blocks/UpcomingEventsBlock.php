@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\DropdownField;
+
 class UpcomingEventsBlock extends Block{
 
 	private static $db = array(

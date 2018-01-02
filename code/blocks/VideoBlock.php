@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\TextField;
+
 class VideoBlock extends Block{
 
 	private static $db = array(

@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\TextField;
+
 class TaglineBlock extends Block{
 	
 	private static $db = array(

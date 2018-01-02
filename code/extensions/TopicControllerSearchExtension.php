@@ -1,4 +1,12 @@
 <?php
+
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\CMS\Search\SearchForm;
+use SilverStripe\ORM\Search\FulltextSearchable;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Core\Extension;
 class TopicControllerSearchExtension extends Extension{
 
 

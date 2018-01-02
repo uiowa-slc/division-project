@@ -12,7 +12,6 @@
                 "silverstripe/siteconfig": "*",
                 "silverstripe-themes/simple": "*",
                 "unclecheese/betterbuttons":"dev-master",
-                "unclecheese/eventcalendar":"1.*",
                 "undefinedoffset/sortablegridfield": "*",
                 "colymba/gridfield-bulk-editing-tools":"dev-master",
                 "undefinedoffset/silverstripe-nocaptcha":"*",

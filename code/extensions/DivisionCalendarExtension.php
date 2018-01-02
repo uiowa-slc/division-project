@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\ORM\DataExtension;
 class DivisionCalendarExtension extends DataExtension {
 
 	public function EventListLimited($limit){

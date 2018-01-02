@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Blog\Model\Blog;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataExtension;
+
 class BlogFieldExtension extends DataExtension {
 
 	private static $db = array(
@@ -46,7 +54,7 @@ class BlogFieldExtension extends DataExtension {
 		if ($this->owner->ClassName == "BlogEntry") {
 			//$fields->removeByName("Date");
 		} else {
-			$fields->renameField("Date", "Published Date");
+			$fields->renameField(DBDate::class, "Published Date");
 		}
 
 	}

@@ -1,4 +1,6 @@
 <?php
+
+use MD\DivisionProject\FeatureHolderPageController;
 class FeatureHolderPage extends Page {
 
 	private static $db = array(
@@ -22,12 +24,4 @@ class FeatureHolderPage extends Page {
 		return $fields;
 	}
 
-}class FeatureHolderPage_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-	}
 }

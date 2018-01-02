@@ -1,5 +1,8 @@
 <?php
 use Olliepop\FBPageFeed\FBPageFeedService;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Forms\LiteralField;
+
 
 class FacebookPostsBlock extends Block{
 
@@ -19,7 +22,7 @@ class FacebookPostsBlock extends Block{
         // $this->accessToken = $siteConfig->FBAccessToken;
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$siteConfig = \SiteConfig::current_site_config();
+		$siteConfig = SiteConfig::current_site_config();
 
 		if(!($siteConfig->FBAppID && $siteConfig->FBAppSecret && $siteConfig->FBAccessToken && $siteConfig->FBPageID)){
 			$fields->addFieldToTab("Root.Main", new LiteralField("BadFbPostsConfigWarning",

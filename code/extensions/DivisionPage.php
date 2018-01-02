@@ -1,4 +1,22 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Blog\Model\BlogPost;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Security\Permission;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\ORM\DataExtension;
+use DivisionPageController;
 class DivisionPage extends DataExtension {
 	private static $db = array(
 		'OgTitle' => 'Text',
@@ -11,9 +29,9 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'BackgroundImage' => 'Image',
-		'FeatureHolderImage' => 'Image',
-		'OgImage' => 'Image'
+		'BackgroundImage' => Image::class,
+		'FeatureHolderImage' => Image::class,
+		'OgImage' => Image::class
 	);
 
 	private static $many_many = array(
@@ -41,7 +59,7 @@ class DivisionPage extends DataExtension {
 
 
 	);
-	private static $hide_from_hierarchy = array('BlogPost','Topic');
+	private static $hide_from_hierarchy = array(BlogPost::class,'Topic');
 
 	public function ClassAncestry(){
 		$ancestryArray = ClassInfo::ancestry($this->owner->ClassName);

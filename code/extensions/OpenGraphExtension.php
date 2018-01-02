@@ -1,4 +1,11 @@
 <?php
+
+use SilverStripe\Control\Director;
+use SilverStripe\i18n\i18n;
+use SilverStripe\Core\Convert;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataExtension;
 class OpenGraphExtension extends DataExtension {
     public static $keys = array(
         'title',

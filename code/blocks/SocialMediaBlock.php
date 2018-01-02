@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
+
 class SocialMediaBlock extends Block{
 
 	private static $db = array(

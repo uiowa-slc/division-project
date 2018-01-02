@@ -1,4 +1,10 @@
 <?php
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\DataExtension;
 class DivisionImageExtension extends DataExtension {
 
     private static $db = array(

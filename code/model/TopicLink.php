@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\TagField\TagField;
+use SilverStripe\ORM\DataObject;
+
 class TopicLink extends DataObject {
 
 	private static $db = array(

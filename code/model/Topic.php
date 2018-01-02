@@ -1,5 +1,23 @@
 <?php
 
+use SilverStripe\Blog\Model\BlogTag;
+use SilverStripe\TagField\TagField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
+use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Blog\Model\BlogPost;
+use SilverStripe\Blog\Controllers\BlogPostController;
+
 class Topic extends BlogPost {
 
 	private static $many_many = array(
@@ -57,14 +75,14 @@ class Topic extends BlogPost {
 		);
 
 		
-		$linkGrid->getConfig()->getComponentByType('GridFieldEditableColumns')->setDisplayFields(array(
+		$linkGrid->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
 			'Title' => array(
 				'title' => 'Link Description',
-				'field' => 'TextField'
+				'field' => TextField::class
 			),
 			'URL' => array(
 				'title' => 'Link URL (include https://)',
-				'field' => 'TextField'
+				'field' => TextField::class
 			)
 		));
 		$fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
@@ -108,12 +126,5 @@ class Topic extends BlogPost {
 		));
 		return $data->renderWith('TopicGoogleMap');
 	}
-
-}
-
-
-class Topic_Controller extends BlogPost_Controller{
-
-
 
 }

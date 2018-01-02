@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
+use MD\DivisionProject\InitiativeHolderController;
 class InitiativeHolder extends Page {
 
 	private static $db = array(
@@ -33,45 +37,5 @@ class InitiativeHolder extends Page {
 
 }
 	
-class InitiativeHolder_Controller extends Page_Controller {
-
-	//public static $allowed_actions = array ( "legislation" );
-	
-	public function init() {
-		parent::init();
-	}
-
-	public function Initiatives(){
-
-		
-
-		if($this->FeaturedInitiativeID){
-			$featuredInitiativeID = $this->FeaturedInitiativeID;
-
-			if($this->ShuffleInitiatives){
-				$initiatives = InitiativePage::get()->exclude(array(
-					'ID' => $featuredInitiativeID
-				))->filter(array('ParentID' => $this->ID))->sort('RAND()');
-
-			}else{
-				$initiatives = InitiativePage::get()->exclude(array(
-					'ID' => $featuredInitiativeID
-				))->filter(array('ParentID' => $this->ID))->sort('Sort');
-			}
-
-			
-
-		}else{
-
-			if($this->ShuffleInitiatives){
-				$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('RAND()');
-
-			}else{
-				$initiatives = InitiativePage::get()->filter(array('ParentID' => $this->ID))->sort('Sort');
-			}
-		}
-		return $initiatives;
-	}
-}
 
 ?>

@@ -1,6 +1,9 @@
 <?php
 
-if (!class_exists("Widget")) {
+use SilverStripe\Widgets\Model\Widget;
+use SilverStripe\Widgets\Controllers\Widget_Controller;
+
+if (!class_exists(Widget::class)) {
 	return;
 }
 
@@ -31,9 +34,5 @@ class FacebookPageWidget extends Widget {
 	public function getCMSFields() {
 		return parent::getCMSFields();
 	}
-
-}
-
-class FacebookPageWidget_Controller extends Widget_Controller {
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\TextField;
+
 class FlickrSlideshowBlock extends Block{
 
 	private static $db = array(

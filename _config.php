@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\View\Parsers\ShortcodeParser;
+use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
+use SilverStripe\Security\Authenticator;
 GD::set_default_quality(80);
 
 // add a button to remove formatting
@@ -39,4 +43,4 @@ ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'Rs
 ShortcodeParser::get()->register('button', array('DivisionPage_Controller', 'ButtonHandler'));
 ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
 
-Authenticator::register_authenticator('SAMLAuthenticator');
+Authenticator::register_authenticator(SAMLAuthenticator::class);

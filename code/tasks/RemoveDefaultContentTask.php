@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Dev\BuildTask;
+
 class RemoveDefaultContentTask extends BuildTask{
 
 	protected $title = 'Removes old default content';

@@ -1,11 +1,14 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataObject;
 class SlideshowBlockImage extends DataObject {
     private static $db = array(
     	'Caption' => 'Text',
     	'SortOrder' => 'Int'
     );
     private static $has_one = array(
-    	'Image' => 'Image',
+    	'Image' => Image::class,
     	'SlideshowBlock' => 'SlideshowBlock'
     );
 

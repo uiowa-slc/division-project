@@ -1,4 +1,10 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\ORM\DataObject;
 class LandingPageSection extends DataObject {
 
 	private static $db = array(
@@ -16,7 +22,7 @@ class LandingPageSection extends DataObject {
 	);
 
 	private static $has_many = array(
-		'Images' => 'Image'
+		'Images' => Image::class
 	);
 
 	private static $default_sort = array(

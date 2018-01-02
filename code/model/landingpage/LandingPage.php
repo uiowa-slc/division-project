@@ -1,4 +1,14 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\GridField\GridField;
+use MD\DivisionProject\LandingPageController;
 class LandingPage extends Page {
 
 	private static $db = array(
@@ -10,9 +20,9 @@ class LandingPage extends Page {
 		'HeaderImageAltText' => 'Text'
 	);
 	private static $has_one = array(
-		'HeaderImage' => 'Image',
-		'HeaderLogo' => 'Image',
-		'SecondaryImage' => 'Image'
+		'HeaderImage' => Image::class,
+		'HeaderLogo' => Image::class,
+		'SecondaryImage' => Image::class
 	);
 	private static $has_many = array(
 		'Sections' => 'LandingPageSection'
@@ -44,13 +54,4 @@ class LandingPage extends Page {
 		return $fields;
 	}
 
-}
-class LandingPage_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-	}
 }

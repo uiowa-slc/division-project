@@ -1,5 +1,14 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\Form;
+use MD\DivisionProject\TopicHolderSearchBlockController;
+
 class TopicHolderSearchBlock extends Block {
 
 	private static $db = array(
@@ -8,7 +17,7 @@ class TopicHolderSearchBlock extends Block {
 
     private static $has_one = array(
         'TopicHolder' => 'TopicHolder',
-        'BackgroundImage' => 'Image'
+        'BackgroundImage' => Image::class
 
     );
     private static $many_many = array(
@@ -31,46 +40,5 @@ class TopicHolderSearchBlock extends Block {
     
 }
 
-class TopicHolderSearchBlock_Controller extends Block_Controller {
-
-        private static $allowed_actions = array(
-            'TopicSearchForm',
-            'submit'
-
-        );
-
-        public function TopicSearchForm(){
-            $searchText =  'Searching under '.$this->TopicHolder()->Title;
-
-            if($this->owner->request && $this->owner->request->getVar('Search')) {
-                $searchText = $this->owner->request->getVar('Search');
-            }
-            $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search for entries under '.$this->TopicHolder()->Title);
-            $searchField->addExtraClass('topic-search-form__input');
-            $fields = new FieldList(
-                $searchField
-            );
-
-            $action = FormAction::create('submit', _t('SearchForm.GO', 'Search'));
-            $action->addExtraClass('topic-search-form__search-button');
-            $actions = new FieldList(
-                $action //this is the only real change to tell the form to use a different function for the action
-            );
-            $form = new Form($this, 'TopicSearchForm', $fields, $actions);
-            // $form->classesToSearch(FulltextSearchable::get_searchable_classes());
-            $form->setTemplate('TopicSearchForm');
-            return $form;
-
-        }
-         public function submit($data, $form){
-
-            $topicHolder = $this->TopicHolder();
-            $query = $data['Search'];
-            // print_r($query);
-
-            return $this->redirect($topicHolder->Link() . 'TopicSearchForm?Search=' . $query . '&action_results=Search');
-        }
-}
 
    

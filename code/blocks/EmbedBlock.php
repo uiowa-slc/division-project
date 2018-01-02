@@ -1,5 +1,12 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Control\Controller;
+use SilverStripe\CMS\Controllers\CMSPageEditController;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+
 class EmbedBlock extends Block{
     
     private static $db = array(
@@ -24,7 +31,7 @@ class EmbedBlock extends Block{
         $self = $this;
         $fields = FieldList::create();
         // BlockArea - display areas field if on page edit controller
-        if (Controller::curr()->class == 'CMSPageEditController') {
+        if (Controller::curr()->class == CMSPageEditController::class) {
             $currentPage = Controller::curr()->currentPage();
             $areas = $self->blockManager->getAreasForPageType($currentPage->ClassName);
             $fields->push(

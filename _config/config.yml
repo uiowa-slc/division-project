@@ -1,7 +1,7 @@
-Member:
+SilverStripe\Security\Member:
   log_num_visits: false
   log_last_visited: false
 TypeKit:
   typekitID: ggu1mkb
-SSViewer:
-  theme: 'division-subtheme'
+SilverStripe\View\SSViewer:
+  theme: division-subtheme

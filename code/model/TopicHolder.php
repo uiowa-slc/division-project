@@ -1,5 +1,17 @@
 <?php
 
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Blog\Model\BlogTag;
+use SilverStripe\Blog\Model\BlogCategory;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Blog\Model\Blog;
+// use SilverStripe\Blog\Controllers\BlogController;
+use MD\DivisionProject\TopicHolderController;
+
 class TopicHolder extends Blog {
 
 	private static $db = array(
@@ -92,12 +104,4 @@ class TopicHolder extends Blog {
     	//print_r($letterArrayList->toArray());
     	return $letterArrayList;
     }
-}
-
-
-class TopicHolder_Controller extends Blog_Controller{
-	private static $allowed_actions = array(
-		'SearchForm'
-	);
-
 }

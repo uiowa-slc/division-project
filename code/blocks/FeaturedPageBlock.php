@@ -1,5 +1,15 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
 class FeaturedPageBlock extends Block{
 
 	private static $db = array(
@@ -10,8 +20,8 @@ class FeaturedPageBlock extends Block{
 	);
 
 	private static $has_one = array(
-		'PageTree' => 'SiteTree',
-		'FeaturePagePhoto' => 'Image'
+		'PageTree' => SiteTree::class,
+		'FeaturePagePhoto' => Image::class
 	);
 
 	public function getCMSFields() {
@@ -29,7 +39,7 @@ class FeaturedPageBlock extends Block{
 		));
 
 		$internalFields = DisplayLogicWrapper::create(
-			TreeDropdownField::create('PageTreeID', 'Select a Page:', 'SiteTree'),
+			TreeDropdownField::create('PageTreeID', 'Select a Page:', SiteTree::class),
 			HeaderField::create( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true )
 		)->displayIf('Source')->isEqualTo('Internal')->end();
 

@@ -1,5 +1,11 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
 class TextBlock extends ContentBlock{
     
     private static $db = array(
@@ -7,8 +13,8 @@ class TextBlock extends ContentBlock{
     );
 
     private static $has_one = array(
-        'Image' => 'Image',
-        'LinkedPage' => 'SiteTree'
+        'Image' => Image::class,
+        'LinkedPage' => SiteTree::class
     );
 	
     /**
@@ -37,7 +43,7 @@ class TextBlock extends ContentBlock{
         $f->removeByName('LinkedPageID');
         $f->renameField('ExternalLink', 'Link (include http://)');
         $f->addFieldToTab('Root.Main', TextField::create('Title'), 'ExternalLink');
-        $f->addFieldToTab('Root.Main', UploadField::create('Image', 'Image (crops to 600x425 in main content area)'));
+        $f->addFieldToTab('Root.Main', UploadField::create(Image::class, 'Image (crops to 600x425 in main content area)'));
         $f->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
  
 

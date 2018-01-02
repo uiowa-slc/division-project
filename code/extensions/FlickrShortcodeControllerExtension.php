@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\View\SSViewer;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Extension;
+
 class FlickrShortcodeControllerExtension extends Extension {
 
 	/**
