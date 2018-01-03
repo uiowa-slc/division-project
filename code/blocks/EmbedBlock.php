@@ -32,7 +32,7 @@ class EmbedBlock extends Block{
         $self = $this;
         $fields = FieldList::create();
         // BlockArea - display areas field if on page edit controller
-        if (Controller::curr()->class == CMSPageEditController::class) {
+        if (get_class(Controller::curr()) == CMSPageEditController::class) {
             $currentPage = Controller::curr()->currentPage();
             $areas = $self->blockManager->getAreasForPageType($currentPage->ClassName);
             $fields->push(
