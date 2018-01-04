@@ -41,7 +41,7 @@ class FeaturedPageBlock extends Block{
 
 		$internalFields = DisplayLogicWrapper::create(
 			TreeDropdownField::create('PageTreeID', 'Select a Page:', SiteTree::class),
-			HeaderField::create( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true )
+			HeaderField::create('OverwriteSettingsHeader', 'Overwrite Page Settings')
 		)->displayIf('Source')->isEqualTo('Internal')->end();
 
 		$externalFields = DisplayLogicWrapper::create(
