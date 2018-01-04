@@ -9,6 +9,7 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\ORM\DataObject;
 
+
 class NewHomePageHeroFeature extends DataObject {
 
 	private static $db = array(

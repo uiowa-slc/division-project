@@ -17,13 +17,13 @@ SilverStripe\SiteConfig\SiteConfig:
     - SiteConfigExtension
 HomePageFeature:
   extensions:
-    - 'Versioned("Stage","Live")'
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 HomePageHeroFeature:
   extensions:
-    - 'Versioned("Stage","Live")'
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 NewHomePageHeroFeature:
   extensions:
-    - 'Versioned("Stage","Live")'
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 ContentBlock:
   extensions:
     - ContentBlockExtension
