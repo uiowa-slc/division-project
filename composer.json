@@ -17,6 +17,7 @@
                 "undefinedoffset/silverstripe-nocaptcha":"*",
                 "thisisbd/silverstripe-maintenance-mode":"dev-master",
                 "silverstripe/activedirectory": "*",
+                "olliepop/fbpagefeed": "dev-master",
                 "edgarindustries/youtubefield" : "*",
                 "silverstripe/tagfield": "*",
                 "silverstripe/blog": "*",
