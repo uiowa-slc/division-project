@@ -1,4 +1,4 @@
-'<?php
+<?php
 
 use SilverStripe\Core\Convert;
 use SilverStripe\ORM\ArrayList;
