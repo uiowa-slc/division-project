@@ -3,7 +3,7 @@ Page:
     - DivisionPage
 PageController:
   extensions:
-    - DivisionPage_Controller
+    - DivisionPageController
 BlockManager:
   use_default_blocks: true
   themes:

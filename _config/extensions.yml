@@ -5,7 +5,7 @@ Page:
     - OpenGraphExtension
 PageController:
   extensions:
-    - DivisionPage_Controller
+    - DivisionPageController
 SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogFieldExtension

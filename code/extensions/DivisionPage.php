@@ -22,7 +22,7 @@ class DivisionPage extends DataExtension {
 		'OgTitle' => 'Text',
 		'OgDescription' => 'Text',
 		'PreventSearchEngineIndex' => 'Boolean',
-		'LayoutType' => 'varchar(155)',
+		'LayoutType' => 'Varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Text',
 		'ShowChildPages' => 'Boolean(1)',
 		'ShowChildrenInDropdown' => 'Boolean(1)'
