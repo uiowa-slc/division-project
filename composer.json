@@ -20,7 +20,7 @@
                 "silverstripe/userforms": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
-                "silverstripe/asset-admin": "*",
+                "silverstripe/asset-admin": "*"
    },
    "repositories":[  
       {  
