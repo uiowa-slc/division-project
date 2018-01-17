@@ -20,6 +20,14 @@
                 "silverstripe/userforms": "*",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
+                "silverstripe/activedirectory": "*",
+                "unclecheese/betterbuttons":"dev-master",
+                "jonom/silverstripe-betternavigator": "*",
+                "md/silverstripe-blocks": "dev-master",
+                "colymba/gridfield-bulk-editing-tools":"dev-master",
+                "thisisbd/silverstripe-maintenance-mode":"dev-master",
+                "symbiote/silverstripe-multivaluefield": "4.*",
+                "silverstripe/recaptcha": "dev-master",
                 "silverstripe/asset-admin": "*"
    },
    "repositories":[  
