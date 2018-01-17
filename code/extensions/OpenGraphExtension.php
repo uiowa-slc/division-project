@@ -77,7 +77,8 @@ class OpenGraphExtension extends DataExtension {
         //Try the above image fields
         foreach($tries as $t) {
             // echo $t;
-            $i = $page->getSchema($t);
+            $i = $page::getSchema()->hasOneComponent($page, $t);
+            // echo $i;
             if($i) {
                 if($page->getComponent($t)->exists()){
                     // echo 'component exists: '.$i;
