@@ -12,7 +12,7 @@
 				<a id="nav-$Pos" class="nav__link nav__link--{$Top.DarkLight}<% if $Children && $ShowChildrenInDropdown %> nav__link--parent<% end_if %>" href="$Link">$MenuTitle</a>
 				<% if $Children && $ShowChildrenInDropdown %>
 
-					<% if $Children.Count > 4 %>
+					<% if $Children.Count > 5 %>
 						<ul class="subnav subnav--{$Top.DarkLight} subnav--two-columns" aria-labelledby="nav-$Pos" id="subnav-$Pos">
 							<% loop $Children %>
 								<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLight}" href="$Link">$MenuTitle.LimitCharacters(30)</a></li>
