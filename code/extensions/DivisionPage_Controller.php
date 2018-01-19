@@ -80,8 +80,9 @@ class DivisionPage_Controller extends Extension {
 
 		$suggestions = array('suggestions' => array());
 
-		$pages = SiteTree::get()->filterAny(array(
+		$pages = SiteTree::get()->filter(array(
 		    'Title:PartialMatch' =>  $keyword,
+		    'ShowInSearch' => 1
 		    // 'Content:PartialMatch' => $keyword
 		))->limit(5);
 
