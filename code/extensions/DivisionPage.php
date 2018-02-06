@@ -32,7 +32,8 @@ class DivisionPage extends DataExtension {
 
 	private static $layout_types = array(
 		'BackgroundVideo' => 'Background Video, Overlay',
-		'BackgroundImage' => 'Background Image, Overlay'
+		'BackgroundImage' => 'Background Image, Overlay',
+		'NoSideNav' => 'No side navigation (even if this page has child pages)'
 	);
 
 	private static $plural_name = 'Pages';
