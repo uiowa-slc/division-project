@@ -19,11 +19,13 @@ class DivisionPage_Controller extends Extension {
 	 */
 	private static $allowed_actions = array(
 		'autoComplete',
-		'autoCompleteResults'
+		'autoCompleteResults',
+		'exportPosts'
 	);
 	private static $url_handlers = array (
 		'autoComplete' => 'autoComplete',
-		'autoCompleteResults' => 'autoCompleteResults'
+		'autoCompleteResults' => 'autoCompleteResults',
+		'exportPosts' => 'exportPosts'
 	);
 	public function init() {
 		parent::init();
@@ -48,6 +50,28 @@ class DivisionPage_Controller extends Extension {
 		}
 		return $length;
 
+	}
+
+	public function exportPosts(){
+		$posts = BlogPost::get();
+		$postsArray = array();
+		$postArrayTags = array();
+		// 'StoryBy'       => 'Text',
+		// 'StoryByEmail'  => 'Text',
+		// 'StoryByTitle'  => 'Text',
+		// 'StoryByDept'   => 'Text',
+		// 'PhotosBy'      => 'Text',
+		// 'PhotosByEmail' => 'Text',
+		// 'ExternalURL'   => 'Text',
+		foreach($posts as $post){
+
+				
+
+			array_push($postsArray, $post->toFeedArray());
+		}
+		$this->owner->getResponse()->addHeader("Content-Type", "application/json");
+		return json_encode ( $postsArray );
+		
 	}
 	public function SidebarBlocks(){
 

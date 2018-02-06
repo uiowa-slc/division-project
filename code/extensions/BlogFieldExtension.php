@@ -92,6 +92,42 @@ class BlogFieldExtension extends DataExtension {
 			return 'Read more';
 		}
 	}
+	public function toFeedArray(){
+		$post = $this->owner;
+		$postsArray = array();
 
+		$postArrayTags = array();
+		$postTags = $post->Tags();
+
+		$postAuthors = $post->Authors();
+		$postAuthorsArray = array();
+
+		foreach($postTags as $postTag){
+			array_push($postArrayTags, trim($postTag->Title));
+		}
+		foreach($postAuthors as $postAuthor){
+			array_push($postAuthorsArray, trim($postAuthor->Email));
+		}
+
+		$postArrayTagsFiltered = array_unique($postArrayTags);
+
+		$postArrayItem = array(
+				'Title' => $post->Title,
+				'Content' => $post->Content,
+				'Authors' => $postAuthorsArray,
+				'PublishDate' => $post->PublishDate,
+				'FeaturedImage' => $post->obj('FeaturedImage')->AbsoluteURL,
+				'Tags' => $postArrayTagsFiltered,
+				'StoryBy' => $post->StoryBy,
+				'StoryByEmail' => $post->StoryByEmail,
+				'StoryByTitle' => $post->StoryByTitle,
+				'StoryByDept' => $post->StoryByDept,
+				'PhotosBy' => $post->PhotosBy,
+				'PhotosByEmail' => $post->PhotosByEmail,
+				'ExternalURL' => $post->ExternalURL
+			);
+
+		return $postArrayItem;
+	}
 
 }
