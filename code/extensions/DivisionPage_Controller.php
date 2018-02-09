@@ -56,17 +56,7 @@ class DivisionPage_Controller extends Extension {
 		$posts = BlogPost::get();
 		$postsArray = array();
 		$postArrayTags = array();
-		// 'StoryBy'       => 'Text',
-		// 'StoryByEmail'  => 'Text',
-		// 'StoryByTitle'  => 'Text',
-		// 'StoryByDept'   => 'Text',
-		// 'PhotosBy'      => 'Text',
-		// 'PhotosByEmail' => 'Text',
-		// 'ExternalURL'   => 'Text',
 		foreach($posts as $post){
-
-				
-
 			array_push($postsArray, $post->toFeedArray());
 		}
 		$this->owner->getResponse()->addHeader("Content-Type", "application/json");

@@ -117,6 +117,7 @@ class BlogFieldExtension extends DataExtension {
 				'Authors' => $postAuthorsArray,
 				'PublishDate' => $post->PublishDate,
 				'FeaturedImage' => $post->obj('FeaturedImage')->AbsoluteURL,
+				'FeaturedImageName' => $post->obj('FeaturedImage')->Name,
 				'Tags' => $postArrayTagsFiltered,
 				'StoryBy' => $post->StoryBy,
 				'StoryByEmail' => $post->StoryByEmail,
