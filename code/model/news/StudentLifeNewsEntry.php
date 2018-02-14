@@ -9,8 +9,7 @@ class StudentLifeNewsEntry extends DataObject {
 		'ParentID' => 'Int',
 		'IsFeatured' => 'Boolean',
 		'ExternalURL' => 'Varchar(255)',
-		'FeaturedImageURL' => 'Varchar',
-		'StudentLifeID' => 'Int'
+		'FeaturedImageURL' => 'Varchar'
 	);
 
 	private static $casting = array(
@@ -48,7 +47,7 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry = $this;
 		$parent = StudentLifeNewsHolder::get()->filter(array('URLSegment' => 'news'))->First();
 
-		$entry->StudentLifeID = $array['StudentLifeID'];
+
 		$entry->Title = $array['Title'];
 		$entry->URLSegment = $array['URLSegment'];
 		
