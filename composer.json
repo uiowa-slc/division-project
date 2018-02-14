@@ -15,7 +15,7 @@
       "unclecheese/betterbuttons":"1.3.*",
       "unclecheese/eventcalendar":"1.*",
       "colymba/gridfield-bulk-editing-tools":"2.1.*",
-      "md/silverstripe-blog":"2.*",
+      "md/blog":"2.*",
       "silverstripe/widgets":"*",
       "silverstripe/userforms":"4.*",
       "undefinedoffset/silverstripe-nocaptcha":"0.4.*",
@@ -47,47 +47,45 @@
       "nathancox/sortableuploadfield": "*"
    },
    "repositories":[  
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/division-bar"
-      },
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/division-analytics"
-      },
-     {
-         "type": "vcs",
-         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-amp"
-
-     },
-  {
-         "type": "vcs",
-         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-blog"
-
-     },
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/rss-display"
-      },
-      {  
-         "type":"vcs",
-         "url":"https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
-      },
-      {
-         "type": "vcs",
-         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
-      },
-      {
-         "type": "vcs",
-         "url": "https://github.com/StudentLifeMarketingAndDesign/fbpagefeed"
-      },
-      {
-          "type": "vcs",
-          "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
-      },
-     {
-          "type": "vcs",
-          "url": "https://github.com/PlatoCreative/silverstripe-typekit"
-     }  
+    {  
+       "type":"vcs",
+       "url":"https://github.com/StudentLifeMarketingAndDesign/division-bar"
+    },
+    {  
+       "type":"vcs",
+       "url":"https://github.com/StudentLifeMarketingAndDesign/division-analytics"
+    },
+    {
+       "type": "vcs",
+       "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-amp"
+    },
+    { 
+     "type": "vcs",
+     "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-blog"
+    },
+    {  
+       "type":"vcs",
+       "url":"https://github.com/StudentLifeMarketingAndDesign/rss-display"
+    },
+    {  
+       "type":"vcs",
+       "url":"https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
+    },
+    {
+       "type": "vcs",
+       "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+    },
+    {
+       "type": "vcs",
+       "url": "https://github.com/StudentLifeMarketingAndDesign/fbpagefeed"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/PlatoCreative/silverstripe-typekit"
+    }  
    ]
 }
