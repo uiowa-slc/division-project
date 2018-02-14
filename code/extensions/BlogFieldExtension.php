@@ -113,8 +113,10 @@ class BlogFieldExtension extends DataExtension {
 
 		if($post->obj('FeaturedImage')->exists()){
 			$postImage = $post->obj('FeaturedImage')->AbsoluteURL;
+			$postImageName = $post->obj('FeaturedImage')->Name;
 		}else{
 			$postImage = null;
+			$postImageName = null;
 		}
 
 		$postArrayItem = array(
@@ -126,6 +128,7 @@ class BlogFieldExtension extends DataExtension {
 				'Authors' => $postAuthorsArray,
 				'PublishDate' => $post->PublishDate,
 				'FeaturedImage' => $postImage,
+				'FeaturedImageName' => $postImageName,
 				'Tags' => $postArrayTagsFiltered,
 				'StoryBy' => $post->StoryBy,
 				'StoryByEmail' => $post->StoryByEmail,
