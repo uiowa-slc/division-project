@@ -42,19 +42,21 @@ $Header
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				$Content
+			
 				<% if $PaginatedList.Exists %>
 					<% loop $PaginatedList %>
-						<% include BlogCard %>
+						<% include StudentLifeNewsCard %>
 					<% end_loop %>
 				<% end_if %>
-
+		
 				$BlockArea(AfterContentConstrained)
 				$Form
 				$CommentsForm
-
-				<% with $PaginatedList %>
+		
+				<% with $Pagination %>
 					<% include Pagination %>
 				<% end_with %>
+
 
 			</div>
 		</div>
