@@ -111,7 +111,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 	}
 
 	private function getBlogPostPagination($start){
-		$feedBase = 'http://localhost:8888/student-life-at-iowa/news';
+		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 		$list = new ArrayList();
 		$deptId = $this->DepartmentID;
 		$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
@@ -137,7 +137,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 	private function getBlogPostsFromFeed($cat = null, $tag = null, $limit = null, $perPage = 10, $start = 0){
 
-		$feedBase = 'http://localhost:8888/student-life-at-iowa/news';
+		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 		
 		$deptId = $this->DepartmentID;
 		$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
@@ -165,7 +165,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 	}
 
 	private function getSinglePostFromFeed($id){
-		$feedBase = 'http://localhost:8888/student-life-at-iowa/news';
+		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 		$feedURL = $feedBase.'/departmentNewsPost/'.$id;
 		$rawPost= file_get_contents($feedURL);
 		$postArray = json_decode($rawPost, TRUE);
