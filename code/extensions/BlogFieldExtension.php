@@ -113,6 +113,7 @@ class BlogFieldExtension extends DataExtension {
 
 		$postArrayItem = array(
 				'Title' => $post->Title,
+				'ID' => $post->ID,
 				'Content' => $post->Content,
 				'Authors' => $postAuthorsArray,
 				'PublishDate' => $post->PublishDate,
