@@ -111,14 +111,21 @@ class BlogFieldExtension extends DataExtension {
 
 		$postArrayTagsFiltered = array_unique($postArrayTags);
 
+		if($post->obj('FeaturedImage')->exists()){
+			$postImage = $post->obj('FeaturedImage')->AbsoluteURL;
+		}else{
+			$postImage = null;
+		}
+
 		$postArrayItem = array(
+				'StudentLifeID' => $post->ID,
 				'Title' => $post->Title,
 				'ID' => $post->ID,
 				'Content' => $post->Content,
+				'URLSegment' => $post->URLSegment,
 				'Authors' => $postAuthorsArray,
 				'PublishDate' => $post->PublishDate,
-				'FeaturedImage' => $post->obj('FeaturedImage')->AbsoluteURL,
-				'FeaturedImageName' => $post->obj('FeaturedImage')->Name,
+				'FeaturedImage' => $postImage,
 				'Tags' => $postArrayTagsFiltered,
 				'StoryBy' => $post->StoryBy,
 				'StoryByEmail' => $post->StoryByEmail,
