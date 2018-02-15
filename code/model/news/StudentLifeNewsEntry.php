@@ -45,12 +45,14 @@ class StudentLifeNewsEntry extends DataObject {
 	public function createFromArray($array){
 
 		$entry = $this;
-		$parent = StudentLifeNewsHolder::get()->filter(array('URLSegment' => 'news'))->First();
+
+		//volatile. TODO: make less volatile for more than one sl news holder
+		$parent = StudentLifeNewsHolder::get()->First();
 
 
 		$entry->Title = $array['Title'];
 		$entry->URLSegment = $array['URLSegment'];
-		
+		$entry->ParentID = $parent->ID;
 		$entry->Content = $array['Content'];
 
 		$entry->FeaturedImageURL = $array['FeaturedImage'];
@@ -58,51 +60,8 @@ class StudentLifeNewsEntry extends DataObject {
 
 		$entry->PublishDate = $array['PublishDate'];
 
-		// $entry->Image = $array['FeaturedImage'];
 
-
-		
-
-		//TODO: Tags import
-
-		// echo '<ul>';
-		// if(count($array['Tags']) > 0){
-		// 	echo '<li>Found tags: ';
-		// 	$newTagCandidates = $array['Tags'];
-
-		// 	foreach($newTagCandidates as $newTagCandidate){
-		// 		echo $newTagCandidate.', ';
-		// 	}
-
-		// 	foreach($newTagCandidates as $newTagCandidate){
-		// 		$newTagCandidate = trim($newTagCandidate);
-		// 		echo 'Converting tag <strong>'.$newTagCandidate.'</strong>...';
-		// 		$existingTag = BlogTag::get()->filter(array('Title' => $newTagCandidate))->First();
-
-
-		// 		if($existingTag){
-		// 			echo 'Existing tag <strong>'.$existingTag->Title.'</strong> found in database, adding post to this tag. ';
-
-		// 			$entry->Tags()->add($existingTag);
-		// 		}else{
-		// 			echo 'No equivalent tag found, creating a new tag <strong>'.$newTagCandidate.'</strong>';
-		// 			$newTag = BlogTag::create();
-		// 			$newTag->Title = $newTagCandidate;
-		// 			$newTag->BlogID = $parent->ID;
-		// 			$newTag->write();
-					
-		// 			$entry->Tags()->add($newTag);
-		// 		}
-		// 	echo '</li>';
-
-		// 	}
-
-			
-		// }else{
-		// 	echo '<li>No tags on this post.</li>';
-		// }
-		// echo '</ul>';		
-
+		$entry->Tags = $this->getTagsFromArray($array['Tags']);
 
 		$entry->StoryBy = $array['StoryBy'];
 		$entry->StoryByEmail = $array['StoryByEmail'];
@@ -112,12 +71,26 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry->PhotosByEmail = $array['PhotosByEmail'];
 		$entry->ExternalURL = $array['ExternalURL'];
 
-
 		return $entry;
 
 
 
 
+	}
+
+	public function getCredits(){
+
+		
+	}
+
+	private function getTagsFromArray($array){
+		$list = new ArrayList();
+		foreach($array as $tagArray){
+			$newTag = StudentLifeNewsTag::createFromArray($tagArray);
+			$newTag->ParentID = $this->ParentID;
+			$list->push($newTag);
+		}
+		return $list;
 	}
 	public function onBeforeWrite() {
 	    // check on first write action, aka 'database row creation' (ID-property is not set)
@@ -158,47 +131,47 @@ class StudentLifeNewsEntry extends DataObject {
 	    parent::onBeforeWrite();
   }
   public function lookupUser($email){
-			set_time_limit(30);
+		set_time_limit(30);
 
-			$ldapserver = 'iowa.uiowa.edu';
-			$ldapuser      =  AD_SERVICEID_USER;
-			$ldappass     = AD_SERVICEID_PASS;
-			$ldaptree    = 'DC=iowa, DC=uiowa, DC=edu';
+		$ldapserver = 'iowa.uiowa.edu';
+		$ldapuser      =  AD_SERVICEID_USER;
+		$ldappass     = AD_SERVICEID_PASS;
+		$ldaptree    = 'DC=iowa, DC=uiowa, DC=edu';
 
-			$ldapconn = ldap_connect($ldapserver) or die('Could not connect to LDAP server.');
+		$ldapconn = ldap_connect($ldapserver) or die('Could not connect to LDAP server.');
 
-			if($ldapconn) {
-			    // binding to ldap server
-			    ldap_set_option( $ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3 );
-			    ldap_set_option( $ldapconn, LDAP_OPT_REFERRALS, 0 );
-			    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ('Error trying to bind: '.ldap_error($ldapconn));
-			    // verify binding
-			    if ($ldapbind) {
+		if($ldapconn) {
+		    // binding to ldap server
+		    ldap_set_option( $ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3 );
+		    ldap_set_option( $ldapconn, LDAP_OPT_REFERRALS, 0 );
+		    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ('Error trying to bind: '.ldap_error($ldapconn));
+		    // verify binding
+		    if ($ldapbind) {
 
-			    	//do stuff
-						$result = ldap_search($ldapconn,$ldaptree, 'mail='.$email, array('mail','sn', 'givenName', 'objectGUID', 'memberOf')) or die ('Error in search query: '.ldap_error($ldapconn));
+		    	//do stuff
+					$result = ldap_search($ldapconn,$ldaptree, 'mail='.$email, array('mail','sn', 'givenName', 'objectGUID', 'memberOf')) or die ('Error in search query: '.ldap_error($ldapconn));
 
-			        	$data = ldap_get_entries($ldapconn, $result);
-			        	//print_r($data[0]);
-			        	if($data['count'] == 1){
-			        		$memberGuid = $this->GUIDtoStr($data[0]['objectguid'][0]);
-			        		$resultArray['guid'] = $memberGuid;
-			        		$resultArray['firstName'] = $data[0]['givenname'][0];
-			        		$resultArray['lastName'] = $data[0]['sn'][0];
-			        		// echo '<p>Found a GUID ('.$memberGuid.') matching the email <strong>'.$member->Email.'</strong>, adding it to the local member's GUID field.</p>';
-			        		//print_r($resultArray);
-			        		return $resultArray;
-			        		// echo '<p><strong>Done.</strong></p>';
-			        	}
+		        	$data = ldap_get_entries($ldapconn, $result);
+		        	//print_r($data[0]);
+		        	if($data['count'] == 1){
+		        		$memberGuid = $this->GUIDtoStr($data[0]['objectguid'][0]);
+		        		$resultArray['guid'] = $memberGuid;
+		        		$resultArray['firstName'] = $data[0]['givenname'][0];
+		        		$resultArray['lastName'] = $data[0]['sn'][0];
+		        		// echo '<p>Found a GUID ('.$memberGuid.') matching the email <strong>'.$member->Email.'</strong>, adding it to the local member's GUID field.</p>';
+		        		//print_r($resultArray);
+		        		return $resultArray;
+		        		// echo '<p><strong>Done.</strong></p>';
+		        	}
 
 
-			    } else {
-			        echo 'LDAP bind failed...';
-			    }
-			}
-			// all done? clean up
-			ldap_close($ldapconn);
+		    } else {
+		        echo 'LDAP bind failed...';
+		    }
 		}
+		// all done? clean up
+		ldap_close($ldapconn);
+	}
 
 	public function GUIDtoStr($binary_guid) {
 	  $unpacked = unpack('Va/v2b/n2c/Nd', $binary_guid);
