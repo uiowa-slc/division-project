@@ -103,6 +103,7 @@ class StudentLifeNewsEntry extends DataObject {
 		// }
 		// echo '</ul>';		
 
+		$entry->Tags = new ArrayList($array['Tags']);
 
 		$entry->StoryBy = $array['StoryBy'];
 		$entry->StoryByEmail = $array['StoryByEmail'];
