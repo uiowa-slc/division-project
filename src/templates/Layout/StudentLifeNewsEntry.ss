@@ -46,7 +46,7 @@ $Header
 							<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png" alt="share on linkedid"></a></li>
 						</ul>
 					</div>
-
+					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImageURL" alt="" class="right post-image">
 					$Content
 					<% if $ExternalURL %>
 						<p><a href="$ExternalURL" class="button--shaded" target="_blank">$ExternalURLText</a></p>
