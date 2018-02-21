@@ -61,6 +61,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		$action = $this->getRequest()->param('Action');
 		$id = $this->getRequest()->param('ID');
+
 		$posts = new ArrayList();
 
 		$getVars = $this->getRequest()->getVars();
@@ -88,8 +89,10 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		    case 'category':
 		       // echo "using category action";
+		    	$posts = $this->getBlogPostsFromFeed('category', $id, null, 10, $start);
 		        break;
 		    case 'tag':
+		    	$posts = $this->getBlogPostsFromFeed('tag', $id, null, 10, $start);
 		        //echo "use tag action";
 		        break;
 		    default: 
@@ -110,11 +113,24 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		return $this->customise($data)->renderWith(array('StudentLifeNewsHolder', 'Page'));
 	}
 
-	private function getBlogPostPagination($start){
+	private function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
 		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+
 		$list = new ArrayList();
 		$deptId = $this->DepartmentID;
-		$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+
+		switch($filterType){
+
+			case 'tag':
+				break;
+			case 'category':
+				break;
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+				break;
+		}
+
+		
 
 		if($start != 0){
 			$feedURL .='?start='.$start;
@@ -135,12 +151,25 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 	}
 
-	private function getBlogPostsFromFeed($cat = null, $tag = null, $limit = null, $perPage = 10, $start = 0){
+	private function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
 
 		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
-		
 		$deptId = $this->DepartmentID;
-		$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+
+		switch($filterType){
+			case 'tag':
+			$feedURL = $feedBase.'/departmentNewsTagFeed/'.$deptId.'/'.$filterItem;
+			break;
+
+			case 'catgory':
+			$feedURL = $feedBase.'/departmentNewsCatFeed/'.$deptId.'/'.$filterItem;
+			break;
+
+			default:
+			$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+			break;
+		}
+		
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}

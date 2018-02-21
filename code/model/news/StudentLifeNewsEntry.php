@@ -80,7 +80,6 @@ class StudentLifeNewsEntry extends DataObject {
 
 	public function getCredits(){
 
-		
 	}
 
 	private function getTagsFromArray($array){
