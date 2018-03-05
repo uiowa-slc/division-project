@@ -12,7 +12,9 @@ class StudentLifeNewsHolder extends Page {
 	private static $has_many = array(
 	);
 
-
+	//private static $feed_base = 'https://studentlife.uiowa.edu/news';
+	private static $feed_base = 'http://localhost:8888/student-life-at-iowa/news';
+	// private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	public function getCMSFields() {
 
@@ -78,6 +80,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 			case '':
 				//index action
 				$posts = $this->getBlogPostsFromFeed(null, null, null, 10, $start);
+				$pagination = $this->getBlogPostPagination($start);
 				break;
 		    case 'post':
 		        $post = $this->getSinglePostFromFeed($id);
@@ -90,9 +93,11 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		    case 'category':
 		       // echo "using category action";
 		    	$posts = $this->getBlogPostsFromFeed('category', $id, null, 10, $start);
+		    	$pagination = $this->getBlogPostPagination($start, 'category', $id);
 		        break;
 		    case 'tag':
 		    	$posts = $this->getBlogPostsFromFeed('tag', $id, null, 10, $start);
+		    	$pagination = $this->getBlogPostPagination($start, 'tag', $id);
 		        //echo "use tag action";
 		        break;
 		    default: 
@@ -103,7 +108,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		}
 
-		$pagination = $this->getBlogPostPagination($start);
+		
 
 		$data = new ArrayData(array(
 			'PaginatedList' => $posts,
@@ -114,7 +119,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 	}
 
 	private function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
-		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 
 		$list = new ArrayList();
 		$deptId = $this->DepartmentID;
@@ -122,8 +127,10 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		switch($filterType){
 
 			case 'tag':
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterTitle;
 				break;
 			case 'category':
+				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterTitle;
 				break;
 			default:
 				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
@@ -135,7 +142,6 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}
-
 		$rawPostFeed = file_get_contents($feedURL);
 		$postsArray = json_decode($rawPostFeed, TRUE);
 
@@ -153,16 +159,16 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 	private function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
 
-		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 		$deptId = $this->DepartmentID;
 
 		switch($filterType){
 			case 'tag':
-			$feedURL = $feedBase.'/departmentNewsTagFeed/'.$deptId.'/'.$filterItem;
+			$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
 			break;
 
 			case 'catgory':
-			$feedURL = $feedBase.'/departmentNewsCatFeed/'.$deptId.'/'.$filterItem;
+			$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
 			break;
 
 			default:
@@ -179,6 +185,10 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		$postsList = new ArrayList();
 
+		if(!isset($postsArray['posts'])){
+			return;
+		}
+
 		foreach($postsArray['posts'] as $postArray){
 			$entry = new StudentLifeNewsEntry();
 			$entry = $entry->createFromArray($postArray);
@@ -194,7 +204,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 	}
 
 	private function getSinglePostFromFeed($id){
-		$feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 		$feedURL = $feedBase.'/departmentNewsPost/'.$id;
 		$rawPost= file_get_contents($feedURL);
 		$postArray = json_decode($rawPost, TRUE);

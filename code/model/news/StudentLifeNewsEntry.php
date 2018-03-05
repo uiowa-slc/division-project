@@ -70,12 +70,16 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry->PhotosBy = $array['PhotosBy'];
 		$entry->PhotosByEmail = $array['PhotosByEmail'];
 		$entry->ExternalURL = $array['ExternalURL'];
-
+		$entry->CanonicalURL = $array['CanonicalURL'];
 		return $entry;
 
 
 
 
+	}
+
+	public function AbsoluteLink(){
+		return $this->CanonicalURL;
 	}
 
 	public function getCredits(){
