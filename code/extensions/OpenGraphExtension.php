@@ -65,44 +65,44 @@ class OpenGraphExtension extends DataExtension {
     }
     public function getOpenGraphImage() {
 
-        $page = $this->owner->data();
-        $tries = array(
-            'OgImage',
-            'FeaturedImage',
-            'MainImage',
-            'HeaderImage',
-            'Photo',
-            'BackgroundImage',
-        );
-        //Try the above image fields
-        foreach($tries as $t) {
-            // echo $t;
-            $i = $page::getSchema()->hasOneComponent($page, $t);
-            // echo $i;
-            if($i) {
-                if($page->getComponent($t)->exists()){
-                    // echo 'component exists: '.$i;
-                    return $page->getComponent($t);
-                }
-            }
-        }
+        // $page = $this->owner->data();
+        // $tries = array(
+        //     'OgImage',
+        //     'FeaturedImage',
+        //     'MainImage',
+        //     'HeaderImage',
+        //     'Photo',
+        //     'BackgroundImage',
+        // );
+        // //Try the above image fields
+        // foreach($tries as $t) {
+        //     // echo $t;
+        //     $i = $page::getSchema()->hasOneComponent($page, $t);
+        //     // echo $i;
+        //     if($i) {
+        //         if($page->getComponent($t)->exists()){
+        //             // echo 'component exists: '.$i;
+        //             return $page->getComponent($t);
+        //         }
+        //     }
+        // }
 
-        //If no images in the tries array were found, attempt to get the sitewide poster image:
-        if(SiteConfig::current_site_config()->obj('PosterImage')->exists()){
-            return SiteConfig::current_site_config()->obj('PosterImage');
-        }else{
-            $ogDefaultImageTest = Image::get()->filter(array('Filename' => 'division-project/src/images/og-dsl.png'))->First();
+        // //If no images in the tries array were found, attempt to get the sitewide poster image:
+        // if(SiteConfig::current_site_config()->obj('PosterImage')->exists()){
+        //     return SiteConfig::current_site_config()->obj('PosterImage');
+        // }else{
+        //     $ogDefaultImageTest = Image::get()->filter(array('Filename' => 'division-project/src/images/og-dsl.png'))->First();
 
-            if($ogDefaultImageTest){
-                return $ogDefaultImageTest;
-            }else{
-                $ogDefaultImage = Image::create();
-                $ogDefaultImage->Title = 'Division of Student Life default Og Image';
-                $ogDefaultImage->Filename = 'division-project/src/images/og-dsl.png';
-                $ogDefaultImage->write();
-                return $ogDefaultImage;                           
-            }
-        }  
+        //     if($ogDefaultImageTest){
+        //         return $ogDefaultImageTest;
+        //     }else{
+        //         $ogDefaultImage = Image::create();
+        //         $ogDefaultImage->Title = 'Division of Student Life default Og Image';
+        //         $ogDefaultImage->Filename = 'division-project/src/images/og-dsl.png';
+        //         $ogDefaultImage->write();
+        //         return $ogDefaultImage;                           
+        //     }
+        // }  
         return null;
     }
     
