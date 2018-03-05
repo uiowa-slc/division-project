@@ -27,7 +27,7 @@
                 "jonom/silverstripe-betternavigator": "*",
                 "symbiote/silverstripe-multivaluefield": "4.*",
                 "silverstripe/asset-admin": "*",
-                "msheadawson/silverstripe-blocks": "*"
+                "sheadawson/silverstripe-blocks": "*"
    },
    "repositories":[  
       {  
