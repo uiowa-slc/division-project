@@ -106,7 +106,13 @@ class BlogFieldExtension extends DataExtension {
 			array_push($postArrayTags, trim($postTag->Title));
 		}
 		foreach($postAuthors as $postAuthor){
-			array_push($postAuthorsArray, trim($postAuthor->Email));
+			$postAuthorSingleArray = array(
+				'ID' => $postAuthor->ID,
+				'Name' => $postAuthor->Name,
+				'Email' => $postAuthor->Email,
+				'ImageURL' => $postAuthor->BlogProfileImage()->AbsoluteURL,
+			);
+			array_push($postAuthorsArray, $postAuthorSingleArray);
 		}
 
 		$postArrayTagsFiltered = array_unique($postArrayTags);
@@ -136,7 +142,8 @@ class BlogFieldExtension extends DataExtension {
 				'StoryByDept' => $post->StoryByDept,
 				'PhotosBy' => $post->PhotosBy,
 				'PhotosByEmail' => $post->PhotosByEmail,
-				'ExternalURL' => $post->ExternalURL
+				'ExternalURL' => $post->ExternalURL,
+				'CanonicalURL' => $post->AbsoluteLink()
 			);
 
 		return $postArrayItem;

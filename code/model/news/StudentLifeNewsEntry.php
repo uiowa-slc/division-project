@@ -71,9 +71,8 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry->PhotosByEmail = $array['PhotosByEmail'];
 		$entry->ExternalURL = $array['ExternalURL'];
 		$entry->CanonicalURL = $array['CanonicalURL'];
+
 		return $entry;
-
-
 
 
 	}
