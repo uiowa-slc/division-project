@@ -48,6 +48,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		'post',
 		'category',
 		'tag',
+		'author',
 		'go'
 	);
 
@@ -92,12 +93,20 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		    case 'category':
 		       // echo "using category action";
+		    	$filterTitle = $id;
 		    	$posts = $this->getBlogPostsFromFeed('category', $id, null, 10, $start);
 		    	$pagination = $this->getBlogPostPagination($start, 'category', $id);
 		        break;
 		    case 'tag':
+		    	$filterTitle = $id;
 		    	$posts = $this->getBlogPostsFromFeed('tag', $id, null, 10, $start);
 		    	$pagination = $this->getBlogPostPagination($start, 'tag', $id);
+		        //echo "use tag action";
+		        break;
+		    case 'author':
+		    	$filterTitle = $this->getAuthorNameByID($id);
+		    	$posts = $this->getBlogPostsFromFeed('author', $id, null, 10, $start);
+		    	$pagination = $this->getBlogPostPagination($start, 'author', $id);
 		        //echo "use tag action";
 		        break;
 		    default: 
@@ -111,12 +120,15 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		
 
 		$data = new ArrayData(array(
+			'FilterType' => $action,
+			'FilterTitle' => $filterTitle,
 			'PaginatedList' => $posts,
 			'Pagination' => $pagination,
 		));
 
 		return $this->customise($data)->renderWith(array('StudentLifeNewsHolder', 'Page'));
 	}
+
 
 	private function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
 		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
@@ -131,6 +143,9 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 				break;
 			case 'category':
 				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterTitle;
+				break;
+			case 'author':
+				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterTitle;
 				break;
 			default:
 				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
@@ -164,15 +179,19 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 
 		switch($filterType){
 			case 'tag':
-			$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
 			break;
 
 			case 'catgory':
-			$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
+				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
+			break;
+
+			case 'author':
+				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterItem;
 			break;
 
 			default:
-			$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
 			break;
 		}
 		
@@ -212,6 +231,18 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		$post = $post->createFromArray($postArray);
 
 		return $post;
+	}
+	private function getAuthorNameByID($id){
+
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
+		$feedURL = $feedBase.'/authorInfo/'.$id;
+		
+		$rawAuthor= file_get_contents($feedURL);
+		$authorArray = json_decode($rawAuthor, TRUE);
+
+		if($authorArray){
+			return $authorArray['Name'];
+		}
 	}
 
 }

@@ -29,7 +29,7 @@
 			<p class="bloglistitem__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
 		<% end_if %>
 
-		<% include ByLine %>
+		<% include StudentLifeNewsByLine %>
 
 	</div>
 </article>
