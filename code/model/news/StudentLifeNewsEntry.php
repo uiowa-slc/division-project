@@ -62,6 +62,7 @@ class StudentLifeNewsEntry extends DataObject {
 
 
 		$entry->Tags = $this->getTagsFromArray($array['Tags']);
+		$entry->Authors = $this->getAuthorsFromArray($array['Authors']);
 
 		$entry->StoryBy = $array['StoryBy'];
 		$entry->StoryByEmail = $array['StoryByEmail'];
@@ -74,15 +75,10 @@ class StudentLifeNewsEntry extends DataObject {
 
 		return $entry;
 
-
 	}
 
 	public function AbsoluteLink(){
 		return $this->CanonicalURL;
-	}
-
-	public function getCredits(){
-
 	}
 
 	private function getTagsFromArray($array){
@@ -93,6 +89,17 @@ class StudentLifeNewsEntry extends DataObject {
 			$list->push($newTag);
 		}
 		return $list;
+	}
+
+	private function getAuthorsFromArray($array){
+		$list = new ArrayList();
+		foreach($array as $authorArray){
+			$newAuthor = StudentLifeNewsAuthor::createFromArray($authorArray);
+			$newAuthor->ParentID = $this->ParentID;
+			$list->push($newAuthor);
+		}
+		return $list;
+
 	}
 	public function onBeforeWrite() {
 	    // check on first write action, aka 'database row creation' (ID-property is not set)

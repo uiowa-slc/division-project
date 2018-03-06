@@ -14,19 +14,12 @@ $Header
 		<div class="column row">
 			<div class="main-content__header">
 				<h1 class="page-title">
-					<% if $ArchiveYear %>
-						<%t Blog.Archive 'Archive' %>:
-						<% if $ArchiveDay %>
-							$ArchiveDate.Nice
-						<% else_if $ArchiveMonth %>
-							$ArchiveDate.format('F, Y')
-						<% else %>
-							$ArchiveDate.format('Y')
-						<% end_if %>
-					<% else_if $CurrentTag %>
-						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-					<% else_if $CurrentCategory %>
-						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+					<% if $FilterType == "author" %>
+						All posts by $FilterTitle:
+					<% else_if $FilterType == "tag" %>
+						All posts tagged with $FilterTitle:
+					<% else_if $FilterType == "category" %>
+						All posts categorized as $FilterTitle:
 					<% else %>
 						$Title
 					<% end_if %>
