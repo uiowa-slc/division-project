@@ -22,7 +22,8 @@
                 "silverstripe/recaptcha": "dev-master",
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
-                "silverstripe/asset-admin": "*"
+                "silverstripe/asset-admin": "*",
+                "md/silverstripe-blocks": "dev-master"
    },
    "repositories":[  
       {  
