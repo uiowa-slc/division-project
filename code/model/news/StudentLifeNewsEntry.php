@@ -47,7 +47,7 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry = $this;
 
 		//volatile. TODO: make less volatile for more than one sl news holder
-		$parent = StudentLifeNewsHolder::get()->First();
+		$parent = StudentLifeNewsHolder::getOrCreate();
 
 
 		$entry->Title = $array['Title'];

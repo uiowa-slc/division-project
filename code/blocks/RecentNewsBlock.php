@@ -3,10 +3,10 @@
 class RecentNewsBlock extends Block{
 
 	private static $db = array(
-		'FilterBy' => "Enum('Blog,Tag,Category')",
+		'FilterBy' => 'Enum(array("Blog","Tag","Category","Student Life News Department")',
 		'Limit' => 'Int',
 		'SortBy' => "Enum('Recent,Random,Featured')",
-
+		'StudentLifeNewsDeptID' => 'Int'
 	);
 
 	private static $has_one = array(
@@ -30,6 +30,7 @@ class RecentNewsBlock extends Block{
 		$fields->removeByName('FilterTagMethod');
 		$fields->removeByName('Tags');
 		$fields->removeByName('Categories');
+		$fields->removeByName('StudentLifeNewsDeptID');
 
 		$tags = BlogTag::get();
 		$cats = BlogCategory::get();
@@ -55,14 +56,16 @@ class RecentNewsBlock extends Block{
 					$cats->map()->toArray()
 				)->setMultiple(true),
 
-				$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)')
+				$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)'),
+
+				$deptField = NewsDeptDropdownField::create('StudentLifeNewsDeptID', 'Department')
 			)
 		);
-
 
 		$tagField->displayIf('FilterBy')->isEqualTo('Tag');
 		$catField->displayIf('FilterBy')->isEqualTo('Category');
 		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
+		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
 		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
 		return $fields;
@@ -105,6 +108,11 @@ class RecentNewsBlock extends Block{
 					$entries->merge($catEntries);
 				}
 				break;
+			case 'Student Life News Department':
+				$tempHolder = new StudentLifeNewsHolder();
+				$tempHolder->DepartmentID = $this->StudentLifeNewsDeptID;
+				$entries = $tempHolder->getBlogPostsFromFeed();
+			break;
 
 		}
 

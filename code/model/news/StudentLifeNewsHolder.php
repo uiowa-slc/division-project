@@ -26,6 +26,122 @@ class StudentLifeNewsHolder extends Page {
 	
 		return $f;
 	}
+
+	public function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
+
+		$list = new ArrayList();
+		$deptId = $this->DepartmentID;
+
+		switch($filterType){
+
+			case 'tag':
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterTitle;
+				break;
+			case 'category':
+				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterTitle;
+				break;
+			case 'author':
+				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterTitle;
+				break;
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+				break;
+		}
+
+		
+
+		if($start != 0){
+			$feedURL .='?start='.$start;
+		}
+		$rawPostFeed = file_get_contents($feedURL);
+		$postsArray = json_decode($rawPostFeed, TRUE);
+
+		$count = $postsArray['meta']['postCount'];
+
+		for ($i = 1; $i <= $count; $i++) {
+		    $list->push(new ArrayData(array()));
+		}
+
+		$paginatedList = new PaginatedList($list, Controller::curr()->getRequest());
+
+		return $paginatedList;
+
+	}
+
+	public function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
+
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
+		$deptId = $this->DepartmentID;
+
+		switch($filterType){
+			case 'tag':
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
+			break;
+
+			case 'catgory':
+				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
+			break;
+
+			case 'author':
+				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterItem;
+			break;
+
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+			break;
+		}
+		
+		if($start != 0){
+			$feedURL .='?start='.$start;
+		}
+		//print_r($feedURL);
+		$rawPostFeed = file_get_contents($feedURL);
+		$postsArray = json_decode($rawPostFeed, TRUE);
+
+		$postsList = new ArrayList();
+
+		if(!isset($postsArray['posts'])){
+			return;
+		}
+
+		foreach($postsArray['posts'] as $postArray){
+			$entry = new StudentLifeNewsEntry();
+			$entry = $entry->createFromArray($postArray);
+			$entry->ParentID = $this->ID;
+
+
+			$postsList->push($entry);
+		}
+
+		//Debug::show($postsList);
+		return $postsList;
+
+	}
+
+	public function getSinglePostFromFeed($id){
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
+		$feedURL = $feedBase.'/departmentNewsPost/'.$id;
+		$rawPost= file_get_contents($feedURL);
+		$postArray = json_decode($rawPost, TRUE);
+		$post = new StudentLifeNewsEntry();
+		$post = $post->createFromArray($postArray);
+
+		return $post;
+	}
+	public function getAuthorNameByID($id){
+
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
+		$feedURL = $feedBase.'/authorInfo/'.$id;
+		
+		$rawAuthor= file_get_contents($feedURL);
+		$authorArray = json_decode($rawAuthor, TRUE);
+
+		if($authorArray){
+			return $authorArray['Name'];
+		}
+	}
+
 }
 class StudentLifeNewsHolder_Controller extends Page_Controller {
 
@@ -66,7 +182,7 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		$id = $this->getRequest()->param('ID');
 
 		$posts = new ArrayList();
-
+		$filterTitle = null;
 		$getVars = $this->getRequest()->getVars();
 
 		if(isset($getVars['start'])){
@@ -129,120 +245,5 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		return $this->customise($data)->renderWith(array('StudentLifeNewsHolder', 'Page'));
 	}
 
-
-	private function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
-		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
-
-		$list = new ArrayList();
-		$deptId = $this->DepartmentID;
-
-		switch($filterType){
-
-			case 'tag':
-				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterTitle;
-				break;
-			case 'category':
-				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterTitle;
-				break;
-			case 'author':
-				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterTitle;
-				break;
-			default:
-				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
-				break;
-		}
-
-		
-
-		if($start != 0){
-			$feedURL .='?start='.$start;
-		}
-		$rawPostFeed = file_get_contents($feedURL);
-		$postsArray = json_decode($rawPostFeed, TRUE);
-
-		$count = $postsArray['meta']['postCount'];
-
-		for ($i = 1; $i <= $count; $i++) {
-		    $list->push(new ArrayData(array()));
-		}
-
-		$paginatedList = new PaginatedList($list, $this->getRequest());
-
-		return $paginatedList;
-
-	}
-
-	private function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
-
-		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
-		$deptId = $this->DepartmentID;
-
-		switch($filterType){
-			case 'tag':
-				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
-			break;
-
-			case 'catgory':
-				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
-			break;
-
-			case 'author':
-				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterItem;
-			break;
-
-			default:
-				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
-			break;
-		}
-		
-		if($start != 0){
-			$feedURL .='?start='.$start;
-		}
-		//print_r($feedURL);
-		$rawPostFeed = file_get_contents($feedURL);
-		$postsArray = json_decode($rawPostFeed, TRUE);
-
-		$postsList = new ArrayList();
-
-		if(!isset($postsArray['posts'])){
-			return;
-		}
-
-		foreach($postsArray['posts'] as $postArray){
-			$entry = new StudentLifeNewsEntry();
-			$entry = $entry->createFromArray($postArray);
-			$entry->ParentID = $this->ID;
-
-
-			$postsList->push($entry);
-		}
-
-		//Debug::show($postsList);
-		return $postsList;
-
-	}
-
-	private function getSinglePostFromFeed($id){
-		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
-		$feedURL = $feedBase.'/departmentNewsPost/'.$id;
-		$rawPost= file_get_contents($feedURL);
-		$postArray = json_decode($rawPost, TRUE);
-		$post = new StudentLifeNewsEntry();
-		$post = $post->createFromArray($postArray);
-
-		return $post;
-	}
-	private function getAuthorNameByID($id){
-
-		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
-		$feedURL = $feedBase.'/authorInfo/'.$id;
-		
-		$rawAuthor= file_get_contents($feedURL);
-		$authorArray = json_decode($rawAuthor, TRUE);
-
-		if($authorArray){
-			return $authorArray['Name'];
-		}
-	}
 
 }
