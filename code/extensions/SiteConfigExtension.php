@@ -39,7 +39,8 @@ class SiteConfigExtension extends DataExtension {
 		'QuickLinkTitleThree' => 'Text',
 		'QuickLinkURLOne' => 'Text',
 		'QuickLinkURLTwo' => 'Text',
-		'QuickLinkURLThree' => 'Text'
+		'QuickLinkURLThree' => 'Text',
+		'Disclaimer' => 'HTMLText'
 	);
 
 	private static $has_one = array(
@@ -91,6 +92,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('Github', 'Github Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('Snapchat', 'Snapchat Username'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Disclaimer', 'Additional disclaimer (shows in small text under social media)')->setRows(3));
 
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Header Quick Links</h3>', '3', true ) );
