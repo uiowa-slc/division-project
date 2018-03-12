@@ -194,6 +194,8 @@
 
 	&__disclaimer{
 		font-size: rem-calc(12);
+		border-top: 2px solid #ddd;
+		padding-top: rem-calc(10);
 	}
 	&__md {
 		display: inline-block;
