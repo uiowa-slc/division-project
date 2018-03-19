@@ -24,7 +24,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/asset-admin": "*",
                 "dnadesign/silverstripe-elemental": "2.x-dev",
-                "silverstripe/silverstripe-elemental-blocks": "*"
+                "silverstripe/silverstripe-elemental-blocks": "1.0.x-dev"
    },
    "repositories":[  
       {  
