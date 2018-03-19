@@ -105,7 +105,7 @@ class DivisionPageController extends Extension {
 
 	}
 	public function Header($theme = 'auto', $headerType = 'full'){
-		$template = new SSViewer('Header');
+		$template = new SSViewer('Includes/Header');
 		$siteConfig = SiteConfig::current_site_config();
 		
 		

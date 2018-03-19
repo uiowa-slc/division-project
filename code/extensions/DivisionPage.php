@@ -35,7 +35,7 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $many_many = array(
-		'SidebarItems' => 'SidebarItem',
+
 	);
 
 	private static $belongs_many_many = array(

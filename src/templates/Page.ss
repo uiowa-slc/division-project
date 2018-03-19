@@ -11,7 +11,7 @@
     <% else %>
       <title>$Title - $SiteConfig.Title | The University of Iowa</title>
     <% end_if %>
-    $OpenGraph
+<%--     $OpenGraph --%>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 

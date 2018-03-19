@@ -23,7 +23,7 @@
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/asset-admin": "*",
-                "md/silverstripe-blocks": "dev-master"
+                "dnadesign/silverstripe-elemental": "2.x-dev"
    },
    "repositories":[  
       {  
