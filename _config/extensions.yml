@@ -21,9 +21,6 @@ HomePageFeature:
 HomePageHeroFeature:
   extensions:
     - Versioned("Stage","Live") 
-NewHomePageHeroFeature:
-  extensions:
-    - Versioned("Stage","Live")
 ContentBlock:
   extensions:
     - ContentBlockExtension

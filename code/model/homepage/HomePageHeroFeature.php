@@ -20,7 +20,9 @@ class HomePageHeroFeature extends DataObject {
 
 	private static $singular_name = "Hero Feature";
 	private static $plural_name = "Hero Features";
-
+	private static $extensions = array(
+		'Heyday\VersionedDataObjects\VersionedDataObject'
+	);
 	function getCMSFields() {
 		$fields = new FieldList();
 

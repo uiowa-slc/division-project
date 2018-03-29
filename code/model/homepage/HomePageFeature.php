@@ -21,7 +21,9 @@ class HomePageFeature extends DataObject {
 
 	private static $singular_name = "Feature";
 	private static $plural_name   = "Features";
-
+	private static $extensions = array(
+		'Heyday\VersionedDataObjects\VersionedDataObject'
+	);
 	function getCMSFields() {
 		$fields = new FieldList();
 

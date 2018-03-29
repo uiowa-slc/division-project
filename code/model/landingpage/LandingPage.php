@@ -21,9 +21,7 @@ class LandingPage extends Page {
 	private static $allowed_children = array(
 		'LandingSubpage'
 	);
-	private static $extensions = array(
-		'Heyday\VersionedDataObjects\VersionedDataObject'
-	);
+
 	private static $layout_types = array(
 		'MainImage' => 'Big image (logos/text all contained within image)',
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
@@ -55,8 +53,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 		$sectionsConf = GridFieldConfig_RelationEditor::create(10);
 		$sectionsConf->addComponent(new GridFieldSortableRows('SortOrder'));
-		$sectionsConf->addComponent(new GridFieldSiteTreeState());
-		
+
 
 		$fields->addFieldToTab('Root.Main', $sectionsGridField = GridField::create('Sections', 'Sections', $this->Sections(), $sectionsConf), 'Content');
 
