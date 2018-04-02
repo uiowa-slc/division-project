@@ -1,4 +1,4 @@
 
-$BlockArea(BeforeContent)
+$BeforeContent
 
-$BlockArea(AfterContent)
+$AfterContent

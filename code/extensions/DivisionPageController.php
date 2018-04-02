@@ -59,8 +59,8 @@ class DivisionPageController extends Extension {
 	}
 	public function SidebarBlocks(){
 
-		$pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
-		return $pages;
+		// $pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
+		// return $pages;
 
 	}
 

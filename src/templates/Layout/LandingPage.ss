@@ -69,14 +69,14 @@
 
 <div id="top" class="main-content__container">
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
-		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
+		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
 			<% if $ShowBreadcrumbs %>
 				$Breadcrumbs
 			<% end_if %>
-			$BlockArea(BeforeContentConstrained)
+			$BeforeContentConstrained
 			<% if $SecondaryImage %>
 				<img class="main-content__main-img" src="$SecondaryImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
 			<% end_if %>
@@ -134,7 +134,7 @@
 					</div>
 				<% end_loop %>
 			<% end_if %>
-			$BlockArea(AfterContentConstrained)
+			$AfterContentConstrained
 			$Form
 		</article>
 
@@ -144,10 +144,10 @@
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	<% end_if %>
 	</div>
 	<br>
-	$BlockArea(AfterContent)
+	$AfterContent
 </div>

@@ -74,11 +74,11 @@ $Header
 		</div>
 	<% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
-		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-			$BlockArea(BeforeContentConstrained)
+		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BeforeContentConstrained
 			<div class="main-content__text">
 				$Content
 				<% if $PaginatedList.Exists %>
@@ -87,7 +87,7 @@ $Header
 					<% end_loop %>
 				<% end_if %>
 
-				$BlockArea(AfterContentConstrained)
+				$AfterContentConstrained
 				$Form
 				$CommentsForm
 
@@ -104,10 +104,10 @@ $Header
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	</div>
 
-	$BlockArea(AfterContent)
+	$AfterContent
 
 </main>

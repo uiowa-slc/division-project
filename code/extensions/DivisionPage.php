@@ -17,6 +17,9 @@ use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\DataExtension;
 use MD\DivisionProject\DivisionPageController;
+use DNADesign\Elemental\Models\ElementalArea;
+use DNADesign\Elemental\Models\BaseElement;
+
 class DivisionPage extends DataExtension {
 	private static $db = array(
 		'OgTitle' => 'Text',
@@ -29,6 +32,12 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
+		'ContentArea' => ElementalArea::class,
+		'SidebarArea' => ElementalArea::class,
+		'AfterContentConstrained' => ElementalArea::class,
+		'BeforeContent' => ElementalArea::class,
+		'BeforeContentConstrained' => ElementalArea::class,
+		'AfterContent' => ElementalArea::class,
 		'BackgroundImage' => Image::class,
 		'FeatureHolderImage' => Image::class,
 		'OgImage' => Image::class
@@ -95,17 +104,17 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextareaField('OgDescription', 'Social Share Description'));
 
-		if($this->owner->getExistsOnLive() == true){
-			//https://developers.facebook.com/tools/debug/sharing/?q=
-			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="https://developers.facebook.com/tools/debug/sharing/?q='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
-	Preview Facebook Share</span></a>'));
-			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="http://www.facebook.com/sharer/sharer.php?u='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-fb ss-button-social ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
-	Share Page On Facebook</span></a>'));
-			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('TwitterShareButton','<a href="https://twitter.com/intent/tweet?text='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-twitter ss-button-social ss-ui-button-twitter ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Twitter" role="button" aria-disabled="false"><span class="ui-button-text">
-			Share Page On Twitter</span></a>'));
-		}else{
-			$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('ShareNotice','<p>The ability to share this page will appear after you\'ve published it.</p>'));
-		}
+	// 	if($this->owner->getExistsOnLive() == true){
+	// 		//https://developers.facebook.com/tools/debug/sharing/?q=
+	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="https://developers.facebook.com/tools/debug/sharing/?q='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
+	// Preview Facebook Share</span></a>'));
+	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="http://www.facebook.com/sharer/sharer.php?u='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-fb ss-button-social ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
+	// Share Page On Facebook</span></a>'));
+	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('TwitterShareButton','<a href="https://twitter.com/intent/tweet?text='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-button-twitter ss-button-social ss-ui-button-twitter ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Twitter" role="button" aria-disabled="false"><span class="ui-button-text">
+	// 		Share Page On Twitter</span></a>'));
+	// 	}else{
+	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('ShareNotice','<p>The ability to share this page will appear after you\'ve published it.</p>'));
+	// 	}
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$parent = $this->owner->Parent();
@@ -113,25 +122,11 @@ class DivisionPage extends DataExtension {
 			$f->addFieldToTab('Root.Main', new UploadField('FeatureHolderImage', 'Feature Holder Image (shown in parent)'), 'Content');
 		}
 
-		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
-
-		$row = 'SortOrder';
-		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
-
-		$sort->table          = 'Page_SidebarItems';
-		$sort->parentField    = 'PageID';
-		$sort->componentField = 'SidebarItemID';
-
-		$gridField = new GridField('SidebarItems', 'Sidebar Items', $this->owner->getSidebarItems(), $gridFieldConfig);
-
-		$f->addFieldToTab('Root.Widgets', new LabelField('SidebarLabel', '<h2>Add sidebar items below</h2>'));
+	
 
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
       ));
-
-		$embed->displayIf("LayoutType")->isEqualTo("BackgroundVideo");
-
 
 	}
 
