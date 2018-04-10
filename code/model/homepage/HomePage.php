@@ -109,7 +109,7 @@ class HomePage extends Page {
 		
 		$newgridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
 		$newgridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-
+	
 		if (!Permission::check('ADMIN')) {
 			$newgridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
 
