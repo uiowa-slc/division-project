@@ -1,9 +1,9 @@
-<% if $Categories.exists || $Tags.exists %>
+<% if $Categories.exists || $Tags.exists ||$Departments.exists %>
 	<div class="blog-post-meta">
 		<% if $Departments.exists %>
 			<p class="tags">Department:
 				<% loop $Departments %>
-					<a href="$Link">$Title</a><% if not Last %><% else %><% end_if %>
+					<a href="$NewsLink">$Title</a><% if not Last %><% else %><% end_if %>
 				<% end_loop %>
 			</p>
 		<% end_if %>
