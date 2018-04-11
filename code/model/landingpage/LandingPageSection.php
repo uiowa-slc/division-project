@@ -28,6 +28,9 @@ class LandingPageSection extends DataObject {
 	private static $default_sort = array(
 		'SortOrder'
 	);
+	private static $extensions = array(
+		'Heyday\VersionedDataObjects\VersionedDataObject'
+	);
 	//public static $allowed_children = array ("BranchPersonPage");
 
 	public function getCMSFields() {

@@ -7,6 +7,8 @@ use SilverStripe\View\SSViewer;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Core\Extension;
+use SilverStripe\Blog\Model\BlogPost;
+
 class DivisionPageController extends Extension {
 
 
@@ -27,11 +29,13 @@ class DivisionPageController extends Extension {
 	 */
 	private static $allowed_actions = array(
 		'autoComplete',
-		'autoCompleteResults'
+		'autoCompleteResults',
+		'exportPosts'
 	);
 	private static $url_handlers = array (
 		'autoComplete' => 'autoComplete',
-		'autoCompleteResults' => 'autoCompleteResults'
+		'autoCompleteResults' => 'autoCompleteResults',
+		'exportPosts' => 'exportPosts'
 	);
 	public function init() {
 		parent::init();
@@ -56,6 +60,18 @@ class DivisionPageController extends Extension {
 		}
 		return $length;
 
+	}
+
+	public function exportPosts(){
+		$posts = BlogPost::get();
+		$postsArray = array();
+		$postArrayTags = array();
+		foreach($posts as $post){
+			array_push($postsArray, $post->toFeedArray());
+		}
+		$this->owner->getResponse()->addHeader("Content-Type", "application/json");
+		return json_encode ( $postsArray );
+		
 	}
 	public function SidebarBlocks(){
 
@@ -88,8 +104,9 @@ class DivisionPageController extends Extension {
 
 		$suggestions = array('suggestions' => array());
 
-		$pages = SiteTree::get()->filterAny(array(
+		$pages = SiteTree::get()->filter(array(
 		    'Title:PartialMatch' =>  $keyword,
+		    'ShowInSearch' => 1
 		    // 'Content:PartialMatch' => $keyword
 		))->limit(5);
 

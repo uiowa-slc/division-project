@@ -40,6 +40,24 @@
 								</div>
 							</div>
 						</div>
+					<% else %>
+						<%-- if no image or video, fallback to a default image --%>
+						<% with $Image %>
+						<div class="cell-bg" data-flickity-bg-lazyload="division-project/src/images/cell-bg.jpg">
+						<% end_with %>
+							<div class="inner">
+								<div class="cell-text">
+									<span>Featured Page</span>
+									<h2>$Title</h2>
+									<% if $ExternalLink %>
+										<a href="$ExternalLink" target="_blank" class="cell-btn">$ButtonText</a>
+									<% else %>
+										<a href="$AssociatedPage.Link" class="cell-btn">$ButtonText</a>
+									<% end_if %>
+								</div>
+							</div>
+						</div>
+
 					<% end_if %>
 				</div>
 			<% end_loop %>

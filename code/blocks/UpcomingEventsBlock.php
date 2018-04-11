@@ -8,11 +8,12 @@ class UpcomingEventsBlock extends BaseElement{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
-		'Source' => 'Enum(array("Localist calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department"))',
+		'Source' => 'Enum(array("Localist calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department","Search term"))',
 		'EventTypeFilterID'       => 'Int',
 		'DepartmentFilterID'      => 'Int',
 		'VenueFilterID'           => 'Int',
-		'GeneralInterestFilterID' => 'Int'
+		'GeneralInterestFilterID' => 'Int',
+		'SearchTerm' => 'Varchar(255)'
 	);
 
 	private static $has_one = array(
@@ -85,15 +86,19 @@ class UpcomingEventsBlock extends BaseElement{
 		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter the calendar by this Localist General Interest', $genInterestsArray);
 		$genInterestDropDownField->setEmptyString('(No Filter)');
 
+		$searchTermField = new TextField('SearchTerm', 'Search term');
+
 		$fields->addFieldToTab('Root.Main', $typeListBoxField);
 		$fields->addFieldToTab(' Root.Main', $departmentDropDownField);
 		$fields->addFieldToTab(' Root.Main', $venueDropDownField);
 		$fields->addFieldToTab(' Root.Main', $genInterestDropDownField);
+		$fields->addFieldToTab(' Root.Main', $searchTermField);
 
 		$genInterestDropDownField->displayIf('Source')->isEqualTo('General Interest');
 		$venueDropDownField->displayIf('Source')->isEqualTo('Venue');
 		$departmentDropDownField->displayIf('Source')->isEqualTo('Department');
 		$typeListBoxField->displayIf('Source')->isEqualTo('Type');
+		$searchTermField->displayIf('Source')->isEqualTo('Search term');
 
 
 		return $fields;
@@ -115,6 +120,7 @@ class UpcomingEventsBlock extends BaseElement{
 		$typeId = $this->EventTypeFilterID;
 		$venueId = $this->VenueFilterID;
 		$deptId = $this->DepartmentFilterID;
+		$searchTerm = $this->SearchTerm;
 
 		if($this->Source == 'General Interest'){
 			$calendar->GeneralInterestFilterID = urlencode($generalInterestId);
@@ -124,9 +130,10 @@ class UpcomingEventsBlock extends BaseElement{
 			$calendar->VenueFilterID = urlencode($venueId);
 		}elseif($this->Source == 'Department'){
 			$calendar->DepartmentFilterID = urlencode($deptId);
+		}elseif($this->Source == 'Search term'){
+			$calendar->SearchTerm = urlencode($searchTerm);
 		}
 
-		//Debug::show($calendar->Link());
 		return $calendar;
 	}
 

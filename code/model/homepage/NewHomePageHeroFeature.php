@@ -34,7 +34,9 @@ class NewHomePageHeroFeature extends DataObject {
 		"Title",
 		"Thumbnail",
 	);
-
+	private static $extensions = array(
+		'Heyday\VersionedDataObjects\VersionedDataObject'
+	);
 	function getThumbnail() {
 		return $this->Image()->CMSThumbnail();
 	}

@@ -45,7 +45,7 @@ class BlogFieldExtension extends DataExtension {
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByEmail', 'Author email address'));
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByTitle', 'Author posiiton title'));
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByDept', 'Author department title'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('IsFeatured','Feature this Article? (Yes)'), "Content");
+		// $fields->addFieldToTab('Root.Main', new CheckboxField('IsFeatured','Feature this Article? (Yes)'), "Content");
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosBy', 'Photos or video by'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
@@ -100,6 +100,61 @@ class BlogFieldExtension extends DataExtension {
 			return 'Read more';
 		}
 	}
+	public function toFeedArray(){
+		$post = $this->owner;
+		$postsArray = array();
 
+		$postArrayTags = array();
+		$postTags = $post->Tags();
+
+		$postAuthors = $post->Authors();
+		$postAuthorsArray = array();
+
+		foreach($postTags as $postTag){
+			array_push($postArrayTags, trim($postTag->Title));
+		}
+		foreach($postAuthors as $postAuthor){
+			$postAuthorSingleArray = array(
+				'ID' => $postAuthor->ID,
+				'Name' => $postAuthor->Name,
+				'Email' => $postAuthor->Email,
+				'ImageURL' => $postAuthor->BlogProfileImage()->AbsoluteURL,
+			);
+			array_push($postAuthorsArray, $postAuthorSingleArray);
+		}
+
+		$postArrayTagsFiltered = array_unique($postArrayTags);
+
+		if($post->obj('FeaturedImage')->exists()){
+			$postImage = $post->obj('FeaturedImage')->AbsoluteURL;
+			$postImageName = $post->obj('FeaturedImage')->Name;
+		}else{
+			$postImage = null;
+			$postImageName = null;
+		}
+
+		$postArrayItem = array(
+				'StudentLifeID' => $post->ID,
+				'Title' => $post->Title,
+				'ID' => $post->ID,
+				'Content' => $post->Content,
+				'URLSegment' => $post->URLSegment,
+				'Authors' => $postAuthorsArray,
+				'PublishDate' => $post->PublishDate,
+				'FeaturedImage' => $postImage,
+				'FeaturedImageName' => $postImageName,
+				'Tags' => $postArrayTagsFiltered,
+				'StoryBy' => $post->StoryBy,
+				'StoryByEmail' => $post->StoryByEmail,
+				'StoryByTitle' => $post->StoryByTitle,
+				'StoryByDept' => $post->StoryByDept,
+				'PhotosBy' => $post->PhotosBy,
+				'PhotosByEmail' => $post->PhotosByEmail,
+				'ExternalURL' => $post->ExternalURL,
+				'CanonicalURL' => $post->AbsoluteLink()
+			);
+
+		return $postArrayItem;
+	}
 
 }
