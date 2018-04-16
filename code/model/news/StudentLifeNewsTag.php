@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\ORM\DataObject;
 class StudentLifeNewsTag extends DataObject {
 
 	private static $db = array(

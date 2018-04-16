@@ -1,6 +1,10 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class VideoBlock extends Block{
+use SilverStripe\Forms\TextField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class VideoBlock extends BaseElement{
 
 	private static $db = array(
 		"YoutubeEmbed" => "Text",
@@ -11,6 +15,12 @@ class VideoBlock extends Block{
 
 
 	);
+    private static $table_name = 'VideoBlock';
+
+    public function getType()
+    {
+        return 'Video Block';
+    }
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();

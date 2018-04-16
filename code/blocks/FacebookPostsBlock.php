@@ -1,7 +1,12 @@
 <?php
-use Olliepop\FBPageFeed\FBPageFeedService;
+namespace DNADesign\Elemental\Models;
 
-class FacebookPostsBlock extends Block{
+use Olliepop\FBPageFeed\FBPageFeedService;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Forms\LiteralField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class FacebookPostsBlock extends BaseElement{
 
 	private static $db = array(
 
@@ -13,13 +18,19 @@ class FacebookPostsBlock extends Block{
 	private static $many_many = array(
 
 	);
+	private static $table_name = 'FacebookPostsBlock';  
+
+	public function getType()
+    {
+        return 'Facebook Posts Block';
+    }
 
         // $this->appID = $siteConfig->FBAppID;
         // $this->appSecret = $siteConfig->FBAppSecret;
         // $this->accessToken = $siteConfig->FBAccessToken;
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$siteConfig = \SiteConfig::current_site_config();
+		$siteConfig = SiteConfig::current_site_config();
 
 		if(!($siteConfig->FBAppID && $siteConfig->FBAppSecret && $siteConfig->FBAccessToken && $siteConfig->FBPageID)){
 			$fields->addFieldToTab("Root.Main", new LiteralField("BadFbPostsConfigWarning",

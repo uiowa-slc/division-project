@@ -1,6 +1,10 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class FlickrSlideshowBlock extends Block{
+use SilverStripe\Forms\TextField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class FlickrSlideshowBlock extends BaseElement{
 
 	private static $db = array(
 		'FlickrEmbed' => 'HTMLText',
@@ -17,6 +21,13 @@ class FlickrSlideshowBlock extends Block{
 	private static $defaults = array(
 
 	);
+	private static $table_name = 'FlickrSlideshowBlock';
+
+	public function getType()
+    {
+        return 'Flickr Slideshow Block';
+    }
+	  
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 

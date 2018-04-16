@@ -13,12 +13,12 @@ $Header
 	</div>
 	<% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %>">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %>">
 
-			$BlockArea(BeforeContentConstrained)
+			$BeforeContentConstrained
 
 			<div class="main-content__text">
 				<div class="locallistevent">

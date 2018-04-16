@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+
 class HomePageFacebookFeature extends HomePageFeature {
 
 	private static $db = array(

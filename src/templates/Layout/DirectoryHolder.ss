@@ -15,12 +15,12 @@ $Header
 		</div>
 	<% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-			$BlockArea(BeforeContentConstrained)
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BeforeContentConstrained
 			<div class="main-content__text">
 				$Content
 				<% if $CurrentTag %>
@@ -90,13 +90,13 @@ $Header
 					<% end_loop %>
 				<% end_if %>
 			</div>
-			$BlockArea(AfterContentConstrained)
+			$AfterContentConstrained
 			$Form
 		</article>
 		<aside class="sidebar">
 			<% include SideNav %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	</div>
-	$BlockArea(AfterContent)
+	$AfterContent
 </main>

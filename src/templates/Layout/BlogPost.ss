@@ -31,11 +31,11 @@ $Header
 		</div>
 	<% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-			$BlockArea(BeforeContentConstrained)
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BeforeContentConstrained
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
 					<% if FeaturedImage.Width >= 700 && FeaturedImage.Width < 1200 %>
@@ -63,7 +63,7 @@ $Header
 						<p><a href="$ExternalURL" class="button--shaded" target="_blank">$ExternalURLText</a></p>
 					<% end_if %>
 				</div>
-				$BlockArea(AfterContentConstrained)
+				$AfterContentConstrained
 				<% include TagsCategories %>
 			</div>
 			$Form
@@ -73,10 +73,10 @@ $Header
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	</div>
-	$BlockArea(AfterContent)
+	$AfterContent
 </main>
 
 <% if $RelatedNewsEntries %>

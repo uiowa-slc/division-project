@@ -1,4 +1,18 @@
 <?php
+
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\LiteralField;
+use MD\DivisionProject\HomePageController;
 class HomePage extends Page {
 
 	private static $db = array(
@@ -66,14 +80,14 @@ class HomePage extends Page {
 		$gridFieldConfig->addComponent($sortable = new GridFieldSortableRows('SortOrder'));
 		$sortable->setUpdateVersionedStage('Live');
 
-		$gridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
+		$gridFieldConfig->removeComponentsByType(GridFieldDeleteAction::class);
 		
 		$homePageFeatureGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$homePageFeatureGridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
 		$homePageFeatureGridFieldConfig->addComponent(new GridFieldAddNewMultiClass());
-		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
-		$homePageFeatureGridFieldConfig->removeComponentsByType('GridFieldAddNewButton')->getComponentByType('GridFieldAddNewMultiClass')->setClasses(
+		$homePageFeatureGridFieldConfig->removeComponentsByType(GridFieldDeleteAction::class);
+		$homePageFeatureGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class)->getComponentByType(GridFieldAddNewMultiClass::class)->setClasses(
 			array(
 				'HomePageFeature',
 				'HomePageFacebookFeature',
@@ -82,9 +96,9 @@ class HomePage extends Page {
 		);
 
 		$bgImagesGridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$bgImagesGridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		$bgImagesGridFieldConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
 		if (!Permission::check('ADMIN')) {
-			$gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+			$gridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
 
 		}
 
@@ -107,11 +121,12 @@ class HomePage extends Page {
 
 		$newSortable->setUpdateVersionedStage('Live');
 		
-		$newgridFieldConfig->removeComponentsByType('GridFieldDeleteAction');
-		$newgridFieldConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		$newgridFieldConfig->removeComponentsByType(GridFieldDeleteAction::class);
+		$newgridFieldConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+
 
 		if (!Permission::check('ADMIN')) {
-			$newgridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+			$newgridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
 
 		}
 
@@ -126,61 +141,4 @@ class HomePage extends Page {
 		$f->addFieldsToTab('Root.Main', $fieldList);
 
 	}
-}
-class HomePage_Controller extends Page_Controller {
-
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-	private static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-
-	}
-	public function index() {
-		$bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
-		$page = $this->customise(array(
-				'BackgroundFeature' => $bg
-			));
-		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
-	}
-	public function HomePageFeatures() {
-		$features = HomePageFeature::get();
-
-		return $features;
-
-	}
-
-	public function HomePageHeroFeatures() {
-		$features = HomePageHeroFeature::get();
-
-		return $features;
-
-	}
-
-	public function NewHomePageHeroFeatures() {
-		if($this->ShuffleHomePageFeatures){
-			$features = NewHomePageHeroFeature::get()->sort('RAND()');
-		}else{
-			$features = NewHomePageHeroFeature::get();
-		}
-		
-		return $features;
-
-	}
-
 }

@@ -1,6 +1,10 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class StaffMemberBlock extends Block{
+use SilverStripe\Forms\DropdownField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class StaffMemberBlock extends BaseElement{
 
 	private static $db = array(
 
@@ -11,6 +15,12 @@ class StaffMemberBlock extends Block{
 		'StaffPage' => 'StaffPage',
 
 	);
+	private static $table_name = 'StaffMemberBlock';
+
+	public function getType()
+    {
+        return 'Staff Member Block';
+    }
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();

@@ -1,5 +1,18 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\ORM\DataExtension;
+use MD\DiisionProject\SiteConfigExtensionPageController;
+
 class SiteConfigExtension extends DataExtension {
 
 	private static $db = array(
@@ -39,12 +52,13 @@ class SiteConfigExtension extends DataExtension {
 		'QuickLinkTitleThree' => 'Text',
 		'QuickLinkURLOne' => 'Text',
 		'QuickLinkURLTwo' => 'Text',
-		'QuickLinkURLThree' => 'Text'
+		'QuickLinkURLThree' => 'Text',
+		'Disclaimer' => 'HTMLText'
 	);
 
 	private static $has_one = array(
-		'PosterImage' => 'Image',
-		'FooterLogo' => 'Image'
+		'PosterImage' => Image::class,
+		'FooterLogo' => Image::class
 	);
 
 	private static $defaults = array(
@@ -91,6 +105,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrLink', 'Flickr Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('Github', 'Github Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('Snapchat', 'Snapchat Username'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Disclaimer', 'Additional disclaimer (shows in small text under social media)')->setRows(3));
 
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Header Quick Links</h3>', '3', true ) );
@@ -122,13 +137,6 @@ class SiteConfigExtension extends DataExtension {
 
 		return $prefix.$filteredSiteName;
 
-	}
-
-}
-class SiteConfigExtensionPage_Controller extends Page_Controller {
-
-	public function init() {
-		parent::init();
 	}
 
 }

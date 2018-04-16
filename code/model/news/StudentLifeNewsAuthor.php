@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Control\Email\Email;
+use SilverStripe\ORM\DataObject;
 class StudentLifeNewsAuthor extends DataObject {
 
 	private static $db = array(
@@ -34,7 +37,7 @@ class StudentLifeNewsAuthor extends DataObject {
 
 		$author->ID = $authorArray['ID'];
 		$author->Name = $authorArray['Name'];
-		$author->Email = $authorArray['Email'];
+		$author->Email = $authorArray[Email::class];
 		$author->ImageURL = $authorArray['ImageURL'];
 		return $author;
 	}

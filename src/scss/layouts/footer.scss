@@ -192,6 +192,11 @@
 	&__github:before {background-image: url(../images/icon_github.png);}
 	&__snapchat:before {background-image: url(../images/icon_snapchat.png);}
 
+	&__disclaimer{
+		font-size: rem-calc(12);
+		border-top: 2px solid #ddd;
+		padding-top: rem-calc(10);
+	}
 	&__md {
 		display: inline-block;
 		text-indent: -9999em;

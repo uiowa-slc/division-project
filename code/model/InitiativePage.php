@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use MD\DivisionProject\InitiativePageController;
 class InitiativePage extends Page {
 
 	private static $db = array(
@@ -7,7 +11,7 @@ class InitiativePage extends Page {
 
 	private static $has_one = array(
 
-		"MainImage" => "Image",
+		"MainImage" => Image::class,
 
 	);
 
@@ -24,13 +28,4 @@ class InitiativePage extends Page {
 		return $fields;
 	}
 
-}
-class InitiativePage_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-	}
 }

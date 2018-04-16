@@ -1,1 +1,1 @@
-$BlockArea(BeforeContent) $BlockArea(AfterContent)
+$BeforeContent $AfterContent

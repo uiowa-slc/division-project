@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataObject;
+
 class HomePageBackgroundFeature extends DataObject {
 
 	private static $db = array(
@@ -8,7 +11,7 @@ class HomePageBackgroundFeature extends DataObject {
 	);
 
 	private static $has_one = array(
-		'Image' => 'Image',
+		'Image' => Image::class,
 		'HomePage' => 'HomePage',
 	);
 

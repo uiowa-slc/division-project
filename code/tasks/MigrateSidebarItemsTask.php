@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Dev\BuildTask;
+
 class MigrateSidebarItemsTask extends BuildTask{
 
 	protected $title = 'Migrate legacy sidebar items';

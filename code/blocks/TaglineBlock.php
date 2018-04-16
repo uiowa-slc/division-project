@@ -1,6 +1,10 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class TaglineBlock extends Block{
+use SilverStripe\Forms\TextField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class TaglineBlock extends BaseElement{
 	
 	private static $db = array(
 		'Heading' => 'Varchar(155)',
@@ -10,6 +14,12 @@ class TaglineBlock extends Block{
 	private static $defaults = array(
 		'Heading' => 'Our mission and vision'
 	);
+	private static $table_name = 'TaglineBlock';
+
+	public function getType()
+    {
+        return 'Tagline Block';
+    }
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();

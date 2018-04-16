@@ -1,6 +1,15 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class EmbedBlock extends Block{
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Control\Controller;
+use SilverStripe\CMS\Controllers\CMSPageEditController;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class EmbedBlock extends BaseElement{
     
     private static $db = array(
         'EmbeddedURL' => 'Varchar(225)',
@@ -18,13 +27,20 @@ class EmbedBlock extends Block{
     );
 
     private static $singular_name = 'Embed Block';  
+    private static $table_name = 'EmbedBlock';  
+
+    public function getType()
+    {
+        return 'Embed Block';
+    }
+
 
     public function getCMSFields() {
 
         $self = $this;
         $fields = FieldList::create();
         // BlockArea - display areas field if on page edit controller
-        if (Controller::curr()->class == 'CMSPageEditController') {
+        if (Controller::curr()->class == CMSPageEditController::class) {
             $currentPage = Controller::curr()->currentPage();
             $areas = $self->blockManager->getAreasForPageType($currentPage->ClassName);
             $fields->push(
@@ -65,7 +81,7 @@ class EmbedBlock extends Block{
         $fields->push($widthField = TextField::create('Width', 'Width (examples: "1280px", "100%")'));
         $fields->push($heightField = TextField::create('Height', 'Height (examples: "720px", "100%")'));
 
-        $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
+        // $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
         // $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
         // $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
 

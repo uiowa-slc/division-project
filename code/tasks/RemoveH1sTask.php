@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Dev\BuildTask;
+
 class RemoveH1sTask extends BuildTask{
 
 	protected $title = 'Remove h1s from $Content';

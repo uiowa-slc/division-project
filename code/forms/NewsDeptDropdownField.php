@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\DropdownField;
+
 class NewsDeptDropdownField extends DropdownField {
 	//private $feedBase = 'https://studentlife.uiowa.edu';
     private $feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';

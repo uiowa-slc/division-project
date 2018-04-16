@@ -1,4 +1,6 @@
 <?php
+
+use MD\DivisionProject\LandingSubPageController;
 class LandingSubpage extends Page {
 
 	private static $db = array(
@@ -18,13 +20,4 @@ class LandingSubpage extends Page {
 		return $fields;
 	}
 
-}
-class LandingSubpage_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-	}
 }

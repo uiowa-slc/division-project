@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+
 class HomePageTwitterFeature extends HomePageFeature {
 
 	private static $db = array(

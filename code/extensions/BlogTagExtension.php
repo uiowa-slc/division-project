@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataExtension;
+
 class BlogTagExtension extends DataExtension {
 
 	private static $db = array(
@@ -7,7 +10,7 @@ class BlogTagExtension extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'Image' => 'Image'
+		'Image' => Image::class
 	);
 
 	private static $summary_fields = array(

@@ -15,12 +15,12 @@ $Header
 	</div>
 <% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-			$BlockArea(BeforeContentConstrained)
+		<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BeforeContentConstrained
 			<% if $MainImage %>
 				<img class="main-content__main-img" src="$MainImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
 			<% end_if %>
@@ -29,7 +29,7 @@ $Header
 				$Content
 			
 			</div>
-			$BlockArea(AfterContentConstrained)
+			$AfterContentConstrained
 			$Form
 			<% if $Events %>
 				<section class="childpages" aria-labelledby="ChildPages">
@@ -67,9 +67,9 @@ $Header
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	</div>
-	$BlockArea(AfterContent)
+	$AfterContent
 
 </main>

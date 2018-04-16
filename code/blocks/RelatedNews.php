@@ -1,18 +1,33 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class RelatedNewsBlock extends Block{
+use SilverStripe\Blog\Model\Blog;
+use SilverStripe\Blog\Model\BlogTag;
+use SilverStripe\TagField\TagField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\ORM\ArrayList;
+use DNADesign\Elemental\Models\BaseElement;
+
+
+class RelatedNewsBlock extends BaseElement{
 
 	private static $db = array(
 
 	);
 
 	private static $has_one = array(
-		'Blog' => 'Blog'
+		'Blog' => Blog::class
 
 	);
 	private static $many_many = array(
-		'PageTags' => 'BlogTag',
+		'PageTags' => BlogTag::class,
 	);
+	private static $table_name = 'RelatedNewsBlock';
+
+	public function getType()
+    {
+        return 'Related News Block';
+    }
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();

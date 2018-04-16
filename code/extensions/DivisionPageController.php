@@ -1,5 +1,15 @@
 <?php
-class DivisionPage_Controller extends Extension {
+
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\View\SSViewer;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Extension;
+use SilverStripe\Blog\Model\BlogPost;
+
+class DivisionPageController extends Extension {
 
 
 	/**
@@ -65,8 +75,8 @@ class DivisionPage_Controller extends Extension {
 	}
 	public function SidebarBlocks(){
 
-		$pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
-		return $pages;
+		// $pages = $this->owner->Blocks()->filter(array('BlockArea' => 'Sidebar'));
+		// return $pages;
 
 	}
 
@@ -112,7 +122,7 @@ class DivisionPage_Controller extends Extension {
 
 	}
 	public function Header($theme = 'auto', $headerType = 'full'){
-		$template = new SSViewer('Header');
+		$template = new SSViewer('Includes/Header');
 		$siteConfig = SiteConfig::current_site_config();
 		
 		

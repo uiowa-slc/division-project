@@ -1,3 +1,4 @@
+<% include FooterLogoArea %>
 <% cached %>
 <footer class="footer" role="contentinfo">
 	<div class="footer__container <% if $SiteConfig.FacebookLink || $SiteConfig.TwitterLink || $SiteConfig.VimeoLink || $SiteConfig.YouTubeLink || $SiteConfig.InstagramLink || $SiteConfig.LinkedInLink || $SiteConfig.PinterestLink || $SiteConfig.FlickrLink %>footer__container--with-social<% end_if %>">
@@ -110,6 +111,11 @@
 						<li><a href="https://www.snapchat.com/add/$SiteConfig.Snapchat" target="_blank" class="footer__snapchat" itemprop="sameAs">Snapchat</a></li>
 					<% end_if %>
 				</ul>
+				<% if $SiteConfig.Disclaimer %>
+					<div class="footer__disclaimer">
+						$SiteConfig.Disclaimer
+					</div>
+				<% end_if %>
 			</div>
 		<% end_if %>
 	</div>

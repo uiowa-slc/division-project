@@ -1,5 +1,5 @@
 ---
-name: spamprotection
+name: dp-spamprotection
 ---
-FormSpamProtectionExtension:
-  default_spam_protector: MathSpamProtector
+SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
+  default_spam_protector: NocaptchaProtector

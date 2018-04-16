@@ -15,12 +15,12 @@ $Header
   </div>
 <% end_if %>
 
-$BlockArea(BeforeContent)
+$BeforeContent
 
 <div class="row">
 
-  <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-    $BlockArea(BeforeContentConstrained)
+  <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+    $BeforeContentConstrained
     <div class="main-content__text">
         <% if $Query %>
           <h2>Search results for "<em>{$Query}</em>"</h2>
@@ -45,7 +45,7 @@ $BlockArea(BeforeContent)
         <% end_with %>
         <% include TopicHolderAllTopics %>
     </div>
-    $BlockArea(AfterContentConstrained)
+    $AfterContentConstrained
     $Form
     <% if $ShowChildPages %>
       <% include ChildPages %>
@@ -56,9 +56,9 @@ $BlockArea(BeforeContent)
     <% if $SideBarView %>
       $SideBarView
     <% end_if %>
-    $BlockArea(Sidebar)
+    $Sidebar
   </aside>
 </div>
-$BlockArea(AfterContent)
+$AfterContent
 
 </main>

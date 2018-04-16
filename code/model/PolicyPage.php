@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use MD\DivisionProject\PolicyPageController;
 class PolicyPage extends Page {
 
 	private static $db = array(
@@ -25,12 +28,12 @@ class PolicyPage extends Page {
 		$f->removeByName("PhotosBy");
 		$f->removeByName("PhotosByEmail");
 		$f->removeByName("ExternalURL");
-		$f->removeByName("Image");
+		$f->removeByName(Image::class);
 
 		return $f;
 	}
-	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true){
-		return parent::Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true);
+	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true, $delimiter = null){
+		return parent::Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true, $delimiter = null);
 	}	
 	public function PreventSearchEngineIndex() {
 		$parent = $this->Parent();
@@ -39,30 +42,4 @@ class PolicyPage extends Page {
 			return true;
 		}
 	}
-}
-class PolicyPage_Controller extends Page_Controller {
-
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-	private static $allowed_actions = array(
-	);
-
-	public function init() {
-		parent::init();
-
-	}
-
 }

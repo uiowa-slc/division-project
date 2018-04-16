@@ -1,5 +1,11 @@
 <?php
-GD::set_default_quality(80);
+
+use SilverStripe\View\Parsers\ShortcodeParser;
+use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
+use SilverStripe\Security\Authenticator;
+use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
+
+//GD::set_default_quality(80);
 
 // add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
@@ -33,10 +39,10 @@ HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 
 HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,address,pre,h2,h3,h4,h5,h6');
 
-ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'BlogFeedHandler'));
-ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
-ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));
-ShortcodeParser::get()->register('button', array('DivisionPage_Controller', 'ButtonHandler'));
-ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
+// ShortcodeParser::get()->register('blogfeed', array('DivisionPage_Controller', 'BlogFeedHandler'));
+// ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
+// ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));
+// ShortcodeParser::get()->register('button', array('DivisionPage_Controller', 'ButtonHandler'));
+// ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
 
-Authenticator::register_authenticator('SAMLAuthenticator');
+// Authenticator::register_authenticator(SAMLAuthenticator::class);

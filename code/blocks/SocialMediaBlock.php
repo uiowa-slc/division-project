@@ -1,6 +1,13 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class SocialMediaBlock extends Block{
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class SocialMediaBlock extends BaseElement{
 
 	private static $db = array(
 		"TwitterUserTimelineURL" => "Text",
@@ -14,6 +21,12 @@ class SocialMediaBlock extends Block{
 	private static $has_one = array(
 
 	);
+	private static $table_name = 'SocialMediaBlock';
+
+	public function getType()
+    {
+        return 'Social Media Block';
+    }
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();

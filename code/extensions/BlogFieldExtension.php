@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Blog\Model\Blog;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataExtension;
+
 class BlogFieldExtension extends DataExtension {
 
 	private static $db = array(
@@ -37,7 +45,7 @@ class BlogFieldExtension extends DataExtension {
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByEmail', 'Author email address'));
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByTitle', 'Author posiiton title'));
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByDept', 'Author department title'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('IsFeatured','Feature this Article? (Yes)'), "Content");
+		// $fields->addFieldToTab('Root.Main', new CheckboxField('IsFeatured','Feature this Article? (Yes)'), "Content");
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosBy', 'Photos or video by'));
 		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
@@ -46,7 +54,7 @@ class BlogFieldExtension extends DataExtension {
 		if ($this->owner->ClassName == "BlogEntry") {
 			//$fields->removeByName("Date");
 		} else {
-			$fields->renameField("Date", "Published Date");
+			$fields->renameField(DBDate::class, "Published Date");
 		}
 
 	}

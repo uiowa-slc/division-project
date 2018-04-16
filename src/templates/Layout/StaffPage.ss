@@ -7,13 +7,13 @@ $Header
 		</div>
 	</div>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 
-			$BlockArea(BeforeContentConstrained)
+			$BeforeContentConstrained
 
 			<div class="main-content__text">
 				<div class="staffpage">
@@ -48,7 +48,7 @@ $Header
 		</article>
 		<aside class="sidebar" class="dp-sticky">
 			<% include SideNav %>
-			$BlockArea(Sidebar)
+			$Sidebar
 		</aside>
 	</div>
 </main>

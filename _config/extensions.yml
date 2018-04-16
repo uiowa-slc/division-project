@@ -1,29 +1,31 @@
 Page:
   extensions:
+    - ExtendedElementalAreas
     - DivisionPage
-    - WidgetPageExtension
+    - SilverStripe\Widgets\Extensions\WidgetPageExtension
     - OpenGraphExtension
-Page_Controller:
+
+PageController:
   extensions:
-    - DivisionPage_Controller
-BlogPost:
+    - DivisionPageController
+SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogFieldExtension
-BlogTag:
+SilverStripe\Blog\Model\BlogTag:
   extensions:
     - BlogTagExtension
-SiteConfig:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigExtension
 HomePageFeature:
   extensions:
-    - Versioned("Stage","Live")
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 HomePageHeroFeature:
   extensions:
-    - Versioned("Stage","Live") 
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 NewHomePageHeroFeature:
   extensions:
-    - Versioned("Stage","Live")
+    - SilverStripe\Versioned\Versioned('Stage','Live')
 ContentBlock:
   extensions:
     - ContentBlockExtension
@@ -33,16 +35,16 @@ Block:
 Calendar:
   extensions:
     - DivisionCalendarExtension
-BlogCategory:
+SilverStripe\Blog\Model\BlogCategory:
   extensions:
     - BlogCategoryExtension
-Image:
+SilverStripe\Assets\Image:
   extensions:
     - DivisionImageExtension
-LeftAndMain:
+SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - division-project/css/cms.css
-SSViewer:
+SilverStripe\View\SSViewer:
   theme: division-subtheme
 TopicHolder_Controller:
   extensions:
@@ -50,6 +52,3 @@ TopicHolder_Controller:
 Topic_Controller:
   extensions:
     - TopicControllerSearchExtension
-Page_Controller:
-  extensions:
-    - FlickrShortcodeControllerExtension

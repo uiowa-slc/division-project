@@ -1,4 +1,5 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
 class TopicBlock extends RecentNewsBlock{
 
@@ -18,6 +19,12 @@ class TopicBlock extends RecentNewsBlock{
 	private static $defaults = array(
 		
 	);
+    private static $table_name = 'TopicBlock';
+
+    public function getType()
+    {
+        return 'Topic Block';
+    }
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();

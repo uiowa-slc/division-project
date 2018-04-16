@@ -1,6 +1,10 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class UpcomingEventsBlock extends Block{
+use SilverStripe\Forms\DropdownField;
+use DNADesign\Elemental\Models\BaseElement;
+
+class UpcomingEventsBlock extends BaseElement{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
@@ -15,6 +19,12 @@ class UpcomingEventsBlock extends Block{
 	private static $has_one = array(
 
 	);
+    private static $table_name = 'UpcomingEventsBlock';
+
+    public function getType()
+    {
+        return 'Upcoming Events Block';
+    }
 
 	private static $defaults = array(
 		'LimitEvents' => 3

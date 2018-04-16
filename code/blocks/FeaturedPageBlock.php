@@ -1,6 +1,19 @@
 <?php
+namespace DNADesign\Elemental\Models;
 
-class FeaturedPageBlock extends Block{
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use DNADesign\Elemental\Models\BaseElement;
+
+
+class FeaturedPageBlock extends BaseElement{
 
 	private static $db = array(
 		'FeaturePageSummary' => 'HTMLText',
@@ -10,9 +23,15 @@ class FeaturedPageBlock extends Block{
 	);
 
 	private static $has_one = array(
-		'PageTree' => 'SiteTree',
-		'FeaturePagePhoto' => 'Image'
+		'PageTree' => SiteTree::class,
+		'FeaturePagePhoto' => Image::class
 	);
+	private static $table_name = 'FeaturedPageBlock';  
+
+	public function getType()
+    {
+        return 'Featured Page Block';
+    }
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -29,7 +48,7 @@ class FeaturedPageBlock extends Block{
 		));
 
 		$internalFields = DisplayLogicWrapper::create(
-			TreeDropdownField::create('PageTreeID', 'Select a Page:', 'SiteTree'),
+			TreeDropdownField::create('PageTreeID', 'Select a Page:', SiteTree::class),
 			HeaderField::create( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true )
 		)->displayIf('Source')->isEqualTo('Internal')->end();
 
