@@ -11,7 +11,7 @@ class StudentLifeNewsEntry extends DataObject {
 		'Title' => 'Text',
 		'Content' => 'HTMLText',
 		'URLSegment' => 'Varchar',
-		'PublishDate' => 'SS_Datetime',
+		'PublishDate' => 'Datetime',
 		'ParentID' => 'Int',
 		'IsFeatured' => 'Boolean',
 		'ExternalURL' => 'Varchar(255)',

@@ -8,6 +8,7 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Versioned\Versioned;
 
 class HomePageFeature extends DataObject {
 
@@ -30,9 +31,9 @@ class HomePageFeature extends DataObject {
 
 	private static $singular_name = "Feature";
 	private static $plural_name   = "Features";
-	private static $extensions = array(
-		'Heyday\VersionedDataObjects\VersionedDataObject'
-	);
+	private static $extensions = [
+        Versioned::class
+    ];
 	function getCMSFields() {
 		$fields = new FieldList();
 

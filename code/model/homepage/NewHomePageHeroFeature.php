@@ -8,7 +8,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\ORM\DataObject;
-
+use SilverStripe\Versioned\Versioned;
 
 class NewHomePageHeroFeature extends DataObject {
 
@@ -34,9 +34,9 @@ class NewHomePageHeroFeature extends DataObject {
 		"Title",
 		"Thumbnail",
 	);
-	private static $extensions = array(
-		'Heyday\VersionedDataObjects\VersionedDataObject'
-	);
+	private static $extensions = [
+        Versioned::class
+    ];
 	function getThumbnail() {
 		return $this->Image()->CMSThumbnail();
 	}
