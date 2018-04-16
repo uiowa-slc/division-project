@@ -27,6 +27,18 @@ class StudentLifeNewsHolder extends Page {
 		return $f;
 	}
 
+
+	public static function getOrCreate(){
+		$holder = StudentLifeNewsHolder::get()->First();
+
+		if($holder){
+			return $holder;
+		}else{
+			$newHolder = new StudentLifeNewsHolder();
+			return $newHolder;
+		}
+	}
+
 	public function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
 		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 
@@ -182,7 +194,9 @@ class StudentLifeNewsHolder_Controller extends Page_Controller {
 		$id = $this->getRequest()->param('ID');
 
 		$posts = new ArrayList();
+
 		$filterTitle = null;
+
 		$getVars = $this->getRequest()->getVars();
 
 		if(isset($getVars['start'])){

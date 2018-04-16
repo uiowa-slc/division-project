@@ -9,11 +9,8 @@ class StudentLifeNewsEntry extends DataObject {
 		'ParentID' => 'Int',
 		'IsFeatured' => 'Boolean',
 		'ExternalURL' => 'Varchar(255)',
+		'CanonicalURL' => 'Varchar(255)',
 		'FeaturedImageURL' => 'Varchar'
-	);
-
-	private static $casting = array(
-		'FeaturedImage' => 'Image'
 	);
 
 	private static $has_many = array(
@@ -38,8 +35,16 @@ class StudentLifeNewsEntry extends DataObject {
 	// }
 
 	public function Link() {
+
 		$parent = StudentLifeNewsHolder::get()->byID($this->ParentID);
-		return $parent->Link('post/'.$this->URLSegment);
+
+		if($parent){
+			return $parent->Link('post/'.$this->URLSegment);
+		}else{
+			return $this->CanonicalURL;
+		}
+
+		
 	}
 
 	public function createFromArray($array){
@@ -72,8 +77,8 @@ class StudentLifeNewsEntry extends DataObject {
 		$entry->PhotosByEmail = $array['PhotosByEmail'];
 		$entry->ExternalURL = $array['ExternalURL'];
 		$entry->CanonicalURL = $array['CanonicalURL'];
-		return $entry;
 
+		return $entry;
 
 	}
 
