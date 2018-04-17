@@ -23,7 +23,9 @@
                 "silverstripe/googlesitemaps": "*",
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/asset-admin": "*",
-                "dnadesign/silverstripe-elemental": "*"
+                "dnadesign/silverstripe-elemental": "*",
+                "gorriecoe/silverstripe-webfonts" : "*",
+                "silverstripe/saml" : "*"
    },
    "repositories":[  
     {  
