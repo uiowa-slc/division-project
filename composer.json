@@ -24,7 +24,7 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/asset-admin": "*",
                 "dnadesign/silverstripe-elemental": "*",
-                "gorriecoe/silverstripe-webfonts" : "*",
+                "gorriecoe/silverstripe-webfonts" : "1.0.5",
                 "silverstripe/saml" : "*"
    },
    "repositories":[  
