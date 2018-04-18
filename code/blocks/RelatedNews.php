@@ -1,5 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
 
 use SilverStripe\Blog\Model\Blog;
 use SilverStripe\Blog\Model\BlogTag;

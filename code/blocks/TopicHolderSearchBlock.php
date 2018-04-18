@@ -1,5 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
 
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;

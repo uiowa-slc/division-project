@@ -1,6 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
-
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Control\Controller;
 use SilverStripe\CMS\Controllers\CMSPageEditController;
