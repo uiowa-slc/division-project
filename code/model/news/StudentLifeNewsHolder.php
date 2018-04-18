@@ -33,6 +33,7 @@ class StudentLifeNewsHolder extends Page {
 		return $f;
 	}
 
+
 	public static function getOrCreate(){
 		$holder = StudentLifeNewsHolder::get()->First();
 
@@ -80,7 +81,7 @@ class StudentLifeNewsHolder extends Page {
 		    $list->push(new ArrayData(array()));
 		}
 
-		$paginatedList = new PaginatedList($list, $this->getRequest());
+		$paginatedList = new PaginatedList($list, Controller::curr()->getRequest());
 
 		return $paginatedList;
 

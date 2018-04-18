@@ -1,10 +1,14 @@
+---
+Name: division-extensions
+After:
+    - '*'
+---
 Page:
   extensions:
     - ExtendedElementalAreas
     - DivisionPage
     - SilverStripe\Widgets\Extensions\WidgetPageExtension
     - OpenGraphExtension
-
 PageController:
   extensions:
     - DivisionPageController

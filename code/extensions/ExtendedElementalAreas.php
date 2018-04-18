@@ -9,7 +9,7 @@ class ExtendedElementalAreas extends DataExtension {
 
 public function updateCMSFields(FieldList $f) {
 
-	$f->removeByName("BeforeContent");
+	// $f->removeByName("BeforeContent");
 }
 
 
