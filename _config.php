@@ -1,6 +1,4 @@
 <?php
-GD::set_default_quality(80);
-
 // add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
