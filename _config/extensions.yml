@@ -56,3 +56,4 @@ TopicHolder_Controller:
 Topic_Controller:
   extensions:
     - TopicControllerSearchExtension
+
