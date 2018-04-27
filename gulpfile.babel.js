@@ -21,7 +21,7 @@ const PRODUCTION = !!(yargs.argv.production);
 const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
-  let ymlFile = fs.readFileSync('../mysite/gulp.yml', 'utf8');
+  let ymlFile = fs.readFileSync('../../../mysite/gulp.yml', 'utf8');
   return yaml.load(ymlFile);
 }
 
