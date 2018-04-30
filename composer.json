@@ -25,7 +25,7 @@
                 "silverstripe/asset-admin": "*",
                 "dnadesign/silverstripe-elemental": "*",
                 "gorriecoe/silverstripe-webfonts" : "1.0.5",
-                "md/saml" : "dev-md"
+                "md/saml" : "*"
    },
    "repositories":[  
     {  
