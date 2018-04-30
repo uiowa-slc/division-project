@@ -1,7 +1,7 @@
 {  
    "name":"md/division-project",
    "description":"The University of Iowa Division of Student Life Project Code and Theme",
-   "type":"silverstripe-module",
+    "type": "silverstripe-vendormodule",
    "minimum-stability":"dev",
    "require":{  
                 "php": ">=5.5",
@@ -25,7 +25,8 @@
                 "silverstripe/asset-admin": "*",
                 "dnadesign/silverstripe-elemental": "*",
                 "gorriecoe/silverstripe-webfonts" : "1.0.5",
-                "md/saml" : "*"
+                "md/saml" : "*",
+                "md/ac-json-events":"dev-ss-4.x"
    },
    "repositories":[  
     {  

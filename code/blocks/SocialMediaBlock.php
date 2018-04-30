@@ -1,5 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
 
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;

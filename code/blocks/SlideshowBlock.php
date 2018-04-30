@@ -1,5 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;

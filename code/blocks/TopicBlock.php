@@ -1,5 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
 
 class TopicBlock extends RecentNewsBlock{
 

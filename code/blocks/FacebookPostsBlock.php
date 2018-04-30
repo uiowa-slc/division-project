@@ -1,6 +1,4 @@
 <?php
-namespace DNADesign\Elemental\Models;
-
 use Olliepop\FBPageFeed\FBPageFeedService;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\LiteralField;

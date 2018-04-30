@@ -47,7 +47,7 @@ SilverStripe\Assets\Image:
     - DivisionImageExtension
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
-    - division-project/css/cms.css
+    - vendor/md/division-project/css/cms.css
 SilverStripe\View\SSViewer:
   theme: division-subtheme
 TopicHolder_Controller:

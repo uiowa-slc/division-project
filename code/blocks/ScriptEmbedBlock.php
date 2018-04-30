@@ -16,6 +16,7 @@ class ScriptEmbedBlock extends BaseElement{
     );
 
     private static $singular_name = 'Script Embed Block ';  
+    private static $table_name = 'ScriptEmbedBlock';
 
     public function getCMSFields() {
 
