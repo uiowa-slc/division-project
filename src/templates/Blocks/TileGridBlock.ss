@@ -1,4 +1,4 @@
-<section class="content-block__container content-block__container--padding grid-container full">
+<section class="content-block__container content-block__container--padding grid-container fluid">
 	<% if $ShowTitle %><h2 class="content-block-header content-block-header--with-padding header--centered header--small">$Title</h2><% end_if %>
 	<div class="tile-grid grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xlarge-up-4">
 
