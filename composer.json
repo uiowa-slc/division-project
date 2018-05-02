@@ -45,7 +45,8 @@
       "silverstripe-rebelalliance/youtubefield" : "*",
       "md/silverstripe-amp": "dev-master",
       "nathancox/sortableuploadfield": "*",
-      "heyday/silverstripe-versioneddataobjects": "dev-master"
+      "heyday/silverstripe-versioneddataobjects": "dev-master",
+      "nathancox/codeeditorfield" : "*"
    },
    "repositories":[  
     {  
