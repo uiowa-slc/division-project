@@ -26,7 +26,7 @@
                 "dnadesign/silverstripe-elemental": "*",
                 "gorriecoe/silverstripe-webfonts" : "1.0.5",
                 "md/ac-json-events":"dev-ss-4.x",
-                "md/silverstripe-saml":"*",
+                "md/saml":"*",
                 "unclecheese/display-logic" : "dev-master"
    },
    "repositories":[  
