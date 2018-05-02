@@ -9,9 +9,13 @@ class CommunicationHolder extends Page {
 
 	);
 
+	private static $defaults = array(
+		'ShowInMenus' => 0
+	);
 	private static $has_many = array(
 	
 	);
+	
 
 	private static $layout_types = array(
 	

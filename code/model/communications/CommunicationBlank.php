@@ -12,7 +12,7 @@ class CommunicationBlank extends Page {
 	private static $has_many = array(
 	
 	);
-
+	private static $can_be_root = false;
 	private static $layout_types = array(
 	
 	);
