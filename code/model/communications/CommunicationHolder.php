@@ -26,6 +26,7 @@ class CommunicationHolder extends Page {
 		
 		$f->removeByName('Content');
 		$f->removeByName('BackgroundImage');
+		$f->removeByName('LayoutType');
 
 
 		return $f;

@@ -23,7 +23,12 @@ class CommunicationBlank extends Page {
 		$f = parent::getCMSFields();
 		
 		$f->removeByName('Content');
-		$f->addFieldToTab('Root.Main', new CodeEditorField('Content', 'Full Email HTML here'));
+		$f->removeByName('LayoutType');
+		$f->removeByName('BackgroundImage');
+		$f->addFieldToTab('Root.Main', $codeField = CodeEditorField::create('Content', 'Full Email HTML here'));
+		$codeField->addExtraClass('stacked');
+		// set the height of the field (defaults to 8)
+		$codeField->setRows(30);
 		return $f;
 	}
 
