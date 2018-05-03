@@ -35,7 +35,7 @@ class CommunicationBlank extends Page {
 	public function EmailBodyFiltered(){
 		$content = $this->EmailBody;
 		$contentFiltered = str_replace('*|MC:SUBJECT|*', $this->Title, $content);
-		$contentFiltered = str_replace('*|MC:PREVIEW_TEXT|*', '', $content);
+		$contentFiltered = str_replace('*|MC:PREVIEW_TEXT|*', '', $contentFiltered);
 		return $contentFiltered;
 	}
 
