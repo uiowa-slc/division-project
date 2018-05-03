@@ -1,1 +1,2 @@
-$Content
+
+$EmailBodyFiltered.RAW
