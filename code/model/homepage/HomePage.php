@@ -10,6 +10,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use UncleCheese\DisplayLogic\Wrapper;
 use SilverStripe\Security\Permission;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\LiteralField;
@@ -58,7 +59,6 @@ class HomePage extends Page {
 		// $f->addFieldsToTab('Root.Main', $shuffledBackgroundFields);
 		// $f->addFieldsToTab('Root.Main', $backgroundVideoFields);
 		// $f->addFieldsToTab('Root.Main', $imageSliderFields);
-
 
 
 
@@ -138,8 +138,8 @@ class HomePage extends Page {
 		$fieldList->push($newHomePageHeroFeatureGridField);
 
 
-		$f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
-		$f->addFieldsToTab('Root.Main', $fieldList);
+		// $f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
+		// $f->addFieldsToTab('Root.Main', $fieldList);
 
 	}
 }
