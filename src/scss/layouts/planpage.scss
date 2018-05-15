@@ -1,0 +1,137 @@
+.row--plan {
+    max-width: rem-calc(1440);
+}
+.plan-content{
+    margin-top: rem-calc(20);
+
+}
+.plan-intro {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 40px 0;
+    }
+}
+
+.plan-section {
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 40px;
+    font-size: 18px;
+
+    &__container {
+        border-top: 1px solid #ddd;
+        padding: 40px 0;
+    }
+
+    &__table-label {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background: white;
+        padding: 10px 0;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+.plan-sidebar {
+    padding: 10px;
+    margin: 5px;
+    
+    margin: auto;
+    @media only screen and (min-width: 768px) {
+        // float: right;
+        padding: 40px;
+        padding-right: 0;
+        max-width: 480px;
+    }
+
+    &__header {
+        font-size: 17px;
+        color: #555;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+
+    &__link {
+        font-weight: bold;
+
+        &--sec-level {
+            font-weight: normal;
+            border: none;
+        }
+    }
+
+    &__nav {
+        margin-left: rem-calc(10);
+        padding-left: 0;
+        list-style-type: square;
+
+        &--second-level {
+            font-size: 14px;
+            list-style-type: none;
+        }
+    }
+
+    &__section {
+        padding: 10px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+    }
+}
+
+.plan-table {
+    padding: 10px;
+
+    &:nth-of-type(2n) {
+        background: #efefef;
+    }
+
+    @media only screen and (min-width: 769px) {
+        width: 100%;
+        padding: 15px;
+    }
+
+    &__cell-heading{
+        margin-top: 0;
+        font-size: rem-calc(22);
+        color: #444;
+    }
+
+    &__column {
+        @media only screen and (min-width: 769px) {
+            padding: 10px;
+        }
+
+        &--large-text {
+            font-size: 18px;
+        }
+    }
+
+    &__updates ul {
+        list-style-type: none;
+        padding-left: 20px;
+        margin-left: 0;
+    }
+
+    &__updates ul li:before {
+        font-family: "Font Awesome 5 Free"; 
+        content: "\f017";
+        margin: 4px 5px 0 -15px;
+        color: #52a271;
+        font-size: rem-calc(14);
+    }
+}
+
+.plan-aside {
+    padding: 10px;
+
+    @media only screen and (min-width: 769px) {
+        float: right;
+    }
+}
