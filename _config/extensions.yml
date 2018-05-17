@@ -6,6 +6,9 @@ Page:
 Page_Controller:
   extensions:
     - DivisionPage_Controller
+Blog:
+  extensions:
+    - BlogExtension
 BlogPost:
   extensions:
     - BlogFieldExtension
