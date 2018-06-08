@@ -3,12 +3,11 @@
 		<div class="$CSSClasses">
 			<% if $SlideshowBlockImages %>
 				<% if $Title && $ShowTitle %><h3 class="slideshow__title">$Title</h3><% end_if %>
-				<div class="slideshow" role="region" <% if $Title && $ShowTitle %>aria-label="$Title"<% end_if %> data-flickity='{ "lazyLoad": 2, "contain": true }'>
+				<div class="slideshow" role="region" <% if $Title && $ShowTitle %>aria-label="$Title"<% end_if %> data-flickity='{ "lazyLoad": 2, "contain": true, "groupCells": true }'>
 					<% loop SlideshowBlockImages %>
 						<div class="slideshow__slide slideshow__slide--multiple-slides <% if not $Up.Title %>slideshow__slide--no-title<% end_if %>">
 							
 						<img class="slideshow__img" data-flickity-lazyload="$Image.CroppedFocusedImage(840, 525).URL" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
-							
 							<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 						</div>
 					<% end_loop %>

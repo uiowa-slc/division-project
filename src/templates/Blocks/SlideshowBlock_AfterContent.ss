@@ -3,7 +3,7 @@
 		<div class="$CSSClasses">
 			<% if $SlideshowBlockImages %>
 				<% if $Title && $ShowTitle %><h3 class="slideshow__title">$Title</h3><% end_if %>
-				<div class="slideshow" role="region" <% if $Title && $ShowTitle %>aria-label="$Title"<% end_if %> data-flickity='{ "lazyLoad": 2, "contain": true }'>
+				<div class="slideshow" role="region" <% if $Title && $ShowTitle %>aria-label="$Title"<% end_if %> data-flickity='{ "lazyLoad": 2, "contain": true, "groupCells": true }'>
 					<% loop SlideshowBlockImages %>
 						<div class="slideshow__slide slideshow__slide--multiple-slides <% if not $Up.Title %>slideshow__slide--no-title<% end_if %>">
 							

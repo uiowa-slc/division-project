@@ -2,7 +2,12 @@
 
 .flickity-button-icon {
   fill: $yellow;
+
+
 }
 .flickity-button {
   background-color: #242424;
+    &:hover{
+      background-color: #333;
+    }
 }
