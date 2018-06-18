@@ -87,9 +87,10 @@ Slideshow Block NEW
 
 }
 .slideshow__caption{
-	background-color: #000;
+	text-transform: uppercase;
 	padding: rem-calc(10);
-	color: white;
+	font-size: rem-calc(14);
+	color: #616161;;
 }
 
 .slideshow__title{
@@ -103,6 +104,7 @@ Slideshow Block NEW
 
 .slideshow__slide{
 	width: 100%;
+	min-width: 400px;
 
 }
 

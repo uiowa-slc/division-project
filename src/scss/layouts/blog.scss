@@ -48,6 +48,10 @@
 		display: block;
 	}
 }
+
+.blogmeta__caps{
+	text-transform: uppercase;
+}
 .post-image {
 	margin-bottom: 1em;
 	position: relative;
@@ -343,6 +347,7 @@
 			color: #545454;
 		}
 	}
+
 }
 .Blog .bloglistitem .byline__author img {
 	display: none;

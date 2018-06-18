@@ -1,12 +1,20 @@
 <li class="column stafflist__item">
-	<a href="$Link" class="stafflist__link">
+	<% if not $Parent.HideLinksToStaffPages %><a href="$Link" class="stafflist__link"><% else %><div class="stafflist__link"><% end_if %>
 		<% if $Photo %>
 			<div class="stafflist__img">
-				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.FocusFill(350,234).URL" width="350" height="234" alt="Photograph of $FirstName $LastName">
+				<% if $Parent.PhotoOrientation == "landscape" %>
+					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.FocusFill(350,234).URL" width="350" height="234" alt="Photograph of $FirstName $LastName" />
+				<% else %>
+					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$Photo.FocusFill(234,350).URL" width="234" height="350" alt="Photograph of $FirstName $LastName" />
+				<% end_if %>
 			</div>
 		<% else %>
 			<div href="$Link" class="stafflist__img">
-				<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="350" height="234" alt="Placeholder photo for $FirstName $LastName">
+				<% if $Parent.PhotoOrientation == "landscape" %>
+					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="350" height="234" alt="Placeholder photo for $FirstName $LastName">
+				<% else %>
+					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="234" height="350" alt="Placeholder photo for $FirstName $LastName">
+				<% end_if %>
 			</div>
 		<% end_if %>
 		<div class="stafflist__text">
@@ -14,5 +22,5 @@
 			<% if $Position %><em class="stafflist__position">$Position</em><% end_if %>
 			</p>
 		</div>
-	</a>
+	<% if not $Parent.HideLinksToStaffPages %></a><% else %></div><% end_if %>
 </li>

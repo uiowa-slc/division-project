@@ -12,7 +12,18 @@
 @include foundation-global-styles;
 
 @include foundation-grid;
-
+@include foundation-xy-grid-classes(
+  /* options
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: true
+  */
+);
 // @include foundation-flex-grid;
 @include foundation-typography;
 
@@ -83,6 +94,7 @@
 @import "components/login";
 @import "components/childpages";
 @import "components/links";
+@import "lib/flickity";
 @import "components/flickity";
 @import "components/lists";
 @import "components/quotes";
@@ -125,6 +137,7 @@
 @import "layouts/staff";
 @import "layouts/blog";
 @import "layouts/topics";
+@import "layouts/planpage";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

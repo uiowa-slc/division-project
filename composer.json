@@ -5,7 +5,7 @@
    "minimum-stability":"dev",
    "require":{  
                 "php": ">=5.5",
-                "silverstripe/framework": "4.0.3",
+                "silverstripe/framework": "4.1.1",
                 "silverstripe/recipe-cms": "^1",
                 "silverstripe/reports": "*",
                 "silverstripe/installer": "*",
@@ -24,11 +24,11 @@
                 "silverstripe-australia/gridfieldextensions" : "*",
                 "silverstripe/asset-admin": "*",
                 "dnadesign/silverstripe-elemental": "*",
-                "gorriecoe/silverstripe-webfonts" : "1.0.5",
+                "gorriecoe/silverstripe-webfonts" : "*",
                 "md/ac-json-events":"dev-ss-4.x",
                 "unclecheese/display-logic" : "dev-master",
                 "md/saml" : "*"
-   },
+    },
    "repositories":[  
     {  
        "type":"vcs",

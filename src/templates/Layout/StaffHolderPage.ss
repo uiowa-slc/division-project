@@ -16,7 +16,9 @@ $Header
 	$BeforeContent
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+
+		<article role="main" class="main-content main-content--with-padding <% if not $HideLinksToStaffPages %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+
 
 			$BeforeContentConstrained
 
@@ -51,8 +53,10 @@ $Header
 			$Form
 		</article>
 		<aside class="sidebar dp-sticky">
-			<% include SideNav %>
 
+			<% if not $HideLinksToStaffPages %>
+				<% include SideNav %>
+			<% end_if %>
 			$Sidebar
 
 		</aside>

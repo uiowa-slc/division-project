@@ -3,3 +3,8 @@ SilverStripe\Security\Member:
   log_last_visited: false
 gorriecoe\Webfonts\View\Webfonts:
   TypeKitID: ggu1mkb
+SSViewer:
+  theme: 'division-subtheme'
+GDBackend:
+  default_quality: 90
+  

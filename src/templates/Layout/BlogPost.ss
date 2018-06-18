@@ -45,7 +45,9 @@ $Header
 				<div class="content">
 
 					<div class="blogmeta clearfix">
-						<% include ByLine %>
+						<% if not $Parent.HideDatesAndAuthors %>
+							<% include ByLine %>
+						<% end_if %>
 						<ul class="blogmeta__social">
 							<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
 							</li>

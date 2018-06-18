@@ -13,6 +13,11 @@ PageController:
   extensions:
     - DivisionPageController
 SilverStripe\Blog\Model\BlogPost:
+    - DivisionPage_Controller
+Blog:
+  extensions:
+    - BlogExtension
+BlogPost:
   extensions:
     - BlogFieldExtension
 SilverStripe\Blog\Model\BlogTag:

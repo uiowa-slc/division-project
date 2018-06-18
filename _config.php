@@ -1,13 +1,12 @@
 <?php
 
+
 use SilverStripe\View\Parsers\ShortcodeParser;
 use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
 use SilverStripe\Security\Authenticator;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 
-//GD::set_default_quality(80);
 
-// add a button to remove formatting
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
 	'removeformat'

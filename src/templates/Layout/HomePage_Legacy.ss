@@ -19,12 +19,11 @@ $Header
 @media screen and (min-width: 768px) {
   .legacy-hp__hero {
   <% if $BackgroundFeature %>
-    background: black url({$BackgroundFeature.Image.URL}) no-repeat center top;
+    background-image: url({$BackgroundFeature.Image.URL});
   <% else %>
-    background: black url({$ThemeDir}/images/hero-image.jpg) no-repeat center top;
+    background-image: url({$ThemeDir}/images/hero-image.jpg);
   <% end_if %>
     padding: 0;
-    height: 665px;
   }
 }
 </style>
