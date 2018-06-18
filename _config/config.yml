@@ -1,7 +1,5 @@
 SilverStripe\Security\Member:
   log_num_visits: false
   log_last_visited: false
-SilverStripe\View\SSViewer:
-  theme: division-subtheme
 gorriecoe\Webfonts\View\Webfonts:
   TypeKitID: ggu1mkb

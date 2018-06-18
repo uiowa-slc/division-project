@@ -48,8 +48,6 @@ SilverStripe\Assets\Image:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - vendor/md/division-project/css/cms.css
-SilverStripe\View\SSViewer:
-  theme: division-subtheme
 TopicHolder_Controller:
   extensions:
     - TopicHolderControllerSearchExtension
