@@ -28,7 +28,7 @@
                 "gorriecoe/silverstripe-webfonts" : "*",
                 "md/ac-json-events":"dev-ss-4.x",
                 "unclecheese/display-logic" : "dev-master",
-                "md/saml" : "*"
+                "md/saml" : "dev-md"
     },
    "repositories":[  
     {  
