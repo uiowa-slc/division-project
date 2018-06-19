@@ -7,7 +7,7 @@
                 "php": ">=5.5",
                 "silverstripe/framework": "4.1.2",
                 "silverstripe/recipe-plugin": "^1",
-                "silverstripe/recipe-cms": "1.1.0@stable",
+                "silverstripe/recipe-cms": "1.1.2",
                 "silverstripe/reports": "*",
                 "silverstripe/installer": "*",
                 "silverstripe/siteconfig": "*",
