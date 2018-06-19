@@ -1,0 +1,7 @@
+---
+Name: division-typekit
+After:
+    - '*'
+---
+gorriecoe\Webfonts\View\Webfonts:
+  TypeKitID: ggu1mkb

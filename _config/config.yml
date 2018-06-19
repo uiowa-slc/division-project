@@ -1,8 +1,11 @@
+---
+Name: division-config
+After:
+    - '*'
+---
 SilverStripe\Security\Member:
   log_num_visits: false
   log_last_visited: false
-gorriecoe\Webfonts\View\Webfonts:
-  TypeKitID: ggu1mkb
 SSViewer:
   theme: 'division-subtheme'
 GDBackend:

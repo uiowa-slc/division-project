@@ -41,7 +41,7 @@
       <meta name="robots" content="noindex">
     <% end_if %>
 
-    $TypeKit
+    $TypeKitScript
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
   <body class="{$ClassName} {$ClassAncestry} body--{$DarkLight} action--{$Action}">
