@@ -13,7 +13,6 @@
                 "silverstripe/siteconfig": "*",
                 "silverstripe-themes/simple": "*",
                 "undefinedoffset/sortablegridfield": "*",
-                "colymba/gridfield-bulk-editing-tools":"*",
                 "undefinedoffset/silverstripe-nocaptcha":"*",
                 "edgarindustries/youtubefield" : "*",
                 "silverstripe/tagfield": "*",
