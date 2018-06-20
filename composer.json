@@ -78,7 +78,7 @@
    "extra": {
         "expose": [
 
-            "vendor/md/division-project/src/favicons/"
+          "/vendor/md/division-project/src/favicons/"
 
         ]
     }
