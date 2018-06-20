@@ -15,6 +15,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\DataExtension;
 use MD\DivisionProject\DivisionPageController;
 use DNADesign\Elemental\Models\ElementalArea;
@@ -154,7 +155,7 @@ class DivisionPage extends DataExtension {
 		}
 
 	
-
+		$f->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
       ));
