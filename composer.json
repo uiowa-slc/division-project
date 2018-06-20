@@ -74,5 +74,13 @@
         "type": "vcs",
         "url": "https://github.com/PlatoCreative/silverstripe-typekit"
     }  
-   ]
+   ],
+   "extra": {
+        "expose": [
+            "themes/division-subtheme/dist/",
+            "themes/division-subtheme/css/",
+            "vendor/md/division-project/src/favicons/"
+
+        ]
+    }
 }
