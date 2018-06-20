@@ -77,8 +77,7 @@
    ],
    "extra": {
         "expose": [
-            "themes/division-subtheme/dist/",
-            "themes/division-subtheme/css/",
+
             "vendor/md/division-project/src/favicons/"
 
         ]
