@@ -28,7 +28,7 @@
                 "md/ac-json-events":"dev-ss-4.x",
                 "unclecheese/display-logic" : "dev-master",
                 "md/saml" : "dev-md",
-                "thisisbd/silverstripe-maintenance-mode" : "*"
+                "jonom/focuspoint" : "*"
     },
    "repositories":[  
     {  
