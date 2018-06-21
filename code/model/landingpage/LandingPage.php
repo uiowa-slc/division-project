@@ -63,7 +63,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 
 		$sectionsConf = GridFieldConfig_RelationEditor::create(10);
-		$sectionsConf->addComponent(new GridFieldSortableRows('SortOrder'));
+		//$sectionsConf->addComponent(new GridFieldSortableRows('SortOrder'));
 
 
 		$fields->addFieldToTab('Root.Main', $sectionsGridField = GridField::create('Sections', 'Sections', $this->Sections(), $sectionsConf), 'Content');

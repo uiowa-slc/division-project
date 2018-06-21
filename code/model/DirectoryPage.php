@@ -21,6 +21,8 @@ class DirectoryPage extends BlogPost {
 
 	);
 
+	private static $can_be_root = true;
+
 	private static $has_many = array(
 	);
 
