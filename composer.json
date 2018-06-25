@@ -79,7 +79,7 @@
    "extra": {
         "expose": [
 
-          "src/favicons/"
+          "src/favicons"
 
         ]
     }

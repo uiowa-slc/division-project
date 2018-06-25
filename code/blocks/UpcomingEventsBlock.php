@@ -2,7 +2,7 @@
 
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use UncleCheese\DisplayLogic\Wrapper;
 class UpcomingEventsBlock extends BaseElement{
 
 	private static $db = array(

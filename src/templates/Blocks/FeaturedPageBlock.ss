@@ -1,7 +1,7 @@
 <% if $UseBackground %>
-	<section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
+	<section class="content-block__container content-block__container--padding element_area_{$AreaRelationName}" aria-labelledby="Block$ID">
 		<div class="content-block">
-			<div class="$CSSClasses featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(900,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(900,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(900,400).URL<% end_if %>">
+			<div class="featuredpageblock featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(900,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(900,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(900,400).URL<% end_if %>">
 				<div class="featuredpageblock__body">
 					<h3 id="Block$ID" class="featuredpageblock__title"><% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %></h3>
 					<div class="featuredpageblock__desc">
@@ -27,9 +27,9 @@
 
 <% else %>
 
-	<section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
+	<section class="content-block__container content-block__container--padding element_area_{$AreaRelationName}" aria-labelledby="Block$ID">
 		<div class="content-block">
-			<div class="$CSSClasses">
+			<div class="featuredpageblock">
 				<% if $FeaturePagePhoto %>
 					<div class="featuredpageblock__media">
 						<% if $Source == "External" %>

@@ -6,7 +6,7 @@ use SilverStripe\TagField\TagField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\ArrayList;
 use DNADesign\Elemental\Models\BaseElement;
-
+use UncleCheese\DisplayLogic\Wrapper;
 
 class RelatedNewsBlock extends BaseElement{
 

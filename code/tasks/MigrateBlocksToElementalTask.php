@@ -41,10 +41,11 @@ class MigrateBlocksToElementalTask extends BuildTask{
 				$newElement = new BaseElement();
 				$newElement->ID = $block->ID;
 				$newElement->Title = $block->Title;
+				$newElement->Sort = $block->Sort;
+				$newElement->ClassName = $block->ClassName;
+				$newElement->ShowTitle = $block->ShowTitle;
 				$newElement->write();
-				if($block->Published){
-					$newElement->publish('Stage', 'Live');
-				}
+				$newElement->publish('Stage', 'Live');
 			}
 
 		}
@@ -72,7 +73,7 @@ class MigrateBlocksToElementalTask extends BuildTask{
 
 			 //print_r($results->table());
 			foreach($results as $result){
-				print_r($result);
+				//print_r($result);
 				$page = SiteTree::get()->filter(array('ID' => $result['SiteTreeID']))->First();
 
 				if($page){
@@ -82,8 +83,12 @@ class MigrateBlocksToElementalTask extends BuildTask{
 					// }
 
 
-					// $element->ParentID = $page->{$elementAreaNames[$result['BlockArea']].'ID'};
-					// $element->write();
+					$element->ParentID = $page->{$elementAreaNames[$result['BlockArea']].'ID'};
+					$element->write();
+					if($element->isPublished()){
+						$element->publish('Stage', 'Live');
+					}
+
 
 				}
 			}

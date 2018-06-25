@@ -10,4 +10,8 @@ SSViewer:
   theme: 'division-subtheme'
 GDBackend:
   default_quality: 90
-  
+SilverStripe\Core\Manifest\ModuleManifest:
+  module_priority:
+    - md/division-project
+    - silverstripe/cms
+    - dnadesign/silverstripe-elemental

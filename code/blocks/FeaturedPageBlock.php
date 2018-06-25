@@ -10,7 +10,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class FeaturedPageBlock extends BaseElement{
 
@@ -46,12 +46,12 @@ class FeaturedPageBlock extends BaseElement{
 		  )
 		));
 
-		$internalFields = DisplayLogicWrapper::create(
+		$internalFields = Wrapper::create(
 			TreeDropdownField::create('PageTreeID', 'Select a Page:', SiteTree::class),
 			HeaderField::create( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true )
 		)->displayIf('Source')->isEqualTo('Internal')->end();
 
-		$externalFields = DisplayLogicWrapper::create(
+		$externalFields = Wrapper::create(
 			TextField::create('FeaturePageExternalUrl', 'Use external website URL')
 		)->displayIf('Source')->isEqualTo('External')->end();
 

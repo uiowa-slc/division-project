@@ -9,7 +9,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Blog\Model\BlogPost;
 use DNADesign\Elemental\Models\BaseElement;
-
+use UncleCheese\DisplayLogic\Wrapper;
 
 class RecentNewsBlock extends BaseElement{
 

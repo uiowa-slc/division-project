@@ -1,5 +1,5 @@
 <% if $UseBackground %>
-	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1400,500).URL<% end_if %>">
+	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding featuredpageblock-bg element_area_{$AreaRelationName} dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(1400,500).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(1400,500).URL<% end_if %>">
 		<div class="content-block">
 			<div class="$CSSClasses">
 				<div class="featuredpageblock__body">
@@ -27,9 +27,9 @@
 
 <% else %>
 
-	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding">
+	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding element_area_{$AreaRelationName}">
 		<div class="content-block">
-			<div class="$CSSClasses">
+			<div class="featuredpageblock">
 				<% if $FeaturePagePhoto %>
 					<div class="featuredpageblock__media">
 						<% if $Source == "External" %>

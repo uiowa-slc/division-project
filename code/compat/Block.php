@@ -34,6 +34,9 @@ class Block extends DataObject implements MigratableObject
 
 	private static $table_name = 'Block';
 
+    private static $extensions = [
+        Versioned::class,
+    ];
     /**
      * @var array
      */
