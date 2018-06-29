@@ -4,7 +4,7 @@ class UpcomingEventsBlock extends Block{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
-		'Source' => 'Enum(array("Localist calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department","Search term"))',
+		'Source' => 'Enum(array("Ui calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department","Search term"))',
 		'EventTypeFilterID'       => 'Int',
 		'DepartmentFilterID'      => 'Int',
 		'VenueFilterID'           => 'Int',
@@ -30,7 +30,7 @@ class UpcomingEventsBlock extends Block{
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Source');
-		$calendar = LocalistCalendar::getOrCreate();
+		$calendar = UiCalendar::getOrCreate();
 
 		$ssCalendar = Calendar::get()->First();
 
@@ -51,7 +51,7 @@ class UpcomingEventsBlock extends Block{
 		$fields->renameField('Title', 'Title (default:Upcoming Events)');
 
 		if(!$calendar->IsInDB()){
-			unset($sourceArray['Localist calendar on this site']);
+			unset($sourceArray['Ui calendar on this site']);
 		}
 
 		if(!$ssCalendar){
@@ -64,16 +64,16 @@ class UpcomingEventsBlock extends Block{
 		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter entire UI calendar by this general interest', $genInterestsArray);
 		$genInterestDropDownField->setEmptyString('(No Filter)');
 
-		$typeListBoxField = new DropdownField('EventTypeFilterID', 'Filter the calendar by this Localist event type:', $typesArray);
+		$typeListBoxField = new DropdownField('EventTypeFilterID', 'Filter the calendar by this Ui event type:', $typesArray);
 		$typeListBoxField->setEmptyString('(No Filter)');
 
-		$departmentDropDownField = new DropdownField('DepartmentFilterID', 'Filter the calendar by this Localist department', $departmentsArray);
+		$departmentDropDownField = new DropdownField('DepartmentFilterID', 'Filter the calendar by this Ui department', $departmentsArray);
 		$departmentDropDownField->setEmptyString('(No Filter)');
 
-		$venueDropDownField = new DropdownField('VenueFilterID', 'Filter the calendar by this Localist Venue', $venuesArray);
+		$venueDropDownField = new DropdownField('VenueFilterID', 'Filter the calendar by this Ui Venue', $venuesArray);
 		$venueDropDownField->setEmptyString('(No Filter)');
 
-		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter the calendar by this Localist General Interest', $genInterestsArray);
+		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter the calendar by this Ui General Interest', $genInterestsArray);
 		$genInterestDropDownField->setEmptyString('(No Filter)');
 
 		$searchTermField = new TextField('SearchTerm', 'Search term');
@@ -96,15 +96,15 @@ class UpcomingEventsBlock extends Block{
 
 	public function Calendar(){
 		
-		if($this->Source == 'Localist calendar on this site'){
-			$calendar = LocalistCalendar::get()->First();
+		if($this->Source == 'Ui calendar on this site'){
+			$calendar = UiCalendar::get()->First();
 			return $calendar;
 		}elseif($this->Source == 'SilverStripe calendar on this site'){
 			$calendar = Calendar::get()->First();
 			return $calendar;
 		}
 
-		$calendar = LocalistCalendar::create();
+		$calendar = UiCalendar::create();
 		
 		$generalInterestId = $this->GeneralInterestFilterID;
 		$typeId = $this->EventTypeFilterID;
