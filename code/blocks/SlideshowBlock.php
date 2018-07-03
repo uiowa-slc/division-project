@@ -6,7 +6,7 @@ use SilverStripe\Assets\Image;
 use Colymba\BulkUpload\BulkUploader;
 use SilverStripe\Forms\GridField\GridField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use UncleCheese\DisplayLogic\Wrapper;
 
 class SlideshowBlock extends BaseElement{
 
