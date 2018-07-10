@@ -257,11 +257,11 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 /*-------------------------------------------------*/
 
 /* new stuff added my Brandon */
-$('.nav__toggle--menu').on('click', function(){
-	$('.nav__menu-icon').toggleClass('is-clicked');
-	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
-	$('.nav-collapse').toggleClass('open');
-});
+// $('.nav__toggle--menu').on('click', function(){
+// 	$('.nav__menu-icon').toggleClass('is-clicked');
+// 	$("#nav__menu-icon").toggleClass("nav__menu-icon--menu-is-active");
+// 	$('.nav-collapse').toggleClass('open');
+// });
 
 $('.second-level--open').click(function(){
 	// add opened class to li

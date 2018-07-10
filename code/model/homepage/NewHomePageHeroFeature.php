@@ -45,7 +45,7 @@ class NewHomePageHeroFeature extends DataObject {
 		$fields = new FieldList();
 
 		$fields->push(new TextField('Title', 'Title'));
-		$fields->push(new UploadField(Image::class, Image::class));
+		$fields->push(new UploadField("Image", "Image"));
 		$fields->push(new UploadField("Video", "Video"));
 		$fields->push(new UploadField("VideoPoster", "Poster image if using video"));
 		$fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", SiteTree::class));

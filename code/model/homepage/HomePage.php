@@ -51,7 +51,27 @@ class HomePage extends Page {
 	  			$this->LayoutTypes()
 			)->setEmptyString('(Default Layout)');
 
-		$this->getShuffledBackgroundFields($f);
+
+		// Begin Default Slider fields
+		$newgridFieldConfig = GridFieldConfig_RecordEditor::create();
+		$newgridFieldConfig->addComponent($newSortable = new GridFieldSortableRows('SortOrder'));
+
+		$newSortable->setUpdateVersionedStage('Live');
+		
+		$newgridFieldConfig->removeComponentsByType(GridFieldDeleteAction::class);
+		$newgridFieldConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+
+
+		if (!Permission::check('ADMIN')) {
+			$newgridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
+
+		}
+
+		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $newgridFieldConfig);
+		$shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
+
+		
+		$f->push($newHomePageHeroFeatureGridField);
 
 		// $backgroundVideoFields = $this->getBackgroundVideoFields($f);
 		// $imageSliderFields = $this->getImageSliderFields($f);
@@ -113,29 +133,9 @@ class HomePage extends Page {
 		$legacyFieldList->push(LiteralField::create('SpacerField', '<br /><br />'));
 		$legacyFieldList->push($homePageHeroFeatureGridField);
 		$legacyFieldList->push($homePageFeatureGridField);
-
-
-
-		// Begin Default Slider fields
-		$newgridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$newgridFieldConfig->addComponent($newSortable = new GridFieldSortableRows('SortOrder'));
-
-		$newSortable->setUpdateVersionedStage('Live');
-		
-		$newgridFieldConfig->removeComponentsByType(GridFieldDeleteAction::class);
-		$newgridFieldConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
-
-
-		if (!Permission::check('ADMIN')) {
-			$newgridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
-
-		}
-
-		$newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $newgridFieldConfig);
-		$shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
-
 		$fieldList->push($shuffleHomePageFeaturesField);
-		$fieldList->push($newHomePageHeroFeatureGridField);
+
+
 
 
 		// $f->addFieldToTab('Root.Main', DisplayLogicWrapper::create($legacyFieldList)->displayIf('LayoutType')->isEqualTo('Legacy')->end());
