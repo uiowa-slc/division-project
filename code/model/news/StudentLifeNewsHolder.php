@@ -5,6 +5,8 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\PaginatedList;
 use MD\DivisionProject\StudentLifeNewsHolderController;
+use SilverStripe\Control\Controller;
+
 class StudentLifeNewsHolder extends Page {
 
 	private static $db = array(
@@ -18,16 +20,16 @@ class StudentLifeNewsHolder extends Page {
 	private static $has_many = array(
 	);
 
-	//private static $feed_base = 'https://studentlife.uiowa.edu/news';
-	private static $feed_base = 'http://localhost:8888/student-life-at-iowa/news';
-	// private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+	// private static $feed_base = 'https://studentlife.uiowa.edu/news';
+	// private static $feed_base = 'http://localhost:8888/student-life-at-iowa/news';
+	 private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	public function getCMSFields() {
 
 		$f = parent::getCMSFields();
 
 		$deptDropdownField = new NewsDeptDropdownField('DepartmentID', 'Department');
-
+		$deptDropdownField->setEmptyString('All Student Life News');
 		$f->addFieldToTab('Root.Main', $deptDropdownField, 'Content');
 	
 		return $f;

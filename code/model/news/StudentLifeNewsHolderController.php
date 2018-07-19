@@ -36,7 +36,7 @@ class StudentLifeNewsHolderController extends PageController {
 	}
 
 	public function go($request){
-
+		$filterTitle = '';
 		$action = $this->getRequest()->param('Action');
 		$id = $this->getRequest()->param('ID');
 
