@@ -21,6 +21,7 @@ class UpcomingEventsBlock extends Block{
 	);
 	public function EventList(){
 		$calendar = $this->Calendar();
+		
 		$numEvents = $this->LimitEvents;
 
 		$eventList = $calendar->EventListLimited($numEvents);
