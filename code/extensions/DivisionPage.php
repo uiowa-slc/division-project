@@ -42,7 +42,11 @@ class DivisionPage extends DataExtension {
 		'FeatureHolderImage' => Image::class,
 		'OgImage' => Image::class
 	);
-
+    private static $owns = array(
+        'BackgroundImage',
+        'OgImage',
+        'FeatureHolderImage'
+    );
 	private static $many_many = array(
 
 	);

@@ -3,6 +3,9 @@ Name: division-extensions
 After:
     - '*'
 ---
+SiteTree:
+  extensions:
+    - SilverStripe\ORM\Search\FulltextSearchable
 Page:
   extensions:
     - ExtendedElementalAreas

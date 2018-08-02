@@ -25,7 +25,10 @@ class StaffPage extends Page {
 	private static $has_one = array(
 		"Photo" => Image::class,
 	);
-
+	
+    private static $owns = array(
+        'Photo'
+    );
 	private static $defaults = array(
 		"OtherWebsiteLabel" => "Website"
 	);
