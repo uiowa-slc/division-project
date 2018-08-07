@@ -45,7 +45,14 @@ class DivisionPage extends DataExtension {
     private static $owns = array(
         'BackgroundImage',
         'OgImage',
-        'FeatureHolderImage'
+        'FeatureHolderImage',
+		'SidebarArea',
+		'AfterContentConstrained',
+		'BeforeContent',
+		'BeforeContentConstrained',
+		'AfterContent',
+		'BackgroundImage',
+		'FeatureHolderImage',
     );
 	private static $many_many = array(
 
