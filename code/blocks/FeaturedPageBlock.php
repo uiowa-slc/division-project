@@ -27,6 +27,8 @@ class FeaturedPageBlock extends BaseElement{
 	);
 	private static $table_name = 'FeaturedPageBlock';  
 
+	private static $owns = array('FeaturePagePhoto');
+
 	public function getType()
     {
         return 'Featured Page Block';
