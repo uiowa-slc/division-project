@@ -18,6 +18,6 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\Assets\File:
   create_table_options:
     MySQLDatabase: 'ENGINE=MyISAM'
-SilverStripe\Assets\SiteTree:
+SilverStripe\CMS\Model\SiteTree:
   create_table_options:
     MySQLDatabase: 'ENGINE=MyISAM'
