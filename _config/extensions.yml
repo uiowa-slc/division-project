@@ -3,6 +3,9 @@ Name: division-extensions
 After:
     - '*'
 ---
+File:
+  extensions:
+    - DivisionFileExtension
 SiteTree:
   extensions:
     - SilverStripe\ORM\Search\FulltextSearchable
