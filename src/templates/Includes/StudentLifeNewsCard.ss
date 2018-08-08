@@ -5,7 +5,7 @@
 		</a>
 	<% else_if $BackgroundImage %>
 		<a href="$Link" class="bloglistitem__img border-effect">
-			<img class="dp-lazy" data-original="$BackgroundImage.CroppedFocusedImage(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
+			<img class="dp-lazy" data-original="$BackgroundImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
 		</a>
 	<% else_if $YoutubeBackgroundEmbed %>
 		<a href="$Link" class="bloglistitem__img border-effect">

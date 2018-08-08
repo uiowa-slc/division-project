@@ -4,7 +4,7 @@
 			<% if $StaffPage.Photo %>
 				<div class="staffmemberblock__media">
 					<a href="$StaffPage.Link" class="border-effect">
-						<img src="$StaffPage.Photo.CroppedFocusedImage(600,425).URL" alt="$StaffPage.Title">
+						<img src="$StaffPage.Photo.FocusFill(600,425).URL" alt="$StaffPage.Title">
 					</a>
 				</div>
 			<% end_if %>

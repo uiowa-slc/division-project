@@ -8,7 +8,7 @@
 <% if $HeaderImage %>
 	
 	<% if $HeaderText %>
-		<div class="lp-header <% if $HeaderLogo %>lp-header--is-overlay<% end_if %>" data-interchange="[$HeaderImage.CroppedFocusedImage(600,400).URL, small], [$HeaderImage.CroppedFocusedImage(1600,800).URL, medium]">
+		<div class="lp-header <% if $HeaderLogo %>lp-header--is-overlay<% end_if %>" data-interchange="[$HeaderImage.FocusFill(600,400).URL, small], [$HeaderImage.FocusFill(1600,800).URL, medium]">
 			<div class="lp-header__container">
 				<% if $HeaderLogo %>
 					<img src="$HeaderLogo.URL" alt="" class="lp-header__img">
@@ -97,7 +97,7 @@
 									<% loop Images %>
 										<div class="slideshow__slide">
 											
-										<a href="$Link" class="popup-link"><img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
+										<a href="$Link" class="popup-link"><img class="slideshow__img" data-flickity-lazyload="$FocusFill(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
 												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 										</div>
 									<% end_loop %>
@@ -107,7 +107,7 @@
 									<% loop Images %>
 										<div class="slideshow__slide">
 											
-										<img class="slideshow__img" data-flickity-lazyload="$CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+										<img class="slideshow__img" data-flickity-lazyload="$FocusFill(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
 												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 										</div>
 									<% end_loop %>

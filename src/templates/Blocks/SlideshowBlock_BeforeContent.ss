@@ -7,7 +7,7 @@
 					<% loop SlideshowBlockImages %>
 						<div class="slideshow__slide slideshow__slide--multiple-slides <% if not $Up.Title %>slideshow__slide--no-title<% end_if %>">
 							
-						<a href="$Image.URL"><img class="slideshow__img" data-flickity-lazyload="$Image.CroppedFocusedImage(840, 525).URL" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
+						<a href="$Image.URL"><img class="slideshow__img" data-flickity-lazyload="$Image.FocusFill(840, 525).URL" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
 							<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 						</div>
 					<% end_loop %>

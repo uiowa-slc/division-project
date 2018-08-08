@@ -1,6 +1,6 @@
 <section class="content-block__container">
       <% if $BackgroundImage %>
-      <div class="background-image" data-interchange="[$BackgroundImage.CroppedFocusedImage(600,400).URL, small], [$BackgroundImage.CroppedFocusedImage(1600,500).URL, medium]">
+      <div class="background-image" data-interchange="[$BackgroundImage.FocusFill(600,400).URL, small], [$BackgroundImage.FocusFill(1600,500).URL, medium]">
         <div class="column row">
           <div class="background-image__header background-image__header--has-content">
             <h1 class="background-image__title text-center">$Title</h1>

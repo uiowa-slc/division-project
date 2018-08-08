@@ -7,7 +7,7 @@
 					<% loop SlideshowBlockImages %>
 						<div class="slideshow__slide">
 							
-						<img class="slideshow__img" data-flickity-lazyload="$Image.CroppedFocusedImage(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+						<img class="slideshow__img" data-flickity-lazyload="$Image.FocusFill(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
 <%-- 							<% if $Up.UseExif %>
 								<figcaption class="slideshow__caption"><span>$Image.Exif.Title</span></figcaption>
 							<% else %> --%>

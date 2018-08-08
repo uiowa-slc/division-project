@@ -6,7 +6,7 @@
 		<div class="childpages__page <% if $BackgroundImage || $MainImage || $YoutubeBackgroundEmbed %>childpages--withphoto<% end_if %>">
 			<a href="$Link" class="childpages__blocklink">
 				<% if $BackgroundImage %>
-					<img data-original="$BackgroundImage.CroppedFocusedImage(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
+					<img data-original="$BackgroundImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
 				<% else_if $YoutubeBackgroundEmbed %>
 					<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" class="childpages__img" alt="$Title">
 				<% else_if $MainImage %>

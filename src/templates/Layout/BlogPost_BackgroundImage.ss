@@ -1,4 +1,4 @@
-<div class="bg-media bg-media--image" data-interchange="[$FeaturedImage.CroppedFocusedImage(600,400).URL, small], [$FeaturedImage.CroppedFocusedImage(1600,700).URL, medium]">
+<div class="bg-media bg-media--image" data-interchange="[$FeaturedImage.FocusFill(600,400).URL, small], [$FeaturedImage.FocusFill(1600,700).URL, medium]">
 	<div class="header__screen header__screen--fill-container header__screen--thin"></div>
 	$Header("dark-header","overlay")
 	<div class="column row">

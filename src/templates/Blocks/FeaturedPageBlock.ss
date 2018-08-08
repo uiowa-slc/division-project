@@ -1,7 +1,7 @@
 <% if $UseBackground %>
 	<section class="content-block__container content-block__container--padding element_area_{$AreaRelationName}" aria-labelledby="Block$ID">
 		<div class="content-block">
-			<div class="featuredpageblock featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.CroppedFocusedImage(900,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.CroppedFocusedImage(900,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.CroppedFocusedImage(900,400).URL<% end_if %>">
+			<div class="featuredpageblock featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.FocusFill(900,400).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.FocusFill(900,400).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.FocusFill(900,400).URL<% end_if %>">
 				<div class="featuredpageblock__body">
 					<h3 id="Block$ID" class="featuredpageblock__title"><% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %></h3>
 					<div class="featuredpageblock__desc">
@@ -34,11 +34,11 @@
 					<div class="featuredpageblock__media">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% end_if %>
 					</div>
@@ -46,11 +46,11 @@
 					<div class="featuredpageblock__media">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% end_if %>
 					</div>
@@ -58,11 +58,11 @@
 					<div class="featuredpageblock__media">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% else %>
 							<a href="$PageTree.Link" class="border-effect">
-								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
 							</a>
 						<% end_if %>
 					</div>

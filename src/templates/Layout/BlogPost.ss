@@ -25,7 +25,7 @@ $Header
 			</div>
 			<% if $FeaturedImage %>
 				<% if FeaturedImage.Width >= 1200 %>
-					<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.CroppedFocusedImage(1200,700).URL" width="1200" height="700" alt="" role="presentation" /></p>
+					<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.FocusFill(1200,700).URL" width="1200" height="700" alt="" role="presentation" /></p>
 				<% end_if %>
 			<% end_if %>
 		</div>

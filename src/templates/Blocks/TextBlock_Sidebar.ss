@@ -5,11 +5,11 @@
 				<% if $Image %>
 					<% if $ExternalLink %>
 						<a href="$ExternalLink" class="textblock__image-container" target="_blank">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$Title">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
 						</a>
 					<% else %>
 						<span class="textblock__image-container">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.CroppedFocusedImage(600,425).URL" width="600" height="425" alt="$Title">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
 						</span>
 					<% end_if %>
 				<% end_if %>
