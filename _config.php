@@ -6,6 +6,7 @@ use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
 use SilverStripe\Security\Authenticator;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 
+\SilverStripe\ORM\Search\FulltextSearchable::enable();
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
