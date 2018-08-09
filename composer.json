@@ -29,6 +29,7 @@
     "unclecheese/display-logic" : "dev-master",
     "md/saml" : "dev-md",
     "jonom/focuspoint" : "*",
+    "jonom/silverstripe-betternavigator" : "*",
     "md/uiowa-bar": "1.2.x"
     },
    "repositories":[  
