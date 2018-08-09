@@ -3,9 +3,9 @@
 	height: 100%;
 }
 
-#BetterNavigator {
+body > #BetterNavigator {
 	display: none;
-
+	top: 100px;
 	@media screen and (min-width: 64em) {
 		display: block;
 	}
