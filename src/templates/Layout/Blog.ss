@@ -42,12 +42,8 @@ $Header
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				$Content
-
-				<% if $SortAlphabetically %>
-					<% loop $BlogPostsAlpha %>
-						<% include BlogCard %>
-					<% end_loop %>
-				<% else_if $PaginatedList.Exists %>
+				
+				<% if $PaginatedList.Exists %>
 					<% loop $PaginatedList %>
 						<% include BlogCard %>
 					<% end_loop %>
