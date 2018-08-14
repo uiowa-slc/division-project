@@ -44,8 +44,10 @@ $legacy-hp__break-xlarge: 1140px;
 	border-bottom: 5px solid $legacy-hp__yellow;
 	position: relative;
 	padding: 2em 0;
-	background-color: #FFF;
+	background-color: #000;
 	height: 665px;
+	background-repeat: no-repeat;
+	background-position: center top;
 }
 
 .legacy-hp__hero .legacy-hp__container {

@@ -4,7 +4,7 @@ $Header
  
   position: relative;
   padding: 2em 0;
-  background-color: #FFF;
+  background-color: #000;
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .legacy-hp__hero {
