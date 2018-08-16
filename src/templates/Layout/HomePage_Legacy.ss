@@ -34,14 +34,14 @@ $Header
             <div class="legacy-hp__hero-article-wrapper">
 
               <% loop HomePageHeroFeatures.Limit(2) %>
-                <% include HomePageHeroFeature %>
+                <% include legacy/HomePageHeroFeature %>
               <% end_loop %>
 
 
 	          </div>
          <% end_if %>
 
-         <% include HomePageHeroText %>
+         <% include legacy/HomePageHeroText %>
 
         </div>
 

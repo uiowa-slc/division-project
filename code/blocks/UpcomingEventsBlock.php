@@ -30,6 +30,7 @@ class UpcomingEventsBlock extends BaseElement{
 	);
 	public function EventList(){
 		$calendar = $this->Calendar();
+		
 		$numEvents = $this->LimitEvents;
 
 		$eventList = $calendar->EventListLimited($numEvents);
@@ -104,10 +105,8 @@ class UpcomingEventsBlock extends BaseElement{
 	}
 
 	public function Calendar(){
-	
 		if($this->Source == 'Ui calendar on this site'){
 			$calendar = UiCalendar::get()->First();
-
 			return $calendar;
 		}elseif($this->Source == 'SilverStripe calendar on this site'){
 			$calendar = Calendar::get()->First();
