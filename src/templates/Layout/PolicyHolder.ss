@@ -35,10 +35,10 @@ $Header
                     $Policies
                 <% else %>
                     <ol class="policies_list">
-                    <% loop $Children %>
+                    <% loop $AllChildren %>
                         <h3><li>$Title</li></h3>
                         <ol>
-                            <% control $Children %>
+                            <% loop $AllChildren %>
                             <li><% if ClassName = PolicyPageExternal %>
                                 <a href="$ExternalURL">$Title<i class="fa fa-external-link" style="padding-left: 5px"></i></a>
                                 <% else_if ClassName = PolicyPagePDF %>
@@ -47,7 +47,7 @@ $Header
                                 <a href="$Link">$Title</a>
                                 <% end_if %>
                             </li> 
-                            <% end_control %>
+                            <% end_loop %>
                         </ol>
                     <% end_loop %>
                     </ol>
