@@ -17,7 +17,7 @@ class PolicyHolder extends Page {
 
 	private static $plural_name = 'Policy Holders';
 
-	private static $allowed_children = array("PolicyPage");
+	private static $allowed_children = array("PolicyPage", "PolicyPageExternal", "PolicyPagePDF", "PolicyHolder");
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true){
 		return parent::Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = true);
 	}	

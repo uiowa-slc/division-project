@@ -31,7 +31,28 @@ $Header
 		    	 <p><a href="$Link(printable)" class="main-content__small-all-caps">Printable version</a></p>
                 $Content
 
-                $Policies
+                <% if $Policies %>
+                    $Policies
+                <% else %>
+                    <ol class="policies_list">
+                    <% loop $Children %>
+                        <h3><li>$Title</li></h3>
+                        <ol>
+                            <% control $Children %>
+                            <li><% if ClassName = PolicyPageExternal %>
+                                <a href="$ExternalURL">$Title<i class="fa fa-external-link" style="padding-left: 5px"></i></a>
+                                <% else_if ClassName = PolicyPagePDF %>
+                                <a href="$PDF.Link">$Title</a>
+                                <% else %>
+                                <a href="$Link">$Title</a>
+                                <% end_if %>
+                            </li> 
+                            <% end_control %>
+                        </ol>
+                    <% end_loop %>
+                    </ol>
+                <% end_if %>
+
             </div>
             $BlockArea(AfterContentConstrained)
             $Form
