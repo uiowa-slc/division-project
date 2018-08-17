@@ -22,7 +22,7 @@ class TopicHolderSearchBlockController extends ElementController {
             }
             $searchField = new TextField('Search', false, '');
             $searchField->setAttribute('placeholder', 'Search for entries under '.$this->TopicHolder()->Title);
-            $searchField->addExtraClass('topic-search-form__input');
+            $searchField->setAttribute('class', 'topic-search-form__input');
             $fields = new FieldList(
                 $searchField
             );
@@ -34,7 +34,8 @@ class TopicHolderSearchBlockController extends ElementController {
             );
             $form = new Form($this, 'TopicSearchForm', $fields, $actions);
             // $form->classesToSearch(FulltextSearchable::get_searchable_classes());
-            $form->setTemplate('TopicSearchForm');
+            $form->setTemplate('SearchForm');
+            $form->addExtraClass('topic-search-form');
             return $form;
 
         }

@@ -59,9 +59,9 @@ SilverStripe\Assets\Image:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - vendor/md/division-project/css/cms.css
-TopicHolder_Controller:
+TopicHolderController:
   extensions:
     - TopicHolderControllerSearchExtension
-Topic_Controller:
+TopicController:
   extensions:
     - TopicControllerSearchExtension

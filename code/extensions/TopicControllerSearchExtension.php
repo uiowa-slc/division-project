@@ -7,6 +7,7 @@ use SilverStripe\CMS\Search\SearchForm;
 use SilverStripe\ORM\Search\FulltextSearchable;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Core\Extension;
+
 class TopicControllerSearchExtension extends Extension{
 
 
@@ -22,7 +23,7 @@ class TopicControllerSearchExtension extends Extension{
 			}
 			$searchField = new TextField('Search', false, '');
 			$searchField->setAttribute('placeholder', 'Search for entries under '.$this->owner->getParent()->Title);
-			$searchField->addExtraClass('topic-search-form__input');
+			$searchField->setAttribute('class', 'topic-search-form__input');
 			$fields = new FieldList(
 				$searchField
 			);
@@ -34,7 +35,8 @@ class TopicControllerSearchExtension extends Extension{
 			);
 			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
-			$form->setTemplate('TopicSearchForm');
+			$form->setTemplate('SearchForm');
+			$form->addExtraClass('topic-search-form');
 			return $form;
 		}
 	/**

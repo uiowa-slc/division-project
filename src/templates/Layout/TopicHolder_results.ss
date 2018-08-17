@@ -25,12 +25,9 @@ $BeforeContent
         <% if $Query %>
           <h2>Search results for "<em>{$Query}</em>"</h2>
           <% if $Results %>
-          <ul class="large-block-grid-2">
               <% loop $Results %>
-                <li>
-                  <h3><i class="fa fa-file-text-o fa-lg fa-fw"></i><a href="$Link">$Title</a></h3>
+                  <h3><i class="fa fa-file fa-lg fa-fw"></i><a href="$Link">$Title</a></h3>
                   <p>$Content.LimitCharacters(100)</p>
-                </li>
               <% end_loop %>
           </ul>
           <% else %>
@@ -40,9 +37,7 @@ $BeforeContent
 
         <% end_if %>
         <hr />
-        <% with $SearchForm %>
-        <% include TopicSearchForm %>
-        <% end_with %>
+        $TopicSearchForm
         <% include TopicHolderAllTopics %>
     </div>
     $AfterContentConstrained
