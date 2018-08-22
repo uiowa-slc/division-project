@@ -94,31 +94,44 @@ class DivisionPage extends DataExtension {
 		$f->removeByName("ExtraMeta");
 
 		$sidebarAreaField = $f->dataFieldByName('SidebarArea');
-		$sidebarAreaField->setTitle('Sidebar');
-		$f->removeByName('SidebarArea');
-		$f->addFieldToTab('Root.Blocks', $sidebarAreaField);
+
+		if($sidebarAreaField){
+			$sidebarAreaField->setTitle('Sidebar');
+			$f->removeByName('SidebarArea');
+			$f->addFieldToTab('Root.Blocks', $sidebarAreaField);
+		}
 
 		$beforecontentField = $f->dataFieldByName('BeforeContent');
 
-		$beforecontentField->setTitle('Before Content');
-		$f->remove($beforecontentField);
-		$f->addFieldToTab('Root.Blocks', $beforecontentField);
+		if($beforecontentField){
+			$beforecontentField->setTitle('Before Content');
+			$f->remove($beforecontentField);
+			$f->addFieldToTab('Root.Blocks', $beforecontentField);
+		}
 
 		$beforecontentConstrainedField = $f->dataFieldByName('BeforeContentConstrained');
-		$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
-		$f->removeByName('BeforeContentConstrained');
-		$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
+
+		if($beforecontentConstrainedField){
+			$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
+			$f->removeByName('BeforeContentConstrained');
+			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
+		}
 
 		$aftercontentAreaField = $f->dataFieldByName('AfterContent');
-		$aftercontentAreaField->setTitle('After Content');
-		$f->removeByName('AfterContent');
-		$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);
+
+		if($aftercontentAreaField){
+			$aftercontentAreaField->setTitle('After Content');
+			$f->removeByName('AfterContent');
+			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);		
+		}
 
 		$aftercontentConstrainedField = $f->dataFieldByName('AfterContentConstrained');
-		$aftercontentConstrainedField->setTitle('After Content (Constrained)');
-		$f->removeByName('AfterContentConstrained');
-		$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);
 
+		if($aftercontentConstrainedField){
+			$aftercontentConstrainedField->setTitle('After Content (Constrained)');
+			$f->removeByName('AfterContentConstrained');
+			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);			
+		}
 
 		$f->removeByName('ElementalArea');
 		$f->removeByName('ContentArea');
