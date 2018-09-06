@@ -82,7 +82,7 @@ class RecentNewsBlock extends BaseElement{
 
 		$tagField->displayIf('FilterBy')->isEqualTo('Tag');
 		$catField->displayIf('FilterBy')->isEqualTo('Category');
-		$blogField->displayIf('FilterBy')->isEqualTo(Blog::class);
+		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
 
 		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
@@ -103,9 +103,9 @@ class RecentNewsBlock extends BaseElement{
 
 		switch ($this->FilterBy){
 
-			case Blog::class:
-				if($this->obj(Blog::class)->exists()){
-					$holder = $this->obj(Blog::class);
+			case 'Blog':
+				if($this->obj('Blog')->exists()){
+					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
 				}else{
 					$entries = BlogPost::get()->exclude(array('ID' => $this->ID));
