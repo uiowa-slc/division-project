@@ -26,7 +26,9 @@ class HomePageFeature extends DataObject {
 		"AssociatedPage" => SiteTree::class,
 		"Image"          => Image::class,
 	);
-
+    private static $owns = array(
+    	'Image'
+    );
 	private static $default_sort = "SortOrder";
 
 	private static $singular_name = "Feature";

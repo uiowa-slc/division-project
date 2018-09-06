@@ -26,7 +26,11 @@ class NewHomePageHeroFeature extends DataObject {
 		"Video" => Image::class,
 		"VideoPoster" => Image::class,
 	);
-
+    private static $owns = array(
+    	'Image',
+    	'Video',
+    	'VideoPoster'
+    );
 	private static $default_sort = "SortOrder";
 	private static $singular_name = "Media Slide";
 	private static $plural_name = "Media Slides";

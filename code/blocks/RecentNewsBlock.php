@@ -5,6 +5,7 @@ use SilverStripe\Blog\Model\BlogTag;
 use SilverStripe\Blog\Model\BlogCategory;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\ListboxField;
+use SilverStripe\Forms\MultiSelectField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Blog\Model\BlogPost;
@@ -65,13 +66,13 @@ class RecentNewsBlock extends BaseElement{
 					'Tags',
 					'Show entries tagged with ANY of the following tags:',
 					$tags->map()->toArray()
-				)->setMultiple(true),
+				),
 
 				$catField = ListboxField::create(
 					'Categories',
 					'Show entries tagged with ANY of the following categories:',
 					$cats->map()->toArray()
-				)->setMultiple(true),
+				),
 
 				$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)'),
 

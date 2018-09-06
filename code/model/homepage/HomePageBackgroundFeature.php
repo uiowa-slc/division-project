@@ -14,7 +14,9 @@ class HomePageBackgroundFeature extends DataObject {
 		'Image' => Image::class,
 		'HomePage' => 'HomePage',
 	);
-
+    private static $owns = array(
+    	'Image'
+    );
 	private static $plural_name = "Background Images and Taglines";
 
 	private static $singular_name = "Background Image and Tagline";
