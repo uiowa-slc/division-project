@@ -9,6 +9,9 @@
 				<% end_loop %>
 			<% end_if %>
 		</div>
-<%-- 		<p class="text-center"><a href="$CurrentPage.LocalistCalendar.Link" class="keep-reading">See full calendar</a></p> --%>
+		<% if $CalendarLink %>
+			<p class="text-center"><a href="$CalendarLink" class="keep-reading">See all events</a></p>
+		<% end_if %>
+
 	</div>
 </section>
