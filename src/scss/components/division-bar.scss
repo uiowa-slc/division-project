@@ -27,6 +27,12 @@
 			transform: translateY(0);
 			visibility: visible;
 		}
+		&--dark-header {
+			color: #fff;
+			&:hover, &:focus {
+				color: #fff;
+			}
+		}
 	}
 }
 
@@ -85,16 +91,9 @@
 }
 
 #uiowa-bar #uiowa-search .links a {
-	color: #575757;
 	font-size: 1.2em;
 	margin: 0 5px;
 	vertical-align: middle;
-}
-.body--dark-header #uiowa-bar #uiowa-search .links a {
-	color: #bbbbbb;
-}
-#uiowa-bar #uiowa-search .links--overlay a {
-	color: #fff;
 }
 @media(max-width: 600px) {
   #uiowa-bar{
