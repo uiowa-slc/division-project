@@ -5,10 +5,10 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use DNADesign\Elemental\Models\ElementContent;
+use SheaDawson\Blocks\Model\Block;
 
 
-class TextBlock extends ElementContent{
+class TextBlock extends Block{
     
     private static $db = array(
         'ExternalLink' => 'Varchar(155)'

@@ -18,8 +18,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\DataExtension;
 use MD\DivisionProject\DivisionPageController;
-use DNADesign\Elemental\Models\ElementalArea;
-use DNADesign\Elemental\Models\BaseElement;
+
 
 class DivisionPage extends DataExtension {
 	private static $db = array(
@@ -33,11 +32,6 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'SidebarArea' => ElementalArea::class,
-		'AfterContentConstrained' => ElementalArea::class,
-		'BeforeContent' => ElementalArea::class,
-		'BeforeContentConstrained' => ElementalArea::class,
-		'AfterContent' => ElementalArea::class,
 		'BackgroundImage' => Image::class,
 		'FeatureHolderImage' => Image::class,
 		'OgImage' => Image::class
@@ -45,12 +39,6 @@ class DivisionPage extends DataExtension {
     private static $owns = array(
         'BackgroundImage',
         'OgImage',
-        'FeatureHolderImage',
-		'SidebarArea',
-		'AfterContentConstrained',
-		'BeforeContent',
-		'BeforeContentConstrained',
-		'AfterContent',
 		'BackgroundImage',
 		'FeatureHolderImage',
     );

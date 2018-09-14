@@ -5,8 +5,8 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
-
-class TopicHolderSearchBlockController extends ElementController {
+use SheaDawson\Blocks\Controllers\BlockController;
+class TopicHolderSearchBlockController extends BlockController {
 
         private static $allowed_actions = array(
             'TopicSearchForm',
