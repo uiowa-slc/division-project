@@ -17,7 +17,7 @@
     "silverstripe/tagfield": "*",
     "silverstripe/blog": "*",
     "silverstripe/widgets": "*",
-    "silverstripe/userforms": "5.*",
+    "silverstripe/userforms": "5.2.*",
     "silverstripe/recaptcha": "dev-master",
     "silverstripe/googlesitemaps": "*",
     "silverstripe-australia/gridfieldextensions" : "*",
