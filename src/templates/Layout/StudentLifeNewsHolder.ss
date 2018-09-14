@@ -31,7 +31,7 @@ $Header
 	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $BlockArea(Sidebar)Blocks ||  $BlockArea(Sidebar)View.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				$Content
@@ -57,8 +57,8 @@ $Header
 
 		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
-			<% if $SideBarView %>
-				$SideBarView
+			<% if $BlockArea(Sidebar)View %>
+				$BlockArea(Sidebar)View
 			<% end_if %>
 			$BlockArea(Sidebar)
 		</aside>

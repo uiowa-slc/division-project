@@ -69,14 +69,14 @@
 
 <div id="top" class="main-content__container">
 
-	$BeforeContent
+	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
+		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $BlockArea(Sidebar) ||  $BlockArea(Sidebar)View.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
 			<% if $ShowBreadcrumbs %>
 				$Breadcrumbs
 			<% end_if %>
-			$BeforeContentConstrained
+			$BlockArea(BeforeContentConstrained)
 			<% if $SecondaryImage %>
 				<img class="main-content__main-img" src="$SecondaryImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
 			<% end_if %>
@@ -134,20 +134,20 @@
 					</div>
 				<% end_loop %>
 			<% end_if %>
-			$AfterContentConstrained
+			$BlockArea(AfterContentConstrained)
 			$Form
 		</article>
 
 		<% if $Children %>
 		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
-			<% if $SideBarView %>
-				$SideBarView
+			<% if $BlockArea(Sidebar)View %>
+				$BlockArea(Sidebar)View
 			<% end_if %>
-			$Sidebar
+			$BlockArea(Sidebar)
 		</aside>
 	<% end_if %>
 	</div>
 	<br>
-	$AfterContent
+	$BlockArea(AfterContent)
 </div>

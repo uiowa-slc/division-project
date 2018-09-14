@@ -23,12 +23,12 @@ $Header
     </div>
   <% end_if %>
 
-  $BeforeContent
+  $BlockArea(BeforeContent)
 
   <div class="row">
 
-    <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-      $BeforeContentConstrained
+    <article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $BlockArea(Sidebar) ||  $BlockArea(Sidebar)View.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+      $BlockArea(BeforeContentConstrained)
       <div class="main-content__text">
       <div class="content">
         <div class="blogmeta clearfix">
@@ -75,18 +75,18 @@ $Header
       <% with $Parent %>
       <% include TopicHolderAllTopics %>
       <% end_with %>
-      $AfterContentConstrained
+      $BlockArea(AfterContentConstrained)
       $Form
 
     </article>
     <aside class="sidebar dp-sticky">
       <% include SideNav %>
-      <% if $SideBarView %>
-        $SideBarView
+      <% if $BlockArea(Sidebar)View %>
+        $BlockArea(Sidebar)View
       <% end_if %>
-      $Sidebar
+      $BlockArea(Sidebar)
     </aside>
   </div>
-  $AfterContent
+  $BlockArea(AfterContent)
 
 </main>

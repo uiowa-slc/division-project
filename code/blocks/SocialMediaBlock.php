@@ -4,9 +4,9 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
-class SocialMediaBlock extends BaseElement{
+class SocialMediaBlock extends Block{
 
 	private static $db = array(
 		"TwitterUserTimelineURL" => "Text",

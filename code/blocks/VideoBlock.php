@@ -1,9 +1,9 @@
 <?php
 
 use SilverStripe\Forms\TextField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
-class VideoBlock extends BaseElement{
+class VideoBlock extends Block{
 
 	private static $db = array(
 		"YoutubeEmbed" => "Text",

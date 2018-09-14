@@ -8,10 +8,10 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
 use MD\DivisionProject\TopicHolderSearchBlockController;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
 
-class TopicHolderSearchBlock extends BaseElement {
+class TopicHolderSearchBlock extends Block {
 
 	private static $db = array(
 

@@ -5,9 +5,9 @@ use SilverStripe\CMS\Controllers\CMSPageEditController;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
-class EmbedBlock extends BaseElement{
+class EmbedBlock extends Block{
     
     private static $db = array(
         'EmbeddedURL' => 'Varchar(225)',

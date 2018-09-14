@@ -1,9 +1,9 @@
 <?php
 
 use SilverStripe\Forms\DropdownField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
-class StaffMemberBlock extends BaseElement{
+class StaffMemberBlock extends Block{
 
 	private static $db = array(
 

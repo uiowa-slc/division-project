@@ -2,8 +2,8 @@
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use DNADesign\Elemental\Models\BaseElement;
-class ScriptEmbedBlock extends BaseElement{
+use SheaDawson\Blocks\Model\Block;
+class ScriptEmbedBlock extends Block{
     
     private static $db = array(
         'ScriptTag' => 'HTMLText',

@@ -5,10 +5,10 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Assets\Image;
 use Colymba\BulkUpload\BulkUploader;
 use SilverStripe\Forms\GridField\GridField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 use UncleCheese\DisplayLogic\Wrapper;
 
-class SlideshowBlock extends BaseElement{
+class SlideshowBlock extends Block{
 
 	private static $db = array(
 		'UseExif' => 'Boolean'

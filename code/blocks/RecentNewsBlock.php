@@ -9,10 +9,10 @@ use SilverStripe\Forms\MultiSelectField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Blog\Model\BlogPost;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 use UncleCheese\DisplayLogic\Wrapper;
 
-class RecentNewsBlock extends BaseElement{
+class RecentNewsBlock extends Block{
 
 	private static $db = array(
 		'FilterBy' => 'Enum(array("Blog","Tag","Category","Student Life News Department")',

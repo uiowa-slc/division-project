@@ -3,10 +3,10 @@
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\TreeMultiselectField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
 
-class TileGridBlock extends BaseElement{
+class TileGridBlock extends Block{
 
 	private static $db = array(
 		'Source' => 'Varchar(155)'

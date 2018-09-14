@@ -22,7 +22,6 @@
     "silverstripe/googlesitemaps": "*",
     "silverstripe-australia/gridfieldextensions" : "*",
     "silverstripe/asset-admin": "*",
-    "dnadesign/silverstripe-elemental": "*",
     "gorriecoe/silverstripe-webfonts" : "*",
     "md/ac-json-events":"dev-ss4.x-ui",
     "md/division-analytics": "1.2.x",
@@ -30,7 +29,8 @@
     "md/saml" : "dev-md",
     "jonom/focuspoint" : "*",
     "jonom/silverstripe-betternavigator" : "*",
-    "md/uiowa-bar": "1.2.x"
+    "md/uiowa-bar": "1.2.x",
+    "md/silverstripe-blocks": "dev-master"
     },
    "repositories":[  
     {  
@@ -52,6 +52,10 @@
     {
        "type": "vcs",
        "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-amp"
+    },
+    {
+       "type": "vcs",
+       "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-blocks"
     },
     { 
      "type": "vcs",

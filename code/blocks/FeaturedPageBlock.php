@@ -9,10 +9,10 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 
-class FeaturedPageBlock extends BaseElement{
+class FeaturedPageBlock extends Block{
 
 	private static $db = array(
 		'FeaturePageSummary' => 'HTMLText',

@@ -8,5 +8,3 @@
 	</a>
 	<% end_with %>
 </div>
-
-<p>$SidebarContent</p>

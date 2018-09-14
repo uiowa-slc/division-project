@@ -6,19 +6,19 @@
 	</div>
 <% end_if %>
 
-$BeforeContent
+$BlockArea(BeforeContent)
 
 <div class="row">
 
-	<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-		$BeforeContentConstrained
+	<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $BlockArea(Sidebar)Area.Elements ||  $BlockArea(Sidebar)View.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		$BlockArea(BeforeContentConstrained)
 		<% if $MainImage %>
 			<img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>
 		<% end_if %>
 		<div class="main-content__text">
 			$Content
 		</div>
-		$AfterContentConstrained
+		$BlockArea(AfterContentConstrained)
 		$Form
 		<% if $ShowChildPages %>
 			<% include ChildPages %>
@@ -26,11 +26,11 @@ $BeforeContent
 	</article>
 	<aside class="sidebar dp-sticky">
 		<% include SideNav %>
-		<% if $SideBarView %>
-			$SideBarView
+		<% if $BlockArea(Sidebar)View %>
+			$BlockArea(Sidebar)View
 		<% end_if %>
 
-		$SidebarArea
+		$BlockArea(Sidebar)Area
 	</aside>
 </div>
-$AfterContent
+$BlockArea(AfterContent)

@@ -11,10 +11,10 @@ $Header
 		</div>
 	</div>
 
-	$BeforeContent
+	$BlockArea(BeforeContent)
 
 	<div class="row">
-		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $BlockArea(Sidebar) ||  $BlockArea(Sidebar)View.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			<div class="main-content__text">
 				<% with CurrentProfile %>
 					<div class="clearfix blogprofile">
@@ -45,13 +45,13 @@ $Header
 		</div>
 		<aside class="sidebar">
 			<% include SideNav %>
-			<% if $SideBarView %>
-				$SideBarView
+			<% if $BlockArea(Sidebar)View %>
+				$BlockArea(Sidebar)View
 			<% end_if %>
-			$Sidebar
+			$BlockArea(Sidebar)
 		</aside>
 	</div>
 
-	$AfterContent
+	$BlockArea(AfterContent)
 
 </main>

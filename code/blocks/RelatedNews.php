@@ -5,10 +5,10 @@ use SilverStripe\Blog\Model\BlogTag;
 use SilverStripe\TagField\TagField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\ArrayList;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 use UncleCheese\DisplayLogic\Wrapper;
 
-class RelatedNewsBlock extends BaseElement{
+class RelatedNewsBlock extends Block{
 
 	private static $db = array(
 

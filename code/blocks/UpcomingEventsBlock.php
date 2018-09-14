@@ -1,9 +1,9 @@
 <?php
 
 use SilverStripe\Forms\DropdownField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 use UncleCheese\DisplayLogic\Wrapper;
-class UpcomingEventsBlock extends BaseElement{
+class UpcomingEventsBlock extends Block{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',

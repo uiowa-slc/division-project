@@ -2,9 +2,9 @@
 use Olliepop\FBPageFeed\FBPageFeedService;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\LiteralField;
-use DNADesign\Elemental\Models\BaseElement;
+use SheaDawson\Blocks\Model\Block;
 
-class FacebookPostsBlock extends BaseElement{
+class FacebookPostsBlock extends Block{
 
 	private static $db = array(
 
