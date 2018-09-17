@@ -43,28 +43,31 @@ class StaffPage extends Page {
 		SiteTree::enableCMSFieldsExtensions();
 
 		$fields->removeByName("Content");
-
+		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 760 x 507)"));
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("Position", "Position"));
 		$fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
 		$fields->addFieldToTab("Root.Main", new TextField("Phone", "Phone (XXX-XXX-XXXX)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
-		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department or Website URL (optional)"));
+		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department Website URL (optional)"));
 		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLink", "Other website URL (include http:// or https://)"));
 		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLabel", "Other website label (default: \"Website\""));
 
 
-		$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team <a href="admin/pages/edit/show/14" target="_blank">(Manage Teams)</a>', StaffTeam::get()->map('ID', 'Name')));
+		if(StaffTeam::get()->First()){
+			$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team', StaffTeam::get()->map('ID', 'Name')));			
+		}
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
 		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
-		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 760 x 507)"));
-		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
 
 		$this->extend('updateCMSFields', $fields);
 		$fields->removeByName("BackgroundImage");
+		$fields->removeByName('LayoutType');
+		$fields->removeByName('YoutubeBackgroundEmbed');
+
 		return $fields;
 
 	}
