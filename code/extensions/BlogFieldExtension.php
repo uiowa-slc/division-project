@@ -127,7 +127,7 @@ class BlogFieldExtension extends DataExtension {
 		$postArrayTagsFiltered = array_unique($postArrayTags);
 
 		if($post->obj('FeaturedImage')->exists()){
-			$postImage = $post->obj('FeaturedImage')->AbsoluteURL;
+			$postImage = $post->obj('FeaturedImage')->FocusFill(1280,720)->AbsoluteURL;
 			$postImageName = $post->obj('FeaturedImage')->Name;
 		}else{
 			$postImage = null;
