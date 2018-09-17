@@ -1,0 +1,44 @@
+
+$Header
+
+
+<main class="main-content__container" id="main-content__container">
+	<!-- Background Image Feature -->
+	<% if $BackgroundImage %>
+		<% include FeaturedImage %>
+	<% end_if %>
+
+	$Breadcrumbs
+
+	$BlockArea(BeforeContent)
+
+	<div class="row">
+		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BlockArea(BeforeContentConstrained)
+			<div class="main-content__text">
+				$Content
+			
+				<%-- <% loop $PaginatedList %>
+					<% include StudentLifeNewsCard %>
+				<% end_loop %> --%>
+		
+				$BlockArea(AfterContentConstrained)
+				$Form
+				$CommentsForm
+
+			</div>
+		</div>
+
+
+		<aside class="sidebar dp-sticky">
+			<% include SideNav %>
+			<% if $SideBarView %>
+				$SideBarView
+			<% end_if %>
+			$BlockArea(Sidebar)
+		</aside>
+	</div>
+
+	$BlockArea(AfterContent)
+
+</main>

@@ -57,6 +57,18 @@ class StudentLifeStaffHolder extends Page {
 			return;
 		}
 
+		foreach($postsArray['posts'] as $postArray){
+			$entry = new StudentLifeStaffPage();
+			$entry = $entry->createFromArray($postArray);
+			$entry->ParentID = $this->ID;
+
+
+			$postsList->push($entry);
+		}
+
+		//Debug::show($postsList);
+		return $postsList;
+
 	}
 
 }
