@@ -56,7 +56,7 @@ class StaffPage extends Page {
 
 
 		if(StaffTeam::get()->First()){
-			$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team', StaffTeam::get()->map('ID', 'Name')));			
+			$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team(s)', StaffTeam::get()->map('ID', 'Name')));			
 		}
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
