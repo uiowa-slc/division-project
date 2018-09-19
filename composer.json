@@ -30,7 +30,8 @@
       "md/saml" : "dev-md",
       "jonom/focuspoint" : "*",
       "jonom/silverstripe-betternavigator" : "*",
-      "md/uiowa-bar": "1.2.x"
+      "md/uiowa-bar": "1.2.x",
+      "md/maintenance-mode" : "dev-master"
     },
    "repositories":[  
     {  
@@ -44,6 +45,10 @@
     {  
        "type":"vcs",
        "url":"https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
+    },
+    {  
+       "type":"vcs",
+       "url":"https://github.com/StudentLifeMarketingAndDesign/silverstripe-maintenance-mode"
     },
     {  
        "type":"vcs",
