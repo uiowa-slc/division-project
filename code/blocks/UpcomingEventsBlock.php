@@ -12,7 +12,8 @@ class UpcomingEventsBlock extends BaseElement{
 		'DepartmentFilterID'      => 'Int',
 		'VenueFilterID'           => 'Int',
 		'GeneralInterestFilterID' => 'Int',
-		'SearchTerm' => 'Varchar(255)'
+		'SearchTerm' => 'Varchar(255)',
+		'CalendarLink' => 'Varchar(255)'
 	);
 
 	private static $has_one = array(
@@ -88,6 +89,8 @@ class UpcomingEventsBlock extends BaseElement{
 
 		$searchTermField = new TextField('SearchTerm', 'Search term');
 
+		$fields->addFieldToTab('Root.Main', TextField::create('CalendarLink', '"See all Events link"'));
+
 		$fields->addFieldToTab('Root.Main', $typeListBoxField);
 		$fields->addFieldToTab(' Root.Main', $departmentDropDownField);
 		$fields->addFieldToTab(' Root.Main', $venueDropDownField);
@@ -99,6 +102,7 @@ class UpcomingEventsBlock extends BaseElement{
 		$departmentDropDownField->displayIf('Source')->isEqualTo('Department');
 		$typeListBoxField->displayIf('Source')->isEqualTo('Type');
 		$searchTermField->displayIf('Source')->isEqualTo('Search term');
+
 
 
 		return $fields;

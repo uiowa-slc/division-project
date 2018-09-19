@@ -32,8 +32,9 @@
 							<p>No upcoming events currently listed.</p>
 						<% end_if %>
 					<% end_if %>
-					
-						<div class="text-center"><p><a class="button-outlined" href="$Calendar.Link">See all events</a></p></div>
+					<% if $CalendarLink %>
+						<div class="text-center"><p><a class="button-outlined" href="$CalendarLink">See all events</a></p></div>
+					<% end_if %>
 					<% if $EventList.Count == 0 %>
 						<div><p><a class="button-outlined" href="https://afterclass.uiowa.edu" target="_blank">See more events on campus</a></p></div>
 

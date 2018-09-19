@@ -4,7 +4,7 @@ $Header
  
   position: relative;
   padding: 2em 0;
-  background-color: #FFF;
+  background-color: #fff;
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .legacy-hp__hero {
@@ -21,8 +21,10 @@ $Header
 @media screen and (min-width: 768px) {
   .legacy-hp__hero {
   <% if $BackgroundFeature %>
+    background-color: black;
     background-image: url({$BackgroundFeature.Image.URL});
   <% else %>
+    background-color: black;
     background-image: url({$ThemeDir}/images/hero-image.jpg);
   <% end_if %>
     padding: 0;

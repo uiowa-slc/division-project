@@ -32,15 +32,6 @@ SilverStripe\Blog\Model\BlogTag:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigExtension
-HomePageFeature:
-  extensions:
-    - SilverStripe\Versioned\Versioned('Stage','Live')
-HomePageHeroFeature:
-  extensions:
-    - SilverStripe\Versioned\Versioned('Stage','Live')
-NewHomePageHeroFeature:
-  extensions:
-    - SilverStripe\Versioned\Versioned('Stage','Live')
 ContentBlock:
   extensions:
     - ContentBlockExtension

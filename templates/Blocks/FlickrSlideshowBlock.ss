@@ -1,1 +1,0 @@
-<div class="">$FlickrEmbed</div>

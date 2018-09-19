@@ -29,7 +29,6 @@ $BeforeContent
 		<% if $SideBarView %>
 			$SideBarView
 		<% end_if %>
-
 		$SidebarArea
 	</aside>
 </div>
