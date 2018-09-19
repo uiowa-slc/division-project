@@ -12,7 +12,8 @@ class StudentLifeStaffHolder extends Page {
 	private static $has_many = array(
 	);
 
-	private static $feed_base = 'http://localhost:8888/student-life-at-iowa/staff';
+	private static $feed_base = 'https://studentlife.uiowa.edu/staff';
+	// private static $feed_base = 'http://localhost:8888/student-life-at-iowa/staff';
 	// private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	public function getCMSFields() {
@@ -21,7 +22,7 @@ class StudentLifeStaffHolder extends Page {
 
 		$deptDropdownField = new StaffDeptDropdownField('DepartmentID', 'Department');
 
-		$f->addFieldToTab('Root.Main', $deptDropdownField, 'Content');
+		$f->addFieldToTab('Root.Main', $deptDropdownField);
 	
 		return $f;
 	}
@@ -98,7 +99,9 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 	);
 
 	public function init() {
+
 		parent::init();
+		print_r('hey');
 	}
 
 	public function go($request){
@@ -117,7 +120,17 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 			$start = 0;
 		}
 		
-		$posts = $this->getStaffTeamsFromFeed(null, null, null, 10, $start);
+		switch($action){
+			case '':
+				//index action
+				$posts = $this->getStaffTeamsFromFeed(null, null, null, 10, $start);
+				break;
+		    default: 
+		    	// If none of the cases above match, we might be attempting to follow an
+		   		// old post's link. attempt to redirect to that post:
+		    	return $this->redirect($this->Link('post/'.$action), 301);
+		    	break;
+		}
 
 		$data = new ArrayData(array(
 			'FilterType' => $action,

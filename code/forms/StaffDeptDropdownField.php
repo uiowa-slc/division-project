@@ -1,13 +1,13 @@
 <?php
 
 class StaffDeptDropdownField extends DropdownField {
-	//private $feedBase = 'https://studentlife.uiowa.edu';
-    private $feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/staff';
+	//private $feedBase = 'https://studentlife.uiowa.edu/staff';
+	 private $feedBase = 'http://localhost:8888/student-life-at-iowa/staff';
+    // private $feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/staff';
 
 	private static $default_category = 0;
 
 	protected $extraClasses = array('dropdown');
-
 
 	public function __construct($name, $title = null, $source = null, $value = "", $form=null) {
 
