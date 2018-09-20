@@ -50,10 +50,6 @@ class TextBlock extends ElementContent{
 
         $f->removeByName('LinkedPageID');
         $f->renameField('ExternalLink', 'Link (include http://)');
-        $f->addFieldToTab('Root.Main', TextField::create('Title'), 'ExternalLink');
-        $f->addFieldToTab('Root.Main', UploadField::create(Image::class, 'Image (crops to 600x425 in main content area)'));
-        $f->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
- 
 
         return $f;
 
