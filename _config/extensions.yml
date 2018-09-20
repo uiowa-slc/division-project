@@ -56,3 +56,6 @@ TopicHolderController:
 TopicController:
   extensions:
     - TopicControllerSearchExtension
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - BaseElementExtension
