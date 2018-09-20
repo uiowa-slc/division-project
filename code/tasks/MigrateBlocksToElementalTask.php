@@ -6,6 +6,7 @@ use DNADesign\Elemental\Models\ElementArea;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\Queries\SQLSelect;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Blog\Model\BlogPost;
 class MigrateBlocksToElementalTask extends BuildTask{
 
 	protected $title = 'Migrate blocks to elements';
@@ -15,11 +16,11 @@ class MigrateBlocksToElementalTask extends BuildTask{
 
 	function run($request){
 
-		echo '<p>Ensuring all pages have appropriate ElementAreas (saving and conditionally publishing all pages)</p>';
-
-		$allPages = SiteTree::get()->exclude(array('ClassName' =>'NewsEntry'));
+		echo '<h2>Ensuring all pages have appropriate ElementAreas (saving and conditionally publishing all pages)</h2>';
+		//print_r(BlogPost::class);
+		$allPages = SiteTree::get()->filter('ClassName:not', BlogPost::class);
 		foreach($allPages as $allPage){
-			echo '<p>Working on page '.$allPage->Title.'</p>';
+			echo '<p>Working on page '.$allPage->Title.' ('.$allPage->ClassName.')</p>';
 			$allPage->write();
 			if($allPage->isPublished()){
 				$allPage->publish('Stage', 'Live');
@@ -51,7 +52,7 @@ class MigrateBlocksToElementalTask extends BuildTask{
 		}
 		echo '</ul>';
 		echo '<p>Done</p>';
-		echo '<p>Gathering base elements and current element areas..</p>';
+		echo '<h2>Gathering base elements and current element areas..</h2>';
 		$elements = BaseElement::get();
 		$elementAreaNames = array(
 			'BeforeContent' => 'BeforeContent',
@@ -73,6 +74,10 @@ class MigrateBlocksToElementalTask extends BuildTask{
 
 			 //print_r($results->table());
 			foreach($results as $result){
+
+				if($result['BlockArea'] == 'Sidebar'){
+					$result['BlockArea'] = 'SidebarArea';
+				}
 				//print_r($result);
 				$page = SiteTree::get()->filter(array('ID' => $result['SiteTreeID']))->First();
 
@@ -82,8 +87,9 @@ class MigrateBlocksToElementalTask extends BuildTask{
 						print_r('element <strong>'.$element->Title.'</strong> on page '.$page->Title.' goes into '.$result['BlockArea'].' '.$page->{$elementAreaNames[$result['BlockArea']].'ID'}. '<br />');						
 					// }
 
-
-					$element->ParentID = $page->{$elementAreaNames[$result['BlockArea']].'ID'};
+					print_r('relation id: '.'('.$result['BlockArea'].'ID'.') '.$page->obj($result['BlockArea'])->ID.'<br />');
+					$element->ParentID = $page->obj($result['BlockArea'])->ID;
+					$element->Sort = $result['Sort'];
 					$element->write();
 					if($element->isPublished()){
 						$element->publish('Stage', 'Live');
