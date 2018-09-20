@@ -59,3 +59,6 @@ TopicController:
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - BaseElementExtension
+DNADesign\Elemental\Models\ElementalArea:
+  extensions:
+    - ElementalAreaExtension

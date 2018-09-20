@@ -1,4 +1,4 @@
-<div class="elemental-area">
+<div class="elemental-area elemental-area--$AreaName">
 <% if $ElementControllers %>
     <% loop $ElementControllers %>
 	   $Me

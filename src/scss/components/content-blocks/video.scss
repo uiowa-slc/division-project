@@ -1,18 +1,18 @@
 /* ====================================================================
 Video Block
 ======================================================================= */
-.block_area_beforecontentconstrained .videoblock,
-.block_area_aftercontentconstrained .videoblock {
+.elemental-area--BeforeContentConstrained .videoblock,
+.elemental-area--AfterContentConstrained .videoblock {
 	margin-bottom: 1em;
 }
-.block_area_sidebar .backgroundvideo__container {
+.elemental-area--Sidebar .backgroundvideo__container {
 	@include breakpoint(large) {
 		height: 200px;
 	}
 }
 
 /* Sidebar ------------------------------ */
-.block_area_sidebar .videoblock {
+.elemental-area--Sidebar .videoblock {
 	background-color: $cream;
 	&__title {
 		font-size: rem-calc(20);

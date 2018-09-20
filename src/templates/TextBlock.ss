@@ -1,4 +1,4 @@
-
+<% if $AreaName == "Sidebar" %>
 <section class="content-block__container">
 	<div class="content-block row column">
 		<div class="">
@@ -14,10 +14,10 @@
 						</span>
 					<% end_if %>
 				<% end_if %>
-				<% if $Content %>
+				<% if $HTML %>
 					<div class="textblock__text">
 
-					$Content
+					$HTML
 					<% if $ExternalLink %>
 						<div class="featuredpageblock__button">
 							<a href="$ExternalLink" class="border-effect" target="_blank">Learn More</a>
@@ -38,10 +38,10 @@
 		<div class="">
 			<div class="$CSSClasses">
 				<% if $ShowTitle %><h2 class="textblock__header">$Title</h2><% end_if %>
-				<% if $Content %>
+				<% if $HTML %>
 					<div class="textblock__text <% if $Image %>large-8 column<% end_if %>">
 
-					$Content
+					$HTML
 					<% if $ExternalLink %>
 						<div class="featuredpageblock__button">
 							<a href="$ExternalLink" class="border-effect" target="_blank">Learn More</a>

@@ -1,12 +1,12 @@
-.block_area_aftercontentconstrained,
-.block_area_beforecontentconstrained {
+.elemental-area--AfterContentConstrained,
+.elemental-area--BeforeContentConstrained {
 	@include breakpoint(medium) {
 		padding-right: rem-calc(20);
 	}
 }
 
 /* Before Content */
-.block_area_beforecontent, .block_area_aftercontent {
+.elemental-area--BeforeContent, .elemental-area--AfterContent {
 	background-color: $cream;
 
 	/* Text Block */
@@ -19,9 +19,9 @@
 	}
 }
 
-.block_area_beforecontentconstrained .content-block__container,
-.block_area_aftercontentconstrained .content-block__container,
-.block_area_sidebar .content-block__container {
+.elemental-area--BeforeContentConstrained .content-block__container,
+.elemental-area--AfterContentConstrained .content-block__container,
+.elemental-area--Sidebar .content-block__container {
 	margin: 2em 0;
 }
 

@@ -2,8 +2,8 @@
 
 /* Upcoming Events
 ======================================================================= */
-.block_area_beforecontent .upcomingeventsblock,
-.block_area_aftercontent .upcomingeventsblock {
+.elemental-area--BeforeContent .upcomingeventsblock,
+.elemental-area--AfterContent .upcomingeventsblock {
 
 	padding: rem-calc(20);
 	&__header {
@@ -48,7 +48,7 @@
 		padding: rem-calc(0 0 60 0);
 	}
 }
-.block_area_beforecontent .upcomingeventsblock {
+.elemental-area--BeforeContent .upcomingeventsblock {
 	&__title {
 		margin-top: 0;
 		border-top: none;
@@ -57,7 +57,7 @@
 		display: inline-block;
 	}
 }
-.block_area_sidebar .upcomingeventsblock {
+.elemental-area--Sidebar .upcomingeventsblock {
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
 	margin-bottom: 1.875rem;

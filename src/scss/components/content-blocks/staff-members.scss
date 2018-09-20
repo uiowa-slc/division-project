@@ -79,7 +79,7 @@
 }
 
 /* Sidebar ------------------------- */
-.block_area_sidebar .staffmemberblock {
+.elemental-area--Sidebar .staffmemberblock {
 	&__media {
 		@include breakpoint(large) {
 			width: 100%;
@@ -97,7 +97,7 @@
 	}
 }
 /* After Content ----------------------- */
-.block_area_aftercontent .staffmemberblock {
+.elemental-area--AfterContent .staffmemberblock {
 	@include breakpoint(large) {
 		padding: rem-calc(60 0);
 	}

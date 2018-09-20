@@ -15,6 +15,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
     - md/division-project
     - silverstripe/cms
     - dnadesign/silverstripe-elemental
+    - silverstripe/blog
 SilverStripe\Assets\File:
   create_table_options:
     MySQLDatabase: 'ENGINE=MyISAM'
