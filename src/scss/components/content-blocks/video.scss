@@ -5,14 +5,14 @@ Video Block
 .elemental-area--AfterContentConstrained .videoblock {
 	margin-bottom: 1em;
 }
-.elemental-area--Sidebar .backgroundvideo__container {
+.elemental-area--SidebarArea .backgroundvideo__container {
 	@include breakpoint(large) {
 		height: 200px;
 	}
 }
 
 /* Sidebar ------------------------------ */
-.elemental-area--Sidebar .videoblock {
+.elemental-area--SidebarArea .videoblock {
 	background-color: $cream;
 	&__title {
 		font-size: rem-calc(20);

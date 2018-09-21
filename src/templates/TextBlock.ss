@@ -1,8 +1,8 @@
-<% if $AreaName == "Sidebar" %>
+<% if $AreaName == "SidebarArea" %>
 <section class="content-block__container">
 	<div class="content-block row column">
 		<div class="">
-			<div class="$CSSClasses">
+			<div class="textblock contentblock block">
 				<% if $Image %>
 					<% if $ExternalLink %>
 						<a href="$ExternalLink" class="textblock__image-container" target="_blank">
@@ -36,7 +36,7 @@
 <section class="content-block__container">
 	<div class="content-block row column">
 		<div class="">
-			<div class="$CSSClasses">
+			<div class="textblock contentblock block">
 				<% if $ShowTitle %><h2 class="textblock__header">$Title</h2><% end_if %>
 				<% if $HTML %>
 					<div class="textblock__text <% if $Image %>large-8 column<% end_if %>">
