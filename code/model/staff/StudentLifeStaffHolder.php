@@ -12,8 +12,8 @@ class StudentLifeStaffHolder extends Page {
 	private static $has_many = array(
 	);
 
-	private static $feed_base = 'https://studentlife.uiowa.edu/staff';
-	// private static $feed_base = 'http://localhost:8888/student-life-at-iowa/staff';
+	// private static $feed_base = 'https://studentlife.uiowa.edu/staff';
+	 private static $feed_base = 'http://localhost:8888/student-life-at-iowa/staff';
 	// private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	public function getCMSFields() {
@@ -41,34 +41,31 @@ class StudentLifeStaffHolder extends Page {
 	
 
 	public function getStaffTeamsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
-
 		$feedBase = Config::inst()->get('StudentLifeStaffHolder', 'feed_base');
-		$deptId = $this->DepartmentID;
-		
-		$feedURL = $feedBase.'/departmentStaffFeed/'.$deptId;
 
+		$deptId = $this->DepartmentID;
+
+		$feedURL = $feedBase.'/departmentStaffFeed/'.$deptId;
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}
-		//print_r($feedURL);
-		$rawPostFeed = file_get_contents($feedURL);
-		$postsArray = json_decode($rawPostFeed, TRUE);
 
-		if(!isset($postsArray['posts'])){
+		$rawTeamFeed = file_get_contents($feedURL);
+		$teamsArray = json_decode($rawTeamFeed, TRUE);
+
+		$teamsList = new ArrayList();
+
+		if(!isset($teamsArray['staffTeams'])){
 			return;
 		}
 
-		foreach($postsArray['posts'] as $postArray){
-			$entry = new StudentLifeStaffPage();
-			$entry = $entry->createFromArray($postArray);
-			$entry->ParentID = $this->ID;
-
-
-			$postsList->push($entry);
+		foreach($teamsArray['staffTeams'] as $teamArray){
+			$team = new StudentLifeStaffTeam();
+			$team = $team->createFromArray($teamArray);
+			$teamsList->push($team);
 		}
 
-		//Debug::show($postsList);
-		return $postsList;
+		return $teamsList;
 
 	}
 
@@ -101,7 +98,6 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 	public function init() {
 
 		parent::init();
-		print_r('hey');
 	}
 
 	public function go($request){
@@ -123,7 +119,8 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 		switch($action){
 			case '':
 				//index action
-				$posts = $this->getStaffTeamsFromFeed(null, null, null, 10, $start);
+				$teams = $this->getStaffTeamsFromFeed(null, null, null, 10, $start);
+				//print_r($teams);
 				break;
 		    default: 
 		    	// If none of the cases above match, we might be attempting to follow an
@@ -134,7 +131,7 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 
 		$data = new ArrayData(array(
 			'FilterType' => $action,
-			'StaffTeams' => $posts,
+			'StaffTeams' => $teams,
 		));
 
 		return $this->customise($data)->renderWith(array('StudentLifeStaffHolder', 'Page'));

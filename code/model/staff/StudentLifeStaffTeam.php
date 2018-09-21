@@ -1,5 +1,5 @@
 <?php
-class StudentLifeStaffPage extends DataObject {
+class StudentLifeStaffTeam extends DataObject {
 
 	private static $db = array(
 		'Title' => 'Text',
@@ -30,21 +30,28 @@ class StudentLifeStaffPage extends DataObject {
 		
 	}
 
-	public static function createFromArray($array){
+	public function createFromArray($array){
 
-		$staff = new StudentLifeStaffPage;
-		$staff->FirstName = $array['FirstName'];
-		$staff->LastName = $array['LastName'];
-		$staff->Email = $array['Email'];
-		$staff->Title = $array['Title'];
-		$staff->ID = $array['ID'];
-		//print_r($staff);
-		return $staff;
+		$team = new StudentLifeStaffTeam;
+		$staffList = new ArrayList;
+
+		$team->ID = $array['ID'];
+		$team->Content = $array['Content'];
+		$team->Title = $array['Title'];
+		foreach ($array['Staff'] as $staff) {
+			$staffitem = StudentLifeStaffPage::createFromArray($staff);
+			$staffList->push($staffitem);
+			//print_r($staffitem);
+		}
+		$team->Staff = $staffList;
+		$team->URLSegment = $array['URLSegment'];
+
+		return $team;
 
 	}
 
 }
-class StudentLifeStaffPage_Controller extends BlogEntry_Controller {
+class StudentLifeStaffTeam_Controller extends BlogEntry_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

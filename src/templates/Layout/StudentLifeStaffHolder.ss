@@ -18,10 +18,12 @@ $Header
 			<div class="main-content__text">
 				$Content
 			
-				<%-- <% loop $PaginatedList %>
-					<% include StudentLifeNewsCard %>
-				<% end_loop %> --%>
-		
+				<%-- <% if $PaginatedList.Exists %>
+					<% loop $PaginatedList %>
+						<% include StudentLifeNewsCard %>
+					<% end_loop %>
+				<% end_if %> --%>
+				
 				$BlockArea(AfterContentConstrained)
 				$Form
 				$CommentsForm
