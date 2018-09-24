@@ -38,6 +38,8 @@ class StudentLifeStaffPage extends DataObject {
 		$staff->Email = $array['Email'];
 		$staff->Title = $array['Title'];
 		$staff->ID = $array['ID'];
+		$staff->URLSegment = $array['URLSegment'];
+		$staff->Photo = $array['Photo'];
 		//print_r($staff);
 		return $staff;
 

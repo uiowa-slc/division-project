@@ -27,7 +27,6 @@ class StudentLifeStaffTeam extends DataObject {
 
 		return $parent->Link('staff/'.$this->URLSegment);
 
-		
 	}
 
 	public function createFromArray($array){
