@@ -21,15 +21,6 @@ class StudentLifeStaffPage extends DataObject {
 		return $f;
 	}
 
-	// public function Link() {
-
-	// 	$parent = StudentLifeStaffHolder::get()->byID($this->ParentID);
-
-	// 	return $parent->Link('staff/'.$this->URLSegment);
-
-		
-	// }
-
 	public static function createFromArray($array){
 
 		$staff = new StudentLifeStaffPage;
