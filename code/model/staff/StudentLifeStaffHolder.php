@@ -38,8 +38,6 @@ class StudentLifeStaffHolder extends Page {
 		}
 	}
 
-	
-
 	public function getStaffTeamsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
 		$feedBase = Config::inst()->get('StudentLifeStaffHolder', 'feed_base');
 

@@ -18,11 +18,14 @@ $Header
 			<div class="main-content__text">
 				$Content
 			
-				<%-- <% if $PaginatedList.Exists %>
-					<% loop $PaginatedList %>
-						<% include StudentLifeNewsCard %>
-					<% end_loop %>
-				<% end_if %> --%>
+				<% loop StaffTeams %>
+					<h2 class="stafflist__title">$Title</h2>
+						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
+							<% loop $Staff.Sort(LastName, ASC) %>
+								<% include StaffPageListItem %>
+							<% end_loop %>
+						</ul>
+				<% end_loop %>
 				
 				$BlockArea(AfterContentConstrained)
 				$Form

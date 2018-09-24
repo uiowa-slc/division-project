@@ -21,14 +21,14 @@ class StudentLifeStaffPage extends DataObject {
 		return $f;
 	}
 
-	public function Link() {
+	// public function Link() {
 
-		$parent = StudentLifeStaffHolder::get()->byID($this->ParentID);
+	// 	$parent = StudentLifeStaffHolder::get()->byID($this->ParentID);
 
-		return $parent->Link('staff/'.$this->URLSegment);
+	// 	return $parent->Link('staff/'.$this->URLSegment);
 
 		
-	}
+	// }
 
 	public static function createFromArray($array){
 
