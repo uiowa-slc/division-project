@@ -27,7 +27,7 @@ class StudentLifeStaffPage extends DataObject {
 		$staff->FirstName = $array['FirstName'];
 		$staff->LastName = $array['LastName'];
 		$staff->Email = $array['Email'];
-		$staff->Title = $array['Title'];
+		$staff->Position = $array['Position'];
 		$staff->ID = $array['ID'];
 		$staff->URLSegment = $array['URLSegment'];
 		$staff->Photo = $array['Photo'];
