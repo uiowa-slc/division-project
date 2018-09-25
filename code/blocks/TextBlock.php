@@ -11,6 +11,7 @@ use DNADesign\Elemental\Models\ElementContent;
 class TextBlock extends ElementContent{
     
     private static $db = array(
+        'Content' =>'HTMLText',
         'ExternalLink' => 'Varchar(155)'
     );
 

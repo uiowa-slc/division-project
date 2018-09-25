@@ -2,7 +2,7 @@
 
 use SilverStripe\Dev\BuildTask;
 use DNADesign\Elemental\Models\BaseElement;
-use DNADesign\Elemental\Models\ElementArea;
+use DNADesign\Elemental\Models\ElementalArea;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\Queries\SQLSelect;
 use SilverStripe\CMS\Model\SiteTree;
@@ -88,16 +88,29 @@ class MigrateBlocksToElementalTask extends BuildTask{
 					// }
 
 					print_r('relation id: '.'('.$result['BlockArea'].'ID'.') '.$page->obj($result['BlockArea'])->ID.'<br />');
-					$element->ParentID = $page->obj($result['BlockArea'])->ID;
-					$element->Sort = $result['Sort'];
-					$element->write();
+
+					$elementQuery = new SQLSelect();
+					$elementResult = $elementQuery->setFrom('ContentBlock')->setSelect('*')->setWhere("\"ID\" = '".$elementID."'")->execute()->first();
+
+					// print_r($elementResult);
+
+					$newElement = $element->duplicate(false);
+					$newElement->ParentID = $page->obj($result['BlockArea'])->ID;
+					$newElement->Sort = $result['Sort'];
+					$newElement->HTML = $elementResult['Content'];
+					$newElement->write();
+					//print_r($newElement);
 					if($element->isPublished()){
-						$element->publish('Stage', 'Live');
+						$newElement->publish('Stage', 'Live');
 					}
+
 
 
 				}
 			}
+
+
+
 
 		}
 		echo '</ul>';
