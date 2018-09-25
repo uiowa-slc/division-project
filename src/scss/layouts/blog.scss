@@ -84,7 +84,7 @@
 		line-height: 24px;
 		margin: 0;
 		& a {
-			color: #D3D3D3;
+			color: $body-font-color;
 			&:hover, &:focus {
 				text-decoration: underline;
 			}
@@ -296,7 +296,7 @@
 		margin: 12px 0 !important;
 		line-height: 1.2;
 		& a {
-			color: #D3D3D3;
+			color: $body-font-color;
 			&:hover, &:focus {
 				color: $anchor-color;
 			}
@@ -314,7 +314,7 @@
 		}
 	}
 	&__category {
-		color: #D3D3D3;
+		color: #545454;
 		text-transform: uppercase;
 		font-style: normal;
 		font-size: rem-calc(12);
@@ -341,10 +341,10 @@
 	}
 	& .blogmeta__byline {
 		float: none;
-		color: #005c99;
+		color: #545454;
 		margin-top: 18px;
 		& a {
-			color: #D3D3D3;
+			color: #545454;
 		}
 	}
 
@@ -385,4 +385,3 @@ Profile Pages
 		margin: 10px 0;
 	}
 }
-
