@@ -42,6 +42,7 @@ class HomePage extends Page {
 		$f->removeByName('InheritSidebarItems');
 		$f->removeByName('SidebarLabel');
 		$f->removeByName('SidebarItem');
+		$f->removeByName('YoutubeBackgroundEmbed');
 
 
 		$f->addFieldToTab('Root.Main', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
@@ -85,7 +86,13 @@ class HomePage extends Page {
 
 		$this->extend('updateCMSFields', $f);
 
-
+	
+		$f->removeByName('Content');
+		$f->removeByName('BackgroundImage');
+		$f->removeByName('InheritSidebarItems');
+		$f->removeByName('SidebarLabel');
+		$f->removeByName('SidebarItem');
+		$f->removeByName('YoutubeBackgroundEmbed');
 
 		return $f;
 	}
