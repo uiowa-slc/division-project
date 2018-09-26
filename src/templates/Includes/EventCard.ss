@@ -15,13 +15,13 @@
 	</div>
 
 	<div class="clearfix eventcard-content">
-		<h5 class="eventcard-title">
+		<p class="eventcard-title">
 			<a href="$Link">
 				<span>$Title</span><% if Event.CancelReason %>
 				<div class="homepage-cancel-reason">
 					Note: $Event.CancelReason</div><% end_if %>
 			</a>
-		</h5>
+		</p>
 
 		<%-- Dates --%>
 		<% if $Dates %>
