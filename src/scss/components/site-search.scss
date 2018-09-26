@@ -178,7 +178,6 @@
 
 
 	&__icon {
-		background-color: #fff;
 		font-size: rem-calc(18);
 		padding: 0;
 		width: 50px;
@@ -219,7 +218,9 @@
 	// 	}
 	// }
 }
-
+.nav--dark-header .nav__link--search-cancel span {
+	color: #fff;
+}
 .autocomplete-suggestions {
 	text-align: left;
 	cursor: default;
