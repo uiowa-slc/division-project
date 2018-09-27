@@ -34,7 +34,47 @@ class StudentLifeNewsHolderController extends PageController {
 	public function init() {
 		parent::init();
 	}
+	public function getBlogPostPagination($start, $filterType = null, $filterTitle = null){
+		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 
+		$list = new ArrayList();
+		$deptId = $this->DepartmentID;
+
+		switch($filterType){
+
+			case 'tag':
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterTitle;
+				break;
+			case 'category':
+				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterTitle;
+				break;
+			case 'author':
+				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterTitle;
+				break;
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+				break;
+		}
+
+		
+
+		if($start != 0){
+			$feedURL .='?start='.$start;
+		}
+		$rawPostFeed = file_get_contents($feedURL);
+		$postsArray = json_decode($rawPostFeed, TRUE);
+
+		$count = $postsArray['meta']['postCount'];
+
+		for ($i = 1; $i <= $count; $i++) {
+		    $list->push(new ArrayData(array()));
+		}
+
+		$paginatedList = new PaginatedList($list, $this->getRequest());
+
+		return $paginatedList;
+
+	}
 	public function go($request){
 		$filterTitle = '';
 		$action = $this->getRequest()->param('Action');

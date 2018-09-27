@@ -167,8 +167,7 @@
 .main-content__text .blogmeta__social {
 	@include breakpoint(xxlarge) {
 		display: block;
-		float: none;
-		text-align: center;
+		clear: both;
 		& li {
 			margin: 0 5px;
 		}

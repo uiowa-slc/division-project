@@ -45,8 +45,5 @@ class TopicHolderSearchBlock extends BaseElement {
         return $this->getController()->TopicSearchForm();
     }
 
-    
+
 }
-
-
-   

@@ -15,7 +15,7 @@
 		<% end_if %>
 		<% if $HTML %>
 			<div class="textblock__text">
-				
+
 			$HTML
 			<% if $ExternalLink %>
 				<div class="featuredpageblock__button">
@@ -51,9 +51,9 @@
 				<% if $Image %>
 					<div class="large-4 columns">
 						<% if $ExternalLink %>
-							<a href="$ExternalLink" class="border-effect textblock__image-container" target="_blank">
+						
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
-							</a>
+					
 						<% else %>
 							<span class="border-effect textblock__image-container">
 								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy textblock__image" data-original="$Image.FocusFill(600,425).URL" width="600" height="425" alt="$Title">

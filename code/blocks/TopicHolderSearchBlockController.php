@@ -23,6 +23,7 @@ class TopicHolderSearchBlockController extends ElementController {
             $searchField = new TextField('Search', false, '');
             $searchField->setAttribute('placeholder', 'Search for entries under '.$this->TopicHolder()->Title);
             $searchField->setAttribute('class', 'topic-search-form__input');
+            $searchField->setAttribute('title', 'Search for entries');
             $fields = new FieldList(
                 $searchField
             );

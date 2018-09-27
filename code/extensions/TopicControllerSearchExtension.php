@@ -15,7 +15,7 @@ class TopicControllerSearchExtension extends Extension{
 	private static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
 	public function TopicSearchForm() {
-			
+
 			$searchText =  'Searching under '.$this->owner->getParent()->Title;
 
 			if($this->owner->request && $this->owner->request->getVar('Search')) {
@@ -23,7 +23,12 @@ class TopicControllerSearchExtension extends Extension{
 			}
 			$searchField = new TextField('Search', false, '');
 			$searchField->setAttribute('placeholder', 'Search for entries under '.$this->owner->getParent()->Title);
+
 			$searchField->setAttribute('class', 'topic-search-form__input');
+
+			$searchField->addExtraClass('topic-search-form__input');
+			$searchField->setAttribute('title', 'Search for entries');
+
 			$fields = new FieldList(
 				$searchField
 			);

@@ -22,7 +22,6 @@ class StudentLifeNewsHolder extends Page {
 
 	private static $feed_base = 'https://studentlife.uiowa.edu/news';
 	// private static $feed_base = 'http://localhost:8888/student-life-at-iowa/news';
-	 // private static $feed_base = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	public function getCMSFields() {
 
@@ -161,5 +160,4 @@ class StudentLifeNewsHolder extends Page {
 			return $authorArray['Name'];
 		}
 	}
-
 }
