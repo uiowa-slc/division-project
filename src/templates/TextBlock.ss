@@ -15,7 +15,7 @@
 		<% end_if %>
 		<% if $HTML %>
 			<div class="textblock__text">
-
+				
 			$HTML
 			<% if $ExternalLink %>
 				<div class="featuredpageblock__button">

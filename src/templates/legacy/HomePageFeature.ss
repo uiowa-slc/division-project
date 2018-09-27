@@ -11,7 +11,7 @@
         <div class="legacy-hp__inner">
             <h3>$Title</h3>
             $Content
-            <% include HomePageFeatureFeedList %>        
+            <% include legacy/HomePageFeatureFeedList %>        
         </div>
         </a> 
     <% else %>

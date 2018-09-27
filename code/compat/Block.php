@@ -29,7 +29,7 @@ use SilverStripe\Forms\Tab;
  *
  * @author Shea Dawson <shea@silverstripe.com.au>
  */
-class Block extends DataObject implements MigratableObject
+class Block extends DataObject
 {
 
 	private static $table_name = 'Block';
@@ -52,29 +52,6 @@ class Block extends DataObject implements MigratableObject
         "Pages" => SiteTree::class,
     ];
 
-    public function up()
-    {
-        //Store if the original entity was published or not (draft)
-        $published = $this->IsPublished();
-        // If a user has subclassed BlogEntry, it should not be turned into a BlogPost.
-        if ($this->ClassName === 'Block') {
-            $this->ClassName = 'BlogPost';
-            $this->RecordClassName = 'BlogPost';
-        }
-        //Migrate these key data attributes
-        $this->PublishDate = $this->Date;
-        $this->AuthorNames = $this->Author;
-        $this->InheritSideBar = true;
-        //Write and additionally publish the item if it was published before.
-        $this->write();
-        if ($published) {
-            $this->publish('Stage', 'Live');
-            $message = "PUBLISHED: ";
-        } else {
-            $message = "DRAFT: ";
-        }
-        return $message . $this->Title;
 
-}
    
 }

@@ -119,18 +119,10 @@
 		font-size: rem-calc(12);
 		font-weight: 600;
 		line-height: 1;
-		&:after {
-			@include css-triangle(6px, #fff, right);
-			float: right;
-			margin-left: 5px;
-			display: inline-block;
-		}
+
 		&:hover, &:focus {
 			color: #222;
 			background-color: $highlight;
-			&:after {
-				@include css-triangle(6px, #222, right);
-			}
 		}
 	}
 	&__socialmedia {
