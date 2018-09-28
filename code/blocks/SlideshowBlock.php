@@ -7,7 +7,7 @@ use Colymba\BulkUpload\BulkUploader;
 use SilverStripe\Forms\GridField\GridField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
-
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 class SlideshowBlock extends BaseElement{
 
 	private static $db = array(

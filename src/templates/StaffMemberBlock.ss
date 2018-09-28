@@ -30,6 +30,7 @@
 <% else %>
 <section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
 	<div class="content-block">
+		<div class="staffmemberblock block">
 		<% if $StaffPage.Photo %>
 			<div class="staffmemberblock__media">
 				<a href="$StaffPage.Link" class="border-effect">
@@ -54,5 +55,7 @@
 				<a href="$StaffPage.Link" class="border-effect">View Profile</a>
 			</div>
 		</div>
+		</div>
 	</div>
 </section>
+<% end_if %>
