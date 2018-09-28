@@ -30,7 +30,7 @@
       "sheadawson/quickaddnew":"*",
       "silverstripe/staticpublisher":"*",
       "normann/gridfieldpaginatorwithshowall":"*",
-      "symbiote/silverstripe-addressable":"2.*",
+      "symbiote/silverstripe-addressable":"3.*",
       "jonom/silverstripe-betternavigator":"3.*",
       "thisisbd/silverstripe-maintenance-mode":"1.*",
       "silverstripe/secureassets":"1.1.*",

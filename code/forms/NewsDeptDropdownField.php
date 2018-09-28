@@ -1,8 +1,8 @@
 <?php
 
 class NewsDeptDropdownField extends DropdownField {
-	//private $feedBase = 'https://studentlife.uiowa.edu';
-    private $feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
+	private $feedBase = 'https://studentlife.uiowa.edu/news';
+    // private $feedBase = 'https://hulk.imu.uiowa.edu/student-life-at-iowa/news';
 
 	private static $default_category = 0;
 

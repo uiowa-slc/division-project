@@ -92,6 +92,15 @@ class BlogFieldExtension extends DataExtension {
 			return 'Read more';
 		}
 	}
+	public function getAuthorImageURL($postAuthor){
+
+		if($postAuthor->BlogProfileImage()->exists()){
+			return $postAuthor->BlogProfileImage()->AbsoluteURL;
+		}
+
+		return false;
+		
+	}
 	public function toFeedArray(){
 		$post = $this->owner;
 		$postsArray = array();
@@ -110,7 +119,7 @@ class BlogFieldExtension extends DataExtension {
 				'ID' => $postAuthor->ID,
 				'Name' => $postAuthor->Name,
 				'Email' => $postAuthor->Email,
-				'ImageURL' => $postAuthor->BlogProfileImage()->AbsoluteURL,
+				'ImageURL' => $this->getAuthorImageURL($postAuthor)
 			);
 			array_push($postAuthorsArray, $postAuthorSingleArray);
 		}
@@ -118,7 +127,7 @@ class BlogFieldExtension extends DataExtension {
 		$postArrayTagsFiltered = array_unique($postArrayTags);
 
 		if($post->obj('FeaturedImage')->exists()){
-			$postImage = $post->obj('FeaturedImage')->AbsoluteURL;
+			$postImage = $post->obj('FeaturedImage')->FocusFill(1280,720)->AbsoluteURL;
 			$postImageName = $post->obj('FeaturedImage')->Name;
 		}else{
 			$postImage = null;

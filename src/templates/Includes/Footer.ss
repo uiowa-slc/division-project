@@ -59,8 +59,8 @@
 				</ul>
 			</div>
 
-			<% if $SiteConfig.DisableDivisionBranding %>
-			<% else %>
+			<% if $$SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>
+		
 				<div class="footer__buttons">
 					<% if $SiteConfig.ButtonUrlOne %>
 						<a href="$SiteConfig.ButtonUrlOne" class="footer__give" target="_blank">$SiteConfig.ButtonTextOne</a>
