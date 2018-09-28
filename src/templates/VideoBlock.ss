@@ -13,7 +13,11 @@
 
 <% else %>
 <section class="content-block__container content-block__container--padding">
+
 	<div class="content-block">
+			<% if $ShowTitle %>
+			<h3 id="Block$ID" class="content-block-header header--centered header--small tagline__heading" style="padding-top: 30px;">$Title</h3>
+		<% end_if %>
 		<div class="backgroundvideo">
 			<% if $YoutubeEmbed %>
 				<div id="ESEE" class="backgroundvideo__container" data-interchange="[https://img.youtube.com/vi/$YoutubeEmbed/sddefault.jpg, small]">
