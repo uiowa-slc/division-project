@@ -57,7 +57,7 @@ class BlogFieldExtension extends DataExtension {
 		$entries = new ArrayList();
 
 		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'DESC')->Limit(3);
 			if($taggedEntries){
 				foreach($taggedEntries as $taggedEntry){
 					if($taggedEntry->ID){
