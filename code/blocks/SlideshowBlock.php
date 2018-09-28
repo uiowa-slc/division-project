@@ -8,6 +8,7 @@ use SilverStripe\Forms\GridField\GridField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+
 class SlideshowBlock extends BaseElement{
 
 	private static $db = array(
@@ -35,7 +36,7 @@ class SlideshowBlock extends BaseElement{
 
 		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
-		$gridFieldConfig->addComponent(new GridFieldBulkUpload(Image::class, 'SlideshowBlockImage'));
+		$gridFieldConfig->addComponent(new BulkUploader(Image::class, 'SlideshowBlockImage'));
 
 		$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
 		$fields->push($gridField);
