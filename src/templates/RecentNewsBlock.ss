@@ -20,6 +20,7 @@
 		<div class="column">
 			<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
 		</div>
+		
 		<ul class="medium-up-3 ">
 			<% loop $Entries %>
 				<li class="column column-block">

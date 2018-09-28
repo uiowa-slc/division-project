@@ -36,7 +36,9 @@ class SlideshowBlock extends BaseElement{
 
 		$row = 'SortOrder';
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
-		$gridFieldConfig->addComponent(new BulkUploader(Image::class, 'SlideshowBlockImage'));
+
+		//BulkUploader is kinda glitchy right now.
+		// $gridFieldConfig->addComponent(new BulkUploader(Image::class, 'SlideshowBlockImage'));
 
 		$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
 		$fields->push($gridField);

@@ -79,9 +79,9 @@ class EmbedBlock extends BaseElement{
         $fields->push($widthField = TextField::create('Width', 'Width (examples: "1280px", "100%")'));
         $fields->push($heightField = TextField::create('Height', 'Height (examples: "720px", "100%")'));
 
-        // $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
-        // $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
-        // $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
+        $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
+        $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
+        $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
 
         return $fields;
     }

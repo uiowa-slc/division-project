@@ -104,7 +104,9 @@ class RecentNewsBlock extends BaseElement{
 		switch ($this->FilterBy){
 
 			case 'Blog':
+
 				if($this->obj('Blog')->exists()){
+
 					$holder = $this->obj('Blog');
 					$entries = BlogPost::get()->filter(array('ParentID' => $holder->ID))->exclude(array('ID' => $this->ID));
 				}else{
@@ -150,7 +152,7 @@ class RecentNewsBlock extends BaseElement{
 				$entries = $entries->sort('PublishDate DESC');
 				break;
 		}
-
+		
 		return $entries->limit($limit);
 	}
 

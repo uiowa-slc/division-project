@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </section>
-<% if $AreaName == "BeforeContent" %>
+<% else_if $AreaName == "BeforeContent" %>
 <section class="content-block__container content-block__container--padding">
 	<div class="content-block">
 		<div class="block slideshowblock">
@@ -64,3 +64,4 @@
 		</div>
 	</div>
 </section>
+<% end_if %>
