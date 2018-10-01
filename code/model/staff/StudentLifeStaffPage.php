@@ -7,6 +7,8 @@ class StudentLifeStaffPage extends DataObject {
 		'URLSegment' => 'Varchar',
 		'ParentID' => 'Int',
 		'ExternalURL' => 'Varchar(255)',
+		'Position' => 'Text',
+		'EmailAddress' => 'Text',
 	);
 
 	private static $has_many = array(
@@ -21,17 +23,29 @@ class StudentLifeStaffPage extends DataObject {
 		return $f;
 	}
 
+	public function Link() {
+
+		$parent = StudentLifeStaffHolder::get()->First();
+
+		if($parent){
+			// print_r($this->URLSegment);
+			return $parent->Link('person/'.$this->URLSegment);
+		}else{
+			return $this->CanonicalURL;
+		}
+		
+	}
+
 	public static function createFromArray($array){
 
 		$staff = new StudentLifeStaffPage;
 		$staff->FirstName = $array['FirstName'];
 		$staff->LastName = $array['LastName'];
-		$staff->Email = $array['Email'];
+		$staff->EmailAddress = $array['EmailAddress'];
 		$staff->Position = $array['Position'];
 		$staff->ID = $array['ID'];
 		$staff->URLSegment = $array['URLSegment'];
 		$staff->Photo = $array['Photo'];
-		//print_r($staff);
 		return $staff;
 
 	}

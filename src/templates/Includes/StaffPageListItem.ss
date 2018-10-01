@@ -1,6 +1,6 @@
 <li class="column stafflist__item">
 	<% if not $Parent.HideLinksToStaffPages %>
-		<a href="$URLSegment" class="stafflist__link">
+		<a href="$Link" class="stafflist__link">
 		<% if $Photo %>
 			<div class="stafflist__img">
 					<% if $Parent.PhotoOrientation == "Portrait" %>
@@ -11,7 +11,7 @@
 				<% end_if %>
 			</div>
 		<% else %>
-			<div href="$URLSegment" class="stafflist__img">
+			<div href="$Link" class="stafflist__img">
 				<% if $Parent.PhotoOrientation == "Portrait" %>
 					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="234" height="350" alt="Placeholder photo for $FirstName $LastName">
 				<% else %>
@@ -37,7 +37,7 @@
 				<% end_if %>
 			</div>
 		<% else %>
-			<div href="$URLSegment" class="stafflist__img">
+			<div href="$Link" class="stafflist__img">
 				<% if $Parent.PhotoOrientation == "Portrait" %>
 					<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="{$ThemeDir}/dist/images/dosl.png" width="234" height="350" alt="Placeholder photo for $FirstName $LastName">
 				<% else %>

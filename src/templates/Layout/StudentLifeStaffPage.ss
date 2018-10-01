@@ -1,0 +1,56 @@
+$Header
+<main class="main-content__container" id="main-content__container">
+	$Breadcrumbs
+	<% with Person %>
+	<div class="column row">
+		<div class="main-content__header">
+			<h1>$FirstName $LastName</h1>
+		</div>
+	</div>
+
+	$BlockArea(BeforeContent)
+
+	<div class="row">
+
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarBlocks ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+
+			$BlockArea(BeforeContentConstrained)
+
+			<div class="main-content__text">
+				<div class="staffpage">
+					<% if $Photo %>
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo.URL" width="945" height="$Photo.Height" alt="$Title" role="presentation" class="staffpage__img">
+					<% end_if %>
+					<h2>$Position</h2>
+					<ul>
+						<% if $EmailAddress %><li><strong>Email:</strong> <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
+						<% if $Phone %><li><strong>Phone:</strong> $Phone</li><% end_if %>
+						<% if $DepartmentName %>
+							<li>
+								<% if $DepartmentURL %>
+									<a href="$DepartmentURL" target="_blank">Department website</a>
+								<% else %>
+									$DepartmentName
+								<% end_if %>
+							</li>
+						<% end_if %>
+						<% if $OtherWebsiteLink %>
+							<li><a href="$OtherWebsiteLink" target="_blank">
+								<% if $OtherWebsiteLabel %>
+									$OtherWebsiteLabel
+								<% else %>
+									Website
+								<% end_if %>
+							</a></li>
+						<% end_if %>
+					</ul>
+				</div>
+				$Content
+		</article>
+		<aside class="sidebar" class="dp-sticky">
+			<% include SideNav %>
+			$BlockArea(Sidebar)
+		</aside>
+	</div>
+	<% end_with %>
+</main>

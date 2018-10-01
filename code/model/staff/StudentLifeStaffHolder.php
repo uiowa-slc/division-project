@@ -43,7 +43,12 @@ class StudentLifeStaffHolder extends Page {
 
 		$deptId = $this->DepartmentID;
 
-		$feedURL = $feedBase.'/departmentStaffFeed/'.$deptId;
+		switch($filterType){
+			default:
+				$feedURL = $feedBase.'/departmentStaffFeed/'.$deptId;
+			break;
+		}
+
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}
@@ -67,6 +72,17 @@ class StudentLifeStaffHolder extends Page {
 
 	}
 
+	public function getStaffPageFromFeed($id){
+		$feedBase = Config::inst()->get('StudentLifeStaffHolder', 'feed_base');
+		$feedURL = $feedBase.'/departmentStaffPage/'.$id;
+		$rawPost = file_get_contents($feedURL);
+		$postArray = json_decode($rawPost, TRUE);
+		$post = new StudentLifeStaffPage();
+		$post = $post->createFromArray($postArray);
+
+		return $post;
+	}
+
 }
 class StudentLifeStaffHolder_Controller extends Page_Controller {
 
@@ -86,7 +102,8 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array(
-		'go'
+		'go',
+		'person'
 	);
 
 	private static $url_handlers = array(
@@ -115,10 +132,15 @@ class StudentLifeStaffHolder_Controller extends Page_Controller {
 		}
 		
 		switch($action){
+			case 'person':
+		        $person = $this->getStaffPageFromFeed($id);
+		        $data = new ArrayData(array(
+		        	'Person' => $person
+		        ));
+		        return $this->customise($data)->renderWith(array('StudentLifeStaffPage', 'Page'));
 			case '':
 				//index action
 				$teams = $this->getStaffTeamsFromFeed(null, null, null, 10, $start);
-				//print_r($teams);
 				break;
 		    default: 
 		    	// If none of the cases above match, we might be attempting to follow an
