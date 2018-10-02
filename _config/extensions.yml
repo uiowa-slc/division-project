@@ -62,3 +62,6 @@ DNADesign\Elemental\Models\BaseElement:
 DNADesign\Elemental\Models\ElementalArea:
   extensions:
     - ElementalAreaExtension
+SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+  extensions:
+    - DivisionEmailRecipientExtension
