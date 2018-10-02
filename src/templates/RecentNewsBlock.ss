@@ -34,11 +34,12 @@
 		</div>
 	</div>
 </section>
-<% else_if $AreaName == "Sidebar" %>
+<% else_if $AreaName == "SidebarArea" %>
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="newsblock">
 			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
+
 			<ul>
 				<% loop $Entries %>
 					<% include RecentNewsContent %>
