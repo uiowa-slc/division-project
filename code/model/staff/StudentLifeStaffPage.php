@@ -47,7 +47,7 @@ class StudentLifeStaffPage extends DataObject {
 		$staff->DepartmentURL = $array['DepartmentURL'];
 		$staff->ID = $array['ID'];
 		$staff->URLSegment = $array['URLSegment'];
-		$staff->Photo = $array['Photo'];
+		$staff->PhotoURL = $array['PhotoURL'];
 		$staff->Phone = $array['Phone'];
 		return $staff;
 

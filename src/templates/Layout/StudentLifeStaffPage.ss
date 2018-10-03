@@ -18,9 +18,7 @@ $Header
 
 			<div class="main-content__text">
 				<div class="staffpage">
-					<% if $Photo %>
-						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo.URL" alt="$Title" role="presentation" class="staffpage__img">
-					<% end_if %>
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo" alt="$Title" role="presentation" class="staffpage__img">
 					<h2>$Position</h2>
 					<ul>
 						<% if $EmailAddress %><li><strong>Email:</strong> <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
