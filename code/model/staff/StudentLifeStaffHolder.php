@@ -79,6 +79,7 @@ class StudentLifeStaffHolder extends Page {
 		$postArray = json_decode($rawPost, TRUE);
 		$post = new StudentLifeStaffPage();
 		$post = $post->createFromArray($postArray);
+		print_r($post);
 		return $post;
 	}
 
