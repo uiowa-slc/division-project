@@ -8,7 +8,9 @@ class PlanCategory extends DataObject {
 		'Column1Heading' => 'Varchar(155)',
 		'Column1Content' => 'HTMLText',
 		'Column2Heading' => 'Varchar(155)',
-		'Column2Content' => 'HTMLText'
+		'Column2Content' => 'HTMLText',
+	    'Column3Heading' => 'Varchar(155)',
+	    'Column3Content' => 'HTMLText'
 	);
 
 	private static $has_one = array(
@@ -22,13 +24,15 @@ class PlanCategory extends DataObject {
 	private static $summary_fields = array(
 		'Title',
 		'Column1Heading',
-		'Column2Heading'
+		'Column2Heading',
+		'Column3Heading'
 	);
 
 	private static $defaults = array(
 		'Column1Heading' => 'Recommendation',
 		'Column2Heading' => 'Updates',
-		'Column2Content' => '<ul><li>No updates at this time.</li></ul>'
+		'Column2Content' => '<ul><li>No updates at this time.</li></ul>',
+		'Column3Heading' => ' test '
 	);
 
 	public function getCMSFields(){
