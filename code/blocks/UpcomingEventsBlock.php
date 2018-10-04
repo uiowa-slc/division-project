@@ -1,17 +1,19 @@
 <?php
 
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
 class UpcomingEventsBlock extends BaseElement{
 
 	private static $db = array(
 		'LimitEvents' => 'Int',
-		'Source' => 'Enum(array("Ui calendar on this site","SilverStripe calendar on this site","General Interest","Type","Venue","Department","Search term"))',
+		'Source' => 'Enum(array("Ui calendar on this site","General Interest","Type","Venue","Department","Keyword"))',
 		'EventTypeFilterID'       => 'Int',
 		'DepartmentFilterID'      => 'Int',
 		'VenueFilterID'           => 'Int',
 		'GeneralInterestFilterID' => 'Int',
+        'KeywordFilterID' => 'Int',
 		'SearchTerm' => 'Varchar(255)',
 		'CalendarLink' => 'Varchar(255)'
 	);
@@ -31,7 +33,7 @@ class UpcomingEventsBlock extends BaseElement{
 	);
 	public function EventList(){
 		$calendar = $this->Calendar();
-		
+
 		$numEvents = $this->LimitEvents;
 
 		$eventList = $calendar->EventListLimited($numEvents);
@@ -41,9 +43,8 @@ class UpcomingEventsBlock extends BaseElement{
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Source');
+        $fields->removeByName('SearchTerm');
 		$calendar = UiCalendar::getOrCreate();
-
-		$ssCalendar = Calendar::get()->First();
 
 		$sourceArray = singleton('UpcomingEventsBlock')->dbObject('Source')->enumValues();
 
@@ -57,7 +58,10 @@ class UpcomingEventsBlock extends BaseElement{
 		$venuesArray = $venues->map();
 
 		$genInterests      = $calendar->GeneralInterestList();
-		$genInterestsArray = $genInterests->map();	
+		$genInterestsArray = $genInterests->map();
+
+        $keywords      = $calendar->KeywordList();
+        $keywordArray = $keywords->map();
 
 		$fields->renameField('Title', 'Title (default:Upcoming Events)');
 
@@ -65,9 +69,6 @@ class UpcomingEventsBlock extends BaseElement{
 			unset($sourceArray['Ui calendar on this site']);
 		}
 
-		if(!$ssCalendar){
-			unset($sourceArray['SilverStripe calendar on this site']);
-		}
 		$sourceField = DropdownField::create('Source', 'Event source', $sourceArray);
 
 		$fields->addFieldToTab('Root.Main', $sourceField);
@@ -87,6 +88,9 @@ class UpcomingEventsBlock extends BaseElement{
 		$genInterestDropDownField = new DropdownField('GeneralInterestFilterID', 'Filter the calendar by this Ui General Interest', $genInterestsArray);
 		$genInterestDropDownField->setEmptyString('(No Filter)');
 
+        $keywordDropDownField = new DropdownField('KeywordFilterID', 'Filter the calendar by this UiCalendar Keyword', $keywordArray);
+        $keywordDropDownField->setEmptyString('(No Filter)');
+
 		$searchTermField = new TextField('SearchTerm', 'Search term');
 
 		$fields->addFieldToTab('Root.Main', TextField::create('CalendarLink', '"See all Events link"'));
@@ -95,13 +99,16 @@ class UpcomingEventsBlock extends BaseElement{
 		$fields->addFieldToTab(' Root.Main', $departmentDropDownField);
 		$fields->addFieldToTab(' Root.Main', $venueDropDownField);
 		$fields->addFieldToTab(' Root.Main', $genInterestDropDownField);
-		$fields->addFieldToTab(' Root.Main', $searchTermField);
+        $fields->addFieldToTab(' Root.Main', $keywordDropDownField);
+        //Disabled search term field until we can search UiCalendar api
+		// $fields->addFieldToTab(' Root.Main', $searchTermField);
 
 		$genInterestDropDownField->displayIf('Source')->isEqualTo('General Interest');
 		$venueDropDownField->displayIf('Source')->isEqualTo('Venue');
 		$departmentDropDownField->displayIf('Source')->isEqualTo('Department');
 		$typeListBoxField->displayIf('Source')->isEqualTo('Type');
-		$searchTermField->displayIf('Source')->isEqualTo('Search term');
+		// $searchTermField->displayIf('Source')->isEqualTo('Search term');
+        $keywordDropDownField->displayIf('Source')->isEqualTo('Keyword');
 
 
 
@@ -112,17 +119,15 @@ class UpcomingEventsBlock extends BaseElement{
 		if($this->Source == 'Ui calendar on this site'){
 			$calendar = UiCalendar::get()->First();
 			return $calendar;
-		}elseif($this->Source == 'SilverStripe calendar on this site'){
-			$calendar = Calendar::get()->First();
-			return $calendar;
 		}
 
 		$calendar = UiCalendar::create();
-		
+
 		$generalInterestId = $this->GeneralInterestFilterID;
 		$typeId = $this->EventTypeFilterID;
 		$venueId = $this->VenueFilterID;
 		$deptId = $this->DepartmentFilterID;
+        $keyword = $this->KeywordFilterID;
 		$searchTerm = $this->SearchTerm;
 
 		if($this->Source == 'General Interest'){
@@ -133,6 +138,8 @@ class UpcomingEventsBlock extends BaseElement{
 			$calendar->VenueFilterID = urlencode($venueId);
 		}elseif($this->Source == 'Department'){
 			$calendar->DepartmentFilterID = urlencode($deptId);
+        }elseif($this->Source == 'Keyword'){
+            $calendar->KeywordFilterID = urlencode($keyword);
 		}elseif($this->Source == 'Search term'){
 			$calendar->SearchTerm = urlencode($searchTerm);
 		}

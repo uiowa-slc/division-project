@@ -6,19 +6,25 @@
 		<h3 class="lp-event__header"><a href="$AfterClassLink">$Title</a></h3>
 			<p class="lp-eventlist-date">
 				<% if $Dates %>
-				<strong> Date &amp; Time: </strong>
-				<% loop $Dates %>
-					<% with $StartDateTime %>
-						<time itemprop="startDate" datetime="$Format(c)">
-							$Format(l), $Format(F) $Format(j)
-						</time>
-						 <span class="lp-eventlist-time">$Format("g:i A")<% end_with %><% if $EndTime %><% with $EndTime %>&ndash;$Format("g:i A") 
-						<% end_with %>
-					<% end_if %>
-				<% end_loop %>
-				</span>
+    				<strong> Date(s) &amp; Time(s): </strong>
+                    <ul>
+    				<% loop $Dates %>
+                        <li>
+    					<% with $StartDateTime %>
+    						<time itemprop="startDate" datetime="$getISOFormat">
+    							$Format("EEE, MMM d")
+    						</time>
+    						 <span class="lp-eventlist-time">$Format("h:mm a")<% end_with %><% if $EndTime %><% with $EndTime %>&ndash;$Format("h:mm a")</span>
+    					<% end_with %><% end_if %>
+                        </li>
+                    <% end_loop %>
+
+
+
+
+                </ul>
 				<% end_if %>
-			<br />	
+			<br />
 		<% if $Venue %>
 			<strong>Location: </strong>$Location &ndash; $Venue.Title <br />
 		<% end_if %>
@@ -44,5 +50,5 @@
 
 </div>
 <% if not $Last %>
-<hr />	
+<hr />
 <% end_if %>

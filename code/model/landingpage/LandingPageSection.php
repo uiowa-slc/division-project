@@ -3,9 +3,12 @@
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
+use Bummzack\SortableFile\Forms\SortableUploadField;
+use EdgarIndustries\YouTubeField\YouTubeField;
 
 class LandingPageSection extends DataObject {
 
@@ -14,7 +17,7 @@ class LandingPageSection extends DataObject {
 		'Content' => 'HTMLText',
 		'SortOrder' => 'Int',
 		'VideoID' => 'Varchar(11)',
-		'EventSearchTerm' => 'Varchar(155)',
+		'CalendarID' => 'Int',
 		'FullImagePopup' => 'Boolean'
 
 	);
@@ -40,7 +43,8 @@ class LandingPageSection extends DataObject {
 		$fields->removeByName("SortOrder");
 		$fields->removeByName("Images");
 
-		$fields->addFieldToTab('Root.Main', TextField::create('EventSearchTerm', 'Show Localist events with this search term (can be a tag or category)'));
+		$fields->addFieldToTab('Root.Main', DropdownField::create('CalendarID', 'Choose a calendar to retrieve events from (you may need to create a UiCalendar page on this site)', UiCalendar::get()->map())->setEmptyString('(No calendar selected'));
+
 		$fields->addFieldToTab('Root.Main', SortableUploadField::create('Images'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('FullImagePopup', 'Enable Full Image Popups'));
 		$fields->addFieldToTab('Root.Main', YouTubeField::create('VideoID', 'YouTube Video'));
@@ -52,11 +56,12 @@ class LandingPageSection extends DataObject {
 		return $filter->filter($this->owner->Title);
 	}
 	public function EventList(){
-		if($term = $this->EventSearchTerm){
-			$calendar = LocalistCalendar::getOrCreate();
-			return $calendar->EventListBySearchTerm($term);
+		$calendar = UiCalendar::get()->filter(array('ID' => $this->CalendarID))->First();
+
+		if($calendar){
+
+			return $calendar->EventList();
 		}
-		return false;
 	}
 
 }
