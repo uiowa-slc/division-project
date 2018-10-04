@@ -23,7 +23,7 @@ class PlanPage extends Page{
 		$fields = parent::getCMSFields();
 
 		$config = GridFieldConfig_RelationEditor::create();
-		$planCatField = new GridField('PlanCategories', 'Plan catgories', $this->PlanCategories());
+		$planCatField = new GridField('PlanCategories', 'Plan categories', $this->PlanCategories());
 		$planCatField->setConfig($config);
 
 		$fields->addFieldToTab('Root.Main', $planCatField, 'Content');
