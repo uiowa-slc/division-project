@@ -23,6 +23,8 @@ class PlanPage extends Page{
 		$fields = parent::getCMSFields();
 
 		$config = GridFieldConfig_RelationEditor::create();
+		$config->addComponent(new GridFieldSortableRows('SortOrder'));
+		
 		$planCatField = new GridField('PlanCategories', 'Plan categories', $this->PlanCategories());
 		$planCatField->setConfig($config);
 

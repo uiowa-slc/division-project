@@ -9,7 +9,8 @@ class PlanItem extends DataObject {
 		'Column2Heading' => 'Varchar(155)',
 		'Column2Content' => 'HTMLText',
 		'Column3Heading' => 'Varchar(155)',
-		'Column3Content' => 'HTMLText'
+		'Column3Content' => 'HTMLText',
+		'SortOrder' => 'Int'
 
 	);
 
@@ -31,6 +32,8 @@ class PlanItem extends DataObject {
 		'Column3Heading' => '',
 	);
 
+	private static $default_sort = 'SortOrder';
+	
 	public function getCMSFields(){
 		$fields = FieldList::create();
 
