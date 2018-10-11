@@ -122,7 +122,7 @@
 								  frameborder="0"></iframe>
 							</div>
 						<% end_if %>
-						<% if $EventSearchTerm %>
+						<% if $CalendarID %>
 							<% if $EventList %>
 								<% loop $EventList %>
 									<% include LandingPageEvent %>

@@ -1,4 +1,4 @@
-<% if $AreaName == "Sidebar" %>
+<% if $AreaName == "SidebarArea" %>
 	<section class="content-block__container" aria-labelledby="Block$ID">
 		<div class="content-block row column">
 			<div class="$CSSClasses">

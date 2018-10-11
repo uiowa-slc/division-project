@@ -3,6 +3,7 @@
 use SilverStripe\CMS\Model\VirtualPage;
 use SilverStripe\UserForms\Model\UserDefinedForm;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;

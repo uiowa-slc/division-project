@@ -63,12 +63,12 @@ class MigrateBlocksToElementalTask extends BuildTask{
 
 		);
 
-		
+
 		//print_r($elements->toArray());
 		echo '<ul>';
 		foreach($elements as $element){
 			$elementID = $element->ID;
-			
+
 			$query = new SQLSelect();
 			$results = $query->setFrom('SiteTree_Blocks')->setSelect('*')->setWhere("\"BlockID\" = '".$elementID."'")->execute();
 
@@ -84,7 +84,7 @@ class MigrateBlocksToElementalTask extends BuildTask{
 				if($page){
 
 					// if(array_key_exists($result['BlockArea'], $elementAreaNames)){
-						print_r('element <strong>'.$element->Title.'</strong> on page '.$page->Title.' goes into '.$result['BlockArea'].' '.$page->{$elementAreaNames[$result['BlockArea']].'ID'}. '<br />');						
+						print_r('element <strong>'.$element->Title.'</strong> on page '.$page->Title.' goes into '.$result['BlockArea'].' '.$page->{$elementAreaNames[$result['BlockArea']].'ID'}. '<br />');
 					// }
 
 					print_r('relation id: '.'('.$result['BlockArea'].'ID'.') '.$page->obj($result['BlockArea'])->ID.'<br />');
@@ -92,12 +92,29 @@ class MigrateBlocksToElementalTask extends BuildTask{
 					$elementQuery = new SQLSelect();
 					$elementResult = $elementQuery->setFrom('ContentBlock')->setSelect('*')->setWhere("\"ID\" = '".$elementID."'")->execute()->first();
 
-					// print_r($elementResult);
+                    //Dirty hack for TextBlock/ContentBlock weirdness:
+
+                    $textBlockQuery = new SQLSelect();
+
+                    $textBlockResult = $elementQuery->setFrom('TextBlock')->setSelect('*')->setWhere("\"ID\" = '".$elementID."'")->execute()->first();
+
 
 					$newElement = $element->duplicate(false);
 					$newElement->ParentID = $page->obj($result['BlockArea'])->ID;
 					$newElement->Sort = $result['Sort'];
 					$newElement->HTML = $elementResult['Content'];
+                    if(isset($textBlockResult['ImageID'])){
+                        $newElement->ImageID = $textBlockResult['ImageID'];
+                    }
+
+                    if(isset($textBlockResult['ExternalLink'])){
+                        $newElement->ExternalLink = $textBlockResult['ExternalLink'];
+                    }
+
+                    if(isset($textBlockResult['LinkedPageID'])){
+                        $newElement->LinkedPageID = $textBlockResult['LinkedPageID'];
+                    }
+
 					$newElement->write();
 					//print_r($newElement);
 					if($element->isPublished()){

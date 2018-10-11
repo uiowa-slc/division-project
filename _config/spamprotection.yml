@@ -2,4 +2,4 @@
 name: dp-spamprotection
 ---
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
-  default_spam_protector: NocaptchaProtector
+    default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector

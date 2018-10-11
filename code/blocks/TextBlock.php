@@ -9,8 +9,9 @@ use DNADesign\Elemental\Models\ElementContent;
 
 
 class TextBlock extends ElementContent{
-    
+
     private static $db = array(
+        //Content field is for legacy/migration purposes only. Use HTML in ElementContent after migration.
         'Content' =>'HTMLText',
         'ExternalLink' => 'Varchar(155)'
     );
@@ -23,7 +24,7 @@ class TextBlock extends ElementContent{
     private static $owns = array(
         'Image'
     );
-	
+
     /**
      * If the singular name is set in a private static $singular_name, it cannot be changed using the translation files
      * for some reason. Fix it by defining a method that handles the translation.
@@ -54,6 +55,7 @@ class TextBlock extends ElementContent{
         $f = parent::getCMSFields();
 
         $f->removeByName('LinkedPageID');
+        $f->removeByName('Content');
         $f->renameField('ExternalLink', 'Link (include http://)');
 
         return $f;

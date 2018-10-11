@@ -79,12 +79,8 @@
 						<% end_if %>
 					</div>
 				<% end_if %>
-				<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>
-					<div class="featuredpageblock__body--wimage">
-				<% else %>
-					<div class="featuredpageblock__body">
-				<% end_if %>
 				
+					<div class="<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>featuredpageblock__body--wimage<% else %>featuredpageblock__body<% end_if %>">
 					<h3 id="Block$ID" class="featuredpageblock__title">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl">
