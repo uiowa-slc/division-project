@@ -4,6 +4,7 @@ use SilverStripe\CMS\Model\VirtualPage;
 use SilverStripe\UserForms\Model\UserDefinedForm;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridField;
 use MD\DivisionProject\StaffHolderPageController;
@@ -74,7 +75,7 @@ class StaffHolderPage extends Page {
 		}else{
 			$staffPages = parent::Children();
 		}
-		
+
 		$this->extend('alterChildren', $staffPages);
 		return $staffPages;
 	}
