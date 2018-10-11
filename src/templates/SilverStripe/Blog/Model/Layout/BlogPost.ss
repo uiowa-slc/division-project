@@ -34,7 +34,7 @@ $Header
 	$BeforeContent
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BeforeContentConstrained
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
@@ -75,7 +75,7 @@ $Header
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$Sidebar
+			$SidebarArea
 		</aside>
 	</div>
 	$AfterContent
