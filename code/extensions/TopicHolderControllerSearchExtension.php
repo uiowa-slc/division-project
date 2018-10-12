@@ -39,7 +39,7 @@ class TopicHolderControllerSearchExtension extends Extension{
 			);
 			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
-			$form->setTemplate('SearchForm');
+			$form->setTemplate('TopicSearchForm');
 			$form->addExtraClass('topic-search-form');
 			return $form;
 		}
