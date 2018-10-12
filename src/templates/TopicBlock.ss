@@ -15,11 +15,11 @@
 								<article class="bloglistitem clearfix ">
 									<% if $FeaturedImage %>
 										<a href="$Link" class="bloglistitem__img border-effect">
-											<img class="dp-lazy" data-original="$FeaturedImage.CroppedImage(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
+											<img class="dp-lazy" data-original="$FeaturedImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
 										</a>
 									<% else_if $BackgroundImage %>
 										<a href="$Link" class="bloglistitem__img border-effect">
-											<img class="dp-lazy" data-original="$BackgroundImage.CroppedImage(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
+											<img class="dp-lazy" data-original="$BackgroundImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
 										</a>
 									<% else_if $YoutubeBackgroundEmbed %>
 										<a href="$Link" class="bloglistitem__img border-effect">
@@ -27,7 +27,7 @@
 										</a>
 									<% end_if %>
 									<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
-									
+
 									<% if $Up.FilterBy == "Category" %>
 										<% if $Tags.exists %>
 											<p class="bloglistitem__category">
@@ -85,11 +85,11 @@
 					<article class="bloglistitem clearfix ">
 						<% if $FeaturedImage %>
 							<a href="$Link" class="bloglistitem__img border-effect">
-								<img class="dp-lazy" data-original="$FeaturedImage.CroppedImage(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
+								<img class="dp-lazy" data-original="$FeaturedImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
 							</a>
 						<% else_if $BackgroundImage %>
 							<a href="$Link" class="bloglistitem__img border-effect">
-								<img class="dp-lazy" data-original="$BackgroundImage.CroppedImage(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
+								<img class="dp-lazy" data-original="$BackgroundImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
 							</a>
 						<% else_if $YoutubeBackgroundEmbed %>
 							<a href="$Link" class="bloglistitem__img border-effect">
@@ -97,7 +97,7 @@
 							</a>
 						<% end_if %>
 						<div class="bloglistitem__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
-						
+
 						<% if $Up.FilterBy == "Category" %>
 							<% if $Tags.exists %>
 								<p class="bloglistitem__category">
