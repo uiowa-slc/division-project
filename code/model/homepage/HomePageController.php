@@ -1,4 +1,6 @@
 <?php
+use SilverStripe\ORM\ArrayList;
+
 class HomePageController extends PageController {
 
 	/**
@@ -23,13 +25,28 @@ class HomePageController extends PageController {
 		parent::init();
 
 	}
-	public function index() {
-		$bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
-		$page = $this->customise(array(
-				'BackgroundFeature' => $bg
-			));
-		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
-	}
+    public function index() {
+        $bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
+
+        if($this->ShuffleHomePageFeatures){
+            $featuresArray = NewHomePageHeroFeature::get()->toArray();
+
+            shuffle($featuresArray);
+
+            $features = new ArrayList($featuresArray);
+
+        }else{
+            $features = NewHomePageHeroFeature::get();
+        }
+
+        $page = $this->customise(array(
+                'BackgroundFeature' => $bg,
+                'NewHomePageHeroFeatures' => $features
+            ));
+        return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
+    }
+
+
 	public function HomePageFeatures() {
 		$features = HomePageFeature::get();
 
@@ -50,7 +67,7 @@ class HomePageController extends PageController {
 		}else{
 			$features = NewHomePageHeroFeature::get();
 		}
-		
+
 		return $features;
 
 	}

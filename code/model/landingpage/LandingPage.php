@@ -9,6 +9,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\GridField\GridField;
 use MD\DivisionProject\LandingPageController;
+
 class LandingPage extends Page {
 
 	private static $db = array(
