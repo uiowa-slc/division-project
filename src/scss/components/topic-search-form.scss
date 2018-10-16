@@ -11,17 +11,18 @@
 		height: 55px;
 	}
 
-	input.action.topic-search-form__search-button{
-			@include grid-column(4);
-		@include breakpoint(medium) {
-			@include grid-column(2);
-		}
 
-		border: none;
-		background-image: linear-gradient(to bottom, $highlight, lighten($highlight, 10));
-		color: #222;
-		height: 55px;
-		border-radius: 0;
-	}
 }
 
+input.action.topic-search-form__search-button{
+		@include grid-column(4);
+	@include breakpoint(medium) {
+		@include grid-column(2);
+	}
+
+	border: none;
+	background-image: linear-gradient(to bottom, $highlight, lighten($highlight, 10));
+	color: #222;
+	height: 55px;
+	border-radius: 0;
+}

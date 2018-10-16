@@ -6,7 +6,7 @@
 	<% end_if %>
 	<fieldset>
 		<% loop $Fields %>
-		$FieldHolder
+		$Me
 		<% end_loop %>
 		<% loop $Actions %>
 		$Field
