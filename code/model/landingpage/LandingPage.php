@@ -37,7 +37,7 @@ class LandingPage extends Page {
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
 
 	);
-	private static $icon = 'division-project/cms-icons/airport.png';
+	private static $icon = 'resources/vendor/md/division-project/cms-icons/airport.png';
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
