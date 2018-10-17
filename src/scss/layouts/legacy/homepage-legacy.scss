@@ -41,7 +41,7 @@ $legacy-hp__break-xlarge: 1140px;
 	padding: 0 20px;
 }
 .legacy-hp__hero {
-	border-bottom: 5px solid $legacy-hp__yellow;
+	border-bottom: 5px solid $highlight;
 	position: relative;
 	padding: 2em 0;
 	background-color: #FFF;
@@ -111,7 +111,7 @@ $legacy-hp__break-xlarge: 1140px;
 }
 
 .legacy-hp__hero-text li a {
-	background: $legacy-hp__yellow;
+	background: $highlight;
 	color: #fff;
 	display: block;
 	font-family: $legacy-hp__heading-font;
