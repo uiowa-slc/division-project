@@ -28,7 +28,7 @@ class TopicHolderSearchBlock extends Block {
         return $this->getController()->TopicSearchForm();
     }
 
-    
+
 }
 
 class TopicHolderSearchBlock_Controller extends Block_Controller {
@@ -48,6 +48,7 @@ class TopicHolderSearchBlock_Controller extends Block_Controller {
             $searchField = new TextField('Search', false, '');
             $searchField->setAttribute('placeholder', 'Search for entries under '.$this->TopicHolder()->Title);
             $searchField->addExtraClass('topic-search-form__input');
+            $searchField->setAttribute('title', 'Search for entries');
             $fields = new FieldList(
                 $searchField
             );
@@ -73,4 +74,3 @@ class TopicHolderSearchBlock_Controller extends Block_Controller {
         }
 }
 
-   

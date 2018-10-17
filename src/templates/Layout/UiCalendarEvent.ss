@@ -89,7 +89,9 @@ $Header
 					<% end_loop %>
 					</p>
 				<% end_if %>
-
+				<% if $UiCalendarLink %>
+					<a href="$UiCalendarLink" target="_blank">View on the UI calendar <i class="fa fa-external-link" aria-hidden="true"></i></a>
+				<% end_if %>
 				<%-- <p><a href="$LocalistLink">View event on events.uiowa.edu</a></p> --%>
 			</div>
 

@@ -1,9 +1,9 @@
 <% if $Children || $Menu(2) %>
 <%-- <nav class="sidenav" data-sticky data-margin-top="0" data-anchor="sticky-nav-area" data-sticky-on="large"> --%>
-<nav class="sidenav">
+<nav class="sidenav" aria-labelledby="sidenav-title">
 	 <% if $Menu(2) %>
 		<% with Level(1) %>
-			<h2 class="sidenav__section-title"><% if $LinkOrCurrent = "current" %>$MenuTitle<% else %><a href="$Link">$MenuTitle</a><% end_if %></h2>
+			<h2 id="sidenav-title" class="sidenav__section-title"><% if $LinkOrCurrent = "current" %>$MenuTitle<% else %><a href="$Link">$MenuTitle</a><% end_if %></h2>
 		<% end_with %>
 	<% end_if %><%-- end_if Menu(2) --%>
 	<% if $Menu(2) %>

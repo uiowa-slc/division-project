@@ -6,7 +6,7 @@ class TopicHolderControllerSearchExtension extends Extension{
 	public static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
 	public function TopicSearchForm() {
-		
+
 			$searchText =  'Search entries under '.$this->owner->Title;
 
 			if($this->owner->request && $this->owner->request->getVar('Search')) {
@@ -15,6 +15,7 @@ class TopicHolderControllerSearchExtension extends Extension{
 			$searchField = new TextField('Search', false, '');
 			$searchField->setAttribute('placeholder', 'Search entries listed under '.$this->owner->Title);
 			$searchField->addExtraClass('topic-search-form__input');
+			$searchField->setAttribute('title', 'Search for entries');
 			$fields = new FieldList(
 				$searchField
 			);

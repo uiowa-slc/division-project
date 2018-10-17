@@ -94,6 +94,7 @@
 @import "components/login";
 @import "components/childpages";
 @import "components/links";
+@import "lib/flickity";
 @import "components/flickity";
 @import "components/lists";
 @import "components/quotes";
@@ -136,6 +137,7 @@
 @import "layouts/staff";
 @import "layouts/blog";
 @import "layouts/topics";
+@import "layouts/planpage";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

@@ -162,6 +162,7 @@
 	}
 
 	&__submit {
+		background-color: #fff;
 		position: absolute;
 		left: 1px;
 		top: 1px;
@@ -199,7 +200,7 @@
 		}
 		@include breakpoint(xlarge) {
 			height: 66px;
-		}		
+		}
 	}
 	// &__icon{
 	// 	display: inline-block;
@@ -217,7 +218,9 @@
 	// 	}
 	// }
 }
-
+.nav--dark-header .nav__link--search-cancel span {
+	color: #fff;
+}
 .autocomplete-suggestions {
 	text-align: left;
 	cursor: default;

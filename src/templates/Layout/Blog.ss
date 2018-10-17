@@ -42,12 +42,22 @@ $Header
 			$BlockArea(BeforeContentConstrained)
 			<div class="main-content__text">
 				$Content
-				<% if $PaginatedList.Exists %>
+				
+				<% if $Action == "index" %>
+					<% if $SortAlphabetically %>
+	 					<% loop $BlogPostsAlpha %>		
+	 						<% include BlogCard %>		
+	 					<% end_loop %>		
+	 				<% else_if $PaginatedList.Exists %>
+						<% loop $PaginatedList %>
+							<% include BlogCard %>
+						<% end_loop %>
+					<% end_if %>
+				<% else %>
 					<% loop $PaginatedList %>
 						<% include BlogCard %>
 					<% end_loop %>
 				<% end_if %>
-
 				$BlockArea(AfterContentConstrained)
 				$Form
 				$CommentsForm
