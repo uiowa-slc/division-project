@@ -8,7 +8,10 @@ class PlanCategory extends DataObject {
 		'Column1Heading' => 'Varchar(155)',
 		'Column1Content' => 'HTMLText',
 		'Column2Heading' => 'Varchar(155)',
-		'Column2Content' => 'HTMLText'
+		'Column2Content' => 'HTMLText',
+	    'Column3Heading' => 'Varchar(155)',
+	    'Column3Content' => 'HTMLText',
+	    'SortOrder' => 'Int',
 	);
 
 	private static $has_one = array(
@@ -22,14 +25,18 @@ class PlanCategory extends DataObject {
 	private static $summary_fields = array(
 		'Title',
 		'Column1Heading',
-		'Column2Heading'
+		'Column2Heading',
+		'Column3Heading'
 	);
 
 	private static $defaults = array(
 		'Column1Heading' => 'Recommendation',
 		'Column2Heading' => 'Updates',
-		'Column2Content' => '<ul><li>No updates at this time.</li></ul>'
+		'Column2Content' => '<ul><li>No updates at this time.</li></ul>',
+		'Column3Heading' => ' test '
 	);
+
+	private static $default_sort = 'SortOrder';
 
 	public function getCMSFields(){
 		$fields = FieldList::create();
@@ -48,6 +55,7 @@ class PlanCategory extends DataObject {
 		// $column2Content->setRows(4);
 
 		$config = GridFieldConfig_RelationEditor::create();
+		$config->addComponent(new GridFieldSortableRows('SortOrder'));
 		$planItemsField = new GridField('PlanItems', 'Plan items', $this->PlanItems());
 		$planItemsField->setConfig($config);
 		
