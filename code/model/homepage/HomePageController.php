@@ -61,15 +61,5 @@ class HomePageController extends PageController {
 
 	}
 
-	public function NewHomePageHeroFeatures() {
-		if($this->ShuffleHomePageFeatures){
-			$features = NewHomePageHeroFeature::get()->sort('RAND()');
-		}else{
-			$features = NewHomePageHeroFeature::get();
-		}
-
-		return $features;
-
-	}
 
 }
