@@ -1,7 +1,7 @@
 <% if $UseBackground %>
 	<section aria-labelledby="Block$ID" class="content-block__container content-block__container--padding featuredpageblock-bg dp-lazy" data-original="<% if $FeaturePagePhoto %>$FeaturePagePhoto.FocusFill(1400,500).URL<% else_if $PageTree.BackgroundImage %>$PageTree.BackgroundImage.FocusFill(1400,500).URL<% else_if $PageTree.YoutubeBackgroundEmbed %>http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/maxresdefault.jpg<% else_if $PageTree.FeaturedImage %>$PageTree.FeaturedImage.FocusFill(1400,500).URL<% end_if %>">
 		<div class="content-block">
-			<div class="$CSSClasses">
+			<div class="featuredpageblock block">
 				<div class="featuredpageblock__body">
 					<h3 id="Block$ID" class="featuredpageblock__title"><% if $Title && $ShowTitle %>$Title<% else %>$PageTree.Title<% end_if %></h3>
 					<div class="featuredpageblock__desc">
@@ -79,7 +79,7 @@
 						<% end_if %>
 					</div>
 				<% end_if %>
-				
+
 					<div class="<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>featuredpageblock__body--wimage<% else %>featuredpageblock__body<% end_if %>">
 					<h3 id="Block$ID" class="featuredpageblock__title">
 						<% if $Source == "External" %>
