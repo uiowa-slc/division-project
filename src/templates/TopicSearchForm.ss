@@ -4,7 +4,7 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-	<fieldset>
+	<fieldset class="topic-search-form__fieldset">
 		<% loop $Fields %>
 		$Me
 		<% end_loop %>
