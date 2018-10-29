@@ -9,7 +9,7 @@
 		$Me
 		<% end_loop %>
 		<% loop $Actions %>
-		$Field
+		$Me
 		<% end_loop %>
 	</fieldset>
 </form>

@@ -33,11 +33,13 @@ class TopicControllerSearchExtension extends Extension{
 				$searchField
 			);
 
+
 			$action = FormAction::create('results', _t('SearchForm.GO', 'Search'));
 			$action->addExtraClass('topic-search-form__search-button');
 			$actions = new FieldList(
 				$action //this is the only real change to tell the form to use a different function for the action
 			);
+
 			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
 			$form->setTemplate('TopicSearchForm');

@@ -9,7 +9,6 @@ use SilverStripe\Blog\Model\BlogCategory;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Blog\Model\Blog;
-// use SilverStripe\Blog\Controllers\BlogController;
 use MD\DivisionProject\TopicHolderController;
 
 class TopicHolder extends Blog {

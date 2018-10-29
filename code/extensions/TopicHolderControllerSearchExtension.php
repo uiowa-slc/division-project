@@ -37,10 +37,13 @@ class TopicHolderControllerSearchExtension extends Extension{
 			$actions = new FieldList(
 				$action //this is the only real change to tell the form to use a different function for the action
 			);
+
 			$form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
 			$form->classesToSearch(FulltextSearchable::get_searchable_classes());
 			$form->setTemplate('TopicSearchForm');
 			$form->addExtraClass('topic-search-form');
+
+			//print_r($form);
 			return $form;
 		}
 	/**
