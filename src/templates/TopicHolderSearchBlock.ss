@@ -9,13 +9,13 @@
                 <h2 class="text-center"><% if $TopicHolder.Heading %>$TopicHolder.Heading <% else %>Search for a topic below:<% end_if %></h2>
                   $TopicSearchForm
               </div>
-            </div>           
+            </div>
           </div>
         </div>
      </div>
    <% end_if %>
   <div class="content-block row column">
- 
+
         <div class="topic-search__container row">
           <div class="large-9 columns large-centered">
 
@@ -47,6 +47,6 @@
                 <p class="text-center"><a href="$TopicHolder.Link" class="button-outlined">See all</a></p>
           </div>
         </div>
-      
+
   </div>
 </section>

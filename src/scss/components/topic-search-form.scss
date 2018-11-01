@@ -3,9 +3,10 @@
 	&__input{
 		// border: none;
 		height: 55px;
+        width: 100%;
 	}
 
-	&__fieldset{
+	fieldset{
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
