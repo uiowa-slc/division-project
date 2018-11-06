@@ -50,12 +50,6 @@ SilverStripe\Assets\Image:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - vendor/md/division-project/css/cms.css
-TopicHolderController:
-  extensions:
-    - TopicHolderControllerSearchExtension
-TopicController:
-  extensions:
-    - TopicControllerSearchExtension
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - BaseElementExtension

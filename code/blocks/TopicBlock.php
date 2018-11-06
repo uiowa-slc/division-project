@@ -16,7 +16,7 @@ class TopicBlock extends RecentNewsBlock{
 	);
 
 	private static $defaults = array(
-		
+
 	);
     private static $table_name = 'TopicBlock';
 
@@ -25,7 +25,7 @@ class TopicBlock extends RecentNewsBlock{
         return 'Topic Block';
     }
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->renameField('Title', 'Title (default:Recent Topics)');
 		// $fields->removeByName('FilterTagMethod');

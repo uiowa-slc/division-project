@@ -36,6 +36,7 @@ HtmlEditorConfig::get('cms')->setOption('paste_remove_styles', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_remove_styles_if_webkit', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 
+HtmlEditorConfig::get('cms')->insertButtonsAfter('indent', 'blockquote');
 
 HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,address,pre,h2,h3,h4,h5,h6');
 
