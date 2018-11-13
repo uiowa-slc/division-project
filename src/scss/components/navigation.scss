@@ -739,8 +739,8 @@
 		max-height: none;
 		transition: none;
 		&--two-columns {
-			@include grid-row;
-			@include grid-layout(2);
+			// @include grid-row;
+			// @include grid-layout(2);
 			width: rem-calc(500);
 			-webkit-column-count: 3;
 			-moz-column-count: 3;
@@ -882,5 +882,7 @@
 .nav .nav__item--opened button.second-level--open svg {
 	transform: rotateX(180deg);
 }
-
+.subnav__item--last:last-child:last-child {
+    float: none;
+}
 
