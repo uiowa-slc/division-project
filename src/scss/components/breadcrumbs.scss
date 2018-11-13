@@ -2,6 +2,8 @@
 	background-color: #242424;
 	height: 50px;
 	position: relative;
+    @include xy-grid-container;
+    @include xy-grid;
 	@include breakpoint(medium) {
 		height: auto;
 		margin-bottom: 0;
