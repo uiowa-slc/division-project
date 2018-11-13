@@ -13,7 +13,7 @@ body > #BetterNavigator {
 
 .container {
 	//Container utility class.
-	@include grid-row;
+	@include xy-grid;
 }
 
 body {
@@ -44,9 +44,9 @@ img:not([src]) {
 /* Main Content/Article Body Styles: */
 
 .main-content {
-	@include grid-column(12);
+	@include xy-cell();
 	@include breakpoint(large) {
-		@include grid-column(9);
+		@include xy-cell(9);
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -76,7 +76,7 @@ img:not([src]) {
 
 	&--with-sidebar {
 		@include breakpoint(large) {
-			@include grid-column-offset(0);
+			// @include xy-cell-offset(0);
 		}
 		& .main-content__text {
 			@include breakpoint(medium) {
@@ -86,7 +86,15 @@ img:not([src]) {
 	}
 
 	&--full-width {
-		@include grid-column-position(center);
+        // full width on mobile
+		@include xy-cell();
+
+        // center column on desktop
+        @include breakpoint(medium) {
+            @include xy-cell(10);
+            @include xy-cell-offset(1);
+        }
+
 	}
 
 	&__container {
@@ -169,12 +177,12 @@ img:not([src]) {
 }
 
 .sidebar {
-	@include grid-column(12);
+	@include xy-cell();
 	margin: rem-calc(20 0);
 	@include breakpoint(large) {
-		@include grid-column(3);
-		@include grid-column-offset(1);
-		margin: rem-calc(40 0);
+		@include xy-cell(3);
+        // @include xy-cell-offset(1);
+		// margin: rem-calc(40 0);
 	}
 }
 

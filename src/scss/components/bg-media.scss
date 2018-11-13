@@ -51,8 +51,7 @@
 		position: absolute;
 		bottom: 0;
 		z-index: 1;
-
-
+        max-width: calc(75rem - 2.5rem);
 	}
 
 	&__header--has-content{
