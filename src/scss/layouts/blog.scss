@@ -210,6 +210,9 @@
 		& .left {
 			float: none !important;
 		}
+		@media screen and (max-width: 480px) {
+			float: none;
+		}
 	}
 	&.right {
 		float: right;
@@ -220,6 +223,10 @@
 		}
 		& .right {
 			float: none !important;
+		}
+		@media screen and (max-width: 480px) {
+			float: none;
+			margin-left: 0;
 		}
 	}
 	@include breakpoint(xxlarge) {
@@ -384,4 +391,3 @@ Profile Pages
 		margin: 10px 0;
 	}
 }
-
