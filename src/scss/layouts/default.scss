@@ -182,7 +182,7 @@ img:not([src]) {
 	@include breakpoint(large) {
 		@include xy-cell(3);
         // @include xy-cell-offset(1);
-		// margin: rem-calc(40 0);
+		margin-top: rem-calc(40);
 	}
 }
 
