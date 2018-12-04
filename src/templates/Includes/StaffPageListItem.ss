@@ -1,4 +1,4 @@
-<li class="column stafflist__item">
+<li class="cell stafflist__item">
 	<% if not $Parent.HideLinksToStaffPages %>
 		<a href="$Link" class="stafflist__link">
 		<% if $Photo %>

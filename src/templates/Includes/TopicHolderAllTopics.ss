@@ -10,9 +10,9 @@
   <% if $ShowCategoriesTab %>
   <div class="tabs-panel" id="panel1">
     <h2 class="topic-list__heading"><% if $CategoryTabHeading %>$CategoryTabHeading<% else %>Topics by category:<% end_if %></h2>
-      <div class="row small-up-2 large-up-3">
+      <div class="grid-x grid-margin-x small-up-2 large-up-3">
         <% loop $AllCats.Sort('Title ASC') %>
-          <div class="column column-block">
+          <div class="cell">
             <h3>$Title</h3>
             <% if $BlogPosts %>
               <ul class="topic-list">
@@ -35,9 +35,9 @@
   <% if $ShowTagsTab %>
   <div class="tabs-panel" id="panel2">
     <h2 class="topic-list__heading"><% if $TagTabHeading %>$TagTabHeading<% else %>Topics by tag:<% end_if %></h2>
-      <div class="row small-up-2 large-up-3">
+      <div class="grid-x grid-margin-x small-up-2 large-up-3">
         <% loop $AllTags.Sort('Title ASC') %>
-          <div class="column column-block">
+          <div class="cell">
             <h3>$Title</h3>
             <% if $BlogPosts %>
               <ul class="topic-list">

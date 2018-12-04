@@ -6,7 +6,7 @@ $Header
 		<% include FeaturedImage %>
 	<% end_if %>
 	$Breadcrumbs
-	
+
 <% if not $BackgroundImage %>
 	<div class="column row">
 		<div class="main-content__header">
@@ -17,7 +17,7 @@ $Header
 
 	$BeforeContent
 
-	<div class="row">
+	<div class="grid-x grid-margin-x">
 
 		<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BeforeContentConstrained
@@ -25,9 +25,9 @@ $Header
 				<img class="main-content__main-img" src="$MainImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
 			<% end_if %>
 			<div class="main-content__text">
-				
+
 				$Content
-			
+
 			</div>
 			$AfterContentConstrained
 			$Form
@@ -43,7 +43,7 @@ $Header
 							<% else_if $YoutubeBackgroundEmbed %>
 								<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" class="childpages__img" alt="$Title">
 							<% else_if $MainImage %>
-								<img data-original="$MainImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">			
+								<img data-original="$MainImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
 							<% end_if %>
 						<% end_with %>
 							<div class="clearfix childpages__content">
@@ -53,7 +53,7 @@ $Header
 										$DateRange<% if AllDay %> <% _t('Calendar.ALLDAY','All Day') %><% else %><% if StartTime %> $TimeRange<% end_if %><% end_if %></p>
 									<% if $Event.Location %><strong>Location:</strong> $Event.Location <% end_if %>
 									$Event.Content.FirstSentence.LimitCharacters(200)</p>
-							
+
 								<span class="childpages__link">Learn More</span>
 							</div>
 						</a>

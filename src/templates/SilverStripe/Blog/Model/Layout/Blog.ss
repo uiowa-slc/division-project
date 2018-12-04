@@ -10,76 +10,83 @@ $Header
 
 	$Breadcrumbs
 
-	<% if not $BackgroundImage %>
-		<div class="column row">
-			<div class="main-content__header">
-				<h1 class="page-title">
-					<% if $ArchiveYear %>
-						<%t Blog.Archive 'Archive' %>:
-						<% if $ArchiveDay %>
-							$ArchiveDate.Nice
-						<% else_if $ArchiveMonth %>
-							$ArchiveDate.format('F, Y')
-						<% else %>
-							$ArchiveDate.format('Y')
-						<% end_if %>
-					<% else_if $CurrentTag %>
-						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-					<% else_if $CurrentCategory %>
-						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-					<% else %>
-						$Title
-					<% end_if %>
-				</h1>
-			</div>
-		</div>
-	<% end_if %>
 
-	$BeforeContent
+    <% if not $BackgroundImage %>
+        <div class="grid-container">
+    		<div class="grid-x grid-margin-x">
+                <div class="cell">
+        			<div class="main-content__header">
+        				<h1 class="page-title">
+        					<% if $ArchiveYear %>
+        						<%t Blog.Archive 'Archive' %>:
+        						<% if $ArchiveDay %>
+        							$ArchiveDate.Nice
+        						<% else_if $ArchiveMonth %>
+        							$ArchiveDate.format('F, Y')
+        						<% else %>
+        							$ArchiveDate.format('Y')
+        						<% end_if %>
+        					<% else_if $CurrentTag %>
+        						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+        					<% else_if $CurrentCategory %>
+        						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+        					<% else %>
+        						$Title
+        					<% end_if %>
+        				</h1>
+        			</div>
+                </div>
+    		</div>
+        </div>
+    <% end_if %>
 
-	<div class="row">
-		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-			$BeforeContentConstrained
-			<div class="main-content__text">
-				$Content
-				
-				<% if $Action == "index" %>
-					<% if $SortAlphabetically %>
-	 					<% loop $BlogPostsAlpha %>		
-	 						<% include BlogCard %>		
-	 					<% end_loop %>		
-	 				<% else_if $PaginatedList.Exists %>
-						<% loop $PaginatedList %>
-							<% include BlogCard %>
-						<% end_loop %>
-					<% end_if %>
-				<% else %>
-					<% loop $PaginatedList %>
-						<% include BlogCard %>
-					<% end_loop %>
-				<% end_if %>
-				$AfterContentConstrained
+    $BeforeContent
 
-				$Form
-				$CommentsForm
+    <div class="grid-container">
+    	<div class="grid-x grid-margin-x">
+    		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+    			$BeforeContentConstrained
+    			<div class="main-content__text">
+    				$Content
 
-				<% with $PaginatedList %>
-					<% include Pagination %>
-				<% end_with %>
+    				<% if $Action == "index" %>
+    					<% if $SortAlphabetically %>
+    	 					<% loop $BlogPostsAlpha %>
+    	 						<% include BlogCard %>
+    	 					<% end_loop %>
+    	 				<% else_if $PaginatedList.Exists %>
+    						<% loop $PaginatedList %>
+    							<% include BlogCard %>
+    						<% end_loop %>
+    					<% end_if %>
+    				<% else %>
+    					<% loop $PaginatedList %>
+    						<% include BlogCard %>
+    					<% end_loop %>
+    				<% end_if %>
+    				$AfterContentConstrained
 
-			</div>
-		</div>
+    				$Form
+    				$CommentsForm
+
+    				<% with $PaginatedList %>
+    					<% include Pagination %>
+    				<% end_with %>
+
+    			</div>
+    		</div>
 
 
-		<aside class="sidebar dp-sticky">
-			<% include SideNav %>
-			<% if $SideBarView %>
-				$SideBarView
-			<% end_if %>
-			$SidebarArea
-		</aside>
-	</div>
+    		<aside class="sidebar dp-sticky">
+    			<% include SideNav %>
+    			<% if $SideBarView %>
+    				$SideBarView
+    			<% end_if %>
+    			$SidebarArea
+    		</aside>
+    	</div>
+    </div>
 
-	$AfterContent
+    $AfterContent
 
 </main>

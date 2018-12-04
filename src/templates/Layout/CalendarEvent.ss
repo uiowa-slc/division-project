@@ -1,6 +1,6 @@
 $Header
 <main class="main-content__container" id="main-content__container">
-	
+
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
@@ -15,7 +15,7 @@ $Header
 
 	$BeforeContent
 
-	<div class="row">
+	<div class="grid-x grid-margin-x">
 		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %>">
 
 			$BeforeContentConstrained
@@ -37,7 +37,7 @@ $Header
 						    <ul>
 						      <% loop OtherDates %>
 						      <li><a href="$Link" title="$Event.Title">$DateRange<% if AllDay %> <% _t('Calendar.ALLDAY','All Day') %><% else %><% if StartTime %> $TimeRange<% end_if %><% end_if %></a></li>
-						      <% end_loop %> 
+						      <% end_loop %>
 						    </ul>
 						  </div>
 						  <% end_if %>

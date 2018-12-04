@@ -5,6 +5,7 @@ $Header
   <% if $BackgroundImage %>
     <% include FeaturedImage %>
   <% end_if %>
+
   $Breadcrumbs
 
 <% if not $BackgroundImage %>
