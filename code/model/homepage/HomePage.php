@@ -158,8 +158,21 @@ class HomePage_Controller extends Page_Controller {
 	}
 	public function index() {
 		$bg = $this->BackgroundFeatures()->Sort('RAND()')->First();
+
+		if($this->ShuffleHomePageFeatures){
+			$featuresArray = NewHomePageHeroFeature::get()->toArray();
+
+			shuffle($featuresArray);
+
+			$features = new ArrayList($featuresArray);
+
+		}else{
+			$features = NewHomePageHeroFeature::get();
+		}
+		
 		$page = $this->customise(array(
-				'BackgroundFeature' => $bg
+				'BackgroundFeature' => $bg,
+				'NewHomePageHeroFeatures' => $features
 			));
 		return $page->renderWith(array($page->ClassName.'_'.$page->LayoutType, $page->ClassName, 'Page'));
 	}
@@ -173,17 +186,6 @@ class HomePage_Controller extends Page_Controller {
 	public function HomePageHeroFeatures() {
 		$features = HomePageHeroFeature::get();
 
-		return $features;
-
-	}
-
-	public function NewHomePageHeroFeatures() {
-		if($this->ShuffleHomePageFeatures){
-			$features = NewHomePageHeroFeature::get()->sort('RAND()');
-		}else{
-			$features = NewHomePageHeroFeature::get();
-		}
-		
 		return $features;
 
 	}
