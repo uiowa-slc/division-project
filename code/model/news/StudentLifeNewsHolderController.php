@@ -2,6 +2,8 @@
 
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use Silverstripe\Core\Config\Config;
+use Silverstripe\ORM\PaginatedList;
 class StudentLifeNewsHolderController extends PageController {
 
 	/**

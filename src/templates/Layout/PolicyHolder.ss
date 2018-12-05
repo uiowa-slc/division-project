@@ -15,12 +15,12 @@ $Header
         </div>
     <% end_if %>
 
-    $BlockArea(BeforeContent)
+    $BeforeContent
 
     <div class="row">
 
         <article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding <% end_if %> main-content--with-sidebar">
-            $BlockArea(BeforeContentConstrained)
+            $BeforeContentConstrained
             <% if $MainImage %>
                 <img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>
             <% end_if %>
@@ -33,13 +33,13 @@ $Header
 
                 $Policies
             </div>
-            $BlockArea(AfterContentConstrained)
+            $AfterContentConstrained
             $Form
         </article>
         <aside class="sidebar dp-sticky">
-            $BlockArea(Sidebar)
+            $Sidebar
         </aside>
     </div>
-    $BlockArea(AfterContent)
+    $AfterContent
 
 </main>
