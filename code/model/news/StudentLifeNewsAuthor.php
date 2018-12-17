@@ -37,7 +37,7 @@ class StudentLifeNewsAuthor extends DataObject {
 
 		$author->ID = $authorArray['ID'];
 		$author->Name = $authorArray['Name'];
-		$author->Email = $authorArray[Email::class];
+		$author->Email = $authorArray['Email'];
 		$author->ImageURL = $authorArray['ImageURL'];
 		return $author;
 	}

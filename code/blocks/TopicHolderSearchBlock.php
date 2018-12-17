@@ -7,9 +7,8 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
-use MD\DivisionProject\TopicHolderSearchBlockController;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\Control\Controller;
 
 class TopicHolderSearchBlock extends BaseElement {
 
@@ -25,6 +24,9 @@ class TopicHolderSearchBlock extends BaseElement {
     private static $many_many = array(
 
     );
+
+    private static $controller_class = TopicHolderSearchBlockController::class;
+
     private static $table_name = 'TopicHolderSearchBlock';
 
     public function getType()
@@ -34,6 +36,7 @@ class TopicHolderSearchBlock extends BaseElement {
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
+
         $field = DropdownField::create('TopicHolderID', 'Select a Topic Holder:', TopicHolder::get()->map('ID', 'Title'));
         $fields->addFieldToTab('Root.Main', $field);
         $fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
@@ -42,7 +45,24 @@ class TopicHolderSearchBlock extends BaseElement {
     }
 
     public function TopicSearchForm(){
-        return $this->getController()->TopicSearchForm();
+        //$current = Controller::curr();
+        $controller = TopicHolderController::create($this);
+        $current = $this->getController();
+
+        $topicHolder = $this->TopicHolder();
+
+        $controller->setRequest($current->getRequest());
+        //print_r($this->getController());
+        $form = $controller->TopicSearchForm();
+
+
+        $form->setFormAction(
+            Controller::join_links(
+                $topicHolder->Link(),
+                'TopicSearchForm'
+            )
+        );
+        return $form;
     }
 
 

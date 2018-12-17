@@ -9,6 +9,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\GridField\GridField;
 use MD\DivisionProject\LandingPageController;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 class LandingPage extends Page {
 
 	private static $db = array(
@@ -37,7 +38,7 @@ class LandingPage extends Page {
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
 
 	);
-	private static $icon = 'division-project/cms-icons/airport.png';
+	private static $icon = 'resources/vendor/md/division-project/cms-icons/airport.png';
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -63,7 +64,8 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 
 		$sectionsConf = GridFieldConfig_RelationEditor::create(10);
-		//$sectionsConf->addComponent(new GridFieldSortableRows('SortOrder'));
+		$sectionsConf->addComponent($sortableLanding = new GridFieldSortableRows('SortOrder'));
+        $sortableLanding->setUpdateVersionedStage('Live');
 
 
 		$fields->addFieldToTab('Root.Main', $sectionsGridField = GridField::create('Sections', 'Sections', $this->Sections(), $sectionsConf), 'Content');
