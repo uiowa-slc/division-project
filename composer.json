@@ -5,7 +5,7 @@
    "minimum-stability":"dev",
    "require":{
       "php": ">=5.5",
-      "silverstripe/framework": "4.2.1",
+      "silverstripe/framework": "4.3.0",
       "silverstripe/recipe-plugin": "*",
       "silverstripe/recipe-cms": "*",
       "silverstripe/reports": "*",
