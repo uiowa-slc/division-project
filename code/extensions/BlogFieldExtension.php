@@ -107,7 +107,7 @@ class BlogFieldExtension extends DataExtension {
 		}
 
 		return false;
-		
+
 	}
 	public function toFeedArray(){
 		$post = $this->owner;

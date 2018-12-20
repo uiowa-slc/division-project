@@ -20,12 +20,12 @@ PageController:
     - DivisionPageController
 SilverStripe\Blog\Model\BlogPost:
     - DivisionPage_Controller
-Blog:
+SilverStripe\Blog\Model\Blog:
   extensions:
     - BlogExtension
-BlogPost:
-  extensions:
-    - BlogFieldExtension
+# SilverStripe\Blog\Model\BlogPost:
+#   extensions:
+#     - BlogFieldExtension
 SilverStripe\Blog\Model\BlogTag:
   extensions:
     - BlogTagExtension
