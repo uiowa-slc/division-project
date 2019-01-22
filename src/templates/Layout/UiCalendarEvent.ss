@@ -47,6 +47,10 @@ $Header
 					<% end_if %>
 
 				</div>
+				<div class="ADA_statement">
+				<p> <i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone} or {$ContactEmail}
+				</i></p>
+			</div>
 			</div>
 		</article>
 		<aside class="sidebar" data-sticky-container>
