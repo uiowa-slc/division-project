@@ -23,11 +23,13 @@
 
 		<h3 class="bloglistitem__heading"><a href="$Link">$Title</a></h3>
 
-		<% if $Summary %>
-			<div class="bloglistitem__desc">$Summary</div>
-		<% else %>
-			<p class="bloglistitem__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
-		<% end_if %>
+        <% if not $Parent.HideSummaries %>
+    		<% if $Summary %>
+    			<div class="bloglistitem__desc">$Summary</div>
+    		<% else %>
+    			<p class="bloglistitem__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
+    		<% end_if %>
+        <% end_if %>
 		<% if not $Parent.HideDatesAndAuthors %>
 			<% include ByLine %>
 		<% end_if %>

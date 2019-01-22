@@ -1,9 +1,14 @@
 <?php
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\PaginatedList;
 class BlogExtension extends DataExtension {
 
 	private static $db = array(
 		'HideDatesAndAuthors' => 'Boolean',
+        'HideSummaries' => 'Boolean',
 		'SortAlphabetically' => 'Boolean'
 	);
 
@@ -17,6 +22,7 @@ class BlogExtension extends DataExtension {
 	public function updateSettingsFields(FieldList $fields) {
 
 		$fields->addFieldToTab('Root.Settings', new CheckboxField('HideDatesAndAuthors', 'Hide dates and authors from the blog listing page?'));
+        // $fields->addFieldToTab('Root.Settings', new CheckboxField('HideSummaries', 'Hide summaries (first paragraphs) from the blog listing page?'));
 		$fields->addFieldToTab('Root.Settings', new CheckboxField('SortAlphabetically', 'Sort posts alphabetically instead of by date?'));
 
 	}
