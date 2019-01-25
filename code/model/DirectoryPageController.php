@@ -21,11 +21,6 @@ class DirectoryPageController extends BlogPostController {
 	private static $allowed_actions = array (
 	);
 
-	public function index(){
-		$holder = DirectoryHolder::get()->first();
-		$this->redirect($holder->Link().'#'.$this->URLSegment);
-	}
-
 	public function init() {
 		parent::init();
 
