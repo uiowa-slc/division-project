@@ -6,12 +6,12 @@
 
 
 <% if $HeaderImage %>
-	
+
 	<% if $HeaderText %>
 		<div class="lp-header <% if $HeaderLogo %>lp-header--is-overlay<% end_if %>" data-interchange="[$HeaderImage.FocusFill(600,400).URL, small], [$HeaderImage.FocusFill(1600,800).URL, medium]">
 			<div class="lp-header__container">
 				<% if $HeaderLogo %>
-					<img src="$HeaderLogo.URL" alt="" class="lp-header__img">
+					<img src="$HeaderLogo.URL"  class="lp-header__img">
 				<% end_if %>
 				<% if $HeaderText %>
 					<h2 class="lp-header__title">$HeaderText</h2>
@@ -21,7 +21,7 @@
 	<% else %>
 
 		<div class="lp-hero">
-			<img src="$HeaderImage.URL" class="lp-hero__img" />
+			<img src="$HeaderImage.URL" alt="$HeaderImageAltText" class="lp-hero__img" />
 		</div>
 
 
@@ -96,7 +96,7 @@
 							<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
 									<% loop Images %>
 										<div class="slideshow__slide">
-											
+
 										<a href="$Link" class="popup-link"><img class="slideshow__img" data-flickity-lazyload="$FocusFill(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" /></a>
 												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 										</div>
@@ -106,7 +106,7 @@
 								<div class="slideshow" role="region" <% if $Title %>aria-label="$Title"<% end_if %>>
 									<% loop Images %>
 										<div class="slideshow__slide">
-											
+
 										<img class="slideshow__img" data-flickity-lazyload="$FocusFill(840, 525).URL" width="840" height="525" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
 												<% if $Caption %><figcaption class="slideshow__caption"><span>$Caption</span></figcaption><% end_if %>
 										</div>
