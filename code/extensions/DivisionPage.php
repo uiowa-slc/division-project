@@ -46,13 +46,8 @@ class DivisionPage extends DataExtension {
         'BackgroundImage',
         'OgImage',
         'FeatureHolderImage',
-		'SidebarArea',
-		'AfterContentConstrained',
-		'BeforeContent',
-		'BeforeContentConstrained',
-		'AfterContent',
 		'BackgroundImage',
-		'FeatureHolderImage',
+		'FeatureHolderImage'
     );
 	private static $many_many = array(
 
@@ -122,7 +117,7 @@ class DivisionPage extends DataExtension {
 		if($aftercontentAreaField){
 			$aftercontentAreaField->setTitle('After Content');
 			$f->removeByName('AfterContent');
-			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);		
+			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);
 		}
 
 		$aftercontentConstrainedField = $f->dataFieldByName('AfterContentConstrained');
@@ -130,14 +125,14 @@ class DivisionPage extends DataExtension {
 		if($aftercontentConstrainedField){
 			$aftercontentConstrainedField->setTitle('After Content (Constrained)');
 			$f->removeByName('AfterContentConstrained');
-			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);			
+			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);
 		}
 
 		$f->removeByName('ElementalArea');
 		$f->removeByName('ContentArea');
 
 
-		$config = SiteConfig::current_site_config(); 
+		$config = SiteConfig::current_site_config();
 
 		$layoutOptionsField = DropdownField::create(
   			'LayoutType',
@@ -178,7 +173,7 @@ class DivisionPage extends DataExtension {
 			$f->addFieldToTab('Root.Main', new UploadField('FeatureHolderImage', 'Feature Holder Image (shown in parent)'), 'Content');
 		}
 
-	
+
 		$f->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")

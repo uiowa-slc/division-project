@@ -14,7 +14,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "6.26.0",
     "browser-sync": "2.26.3",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "github:gulpjs/gulp#v4.0.0",
     "gulp-autoprefixer": "6.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-cli": "2.0.1",
@@ -50,8 +50,5 @@
     ],
     "compact": false
   },
-  "private": true,
-  "dependencies": {
-    "gulp": "github:gulpjs/gulp#4.0"
-  }
+  "private": true
 }
