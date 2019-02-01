@@ -15,6 +15,24 @@
 			<% end_if %>
 		</div>
 	</section>
+<% else_if $AreaName == "AfterContentConstrained" %>
+
+    <section class="content-block__container" aria-labelledby="Block$ID">
+        <div class="content-block row column">
+            <div class="$CSSClasses">
+                <h3 id="Block$ID" class="upcomingeventsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %></h3>
+
+                <% if $EventList %>
+                    <% loop $EventList %>
+                        <% include EventCard %>
+                    <% end_loop %>
+                <% end_if %>
+            </div>
+            <% if $CalendarLink %>
+                <div class="text-center"><p><a class="button-outlined" href="$CalendarLink">See all events</a></p></div>
+            <% end_if %>
+        </div>
+    </section>
 <% else %>
 <section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
 	<div class="content-block">
