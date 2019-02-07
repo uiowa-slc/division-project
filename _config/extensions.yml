@@ -23,9 +23,9 @@ SilverStripe\Blog\Model\BlogPost:
 SilverStripe\Blog\Model\Blog:
   extensions:
     - BlogExtension
-# SilverStripe\Blog\Model\BlogPost:
-#   extensions:
-#     - BlogFieldExtension
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - BlogFieldExtension
 SilverStripe\Blog\Model\BlogTag:
   extensions:
     - BlogTagExtension
