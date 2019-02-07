@@ -1,7 +1,7 @@
 <% if $AreaName == "SidebarArea" %>
 	<section class="content-block__container" aria-labelledby="Block$ID">
 		<div class="content-block row column">
-			<div class="$CSSClasses">
+			<div class="upcomingeventsblock">
 				<h3 id="Block$ID" class="upcomingeventsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %></h3>
 
 				<% if $EventList %>
@@ -19,7 +19,7 @@
 
     <section class="content-block__container" aria-labelledby="Block$ID">
         <div class="content-block row column">
-            <div class="$CSSClasses">
+            <div class="upcomingeventsblock">
                 <h3 id="Block$ID" class="upcomingeventsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %></h3>
 
                 <% if $EventList %>
