@@ -10,7 +10,7 @@
 				<% else_if $YoutubeBackgroundEmbed %>
 					<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" class="childpages__img" alt="$Title">
 				<% else_if $MainImage %>
-					<img data-original="$MainImage.PaddedImage(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
+					<img data-original="$MainImage.Pad(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
 				<% end_if %>
 				<div class="clearfix childpages__content">
 					<h3 class="childpages__title">$Title</h3>
