@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     $MetaTags(false)
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="vi3QR6JIyuS2OiIZlzvaNhOgoH7Tw_Hao8Yy4qsD6FI" />
     <% if $URLSegment = 'home' %>
       <title>$SiteConfig.Title | The University of Iowa</title>
     <% else %>
