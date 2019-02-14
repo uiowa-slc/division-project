@@ -9,6 +9,7 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Assets\File;
 
 class NewHomePageHeroFeature extends DataObject {
 
@@ -23,7 +24,7 @@ class NewHomePageHeroFeature extends DataObject {
 	private static $has_one = array(
 		"AssociatedPage" => SiteTree::class,
 		"Image" => Image::class,
-		"Video" => Image::class,
+		"Video" => File::class,
 		"VideoPoster" => Image::class,
 	);
     private static $owns = array(
