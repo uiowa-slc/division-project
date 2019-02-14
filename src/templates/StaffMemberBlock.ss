@@ -1,5 +1,5 @@
 <% if $AreaName == "SidebarArea" %>
-<section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
+<section class="content-block__container staffmemberblock content-block__container--padding" aria-labelledby="Block$ID">
 	<div class="content-block">
 		<% if $StaffPage.Photo %>
 			<div class="staffmemberblock__media">
