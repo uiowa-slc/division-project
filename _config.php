@@ -44,6 +44,6 @@ HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,addres
 // ShortcodeParser::get()->register('spotlight', array('DivisionPage_Controller', 'StaffSpotlightHandler'));
 // ShortcodeParser::get()->register('rssfeed', array('DivisionPage_Controller', 'RssFeedHandler'));
 // ShortcodeParser::get()->register('button', array('DivisionPage_Controller', 'ButtonHandler'));
-// ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
+ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
 
 // Authenticator::register_authenticator(SAMLAuthenticator::class);
