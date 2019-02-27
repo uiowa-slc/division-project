@@ -3,7 +3,7 @@
 use SilverStripe\View\SSViewer;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Core\Extension;
-
+use SilverStripe\Core\Environment;
 class FlickrShortcodeControllerExtension extends Extension {
 
 	/**
@@ -39,7 +39,8 @@ class FlickrShortcodeControllerExtension extends Extension {
 		$template = new SSViewer('FlickrSet');
 		$customise = array();
 		$customise['Photoset'] = $set;
-		$customise['FlickrUser'] = FLICKR_USER;
+
+		$customise['FlickrUser'] = Environment::getEnv('FLICKR_USER');;
 		// don't call the service (performance woes), just generate an iframe and return it.
 		return $template->process(new ArrayData($customise));
 	}
