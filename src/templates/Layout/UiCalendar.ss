@@ -100,7 +100,7 @@ $Header
 			<% if $SideBarView %>
 				$SideBarView
 			<% end_if %>
-			$Sidebar
+			$SidebarArea
 		</aside>
 	</div>
 	$AfterContent

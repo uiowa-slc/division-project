@@ -4,12 +4,12 @@
 			<li>
 				<a href="$Link" class="clearfix">
 					<% if $FeaturedImage %>
-						<img src="$FeaturedImage.CroppedImage(400,300).URL" alt="$Title">
+						<img src="$FeaturedImage.FocusFill(400,300).URL" alt="$Title">
 					<% else_if $BackgroundImage %>
-						<img src="$BackgroundImage.CroppedImage(400,300).URL" alt="$Title">
+						<img src="$BackgroundImage.FocusFill(400,300).URL" alt="$Title">
 					<% end_if %>
 					$Title<br>
-					<em class="bloglistitem__date">$PublishDate.format("F d, Y")</em>
+					<em class="bloglistitem__date">$PublishDate.format("MMM dd, YYYY")</em>
 				</a>
 			</li>
 		<% end_loop %>

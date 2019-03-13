@@ -46,8 +46,8 @@ class BlogFieldExtension extends DataExtension {
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByTitle', 'Author posiiton title'));
 		// $fields->addFieldToTab("blog-admin-sidebar", new TextField('StoryByDept', 'Author department title'));
 		// $fields->addFieldToTab('Root.Main', new CheckboxField('IsFeatured','Feature this Article? (Yes)'), "Content");
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosBy', 'Photos or video by'));
-		$fields->addFieldToTab("blog-admin-sidebar", new TextField('PhotosByEmail', 'Photographer email address'));
+		$fields->addFieldToTab("Root.Main", new TextField('PhotosBy', 'Photos or video by'));
+		$fields->addFieldToTab("Root.Main", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
 
 

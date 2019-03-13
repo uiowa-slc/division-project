@@ -18,7 +18,7 @@ class MigrateBlocksToElementalTask extends BuildTask{
 
 		echo '<h2>Ensuring all pages have appropriate ElementAreas (saving and conditionally publishing all pages)</h2>';
 		//print_r(BlogPost::class);
-		$allPages = SiteTree::get()->filter('ClassName:not', BlogPost::class);
+		$allPages = SiteTree::get()->filter('ClassName:not', 'NewsEntry');
 		foreach($allPages as $allPage){
 			echo '<p>Working on page '.$allPage->Title.' ('.$allPage->ClassName.')</p>';
 			$allPage->write();

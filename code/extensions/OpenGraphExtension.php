@@ -5,6 +5,7 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\Core\Convert;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataExtension;
 class OpenGraphExtension extends DataExtension {
     public static $keys = array(
@@ -26,6 +27,11 @@ class OpenGraphExtension extends DataExtension {
         'video:secure_url',
         'video:type'
     );
+
+    private static $casting = [
+        "OpenGraph" => 'HTMLText',
+    ];
+
     private function getCanonicalURL($url) {
         return Director::protocolAndHost() . $url;
     }
@@ -65,44 +71,33 @@ class OpenGraphExtension extends DataExtension {
     }
     public function getOpenGraphImage() {
 
-        // $page = $this->owner->data();
-        // $tries = array(
-        //     'OgImage',
-        //     'FeaturedImage',
-        //     'MainImage',
-        //     'HeaderImage',
-        //     'Photo',
-        //     'BackgroundImage',
-        // );
-        // //Try the above image fields
-        // foreach($tries as $t) {
-        //     // echo $t;
-        //     $i = $page::getSchema()->hasOneComponent($page, $t);
-        //     // echo $i;
-        //     if($i) {
-        //         if($page->getComponent($t)->exists()){
-        //             // echo 'component exists: '.$i;
-        //             return $page->getComponent($t);
-        //         }
-        //     }
-        // }
+        $page = $this->owner->data();
+        $tries = array(
+            'OgImage',
+            'FeaturedImage',
+            'MainImage',
+            'HeaderImage',
+            'Photo',
+            'BackgroundImage',
+        );
+        //Try the above image fields
+        foreach($tries as $t) {
+            // echo $t;
+            $i = $page::getSchema()->hasOneComponent($page, $t);
+            // echo $i;
+            if($i) {
+                if($page->getComponent($t)->exists()){
+                    // echo 'component exists: '.$i;
+                    return $page->getComponent($t);
+                }
+            }
+        }
 
-        // //If no images in the tries array were found, attempt to get the sitewide poster image:
-        // if(SiteConfig::current_site_config()->obj('PosterImage')->exists()){
-        //     return SiteConfig::current_site_config()->obj('PosterImage');
-        // }else{
-        //     $ogDefaultImageTest = Image::get()->filter(array('Filename' => 'division-project/src/images/og-dsl.png'))->First();
+        //If no images in the tries array were found, attempt to get the sitewide poster image:
+        if(SiteConfig::current_site_config()->obj('PosterImage')->exists()){
+            return SiteConfig::current_site_config()->obj('PosterImage');
+        }
 
-        //     if($ogDefaultImageTest){
-        //         return $ogDefaultImageTest;
-        //     }else{
-        //         $ogDefaultImage = Image::create();
-        //         $ogDefaultImage->Title = 'Division of Student Life default Og Image';
-        //         $ogDefaultImage->Filename = 'division-project/src/images/og-dsl.png';
-        //         $ogDefaultImage->write();
-        //         return $ogDefaultImage;                           
-        //     }
-        // }  
         return null;
     }
     
@@ -111,12 +106,15 @@ class OpenGraphExtension extends DataExtension {
         if($im && $im->exists()) {
             return $im->Height;
         }
+        return "630";
     }
     
     public function getOpenGraph_image_width() {
         $im = $this->owner->getOpenGraphImage();
         if($im && $im->exists()) {
             return $im->Width;
+        }else{
+            return "1200";
         }
     }
     
@@ -124,6 +122,8 @@ class OpenGraphExtension extends DataExtension {
         $im = $this->owner->getOpenGraphImage();
         if($im && $im->exists()) {
             return $this->getCanonicalURL($im->URL);
+        }else{
+            return Director::absoluteBaseURL()."resources/vendor/md/division-project/src/images/og-dsl.png";
         }
     }
     public function getOpenGraph_title() {
