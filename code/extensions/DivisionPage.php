@@ -240,6 +240,22 @@ class DivisionPage extends DataExtension {
 		}
 	}
 
+	public function ContentSummary(){
+
+		$str = $this->owner->Content;
+
+		$dom = new DOMDocument();
+		$dom->loadHTML($str);
+
+		$xp = new DOMXPath($dom);
+
+		$res = $xp->query('//p');
+
+		$firstParagraph = $res[0]->nodeValue;
+
+		return $firstParagraph;
+	}
+
 
 
 }
