@@ -22,7 +22,7 @@
       "silverstripe/googlesitemaps": "*",
       "silverstripe-australia/gridfieldextensions" : "*",
       "silverstripe/asset-admin": "*",
-      "dnadesign/silverstripe-elemental": "^4*",
+      "dnadesign/silverstripe-elemental": "^4",
       "gorriecoe/silverstripe-webfonts" : "*",
       "md/ac-json-events":"dev-ss4.x-ui",
       "md/division-analytics": "1.2.x",
