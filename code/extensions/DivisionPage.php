@@ -251,9 +251,12 @@ class DivisionPage extends DataExtension {
 
 		$res = $xp->query('//p');
 
-		$firstParagraph = $res[0]->nodeValue;
+		if($res[0]){
+			$firstParagraph = $res[0]->nodeValue;
+			return $firstParagraph;			
+		}
 
-		return $firstParagraph;
+
 	}
 
 
