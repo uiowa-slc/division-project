@@ -33,7 +33,8 @@
       "md/uiowa-bar": "1.2.x",
       "md/silverstripe-maintenance-mode": "dev-master",
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
-      "bummzack/sortablefile" : "^2.0"
+      "bummzack/sortablefile" : "^2.0",
+      "silverstripe/sharedraftcontent" :"*"
     },
    "repositories":[
     {
