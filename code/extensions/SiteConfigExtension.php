@@ -133,6 +133,19 @@ class SiteConfigExtension extends DataExtension {
 		return $fields;
 	}
 
+	public function getTwitterHandle(){
+		$config = SiteConfig::current_site_config();
+
+		if($url = $config->TwitterLink){
+	  	  if (preg_match("/^https?:\/\/(www\.)?twitter\.com\/(#!\/)?(?<name>[^\/]+)(\/\w+)*$/", $url, $regs)) {
+	  	    return $regs['name'];
+	  	  }
+		}
+
+		return false;
+
+	}
+
 	public function UITrackingID(){
 		$config = SiteConfig::current_site_config();
 

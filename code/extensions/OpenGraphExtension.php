@@ -164,6 +164,9 @@ class OpenGraphExtension extends DataExtension {
     }
     public function getOpenGraph() {
         $tags = '';
+
+        $siteConfig = SiteConfig::current_site_config();
+
         foreach(OpenGraphExtension::$keys as $k) {
             $key = str_replace(':', '_', $k);
             $action = "getOpenGraph_$key";
@@ -174,7 +177,17 @@ class OpenGraphExtension extends DataExtension {
             }
         }
 
+
+
         $tags.="<meta property=\"fb:app_id\" content=\"127918570561161\" />\n";
+        $tags.='<meta name="twitter:card" content="summary" />'."\n";
+
+        $twitter = $siteConfig->getTwitterHandle();
+        if($twitter){
+            $tags.='<meta name="twitter:site" content="'.$twitter.'" />';
+            $tags.='<meta name="twitter:creator" content="'.$twitter.'" />';
+        }
+
         return $tags;
     }
 }
