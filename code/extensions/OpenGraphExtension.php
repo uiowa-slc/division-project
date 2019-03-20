@@ -168,6 +168,7 @@ class OpenGraphExtension extends DataExtension {
         $siteConfig = SiteConfig::current_site_config();
 
         foreach(OpenGraphExtension::$keys as $k) {
+
             $key = str_replace(':', '_', $k);
             $action = "getOpenGraph_$key";
             $val = $this->owner->$action();
@@ -180,8 +181,10 @@ class OpenGraphExtension extends DataExtension {
 
 
         $tags.="<meta property=\"fb:app_id\" content=\"127918570561161\" />\n";
-        $tags.='<meta name="twitter:card" content="summary" />'."\n";
-
+        $tags.='<meta name="twitter:card" content="summary_large_image" />'."\n";
+        $tags.='<meta name="twitter:title" content="'.$this->getOpenGraph_title().'">'."\n";
+        $tags.='<meta name="twitter:description" content="'.$this->getOpenGraph_description().'" />'."\n";
+        $tags.='<meta name="twitter:image" content="'.$this->getOpenGraphImage()->getAbsoluteURL().'" />'."\n";
         $twitter = $siteConfig->getTwitterHandle();
         if($twitter){
             $tags.='<meta name="twitter:site" content="'.$twitter.'" />';
