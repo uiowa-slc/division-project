@@ -61,20 +61,27 @@ class SiteConfigExtension extends DataExtension {
 		'FooterLogo' => Image::class
 	);
 
+	private static $owns = array(
+		'PosterImage',
+		'FooterLogo'
+	);
 	private static $defaults = array(
 		'TypeKitID' => 'ggu1mkb'
 	);
 
 	public function updateCMSFields(FieldList $fields) {
+
+		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Default Social Media Share Image (1200 x 630)'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('UseDarkTheme', 'Use Dark Header Throughout Site'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('DisableDivisionBranding', 'Disable Division Of Student Life Branding Elements'));
+
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowExitButton', 'Show Exit Button'));
 		$fields->addFieldToTab('Root.Main', new UploadField('FooterLogo', 'Custom Logo for use in footer'));
-		$fields->addFieldToTab('Root.Main', new UploadField('PosterImage', 'Facebook Share Image (1200 x 630)'));
+		
 
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Address</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( 'Address', 'Address', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('Address1', 'Street Address'));
 		$fields->addFieldToTab('Root.Main', new TextField('City', 'City'));
 		$fields->addFieldToTab('Root.Main', new TextField('State', 'State'));
@@ -86,7 +93,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumberAlt', 'Alternate Phone Number'));
 		$fields->addFieldToTab('Root.Main', new TextField('EmailAddress', 'Email Address'));
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Footer Buttons</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( 'FooterButtons', 'Footer Buttons') );
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextOne', 'Button Title'));
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonUrlOne', 'Button URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextTwo', 'Button Title'));
@@ -94,7 +101,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonTextThree', 'Button Title'));
 		$fields->addFieldToTab('Root.Main', new TextField('ButtonUrlThree', 'Button URL'));
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Social Media</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( 'SocialMedia', 'Social Media'));
 		$fields->addFieldToTab('Root.Main', new TextField('TwitterLink', 'Twitter Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('FacebookLink', 'Facebook Account URL'));
 		$fields->addFieldToTab('Root.Main', new TextField('VimeoLink', 'Vimeo Account URL'));
@@ -108,7 +115,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Disclaimer', 'Additional disclaimer (shows in small text under social media)')->setRows(3));
 
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Header Quick Links</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField('HeaderQuickLinks', 'Header Quick Links') );
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleOne', 'Quick Link Title'));
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLOne', 'Quick Link URL'));
 
@@ -118,12 +125,25 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkTitleThree', 'Quick Link Title'));
 		$fields->addFieldToTab('Root.Main', new TextField('QuickLinkURLThree', 'Quick Link URL'));
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><h3>Newsletter Signup</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( 'NewsletterSignup', 'Newsletter Signup') );
 		$fields->addFieldToTab('Root.Main', new TextareaField('MailChimpFormEmbed', 'MailChimp Form Embed Code'));
 		$fields->addFieldToTab("Root.Main", $MailChimpFormEmbed = new TextareaField("MailChimpFormEmbed", "MailChimp Form Embed Code"));
 		$MailChimpFormEmbed->setDescription("More info: <a href='' target='_blank'>How to get this code &rarr;</a>");
 
 		return $fields;
+	}
+
+	public function getTwitterHandle(){
+		$config = SiteConfig::current_site_config();
+
+		if($url = $config->TwitterLink){
+	  	  if (preg_match("/^https?:\/\/(www\.)?twitter\.com\/(#!\/)?(?<name>[^\/]+)(\/\w+)*$/", $url, $regs)) {
+	  	    return $regs['name'];
+	  	  }
+		}
+
+		return false;
+
 	}
 
 	public function UITrackingID(){
