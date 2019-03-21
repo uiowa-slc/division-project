@@ -184,7 +184,11 @@ class OpenGraphExtension extends DataExtension {
         $tags.='<meta name="twitter:card" content="summary_large_image" />'."\n";
         $tags.='<meta name="twitter:title" content="'.$this->getOpenGraph_title().'">'."\n";
         $tags.='<meta name="twitter:description" content="'.$this->getOpenGraph_description().'" />'."\n";
-        $tags.='<meta name="twitter:image" content="'.$this->getOpenGraphImage()->getAbsoluteURL().'" />'."\n";
+
+        if($image = $this->getOpenGraphImage()){
+           $tags.='<meta name="twitter:image" content="'.$image->getAbsoluteURL().'" />'."\n"; 
+        }
+        
         $twitter = $siteConfig->getTwitterHandle();
         if($twitter){
             $tags.='<meta name="twitter:site" content="'.$twitter.'" />';
