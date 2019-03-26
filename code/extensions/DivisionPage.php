@@ -244,6 +244,10 @@ class DivisionPage extends DataExtension {
 
 		$str = $this->owner->Content;
 
+		if(empty($str)){
+			return null;
+		}
+
 		$dom = new DOMDocument();
 		$dom->loadHTML($str);
 
