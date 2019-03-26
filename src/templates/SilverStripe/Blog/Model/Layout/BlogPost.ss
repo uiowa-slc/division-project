@@ -39,7 +39,7 @@ $Header
 			<div class="main-content__text">
 				<% if $FeaturedImage %>
 					<% if FeaturedImage.Width >= 700 && FeaturedImage.Width < 1200 %>
-						<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.SetWidth(840).URL" alt="" role="presentation" width="840" height="$FeaturedImage.SetWidth(840).Height" /></p>
+						<p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.ScaleWidth(840).URL" alt="" role="presentation" width="840" height="$FeaturedImage.ScaleWidth(840).Height" /></p>
 					<% end_if %>
 				<% end_if %>
 				<div class="content">
