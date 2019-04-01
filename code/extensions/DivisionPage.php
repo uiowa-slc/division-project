@@ -20,6 +20,7 @@ use SilverStripe\ORM\DataExtension;
 use MD\DivisionProject\DivisionPageController;
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Forms\HeaderField;
 
 class DivisionPage extends DataExtension {
 	private static $db = array(
@@ -88,36 +89,14 @@ class DivisionPage extends DataExtension {
 		// $f = parent::getCMSFields();
 		$f->removeByName("ExtraMeta");
 
-		$sidebarAreaField = $f->dataFieldByName('SidebarArea');
-
-		if($sidebarAreaField){
-			$sidebarAreaField->setTitle('Sidebar');
-			$f->removeByName('SidebarArea');
-			$f->addFieldToTab('Root.Blocks', $sidebarAreaField);
-		}
-
-		$beforecontentField = $f->dataFieldByName('BeforeContent');
-
-		if($beforecontentField){
-			$beforecontentField->setTitle('Before Content');
-			$f->remove($beforecontentField);
-			$f->addFieldToTab('Root.Blocks', $beforecontentField);
-		}
-
-		$beforecontentConstrainedField = $f->dataFieldByName('BeforeContentConstrained');
-
-		if($beforecontentConstrainedField){
-			$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
-			$f->removeByName('BeforeContentConstrained');
-			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
-		}
+				// $f->addFieldToTab('Root.Blocks', new HeaderField('Sidebar', 'Sidebar'));
 
 		$aftercontentAreaField = $f->dataFieldByName('AfterContent');
 
 		if($aftercontentAreaField){
 			$aftercontentAreaField->setTitle('After Content');
 			$f->removeByName('AfterContent');
-			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);
+			$f->addFieldToTab('Root.Blocks.AfterContent', $aftercontentAreaField);
 		}
 
 		$aftercontentConstrainedField = $f->dataFieldByName('AfterContentConstrained');
@@ -125,8 +104,37 @@ class DivisionPage extends DataExtension {
 		if($aftercontentConstrainedField){
 			$aftercontentConstrainedField->setTitle('After Content (Constrained)');
 			$f->removeByName('AfterContentConstrained');
-			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);
+			$f->addFieldToTab('Root.Blocks.AfterContentConstrained', $aftercontentConstrainedField);
 		}
+
+		$sidebarAreaField = $f->dataFieldByName('SidebarArea');
+
+		if($sidebarAreaField){
+			
+			$sidebarAreaField->setTitle('Sidebar');
+			$f->removeByName('SidebarArea');
+			$f->addFieldToTab('Root.Blocks.Sidebar', $sidebarAreaField);
+		}
+
+		$beforecontentField = $f->dataFieldByName('BeforeContent');
+
+		if($beforecontentField){
+
+			$beforecontentField->setTitle('Before Content');
+			$f->remove($beforecontentField);
+			$f->addFieldToTab('Root.Blocks.BeforeContent', $beforecontentField);
+		}
+
+		$beforecontentConstrainedField = $f->dataFieldByName('BeforeContentConstrained');
+
+		if($beforecontentConstrainedField){
+			$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
+			$f->removeByName('BeforeContentConstrained');
+			$f->addFieldToTab('Root.Blocks.BeforeContentConstrained', $beforecontentConstrainedField);
+		}
+
+
+
 
 		$f->removeByName('ElementalArea');
 		$f->removeByName('ContentArea');
@@ -244,17 +252,21 @@ class DivisionPage extends DataExtension {
 
 		$str = $this->owner->Content;
 
-		$dom = new DOMDocument();
-		$dom->loadHTML($str);
+		if($str != ''){
+			$dom = new DOMDocument();
+			$dom->loadHTML($str);
 
-		$xp = new DOMXPath($dom);
+			$xp = new DOMXPath($dom);
 
-		$res = $xp->query('//p');
+			$res = $xp->query('//p');
 
-		if($res[0]){
-			$firstParagraph = $res[0]->nodeValue;
-			return $firstParagraph;			
+			if($res[0]){
+				$firstParagraph = $res[0]->nodeValue;
+				return $firstParagraph;			
+			}
+				
 		}
+
 
 
 	}

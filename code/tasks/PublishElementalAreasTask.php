@@ -23,6 +23,7 @@ class PublishElementalAreasTask extends BuildTask{
 		foreach($areas as $area){
 			$area->publish('Stage','Live');
 		}
+		echo '<p>done!</p>';
 	}
 
 }

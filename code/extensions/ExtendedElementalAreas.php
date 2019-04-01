@@ -7,10 +7,5 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataExtension;
 class ExtendedElementalAreas extends DataExtension {
 
-public function updateCMSFields(FieldList $f) {
-
-	// $f->removeByName("BeforeContent");
-}
-
 
 }

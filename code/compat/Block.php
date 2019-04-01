@@ -52,6 +52,8 @@ class Block extends DataObject
         "Pages" => SiteTree::class,
     ];
 
-
+    public function canCreate($member = NULL, $context = Array()){
+        return false;
+    }
    
 }

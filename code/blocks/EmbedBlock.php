@@ -35,29 +35,13 @@ class EmbedBlock extends BaseElement{
 
     public function getCMSFields() {
 
-        $self = $this;
-        $fields = FieldList::create();
-        // BlockArea - display areas field if on page edit controller
-        if (Controller::curr()->class == CMSPageEditController::class) {
-            $currentPage = Controller::curr()->currentPage();
-            $areas = $self->blockManager->getAreasForPageType($currentPage->ClassName);
-            $fields->push(
-                $blockAreaField = DropdownField::create('ManyMany[BlockArea]', _t('Block.BlockArea', 'Block Area'), $areas),
-                'ClassName'
-            );
+        
+        $fields = parent::getCMSFields();
 
-            if (count($areas) > 1) {
-                $blockAreaField->setEmptyString('(Select one)');
-            }
-
-            if (BlockManager::config()->get('block_area_preview')) {
-                $blockAreaField->setRightTitle($currentPage->areasPreviewButton());
-            }
-        }
-        $fields->push(TextField::create('Title'));
-        $fields->push(CheckboxField::create('ShowTitle'));
-        $fields->push(TextField::create('EmbeddedURL', 'Embed URL (include https://)'));
-        $fields->push(DropdownField::create(
+        $fields->addFieldToTab('Root.Main', TextField::create('Title'));
+        $fields->addFieldToTab('Root.Main', CheckboxField::create('ShowTitle'));
+        $fields->addFieldToTab('Root.Main', TextField::create('EmbeddedURL', 'Embed URL (include https://)'));
+        $fields->addFieldToTab('Root.Main', DropdownField::create(
             'EmbedMethod',
             'Embed display',
             array(
@@ -65,7 +49,7 @@ class EmbedBlock extends BaseElement{
                 'manual' => 'Manual height and width',
             )
         ));
-        $fields->push($shapeDropdown = DropdownField::create(
+        $fields->addFieldToTab('Root.Main', $shapeDropdown = DropdownField::create(
             'Shape',
             'Embed shape',
             array(
@@ -76,8 +60,8 @@ class EmbedBlock extends BaseElement{
                 'panorama' =>'Panorama'
             )
         ));
-        $fields->push($widthField = TextField::create('Width', 'Width (examples: "1280px", "100%")'));
-        $fields->push($heightField = TextField::create('Height', 'Height (examples: "720px", "100%")'));
+        $fields->addFieldToTab('Root.Main', $widthField = TextField::create('Width', 'Width (examples: "1280px", "100%")'));
+        $fields->addFieldToTab('Root.Main', $heightField = TextField::create('Height', 'Height (examples: "720px", "100%")'));
 
         $shapeDropdown->displayIf('EmbedMethod')->isEqualTo('automatic');
         $widthField->displayIf('EmbedMethod')->isEqualTo('manual');

@@ -21,9 +21,9 @@ class ScriptEmbedBlock extends BaseElement{
     public function getCMSFields() {
 
         $self = $this;
-        $fields = FieldList::create();
+        $fields = parent::getCMSFields();
 
-        $fields->push($textField = TextField::create('ScriptTag', 'Script HTML Tag'));
+        $fields->addFieldToTab('Root.Main', $textField = TextField::create('ScriptTag', 'Script HTML Tag'));
 
 
         // $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
