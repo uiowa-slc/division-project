@@ -52,7 +52,7 @@ class TopicHolderController extends BlogController{
      * @param SearchForm $form The form instance that was submitted
      * @param SS_HTTPRequest $request Request generated for this action
      */
-    public function results($data, $form, $request) {
+    public function results($data, $form) {
 
         $results = $form->getResults();
 
