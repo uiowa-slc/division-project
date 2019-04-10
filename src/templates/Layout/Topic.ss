@@ -69,12 +69,9 @@ $Header
       <% include TopicRelated %>
       
       <h2>More topics:</h2>
-      <% with $TopicSearchForm %>
-            <% include TopicSearchForm %>
-          <% end_with %>
-      <% with $Parent %>
+      $TopicSearchForm
       <% include TopicHolderAllTopics %>
-      <% end_with %>
+ 
       $AfterContentConstrained
       $Form
 
