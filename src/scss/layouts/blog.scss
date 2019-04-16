@@ -47,6 +47,13 @@
 	& a {
 		display: block;
 	}
+    @include breakpoint(xxlarge) {
+        float: none;
+        margin-top: 1em;
+        & li {
+            margin: 0 12px 0 0;
+        }
+    }
 }
 
 .blogmeta__caps{
@@ -96,6 +103,9 @@
 		width: 24px;
 		height: 24px;
 	}
+    @include breakpoint(xxlarge) {
+        float: none;
+    }
 }
 .BlogPost .main-content .blogmeta__byline img {
 	@include breakpoint(xxlarge) {
@@ -166,11 +176,7 @@
 }
 .main-content__text .blogmeta__social {
 	@include breakpoint(xxlarge) {
-		display: block;
 		clear: both;
-		& li {
-			margin: 0 5px;
-		}
 	}
 }
 
