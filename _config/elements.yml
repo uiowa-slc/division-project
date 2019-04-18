@@ -1,5 +1,4 @@
 Page:
   disallowed_elements:
     - 'TextBlock'
-    - 'Content'
-    - 'ElementContent'
+    - 'ContentBlock'
