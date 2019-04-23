@@ -161,6 +161,9 @@ function watch() {
   gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
+
+  gulp.watch('../division-elearning-project/scss/**/*.scss').on('all', sass);
+
   gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml, browser.reload));
   gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
