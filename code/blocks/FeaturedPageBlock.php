@@ -50,7 +50,7 @@ class FeaturedPageBlock extends BaseElement{
 
 		$internalFields = Wrapper::create(
 			TreeDropdownField::create('PageTreeID', 'Select a Page:', SiteTree::class),
-			HeaderField::create( '<br><hr><br><h3>Overwrite Page Settings</h3>', '3', true )
+			HeaderField::create( 'OverwritePageSettingsHeader', 'Overwrite Page Settings', 3)
 		)->displayIf('Source')->isEqualTo('Internal')->end();
 
 		$externalFields = Wrapper::create(

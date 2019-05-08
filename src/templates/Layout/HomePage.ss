@@ -9,7 +9,7 @@
 				<div class="carousel-cell">
 					<% if $Image %>
 						<% with $Image %>
-						<div class="cell-bg" data-flickity-bg-lazyload="$FocusFill(1500,900).URL" <% if $FocusX || $FocusY %>style="background-position: $PercentageX% $PercentageY%;"<% end_if %>>
+						<div class="cell-bg" data-flickity-bg-lazyload="$FocusFill(1500,900).URL" <% if $FocusPointX || $FocusPointY %>style="background-position: $PercentageX% $PercentageY%;"<% end_if %>>
 						<% end_with %>
 							<div class="inner">
 								<div class="cell-text">
