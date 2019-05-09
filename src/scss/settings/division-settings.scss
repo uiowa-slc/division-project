@@ -4,11 +4,14 @@
 ----------------------------------------------------*/
 $foundation-palette: (
 	primary: #005c99,
-	secondary: #3381AF,
-	success: #9FD392,
-	warning: #FAE4B8,
-	alert: #F29DA8,
+	secondary: #767676,
+	success: #3adb76,
+	warning: #ffae00,
+	alert: #cc4b37,
 );
+$button-palette: map-merge($foundation-palette, (
+    gold: #ffcd00
+)) !default;
 
 $light-gray: #f4f4f4;
 $medium-gray: #cacaca;
@@ -60,7 +63,7 @@ $anchor-text-decoration-hover: none;
 $header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
 $header-font-weight: 800;
 $header-font-style: normal;
-$header-lineheight: 1.4;
+$header-lineheight: 1.2;
 $header-margin-bottom: rem-calc(18);
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 
