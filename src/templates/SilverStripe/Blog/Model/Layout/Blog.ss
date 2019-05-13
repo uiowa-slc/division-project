@@ -10,7 +10,29 @@ $Header
 
 	$Breadcrumbs
 
-	<% if not $BackgroundImage %>
+	<% if $BackgroundImage %>
+	<div class="column row">
+				<h2>
+					<% if $ArchiveYear %>
+						<%t Blog.Archive 'Archive' %>:
+						<% if $ArchiveDay %>
+							$ArchiveDate.Nice
+						<% else_if $ArchiveMonth %>
+							$ArchiveDate.format('F, Y')
+						<% else %>
+							$ArchiveDate.format('Y')
+						<% end_if %>
+					<% else_if $CurrentTag %>
+						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+					<% else_if $CurrentCategory %>
+						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+					<% else_if not $BackgroundImage %>
+					
+						$Title
+					<% end_if %>
+				</h2>
+	</div>
+	<% else %>
 		<div class="column row">
 			<div class="main-content__header">
 				<h1 class="page-title">
@@ -27,13 +49,15 @@ $Header
 						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
 					<% else_if $CurrentCategory %>
 						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-					<% else %>
+					<% else_if not $BackgroundImage %>
+					
 						$Title
 					<% end_if %>
 				</h1>
 			</div>
 		</div>
 	<% end_if %>
+
 
 	$BeforeContent
 
