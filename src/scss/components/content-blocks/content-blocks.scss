@@ -1,9 +1,4 @@
-.elemental-area--AfterContentConstrained,
-.elemental-area--BeforeContentConstrained {
-	@include breakpoint(medium) {
-		padding-right: rem-calc(20);
-	}
-}
+
 
 /* Before Content */
 .elemental-area--BeforeContent, .elemental-area--AfterContent {

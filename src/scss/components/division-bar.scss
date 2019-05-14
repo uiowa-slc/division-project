@@ -28,9 +28,9 @@
 			visibility: visible;
 		}
 		&--dark-header {
-			color: #fff;
+			color: $white;
 			&:hover, &:focus {
-				color: #fff;
+				color: $white;
 			}
 		}
 	}
@@ -52,16 +52,16 @@
 .uiowalogo {
 	width: auto;
 	height: 24px;
-	fill: $yellow;
+	fill: $highlight;
 }
 .uiowalogo--dark-header {
-	fill: $yellow;
+	fill: $highlight;
 }
 .uiowalogo--light-header {
 	fill: #000;
 }
 .uiowalogo--overlay {
-	fill: $yellow;
+	fill: $highlight;
 }
 
 #uiowa-bar #wordmark-link {

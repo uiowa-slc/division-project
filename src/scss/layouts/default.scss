@@ -78,11 +78,6 @@ img:not([src]) {
 		@include breakpoint(large) {
 			@include grid-column-offset(0);
 		}
-		& .main-content__text {
-			@include breakpoint(medium) {
-				padding-right: rem-calc(20);
-			}
-		}
 	}
 
 	&--full-width {
@@ -105,6 +100,9 @@ img:not([src]) {
 		& > h2:first-child, & > h3:first-child {
 			margin-top: 0;
 		}
+        & a {
+            text-decoration: underline;
+        }
 
 		img{
 			display: block;

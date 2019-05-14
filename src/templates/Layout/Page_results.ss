@@ -10,17 +10,18 @@ $Header
 						<% loop $Results %>
 							<li class="article-list__item">
 								<article class="article-list__body clearfix">
+
 									<% if $BackgroundImage %>
 										<a href="$Link" class="border-effect article-list__img">
-										<img src="$BackgroundImage.CroppedImage(180,150).URL" alt="$Title" >
+										<img src="$BackgroundImage.FocusFill(180,150).URL" alt="$Title" >
 										</a>
 									<% else_if $Photo %>
 										<a href="$Link" class="border-effect article-list__img">
-										<img src="$Photo.CroppedImage(180,150).URL" alt="$Title" >
+										<img src="$Photo.FocusFill(180,150).URL" alt="$Title" >
 										</a>
-									<% else_if $FeaturedImage %>
+									<% else_if $MainImage %>
 										<a href="$Link" class="border-effect article-list__img">
-										<img src="$FeaturedImage.CroppedImage(180,150).URL" alt="$Title">
+										<img src="$MainImage.Pad(180,150).URL" alt="$Title">
 										</a>
 									<% end_if %>
 									<% if $NiceName %><p class="article-list__type">$NiceName</p><% end_if %>
@@ -58,9 +59,11 @@ $Header
 										<% include ByLine %>
 									<% end_if %>
 
-									<% if $Content %>
-										<p class="article-list__text">$Content.LimitWordCountXML</p>
-									<% end_if %>
+                                    <% if $MetaDescription %>
+                                        <p class="article-list__text">$MetaDescription.LimitCharacters(200)</p>
+                                    <% else %>
+                                        <p class="article-list__text">$ContentSummary</p>
+                                    <% end_if %>
 
 									<a href="$AbsoluteLink" class="article-list__url">$AbsoluteLink</a>
 								</article>

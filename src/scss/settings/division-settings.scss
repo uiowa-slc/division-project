@@ -13,13 +13,13 @@ $button-palette: map-merge($foundation-palette, (
     gold: #ffcd00
 )) !default;
 
-$light-gray: #f4f4f4;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #222;
+// Grayscale
+$light-gray: #e5e5e5;
+$medium-gray: #a5a5a5;
+$dark-gray: #555;
+$black: #212121;
 $white: #fefefe;
 $cream: #f8f6f3;
-
 $yellow: #ffcd00;
 
 //Main Highlight color:

@@ -1,5 +1,4 @@
 <% if $Children || $Menu(2) %>
-<%-- <nav class="sidenav" data-sticky data-margin-top="0" data-anchor="sticky-nav-area" data-sticky-on="large"> --%>
 <nav class="sidenav" aria-labelledby="sidenav-title">
 	 <% if $Menu(2) %>
 		<% with Level(1) %>
@@ -8,11 +7,6 @@
 	<% end_if %><%-- end_if Menu(2) --%>
 	<% if $Menu(2) %>
 		<ul class="sidenav__menu">
-			<%-- <% with $Level(1) %>
-				<li class="sidenav__item sidenav__item--$LinkOrCurrent"><a class="sidenav__link" href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a></li>
-			<% end_with %> --%>
-			<%-- end_with Level(1) --%>
-
 			<% loop $Menu(2) %>
 				<li class="sidenav__item sidenav__item--$LinkingMode">
 					<a class="sidenav__link" href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
