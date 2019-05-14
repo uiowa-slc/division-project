@@ -103,16 +103,6 @@ img:not([src]) {
         & a {
             text-decoration: underline;
         }
-
-		img{
-			display: block;
-			float: none !important;
-			@include breakpoint(medium) {
-				width: auto;
-				display: inherit;
-				float: inherit;
-			}
-		}
 	}
 
 	&__main-img{

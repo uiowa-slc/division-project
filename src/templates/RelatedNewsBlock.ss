@@ -2,16 +2,18 @@
 <% if $RelatedNewsEntries %>
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row">
-		<div class="column">
-			<h3 id="Block$ID" class="newsblock-title text-center"><% if $Title && $ShowTitle %>$Title<% else %>Related News<% end_if %></h3>
-		</div>
-		<ul class="medium-up-3 ">
-			<% loop $RelatedNewsEntries.limit(3) %>
-				<li class="column column-block">
-					<% include BlogCard %>
-				</li>
-			<% end_loop %>
-		</ul>
+        <div class="newsblock">
+    		<div class="column">
+    			<h3 id="Block$ID" class="newsblock-title text-center"><% if $Title && $ShowTitle %>$Title<% else %>Related News<% end_if %></h3>
+    		</div>
+    		<ul class="medium-up-3 ">
+    			<% loop $RelatedNewsEntries.limit(3) %>
+    				<li class="column column-block">
+    					<% include BlogCardBlock %>
+    				</li>
+    			<% end_loop %>
+    		</ul>
+        </div>
 	</div>
 </section>
 <% end_if %>
@@ -36,7 +38,7 @@
 		<div class="$CSSClasses">
 			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Related News<% end_if %></h2>
 			<% loop $RelatedNewsEntries.limit(3) %>
-				<% include BlogCard %>
+				<% include BlogCardBlock %>
 			<% end_loop %>
 			<br>
 		</div>

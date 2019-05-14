@@ -15,48 +15,55 @@ $Header
 			$BeforeContentConstrained
 
 			<div class="main-content__text">
-				<div class="locallistevent">
-					<% if $Image.URL %>
-						<div style="background-image: url($Image.URL);" class="locallistevent__img"></div>
-					<% end_if %>
+				<% if $Image.URL %>
+                    <img src="$Image.URL" class="locallistevent-img left" loading="lazy" alt="$Title">
+				<% end_if %>
 
-					<%-- Content --%>
-					<% if $Content %>
-						$Content
-					<% end_if %>
+				<%-- Content --%>
+				<% if $Content %>
+					$Content
+				<% end_if %>
 
-					<% if $Dates.Count > 1 %><h5 class="event-title">Next Date:</h5><% else %><h5 class="event-title">Date and Time:</h5><% end_if %>
-					<% if $Dates %>
-						<% loop $Dates.Limit(1) %>
+				<% if $Dates.Count > 1 %>
+                    <hr />
+                    <h5>Next Date:</h5>
+                    <% else %>
+                    <hr />
+                    <h5>Date and Time:</h5>
+                <% end_if %>
+
+				<% if $Dates %>
+					<% loop $Dates.Limit(1) %>
+						<% include DateTimesList %>
+					<% end_loop %>
+				<% else %>
+						No upcoming dates.
+				<% end_if %>
+
+				<%-- Upcoming Dates --%>
+				<% if $Dates.Count > 1 %>
+                    <hr />
+					<h5>All Dates</h5>
+					<ul>
+					<% loop $Dates %>
+						<li class="$FirstLast">
 							<% include DateTimesList %>
-						<% end_loop %>
-					<% else %>
-							No upcoming dates.
-					<% end_if %>
+						</li>
+					<% end_loop %>
+					</ul>
+				<% end_if %>
 
-					<%-- Upcoming Dates --%>
-					<% if $Dates.Count > 1 %>
-						<h5 class="event-title">All Dates</h5>
-						<ul>
-						<% loop $Dates %>
-							<li class="$FirstLast">
-								<% include DateTimesList %>
-							</li>
-						<% end_loop %>
-						</ul>
-					<% end_if %>
-
-				</div>
 				<div class="ADA_statement">
-				<p> <i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone} or {$ContactEmail}
-				</i></p>
-			</div>
+                    <br />
+				    <p><i>Individuals with disabilities are encouraged to attend all University of Iowa–sponsored events. If you are a person with a disability who requires a reasonable accommodation in order to participate in this program, please contact {$ContactName} in advance at {$ContactPhone} or {$ContactEmail}
+				    </i></p>
+                </div>
 			</div>
 		</article>
 		<aside class="sidebar" data-sticky-container>
-			<div class="locallistevent__sidebar">
+			<div class="locallistevent-sidebar">
 				<% if $Venue.Title %>
-					<p class="event-venue"><strong>Venue:</strong><br />$Venue.Title
+					<p><strong>Venue:</strong><br />$Venue.Title
 					<% if $Venue.Address %><br>$Venue.Address<% end_if %>
 					<% if $Venue.WebsiteLink %><br><a href="$Venue.WebsiteLink">View Map</a><% end_if %>
 					</p>
@@ -82,17 +89,14 @@ $Header
 					<p><a href="$MoreInfoLink" target="_blank" class="btn btn-default">Website</a></p>
 				<% end_if %>
 
-				<%-- <div class="">
-					<p><a href="{$LocalistLink}.ics">Add to iCal or Outlook</a></p>
-				</div> --%>
-
 				<% if $Tags %>
-					<p class="locallistevent__tags"><strong>Tags</strong><br />
-					<% loop $Tags %>
-						<a href="$Link" class="$FirstLast">$Title</a>
-					<% end_loop %>
+					<p class="locallistevent-tags"><strong>Tags</strong><br />
+					   <% loop $Tags %>
+					       <a href="$Link" class="$FirstLast">$Title</a>
+					   <% end_loop %>
 					</p>
 				<% end_if %>
+
 				<% if $UiCalendarLink %>
 					<a href="$UiCalendarLink" target="_blank">View on the UI calendar <i class="fa fa-external-link" aria-hidden="true"></i></a>
 				<% end_if %>
@@ -102,16 +106,3 @@ $Header
 		</aside>
 	</div>
 </main>
-<br /><br /><br />
-<% if RelatedEvents %>
-	<div class="relatedevents">
-		<h2 class="relatedevents-title text-center">Related Events</h2>
-		<ul class="column row medium-up-3 ">
-			<% loop RelatedEvents.Limit(3) %>
-				<li class="column column-block">
-					<% include EventCard %>
-				</li>
-			<% end_loop %>
-		</ul>
-	</div>
-<% end_if %>

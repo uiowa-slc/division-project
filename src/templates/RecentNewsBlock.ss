@@ -8,7 +8,7 @@
 			<ul class="medium-up-3 ">
 				<% loop $Entries %>
 					<li class="column column-block">
-						<% include BlogCard %>
+						<% include BlogCardBlock %>
 					</li>
 				<% end_loop %>
 			</ul>
@@ -23,11 +23,11 @@
 			<div class="column">
 				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
 			</div>
-			
+
 			<ul class="medium-up-3 ">
 				<% loop $Entries %>
 					<li class="column column-block">
-						<% include BlogCard %>
+						<% include BlogCardBlock %>
 					</li>
 				<% end_loop %>
 			</ul>
@@ -54,7 +54,7 @@
 		<div class="newsblock">
 			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
 			<% loop $Entries %>
-				<% include BlogCard %>
+				<% include BlogCardBlock %>
 			<% end_loop %>
 			<br>
 		</div>

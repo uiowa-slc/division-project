@@ -1,127 +1,72 @@
 /* ---------------------------------------------------------------
 Calendar Holder Page
 --------------------------------------------------------------- */
-/* Featured Events */
-.locallist-carousel {
-
-}
-.locallist-carousel .carousel-cell {
-	width: 100%;
-}
-
-
-
-
-
-.column-block {
-	margin-bottom: 1em;
-}
 .eventcard {
-	padding: rem-calc(40 0);
-	border-top: 1px solid #e5e5e5;
-}
-.eventcard-title {
-	font-size: rem-calc(22);
-	font-weight: bold;
-	margin-top: 0;
-	margin-bottom: 10px;
-	& a:hover, & a:focus {
-		text-decoration: underline;
-	}
-}
-.eventcard-content {
-	font-size: rem-calc(16);
-	position: relative;
-	@include breakpoint(small) {
-		margin-left: 35%;
-	}
-}
-.eventcard-imgwrap {
-	display: none;
-	@include breakpoint(small) {
-		display: block;
-		float: left;
-		width: 30%;
-	}
-}
-.eventcard-imgwrap div {
-	width: 100%;
-	height: 150px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	position: relative;
-	text-indent: -999em;
-}
-.eventcard-venue,
-.eventcard-dates {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	padding-left: 22px;
-	position: relative;
-	&:before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 4px;
-		background-size: cover;
-		width: 16px;
-		height: 16px;
-		opacity: .35;
-	}
-}
-.eventcard-venue:before {background-image: url(../images/location-bw.png);}
-.eventcard-dates:before {background-image: url(../images/calendar-bw.png);}
-
-.eventcard-summary {
-	margin: 10px 0 0;
-}
-.eventcard .icon {
-	fill: $anchor-color;
-}
-.eventcard-btn {
-	margin-bottom: 0;
-	@include breakpoint(medium) {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 0;
-	}
+    border-bottom: 1px solid $light-gray;
+	padding: rem-calc(30 0);
+    &__title {
+        margin: rem-calc(0 0 10 0);
+        & a {
+            color: $body-font-color;
+        }
+    }
+    &__content {
+        font-size: rem-calc(16);
+        @include breakpoint(small) {
+            margin-left: 35%;
+        }
+    }
+    &__imgwrap {
+        display: none;
+        & div {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+            text-indent: -999em;
+        }
+        @include breakpoint(small) {
+            display: block;
+            float: left;
+            width: 30%;
+        }
+    }
+    &__venue, &__dates {
+        margin: rem-calc(5 0);
+        padding-left: rem-calc(22);
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            background-size: cover;
+            width: 16px;
+            height: 16px;
+            opacity: .35;
+        }
+    }
+    &__venue:before {
+        background-image: url(../images/location-bw.png);
+    }
+    &__dates:before {
+        background-image: url(../images/calendar-bw.png);
+    }
+    &__summary {
+        margin: 10px 0 0;
+    }
 }
 
 /* ---------------------------------------------------------------
-Calendar Page
+Calendar Event Page
 --------------------------------------------------------------- */
-.event-title {
-	clear: both;
-	border-top: 1px solid #eee;
-	padding-top: 1em;
-	margin-bottom: 5px;
-	+ p {
-		margin-top: 0;
-	}
-	&:first-of-type {
-		margin-top: 0;
-	}
+.locallistevent-img {
+	display: block;
+	max-width: 320px;
 }
-.locallistevent {
-	&__img {
-		display: block;
-		width: 300px;
-		height: 226px;
-		margin-bottom: 1em;
-		background-position: center center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		position: relative;
-		top: 7px;
-		@include breakpoint(medium) {
-			float: left;
-			margin: 0 1.5em 1.5em 0;
-		}
-	}
-}
-.locallistevent__tags {
+.locallistevent-tags {
 	& a {
 		display: inline;
 		&:after {
@@ -132,60 +77,10 @@ Calendar Page
 		}
 	}
 }
-.locallistevent__sidebar {
-	font-size: rem-calc(16);
-	padding-bottom: 1em;
+.locallistevent-sidebar {
+	font-size: rem-calc(18);
 	@include breakpoint(large) {
-		border-left: 1px solid #eee;
-		padding-left: 2em;
+		border-left: 1px solid $light-gray;
+		padding-left: rem-calc(30);
 	}
-}
-
-/* ---------------------------------------------------------------
-Related Events
---------------------------------------------------------------- */
-.relatedevents {
-	background: $cream;
-	overflow: hidden;
-	padding: 2em 0 2.5em;
-}
-.relatedevents ul {
-	list-style: none;
-	margin: 0 auto;
-}
-.relatedevents .eventcard {
-	border-top: 0;
-}
-.relatedevents .eventcard-content {
-	margin: 20px 0 0 0;
-	padding: 0;
-}
-.relatedevents .eventcard-imgwrap {
-	@include breakpoint(small) {
-		display: none;
-	}
-	@include breakpoint(medium) {
-		display: block;
-		float: none;
-		width: 100%;
-	}
-}
-.relatedevents .eventcard-imgwrap div {
-	height: 200px;
-}
-.relatedevents .eventcard-title {
-	font-size: rem-calc(20);
-}
-.relatedevents h2 {
-	font-size: rem-calc(28);
-	margin-top: 0;
-	@include breakpoint(medium) {
-		font-size: rem-calc(45);
-	}
-}
-.relatedevents .eventcard-summary {
-	display: none;
-}
-.relatedevents .eventcard-btn {
-	display: none;
 }

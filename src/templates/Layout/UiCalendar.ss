@@ -16,69 +16,6 @@ $Header
 		</div>
 	<% end_if %>
 
-
-	<!-- Featured Events (3) -->
-	<%-- <% with LocalistCalendar %>
-		<% if $FeaturedEvents %>
-
-			<div class="row">
-			<div class="locallist-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
-				<% loop $FeaturedEvents.Limit(3) %>
-					<div class="carousel-cell">
-						<div class="small-6 columns">
-							<% if $Image %>
-								<a href="$Link" class="featured-photo">
-									<img src="$Image.URL" alt="$Title" >
-								</a>
-							<% end_if %>
-						</div>
-						<div class="small-6 columns">
-							<div class="">
-								<h4><a href="$Link">$Title</a></h4>
-								<!-- Venue -->
-								<% if $Venue %>
-									<p>$Venue.Title</p>
-								<% end_if %>
-								<!-- Dates -->
-								<% if $Dates %>
-									<% if $Dates.Count > "1" %>
-											<p>multiple dates available</p>
-										<% else %>
-											<% loop $Dates %>
-												<p class="date-time">
-													<% with $StartDateTime %>
-														<time itemprop="startDate" datetime="$Format(c)">
-															$Format(l), $Format(F) $Format(j)
-														</time>
-														 <br />$Format("g:i A")
-													<% end_with %>
-													<% if $EndTime %>
-														<% with $EndTime %>
-															- $Format("g:i A")
-														<% end_with %>
-													<% end_if %>
-													<% if $EndDate %>
-														until
-														<% with $EndDate %>
-															<time itemprop="endDate" datetime="$Format(c)">
-																$Format(l), $Format(F) $Format(j)
-															</time>
-															<br />$Format("g:i A")
-														<% end_with %>
-													<% end_if %>
-												</p>
-											<% end_loop %>
-										<% end_if %>
-								<% end_if %>
-							</div>
-						</div>
-					</div>
-				<% end_loop %>
-			</div>
-			</div>
-		<% end_if %>
-	<% end_with %> --%>
-
 	$BeforeContent
 
 	<div class="row">

@@ -27,7 +27,7 @@ $Header
 					<% else_if $CurrentCategory %>
 						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
 					<% else_if not $BackgroundImage %>
-					
+
 						$Title
 					<% end_if %>
 				</h2>
@@ -50,7 +50,7 @@ $Header
 					<% else_if $CurrentCategory %>
 						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
 					<% else_if not $BackgroundImage %>
-					
+
 						$Title
 					<% end_if %>
 				</h1>
@@ -66,12 +66,12 @@ $Header
 			$BeforeContentConstrained
 			<div class="main-content__text">
 				$Content
-				
+
 				<% if $Action == "index" %>
 					<% if $SortAlphabetically %>
-	 					<% loop $BlogPostsAlpha %>		
-	 						<% include BlogCard %>		
-	 					<% end_loop %>		
+	 					<% loop $BlogPostsAlpha %>
+	 						<% include BlogCard %>
+	 					<% end_loop %>
 	 				<% else_if $PaginatedList.Exists %>
 						<% loop $PaginatedList %>
 							<% include BlogCard %>
@@ -87,11 +87,10 @@ $Header
 				$Form
 				$CommentsForm
 
-				<% with $PaginatedList %>
-					<% include Pagination %>
-				<% end_with %>
-
 			</div>
+            <% with $PaginatedList %>
+                <% include Pagination %>
+            <% end_with %>
 		</div>
 
 
