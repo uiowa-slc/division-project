@@ -17,12 +17,14 @@ $BeforeContent
 		<% end_if %>
 		<div class="main-content__text">
 			$Content
+            $AfterContentConstrained
+            $Form
 		</div>
-		$AfterContentConstrained
-		$Form
+
 		<% if $ShowChildPages %>
 			<% include ChildPages %>
 		<% end_if %>
+
 	</article>
 	<aside class="sidebar dp-sticky">
 		<% include SideNav %>

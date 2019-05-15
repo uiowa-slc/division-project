@@ -2,16 +2,18 @@
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
 	<div class="content-block row">
 		<div class="newsblock">
-			<div class="column">
-				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-			</div>
-			<ul class="medium-up-3 ">
-				<% loop $Entries %>
-					<li class="column column-block">
-						<% include BlogCardBlock %>
-					</li>
-				<% end_loop %>
-			</ul>
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell">
+                        <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
+                    </div>
+                    <% loop $Entries %>
+                        <div class="cell medium-4">
+                            <% include BlogCard %>
+                        </div>
+                    <% end_loop %>
+                </div>
+            </div>
 		</div>
 	</div>
 </section>
@@ -20,26 +22,28 @@
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
 	<div class="content-block row">
 		<div class="newsblock">
-			<div class="column">
-				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-			</div>
-
-			<ul class="medium-up-3 ">
-				<% loop $Entries %>
-					<li class="column column-block">
-						<% include BlogCardBlock %>
-					</li>
-				<% end_loop %>
-			</ul>
-		</div>
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell">
+                        <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
+                    </div>
+                    <% loop $Entries %>
+                        <div class="cell medium-4">
+                            <% include BlogCard %>
+                        </div>
+                    <% end_loop %>
+                </div>
+            </div>
+        </div>
 	</div>
 </section>
 <% else_if $AreaName == "SidebarArea" %>
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="newsblock">
-			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
-
+			<h2 id="Block$ID" class="sidebar-sect-title">
+                <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
+            </h2>
 			<ul>
 				<% loop $Entries %>
 					<% include RecentNewsContent %>
@@ -52,9 +56,11 @@
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="newsblock">
-			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
+			<h3 id="Block$ID">
+                <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
+            </h3>
 			<% loop $Entries %>
-				<% include BlogCardBlock %>
+				<% include BlogCard %>
 			<% end_loop %>
 			<br>
 		</div>

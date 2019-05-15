@@ -3,72 +3,33 @@
 News
 ------------------------------------------------------------*/
 .newsblock {
+    background-color: $cream;
 	overflow: hidden;
-	padding: 0 0 60px 0;
-	background-color: $cream;
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+    @include breakpoint(medium) {
+        padding-bottom: rem-calc(30);
+    }
+    .sidebar & {
+        padding-bottom: 0; // remove padding in sidebar
+    }
 }
-.newsblock-title {
-	margin-top: 0;
-	border-top: 5px solid $highlight;
-	padding-top: 60px;
-	text-transform: uppercase;
-	display: inline-block;
+.elemental-area--AfterContentConstrained .newsblock,
+.elemental-area--BeforeContentConstrained .newsblock {
+    background-color: inherit;
 }
-.newsblock ul {
-	list-style: none;
-	margin: 0 auto;
-}
-.newsblock .bloglistitem {
-	border: none;
-	padding-top: rem-calc(18);
-	@media (min-width: 480px) {
-		&__img {
-			float: right;
-			width: 30%;
-			margin-top: 6px;
-			margin-bottom: .75em;
-			margin-left: .75em;
-		}
-		&__content--wimage {
-			margin-right: 0;
-		}
-	}
-	@include breakpoint(large) {
-		&__img {
-			width: 38%;
-		}
-	}
-	& .bloglistitem__heading a:hover, & .bloglistitem__heading a:focus {
-		color: $anchor-color;
-	}
-}
+
 /* News
 ======================================================================= */
-.elemental-area--AfterContent .newsblock {
-	& ul {
-		list-style: none;
-		margin: 0;
-	}
-	& .bloglistitem {
-		padding-top: rem-calc(18);
-	}
-	& .bloglistitem__heading {
-		//text-transform: capitalize;
-	}
-	& .bloglistitem__desc {
-		font-size: rem-calc(16);
-	}
-	& .byline__author img {
-		display: none;
-	}
-}
 .elemental-area--SidebarArea .newsblock {
-	background-color: #fff;
-	border: 1px solid #e5e5e5;
-	margin-bottom: 1.875rem;
+	background-color: $white;
+	border: 1px solid $light-gray;
+	margin-bottom: rem-calc(30);
 	width: 100%;
 	&__header {
-		border-top: 4px solid #000;
+		border-top: 4px solid $black;
 		font-size: rem-calc(14);
 		font-weight: 600;
 		margin: rem-calc(0 20);
@@ -76,12 +37,8 @@ News
 		text-transform: uppercase;
 		letter-spacing: 1px;
 	}
-	& ul {
-		list-style: none;
-		margin: 0;
-	}
 	& li {
-		border-bottom: 1px solid #e5e5e5;
+		border-bottom: 1px solid $light-gray;
 		line-height: 1.4;
 		&:last-of-type {
 			border-bottom: none;
@@ -89,11 +46,11 @@ News
 	}
 	& li img {
 		display: block;
-		margin-bottom: 8px;
+		margin-bottom: rem-calc(10);
 		@include breakpoint(mobile) {
 			float: right;
 			width: 175px;
-			margin-left: 1em;
+			margin-left: rem-calc(15);
 		}
 		@include breakpoint(large) {
 			float: none;

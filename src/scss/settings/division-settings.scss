@@ -10,7 +10,8 @@ $foundation-palette: (
 	alert: #cc4b37,
 );
 $button-palette: map-merge($foundation-palette, (
-    gold: #ffcd00
+    gold: #ffcd00,
+    black: #212121,
 )) !default;
 
 // Grayscale
@@ -133,6 +134,14 @@ $grid-column-count: 12;
 $grid-column-gutter: (
 	small: 20px,
 	medium: 40px,
+);
+$grid-margin-gutters: (
+    small: 20px,
+    medium: 40px,
+);
+$grid-padding-gutters: (
+    small: 20px,
+    medium: 40px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;

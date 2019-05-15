@@ -1,21 +1,22 @@
+.sidebar-sect-title {
+    border-top: 4px solid $black;
+    font-size: rem-calc(14);
+    font-weight: 600;
+    letter-spacing: .8px;
+    margin: rem-calc(0 20);
+    padding: rem-calc(24 0);
+    text-transform: uppercase;
+    & a {
+        color: $black;
+        display: block;
+    }
+}
+
 .sidenav{
 	background-color: $white;
 	border: 1px solid $light-gray;
 	margin-bottom: rem-calc(30);
 	width: 100%;
-    &__section-title {
-        border-top: 4px solid $black;
-        font-size: rem-calc(14);
-        font-weight: 600;
-        letter-spacing: .8px;
-        margin: rem-calc(0 20);
-        padding: rem-calc(24 0);
-        text-transform: uppercase;
-        & a {
-            color: $black;
-            display: block;
-        }
-    }
     & ul {
         list-style: none;
         margin: 0;

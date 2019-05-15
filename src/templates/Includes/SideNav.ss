@@ -2,7 +2,7 @@
 <nav class="sidenav" aria-labelledby="sidenav-title">
 	 <% if $Menu(2) %>
 		<% with Level(1) %>
-			<h2 id="sidenav-title" class="sidenav__section-title"><% if $LinkOrCurrent = "current" %>$MenuTitle<% else %><a href="$Link">$MenuTitle</a><% end_if %></h2>
+			<h2 id="sidenav-title" class="sidebar-sect-title"><% if $LinkOrCurrent = "current" %>$MenuTitle<% else %><a href="$Link">$MenuTitle</a><% end_if %></h2>
 		<% end_with %>
 	<% end_if %><%-- end_if Menu(2) --%>
 	<% if $Menu(2) %>

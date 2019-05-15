@@ -13,13 +13,6 @@
 		</a>
 	<% end_if %>
 	<div class="blogcard__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
-		<% if $Categories.exists %>
-			<p class="blogcard__category">
-    			<% loop $Categories %>
-    				<a href="$Link">$Title</a><% if not Last %><% else %><% end_if %>
-    			<% end_loop %>
-			</p>
-		<% end_if %>
 
 		<h3 class="blogcard__heading">
             <a href="$Link">$Title</a>
@@ -35,6 +28,14 @@
 		<% if not $Parent.HideDatesAndAuthors %>
 			<% include ByLine %>
 		<% end_if %>
+
+        <% if $Categories.exists %>
+            <p class="blogcard__category">
+                <% loop $Categories %>
+                    <a href="$Link" class="button hollow tiny secondary">$Title</a>
+                <% end_loop %>
+            </p>
+        <% end_if %>
 
 	</div>
 </article>
