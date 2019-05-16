@@ -26,6 +26,7 @@
 		<%-- Dates --%>
 		<% if $Dates %>
 			<p class="eventcard__dates">
+                <img src="{$ThemeDir}/dist/images/calendar-bw.png" alt="calendar icon">
 				<% loop $Dates.Limit(1) %>
 					<% include DateTimesList %>
 				<% end_loop %>
@@ -37,7 +38,8 @@
 		<%-- Venue --%>
 		<% if $Venue %>
 			<p class="eventcard__venue">
-				$Venue.Title
+				<img src="{$ThemeDir}/dist/images/location-bw.png" alt="location icon">
+                $Venue.Title
 			</p>
 		<% end_if %>
 

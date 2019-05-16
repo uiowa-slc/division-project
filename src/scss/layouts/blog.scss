@@ -4,26 +4,21 @@ Blog Card
 -------------------------------------------*/
 .blogcard {
     border-bottom: 1px solid $light-gray;
-    padding: rem-calc(30 0);
+    padding: rem-calc(15 0);
     &__img {
         display: block;
         position: relative;
-        .newsblock & {
-            display: none;
-        }
+        margin-bottom: rem-calc(15);
         @media (min-width: 480px) {
             float: right;
-            width: 230px;
-            margin-top: rem-calc(30);
+            margin-bottom: 0;
+            width: 220px;
         }
     }
     &__content {
         &--wimage {
             @media (min-width: 480px) {
-                margin-right: 250px;
-            }
-            .newsblock & {
-                margin-right: 0;
+                margin-right: 240px;
             }
         }
     }
@@ -56,6 +51,9 @@ Blog Card
     }
     .newsblock & {
         border-bottom: none; // hide border when within a Block
+    }
+    @include breakpoint(medium) {
+        padding: rem-calc(30 0);
     }
 }
 

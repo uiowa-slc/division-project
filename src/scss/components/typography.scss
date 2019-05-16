@@ -37,9 +37,24 @@ h5 {
 	text-transform: uppercase;
 	font-size:rem-calc(15);
 	font-weight: 600;
-	&--white{
+	&--white {
 		color: white;
 	}
+}
+.text-center {
+    text-align: center;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-lowercase {
+    text-transform: lowercase;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+.text-decoration-none {
+    text-decoration: none;
 }
 
 .header--small{

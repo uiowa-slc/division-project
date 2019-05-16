@@ -16,27 +16,45 @@ News
         padding-bottom: 0; // remove padding in sidebar
     }
 }
+
+/*-----------------------------------------
+After Content Constrained | Before Content Constrained
+-------------------------------------------*/
 .elemental-area--AfterContentConstrained .newsblock,
 .elemental-area--BeforeContentConstrained .newsblock {
     background-color: inherit;
+    & .blogcard {
+        border-bottom: 1px solid $light-gray;
+        padding: rem-calc(15 0);
+        &__heading {
+            font-size: rem-calc(22);
+        }
+    }
 }
 
-/* News
-======================================================================= */
+/*-----------------------------------------
+After Content | Before Content
+-------------------------------------------*/
+.elemental-area--AfterContent .newsblock,
+.elemental-area--BeforeContent .newsblock {
+    & .blogcard {
+        &__img {
+            display: none;
+        }
+        &__content--wimage {
+            margin-right: 0;
+        }
+    }
+}
+
+/*-----------------------------------------
+Sidebar
+-------------------------------------------*/
 .elemental-area--SidebarArea .newsblock {
 	background-color: $white;
 	border: 1px solid $light-gray;
 	margin-bottom: rem-calc(30);
 	width: 100%;
-	&__header {
-		border-top: 4px solid $black;
-		font-size: rem-calc(14);
-		font-weight: 600;
-		margin: rem-calc(0 20);
-		padding: rem-calc(24 0 8px);
-		text-transform: uppercase;
-		letter-spacing: 1px;
-	}
 	& li {
 		border-bottom: 1px solid $light-gray;
 		line-height: 1.4;

@@ -8,4 +8,7 @@
     padding-top: 60px;
     text-transform: uppercase;
     display: inline-block;
+    .elemental-area--BeforeContent & {
+        border-top: none; // hide border when inside BeforeContent block
+    }
 }

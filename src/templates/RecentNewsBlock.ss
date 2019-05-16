@@ -1,41 +1,37 @@
 <% if $AreaName == "AfterContent" %>
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
-	<div class="content-block row">
-		<div class="newsblock">
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell">
-                        <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-                    </div>
-                    <% loop $Entries %>
-                        <div class="cell medium-4">
-                            <% include BlogCard %>
-                        </div>
-                    <% end_loop %>
+	<div class="newsblock">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
+                    <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
                 </div>
+                <% loop $Entries %>
+                    <div class="cell medium-4">
+                        <% include BlogCard %>
+                    </div>
+                <% end_loop %>
             </div>
-		</div>
+        </div>
 	</div>
 </section>
 
 <% else_if $AreaName == "BeforeContent" %>
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
-	<div class="content-block row">
-		<div class="newsblock">
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell">
-                        <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-                    </div>
-                    <% loop $Entries %>
-                        <div class="cell medium-4">
-                            <% include BlogCard %>
-                        </div>
-                    <% end_loop %>
+	<div class="newsblock">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
+                    <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
                 </div>
+                <% loop $Entries %>
+                    <div class="cell medium-4">
+                        <% include BlogCard %>
+                    </div>
+                <% end_loop %>
             </div>
         </div>
-	</div>
+    </div>
 </section>
 <% else_if $AreaName == "SidebarArea" %>
 <section class="content-block__container" aria-labelledby="Block$ID">
