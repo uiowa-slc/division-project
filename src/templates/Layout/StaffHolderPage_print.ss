@@ -22,7 +22,7 @@
 	font-size:13px
 }
 .stafflist__title{
-	text-align:center;
+	text-align:left;
 }
 .stafflist__email{
 	color: black;
@@ -32,6 +32,16 @@
 .stafflist__phone{
 	font-size:12px;
 }
+.stafflist__border{
+	background:#ffcd07;
+	height:12px;
+	margin-bottom:20px;
+	
+}
+.staffpage__printbreak{
+	font-size:12px;
+}
+
 </style>
 	$BeforeContent
 
@@ -45,9 +55,11 @@
 			<div class="main-content__text">
 				<h2>$Title</h2>
 				<div class="stafflist">
+					
 				<% if $Teams %>
 					<% loop $Teams %>
 						<h2 class="stafflist__title">$Title</h2>
+						<div class="stafflist__border"></div>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-5">
 						<% if $Up.SortLastName %>
 							<% loop $SortedStaffPages.Sort(LastName, ASC) %>

@@ -14,9 +14,10 @@
 			<div class="stafflist__text">
 				<p><span class="stafflist__name">$FirstName $LastName</span>
 				<% if $Position %><em class="stafflist__position">$Position</em><% end_if %>
-				<% if $SecondaryTitle %><em class="stafflist__position">$SecondaryTitle</em><% end_if %><br>
-				<% if $EmailAddress %> <a class="stafflist__email" href="mailto:$EmailAddress">$EmailAddress</a><% end_if %><br>
-					<% if $Phone %><em class="stafflist_phone">$Phone</em><% end_if %>
+				<% if $SecondaryTitle %><em class="stafflist__position">$SecondaryTitle</em><% end_if %>
+				<% if $EmailAddress %> <a class="stafflist__email" href="mailto:$EmailAddress">$EmailAddress</a><% end_if %>
+				<br class="staffpage__printbreak">
+					<% if $Phone %><em class="stafflist__phone">$Phone</em><% end_if %>
 				</p>
 			</div>
 		</a>
@@ -34,10 +35,11 @@
 			<div class="stafflist__text">
 				<p><span class="stafflist__name">$FirstName $LastName</span>
 				<% if $Position %><em class="stafflist__position">$Position</em><% end_if %>
-				<% if $SecondaryTitle %><em class="stafflist__position">$SecondaryTitle</em><% end_if %><br>
+				<% if $SecondaryTitle %><em class="stafflist__position">$SecondaryTitle</em><% end_if %>
 
-				<% if $EmailAddress %> <a class="stafflist__email" href="mailto:$EmailAddress">$EmailAddress</a><% end_if %><br>
-					<% if $Phone %> <em class="stafflist_phone">$Phone</em><% end_if %>
+				<% if $EmailAddress %> <a class="stafflist__email" href="mailto:$EmailAddress">$EmailAddress</a><% end_if %>
+				<br class="staffpage__printbreak">
+					<% if $Phone %> <em class="stafflist__phone">$Phone</em><% end_if %>
 				</p>
 			</div>
 		</div>
