@@ -27,7 +27,7 @@
       "md/ac-json-events":"dev-ss4.x-ui",
       "md/division-analytics": "1.2.x",
       "unclecheese/display-logic" : "dev-master",
-      "md/saml" : "dev-md",
+      "md/saml" : "dev-md-merges-with-original",
       "jonom/focuspoint" : "*",
       "jonom/silverstripe-betternavigator" : "*",
       "md/uiowa-bar": "1.2.x",
