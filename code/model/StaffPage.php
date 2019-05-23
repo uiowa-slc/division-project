@@ -61,7 +61,7 @@ class StaffPage extends Page {
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
-		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Biography"));
+		$fields->addFieldToTab("Root.Main", HTMLEditorField::create("Content", "Biography")->addExtraClass('stacked'));
 
 		$this->extend('updateCMSFields', $fields);
 		$fields->removeByName("BackgroundImage");

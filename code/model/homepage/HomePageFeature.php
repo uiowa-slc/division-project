@@ -45,7 +45,7 @@ class HomePageFeature extends DataObject {
 
 		$fields->push(new TextField("ExternalLink", "Use this external link instead of the selected page"));
 		$fields->push(new TextField("FeedLink", "Display posts from the following feed (only RSS for now)"));
-		$fields->push(new HTMLEditorField('Content', 'Content'));
+		$fields->push(HTMLEditorField::create('Content', 'Content')->addExtraClass('stacked'));
 
 		$fields->push(new UploadField(Image::class, "Image (use 350 x 197 pixels exactly to avoid resampling)"));
 		$fields->push(new TextField("YouTubeEmbed", "Use a YouTube embed code instead of an image:"));

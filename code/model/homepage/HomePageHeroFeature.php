@@ -41,7 +41,7 @@ class HomePageHeroFeature extends DataObject {
 		$fields->push(new UploadField(Image::class, Image::class));
 		$fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", SiteTree::class));
 		$fields->push(new TextField('ExternalLink', 'Use the external link instead:'));
-		$fields->push(new HTMLEditorField('Content', 'Content'));
+		$fields->push(HTMLEditorField::create('Content', 'Content')->addExtraClass('stacked'));
 
 		return $fields;
 	}

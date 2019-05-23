@@ -179,7 +179,7 @@ class DivisionPage extends DataExtension {
 		}
 
 
-		$f->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
+		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
       ));

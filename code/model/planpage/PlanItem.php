@@ -40,11 +40,11 @@ class PlanItem extends DataObject {
 
 		$fields->push(new TextField('Title'));
 		$fields->push(new TextField('Column1Heading'));
-		$fields->push(new HTMLEditorField('Column1Content'));
+		$fields->push(HTMLEditorField::create('Column1Content')->addExtraClass('stacked'));
 		$fields->push(new TextField('Column2Heading'));
-		$fields->push(new HTMLEditorField('Column2Content'));
+		$fields->push(HTMLEditorField::create('Column2Content')->addExtraClass('stacked'));
 		$fields->push(new TextField('Column3Heading'));
-		$fields->push(new HTMLEditorField('Column3Content'));		
+		$fields->push(HTMLEditorField::create('Column3Content')->addExtraClass('stacked'));		
 
 		return $fields;
 
