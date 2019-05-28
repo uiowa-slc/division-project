@@ -1,5 +1,5 @@
 <li class="column stafflist__item">
-	<% if not $Parent.HideLinksToStaffPages %>
+	<% if not $Parent.HideLinksToStaffPages && not $HidePageLink %>
 		<a href="$Link" class="stafflist__link">
 		<% if $Photo %>
 			<div class="stafflist__img">

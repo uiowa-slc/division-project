@@ -3,6 +3,7 @@
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -18,7 +19,8 @@ class StaffPage extends Page {
 		"DepartmentURL"  => "Text",
 		"DepartmentName" => "Text",
 		"OtherWebsiteLink" => "Varchar(155)",
-		"OtherWebsiteLabel" => "Varchar(155)"
+		"OtherWebsiteLabel" => "Varchar(155)",
+		"HidePageLink" => "Boolean"
 
 	);
 
@@ -54,7 +56,7 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLink", "Other website URL (include http:// or https://)"));
 		$fields->addFieldToTab("Root.Main", new TextField("OtherWebsiteLabel", "Other website label (default: \"Website\""));
 
-
+		$fields->addFieldToTab("Root.Main", new CheckboxField('HidePageLink', 'Hide page link from main staff listing and sidebar'));
 		if(StaffTeam::get()->First()){
 			$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team(s)', StaffTeam::get()->map('ID', 'Name')));			
 		}
