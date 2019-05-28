@@ -778,8 +778,6 @@
 
 .subnav__item--last {
 	border-bottom: none;
-
-	@include grid-column-end;
 }
 
 .subnav__link {

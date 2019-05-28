@@ -79,7 +79,7 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new UploadField('FooterLogo', 'Custom Logo for use in footer'));
 		
 
-		$fields->addFieldToTab('Root.Main', new HTMLEditorField('GroupSummary', 'Group Summary'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('GroupSummary', 'Group Summary')->addExtraClass('stacked'));
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( 'Address', 'Address', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('Address1', 'Street Address'));

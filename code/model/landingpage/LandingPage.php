@@ -58,7 +58,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 		$headerTextField->displayIf('LayoutType')->isEqualTo('BackgroundImage');
 				$fields->addFieldToTab('Root.Main', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
-		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', UploadField::create('SecondaryImage','Secondary Image (shows in main content area)'));
 
 

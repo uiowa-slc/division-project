@@ -43,7 +43,7 @@ class PlanCategory extends DataObject {
 
 		$fields->push(TextField::create('Title', 'Title'));
 
-		$fields->push(HTMLEditorField::create('Content', 'Intro')->setRows(4));
+		$fields->push(HTMLEditorField::create('Content', 'Intro')->setRows(4)->addExtraClass('stacked'));
 
 		// $fields->push(new TextField('Column1Heading'));
 

@@ -14,6 +14,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "6.26.0",
     "browser-sync": "2.26.3",
+    "del": "^4.1.1",
     "gulp": "github:gulpjs/gulp#v4.0.0",
     "gulp-autoprefixer": "6.0.0",
     "gulp-babel": "^7.0.1",
@@ -32,7 +33,6 @@
     "gulp-uglify": "3.0.1",
     "js-yaml": "3.12.0",
     "panini": "1.6.3",
-    "rimraf": "2.6.2",
     "style-sherpa": "1.0.2",
     "yargs": "12.0.2"
   },

@@ -15,10 +15,10 @@ $Header
 
 	$Breadcrumbs
 
-	<% if not $BackgroundImage %>
+	
 		<div class="column row">
 			<div class="main-content__header">
-				<h1>$Title</h1>
+				<% if not $BackgroundImage %><h1>$Title</h1><% end_if %>
                 <div class="blogmeta">
                     <% if not $Parent.HideDatesAndAuthors %>
                         <% include ByLine %>
@@ -32,7 +32,7 @@ $Header
                 </div>
             </div>
 		</div>
-	<% end_if %>
+	
 
 	$BeforeContent
 
