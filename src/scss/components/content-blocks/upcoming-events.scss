@@ -69,11 +69,15 @@ Before/After Constrained
             font-size: rem-calc(22);
         }
     }
-    & .eventcard__imgwrap, & .eventcard__summary {
+    & .eventcard__summary {
         display: none;
+    }
+    & .eventcard__imgwrap {
+        float: right;
     }
     & .eventcard__content {
         margin-left: 0;
+        margin-right: 35%;
     }
 }
 
