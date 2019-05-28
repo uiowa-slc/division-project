@@ -1,7 +1,8 @@
 
 
 /* Before Content */
-.elemental-area--BeforeContent, .elemental-area--AfterContent {
+.elemental-area--BeforeContent,
+.elemental-area--AfterContent {
 	background-color: $cream;
 
 	/* Text Block */
@@ -17,7 +18,7 @@
 .elemental-area--BeforeContentConstrained .content-block__container,
 .elemental-area--AfterContentConstrained .content-block__container,
 .elemental-area--SidebarArea .content-block__container {
-	margin: 2em 0;
+	margin-bottom: rem-calc(15);
 }
 
 .content-block-header{

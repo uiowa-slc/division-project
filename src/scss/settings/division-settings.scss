@@ -4,7 +4,7 @@
 ----------------------------------------------------*/
 $foundation-palette: (
 	primary: #005994,
-	secondary: #767676,
+	secondary: #6e6e6e,
 	success: #3adb76,
 	warning: #ffae00,
 	alert: #cc4b37,
@@ -13,6 +13,7 @@ $button-palette: map-merge($foundation-palette, (
     gold: #ffcd00,
     black: #212121,
 )) !default;
+$button-background-hover-lightness: -15%;
 
 // Grayscale
 $light-gray: #e5e5e5;
@@ -112,6 +113,7 @@ $header-margin-bottom: 1rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
+$prototype-separator-background: $black;
 
 
 /* Breakpoints
