@@ -27,7 +27,7 @@ Blog Card
         & a {
             color: $body-font-color;
             &:hover, &:focus {
-                color: $anchor-color;
+                text-decoration: underline;
             }
         }
     }
