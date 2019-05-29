@@ -19,7 +19,7 @@
 					<% else %>
 						<p class="childpages__summary">$ContentSummary</p>
 					<% end_if %>
-					<span class="childpages__link">Learn More</span>
+					<span class="button small black hollow">Learn More</span>
 				</div>
 			</a>
 		</div>

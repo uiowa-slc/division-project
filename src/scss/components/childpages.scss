@@ -44,21 +44,4 @@ Child Pages
 		font-size: rem-calc(16);
 		margin-top: rem-calc(5);
 	}
-	&__link {
-		border-bottom: 4px solid $highlight;
-		color: $black;
-		display: block;
-		float: left;
-		font-size: rem-calc(12);
-		font-weight: bold;
-		letter-spacing: .5px;
-		padding: rem-calc(5 0);
-		position: relative;
-		text-transform: uppercase;
-		transition: .15s ease-in-out;
-	}
-	&__blocklink:hover .childpages__link,
-	&__blocklink:focus .childpages__link {
-		border-bottom-color: $black;
-	}
 }
