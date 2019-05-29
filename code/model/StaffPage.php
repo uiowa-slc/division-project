@@ -8,6 +8,8 @@ use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use MD\DivisionProject\StaffPageController;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+
 class StaffPage extends Page {
 
 	private static $db = array(
@@ -44,12 +46,21 @@ class StaffPage extends Page {
 		$fields = parent::getCMSFields();
 		SiteTree::enableCMSFieldsExtensions();
 
+
+		$fields->removeByName('Title');
+		$fields->removeByName('MenuTitle');
+
 		$fields->removeByName("Content");
-		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 760 x 507)"));
+		$fields->removeByName("URLSegment");
+
+
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
-		$fields->addFieldToTab("Root.Main", new TextField("Position", "Position"));
+
+		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 945 width)"));
 		$fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
+		$fields->addFieldToTab("Root.Main", new TextField("Position", "Position"));
+		
 		$fields->addFieldToTab("Root.Main", new TextField("Phone", "Phone (XXX-XXX-XXXX)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department Website URL (optional)"));
@@ -58,8 +69,9 @@ class StaffPage extends Page {
 
 		$fields->addFieldToTab("Root.Main", new CheckboxField('HidePageLink', 'Hide page link from main staff listing and sidebar'));
 		if(StaffTeam::get()->First()){
-			$fields->addFieldToTab("Root.Main", new CheckboxSetField("Teams", 'Team(s)', StaffTeam::get()->map('ID', 'Name')));			
-		}
+			$fields->addFieldToTab("Root.Main", CheckboxSetField::create("Teams", 'Team(s)', StaffTeam::get()->map('ID', 'Name'))->addExtraClass('stacked'));
+		}			
+		
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
@@ -79,6 +91,17 @@ class StaffPage extends Page {
 
 		return $fullName;
 	}
-	//private static $allowed_children = array("");
+
+	public function onBeforeWrite(){
+		$filter = new URLSegmentFilter();
+
+		$this->Title = $this->FirstName.' '.$this->LastName;
+		$this->URLSegment = $filter->filter($this->Title);
+
+		// CAUTION: You are required to call the parent-function, otherwise
+        // SilverStripe will not execute the request.
+		parent::onBeforeWrite();
+	}
+
 
 }
