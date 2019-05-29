@@ -115,20 +115,15 @@ $legacy-hp__break-xlarge: 1140px;
 
 .legacy-hp__hero-text li a {
 	background: $highlight;
-	color: #fff;
+	color: $black;
 	display: block;
 	font-family: $legacy-hp__heading-font;
-
-	font-size: rem-calc(21);
-
+	font-size: rem-calc(18);
 	font-weight: 600;
-	letter-spacing: .05em;
-	padding: 5px 10px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	padding: 8px 14px;
 	text-transform: uppercase;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 	-webkit-transition: all .2s ease-out;
-
 	&:hover {
 		text-decoration: none;
 		margin-top: -2px;
