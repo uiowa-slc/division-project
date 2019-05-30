@@ -14,6 +14,9 @@
             }
         }
     }
+    &__button .button {
+        margin-bottom: 0;
+    }
 }
 
 /* Full size background image
@@ -84,12 +87,6 @@ Sidebar
             @include xy-cell(6);
         }
     }
-    &__body {
-        @include breakpoint(large) {
-            border: 1px solid $light-gray;
-            padding: rem-calc(15);
-        }
-    }
     &__title {
         @include breakpoint(large) {
             font-size: rem-calc(20);
@@ -99,6 +96,10 @@ Sidebar
         @include breakpoint(large) {
             font-size: rem-calc(16);
         }
+    }
+    @include breakpoint(large) {
+        border: 1px solid $light-gray;
+        padding: rem-calc(15);
     }
 }
 

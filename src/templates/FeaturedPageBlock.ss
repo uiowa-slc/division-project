@@ -77,11 +77,13 @@
                 </div>
 
                 <!-- button -->
-                <% if $Source == "External" %>
-                    <a href="$FeaturePageExternalUrl" class="button gold">Learn More</a>
-                <% else %>
-                    <a href="$PageTree.Link" class="button gold">Learn More</a>
-                <% end_if %>
+                <div class="featuredpageblock__button">
+                    <% if $Source == "External" %>
+                        <a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
+                    <% else %>
+                        <a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
+                    <% end_if %>
+                </div>
             </div>
         </div>
     </section>
@@ -106,9 +108,9 @@
     					</div>
     					<div class="featuredpageblock__button">
     						<% if $Source == "External" %>
-    							<a href="$FeaturePageExternalUrl" class="button gold">Learn More</a>
+    							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% else %>
-    							<a href="$PageTree.Link" class="button gold">Learn More</a>
+    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% end_if %>
     					</div>
     				</div>
@@ -194,9 +196,9 @@
     					</div>
     					<div class="featuredpageblock__button">
     						<% if $Source == "External" %>
-    							<a href="$FeaturePageExternalUrl" class="button gold">Learn More</a>
+    							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% else %>
-    							<a href="$PageTree.Link" class="button gold">Learn More</a>
+    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% end_if %>
     					</div>
     				</div>
