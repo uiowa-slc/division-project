@@ -5,7 +5,7 @@
                 <div class="featuredpageblock__media">
                     <% if $Source == "External" %>
                         <a href="$FeaturePageExternalUrl">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
                         </a>
                     <% else %>
                         <a href="$PageTree.Link">
@@ -17,7 +17,7 @@
                 <div class="featuredpageblock__media">
                     <% if $Source == "External" %>
                         <a href="$FeaturePageExternalUrl">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
                         </a>
                     <% else %>
                         <a href="$PageTree.Link">
@@ -29,7 +29,7 @@
                 <div class="featuredpageblock__media">
                     <% if $Source == "External" %>
                         <a href="$FeaturePageExternalUrl">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" alt="$PageTree.Title">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" alt="$Title">
                         </a>
                     <% else %>
                         <a href="$PageTree.Link">
@@ -41,7 +41,7 @@
                 <div class="featuredpageblock__media">
                     <% if $Source == "External" %>
                         <a href="$FeaturePageExternalUrl">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="$PageTree.Title">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="$Title">
                         </a>
                     <% else %>
                         <a href="$PageTree.Link">
@@ -127,7 +127,7 @@
     					<div class="featuredpageblock__media">
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl">
-    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$FeaturePagePhoto.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
     							</a>
     						<% else %>
     							<a href="$PageTree.Link">
@@ -139,7 +139,7 @@
     					<div class="featuredpageblock__media">
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl">
-    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$PageTree.Title">
+    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.BackgroundImage.FocusFill(600,425).URL" width="600" height="425" alt="$Title">
     							</a>
     						<% else %>
     							<a href="$PageTree.Link">
@@ -151,7 +151,7 @@
     					<div class="featuredpageblock__media">
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl">
-    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" alt="$PageTree.Title">
+    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$PageTree.FeaturedImage.FocusFill(600,425).URL" alt="$Title">
     							</a>
     						<% else %>
     							<a href="$PageTree.Link">
@@ -163,7 +163,7 @@
     					<div class="featuredpageblock__media">
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl">
-    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="$PageTree.Title">
+    								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$PageTree.YoutubeBackgroundEmbed/sddefault.jpg" alt="$Title">
     							</a>
     						<% else %>
     							<a href="$PageTree.Link">
