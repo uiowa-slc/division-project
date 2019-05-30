@@ -9,9 +9,8 @@
 /* Textblock
 ======================================================================= */
 .elemental-area--SidebarArea .textblock {
-	background-color: #fff;
-	border: 1px solid #e5e5e5;
-	margin-bottom: 1em;
+	background-color: $white;
+	border: 1px solid $light-gray;
 	padding: rem-calc(15);
 	& h1, h2, h3, h4, h5, h6 {
 		margin: .25em 0 .5em;
@@ -36,9 +35,9 @@
         }
     }
 }
-.textblock__image-container{
+.textblock__image-container {
 	display: block;
 }
-.textblock__image{
+.textblock__image {
 	display: block;
 }
