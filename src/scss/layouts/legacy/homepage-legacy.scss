@@ -39,6 +39,9 @@ $legacy-hp__break-xlarge: 1140px;
 	margin: 0 auto;
 	position: relative;
 	padding: 0 20px;
+    @include breakpoint(medium) {
+        display: flex;
+    }
 }
 .legacy-hp__hero {
 	border-bottom: 5px solid $highlight;
@@ -257,16 +260,10 @@ $legacy-hp__break-xlarge: 1140px;
 		margin-bottom: 0;
 		overflow: hidden;
 		width: 31.491712707182323%;
-		-webkit-transition: all .2s ease-out;
-		-moz-transition: all .2s ease-out;
-		transition: all .2s ease-out;
-
-		&:hover {
-			margin-top: -3px;
-			-webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
-			-moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
-			-ms-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
-			box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+		&:hover, &:focus {
+			& h3 {
+                text-decoration: underline;
+            }
 		}
 	}
 }
@@ -299,8 +296,8 @@ $legacy-hp__break-xlarge: 1140px;
 }
 
 .legacy-hp__module .legacy-hp__inner {
+    color: $black;
 	font-size: rem-calc(14);
-
 	line-height: 1.5;
 	padding: 1em;
 }
@@ -311,7 +308,7 @@ $legacy-hp__break-xlarge: 1140px;
 	text-transform: uppercase;
 
 	& a {
-		color: #333;
+		color: $black;
 	}
 }
 
