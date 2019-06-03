@@ -1,104 +1,47 @@
-
-
-
-/* Staff Member
-======================================================================= */
-
+/* ----------------------------------------------------------
+Staff Member Block
+------------------------------------------------------------*/
 .staffmemberblock {
-	@include grid-row;
+	@include xy-grid;
 	background-color: $cream;
-	padding: rem-calc(20);
 	&__media {
-		@include breakpoint(mobile) {
-			@include grid-column(6);
-		}
-		& a {
-			display: block;
+        @include xy-cell($gutter-type: padding, $gutter-position: top right bottom left);
+		@include breakpoint(medium) {
+			@include xy-cell(6, $gutter-type: padding);
 		}
 	}
 	&__body {
-		@include breakpoint(mobile) {
-			@include grid-column(6);
+        @include xy-cell($gutter-type: padding, $gutter-position: top right bottom left);
+		@include breakpoint(medium) {
+			@include xy-cell(6, $gutter-type: padding);
 		}
 	}
 	&__desc {
 		margin: rem-calc(20 0);
 	}
 	&__title {
-		margin-top: .5em;
-		margin-bottom: 1em;
-		font-size: rem-calc(28);
-		position: relative;
-		@include breakpoint(mobile) {
-			margin-top: 0;
-		}
-		&:after {
-			content: '';
-			height: 2px;
-			width: 50px;
-			background-color: $black;
-			position: absolute;
-			left: 0;
-			bottom: -12px;
-		}
-	}
-	&__button {
-		& a {
-			background: $highlight;
-			color: #000;
-			display: inline-block;
-			font-weight: bold;
-			font-size: rem-calc(12);
-			letter-spacing: 1px;
-			padding: 12px 24px 12px;
-			text-transform: uppercase;
-			&:hover, &:focus {
-				background-color: #000;
-				color: #fff;
-			}
-		}
+		margin-top: 0;
 	}
 	&__position {
-		font-size: 85%;
-		font-style: italic;
-		line-height: 1.5;
+		font-size: rem-calc(16);
 	}
 	&__contact {
+        font-size: rem-calc(16);
 		list-style: none;
 		margin: 0;
-		& li {
-			font-size: 85%;
-			& img {
-				margin-right: 5px;
-			}
+		& img {
+			margin-right: 5px;
 		}
-	}
-	@include breakpoint(mobile) {
-		padding: rem-calc(30 20);
 	}
 }
 
-/* Sidebar ------------------------- */
+/* ----------------------------------------------------------
+Sidebar
+------------------------------------------------------------*/
 .elemental-area--SidebarArea .staffmemberblock {
-	&__media {
+	&__media, &__body {
 		@include breakpoint(large) {
 			width: 100%;
-			float: none;
-			padding: 0;
 		}
-	}
-	&__body {
-		@include breakpoint(mobile) {
-			width: 100%;
-			float: none;
-			padding: 0;
-			margin-top: 18px;
-		}
-	}
-}
-/* After Content ----------------------- */
-.elemental-area--AfterContent .staffmemberblock {
-	@include breakpoint(large) {
-		padding: rem-calc(60 0);
 	}
 }
