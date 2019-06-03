@@ -115,6 +115,9 @@ Before Content / After Content
             @include xy-cell(6, $gutter-position: top right bottom, $gutter-type: padding);
         }
     }
+    &__body {
+        padding: rem-calc(30 0);
+    }
 }
 
 .elemental-area--BeforeContent .featuredpageblock-bg,
@@ -150,10 +153,21 @@ Before Content Constrained / After Content Constrained
 ------------------------------------------------------------*/
 .elemental-area--BeforeContentConstrained .featuredpageblock,
 .elemental-area--AfterContentConstrained .featuredpageblock {
+    &__body--wimage {
+        @include breakpoint(medium down) {
+            padding: rem-calc(15);
+        }
+    }
     &__media,
     &__body--wimage {
         @include breakpoint(medium) {
             @include xy-cell(6, $gutter-position: top right bottom left, $gutter-type: padding);
+        }
+    }
+    &__body {
+        padding: rem-calc(15);
+        @include breakpoint(medium) {
+            padding: rem-calc(30);
         }
     }
 }

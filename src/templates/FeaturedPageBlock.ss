@@ -81,7 +81,7 @@
                     <% if $Source == "External" %>
                         <a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
                     <% else %>
-                        <a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
+                        <a href="$PageTree.Link" class="button gold" aria-label="Read more about $PageTree.Title">Learn More</a>
                     <% end_if %>
                 </div>
             </div>
@@ -110,7 +110,7 @@
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% else %>
-    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
+    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $PageTree.Title">Learn More</a>
     						<% end_if %>
     					</div>
     				</div>
@@ -172,7 +172,6 @@
     						<% end_if %>
     					</div>
     				<% end_if %>
-
     					<div class="<% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>featuredpageblock__body--wimage<% else %>featuredpageblock__body<% end_if %>">
     					<h3 id="Block$ID" class="featuredpageblock__title separator-left">
     						<% if $Source == "External" %>
@@ -198,7 +197,7 @@
     						<% if $Source == "External" %>
     							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
     						<% else %>
-    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $Title">Learn More</a>
+    							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $PageTree.Title">Learn More</a>
     						<% end_if %>
     					</div>
     				</div>
