@@ -1,6 +1,6 @@
 <section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
 	<div class="content-block">
-		<div class="staffmemberblock block">
+		<div class="staffmemberblock">
 		<% if $StaffPage.Photo %>
 			<div class="staffmemberblock__media">
 				<a href="$StaffPage.Link">
