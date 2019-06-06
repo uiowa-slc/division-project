@@ -1,4 +1,3 @@
-
 /* ----------------------------------------------------------
 News
 ------------------------------------------------------------*/
@@ -45,6 +44,40 @@ After Content | Before Content
             margin-right: 0;
         }
     }
+}
+
+/* Adds Flickity Slider for small screens */
+.news-slider {
+    margin-bottom: rem-calc(50); // to make room for pagination dots
+    @include breakpoint(medium) {
+        @include xy-grid;
+        margin-left: rem-calc(-20);
+        margin-right: rem-calc(-20);
+        margin-bottom: 0;
+    }
+}
+.news-slider:after {
+    content: 'flickity'; /* enables Flickity */
+    display: none;
+    @include breakpoint(medium) {
+        content: ''; /* disables Flickity */
+    }
+}
+.news-slider-cell {
+    background-color: $white;
+    border-radius: 2px;
+    padding: rem-calc(0 15);
+    width: 80%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    @include breakpoint(medium) {
+        @include xy-cell(4);
+        background-color: inherit;
+        padding: inherit;
+    }
+}
+.news-slider .flickity-viewport {
+  transition: height 0.2s;
 }
 
 /*-----------------------------------------
