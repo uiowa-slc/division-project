@@ -155,8 +155,14 @@ Before Content / After Content
         @include vertical-align;
     }
 }
-
-
+.elemental-area--BeforeContent .featuredpageblock,
+.elemental-area--AfterContent .featuredpageblock {
+    &__media {
+        @include breakpoint(medium) {
+            padding-left: 0;
+        }
+    }
+}
 
 
 
