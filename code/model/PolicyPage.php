@@ -17,7 +17,7 @@ class PolicyPage extends Page {
 	private static $singular_name = 'Policy';
 
 	private static $plural_name = 'Policies';
-
+	private static $can_be_root = false;
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 

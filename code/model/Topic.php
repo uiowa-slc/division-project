@@ -29,6 +29,8 @@ class Topic extends BlogPost {
 	
 	);
 
+	private static $icon_class = 'font-icon-book-open';
+	private static $can_be_root = false;
     public function AllTags(){
         $tags = BlogTag::get()->filter(array('BlogID' => $this->ParentID))->sort('Title ASC');
         return $tags;

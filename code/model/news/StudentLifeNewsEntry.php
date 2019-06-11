@@ -30,6 +30,8 @@ class StudentLifeNewsEntry extends DataObject {
 
 	private static $plural_name = 'News Entries';
 
+	private static $hide_ancestor = 'StudentLifeNewsEntry';
+
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		return $f;

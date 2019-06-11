@@ -19,7 +19,7 @@ class ReportPage extends BlogPost {
 
 	private static $plural_name = 'Reports';
 	/* This is a GLOBAL change that should happen on all CISL sites */
-
+	private static $can_be_root = false;
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		//$f->removeByName("Content");

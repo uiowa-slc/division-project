@@ -40,6 +40,7 @@ class StaffHolderPage extends Page {
 
 	private static $allowed_children = array("StaffPage", VirtualPage::class, UserDefinedForm::class);
 
+	private static $icon_class = 'font-icon-torsos-all';
 
 	public function getCMSFields(){
 		$f = parent::getCMSFields();

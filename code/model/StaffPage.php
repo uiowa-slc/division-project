@@ -40,7 +40,8 @@ class StaffPage extends Page {
 	private static $belongs_many_many = array(
 		"Teams" => "StaffTeam",
 	);
-
+	private static $can_be_root = false;
+	private static $icon_class = 'font-icon-p-profile';
 	public function getCMSFields() {
 		SiteTree::disableCMSFieldsExtensions();
 		$fields = parent::getCMSFields();

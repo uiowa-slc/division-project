@@ -21,6 +21,8 @@ class PolicyHolder extends Page {
 	private static $has_many = array(
 	);
 
+	private static $icon_class = 'font-icon-p-list';
+
 	private static $singular_name = 'Policy Holder';
 
 	private static $plural_name = 'Policy Holders';
