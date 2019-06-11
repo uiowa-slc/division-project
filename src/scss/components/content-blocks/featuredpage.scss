@@ -148,8 +148,14 @@ Before Content / After Content
 /* ----------------------------------------------------------
 Before Content Constrained / After Content Constrained
 ------------------------------------------------------------*/
+
+
 .elemental-area--BeforeContentConstrained .featuredpageblock,
 .elemental-area--AfterContentConstrained .featuredpageblock {
+
+    &__body{
+        padding: rem-calc(20);
+    }
     &__media,
     &__body--wimage {
         @include breakpoint(medium) {
