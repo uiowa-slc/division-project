@@ -96,7 +96,8 @@ class StudentLifeNewsHolder extends Page {
 
 		switch($filterType){
 			case 'tag':
-				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
+				$filterItemSlug = urlencode($filterItem);
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItemSlug;
 			break;
 
 			case 'category':
