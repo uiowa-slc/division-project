@@ -12,7 +12,7 @@ class TileGridBlock extends BaseElement{
 
 	private static $db = array(
 		'Source' => 'Enum(array("children","manual")',
-		'MaxSize' => 'Enum(array("4x4","3x3","2x2")',
+		// 'MaxSize' => 'Enum(array("4x4","3x3","2x2")',
 
 	);
 	private static $has_one = array(
@@ -38,11 +38,11 @@ class TileGridBlock extends BaseElement{
 
 		$f->addFieldsToTab('Root.Main', array(
 
-			DropdownField::create(
-			  'MaxSize',
-			  'Maximum tile grid size on large displays',
-			  singleton('TileGridBlock')->dbObject('MaxSize')->enumValues()
-			),
+			// DropdownField::create(
+			//   'MaxSize',
+			//   'Maximum tile grid size on large displays',
+			//   singleton('TileGridBlock')->dbObject('MaxSize')->enumValues()
+			// ),
 			OptionsetField::create('Source', 'Show tiles from:',array(
                 'children' => 'A selected page\'s children',
                 'manual' => 'Manually selected pages',
@@ -57,6 +57,6 @@ class TileGridBlock extends BaseElement{
 		return $f;
 
 	}
-	
+
 
 }

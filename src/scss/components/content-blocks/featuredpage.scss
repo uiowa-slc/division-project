@@ -1,12 +1,23 @@
 .featuredpageblock {
     @include xy-grid;
     background-color: $cream;
+    &__media {
+        @include xy-cell($gutter-type: padding, $gutter-position: top right bottom left);
+        @include breakpoint(medium) {
+            @include xy-cell(6, $gutter-type: padding);
+        }
+    }
+    &__body {
+        @include xy-cell($gutter-type: padding, $gutter-position: top right bottom left);
+        @include breakpoint(medium) {
+            @include xy-cell(6, $gutter-type: padding);
+        }
+    }
     &__desc {
         margin: rem-calc(20 0);
     }
     &__title {
-        margin-top: rem-calc(10);
-        margin-bottom: rem-calc(20);
+        margin-top: 0;
         & a {
             color: $body-font-color;
             &:hover, &:focus {
@@ -31,6 +42,7 @@
         background-color: inherit;
     }
     & .featuredpageblock__body {
+        width: 100%;
         &:after {
             content: "";
             height: 100%;
@@ -39,14 +51,12 @@
             top: 0;
             width: 100%;
             z-index: 1;
-            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.7) 70%);
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.75) 60%);
         }
         @include breakpoint(medium) {
             position: absolute;
             bottom: 0;
             left: 0;
-            padding: rem-calc(30);
-
         }
     }
     & .featuredpageblock__desc,
@@ -76,27 +86,37 @@
 /* ----------------------------------------------------------
 Sidebar
 ------------------------------------------------------------*/
+.elemental-area--SidebarArea .featuredpageblock-bg {
+    @include breakpoint(large) {
+        padding: 0;
+        & .featuredpageblock__body {
+            position: relative;
+            &:after {
+                background-color: rgba(0,0,0,.6);
+                background-image: none;
+            }
+        }
+        & .content-block {
+            padding: 0;
+        }
+        & .featuredpageblock {
+            border: none;
+        }
+    }
+}
 .elemental-area--SidebarArea .featuredpageblock {
     background-color: inherit;
-    &__media,
-    &__body {
-        @include breakpoint(medium only) {
-            @include xy-cell(6);
-        }
-    }
-    &__title {
-        @include breakpoint(large) {
-            font-size: rem-calc(20);
-        }
-    }
-    &__desc {
-        @include breakpoint(large) {
-            font-size: rem-calc(16);
-        }
-    }
     @include breakpoint(large) {
         border: 1px solid $light-gray;
-        padding: rem-calc(15);
+        &__media, &__body {
+            width: 100%;
+        }
+        &__title {
+            font-size: rem-calc(20);
+        }
+        &__desc {
+            font-size: rem-calc(16);
+        }
     }
 }
 
@@ -106,15 +126,6 @@ Before Content / After Content
 .elemental-area--BeforeContent .content-block,
 .elemental-area--AfterContent .content-block {
     @include xy-grid-container;
-}
-.elemental-area--BeforeContent .featuredpageblock,
-.elemental-area--AfterContent .featuredpageblock {
-    &__media,
-    &__body--wimage {
-        @include breakpoint(medium) {
-            @include xy-cell(6, $gutter-position: top right bottom, $gutter-type: padding);
-        }
-    }
 }
 
 .elemental-area--BeforeContent .featuredpageblock-bg,
@@ -145,6 +156,7 @@ Before Content / After Content
     }
 }
 
+
 /* ----------------------------------------------------------
 Before Content Constrained / After Content Constrained
 ------------------------------------------------------------*/
@@ -163,7 +175,14 @@ Before Content Constrained / After Content Constrained
         }
     }
 }
-
+.elemental-area--BeforeContent .featuredpageblock,
+.elemental-area--AfterContent .featuredpageblock {
+    &__media {
+        @include breakpoint(medium) {
+            padding-left: 0;
+        }
+    }
+}
 
 
 

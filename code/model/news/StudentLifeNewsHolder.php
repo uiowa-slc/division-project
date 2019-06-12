@@ -115,7 +115,7 @@ class StudentLifeNewsHolder extends Page {
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}
-		print_r($feedURL);
+		//print_r($feedURL);
 		$rawPostFeed = file_get_contents($feedURL);
 		$postsArray = json_decode($rawPostFeed, TRUE);
 
