@@ -99,7 +99,7 @@ class StudentLifeNewsHolder extends Page {
 				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
 			break;
 
-			case 'catgory':
+			case 'category':
 				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
 			break;
 
@@ -115,7 +115,7 @@ class StudentLifeNewsHolder extends Page {
 		if($start != 0){
 			$feedURL .='?start='.$start;
 		}
-		//print_r($feedURL);
+		print_r($feedURL);
 		$rawPostFeed = file_get_contents($feedURL);
 		$postsArray = json_decode($rawPostFeed, TRUE);
 

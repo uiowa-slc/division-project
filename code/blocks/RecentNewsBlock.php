@@ -15,10 +15,11 @@ use UncleCheese\DisplayLogic\Wrapper;
 class RecentNewsBlock extends BaseElement{
 
 	private static $db = array(
-		'FilterBy' => 'Enum(array("Blog","Tag","Category","Student Life News Department")',
+		'FilterBy' => 'Enum(array("Blog","Tag","Category","Student Life News Department", "Student Life News Tag")',
 		'Limit' => 'Int',
 		'SortBy' => "Enum('Recent,Random,Featured')",
-		'StudentLifeNewsDeptID' => 'Int'
+		'StudentLifeNewsDeptID' => 'Int',
+		'StudentLifeNewsTagName' => 'Varchar(255)'
 	);
 
 	private static $has_one = array(
@@ -49,6 +50,7 @@ class RecentNewsBlock extends BaseElement{
 		$fields->removeByName('Tags');
 		$fields->removeByName('Categories');
 		$fields->removeByName('StudentLifeNewsDeptID');
+		$fields->removeByName('StudentLifeNewsTagName');
 
 		$tags = BlogTag::get();
 		$cats = BlogCategory::get();
@@ -76,7 +78,9 @@ class RecentNewsBlock extends BaseElement{
 
 				$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)'),
 
-				$deptField = NewsDeptDropdownField::create('StudentLifeNewsDeptID', 'Department')
+				$deptField = NewsDeptDropdownField::create('StudentLifeNewsDeptID', 'Department'),
+
+				$slTagField = TextField::create('StudentLifeNewsTagName', 'Tag')
 			)
 		);
 
@@ -84,6 +88,7 @@ class RecentNewsBlock extends BaseElement{
 		$catField->displayIf('FilterBy')->isEqualTo('Category');
 		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
 
+		$slTagField->displayIf('FilterBy')->isEqualTo('Student Life News Tag');
 		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
 		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
@@ -133,6 +138,12 @@ class RecentNewsBlock extends BaseElement{
 				$tempHolder = new StudentLifeNewsHolder();
 				$tempHolder->DepartmentID = $this->StudentLifeNewsDeptID;
 				$entries = $tempHolder->getBlogPostsFromFeed();
+
+			case 'Student Life News Tag':
+				$tempHolder = new StudentLifeNewsHolder();
+				$tempHolder->DepartmentID = 0;
+				$tag = $this->StudentLifeNewsTagName;
+				$entries = $tempHolder->getBlogPostsFromFeed('tag', $tag);
 			break;
 
 		}
