@@ -1,5 +1,12 @@
 <?php
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+
 class PlanCategory extends DataObject {
 
 	private static $db = array(

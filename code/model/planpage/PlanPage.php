@@ -1,5 +1,8 @@
 <?php
 use SilverStripe\ORM\DataObject;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
 class PlanPage extends Page{
 
 	private static $db = array(
