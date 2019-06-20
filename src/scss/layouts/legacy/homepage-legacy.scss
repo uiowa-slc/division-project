@@ -39,9 +39,6 @@ $legacy-hp__break-xlarge: 1140px;
 	margin: 0 auto;
 	position: relative;
 	padding: 0 20px;
-    @include breakpoint(medium) {
-        display: flex;
-    }
 }
 .legacy-hp__hero {
 	border-bottom: 5px solid $highlight;
