@@ -27,7 +27,7 @@ class DivisionPage extends DataExtension {
 		'OgDescription' => 'Text',
 		'PreventSearchEngineIndex' => 'Boolean',
 		'LayoutType' => 'Varchar(155)',
-		'YoutubeBackgroundEmbed' => 'Text',
+		'YoutubeBackgroundEmbed' => 'Varchar(11)',
 		'ShowChildPages' => 'Boolean(1)',
 		'ShowChildrenInDropdown' => 'Boolean(1)'
 	);
@@ -181,8 +181,10 @@ class DivisionPage extends DataExtension {
 
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
 		$f->addFieldsToTab("Root.Main", array(
-			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
-      ));
+			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
+		)), 'LayoutType');
+
+		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
 
 	}
 
