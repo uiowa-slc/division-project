@@ -137,7 +137,9 @@ class RecentNewsBlock extends BaseElement{
 			case 'Student Life News Department':
 				$tempHolder = new StudentLifeNewsHolder();
 				$tempHolder->DepartmentID = $this->StudentLifeNewsDeptID;
-				$entries = $tempHolder->getBlogPostsFromFeed();
+				// print_r($tempHolder);
+				$entries = $tempHolder->getBlogPostsFromFeed('dept');
+				break;
 
 			case 'Student Life News Tag':
 				$tempHolder = new StudentLifeNewsHolder();

@@ -1,5 +1,6 @@
 <div class="byline">
-	<p><% if $Credits %>By <% end_if %><% loop $Credits %><% if not $First && not $Last %>, <% end_if %><% if not $First && $Last %><span class="byline__and">&nbsp;and </span><% end_if %><% if $URLSegment %><% if $BlogProfileImage %><img class="byline__profilepic" src="$BlogProfileImage.FocusFill(60,60).URL" alt="Profile image of $FirstName $Surname"><% end_if %><a href="$URL" class="byline__author"> $Name.XML</a><% else %><span class="byline__author">$Name.XML</span><% end_if %><% end_loop %>
+	<p><% if $Credits %>By <% loop $Credits %><% if not $First && not $Last %>, <% end_if %><% if not $First && $Last %><span class="byline__and">&nbsp;and </span><% end_if %><% if $URLSegment %><% if $BlogProfileImage %><img class="byline__profilepic" src="$BlogProfileImage.FocusFill(60,60).URL" alt="Profile image of $FirstName $Surname"><% end_if %><a href="$URL" class="byline__author"> $Name.XML</a><% else %><span class="byline__author">$Name.XML</span><% end_if %><% end_loop %>
+		<% end_if %>
 	<% if not $Credits && $StoryBy %>
 		<em class="byline__by">By </em>
 		<% if $StoryByEmail %>

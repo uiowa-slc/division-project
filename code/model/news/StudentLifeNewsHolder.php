@@ -89,10 +89,11 @@ class StudentLifeNewsHolder extends Page {
 
 	}
 
-	public function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
+	public function getBlogPostsFromFeed($filterType = 'dept', $filterItem = null, $limit = null, $perPage = 10, $start = 0){
 
 		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 		$deptId = $this->DepartmentID;
+
 
 		switch($filterType){
 			case 'tag':
@@ -108,9 +109,13 @@ class StudentLifeNewsHolder extends Page {
 				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterItem;
 			break;
 
-			default:
+			case 'dept':
 				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
 			break;
+
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+
 		}
 		
 		if($start != 0){
