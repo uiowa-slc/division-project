@@ -15,6 +15,7 @@
       "unclecheese/betterbuttons":"*",
       "unclecheese/eventcalendar":"1.*",
       "colymba/gridfield-bulk-editing-tools":"*",
+	"symbiote/silverstripe-gridfieldextensions" : "1.5.1",
       "md/blog":"2.*",
       "silverstripe/widgets":"*",
       "silverstripe/userforms":"*",
