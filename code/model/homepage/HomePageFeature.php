@@ -24,7 +24,7 @@ class HomePageFeature extends DataObject {
 
 	private static $has_one = array(
 		"AssociatedPage" => SiteTree::class,
-		"Image"          => Image::class,
+		"Image"          => Image::class
 	);
     private static $owns = array(
     	'Image'
@@ -38,7 +38,7 @@ class HomePageFeature extends DataObject {
     ];
 	function getCMSFields() {
 		$fields = new FieldList();
-
+		$fields->push(new UploadField("Image", "Image (use 350 x 197 pixels exactly to avoid resampling)"));
 		$fields->push(new TextField('Title', 'Title'));
 
 		$fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", SiteTree::class));
@@ -47,7 +47,7 @@ class HomePageFeature extends DataObject {
 		$fields->push(new TextField("FeedLink", "Display posts from the following feed (only RSS for now)"));
 		$fields->push(HTMLEditorField::create('Content', 'Content')->addExtraClass('stacked'));
 
-		$fields->push(new UploadField(Image::class, "Image (use 350 x 197 pixels exactly to avoid resampling)"));
+		
 		$fields->push(new TextField("YouTubeEmbed", "Use a YouTube embed code instead of an image:"));
 
 		return $fields;
