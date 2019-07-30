@@ -37,10 +37,10 @@ class PlanCategory extends DataObject {
 	);
 
 	private static $defaults = array(
-		'Column1Heading' => 'Recommendation',
-		'Column2Heading' => 'Updates',
-		'Column2Content' => '<ul><li>No updates at this time.</li></ul>',
-		'Column3Heading' => ' test '
+		'Column1Heading' => 'Priority',
+		'Column2Heading' => 'Key Partner(s)',
+		'Column2Content' => '',
+		'Column3Heading' => '',
 	);
 
 	private static $default_sort = 'SortOrder';
