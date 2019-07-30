@@ -30,10 +30,7 @@ class PlanCategory extends DataObject {
 	);
 
 	private static $summary_fields = array(
-		'Title',
-		'Column1Heading',
-		'Column2Heading',
-		'Column3Heading'
+		'Title'
 	);
 
 	private static $defaults = array(
