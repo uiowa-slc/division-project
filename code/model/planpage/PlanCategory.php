@@ -37,6 +37,7 @@ class PlanCategory extends DataObject {
 	);
 
 	private static $defaults = array(
+
 		'Column1Heading' => 'Priority',
 		'Column2Heading' => 'Key Partner(s)',
 		'Column2Content' => '',

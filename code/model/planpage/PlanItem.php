@@ -32,6 +32,7 @@ class PlanItem extends DataObject {
 	);
 
 	private static $defaults = array(
+		'Title' => 'Priority',
 		'Column1Heading' => 'Priority',
 		'Column2Heading' => 'Key Partner(s)',
 		'Column2Content' => '',
