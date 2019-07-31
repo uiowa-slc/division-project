@@ -29,22 +29,27 @@ $Header
 				
 				<div class="plan-intro">
 					$Content
+
+					<% if not $HideToc %>
 					<div class="plan-sidebar">
 				    <h2 class="plan-sidebar__header">Table of Contents</h2>
 				    <ul class="plan-sidebar__nav">
 				    	<% loop $PlanCategories %>
 				        <li class="plan-sidebar__section"><a class="plan-sidebar__link" href="#plan-section-{$ID}">$Title</a>
-				        	<% if $PlanItems %>
-				        		 <ul class="plan-sidebar__nav plan-sidebar__nav--second-level">
-				        		<% loop $PlanItems %>
-					                <li><a class="plan-sidebar__link plan-sidebar__link--sec-level" href="#plan-item-{$ID}">$Title</a></li>
-						        <% end_loop %>
-						        </ul>
+				        	<% if not $Top.HidePlanItemsFromToc %>
+					        	<% if $PlanItems %>
+					        		 <ul class="plan-sidebar__nav plan-sidebar__nav--second-level">
+					        		<% loop $PlanItems %>
+						                <li><a class="plan-sidebar__link plan-sidebar__link--sec-level" href="#plan-item-{$ID}">$Title</a></li>
+							        <% end_loop %>
+							        </ul>
+					            <% end_if %>
 				            <% end_if %>
 				        </li>
 				        <% end_loop %>
 				    </ul>
 				</div>
+				<% end_if %>
 <div class="clearfix"></div>
 				</div>
 
