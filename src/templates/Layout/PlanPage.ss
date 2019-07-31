@@ -57,9 +57,11 @@ $Header
 				<div class="plan-section__container">
 					<h2 class="plan-section__table-label" id="plan-section-{$ID}">$Title</h2>
 					<div class="plan-section grid-container full">
+						<% if $Content %>
 						<div class="plan-section">
-							<% if $Content %>$Content<% end_if %>
+							$Content
 						</div>
+						<% end_if %>
 <%-- 						<div class="plan-table">
 							<div class="grid-x grid-margin-x">
 								 <div class="cell medium-6"><h3 class="plan-table__cell-heading">$Column1Heading</h3></div>
