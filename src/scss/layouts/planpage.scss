@@ -90,7 +90,12 @@
 
     &:nth-of-type(2n) {
         background: #efefef;
+
     }
+        &--white-bg:nth-of-type(2n){
+            background: white;
+        }
+
 
     @media only screen and (min-width: 769px) {
         width: 100%;
@@ -134,4 +139,9 @@
     @media only screen and (min-width: 769px) {
         float: right;
     }
+}
+
+.plan-stat-highlight{
+    font-weight: bold;
+    color: red;
 }

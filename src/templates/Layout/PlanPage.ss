@@ -71,7 +71,7 @@ $Header
 							</div>
 						</div> --%>
 						<% loop $PlanItems %>
-						<div class="plan-table">
+						<div class="plan-table <% if not $Column2Heading && not $Column3Heading %> plan-table--white-bg<% end_if %>">
 							<div class="grid-x grid-margin-x">
 								
 								
@@ -85,7 +85,7 @@ $Header
 								<div class="cell medium-4 plan-table__updates"><h3 id="plan-item-{$ID}" class="plan-table__cell-heading">$Column3Heading</h3>$Column3Content</div>
 
 
-								<% else %> 
+								<% else_if $Column2Heading %> 
 
 									<div class="cell medium-6">
 										<h3 id="plan-item-{$ID}" 
@@ -101,8 +101,13 @@ $Header
 										$Column2Content
 									</div>
 
-
-
+								<% else %>
+									<div class="cell medium-12">
+										<h3 id="plan-item-{$ID}" 
+										class="plan-table__cell-heading">$Column1Heading
+										</h3>
+										$Column1Content 
+									</div>
 								<% end_if %>
 
 
@@ -113,7 +118,6 @@ $Header
 						<% end_loop %>
 						</div>
 					</div>
-				</div>
 				<% end_loop %>
 
 			$BlockArea(AfterContentConstrained)
