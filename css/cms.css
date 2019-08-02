@@ -5,6 +5,11 @@
     column-rule: dotted 1px #333;
 }
 
-.cms #vakata-contextmenu ul {
-	min-width: 300px;
+.cms #vakata-contextmenu ul ul.col-3 {
+	min-width: 480px;
+	padding-top: 5px;
+}
+
+.cms #vakata-contextmenu li ul.col-3 li {
+	min-width: 150px;
 }
