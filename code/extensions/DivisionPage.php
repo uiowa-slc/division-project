@@ -29,7 +29,8 @@ class DivisionPage extends DataExtension {
 		'LayoutType' => 'Varchar(155)',
 		'YoutubeBackgroundEmbed' => 'Varchar(11)',
 		'ShowChildPages' => 'Boolean(1)',
-		'ShowChildrenInDropdown' => 'Boolean(1)'
+		'ShowChildrenInDropdown' => 'Boolean(1)',
+		'FullImageAltText' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -184,8 +185,13 @@ class DivisionPage extends DataExtension {
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
 		)), 'LayoutType');
-
 		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
+		$f->addFieldsToTab("Root.Main", array(
+			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
+		)->addExtraClass('stacked')), 'LayoutType');
+		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
+
+
 
 	}
 

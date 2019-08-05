@@ -3,7 +3,12 @@ $Header
 
 	<!-- Background Image Feature -->
 	<% if $BackgroundImage %>
-		<img class="full-image__img" src="$BackgroundImage.URL" alt="" role="presentation" />
+		<% if $FullImageAltText %>
+			<img class="full-image__img" src="$BackgroundImage.URL" alt="$FullImageAltText.ATT"  />
+		<% else %>
+			<img class="full-image__img" src="$BackgroundImage.URL" alt="" role="presentation" />
+		<% end_if %>
+		
 	<% end_if %>
 	$Breadcrumbs
 
