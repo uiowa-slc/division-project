@@ -15,7 +15,7 @@ $Header
 	$BeforeContent
     <div class="column row">
         <div class="main-content__header">
-            <h1>About $Title</h1>
+            <h1>$Title</h1>
         </div>
     </div>
 	<div class="row">
