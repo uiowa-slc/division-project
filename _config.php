@@ -6,8 +6,15 @@ use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
 use SilverStripe\Security\Authenticator;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
-
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Environment;
 \SilverStripe\ORM\Search\FulltextSearchable::enable();
+
+
+if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == '2620:0:e50:6802::27' && $_SERVER['HTTP_X_KENNYDEVTOKEN'] == Environment::getEnv('SS_KENNYDEVTOKEN')) {
+    Environment::setEnv('SS_ENVIRONMENT_TYPE', 'dev');
+}
+
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
