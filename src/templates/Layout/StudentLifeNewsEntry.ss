@@ -23,7 +23,7 @@ $Header
 				<h1>$Title</h1>
                 <div class="blogmeta">
                     <% if not $Parent.HideDatesAndAuthors %>
-                        <% include StudentLifeNewsByLine %>
+                        <% include StudentLifeNewsByline %>
                     <% end_if %>
                     <ul class="social-icons">
                         <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>

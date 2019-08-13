@@ -26,7 +26,7 @@
     		<% end_if %>
         <% end_if %>
 		<% if not $Parent.HideDatesAndAuthors %>
-			<% include StudentLifeNewsByLine %>
+			<% include StudentLifeNewsByline %>
 		<% end_if %>
 
         <% if $Categories.exists %>
