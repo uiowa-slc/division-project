@@ -30,7 +30,7 @@
       "unclecheese/display-logic" : "dev-master",
       "md/saml" : "dev-md",
       "jonom/focuspoint" : "*",
-      "jonom/silverstripe-betternavigator" : "*",
+      "jonom/silverstripe-betternavigator" : "4.*",
       "md/uiowa-bar": "1.2.x",
       "md/silverstripe-maintenance-mode": "dev-master",
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
