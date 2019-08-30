@@ -258,7 +258,7 @@ class DivisionPage extends DataExtension {
 
 		$str = $this->owner->Content;
 
-		if(empty($str)){
+		if((empty($str)) || ($str == '')){
 			return null;
 		}
 

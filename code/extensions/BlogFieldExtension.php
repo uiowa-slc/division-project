@@ -50,12 +50,7 @@ class BlogFieldExtension extends DataExtension {
 		$fields->addFieldToTab("Root.Main", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
 
-
-		if ($this->owner->ClassName == "BlogEntry") {
-			//$fields->removeByName("Date");
-		} else {
-			$fields->renameField(DBDate::class, "Published Date");
-		}
+		$fields->removeByName('FeaturedInWidget');
 
 	}
 
