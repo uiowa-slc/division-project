@@ -79,7 +79,7 @@ h3{
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--full-width">
+		<article class="main-content main-content--full-width">
 
 
 			$BeforeContentConstrained

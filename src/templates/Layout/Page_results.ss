@@ -1,7 +1,7 @@
 $Header
 <div class="main-content__container" id="main-content__container">
 	<div class="row">
-		<div role="main" class="main-content main-content--with-padding main-content--full-width">
+		<div class="main-content main-content--with-padding main-content--full-width">
 			<h1>$Title</h1>
 			<% if $Query %>
 				<p>You searched for &quot;{$Query}&quot;</p>

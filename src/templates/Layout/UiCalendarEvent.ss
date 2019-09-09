@@ -10,7 +10,7 @@ $Header
 	$BeforeContent
 
 	<div class="row">
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %>">
+		<article class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %>">
 
 			$BeforeContentConstrained
 
