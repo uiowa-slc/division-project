@@ -3,7 +3,7 @@ $Header
 
     <div class="row column">
 
-        <article role="main" class="main-content main-content--with-padding main-content--full-width">
+        <article class="main-content main-content--with-padding main-content--full-width">
         	<div class="main-content__header">
                 <h1>$Title</h1>
             </div>
