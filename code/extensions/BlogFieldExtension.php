@@ -49,7 +49,8 @@ class BlogFieldExtension extends DataExtension {
 		$fields->addFieldToTab("Root.Main", new TextField('PhotosBy', 'Photos or video by'));
 		$fields->addFieldToTab("Root.Main", new TextField('PhotosByEmail', 'Photographer email address'));
 		$fields->addFieldToTab("Root.Main", new TextField('ExternalURL', 'External URL (if story lives elsewhere)'), 'Content');
-
+		$summary = $fields->dataFieldByName('Summary');
+		$summary->addExtraClass('stacked');
 		$fields->removeByName('FeaturedInWidget');
 
 	}
