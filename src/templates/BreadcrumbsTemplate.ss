@@ -3,7 +3,7 @@
 		<div class="column row">
 			<ol class="clearfix breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
 				<li class="breadcrumb__listitem" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-					<a href="$Baseref" class="breadcrumb__anchor" itemprop="item"><span class="breadcrumb__name" itemprop="name">Home</span></a><meta itemprop="position" content="1" />
+					<a href="$absoluteBaseURL" class="breadcrumb__anchor" itemprop="item"><span class="breadcrumb__name" itemprop="name">Home</span></a><meta itemprop="position" content="1" />
 				</li>
 				<% loop Pages %>
 					<% if Last %>
