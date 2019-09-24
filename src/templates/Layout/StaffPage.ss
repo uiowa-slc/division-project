@@ -22,6 +22,9 @@ $Header
 					<% end_if %>
 					<h2>$Position</h2>
 					<ul>
+						<% if $PreferredPronouns != 'Unspecified' %>
+							<li><strong>Preferred Pronouns:</strong> $PreferredPronouns</li>
+						<% end_if %>
 						<% if $EmailAddress %><li><strong>Email:</strong> <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
 						<% if $Phone %><li><strong>Phone:</strong> $Phone</li><% end_if %>
 						<% if $DepartmentName %>
