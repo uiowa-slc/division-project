@@ -104,15 +104,22 @@ $('.slideshow').each(function() { // the containers for all your galleries
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-//Wrap every iframe in a responsive embed class to prevent layout breakage
+//Wrap every YouTube iframe in a responsive embed class to prevent layout breakage
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-$('iframe').each(function(){
+$('iframe[src*="youtube"]').each(function(){
 	if((!$(this).parent().hasClass('responsive-embed')) && (!$(this).parent().hasClass('unresponsive-embed'))){
 		$(this).wrap( "<div class='responsive-embed widescreen'></div>" );
 	}
 });
 
+$('iframe').each(function(){
+	if((!$(this).parent().hasClass('responsive-embed')) && (!$(this).parent().hasClass('unresponsive-embed'))){
+		$(this).wrap( "<div class='responsive-embed'></div>" );
+	}
+});
+
+	
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Distinguish dropdowns on mobile/desktop:
