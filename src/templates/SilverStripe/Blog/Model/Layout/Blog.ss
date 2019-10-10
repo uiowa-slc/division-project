@@ -10,52 +10,10 @@ $Header
 
 	$Breadcrumbs
 
-	<% if $BackgroundImage %>
+	<% if not $BackgroundImage %>
 	<div class="column row">
-				<h2>
-					<% if $ArchiveYear %>
-						<%t Blog.Archive 'Archive' %>:
-						<% if $ArchiveDay %>
-							$ArchiveDate.Nice
-						<% else_if $ArchiveMonth %>
-							$ArchiveDate.format('F, Y')
-						<% else %>
-							$ArchiveDate.format('Y')
-						<% end_if %>
-					<% else_if $CurrentTag %>
-						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-					<% else_if $CurrentCategory %>
-						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-					<% else_if not $BackgroundImage %>
-
-						$Title
-					<% end_if %>
-				</h2>
+		<h1>$Title</h1>
 	</div>
-	<% else %>
-		<div class="column row">
-			<div class="main-content__header">
-				<h1 class="page-title">
-					<% if $ArchiveYear %>
-						<%t Blog.Archive 'Archive' %>:
-						<% if $ArchiveDay %>
-							$ArchiveDate.Nice
-						<% else_if $ArchiveMonth %>
-							$ArchiveDate.format('F, Y')
-						<% else %>
-							$ArchiveDate.format('Y')
-						<% end_if %>
-					<% else_if $CurrentTag %>
-						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-					<% else_if $CurrentCategory %>
-						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-					<% else_if not $BackgroundImage %>
-
-						$Title
-					<% end_if %>
-				</h1>
-			</div>
-		</div>
 	<% end_if %>
 
 
@@ -65,7 +23,30 @@ $Header
 		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BeforeContentConstrained
 			<div class="main-content__text">
+
+
 				$Content
+
+				<% if $ArchiveYear || $CurrentTag || $CurrentCategory %>
+					<h2>
+						<% if $ArchiveYear %>
+							<%t Blog.Archive 'Archive' %>:
+							<% if $ArchiveDay %>
+								$ArchiveDate.Nice
+							<% else_if $ArchiveMonth %>
+								$ArchiveDate.format('F, Y')
+							<% else %>
+								$ArchiveDate.format('Y')
+							<% end_if %>
+						<% else_if $CurrentTag %>
+							<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+						<% else_if $CurrentCategory %>
+							<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+						<% else %>
+							$Title
+						<% end_if %>
+					</h2>
+				<% end_if %>
 
 				<% if $Action == "index" %>
 					<% if $SortAlphabetically %>
