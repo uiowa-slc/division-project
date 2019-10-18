@@ -6,6 +6,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use MD\DivisionProject\StaffPageController;
 use SilverStripe\View\Parsers\URLSegmentFilter;
@@ -13,26 +14,27 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 class StaffPage extends Page {
 
 	private static $db = array(
-		"FirstName"      => "Text",
-		"LastName"       => "Text",
-		"Position"       => "Text",
-		"EmailAddress"   => "Text",
-		"Phone"          => "Text",
-		"DepartmentURL"  => "Text",
-		"DepartmentName" => "Text",
-		"OtherWebsiteLink" => "Varchar(155)",
-		"OtherWebsiteLabel" => "Varchar(155)",
-		"HidePageLink" => "Boolean"
+		"FirstName"             => "Text",
+		"LastName"              => "Text",
+		"PreferredPronouns"     => "Enum('Unspecified,she/her/hers,he/him/his,they/them/theirs','Unspecified')",
+		"Position"              => "Text",
+		"EmailAddress"          => "Text",
+		"Phone"                 => "Text",
+		"DepartmentURL"         => "Text",
+		"DepartmentName"        => "Text",
+		"OtherWebsiteLink"      => "Varchar(155)",
+		"OtherWebsiteLabel"     => "Varchar(155)",
+		"HidePageLink"          => "Boolean"
 
 	);
 
 	private static $has_one = array(
 		"Photo" => Image::class,
 	);
-	
-    private static $owns = array(
-        'Photo'
-    );
+
+	private static $owns = array(
+		'Photo'
+	);
 	private static $defaults = array(
 		"OtherWebsiteLabel" => "Website"
 	);
@@ -58,10 +60,16 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
 
+		$fields->addFieldToTab("Root.Main", DropdownField::create(
+			'PreferredPronouns',
+			'Preferred Pronouns',
+			singleton('StaffPage')->dbObject('PreferredPronouns')->enumValues()
+		));
+
 		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 945 width)"));
 		$fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
 		$fields->addFieldToTab("Root.Main", new TextField("Position", "Position"));
-		
+
 		$fields->addFieldToTab("Root.Main", new TextField("Phone", "Phone (XXX-XXX-XXXX)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentName", "Department name (optional)"));
 		$fields->addFieldToTab("Root.Main", new TextField("DepartmentURL", "Department Website URL (optional)"));
@@ -71,8 +79,8 @@ class StaffPage extends Page {
 		$fields->addFieldToTab("Root.Main", new CheckboxField('HidePageLink', 'Hide page link from main staff listing and sidebar'));
 		if(StaffTeam::get()->First()){
 			$fields->addFieldToTab("Root.Main", CheckboxSetField::create("Teams", 'Team(s)', StaffTeam::get()->map('ID', 'Name'))->addExtraClass('stacked'));
-		}			
-		
+		}
+
 
 		//$fields->addFieldToTab("Root.Main", new LiteralField("TeamLabel", ''));
 
@@ -100,7 +108,7 @@ class StaffPage extends Page {
 		$this->URLSegment = $filter->filter($this->Title);
 
 		// CAUTION: You are required to call the parent-function, otherwise
-        // SilverStripe will not execute the request.
+		// SilverStripe will not execute the request.
 		parent::onBeforeWrite();
 	}
 

@@ -22,3 +22,8 @@ SilverStripe\Assets\File:
 SilverStripe\CMS\Model\SiteTree:
   create_table_options:
     MySQLDatabase: 'ENGINE=MyISAM'
+SilverStripe\Assets\Flysystem\AssetAdapter:
+  file_permissions:
+    'file':
+      'public': '0644'
+      'private': '0600'

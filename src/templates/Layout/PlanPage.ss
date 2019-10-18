@@ -20,7 +20,7 @@ $Header
 
 	<div class="row row--plan column">
 
-		<article role="main" class="plan-content">
+		<article class="plan-content">
 			$BlockArea(BeforeContentConstrained)
 			<% if $MainImage %>
 				<img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>

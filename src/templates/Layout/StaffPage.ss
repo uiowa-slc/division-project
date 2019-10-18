@@ -11,7 +11,7 @@ $Header
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<article class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 
 			$BeforeContentConstrained
 
@@ -22,6 +22,9 @@ $Header
 					<% end_if %>
 					<h2>$Position</h2>
 					<ul>
+						<% if $PreferredPronouns != 'Unspecified' %>
+							<li><strong>Preferred pronouns:</strong> $PreferredPronouns</li>
+						<% end_if %>
 						<% if $EmailAddress %><li><strong>Email:</strong> <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
 						<% if $Phone %><li><strong>Phone:</strong> $Phone</li><% end_if %>
 						<% if $DepartmentName %>
