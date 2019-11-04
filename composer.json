@@ -19,7 +19,7 @@
       "silverstripe-australia/gridfieldextensions" : "*",
       "dnadesign/silverstripe-elemental": "3.*",
       "gorriecoe/silverstripe-webfonts" : "*",
-      "md/ac-json-events":"dev-ss4.x-ui",
+      "md/ac-json-events":"3.*",
       "md/division-analytics": "1.2.x",
       "md/deploy-helper": "*",
       "unclecheese/display-logic" : "dev-master",
