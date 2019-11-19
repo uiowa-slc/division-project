@@ -59,12 +59,12 @@ class StaffPage extends Page {
 
 		$fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
 		$fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
-
-		$fields->addFieldToTab("Root.Main", DropdownField::create(
-			'PreferredPronouns',
-			'Preferred Pronouns',
-			singleton('StaffPage')->dbObject('PreferredPronouns')->enumValues()
-		));
+		//Merged this on accident.. Not ready yet.
+		// $fields->addFieldToTab("Root.Main", DropdownField::create(
+		// 	'PreferredPronouns',
+		// 	'Preferred Pronouns',
+		// 	singleton('StaffPage')->dbObject('PreferredPronouns')->enumValues()
+		// ));
 
 		$fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 945 width)"));
 		$fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
