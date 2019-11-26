@@ -30,7 +30,8 @@ class DivisionPage extends DataExtension {
 		'YoutubeBackgroundEmbed' => 'Varchar(11)',
 		'ShowChildPages' => 'Boolean(1)',
 		'ShowChildrenInDropdown' => 'Boolean(1)',
-		'FullImageAltText' => 'Text'
+		'FullImageAltText' => 'Text',
+		'DarkMode' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -203,6 +204,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode','Dark Mode (Experimental)'));
 
 	}
 
@@ -218,7 +220,7 @@ class DivisionPage extends DataExtension {
 		}
 	}
 
-	public function DarkLight(){
+	public function DarkLightHeader(){
 		$siteConfig = SiteConfig::current_site_config();
 		$owner = $this->owner;
 
@@ -226,7 +228,7 @@ class DivisionPage extends DataExtension {
 		if($owner->pageTypeTheme){
 			return $owner->pageTypeTheme;
 		//Check page's individual CMS setting:
-		}elseif($owner->UseDarkThemeOnThisPage){
+		}elseif($owner->DarkMode){
 			return 'dark-header';
 		//Otherwise, check global settings
 		}elseif($siteConfig->UseDarkTheme){

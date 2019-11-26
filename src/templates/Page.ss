@@ -42,7 +42,7 @@
     $TypeKitScript
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
-  <body class="{$ClassName} {$ClassAncestry} body--{$DarkLight} action--{$Action}">
+  <body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
     <!-- Add your site or app content here -->
     <% if $SiteConfig.ShowExitButton %>
