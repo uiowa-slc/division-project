@@ -6,7 +6,7 @@
 				<div class="slideshow gallery" data-flickity='{ "lazyLoad": 2, "wrapAround": true }'>
 					<% loop SlideshowBlockImages %>
 						<figure class="slideshow__slide gallery-cell">
-                            <img class="slideshow__img" data-flickity-lazyload="$Image.Pad(930, 616, f8f6f3).URL" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
+                            <img class="slideshow__img" data-flickity-lazyload="$Image.Pad(930, 616).URL" alt="<% if $Caption %>$Caption.ATT<% end_if %>" />
 							<% if $Caption %>
                                 <figcaption class="slideshow__caption">
                                     $Caption
