@@ -1,0 +1,8 @@
+---
+Name: appcache
+After: '*#corecache'
+---
+SilverStripe\Core\Injector\Injector:
+  Psr\SimpleCache\CacheInterface.cacheblock:
+    constructor:
+      defaultLifetime: 0
