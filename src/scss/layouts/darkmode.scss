@@ -302,6 +302,16 @@ body.body--darkmode{
         color: white;
     }
 
+    table{
 
+    }
+
+    tbody, tfoot, thead{
+        background: #000;
+        border: 1px solid #333;
+    }
+    tbody tr:nth-child(odd){
+        background: #333;
+    }
 }
 
