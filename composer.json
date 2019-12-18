@@ -40,7 +40,7 @@
       "sheadawson/silverstripe-blocks": "1.1.3",
       "unisolutions/silverstripe-copybutton": "*",
       "micschk/silverstripe-gridfieldsitetreebuttons": "*",
-      "md/activedirectory": "3.*",
+      "md/activedirectory": "3.2.*",
       "olliepop/fbpagefeed": "dev-master",
       "sheadawson/silverstripe-linkable": "*",
       "silverstripe-rebelalliance/youtubefield" : "*",
