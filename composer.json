@@ -5,8 +5,8 @@
    "minimum-stability":"dev",
    "require":{  
       "php":">=5.3.2",
-      "silverstripe/cms":"3.7.4",
-      "silverstripe/framework":"3.7.4",
+      "silverstripe/cms":"3.7.*",
+      "silverstripe/framework":"3.7.*",
       "silverstripe/reports": "*",
       "silverstripe/siteconfig": "*",
       "silverstripe/installer":"*",
