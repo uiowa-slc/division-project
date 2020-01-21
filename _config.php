@@ -45,3 +45,7 @@ HtmlEditorConfig::get('cms')->insertButtonsAfter('indent', 'blockquote');
 HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,address,pre,h2,h3,h4,h5,h6');
 
 ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
+
+TinyMCEConfig::get('cms')
+    ->addButtonsToLine(1, 'styleselect')
+    ->setOption('importcss_append', true);
