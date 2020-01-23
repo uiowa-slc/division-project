@@ -1,6 +1,13 @@
-<div class="header__container header__container--{$DarkLight} header__container--{$HeaderType}">
+<header class="header__container header__container--{$DarkLight} header__container--{$HeaderType}">
+
+    <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
+    <!-- Add your site or app content here -->
+    <% if $SiteConfig.ShowExitButton %>
+        <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <% end_if %>
+
 	<% include DivisionBar %>
-	<header id="header" class="header header--{$DarkLight} header--{$HeaderType}" role="banner">
+	<div id="header" class="header header--{$DarkLight} header--{$HeaderType}">
 
 		<div itemscope="" itemtype="http://schema.org/Organization">
 			<h1 class="header__site-title" itemprop="name"><a href="$AbsoluteBaseURL" class="header__link--{$DarkLight}" itemprop="url">$SiteConfig.Title</a></h1>
@@ -17,8 +24,8 @@
 			</button>
 		</div>
 
-	</header>
+	</div>
 	<div class="nav-collapse">
 		<% include Navigation %>
 	</div>
-</div>
+</header>
