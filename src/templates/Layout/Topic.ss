@@ -13,8 +13,11 @@ $Header
         <h1>$Title</h1>
         <div class="blogmeta">
             <% if $Parent.ShowLastUpdated %>
-            <div class="byline"><p>  <em class="byline__on">Last updated: $LastEdited.Nice</em> </p></div>
-            
+            <div class="byline"><p>  <em class="byline__on">Last updated: $LastEdited.Nice</em>
+              <% if $Tags %><br />
+                  <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
+              </p><% end_if %>
+            </div>
             <% end_if %>
             <ul class="social-icons">
                 <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
@@ -42,16 +45,6 @@ $Header
       $BeforeContentConstrained
       <div class="main-content__text">
         <div class="content">
-          <div class="blogmeta clearfix">
-            <div class="blogmeta__byline clearfix">
-              <p>
-                <% if $Tags %>
-                  <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %><br />
-                <% end_if %>
-                
-              </p>
-            </div>
-          </div>
           $Content
           <% if $Address || $Location %>
             <h2>Located here:</h2>

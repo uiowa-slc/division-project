@@ -1,6 +1,22 @@
 
-
-  <div class="grid-container" style="border-top: 1px solid #ccc;">
+      <div style="background: #f6f6f6;">
+        <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="cell">
+             <h2 style="text-transform: uppercase; font-size: 1em; color: #333;">Featured Topics</h2>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x small-up-2 medium-up-4">
+        <% loop $BlogPosts.Limit(4).Sort('RAND()') %>
+          <div class="cell">
+            <h2 style="font-size: 28px;"><a href="$Link">$Title.LimitCharacters(60)</a></h2>
+            <p style="font-size: 12px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+          </div>
+        <% end_loop %>
+      </div>
+    </div>
+  </div>
+  <div class="grid-container">
       <% if $AllCats %>
         <div class="grid-x grid-padding-x">
           <div class="cell">
@@ -28,21 +44,30 @@
           <% end_loop %>
         </div>
       <% end_if %>
-      <div class="grid-x grid-padding-x">
-        <div class="cell">
-             <h2 style="text-transform: uppercase; font-size: 1em; color: #333;">Recently Updated Topics</h2>
-        </div>
-      </div>
 
-      <div class="grid-x grid-padding-x small-up-2 medium-up-4">
-        <% loop $BlogPosts.Limit(8).Sort('LastEdited DESC') %>
+
+
+
+</div>
+
+  <div style="background: #f6f6f6;">
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
           <div class="cell">
-            <h2 style="font-size: 24px;"><a href="$Link">$Title</a></h2>
-            <p style="font-size: 14px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">$Content.LimitCharacters(40).ATT</p>
-            <p style="font-size: 12px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+               <h2 style="text-transform: uppercase; font-size: 1em; color: #333;">Recently Updated Topics</h2>
           </div>
-        <% end_loop %>
-      </div>
+        </div>
+        <div class="grid-x grid-padding-x small-up-2 medium-up-4">
+          <% loop $BlogPosts.Limit(8).Sort('LastEdited DESC') %>
+            <div class="cell">
+              <h2 style="font-size: 24px;"><a href="$Link">$Title</a></h2>
+              <p style="font-size: 14px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">$Content.LimitCharacters(40).ATT</p>
+              <p style="font-size: 12px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+            </div>
+          <% end_loop %>
+        </div>
+    </div>
+  </div>
 
 
 
@@ -56,10 +81,15 @@
                  <ul style="margin-left: 0; column-count: 3;">
                    <% loop $AllCats.Sort('Title ASC') %>
                       <li class="topic-list__item"><h3 tyle="font-weight: 400; font-size: 20px; margin-bottom: 5px; margin-top: 0;">$Title</h3></li>
-                      <% loop $BlogPosts %>
-                        <li style="list-style-type: none;"><h3 style="font-weight: normal; font-size: 17px; margin-bottom: 5px; margin-top: 0;"><a style="color: #666;" href="$Link">$Title</a></h3></li>
-                      <% end_loop %>
+                        <% if $BlogPosts %>
+                        <ul style="margin-left: 0;">
+                        <% loop $BlogPosts %>
+                          <li style="list-style-type: none; margin-bottom: 10px;"><h3 style="font-weight: normal; font-size: 17px;  margin-top: 0;"><a style="color: #666; text-decoration: underline;" href="$Link">$Title</a></h3></li>
+                        <% end_loop %>
+                        </ul>
+                      <% end_if %>
                     <% end_loop %>
+
 <%--                   <% loop $BlogPosts.Sort('Title ASC') %> 
                     <li style="list-style-type: none;"><h3 style="font-size: 17px; margin-bottom: 5px; margin-top: 0;"><a style="color: #666;" href="$Link">$Title</a></h3></li>
                   <% end_loop %> --%>

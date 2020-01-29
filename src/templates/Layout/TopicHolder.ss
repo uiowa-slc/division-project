@@ -21,21 +21,6 @@ $Header
   </div>
 </div>
 
-<% if not $BackgroundImage || $IsFilterActive %>
-  <div class="column row">
-    <div class="main-content__header">
-    <% if $IsFilterActive %>
-      <% if $CurrentCategory %>
-        <h1>Category: $CurrentCategory.Title</h1>
-      <% else_if $CurrentTag %>
-        <h1>Tag: $CurrentTag.Title</h1>
-      <% end_if %>
-    <% else %>
-      <h1>$Title</h1>
-    <% end_if %>
-    </div>
-  </div>
-<% end_if %>
 
 $BeforeContent
 
@@ -57,7 +42,7 @@ $BeforeContent
             </div>
           </div>
            <% if $BlogPosts %>
-              <div class="grid-x grid-padding-x small-up-2" style="margin-bottom: 200px;">
+              <div class="grid-x grid-padding-x small-up-2" style="margin-bottom: 50px;">
                 <% loop $BlogPosts.Limit(4).Sort('LastEdited') %>
                   <div class="cell">
                     <h2><a href="$Link">$Title</a></h2>
