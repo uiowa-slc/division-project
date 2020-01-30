@@ -20,9 +20,12 @@ $Header
                         <% if $DisplayPronouns %>
                             <li>
                                 <strong>Pronouns:</strong>
-                                <% loop $Pronouns %>
-                                    $Pronoun &nbsp;
+
+                                <ul>
+                                <% loop $Pronouns.Sort('Pronoun DESC') %>
+                                    <li>$Pronoun</li>
                                 <% end_loop %>
+                                </ul>
                             </li>
                         <% end_if %>
                         <% if $EmailAddress %><li><strong>Email:</strong> <a href="mailto:$EmailAddress">$EmailAddress</a></li><% end_if %>
