@@ -1,13 +1,15 @@
 
-      <div style="background: #f6f6f6;">
-        <div class="grid-container">
+
+<% if $FeaturedTopics %>
+  <div style="background: #f6f6f6;">
+    <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="cell">
              <h2 style="text-transform: uppercase; font-size: 1em; color: #333;">Featured Topics</h2>
         </div>
       </div>
       <div class="grid-x grid-padding-x small-up-2 medium-up-4">
-        <% loop $BlogPosts.Limit(4).Sort('RAND()') %>
+        <% loop $FeaturedTopics.Sort('FeaturedSortOrder') %>
           <div class="cell">
             <h2 style="font-size: 28px;"><a href="$Link">$Title.LimitCharacters(60)</a></h2>
             <p style="font-size: 12px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
@@ -16,6 +18,7 @@
       </div>
     </div>
   </div>
+<% end_if %>
   <div class="grid-container">
       <% if $AllCats %>
         <div class="grid-x grid-padding-x">
@@ -107,7 +110,7 @@
                  <h2>All topics by tag</h2>
                  <ul style="margin-left: 0; column-count: 3;">
                    <% loop $AllTags.Sort('Title ASC') %>
-                      <li class="topic-list__item"><h3 tyle="font-weight: 400; font-size: 20px; margin-bottom: 5px; margin-top: 0;">$Title</h3></li>
+                      <li class="topic-list__item"><h3 tyle="font-weight: 400; font-size: 20px; margin-bottom: 10px; margin-top: 0;">$Title</h3></li>
                       <% loop $BlogPosts %>
                         <li style="list-style-type: none;"><h3 style="font-weight: normal; font-size: 17px; margin-bottom: 5px; margin-top: 0;"><a style="color: #666;" href="$Link">$Title</a></h3></li>
                       <% end_loop %>

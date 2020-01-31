@@ -20,14 +20,23 @@ use SilverStripe\Blog\Controllers\BlogPostController;
 
 class Topic extends BlogPost {
 
+	private static $db = [
+		'FeaturedSortOrder' => 'Int',
+	];
+
 	private static $many_many = array(
 		'Questions' => 'TopicQuestion',
 		'Links' => 'TopicLink'
 	);
 
+	private static $has_one = array(
+		'TopicHolderFeatured' => 'TopicHolder'
+	);
+
 	private static $belongs_many_many = array(
 	
 	);
+
 
 	private static $icon_class = 'font-icon-book-open';
 	private static $can_be_root = false;

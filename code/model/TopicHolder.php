@@ -1,5 +1,6 @@
 <?php
-
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\TextField;
@@ -10,7 +11,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Blog\Model\Blog;
 use MD\DivisionProject\TopicHolderController;
-
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 class TopicHolder extends Blog {
 
 	private static $db = array(
@@ -31,6 +32,11 @@ class TopicHolder extends Blog {
         'AllTopicsTabHeading' => 'Varchar(155)'
 	);
 
+
+    private static $has_many = array(
+        'FeaturedTopics' => 'Topic'
+    );
+
 	private static $allowed_children = array('Topic');
 
     private static $icon_class = 'font-icon-book';
@@ -42,6 +48,7 @@ class TopicHolder extends Blog {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+
 		$questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
 		$questionGridField->setConfig($questionGridFieldConfig);
@@ -49,18 +56,18 @@ class TopicHolder extends Blog {
         $fields->addFieldToTab('Root.Terminology', TextField::create('Heading', 'Heading above search box (default: Search for a topic below'));
         $fields->addFieldToTab('Root.Terminology', TextField::create('NoTopicsText', 'Text to display if there aren\'t any topics. (default: No topics currently listed.'));
 
-        $fields->addFieldToTab('Root.Terminology', TextField::create('CategoryTabTitle', 'Category tab title (default: Categories'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('CategoryTabHeading', 'Category tab heading (default: Topics by category:'));
-
-        $fields->addFieldToTab('Root.Terminology', TextField::create('TagTabTitle', 'Tag tab title (default: Tags'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('TagTabHeading', 'Tag tab heading (default: Topics by tag:'));
-
-        $fields->addFieldToTab('Root.Terminology', TextField::create('AllTopicsTabTitle', 'All topics tab title (default: All topics by title'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('AllTopicsTabHeading', 'All topics tab heading (default: All topics by title'));
-
         //All topics by title:
 
 		$fields->addFieldToTab('Root.Questions', $questionGridField);
+
+        $featuredGridFieldConfig = GridFieldConfig_RelationEditor::create();
+        $featuredGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
+        $featuredGridFieldConfig->addComponent(new GridFieldSortableRows('FeaturedSortOrder'));
+        
+        $featuredGridField = new GridField('FeaturedTopics', 'Featured Topics', $this->FeaturedTopics());
+        $featuredGridField->setConfig($featuredGridFieldConfig);
+        $fields->addFieldToTab('Root.Main', $featuredGridField, 'Content');
+
 
 		return $fields;
 	}
