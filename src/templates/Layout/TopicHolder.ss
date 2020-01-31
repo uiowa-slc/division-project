@@ -62,7 +62,6 @@ $BeforeContent
                  <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
             </div>
           </div>
-          <h2 style="text-transform: uppercase; color: #333;">Listed under {$Title}:</h2>
             <% if $BlogPosts %>
               <div class="grid-x grid-padding-x small-up-2 medium-up-4">
                 <% loop $BlogPosts.Limit(4).Sort('LastEdited') %>
