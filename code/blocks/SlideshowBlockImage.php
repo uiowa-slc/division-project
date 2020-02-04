@@ -1,5 +1,5 @@
 <?php
-
+use SilverStripe\Versioned\Versioned;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 class SlideshowBlockImage extends DataObject {
@@ -16,6 +16,11 @@ class SlideshowBlockImage extends DataObject {
     	'Image.CMSThumbnail',
     	'Caption'
     );
+
+    private static $owns = [
+        'Image'
+    ];
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 

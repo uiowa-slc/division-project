@@ -196,7 +196,7 @@ $("#site-search__form").focusout(function(){
 });
 
 $('input#site-search__input').autocomplete({
-	 serviceUrl: baseHref+'/home/autoComplete',
+	 serviceUrl: baseHref+'home/autoComplete',
 	 deferRequestBy: 100,
 	 triggerSelectOnValidInput: false,
 	 minChars: 2,

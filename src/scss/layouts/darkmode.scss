@@ -8,7 +8,9 @@ body.body--darkmode{
 	background-color: $body-dark-mode-bg;
     color: rgba(255,255,255,.8);
 
-
+    .main-content__text a{
+        color: $highlight;
+    }
 
     .sidebar-sect-title{
         color:#fff;
@@ -126,11 +128,20 @@ body.body--darkmode{
         }
     }
     .button, input.action {
-        color: #e2393e;
+        color: #222;
         background: $highlight;
         font-weight: bold;
         padding: 5px;
 
+
+        &:hover{
+            background: lighten($highlight, 20);
+        }
+
+    }
+
+    .button.hollow.secondary{
+        color: #222;
     }
     #uiowa-bar #uiowa-search .links a{
         color: white;
