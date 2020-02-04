@@ -1,4 +1,11 @@
 <div class="header__container header__container--{$DarkLightHeader} header__container--{$HeaderType}">
+    <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
+    <!-- Add your site or app content here -->
+    <% if $SiteConfig.ShowExitButton %>
+    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+    <% end_if %>
+      $Layout
+
 	<% include DivisionBar %>
 	<header id="header" class="header header--{$DarkLightHeader} header--{$HeaderType}" role="banner">
 
