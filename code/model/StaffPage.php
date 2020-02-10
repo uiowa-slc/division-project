@@ -60,7 +60,7 @@ class StaffPage extends Page {
         $fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
         $fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
 
-        $fields->addFieldToTab("Root.Main", CheckboxField::create('DisplayPronouns', 'Show pronoun preferrences?'));
+        $fields->addFieldToTab("Root.Main", CheckboxField::create('DisplayPronouns', 'Show pronoun of reference?'));
 
         $proNoun = ListboxField::create(
             $name = 'Pronouns',
