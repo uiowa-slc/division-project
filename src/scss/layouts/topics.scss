@@ -16,8 +16,14 @@
 .topicholder-all-list{
 	//todo: responsive column count;
 	 margin-left: 0; 
-	 column-count: 3;
+	 column-count: 1;
 
+	 @include breakpoint(medium) {
+	 	column-count:2;
+	 }
+	 @include breakpoint(large) {
+	 	column-count: 3;
+	 }
 	 &__item{
 	 	list-style-type: none;
 	 	margin-bottom: 20px;
