@@ -30,9 +30,9 @@ class StaffPronoun extends DataObject {
     );
 
     // Possible TODO set default sort order
-    //private static $default_sort = array(
-    //	'SortOrder'
-    //);
+    private static $default_sort = array(
+    	'Pronoun ASC'
+    );
 
     // Possible TODO do we need this??
     //public function SortedStaffPages(){

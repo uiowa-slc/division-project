@@ -23,12 +23,12 @@ $Header
                     <% end_if %>
                     <h2>$Position</h2>
                     <ul>
-                        <% if $DisplayPronouns %>
+                        <% if $DisplayPronouns && $Pronouns %>
                             <li>
                                 <strong>Pronouns:</strong>
 
                                 <ul>
-                                <% loop $Pronouns.Sort('Title DESC') %>
+                                <% loop $Pronouns %>
                                     <li>$Pronoun</li>
                                 <% end_loop %>
                                 </ul>
