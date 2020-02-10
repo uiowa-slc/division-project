@@ -8,7 +8,7 @@ align-items: center;">
 <% end_with %>
     <div style="width: 100%;">
       <div style="max-width: 700px; margin: auto; text-align: center; z-index:999; position: relative;">
-        <h1 class="background-image__title"><a href="$Link" style="color: white;">$Title</a></h1>
+        <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
         $TopicSearchForm
       </div>
     </div>
