@@ -3,6 +3,7 @@
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
@@ -18,6 +19,7 @@ class StaffPage extends Page {
         "FirstName"             => "Text",
         "LastName"              => "Text",
         "DisplayPronouns"       => "Boolean",
+        'OtherPronouns' 		=> "Text",
         "Position"              => "Text",
         "EmailAddress"          => "Text",
         "Phone"                 => "Text",
@@ -60,15 +62,18 @@ class StaffPage extends Page {
         $fields->addFieldToTab("Root.Main", new TextField("FirstName", "First Name"));
         $fields->addFieldToTab("Root.Main", new TextField("LastName", "Last Name"));
 
-        $fields->addFieldToTab("Root.Main", CheckboxField::create('DisplayPronouns', 'Show pronoun of reference?'));
+        $fields->addFieldToTab("Root.Main", CheckboxField::create('DisplayPronouns', 'Show pronoun(s) of reference?'));
 
         $proNoun = ListboxField::create(
             $name = 'Pronouns',
-            $title = 'Preferred Pronouns',
+            $title = 'Pronouns',
             $source = StaffPronoun::get()->map('ID', 'Pronoun')->toArray()
         );
-
         $fields->addFieldToTab("Root.Main", $proNoun);
+        $otherPronouns = new TextareaField('OtherPronouns', 'Another set of pronouns not listed above');
+
+        $fields->addFieldToTab('Root.Main', $otherPronouns);
+       
 
         $fields->addFieldToTab("Root.Main", new UploadField("Photo", "Photo (4:3 preferred - resizes to 945 width)"));
         $fields->addFieldToTab("Root.Main", new TextField("EmailAddress", "Email address"));
@@ -96,6 +101,7 @@ class StaffPage extends Page {
         $fields->removeByName('YoutubeBackgroundEmbed');
 
         $proNoun->displayIf("DisplayPronouns")->isChecked();
+        $otherPronouns->displayIf("DisplayPronouns")->isChecked();
 
         return $fields;
     }

@@ -9,9 +9,11 @@ class StaffPronoun extends DataObject {
     );
 
     private static $default_records = array(
-        ['Pronoun' => 'she/her/hers'],
-        ['Pronoun' => 'he/him/his'],
-        ['Pronoun' => 'they/them/theirs'],
+        ['Pronoun' => 'He, him, his'],
+        ['Pronoun' => 'She, her, hers'],
+        ['Pronoun' => 'They, them, theirs'],
+        ['Pronoun' => 'Ze, hir, hirs'],
+        ['Pronoun' => 'Ze, zir, zirs'],
     );
 
     // Possible TODO implement custom sort table

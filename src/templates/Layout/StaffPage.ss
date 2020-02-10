@@ -23,7 +23,7 @@ $Header
                     <% end_if %>
                     <h2>$Position</h2>
                     <ul>
-                        <% if $DisplayPronouns && $Pronouns %>
+                        <% if $DisplayPronouns && $Pronouns || $OtherPronouns %>
                             <li>
                                 <strong>Pronouns:</strong>
 
@@ -31,6 +31,9 @@ $Header
                                 <% loop $Pronouns %>
                                     <li>$Pronoun</li>
                                 <% end_loop %>
+                                <% if $OtherPronouns%>
+                                    <li>$OtherPronouns</li>
+                                <% end_if %>
                                 </ul>
                             </li>
                         <% end_if %>
