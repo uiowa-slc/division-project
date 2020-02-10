@@ -700,8 +700,6 @@
 	position: relative;
 	max-height: 0;
 	margin: 0;
-	transition: all 0.25s ease-in;
-
 	&--light-header{
 
 		@include breakpoint(medium) {
@@ -834,7 +832,7 @@
 .subnav__link {
 	@media (max-width: 640px) {
 		border-bottom: none;
-		padding: 8px 0;
+		padding: 10px;
 		color: #ddd;
 		&:hover, &:focus {
 			color: #ddd;

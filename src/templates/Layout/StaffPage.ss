@@ -13,7 +13,13 @@ $Header
             <div class="main-content__text">
                 <div class="staffpage">
                     <% if $Photo %>
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo.ScaleWidth(945).URL" width="945" height="$Photo.ScaleWidth(945).Height" alt="$Title" role="presentation" class="staffpage__img">
+                        <!-- 0 equals square, 1 equals portrait, and 2 equals landscape -->
+                        <% if $Photo.Orientation == 0 || $Photo.Orientation == 1 %>
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy right" data-original="$Photo.ScaleWidth(400).URL" width="400" height="$Photo.ScaleWidth(400).Height" alt="$Title" role="presentation" class="staffpage__img">
+                        <% else %>
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="$Photo.ScaleWidth(945).URL" width="945" height="$Photo.ScaleWidth(945).Height" alt="$Title" role="presentation" class="staffpage__img">
+                        <% end_if %>
+
                     <% end_if %>
                     <h2>$Position</h2>
                     <ul>
@@ -22,7 +28,7 @@ $Header
                                 <strong>Pronouns:</strong>
 
                                 <ul>
-                                <% loop $Pronouns.Sort('Pronoun DESC') %>
+                                <% loop $Pronouns.Sort('Title DESC') %>
                                     <li>$Pronoun</li>
                                 <% end_loop %>
                                 </ul>

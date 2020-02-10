@@ -127,7 +127,8 @@ $('iframe').each(function(){
 /*-------------------------------------------------*/
 
 $('.nav__item--parent').click(function(event) {
-  if (whatInput.ask() === 'touch') {
+
+  if ((whatInput.ask() === 'touch') && Foundation.MediaQuery.atLeast('medium')) {
 	 // do touch input things
 	 if(!$(this).hasClass('nav__item--is-hovered')){
 		 event.preventDefault();
@@ -195,7 +196,7 @@ $("#site-search__form").focusout(function(){
 });
 
 $('input#site-search__input').autocomplete({
-	 serviceUrl: baseHref+'/home/autoComplete',
+	 serviceUrl: baseHref+'home/autoComplete',
 	 deferRequestBy: 100,
 	 triggerSelectOnValidInput: false,
 	 minChars: 2,
