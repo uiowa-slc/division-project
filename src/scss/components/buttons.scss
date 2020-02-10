@@ -20,6 +20,12 @@
     text-decoration: none;
 }
 
+.button--flex-full{
+	display: flex; 
+	height: 100%; 
+	border-radius: 3px;
+}
+
 
 
 /* Login Button */

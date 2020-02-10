@@ -16,6 +16,12 @@ body > #BetterNavigator {
 	@include grid-row;
 }
 
+
+.grid-container--wpadding{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
 body {
 	transition: background-color 1s;
 	font-size: rem-calc(16);

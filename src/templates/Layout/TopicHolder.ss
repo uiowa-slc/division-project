@@ -3,22 +3,15 @@ $Header
 
 <%--   <% include FeaturedImage %> --%>
 <% with $BackgroundImage %>
-<div class="background-image" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%">
+<div class="background-image" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
+align-items: center;">
 <% end_with %>
-    <div style="position: absolute; bottom: 0; z-index: 999; width: 100%;">
-      <div class="grid-container">
-        <div class="grid-x large-up-2">
-          <div class="cell">
-            <div>
-              <h1 class="background-image__title"><a href="$Link" style="color: white;">$Title</a></h1>
-            </div>
-        </div>
-        <div class="cell">
-            $TopicSearchForm
-        </div>
+    <div style="width: 100%;">
+      <div style="max-width: 700px; margin: auto; text-align: center; z-index:999; position: relative;">
+        <h1 class="background-image__title"><a href="$Link" style="color: white;">$Title</a></h1>
+        $TopicSearchForm
       </div>
     </div>
-  </div>
 </div>
 
 
@@ -29,57 +22,62 @@ $BeforeContent
     <article class="cell">
       $BeforeContentConstrained
 
-      <div class="main-content__text">
+<%--       <div class="main-content__text">
         $Content
-      </div>
-      
+      </div> --%>
+<% if $CurrentCategory || $CurrentTag %>
       <% if $CurrentCategory %>
         <% with $CurrentCategory %>
-          $Content
-          <div class="grid-x grid-padding-x">
-            <div class="cell">
-                 <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
-            </div>
-          </div>
-           <% if $BlogPosts %>
-              <div class="grid-x grid-padding-x small-up-2" style="margin-bottom: 50px;">
-                <% loop $BlogPosts.Limit(4).Sort('LastEdited') %>
-                  <div class="cell">
-                    <h2><a href="$Link">$Title</a></h2>
-                      <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">$Content.LimitCharacters(40).ATT</p>
-                      <p style="font-size: 13px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+<%--           $Content --%>
+          <% if $BlogPosts %>
+
+              <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
+
+                <% loop $BlogPosts.Sort('LastEdited') %>
+                  <div style="max-width: 800px; margin:auto;">
+                    <% include TopicCard %>
                   </div>
                 <% end_loop %>
-              </div>
+       
             <% else %>
               <p>No topics are currently listed.</p>
           <% end_if %>           
         <% end_with %>
       <% else_if $CurrentTag %>
         <% with $CurrentTag %>
-          <div class="grid-x grid-padding-x">
-            <div class="cell">
-                 <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
-            </div>
-          </div>
+
+            <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
+
             <% if $BlogPosts %>
-              <div class="grid-x grid-padding-x small-up-2 medium-up-4">
-                <% loop $BlogPosts.Limit(4).Sort('LastEdited') %>
-                  <div class="cell">
-                    <h2><a href="$Link">$Title</a></h2>
-                    <p>$Content.LimitCharacters(40).ATT</p>
+
+                <% loop $BlogPosts.Sort('LastEdited') %>
+                  <div style="max-width: 800px; margin:auto;">
+                    <% include TopicCard %>
                   </div>
                 <% end_loop %>
-              </div>
+       
             <% else %>
               <p>No topics are currently listed.</p>
-          <% end_if %>
-        <% end_with %>
-      <% end_if %>
+          <% end_if %><%-- /endif BlogPosts --%>
+        <% end_with %><%-- /endwith CurrentTag --%>
+      <% end_if %><%-- /endif CurrentTag --%>
+
+        <div class="grid-x large-up-2" style="margin-top: 200px; border-top: 1px solid #eee; padding-top: 120px;">
+          <div class="cell">
+            <h2 style="margin-top: 0; margin-bottom: 0;">More topics:</h2>
+        </div>
+        <div class="cell">
+            $TopicSearchForm
+        </div>
+      </div>
+  
+<% end_if %><%-- /endif CurrentCategory || CurrentTag --%>
+
     </article>
   </div>
 </div>
-    <% include TopicFooter %>
+
+<% include TopicFooter %>
 
 
     $AfterContentConstrained
