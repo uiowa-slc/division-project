@@ -50,6 +50,9 @@ $Header
             <h2>Located here:</h2>
             $GoogleMap
           <% end_if %>
+          <% if $WebsiteLink %>
+          <p><a href="$WebsiteLink" class="button large">Visit Website</a></p>
+          <% end_if %>
           <% if $Links %>
             <h2>Additional information:</h2>
             <ul>

@@ -20,7 +20,9 @@ use SilverStripe\Blog\Controllers\BlogPostController;
 
 class Topic extends BlogPost {
 
+
 	private static $db = [
+		'WebsiteLink' => 'Varchar(255)',
 		'FeaturedSortOrder' => 'Int',
 	];
 
@@ -71,7 +73,7 @@ class Topic extends BlogPost {
 					)->setShouldLazyLoad(true)->setCanCreate(false);
 
 		$fields->addFieldToTab('Root.Questions', $qField);
-
+		$fields->addFieldToTab('Root.Questions', TextField::create('WebsiteLink', 'Website link'));
 		$linkGrid = new GridField(
 			'Links',
 			'Links relevant to this topic',
