@@ -73,7 +73,7 @@ class Topic extends BlogPost {
 					)->setShouldLazyLoad(true)->setCanCreate(false);
 
 		$fields->addFieldToTab('Root.Questions', $qField);
-		$fields->addFieldToTab('Root.Questions', TextField::create('WebsiteLink', 'Website link'));
+		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link (include https://)'));
 		$linkGrid = new GridField(
 			'Links',
 			'Links relevant to this topic',
