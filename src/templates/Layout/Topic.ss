@@ -13,7 +13,7 @@ $Header
         <h1>$Title</h1>
         <div class="blogmeta">
             <% if $Parent.ShowLastUpdated %>
-            <div class="byline"><p>  <em class="byline__on">Last updated: $LastEdited.Nice</em>
+            <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.Nice</em>
               <% if $Tags %><br />
                   <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
               </p><% end_if %>
@@ -51,7 +51,7 @@ $Header
             $GoogleMap
           <% end_if %>
           <% if $WebsiteLink %>
-          <p><a href="$WebsiteLink" class="button large">Visit Website</a></p>
+          <p><a href="$WebsiteLink" class="button large" target="_blank">Visit Website <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
           <% end_if %>
           <% if $Links %>
             <h2>Additional information:</h2>
@@ -64,6 +64,7 @@ $Header
           <% include TagsCategories %>
         </div>
       </div>
+
       <% include TopicRelated %>
 
       $AfterContentConstrained

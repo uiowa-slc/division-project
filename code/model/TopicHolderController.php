@@ -9,8 +9,10 @@ use SilverStripe\CMS\Search\SearchForm;
 use SilverStripe\ORM\Search\FulltextSearchable;
 use SilverStripe\ORM\FieldType\DBField;
 class TopicHolderController extends BlogController{
+
 	private static $allowed_actions = array(
-		'TopicSearchForm'
+		'TopicSearchForm',
+        'results'
 	);
 
     public function TopicSearchForm() {

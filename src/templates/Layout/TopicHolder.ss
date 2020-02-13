@@ -1,6 +1,6 @@
 $Header
 <main class="main-content__container" id="main-content__container">
-$Breadcrumbs
+
 <%--   <% include FeaturedImage %> --%>
 <% with $BackgroundImage %>
 <div class="background-image" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
@@ -16,22 +16,28 @@ align-items: center;">
 
 
 $BeforeContent
-
+  $Breadcrumbs
 <div class="grid-container">
+
   <div class="grid-x grid-padding-x">
     <article class="cell">
+
       $BeforeContentConstrained
 
-<%--       <div class="main-content__text">
+<% if not $CurrentCategory && not $CurrentTag %>
+      <div class="main-content__text">
         $Content
-      </div> --%>
+      </div>
+<% end_if %>
 <% if $CurrentCategory || $CurrentTag %>
+
       <% if $CurrentCategory %>
         <% with $CurrentCategory %>
 <%--           $Content --%>
+              <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
           <% if $BlogPosts %>
 
-              <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
+
 
                 <% loop $BlogPosts.Sort('LastEdited') %>
                   <div style="max-width: 800px; margin:auto;">

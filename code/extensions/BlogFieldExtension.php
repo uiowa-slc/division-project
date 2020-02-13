@@ -58,7 +58,9 @@ class BlogFieldExtension extends DataExtension {
 	public function RelatedNewsEntries(){
 		$holder = Blog::get()->First();
 		$tags = $this->owner->Tags()->limit(6);
+		$cats = $this->owner->Categories()->limit(6);
 		$entries = new ArrayList();
+
 
 		foreach($tags as $tag){
 			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'DESC')->Limit(3);
@@ -71,7 +73,19 @@ class BlogFieldExtension extends DataExtension {
 			}
 
 		}
+		foreach($cats as $cat){
+			$taggedEntries = $cat->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'DESC')->Limit(3);
 
+			if($taggedEntries){
+				foreach($taggedEntries as $taggedEntry){
+					if($taggedEntry->ID){
+						$entries->push($taggedEntry);
+					}
+				}
+			}
+
+		}
+		
 		if($entries->count() > 1){
 			$entries->removeDuplicates();
 		}
