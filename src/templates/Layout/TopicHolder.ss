@@ -33,8 +33,13 @@ $BeforeContent
 
       <% if $CurrentCategory %>
         <% with $CurrentCategory %>
-<%--           $Content --%>
-              <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
+            <%-- Hiding content for now: --%>
+            <%--$Content --%>
+              <% if $Up.TermPlural %>
+                <h2>{$Up.TermPlural} listed under {$Title}:</h2>
+              <% else %>
+                <h2>Listed under {$Title}:</h2>
+              <% end_if %>
           <% if $BlogPosts %>
 
 
@@ -51,8 +56,11 @@ $BeforeContent
         <% end_with %>
       <% else_if $CurrentTag %>
         <% with $CurrentTag %>
-
-            <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Listed under {$Title}:</h2>
+            <% if $TermPlural %>
+              <h2>{$TermPlural} listed under {$Title}:</h2>
+            <% else %>
+              <h2>Listed under {$Title}:</h2>
+            <% end_if %>
 
             <% if $BlogPosts %>
 
@@ -70,7 +78,12 @@ $BeforeContent
 
         <div class="grid-x large-up-2" style="margin-top: 200px; border-top: 1px solid #eee; padding-top: 120px;">
           <div class="cell">
-            <h2 style="margin-top: 0; margin-bottom: 0;">More topics:</h2>
+            <% if $TermPlural %>
+              <h2 style="margin-top: 0; margin-bottom: 0;">More {$TermPlural}:</h2>
+            <% else %>
+              <h2 style="margin-top: 0; margin-bottom: 0;">More:</h2>
+            <% end_if %>
+            
         </div>
         <div class="cell">
             $TopicSearchForm

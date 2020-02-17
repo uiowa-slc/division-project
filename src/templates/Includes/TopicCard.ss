@@ -27,12 +27,12 @@
 			<div class="byline">
 				<p><em class="byline__on">Updated </em><span class="byline__on">on </span><time datetime="$LastEdited.format(c)" itemprop="datePublished">$LastEdited.format("MMMM d, y")</time></p>
 
-				
+
 			</div>
         <% if $Categories.exists %>
             <p class="blogcard__category">
                 <% loop $Categories %>
-                    <a href="$Link" class="button hollow tiny secondary">$Title</a>
+                    <a href="$Link" class="button hollow tiny secondary" style="border-radius: 3px;">$Title</a>
                 <% end_loop %>
             </p>
         <% end_if %>

@@ -14,8 +14,8 @@ $Header
         <div class="blogmeta">
             <% if $Parent.ShowLastUpdated %>
             <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.Nice</em>
-              <% if $Tags %><br />
-                  <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
+              <% if $Categories.Count == 1 %><br />
+                  <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
               </p><% end_if %>
             </div>
             <% end_if %>

@@ -29,7 +29,9 @@ class TopicHolder extends Blog {
         'TagTabHeading' => 'Varchar(155)',
 
         'AllTopicsTabTitle' => 'Varchar(155)',
-        'AllTopicsTabHeading' => 'Varchar(155)'
+        'AllTopicsTabHeading' => 'Varchar(155)',
+
+        'TermPlural' => 'Varchar(155)'
 	);
 
 
@@ -49,16 +51,16 @@ class TopicHolder extends Blog {
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
-		$questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
-		$questionGridField->setConfig($questionGridFieldConfig);
+		// $questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
+		// $questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
+		// $questionGridField->setConfig($questionGridFieldConfig);
 
-        $fields->addFieldToTab('Root.Terminology', TextField::create('Heading', 'Heading above search box (default: Search for a topic below'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('NoTopicsText', 'Text to display if there aren\'t any topics. (default: No topics currently listed.'));
+  //       $fields->addFieldToTab('Root.Terminology', TextField::create('Heading', 'Heading above search box (default: Search for a topic below'));
+  //       $fields->addFieldToTab('Root.Terminology', TextField::create('NoTopicsText', 'Text to display if there aren\'t any topics. (default: No topics currently listed.'));
 
         //All topics by title:
 
-		$fields->addFieldToTab('Root.Questions', $questionGridField);
+		// $fields->addFieldToTab('Root.Questions', $questionGridField);
 
         $featuredGridFieldConfig = GridFieldConfig_RelationEditor::create();
         $featuredGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
@@ -73,11 +75,19 @@ class TopicHolder extends Blog {
 	}
     public function getSettingsFields(){
         $fields = parent::getSettingsFields();
+
+        $fields->addFieldToTab('Root.Settings', TextField::create('TermPlural', 'Plural term for topics (ex: "Resources," "Entries," defaults to empty):')->addExtraClass('stacked'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
-        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
-        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
+        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
+        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
         return $fields;
 
+    }
+
+    public function getBreadcrumbs(){
+        $breadcrumbs = parent::getBreadCrumbs();
+        print_r($breadcrumbs);
+        return $breadcrumbs;
     }
     public function AllTags()
     {

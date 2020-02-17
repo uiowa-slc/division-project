@@ -5,7 +5,11 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="cell">
-             <h2 class="topicholder-section__heading">Featured Topics</h2>
+          <% if $TermPlural %>
+            <h2 class="topicholder-section__heading">Featured $TermPlural</h2>
+          <% else %>
+            <h2 class="topicholder-section__heading">Featured Topics</h2>
+          <% end_if %>
         </div>
       </div>
       <div class="grid-x grid-padding-x small-up-2 medium-up-4">
@@ -24,21 +28,25 @@
       <% if $AllCats || $AllTags %>
         <div class="grid-x grid-padding-x">
           <div class="cell">
-               <h2 class="topicholder-section__heading">Browse by...</h2>
+          <% if $TermPlural %>
+            <h2 class="topicholder-section__heading">Browse $TermPlural by...</h2>
+          <% else %>
+            <h2 class="topicholder-section__heading">Browse by...</h2>
+          <% end_if %>
           </div>
         </div>
       <% end_if %>
       <% if $AllCats %>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4 large-up-6"  data-equalizer>
           <% loop $AllCats.Sort('Title ASC') %>
-            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto; ">$Title</span></a></div>
+            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto; ">$Title <span style="font-size: 14px; font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
       <% end_if %>
       <% if $AllTags %>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4 large-up-6"  data-equalizer>
           <% loop $AllTags.Sort('Title ASC') %>
-            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto;">$Title</span></a></div>
+            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto;">$Title <span style="font-size: 14px font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
       <% end_if %>
@@ -53,7 +61,12 @@
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
             <div class="cell">
-                <h2 class="topicholder-section__heading">Browse All</h2>
+                <% if $TermPlural %>
+                  <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
+                <% else %>
+                  <h2 class="topicholder-section__heading">Browse all</h2>
+                <% end_if %>
+
                  <ul class="topicholder-all-list">
                    <% loop $AllCats.Sort('Title ASC') %>
                       <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
@@ -67,9 +80,6 @@
                         </li>
                     <% end_loop %>
 
-<%--                   <% loop $BlogPosts.Sort('Title ASC') %> 
-                    <li style="list-style-type: none;"><h3 style="font-size: 17px; margin-bottom: 5px; margin-top: 0;"><a style="color: #666;" href="$Link">$Title</a></h3></li>
-                  <% end_loop %> --%>
                 </ul>
             </div>
           </div>
@@ -81,7 +91,11 @@
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
             <div class="cell">
-               <h2 class="topicholder-section__heading">Browse All</h2>
+                <% if $TermPlural %>
+                  <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
+                <% else %>
+                  <h2 class="topicholder-section__heading">Browse all</h2>
+                <% end_if %>
                  <ul class="topicholder-all-list">
                    <% loop $AllTags.Sort('Title ASC') %>
                       <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
@@ -109,7 +123,11 @@
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
             <div class="cell">
-                 <h2 class="topicholder-section__heading">Browse all</h2>
+                <% if $TermPlural %>
+                  <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
+                <% else %>
+                  <h2 class="topicholder-section__heading">Browse all</h2>
+                <% end_if %>
                  <ul class="topicholder-all-list">
                    <% loop $TopicsByLetter %>
                         <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
@@ -132,10 +150,12 @@
   <section class="topicholder-featured topicholder-section topicholder-section--light-gray">
       <div class="grid-container grid-container--wpadding">
         <div class="grid-x grid-padding-x">
-          <div class="cell">
-               <h2 class="topicholder-section__heading">Recently Updated</h2>
+                <% if $TermPlural %>
+                  <h2 class="topicholder-section__heading">Recently updated $TermPlural.LowerCase</h2>
+                <% else %>
+                  <h2 class="topicholder-section__heading">Recently updated</h2>
+                <% end_if %>
           </div>
-        </div>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4">
           <% loop $BlogPosts.Limit(4).Sort('LastEdited DESC') %>
             <div class="cell">
@@ -146,5 +166,5 @@
           <% end_loop %>
         </div>
     </div>
-  </div>
+</section>
 

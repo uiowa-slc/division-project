@@ -18,12 +18,20 @@ class TopicHolderController extends BlogController{
     public function TopicSearchForm() {
 
             $searchText =  'Search entries under '.$this->owner->Title;
+            $termPlural = $this->owner->obj('TermPlural');
 
             if($this->owner->request && $this->owner->request->getVar('Search')) {
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search for entries on this site');
+            if($termPlural){
+                $searchField->setAttribute('placeholder', 'Search for '.$termPlural->LowerCase().' on this site');
+            }else{
+                $searchField->setAttribute('placeholder', 'Search for entries in this section');
+            }
+
+
+            
             $searchField->setFieldHolderTemplate('TopicSearchFormField_holder');
             $searchField->setAttribute('class', 'topic-search-form__input');
 
