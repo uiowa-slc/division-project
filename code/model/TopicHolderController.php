@@ -24,11 +24,7 @@ class TopicHolderController extends BlogController{
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            if($termPlural){
-                $searchField->setAttribute('placeholder', 'Search for '.$termPlural->LowerCase().' on this site');
-            }else{
-                $searchField->setAttribute('placeholder', 'Search for entries in this section');
-            }
+            $searchField->setAttribute('placeholder', 'Search for entries in this section');
 
 
             

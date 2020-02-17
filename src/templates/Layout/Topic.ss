@@ -45,6 +45,9 @@ $Header
       $BeforeContentConstrained
       <div class="main-content__text">
         <div class="content">
+          <% if $FeaturedImage %>
+                <p><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.ScaleWidth(860).URL" alt="" role="presentation" width="840" height="$FeaturedImage.ScaleWidth(860).Height" /></p>
+          <% end_if %>
           $Content
           <% if $Address || $Location %>
             <h2>Located here:</h2>

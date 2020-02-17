@@ -23,12 +23,15 @@
     		<% else %>
     			<p class="blogcard__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
     		<% end_if %>
-
+        <% if $WebsiteLink %>
+        <p><a href="$WebsiteLink" target="_blank" style="font-size: 14px; text-decoration: underline;">{$Title} - Website Link <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+        <% end_if %>
 			<div class="byline">
 				<p><em class="byline__on">Updated </em><span class="byline__on">on </span><time datetime="$LastEdited.format(c)" itemprop="datePublished">$LastEdited.format("MMMM d, y")</time></p>
 
 
 			</div>
+
         <% if $Categories.exists %>
             <p class="blogcard__category">
                 <% loop $Categories %>
@@ -36,5 +39,6 @@
                 <% end_loop %>
             </p>
         <% end_if %>
+
 	</div>
 </article>
