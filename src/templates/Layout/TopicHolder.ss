@@ -35,15 +35,14 @@ $BeforeContent
         <% with $CurrentCategory %>
             <%-- Hiding content for now: --%>
             <%--$Content --%>
+            <div class="main-content__header">
               <% if $Up.TermPlural %>
-                <h2>{$Up.TermPlural} listed under {$Title}:</h2>
+                 <h1>{$Up.TermPlural} listed under {$Title}:</h1>
               <% else %>
-                <h2>Listed under {$Title}:</h2>
+                <h1>Listed under {$Title}:</h1>
               <% end_if %>
+            </div>      
           <% if $BlogPosts %>
-
-
-
                 <% loop $BlogPosts.Sort('LastEdited') %>
                   <div style="max-width: 800px; margin:auto;">
                     <% include TopicCard %>
@@ -56,12 +55,13 @@ $BeforeContent
         <% end_with %>
       <% else_if $CurrentTag %>
         <% with $CurrentTag %>
+        <div class="main-content__header">
             <% if $TermPlural %>
-              <h2>{$TermPlural} listed under {$Title}:</h2>
+              <h1>{$TermPlural} listed under {$Title}:</h1>
             <% else %>
-              <h2>Listed under {$Title}:</h2>
+              <h1>Listed under {$Title}:</h1>
             <% end_if %>
-
+        </div>
             <% if $BlogPosts %>
 
                 <% loop $BlogPosts.Sort('LastEdited') %>

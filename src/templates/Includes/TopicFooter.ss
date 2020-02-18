@@ -39,14 +39,14 @@
       <% if $AllCats %>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4"  data-equalizer>
           <% loop $AllCats.Sort('Title ASC') %>
-            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto; ">$Title <span style="font-size: 14px; font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
+            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto; ">$Title&nbsp;<span style="font-size: 14px; font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
       <% end_if %>
       <% if $AllTags %>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4"  data-equalizer>
           <% loop $AllTags.Sort('Title ASC') %>
-            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto;">$Title <span style="font-size: 14px font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
+            <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto;">$Title&nbsp;<span style="font-size: 14px font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
       <% end_if %>
