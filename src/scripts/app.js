@@ -104,15 +104,22 @@ $('.slideshow').each(function() { // the containers for all your galleries
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-//Wrap every iframe in a responsive embed class to prevent layout breakage
+//Wrap every YouTube iframe in a responsive embed class to prevent layout breakage
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-$('iframe').each(function(){
+$('iframe[src*="youtube"]').each(function(){
 	if((!$(this).parent().hasClass('responsive-embed')) && (!$(this).parent().hasClass('unresponsive-embed'))){
 		$(this).wrap( "<div class='responsive-embed widescreen'></div>" );
 	}
 });
 
+$('iframe').each(function(){
+	if((!$(this).parent().hasClass('responsive-embed')) && (!$(this).parent().hasClass('unresponsive-embed'))){
+		$(this).wrap( "<div class='responsive-embed'></div>" );
+	}
+});
+
+	
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Distinguish dropdowns on mobile/desktop:
@@ -120,7 +127,8 @@ $('iframe').each(function(){
 /*-------------------------------------------------*/
 
 $('.nav__item--parent').click(function(event) {
-  if (whatInput.ask() === 'touch') {
+
+  if ((whatInput.ask() === 'touch') && Foundation.MediaQuery.atLeast('medium')) {
 	 // do touch input things
 	 if(!$(this).hasClass('nav__item--is-hovered')){
 		 event.preventDefault();
@@ -188,7 +196,7 @@ $("#site-search__form").focusout(function(){
 });
 
 $('input#site-search__input').autocomplete({
-	 serviceUrl: baseHref+'/home/autoComplete',
+	 serviceUrl: baseHref+'home/autoComplete',
 	 deferRequestBy: 100,
 	 triggerSelectOnValidInput: false,
 	 minChars: 2,

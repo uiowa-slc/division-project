@@ -28,9 +28,11 @@ class DivisionPage extends DataExtension {
 		'OgDescription' => 'Text',
 		'PreventSearchEngineIndex' => 'Boolean',
 		'LayoutType' => 'Varchar(155)',
-		'YoutubeBackgroundEmbed' => 'Text',
+		'YoutubeBackgroundEmbed' => 'Varchar(11)',
 		'ShowChildPages' => 'Boolean(1)',
-		'ShowChildrenInDropdown' => 'Boolean(1)'
+		'ShowChildrenInDropdown' => 'Boolean(1)',
+		'FullImageAltText' => 'Text',
+		'DarkMode' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -72,6 +74,7 @@ class DivisionPage extends DataExtension {
 	private static $layout_types = array(
 		'BackgroundVideo' => 'Background Video, Overlay',
 		'BackgroundImage' => 'Background Image, Overlay',
+		'FullImage' => 'Full-sized image, not a background',
 		'NoSideNav' => 'No side navigation (even if this page has child pages)'
 	);
 
@@ -187,10 +190,17 @@ class DivisionPage extends DataExtension {
 		}
 
 
-		$f->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
+		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
 		$f->addFieldsToTab("Root.Main", array(
-			$embed = TextField::create("YoutubeBackgroundEmbed","Enter the Youtube embed code.")
-      ));
+			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
+		)), 'LayoutType');
+		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
+		$f->addFieldsToTab("Root.Main", array(
+			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
+		)->addExtraClass('stacked')), 'LayoutType');
+		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
+
+
 
 	}
 
@@ -202,6 +212,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode','Dark Mode (Experimental)'));
 
 	}
 
@@ -217,7 +228,7 @@ class DivisionPage extends DataExtension {
 		}
 	}
 
-	public function DarkLight(){
+	public function DarkLightHeader(){
 		$siteConfig = SiteConfig::current_site_config();
 		$owner = $this->owner;
 
@@ -225,7 +236,7 @@ class DivisionPage extends DataExtension {
 		if($owner->pageTypeTheme){
 			return $owner->pageTypeTheme;
 		//Check page's individual CMS setting:
-		}elseif($owner->UseDarkThemeOnThisPage){
+		}elseif($owner->DarkMode){
 			return 'dark-header';
 		//Otherwise, check global settings
 		}elseif($siteConfig->UseDarkTheme){
@@ -257,9 +268,12 @@ class DivisionPage extends DataExtension {
 
 		$str = $this->owner->Content;
 
-		if($str != ''){
-			$dom = new DOMDocument();
-			$dom->loadHTML($str);
+		if((empty($str)) || ($str == '')){
+			return null;
+		}
+
+		$dom = new DOMDocument();
+		$dom->loadHTML($str);
 
 			$xp = new DOMXPath($dom);
 

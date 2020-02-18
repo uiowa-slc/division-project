@@ -34,25 +34,22 @@
 	@include breakpoint(xlarge) {
 		padding-bottom: rem-calc(650);
 	}
-
 }
 
 .background-image {
-	background-color: #242424;
+	background-color: $black;
 	background-position: center;
 	background-size: cover;
-	color: #fff;
+	color: $white;
 	min-height: 300px;
 	overflow: hidden;
 	position: relative;
 	&__header {
-		color: #fff;
+		color: $white;
 		padding: rem-calc(150) 0 rem-calc(30);
 		position: absolute;
 		bottom: 0;
 		z-index: 1;
-
-
 	}
 
 	&__header--has-content{
@@ -100,7 +97,7 @@
 .backgroundvideo {
 	position: relative;
 	&__container {
-		background-color: #000;
+		background-color: $black;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
@@ -113,11 +110,10 @@
 		}
 		@include breakpoint(large) {
 			height: 500px;
-			background-position: center top;
 		}
 	}
 	&__container.on {
-		background: #000;
+		background: $black;
 		height: auto;
 		background-image: none !important;
 		transition: all 0.5s ease;

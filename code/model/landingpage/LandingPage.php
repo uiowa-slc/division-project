@@ -38,7 +38,8 @@ class LandingPage extends Page {
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
 
 	);
-	private static $icon = 'resources/vendor/md/division-project/cms-icons/airport.png';
+	
+	private static $icon_class = 'font-icon-rocket';
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -46,8 +47,8 @@ class LandingPage extends Page {
 		$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Content');
 
-$fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header Image (1600 x 800 if there\'s a header logo and header text)'));
-		$fields->addFieldToTab('Root.Main', TextField::create('HeaderImageAltText','Header Image Alt Text (if there is text in the main image, but no logo + header text uploaded)'));
+$fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header Image (1600 x 800 if there\'s a header logo and header text)')->addExtraClass('stacked'));
+		$fields->addFieldToTab('Root.Main', TextField::create('HeaderImageAltText','Header Image Alt Text (if there is text in the main image, but no logo + header text uploaded)')->addExtraClass('stacked'));
 
 
 		$fields->addFieldToTab('Root.Main', $headerLogoField = UploadField::create('HeaderLogo', 'Header logo'));
@@ -58,7 +59,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 		$headerTextField->displayIf('LayoutType')->isEqualTo('BackgroundImage');
 				$fields->addFieldToTab('Root.Main', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
-		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content'));
+		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', UploadField::create('SecondaryImage','Secondary Image (shows in main content area)'));
 
 

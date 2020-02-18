@@ -43,7 +43,7 @@ class DirectoryPage extends BlogPost {
 		$fields->addFieldToTab( 'Root.Main', new TextField("PhoneNumber", "Phone Number"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("EmailAddress", "Email Address"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("Website", "Website"));
-		$fields->addFieldToTab( 'Root.Main', new HTMLEditorField("AdditionalInfo", "Additional Info"));
+		$fields->addFieldToTab( 'Root.Main', HTMLEditorField::create("AdditionalInfo", "Additional Info")->addExtraClass('stacked'));
 
 
 		$fields->removeByName('Content');

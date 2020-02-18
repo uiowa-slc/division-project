@@ -28,9 +28,9 @@
 			visibility: visible;
 		}
 		&--dark-header {
-			color: #fff;
+			color: $white;
 			&:hover, &:focus {
-				color: #fff;
+				color: $white;
 			}
 		}
 	}

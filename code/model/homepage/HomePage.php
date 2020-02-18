@@ -33,6 +33,8 @@ class HomePage extends Page {
         'Legacy' => 'Old style - Shuffled Background Features and Hero Features'
     );
 
+    private static $icon_class = 'font-icon-p-home';
+
     public function getCMSFields() {
         $f = parent::getCMSFields();
 

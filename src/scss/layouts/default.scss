@@ -70,18 +70,13 @@ img:not([src]) {
 			padding-left: rem-calc(50);
 		}
 		@include breakpoint(xxlarge) {
-			padding-left: 0;
+			padding-left: 1.25rem;
 		}
 	}
 
 	&--with-sidebar {
 		@include breakpoint(large) {
 			@include grid-column-offset(0);
-		}
-		& .main-content__text {
-			@include breakpoint(medium) {
-				padding-right: rem-calc(20);
-			}
 		}
 	}
 
@@ -105,16 +100,9 @@ img:not([src]) {
 		& > h2:first-child, & > h3:first-child {
 			margin-top: 0;
 		}
-
-		img{
-			display: block;
-			float: none !important;
-			@include breakpoint(medium) {
-				width: auto;
-				display: inherit;
-				float: inherit;
-			}
-		}
+        & p a {
+            text-decoration: underline;
+        }
 	}
 
 	&__main-img{
@@ -168,6 +156,13 @@ img:not([src]) {
 	}
 }
 
+.full-image{
+
+	&__img{
+		display: block;
+		width: 100%;
+	}
+}
 .sidebar {
 	@include grid-column(12);
 	margin: rem-calc(20 0);

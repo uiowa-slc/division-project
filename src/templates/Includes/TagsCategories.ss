@@ -1,26 +1,26 @@
 <% if $Categories.exists || $Tags.exists ||$Departments.exists %>
-	<div class="blog-post-meta">
+	<div class="tags-categories">
 		<% if $Departments.exists %>
-			<p class="tags">Department:
+			<p>Department:
 				<% loop $Departments %>
-					<a href="$NewsLink">$Title</a><% if not Last %><% else %><% end_if %>
+					<a href="$NewsLink" class="button small hollow secondary">$Title</a><% if not Last %><% else %><% end_if %>
 				<% end_loop %>
 			</p>
 		<% end_if %>
 
 		<% if $Categories.exists %>
-			<p class="tags">Category:
-			<% loop $Categories %>
-				<a href="$Link">$Title</a><% if not Last %><% else %><% end_if %>
-			<% end_loop %>
+			<p>Category:
+    			<% loop $Categories %>
+    				<a href="$Link" class="button small hollow secondary">$Title</a><% if not Last %><% else %><% end_if %>
+    			<% end_loop %>
 			</p>
 		<% end_if %>
 
 		<% if $Tags.exists %>
-			<p class="tags">Tagged:
-			<% loop $Tags %>
-				<a href="$Link">$Title</a><% if not Last %><% else %><% end_if %>
-			<% end_loop %>
+			<p>Tagged:
+    			<% loop $Tags %>
+    				<a href="$Link" class="button small hollow secondary">$Title</a><% if not Last %><% else %><% end_if %>
+    			<% end_loop %>
 			</p>
 		<% end_if %>
 	</div>

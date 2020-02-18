@@ -1,4 +1,14 @@
-.element{
-	margin-top: rem-calc(10);
-	margin-bottom: rem-calc(10);
+// .element{
+// 	margin-top: rem-calc(10);
+// 	margin-bottom: rem-calc(10);
+// }
+.element-title {
+    margin-top: 0;
+    border-top: 5px solid $highlight;
+    padding-top: 60px;
+    text-transform: uppercase;
+    display: inline-block;
+    .elemental-area--BeforeContent & {
+        border-top: none; // hide border when inside BeforeContent block
+    }
 }

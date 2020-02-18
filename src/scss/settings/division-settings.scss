@@ -3,20 +3,25 @@
 /* Branding and Colors
 ----------------------------------------------------*/
 $foundation-palette: (
-	primary: #005c99,
-	secondary: #3381AF,
-	success: #9FD392,
-	warning: #FAE4B8,
-	alert: #F29DA8,
+	primary: #005994,
+	secondary: #6e6e6e,
+	success: #3adb76,
+	warning: #ffae00,
+	alert: #cc4b37,
 );
+$button-palette: map-merge($foundation-palette, (
+    gold: #ffcd00,
+    black: #212121,
+)) !default;
+$button-background-hover-lightness: -15%;
 
-$light-gray: #f4f4f4;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #222;
+// Grayscale
+$light-gray: #e5e5e5;
+$medium-gray: #a5a5a5;
+$dark-gray: #555;
+$black: #212121;
 $white: #fefefe;
 $cream: #f8f6f3;
-
 $yellow: #ffcd00;
 
 //Main Highlight color:
@@ -36,7 +41,7 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: 700;
-$global-radius: 0;
+$global-radius: 1px;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
@@ -60,7 +65,7 @@ $anchor-text-decoration-hover: none;
 $header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
 $header-font-weight: 800;
 $header-font-style: normal;
-$header-lineheight: 1.4;
+$header-lineheight: 1.2;
 $header-margin-bottom: rem-calc(18);
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 
@@ -108,6 +113,7 @@ $header-margin-bottom: 1rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
+$prototype-separator-background: $black;
 
 
 /* Breakpoints
@@ -131,6 +137,11 @@ $grid-column-gutter: (
 	small: 20px,
 	medium: 40px,
 );
+$grid-margin-gutters: (
+    small: 20px,
+    medium: 40px,
+);
+
 $grid-column-align-edge: true;
 $block-grid-max: 8;
 

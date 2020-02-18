@@ -1,12 +1,12 @@
 //Flickity custom styles only, Flickity itself is in scss/lib/flickity
 
 .flickity-button-icon {
-  fill: $yellow;
+  fill: $highlight;
 
 
 }
 .flickity-button {
-  background-color: #242424;
+  background-color: $black;
     &:hover{
       background-color: #333;
     }

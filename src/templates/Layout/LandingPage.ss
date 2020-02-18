@@ -1,5 +1,5 @@
 
-<div class="header__container header__container--{$DarkLight} header__container--{$HeaderType}">
+<div class="header__container header__container--{$DarkLightHeader} header__container--{$HeaderType}">
 	<% include DivisionBar %>
 </div>
 
@@ -72,7 +72,7 @@
 	$BeforeContent
 
 	<div class="row">
-		<article role="main" id="page-content" class="main-content <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
+		<article id="page-content" class="main-content <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
 			<% if $ShowBreadcrumbs %>
 				$Breadcrumbs
 			<% end_if %>

@@ -32,7 +32,7 @@ class UpcomingEventsBlock extends BaseElement{
 		'LimitEvents' => 3
 	);
 	public function EventList(){
-		$calendar = $this->Calendar();
+		$calendar = UiCalendar::getOrCreate();
 
 		$numEvents = $this->LimitEvents;
 

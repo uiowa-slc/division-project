@@ -1,5 +1,12 @@
 <?php
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+
 class PlanCategory extends DataObject {
 
 	private static $db = array(
@@ -23,17 +30,14 @@ class PlanCategory extends DataObject {
 	);
 
 	private static $summary_fields = array(
-		'Title',
-		'Column1Heading',
-		'Column2Heading',
-		'Column3Heading'
+		'Title'
 	);
 
 	private static $defaults = array(
 		'Column1Heading' => 'Recommendation',
 		'Column2Heading' => 'Updates',
 		'Column2Content' => '<ul><li>No updates at this time.</li></ul>',
-		'Column3Heading' => ' test '
+		'Column3Heading' => '',
 	);
 
 	private static $default_sort = 'SortOrder';
@@ -43,7 +47,7 @@ class PlanCategory extends DataObject {
 
 		$fields->push(TextField::create('Title', 'Title'));
 
-		$fields->push(HTMLEditorField::create('Content', 'Intro')->setRows(4));
+		$fields->push(HTMLEditorField::create('Content', 'Intro')->setRows(4)->addExtraClass('stacked'));
 
 		// $fields->push(new TextField('Column1Heading'));
 

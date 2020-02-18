@@ -1,7 +1,7 @@
 <div class="eventcard">
 
 	<%-- image --%>
-	<div class="eventcard-imgwrap">
+	<div class="eventcard__imgwrap">
 		<% if $Image.URL %>
 			<a href="$Link"><div style="background-image: url($Image.URL);">$Title</div></a>
 			<%-- <img src="$Image.URL" alt="$Title" class="eventcard-img"> --%>
@@ -14,18 +14,19 @@
 		<% end_if %>
 	</div>
 
-	<div class="clearfix eventcard-content">
-		<p class="eventcard-title">
+	<div class="clearfix eventcard__content">
+		<h3 class="eventcard__title">
 			<a href="$Link">
-				<span>$Title</span><% if Event.CancelReason %>
+				$Title <% if Event.CancelReason %>
 				<div class="homepage-cancel-reason">
 					Note: $Event.CancelReason</div><% end_if %>
 			</a>
-		</p>
+		</h3>
 
 		<%-- Dates --%>
 		<% if $Dates %>
-			<p class="eventcard-dates">
+			<p class="eventcard__dates">
+                <img src="{$ThemeDir}/dist/images/calendar-bw.png" alt="calendar icon">
 				<% loop $Dates.Limit(1) %>
 					<% include DateTimesList %>
 				<% end_loop %>
@@ -36,13 +37,14 @@
 
 		<%-- Venue --%>
 		<% if $Venue %>
-			<p class="eventcard-venue">
-				$Venue.Title
+			<p class="eventcard__venue">
+				<img src="{$ThemeDir}/dist/images/location-bw.png" alt="location icon">
+                $Venue.Title
 			</p>
 		<% end_if %>
 
 		<%-- Summary --%>
-		<p class="eventcard-summary">$Content.Summary(30)</p>
+		<p class="eventcard__summary">$Content.Summary(30)</p>
 	</div>
 </div>
 

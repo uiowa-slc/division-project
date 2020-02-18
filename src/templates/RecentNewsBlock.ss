@@ -1,45 +1,46 @@
 <% if $AreaName == "AfterContent" %>
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
-	<div class="content-block row">
-		<div class="newsblock">
-			<div class="column">
-				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-			</div>
-			<ul class="medium-up-3 ">
-				<% loop $Entries %>
-					<li class="column column-block">
-						<% include BlogCard %>
-					</li>
-				<% end_loop %>
-			</ul>
-		</div>
-	</div>
+    <div class="newsblock">
+        <div class="grid-container">
+            <div class="">
+                <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
+            </div>
+            <div class="news-slider" data-flickity='{ "wrapAround": true, "watchCSS": true, "prevNextButtons": false, "adaptiveHeight": true }'>
+                <% loop $Entries %>
+                    <div class="news-slider-cell">
+                        <% include BlogCard %>
+                    </div>
+                <% end_loop %>
+            </div>
+        </div>
+    </div>
 </section>
 
 <% else_if $AreaName == "BeforeContent" %>
 <section class="content-block__container recentnews" aria-labelledby="Block$ID">
-	<div class="content-block row">
-		<div class="newsblock">
-			<div class="column">
-				<h3 class="newsblock-title text-center" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
-			</div>
-			
-			<ul class="medium-up-3 ">
-				<% loop $Entries %>
-					<li class="column column-block">
-						<% include BlogCard %>
-					</li>
-				<% end_loop %>
-			</ul>
-		</div>
-	</div>
+    <div class="newsblock">
+        <div class="grid-container">
+            <div class="">
+                <h3 class="element-title" id="Block$ID"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h3>
+            </div>
+            <div class="news-slider" data-flickity='{ "wrapAround": true, "watchCSS": true, "prevNextButtons": false, "adaptiveHeight": true }'>
+                <% loop $Entries %>
+                    <div class="news-slider-cell">
+                        <% include BlogCard %>
+                    </div>
+                <% end_loop %>
+            </div>
+        </div>
+    </div>
 </section>
+
 <% else_if $AreaName == "SidebarArea" %>
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="newsblock">
-			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
-
+			<h2 id="Block$ID" class="sidebar-sect-title">
+                <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
+            </h2>
 			<ul>
 				<% loop $Entries %>
 					<% include RecentNewsContent %>
@@ -48,11 +49,14 @@
 		</div>
 	</div>
 </section>
+
 <% else %>
 <section class="content-block__container" aria-labelledby="Block$ID">
 	<div class="content-block row column">
 		<div class="newsblock">
-			<h2 id="Block$ID" class="newsblock__header"><% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %></h2>
+			<h3 id="Block$ID">
+                <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
+            </h3>
 			<% loop $Entries %>
 				<% include BlogCard %>
 			<% end_loop %>

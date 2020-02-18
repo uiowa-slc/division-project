@@ -1,87 +1,94 @@
-
 /* ----------------------------------------------------------
 News
 ------------------------------------------------------------*/
 .newsblock {
 	overflow: hidden;
-	padding: 0 0 60px 0;
-	background-color: $cream;
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+    @include breakpoint(medium) {
+        padding-bottom: rem-calc(30);
+    }
+    .sidebar & {
+        padding-bottom: 0; // remove padding in sidebar
+    }
 }
-.newsblock-title {
-	margin-top: 0;
-	border-top: 5px solid $highlight;
-	padding-top: 60px;
-	text-transform: uppercase;
-	display: inline-block;
+
+/*-----------------------------------------
+After Content Constrained | Before Content Constrained
+-------------------------------------------*/
+.elemental-area--AfterContentConstrained .newsblock,
+.elemental-area--BeforeContentConstrained .newsblock {
+    background-color: inherit;
+    & .blogcard {
+        border-bottom: 1px solid $light-gray;
+        padding: rem-calc(15 0);
+        &__heading {
+            font-size: rem-calc(22);
+        }
+    }
 }
-.newsblock ul {
-	list-style: none;
-	margin: 0 auto;
+
+/*-----------------------------------------
+After Content | Before Content
+-------------------------------------------*/
+.elemental-area--AfterContent .newsblock,
+.elemental-area--BeforeContent .newsblock {
+    & .blogcard {
+        &__img {
+            display: none;
+        }
+        &__content--wimage {
+            margin-right: 0;
+        }
+    }
 }
-.newsblock .bloglistitem {
-	border: none;
-	padding-top: rem-calc(18);
-	@media (min-width: 480px) {
-		&__img {
-			float: right;
-			width: 30%;
-			margin-top: 6px;
-			margin-bottom: .75em;
-			margin-left: .75em;
-		}
-		&__content--wimage {
-			margin-right: 0;
-		}
-	}
-	@include breakpoint(large) {
-		&__img {
-			width: 38%;
-		}
-	}
-	& .bloglistitem__heading a:hover, & .bloglistitem__heading a:focus {
-		color: $anchor-color;
-	}
+
+/* Adds Flickity Slider for small screens */
+.news-slider {
+    margin-bottom: rem-calc(50); // to make room for pagination dots
+    @include breakpoint(medium) {
+        @include xy-grid;
+        margin-left: rem-calc(-20);
+        margin-right: rem-calc(-20);
+        margin-bottom: 0;
+    }
 }
-/* News
-======================================================================= */
-.elemental-area--AfterContent .newsblock {
-	& ul {
-		list-style: none;
-		margin: 0;
-	}
-	& .bloglistitem {
-		padding-top: rem-calc(18);
-	}
-	& .bloglistitem__heading {
-		//text-transform: capitalize;
-	}
-	& .bloglistitem__desc {
-		font-size: rem-calc(16);
-	}
-	& .byline__author img {
-		display: none;
-	}
+.news-slider:after {
+    content: 'flickity'; /* enables Flickity */
+    display: none;
+    @include breakpoint(medium) {
+        content: ''; /* disables Flickity */
+    }
 }
+.news-slider-cell {
+    background-color: $white;
+    border-radius: 2px;
+    padding: rem-calc(0 15);
+    width: 80%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    @include breakpoint(medium) {
+        @include xy-cell(4);
+        background-color: inherit;
+        padding: inherit;
+    }
+}
+.news-slider .flickity-viewport {
+  transition: height 0.2s;
+}
+
+/*-----------------------------------------
+Sidebar
+-------------------------------------------*/
 .elemental-area--SidebarArea .newsblock {
-	background-color: #fff;
-	border: 1px solid #e5e5e5;
-	margin-bottom: 1.875rem;
+	background-color: $white;
+	border: 1px solid $light-gray;
+	margin-bottom: rem-calc(30);
 	width: 100%;
-	&__header {
-		border-top: 4px solid #000;
-		font-size: rem-calc(14);
-		font-weight: 600;
-		margin: rem-calc(0 20);
-		padding: rem-calc(24 0 8px);
-		text-transform: uppercase;
-		letter-spacing: 1px;
-	}
-	& ul {
-		list-style: none;
-		margin: 0;
-	}
 	& li {
-		border-bottom: 1px solid #e5e5e5;
+		border-bottom: 1px solid $light-gray;
 		line-height: 1.4;
 		&:last-of-type {
 			border-bottom: none;
@@ -89,11 +96,11 @@ News
 	}
 	& li img {
 		display: block;
-		margin-bottom: 8px;
+		margin-bottom: rem-calc(10);
 		@include breakpoint(mobile) {
 			float: right;
 			width: 175px;
-			margin-left: 1em;
+			margin-left: rem-calc(15);
 		}
 		@include breakpoint(large) {
 			float: none;

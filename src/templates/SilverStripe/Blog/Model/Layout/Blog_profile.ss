@@ -19,7 +19,7 @@ $Header
 				<% with CurrentProfile %>
 					<div class="clearfix blogprofile">
 						<% if $BlogProfileImage %>
-							<img src="$BlogProfileImage.CroppedImage(150,150).URL" alt="$FirstName $Surname" class="left">
+							<img src="$BlogProfileImage.FocusFill(150,150).URL" alt="$FirstName $Surname" class="left">
 						<% end_if %>
 						<h3>$FirstName $Surname</h3>
 						<% if $BlogProfileSummary %>

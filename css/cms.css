@@ -1,1 +1,15 @@
 @import "../../themes/division-subtheme/dist/css/cms.css";
+
+.cms #vakata-contextmenu li ul.col-3 {
+    column-count: 3;
+    column-rule: dotted 1px #333;
+}
+
+.cms #vakata-contextmenu ul ul.col-3 {
+	min-width: 480px;
+	padding-top: 5px;
+}
+
+.cms #vakata-contextmenu li ul.col-3 li {
+	min-width: 150px;
+}

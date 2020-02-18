@@ -33,9 +33,12 @@ class TopicHolder extends Blog {
 
 	private static $allowed_children = array('Topic');
 
+    private static $icon_class = 'font-icon-book';
+
     public function getLumberjackTitle() {
         return 'Topics';
     }
+
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();

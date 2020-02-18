@@ -31,10 +31,10 @@ class SocialMediaBlock extends BaseElement{
 		$fields = parent::getCMSFields();
 		//$fields->removeByName("Title");
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><br><h3>Twitter</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField('TwitterHeader','Twitter', 3) );
 		$fields->addFieldToTab("Root.Main", new TextField("TwitterUserTimelineURL", "Twitter Timeline URL"));
 
-		$fields->addFieldToTab("Root.Main", new HeaderField( '<br><br><h3>Facebook</h3>', '3', true ) );
+		$fields->addFieldToTab("Root.Main", new HeaderField( 'FacebookHeader','Facebook',3 ) );
 		$fields->addFieldToTab("Root.Main", new TextField("FacebookPageUrl", "Facebook Page URL"));
 		$fields->addFieldToTab("Root.Main", new CheckboxField ("FacebookPluginFaces", "Show Friend's Faces"));
 		$fields->addFieldToTab("Root.Main", new CheckboxField ("FacebookPluginHeader", "Use Small Header"));

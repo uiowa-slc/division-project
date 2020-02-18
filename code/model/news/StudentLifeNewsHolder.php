@@ -23,6 +23,7 @@ class StudentLifeNewsHolder extends Page {
 	private static $feed_base = 'https://studentlife.uiowa.edu/news';
 	// private static $feed_base = 'http://localhost:8888/student-life-at-iowa/news';
 
+	private static $icon_class = 'font-icon-news';
 	public function getCMSFields() {
 
 		$f = parent::getCMSFields();
@@ -88,17 +89,19 @@ class StudentLifeNewsHolder extends Page {
 
 	}
 
-	public function getBlogPostsFromFeed($filterType = null, $filterItem = null, $limit = null, $perPage = 10, $start = 0){
+	public function getBlogPostsFromFeed($filterType = 'dept', $filterItem = null, $limit = null, $perPage = 10, $start = 0){
 
 		$feedBase = Config::inst()->get('StudentLifeNewsHolder', 'feed_base');
 		$deptId = $this->DepartmentID;
 
+
 		switch($filterType){
 			case 'tag':
-				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItem;
+				$filterItemSlug = urlencode($filterItem);
+				$feedURL = $feedBase.'/departmentNewsFeedByTag/'.$deptId.'/'.$filterItemSlug;
 			break;
 
-			case 'catgory':
+			case 'category':
 				$feedURL = $feedBase.'/departmentNewsFeedByCat/'.$deptId.'/'.$filterItem;
 			break;
 
@@ -106,9 +109,13 @@ class StudentLifeNewsHolder extends Page {
 				$feedURL = $feedBase.'/departmentNewsFeedByAuthor/'.$deptId.'/'.$filterItem;
 			break;
 
-			default:
+			case 'dept':
 				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
 			break;
+
+			default:
+				$feedURL = $feedBase.'/departmentNewsFeed/'.$deptId;
+
 		}
 		
 		if($start != 0){

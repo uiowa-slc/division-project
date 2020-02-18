@@ -27,7 +27,8 @@
 // @include foundation-flex-grid;
 @include foundation-typography;
 
-// @include foundation-button;
+@include foundation-button;
+@include foundation-button-group;
 @include foundation-forms;
 
 // @include foundation-range-input;
@@ -75,6 +76,7 @@
 // @include foundation-tooltip;
 // @include foundation-top-bar;
 @include foundation-visibility-classes;
+@include foundation-prototype-separator;
 
 @include foundation-float-classes;
 
@@ -129,6 +131,8 @@
 @import "components/content-blocks/tile-grid";
 
 @import "components/elements/elements";
+
+@import "components/responsive-card-table";
 // Layouts
 @import "layouts/header";
 @import "layouts/homepage";
@@ -139,6 +143,7 @@
 @import "layouts/blog";
 @import "layouts/topics";
 @import "layouts/planpage";
+@import "layouts/darkmode";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

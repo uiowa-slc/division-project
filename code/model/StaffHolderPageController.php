@@ -17,10 +17,23 @@ class StaffHolderPageController extends PageController {
 	 * @var array
 	 */
 	private static $allowed_actions = array (
+		'print'
+	);
+
+	private static $url_handlers = array(
+		'print' => 'print'
 	);
 
 	public function init() {
 		parent::init();
+
+	}
+
+
+	public function print(){
+
+		return $this->renderWith(array('StaffHolderPage_print', 'Page'));
+
 
 	}
 

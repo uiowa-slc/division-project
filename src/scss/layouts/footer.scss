@@ -2,8 +2,8 @@
     Media Queries
 -------------------------------------------*/
 .footer {
-	background: #111;
-	color: #eee;
+	background: $black;
+	color: $light-gray;
 	&__container {
 		padding: rem-calc(60 0);
 		@include grid-row;
@@ -16,42 +16,31 @@
 		@include breakpoint(large) {
 			@include grid-column(4);
 		}
+        font-size: rem-calc(14);
 		& p {
 			line-height: 1.4;
 		}
 	}
 	&__logo {
 		display: block;
-		margin-bottom: 16px;
+		margin-bottom: rem-calc(15);
 		& img {
 			max-width: 300px;
 			max-height: 130px;
 		}
 	}
-	&__summary {
-		& p {
-			font-size: rem-calc(14);
-			margin-bottom: 12px;
-		}
-	}
 	&__heading {
 		font-size: rem-calc(16);
 		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-top: 20px;
-		margin-bottom: 10px;
-		padding-bottom: 10px;
+		letter-spacing: .8px;
+		margin: rem-calc(15 0);
+		padding-bottom: rem-calc(5);
 		border-bottom: 2px solid $highlight;
 		font-weight: 600;
-
 	}
 	&__address {
-		& p {
-			font-size: rem-calc(14);
-			margin-bottom: 12px;
-		}
 		& a {
-			color: #eee;
+			color: $light-gray;
 			text-decoration: underline;
 		}
 	}
@@ -84,10 +73,10 @@
 				width: 50%;
 			}
 			& li a {
-				color: #eee;
+				color: $light-gray;
 				display: block;
-				font-size: rem-calc(15);
-				padding: 12px 6px 12px 0;
+				font-size: rem-calc(14);
+				padding: rem-calc(10 5 10 0);
 				&:hover, &:focus {
 					text-decoration: underline;
 				}
@@ -111,9 +100,9 @@
 	}
 	&__give {
 		display: block;
-		color: #eee;
-		border: 1px solid #eee;
-		padding: 18px;
+		color: $light-gray;
+		border: 1px solid $light-gray;
+		padding: rem-calc(15);
 		margin: 8px 0 16px;
 		text-transform: uppercase;
 		font-size: rem-calc(12);
@@ -121,7 +110,7 @@
 		line-height: 1;
         text-align: center;
 		&:hover, &:focus {
-			color: #222;
+			color: $black;
 			background-color: $highlight;
 		}
 	}
@@ -150,9 +139,9 @@
 		}
 		& li a {
 			font-size: rem-calc(14);
-			color: #eee;
+			color: $light-gray;
 			display: block;
-			padding: 8px 0;
+			padding: rem-calc(10 0);
 			&:before {
 				content:'';
 				display: inline-block;
@@ -186,7 +175,7 @@
 
 	&__disclaimer{
 		font-size: rem-calc(12);
-		border-top: 2px solid #ddd;
+		border-top: 2px solid $dark-gray;
 		padding-top: rem-calc(10);
 	}
 	&__md {
@@ -201,9 +190,9 @@
 		top: 4px;
 	}
 	&__copyrightcontainer {
-		background-color: #fff;
-		color: #555;
-		font-size: rem-calc(13);
+		background-color: $white;
+		color: $dark-gray;
+		font-size: rem-calc(14);
 		padding: rem-calc(12 0);
 	}
 	&__copyrightrow {

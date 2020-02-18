@@ -1,5 +1,11 @@
 <?php
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
 class PlanItem extends DataObject {
 
 	private static $db = array(
@@ -26,9 +32,10 @@ class PlanItem extends DataObject {
 	);
 
 	private static $defaults = array(
-		'Column1Heading' => 'Recommendation',
-		'Column2Heading' => 'Updates',
-		'Column2Content' => '<ul><li>No updates at this time.</li></ul>',
+		'Title' => 'Priority',
+		'Column1Heading' => 'Priority',
+		'Column2Heading' => 'Key Partner(s)',
+		'Column2Content' => '',
 		'Column3Heading' => '',
 	);
 
@@ -40,11 +47,11 @@ class PlanItem extends DataObject {
 
 		$fields->push(new TextField('Title'));
 		$fields->push(new TextField('Column1Heading'));
-		$fields->push(new HTMLEditorField('Column1Content'));
+		$fields->push(HTMLEditorField::create('Column1Content')->addExtraClass('stacked'));
 		$fields->push(new TextField('Column2Heading'));
-		$fields->push(new HTMLEditorField('Column2Content'));
+		$fields->push(HTMLEditorField::create('Column2Content')->addExtraClass('stacked'));
 		$fields->push(new TextField('Column3Heading'));
-		$fields->push(new HTMLEditorField('Column3Content'));		
+		$fields->push(HTMLEditorField::create('Column3Content')->addExtraClass('stacked'));		
 
 		return $fields;
 

@@ -9,10 +9,9 @@
 /* Textblock
 ======================================================================= */
 .elemental-area--SidebarArea .textblock {
-	background-color: #fff;
-	border: 1px solid #e5e5e5;
-	margin-bottom: 1em;
-	padding: rem-calc(20);
+	background-color: $white;
+	border: 1px solid $light-gray;
+	padding: rem-calc(15);
 	& h1, h2, h3, h4, h5, h6 {
 		margin: .25em 0 .5em;
 	}
@@ -28,10 +27,17 @@
 	& h4 {
 		font-size: rem-calc(19);
 	}
+    & p {
+        line-height: 1.4;
+        margin: 1em 0;
+        & a {
+            text-decoration: underline;
+        }
+    }
 }
-.textblock__image-container{
+.textblock__image-container {
 	display: block;
 }
-.textblock__image{
+.textblock__image {
 	display: block;
 }

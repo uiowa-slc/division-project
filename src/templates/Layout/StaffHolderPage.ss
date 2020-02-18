@@ -17,7 +17,7 @@ $Header
 
 	<div class="row">
 
-		<article role="main" class="main-content main-content--with-padding <% if not $HideLinksToStaffPages %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+		<article class="main-content main-content--with-padding <% if not $HideLinksToStaffPages %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 
 
 			$BeforeContentConstrained

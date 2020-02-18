@@ -21,6 +21,8 @@ class PolicyHolder extends Page {
 	private static $has_many = array(
 	);
 
+	private static $icon_class = 'font-icon-p-list';
+
 	private static $singular_name = 'Policy Holder';
 
 	private static $plural_name = 'Policy Holders';
@@ -38,7 +40,7 @@ class PolicyHolder extends Page {
 		/*$gridField = new GridField("StaffTeam", "Staff Teams", StaffTeam::get(), GridFieldConfig_RecordEditor::create());
 		$f->addFieldToTab("Root.Main", $gridField); // add the grid field to a tab in the CMS	*/
 		$f->addFieldToTab("Root.Main", new TextField("PolicyYear", "Archive Policy Year (Only fill out if these policies are archived)"), "Content");
-		$f->addFieldToTab("Root.Main", new HTMLEditorField("Policies", "Policies"));
+		$f->addFieldToTab("Root.Main", HTMLEditorField::create("Policies", "Policies")->addExtraClass('stacked'));
 		return $f;
 	}
 }

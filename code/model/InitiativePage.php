@@ -14,7 +14,7 @@ class InitiativePage extends Page {
 		"MainImage" => Image::class,
 
 	);
-
+	private static $can_be_root = false;
 	//public static $allowed_children = array ("BranchPersonPage");
 
 	function getCMSFields() {
