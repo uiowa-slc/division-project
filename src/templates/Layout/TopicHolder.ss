@@ -1,6 +1,8 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
+
+<% if $Action == "index" %>
 <%--   <% include FeaturedImage %> --%>
 <% with $BackgroundImage %>
 <div class="background-image" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
@@ -14,6 +16,10 @@ align-items: center;">
     </div>
 </div>
 
+<% else %>
+<% include FeaturedImage %>
+
+<% end_if %>
 
 $BeforeContent
   $Breadcrumbs

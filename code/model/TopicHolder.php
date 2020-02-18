@@ -12,6 +12,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\Blog\Model\Blog;
 use MD\DivisionProject\TopicHolderController;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Control\Controller;
 class TopicHolder extends Blog {
 
 	private static $db = array(
@@ -84,10 +85,40 @@ class TopicHolder extends Blog {
 
     }
 
-    public function getBreadcrumbs(){
-        $breadcrumbs = parent::getBreadCrumbs();
-        print_r($breadcrumbs);
-        return $breadcrumbs;
+
+    /**
+     * Returns a list of breadcrumbs for the current page.
+     *
+     * @param int $maxDepth The maximum depth to traverse.
+     * @param boolean|string $stopAtPageType ClassName of a page to stop the upwards traversal.
+     * @param boolean $showHidden Include pages marked with the attribute ShowInMenus = 0
+     *
+     * @return ArrayList
+    */
+    public function getBreadcrumbItems($maxDepth = 20, $stopAtPageType = false, $showHidden = false)
+    {
+        $pages = parent::getBreadcrumbItems();
+
+        $controllerParams = Controller::curr()->getURLParams();
+
+        if($controllerParams['Action'] == 'category'){
+            $categorySlugTest = $controllerParams['ID'];
+            $category = BlogCategory::get()->filter(array('URLSegment' => $categorySlugTest))->First();
+
+            if($category){
+                $pages->push($category);
+            }
+            
+
+        }elseif($controllerParams['Action'] == 'tag'){
+            $tagSlugTest = $controllerParams['ID'];
+            $tag = BlogTag::get()->filter(array('URLSegment' => $tagSlugTest))->First();
+            if($tag){
+                $pages->push($tag);
+            }
+        }
+ 
+        return $pages;
     }
     public function AllTags()
     {
