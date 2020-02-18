@@ -56,7 +56,7 @@
 
 </div>
 
-<% if $AllCats.Count > 4 %>
+<% if $AllCats.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
@@ -86,7 +86,7 @@
         </div>
 
       </div>
- <% else_if $AllTags.Count > 4 %>
+ <% else_if $AllTags.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
