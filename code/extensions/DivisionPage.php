@@ -96,15 +96,16 @@ class DivisionPage extends DataExtension {
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();
 		$f->removeByName("ExtraMeta");
+		$f->addFieldToTab('Root.Main', new LiteralField('AfterContentLink', '<a href="admin/pages/edit/show/'.$this->owner->ID.'#Root_AfterContent">After Content</a>'));
 
-				// $f->addFieldToTab('Root.Blocks', new HeaderField('Sidebar', 'Sidebar'));
+				// $f->addFieldToTab('Root', new HeaderField('Sidebar', 'Sidebar'));
 
 		$aftercontentAreaField = $f->dataFieldByName('AfterContent');
 
 		if($aftercontentAreaField){
 			$aftercontentAreaField->setTitle('After Content');
 			$f->removeByName('AfterContent');
-			$f->addFieldToTab('Root.Blocks.AfterContent', $aftercontentAreaField);
+			$f->addFieldToTab('Root.AfterContent', $aftercontentAreaField);
 		}
 
 		$aftercontentConstrainedField = $f->dataFieldByName('AfterContentConstrained');
@@ -112,7 +113,7 @@ class DivisionPage extends DataExtension {
 		if($aftercontentConstrainedField){
 			$aftercontentConstrainedField->setTitle('After Content (Constrained)');
 			$f->removeByName('AfterContentConstrained');
-			$f->addFieldToTab('Root.Blocks.AfterContentConstrained', $aftercontentConstrainedField);
+			$f->addFieldToTab('Root.AfterContentConstrained', $aftercontentConstrainedField);
 		}
 
 		$sidebarAreaField = $f->dataFieldByName('SidebarArea');
@@ -121,7 +122,7 @@ class DivisionPage extends DataExtension {
 			
 			$sidebarAreaField->setTitle('Sidebar');
 			$f->removeByName('SidebarArea');
-			$f->addFieldToTab('Root.Blocks.Sidebar', $sidebarAreaField);
+			$f->addFieldToTab('Root.Sidebar', $sidebarAreaField);
 		}
 
 		$beforecontentField = $f->dataFieldByName('BeforeContent');
@@ -130,7 +131,7 @@ class DivisionPage extends DataExtension {
 
 			$beforecontentField->setTitle('Before Content');
 			$f->remove($beforecontentField);
-			$f->addFieldToTab('Root.Blocks.BeforeContent', $beforecontentField);
+			$f->addFieldToTab('Root.BeforeContent', $beforecontentField);
 		}
 
 		$beforecontentConstrainedField = $f->dataFieldByName('BeforeContentConstrained');
@@ -138,7 +139,7 @@ class DivisionPage extends DataExtension {
 		if($beforecontentConstrainedField){
 			$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
 			$f->removeByName('BeforeContentConstrained');
-			$f->addFieldToTab('Root.Blocks.BeforeContentConstrained', $beforecontentConstrainedField);
+			$f->addFieldToTab('Root.BeforeContentConstrained', $beforecontentConstrainedField);
 		}
 
 
@@ -288,7 +289,7 @@ class DivisionPage extends DataExtension {
 
 
 
-	}
+
 
 
 

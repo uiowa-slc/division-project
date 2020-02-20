@@ -28,23 +28,41 @@ class SlideshowBlock extends BaseElement{
     {
         return 'Slideshow Block';
     }
+    /**
+     * Set to false to prevent an in-line edit form from showing in an elemental area. Instead the element will be
+     * clickable and a GridFieldDetailForm will be used.
+     *
+     * @config
+     * @var bool
+     */
+    private static $inline_editable = false;
+    /**
+     * @return array
+     */
+    protected function provideBlockSchema()
+    {
+        $blockSchema = parent::provideBlockSchema();
+        $blockSchema['content'] = $this->getSummary();
 
-	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+        return $blockSchema;
+    }
 
-		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
+	// public function getCMSFields() {
+	// 	$fields = parent::getCMSFields();
 
-		$row = 'SortOrder';
-		$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
+	// 	$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
-		//BulkUploader is kinda glitchy right now.
-		// $gridFieldConfig->addComponent(new BulkUploader(Image::class, 'SlideshowBlockImage'));
+	// 	$row = 'SortOrder';
+	// 	$gridFieldConfig->addComponent($sort = new GridFieldSortableRows(stripslashes($row)));
 
-		$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
-		$fields->push($gridField);
+	// 	//BulkUploader is kinda glitchy right now.
+	// 	// $gridFieldConfig->addComponent(new BulkUploader(Image::class, 'SlideshowBlockImage'));
+
+	// 	$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
+	// 	$fields->push($gridField);
 
 
-		return $fields;
-	}
+	// 	return $fields;
+	// }
 
 }
