@@ -145,8 +145,8 @@ class DivisionPage extends DataExtension {
 
 
 
-		$f->removeByName('ElementalArea');
-		$f->removeByName('ContentArea');
+		// $f->removeByName('ElementalArea');
+		// $f->removeByName('ContentArea');
 
 
 		$config = SiteConfig::current_site_config();
@@ -191,7 +191,7 @@ class DivisionPage extends DataExtension {
 		}
 
 
-		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
+		// $f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
 		$f->addFieldsToTab("Root.Main", array(
 			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
 		)), 'LayoutType');
