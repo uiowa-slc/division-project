@@ -43,13 +43,12 @@ $Header
 			$BeforeContentConstrained
 			<div class="main-content__text">
 				<% if $FeaturedImageURL %>
-					<p><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImageURL" alt="" role="presentation" width="840" /></p>
+					<p><img class="featured-image dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImageURL" alt="" role="presentation" width="840" /></p>
 				<% end_if %>
-				<%-- <% if $FeaturedImage %>
-					<% if FeaturedImage.Width < 700 %>
-						<img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.URL" alt="" class="right post-image">
-					<% end_if %>
-				<% end_if %> --%>
+				<% if $FeaturedImageCaption %>
+					<p class="featured-image-caption">$FeaturedImageCaption</p>
+				<% end_if %>
+
 				$Content
 				<% if $ExternalURL %>
 					<p><a href="$ExternalURL" class="button--shaded" target="_blank">$ExternalURLText</a></p>
