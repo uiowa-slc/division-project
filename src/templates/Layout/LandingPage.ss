@@ -1,5 +1,5 @@
 
-<div class="header__container header__container--{$DarkLight} header__container--{$HeaderType}">
+<div class="header__container header__container--{$DarkLightHeader} header__container--{$HeaderType}">
 	<% include DivisionBar %>
 </div>
 

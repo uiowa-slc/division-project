@@ -148,7 +148,7 @@ class DivisionPageController extends Extension {
 
 
 		return $template->process($this->owner->customise(new ArrayData(array(
-			'DarkLight' => $theme,
+			'DarkLightHeader' => $theme,
 			'HeaderType' => $headerType
 		))));
 	}
