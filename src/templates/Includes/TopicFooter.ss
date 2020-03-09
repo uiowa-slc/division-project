@@ -35,21 +35,15 @@
           <% end_if %>
           </div>
         </div>
-      <% end_if %>
-      <% if $AllCats %>
-        <div class="grid-x grid-padding-x small-up-2 medium-up-4"  data-equalizer>
+        <div class="grid-x grid-padding-x small-up-2 medium-up-3 large-up-4"  data-equalizer>
           <% loop $AllCats.Sort('Title ASC') %>
             <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto; ">$Title&nbsp;<span style="font-size: 14px; font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
-        </div>
-      <% end_if %>
-      <% if $AllTags %>
-        <div class="grid-x grid-padding-x small-up-2 medium-up-4"  data-equalizer>
-          <% loop $AllTags.Sort('Title ASC') %>
+        <% loop $AllTags.Sort('Title ASC') %>
             <div class="cell margin-bottom-2" data-equalizer-watch><a href="$Link" class="button large hollow secondary button--flex-full"><span class="topicholder-cat-inner" style="display: block; margin: auto;">$Title&nbsp;<span style="font-size: 14px font-weight: bold;">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
-      <% end_if %>
+      <% end_if %> 
 
 
 
@@ -150,11 +144,13 @@
   <section class="topicholder-featured topicholder-section topicholder-section--light-gray">
       <div class="grid-container grid-container--wpadding">
         <div class="grid-x grid-padding-x">
+            <div class="cell">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Recently updated $TermPlural.LowerCase</h2>
                 <% else %>
                   <h2 class="topicholder-section__heading">Recently updated</h2>
                 <% end_if %>
+            </div>
           </div>
         <div class="grid-x grid-padding-x small-up-2 medium-up-4">
           <% loop $BlogPosts.Limit(4).Sort('LastEdited DESC') %>

@@ -50,9 +50,7 @@ $BeforeContent
             </div>      
           <% if $BlogPosts %>
                 <% loop $BlogPosts.Sort('LastEdited') %>
-                  <div style="max-width: 800px; margin:auto;">
                     <% include TopicCard %>
-                  </div>
                 <% end_loop %>
        
             <% else %>
@@ -71,11 +69,9 @@ $BeforeContent
             <% if $BlogPosts %>
 
                 <% loop $BlogPosts.Sort('LastEdited') %>
-                  <div style="max-width: 800px; margin:auto;">
                     <% include TopicCard %>
-                  </div>
                 <% end_loop %>
-       
+  
             <% else %>
               <p>No topics are currently listed.</p>
           <% end_if %><%-- /endif BlogPosts --%>
