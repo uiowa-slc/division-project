@@ -77,7 +77,7 @@
 // @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-prototype-separator;
-
+@include foundation-prototype-classes;
 @include foundation-float-classes;
 
 // @include foundation-flex-classes;
@@ -143,6 +143,7 @@
 @import "layouts/blog";
 @import "layouts/topics";
 @import "layouts/planpage";
+@import "layouts/darkmode";
 
 //Legacy layout types
 @import "layouts/legacy/homepage-legacy";

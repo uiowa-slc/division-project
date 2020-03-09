@@ -1,5 +1,6 @@
 <?php
-
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\TextField;
@@ -10,7 +11,8 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Blog\Model\Blog;
 use MD\DivisionProject\TopicHolderController;
-
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Control\Controller;
 class TopicHolder extends Blog {
 
 	private static $db = array(
@@ -28,8 +30,15 @@ class TopicHolder extends Blog {
         'TagTabHeading' => 'Varchar(155)',
 
         'AllTopicsTabTitle' => 'Varchar(155)',
-        'AllTopicsTabHeading' => 'Varchar(155)'
+        'AllTopicsTabHeading' => 'Varchar(155)',
+
+        'TermPlural' => 'Varchar(155)'
 	);
+
+
+    private static $has_many = array(
+        'FeaturedTopics' => 'Topic'
+    );
 
 	private static $allowed_children = array('Topic');
 
@@ -42,35 +51,74 @@ class TopicHolder extends Blog {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
-		$questionGridField->setConfig($questionGridFieldConfig);
 
-        $fields->addFieldToTab('Root.Terminology', TextField::create('Heading', 'Heading above search box (default: Search for a topic below'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('NoTopicsText', 'Text to display if there aren\'t any topics. (default: No topics currently listed.'));
+		// $questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
+		// $questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
+		// $questionGridField->setConfig($questionGridFieldConfig);
 
-        $fields->addFieldToTab('Root.Terminology', TextField::create('CategoryTabTitle', 'Category tab title (default: Categories'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('CategoryTabHeading', 'Category tab heading (default: Topics by category:'));
-
-        $fields->addFieldToTab('Root.Terminology', TextField::create('TagTabTitle', 'Tag tab title (default: Tags'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('TagTabHeading', 'Tag tab heading (default: Topics by tag:'));
-
-        $fields->addFieldToTab('Root.Terminology', TextField::create('AllTopicsTabTitle', 'All topics tab title (default: All topics by title'));
-        $fields->addFieldToTab('Root.Terminology', TextField::create('AllTopicsTabHeading', 'All topics tab heading (default: All topics by title'));
+  //       $fields->addFieldToTab('Root.Terminology', TextField::create('Heading', 'Heading above search box (default: Search for a topic below'));
+  //       $fields->addFieldToTab('Root.Terminology', TextField::create('NoTopicsText', 'Text to display if there aren\'t any topics. (default: No topics currently listed.'));
 
         //All topics by title:
 
-		$fields->addFieldToTab('Root.Questions', $questionGridField);
+		// $fields->addFieldToTab('Root.Questions', $questionGridField);
+
+        $featuredGridFieldConfig = GridFieldConfig_RelationEditor::create();
+        $featuredGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
+        $featuredGridFieldConfig->addComponent(new GridFieldSortableRows('FeaturedSortOrder'));
+        
+        $featuredGridField = new GridField('FeaturedTopics', 'Featured Topics', $this->FeaturedTopics());
+        $featuredGridField->setConfig($featuredGridFieldConfig);
+        $fields->addFieldToTab('Root.Main', $featuredGridField, 'Content');
+
 
 		return $fields;
 	}
     public function getSettingsFields(){
         $fields = parent::getSettingsFields();
+
+        $fields->addFieldToTab('Root.Settings', TextField::create('TermPlural', 'Plural term for topics (ex: "Resources," "Entries," defaults to empty):')->addExtraClass('stacked'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
-        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
-        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
+        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
+        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
         return $fields;
 
+    }
+
+
+    /**
+     * Returns a list of breadcrumbs for the current page.
+     *
+     * @param int $maxDepth The maximum depth to traverse.
+     * @param boolean|string $stopAtPageType ClassName of a page to stop the upwards traversal.
+     * @param boolean $showHidden Include pages marked with the attribute ShowInMenus = 0
+     *
+     * @return ArrayList
+    */
+    public function getBreadcrumbItems($maxDepth = 20, $stopAtPageType = false, $showHidden = false)
+    {
+        $pages = parent::getBreadcrumbItems();
+
+        $controllerParams = Controller::curr()->getURLParams();
+
+        if($controllerParams['Action'] == 'category'){
+            $categorySlugTest = $controllerParams['ID'];
+            $category = BlogCategory::get()->filter(array('URLSegment' => $categorySlugTest))->First();
+
+            if($category){
+                $pages->push($category);
+            }
+            
+
+        }elseif($controllerParams['Action'] == 'tag'){
+            $tagSlugTest = $controllerParams['ID'];
+            $tag = BlogTag::get()->filter(array('URLSegment' => $tagSlugTest))->First();
+            if($tag){
+                $pages->push($tag);
+            }
+        }
+ 
+        return $pages;
     }
     public function AllTags()
     {

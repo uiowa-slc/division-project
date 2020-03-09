@@ -21,7 +21,7 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="$SiteConfig.Title">
-
+    
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -42,9 +42,9 @@
     $TypeKitScript
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
-  <body class="{$ClassName} {$ClassAncestry} body--{$DarkLight} action--{$Action}">
+<body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
+    $Layout
 
-      $Layout
 
     <% include Footer %>
     $BetterNavigator

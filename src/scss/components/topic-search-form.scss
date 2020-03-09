@@ -1,12 +1,15 @@
 .topic-search-form{
-
+	width: 100%;
 	&__input{
 		// border: none;
 		height: 55px;
         width: 100%;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-right: 0;
 	}
 
-	fieldset{
+	&__fields{
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
@@ -15,13 +18,20 @@
 
 }
 
-input.action.topic-search-form__search-button{
+.topic-search-form__search-button{
 
 
-	border: none;
+	border-top: 1px solid #a5a5a5;
+	border-bottom: 1px solid #a5a5a5;
+	border-right: 1px solid #a5a5a5;
 	background-image: linear-gradient(to bottom, $highlight, lighten($highlight, 10));
 	color: #222;
 	height: 55px;
-	border-radius: 0;
-	width: 20%;
+	border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0 20px;
+    width: 30%;
+    &:hover{
+    	cursor: pointer;
+    }
 }

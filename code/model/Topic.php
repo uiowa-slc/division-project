@@ -20,14 +20,25 @@ use SilverStripe\Blog\Controllers\BlogPostController;
 
 class Topic extends BlogPost {
 
+
+	private static $db = [
+		'WebsiteLink' => 'Varchar(255)',
+		'FeaturedSortOrder' => 'Int',
+	];
+
 	private static $many_many = array(
 		'Questions' => 'TopicQuestion',
 		'Links' => 'TopicLink'
 	);
 
+	private static $has_one = array(
+		'TopicHolderFeatured' => 'TopicHolder'
+	);
+
 	private static $belongs_many_many = array(
 	
 	);
+
 
 	private static $icon_class = 'font-icon-book-open';
 	private static $can_be_root = false;
@@ -62,7 +73,7 @@ class Topic extends BlogPost {
 					)->setShouldLazyLoad(true)->setCanCreate(false);
 
 		$fields->addFieldToTab('Root.Questions', $qField);
-
+		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link (include https://)'));
 		$linkGrid = new GridField(
 			'Links',
 			'Links relevant to this topic',

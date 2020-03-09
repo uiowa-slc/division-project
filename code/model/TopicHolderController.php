@@ -1,6 +1,7 @@
 <?php
 
 use SilverStripe\Blog\Model\BlogController;
+use SilverStripe\Forms\Form;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
@@ -8,20 +9,26 @@ use SilverStripe\CMS\Search\SearchForm;
 use SilverStripe\ORM\Search\FulltextSearchable;
 use SilverStripe\ORM\FieldType\DBField;
 class TopicHolderController extends BlogController{
+
 	private static $allowed_actions = array(
-		'TopicSearchForm'
+		'TopicSearchForm',
+        'results'
 	);
 
     public function TopicSearchForm() {
 
             $searchText =  'Search entries under '.$this->owner->Title;
+            $termPlural = $this->owner->obj('TermPlural');
 
             if($this->owner->request && $this->owner->request->getVar('Search')) {
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search entries listed under '.$this->owner->Title);
+            $searchField->setAttribute('placeholder', 'Search for entries in this section');
 
+
+            
+            $searchField->setFieldHolderTemplate('TopicSearchFormField_holder');
             $searchField->setAttribute('class', 'topic-search-form__input');
 
             $searchField->addExtraClass('topic-search-form__input');
@@ -32,16 +39,18 @@ class TopicHolderController extends BlogController{
             );
 
             $action = FormAction::create('results', 'Search');
+            $action->setUseButtonTag(true);
             $action->addExtraClass('topic-search-form__search-button');
+            $action->setTemplate('TopicSearchFormAction');
             $actions = new FieldList(
                 $action //this is the only real change to tell the form to use a different function for the action
             );
 
             $form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
             $form->classesToSearch(FulltextSearchable::get_searchable_classes());
-            //$form->setTemplate('TopicSearchForm');
+            $form->setTemplate('TopicSearchForm');
             $form->addExtraClass('topic-search-form');
-
+            //print_r($form->getAttributesHTML());
             //print_r($form);
             return $form;
         }
