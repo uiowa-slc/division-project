@@ -8,7 +8,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Environment;
-\SilverStripe\ORM\Search\FulltextSearchable::enable();
+
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',

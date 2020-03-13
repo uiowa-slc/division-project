@@ -2,3 +2,5 @@ Page:
   disallowed_elements:
     - 'TextBlock'
     - 'ContentBlock'
+DNADesign\Elemental\Forms\EditFormFactory:
+  html_field_rows: 20
