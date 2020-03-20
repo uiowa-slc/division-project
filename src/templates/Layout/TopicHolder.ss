@@ -31,7 +31,7 @@ $BeforeContent
       $BeforeContentConstrained
 
 <% if not $CurrentCategory && not $CurrentTag %>
-      <div class="main-content__text">
+      <div class="main-content__text" style="margin: auto; max-width: 800px;">
         $Content
       </div>
 <% end_if %>

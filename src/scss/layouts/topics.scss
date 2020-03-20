@@ -61,16 +61,19 @@
 	}
 
 	&__preview{
-		font-size: 14px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+		font-size: 14px; text-overflow: ellipsis; 
+		white-space: nowrap; 
+		overflow: hidden;
 	}
 
 	&__meta{
-		font-size: 12px;
+		font-size: 11px;
 	}
 }
-
-.topicholder-featured
-
+.topicholder-featured__meta{
+	font-size: 12px;
+	text-transform: uppercase;
+}
 .topic-single__byline-cat{
 	color: #545454;
 	text-transform: uppercase;

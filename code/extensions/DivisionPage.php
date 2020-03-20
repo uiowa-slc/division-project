@@ -142,12 +142,7 @@ class DivisionPage extends DataExtension {
 
 		$config = SiteConfig::current_site_config();
 
-		$layoutOptionsField = DropdownField::create(
-  			'LayoutType',
-  			'Layout type',
-  			$this->owner->LayoutTypes()
-		)->setEmptyString('(Default Layout)');
-		$f->addFieldToTab('Root.Main', $layoutOptionsField);
+
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$f->removeFieldFromTab('Root.Main', 'Metadata');
@@ -183,14 +178,7 @@ class DivisionPage extends DataExtension {
 
 
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
-		$f->addFieldsToTab("Root.Main", array(
-			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
-		)), 'LayoutType');
-		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
-		$f->addFieldsToTab("Root.Main", array(
-			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
-		)->addExtraClass('stacked')), 'LayoutType');
-		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
+
 
 
 
@@ -201,6 +189,23 @@ class DivisionPage extends DataExtension {
 	}
 
 	public function updateSettingsFields($f) {
+
+		$layoutOptionsField = DropdownField::create(
+  			'LayoutType',
+  			'Layout type',
+  			$this->owner->LayoutTypes()
+		)->setEmptyString('(Default Layout)');
+		$f->addFieldToTab('Root.Settings', $layoutOptionsField);
+
+		$f->addFieldsToTab("Root.Settings", array(
+			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
+		)), 'LayoutType');
+		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
+		$f->addFieldsToTab("Root.Settings", array(
+			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
+		)->addExtraClass('stacked')), 'LayoutType');
+		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');		
+
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));

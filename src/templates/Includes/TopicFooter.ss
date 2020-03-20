@@ -157,7 +157,7 @@
             <div class="cell">
               <h2 class="topicholder-featured__heading"><a href="$Link">$Title</a></h2>
               <p class="topicholder-featured__preview">$Content.LimitCharacters(40).ATT</p>
-              <p style="topicholder-featured__meta">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+              <p class="topicholder-featured__meta">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
             </div>
           <% end_loop %>
         </div>
