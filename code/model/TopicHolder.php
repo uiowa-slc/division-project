@@ -19,6 +19,7 @@ class TopicHolder extends Blog {
         'ShowCategoriesTab' => 'Boolean(1)',
         'ShowTagsTab' => 'Boolean(1)',
         'ShowLastUpdated' => 'Boolean(1)',
+        'ShowFullTopicBody' => 'Boolean',
 
         'Heading' => 'Text',
         'NoTopicsText' => 'Text',
@@ -79,6 +80,7 @@ class TopicHolder extends Blog {
 
         $fields->addFieldToTab('Root.Settings', TextField::create('TermPlural', 'Plural term for topics (ex: "Resources," "Entries," defaults to empty):')->addExtraClass('stacked'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowFullTopicBody', 'Show full HTML body of the topics in their categories/tags'));
         // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
         // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
         return $fields;

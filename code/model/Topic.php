@@ -98,8 +98,8 @@ class Topic extends BlogPost {
 				'field' => TextField::class
 			)
 		));
-		$fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
-		$fields->addFieldToTab('Root.RelatedLinks', $linkGrid);
+		// $fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
+		// $fields->addFieldToTab('Root.RelatedLinks', $linkGrid);
 
 
 		return $fields;

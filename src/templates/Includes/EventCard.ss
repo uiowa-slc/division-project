@@ -17,9 +17,7 @@
 	<div class="clearfix eventcard__content">
 		<h3 class="eventcard__title">
 			<a href="$Link">
-				$Title <% if Event.CancelReason %>
-				<div class="homepage-cancel-reason">
-					Note: $Event.CancelReason</div><% end_if %>
+				$Title
 			</a>
 		</h3>
 

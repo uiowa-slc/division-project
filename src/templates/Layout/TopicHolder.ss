@@ -30,8 +30,8 @@ $BeforeContent
 
       $BeforeContentConstrained
 
-<% if not $CurrentCategory && not $CurrentTag %>
-      <div class="main-content__text" style="margin: auto; max-width: 800px;">
+<% if not $CurrentCategory && not $CurrentTag && $Content %>
+      <div class="main-content__text" style="padding-top: 20px; margin: auto; max-width: 800px;">
         $Content
       </div>
 <% end_if %>
@@ -43,7 +43,7 @@ $BeforeContent
             <%--$Content --%>
             <div class="main-content__header">
               <% if $Up.TermPlural %>
-                 <h1>{$Up.TermPlural} listed under {$Title}:</h1>
+                 <h1>{$Up.TermPlural} listed under "{$Title}":</h1>
               <% else %>
                 <h1>Listed under {$Title}:</h1>
               <% end_if %>
@@ -54,7 +54,7 @@ $BeforeContent
                 <% end_loop %>
        
             <% else %>
-              <p>No topics are currently listed.</p>
+              <p style="margin-top: 20px;">Nothing is currently listed under this category.</p>
           <% end_if %>           
         <% end_with %>
       <% else_if $CurrentTag %>
@@ -73,7 +73,7 @@ $BeforeContent
                 <% end_loop %>
   
             <% else %>
-              <p>No topics are currently listed.</p>
+              <p style="margin-top: 20px;">Nothing is currently listed under this tag.</p>
           <% end_if %><%-- /endif BlogPosts --%>
         <% end_with %><%-- /endwith CurrentTag --%>
       <% end_if %><%-- /endif CurrentTag --%>

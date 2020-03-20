@@ -1,4 +1,5 @@
-<article class="blogcard clearfix ">
+
+<article class="blogcard clearfix" style="max-width: 800px;">
 	<% if $FeaturedImage %>
 		<a href="$Link" class="blogcard__img">
 			<img class="dp-lazy" data-original="$FeaturedImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
@@ -18,11 +19,21 @@
             <a href="$Link">$Title</a>
         </h3>
 
-    		<% if $Summary %>
-    			<div class="blogcard__desc">$Summary</div>
-    		<% else %>
-    			<p class="blogcard__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
-    		<% end_if %>
+
+		<% if $Parent.ShowFullTopicBody %>
+			<div class="blogcard__desc">
+				$Content
+			</div>
+		<% else %>
+			<% if $Summary %>
+				<div class="blogcard__desc">$Summary</div>
+			<% else %>
+				<p class="blogcard__desc">$Content.LimitCharacters(150) <%-- <a href="$Link">Continue reading</a> --%></p>
+			<% end_if %>
+		<% end_if %>
+
+
+
         <% if $WebsiteLink %>
         <p><a href="$WebsiteLink" target="_blank" style="font-size: 14px; text-decoration: underline;">{$Title} - Website Link <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
         <% end_if %>
