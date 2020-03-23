@@ -87,6 +87,11 @@ class Topic extends BlogPost {
 				->addComponent(new GridFieldAddNewInlineButton())
 		);
 
+		$catField = $fields->fieldByName('Root.PostOptions.Categories');
+		$catField->setShouldLazyLoad(false);
+		
+		$tagField = $fields->fieldByName('Root.PostOptions.Tags');
+		$tagField->setShouldLazyLoad(false);
 		
 		$linkGrid->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
 			'Title' => array(

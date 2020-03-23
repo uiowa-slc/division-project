@@ -63,7 +63,7 @@
 
                  <ul class="topicholder-all-list">
                    <% loop $AllCats.Sort('Title ASC') %>
-                      <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
+                      <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading"><a href="$Link">$Title</a></h3>
                         <% if $BlogPosts %>
                         <ul class="topicholder-sublist">
                           <% loop $BlogPosts.Sort('Title ASC') %>

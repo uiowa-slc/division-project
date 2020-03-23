@@ -9,7 +9,7 @@ $Header
 align-items: center;">
 <% end_with %>
     <div style="width: 100%;">
-      <div style="max-width: 700px; margin: auto; text-align: center; z-index:999; position: relative;">
+      <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
         <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
         $TopicSearchForm
       </div>
@@ -39,13 +39,17 @@ $BeforeContent
 
       <% if $CurrentCategory %>
         <% with $CurrentCategory %>
-            <%-- Hiding content for now: --%>
-            <%--$Content --%>
+          <% if $Content %>
+          <article style="max-width: 800px; margin: auto;">
+            <h1>$Title</h1>
+            $Content 
+          </article>
+          <% end_if %>
             <div class="main-content__header">
               <% if $Up.TermPlural %>
-                 <h1>{$Up.TermPlural} listed under "{$Title}":</h1>
+                 <h2 style="margin-bottom: 0;">{$Up.TermPlural} listed under "{$Title}":</h2>
               <% else %>
-                <h1>Listed under {$Title}:</h1>
+                <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
               <% end_if %>
             </div>      
           <% if $BlogPosts %>
@@ -61,9 +65,9 @@ $BeforeContent
         <% with $CurrentTag %>
         <div class="main-content__header">
             <% if $TermPlural %>
-              <h1>{$TermPlural} listed under {$Title}:</h1>
+              <h2 style="margin-bottom: 0;">{$TermPlural} listed under {$Title}:</h2>
             <% else %>
-              <h1>Listed under {$Title}:</h1>
+              <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
             <% end_if %>
         </div>
             <% if $BlogPosts %>
