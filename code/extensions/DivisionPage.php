@@ -158,6 +158,24 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextField('OgTitle', 'Social Share Title'));
 		$f->addFieldToTab('Root.SocialMediaSharing', new TextareaField('OgDescription', 'Social Share Description'));
 
+		//I hate this. It needs to be moved to Root.Settings, but it breaks the homepage slider. Either this
+		//block or the settings area or both need to be refactored.
+
+		$layoutOptionsField = DropdownField::create(
+  			'LayoutType',
+  			'Layout type',
+  			$this->owner->LayoutTypes()
+		)->setEmptyString('(Default Layout)');
+		$f->addFieldToTab('Root.Main', $layoutOptionsField);
+
+		$f->addFieldsToTab("Root.Main", array(
+			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
+		)), 'LayoutType');
+		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
+		$f->addFieldsToTab("Root.Main", array(
+			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
+		)->addExtraClass('stacked')), 'LayoutType');
+		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');		
 	// 	if($this->owner->getExistsOnLive() == true){
 	// 		//https://developers.facebook.com/tools/debug/sharing/?q=
 	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="https://developers.facebook.com/tools/debug/sharing/?q='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
@@ -190,21 +208,7 @@ class DivisionPage extends DataExtension {
 
 	public function updateSettingsFields($f) {
 
-		$layoutOptionsField = DropdownField::create(
-  			'LayoutType',
-  			'Layout type',
-  			$this->owner->LayoutTypes()
-		)->setEmptyString('(Default Layout)');
-		$f->addFieldToTab('Root.Settings', $layoutOptionsField);
 
-		$f->addFieldsToTab("Root.Settings", array(
-			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed","Video"
-		)), 'LayoutType');
-		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
-		$f->addFieldsToTab("Root.Settings", array(
-			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
-		)->addExtraClass('stacked')), 'LayoutType');
-		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');		
 
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages','Show child pages if available (Yes)'));
