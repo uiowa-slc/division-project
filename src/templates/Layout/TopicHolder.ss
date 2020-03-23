@@ -16,13 +16,44 @@ align-items: center;">
     </div>
 </div>
 
-<% else %>
-<% include FeaturedImage %>
+<% else_if $CurrentCategory || $CurrentTag %>
+   $Breadcrumbs
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="cell">
+        <div class="main-content__header">
+
+        <% if $CurrentCategory.Content || $CurrentTag.Content %>
+          <% if $CurrentCategory %>
+            <h1>$CurrentCategory.Title</h1>
+          <% else_if $CurrentTag %>
+            <h1>$CurrentTag.Title</h1>
+          <% end_if %>
+        <% else %>
+          <% if $CurrentCategory %>
+            <% if $TermPlural %>
+              <h1>{$TermPlural} listed under "{$CurrentCategory.Title}": </h1>
+            <% else %>
+              <h1>Listed under: $CurrentCategory.Title</h1>
+            <% end_if %>
+            
+          <% else_if $CurrentTag %>
+            <% if $TermPlural %>
+              <h1>{$TermPlural} listed under "{$CurrentTag.Title}": </h1>
+            <% else %>
+              <h1>Listed under: $CurrentTag.Title</h1>
+            <% end_if %>
+          <% end_if %>
+        <% end_if %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% end_if %>
 
 $BeforeContent
-  $Breadcrumbs
+ 
 <div class="grid-container">
 
   <div class="grid-x grid-padding-x">
@@ -41,17 +72,19 @@ $BeforeContent
         <% with $CurrentCategory %>
           <% if $Content %>
           <article style="max-width: 800px; margin: auto;">
-            <h1>$Title</h1>
+            <div class="main-content__text" style="padding-top: 20px; margin: auto; max-width: 800px;">
             $Content 
+            </div>
           </article>
-          <% end_if %>
-            <div class="main-content__header">
+     
               <% if $Up.TermPlural %>
                  <h2 style="margin-bottom: 0;">{$Up.TermPlural} listed under "{$Title}":</h2>
               <% else %>
                 <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
               <% end_if %>
-            </div>      
+       
+          <% end_if %>
+
           <% if $BlogPosts %>
                 <% loop $BlogPosts.Sort('LastEdited') %>
                     <% include TopicCard %>
@@ -63,22 +96,27 @@ $BeforeContent
         <% end_with %>
       <% else_if $CurrentTag %>
         <% with $CurrentTag %>
-        <div class="main-content__header">
-            <% if $TermPlural %>
-              <h2 style="margin-bottom: 0;">{$TermPlural} listed under {$Title}:</h2>
-            <% else %>
-              <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
-            <% end_if %>
-        </div>
-            <% if $BlogPosts %>
+        <% if $Content %>
+          <article style="max-width: 800px; margin: auto;">
+            $Content 
+          </article>
+            <div class="main-content__header">
+              <% if $Up.TermPlural %>
+                 <h2 style="margin-bottom: 0;">{$Up.TermPlural} listed under "{$Title}":</h2>
+              <% else %>
+                <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
+              <% end_if %>
+            </div>      
+          <% end_if %>
 
+          <% if $BlogPosts %>
                 <% loop $BlogPosts.Sort('LastEdited') %>
                     <% include TopicCard %>
                 <% end_loop %>
-  
+       
             <% else %>
-              <p style="margin-top: 20px;">Nothing is currently listed under this tag.</p>
-          <% end_if %><%-- /endif BlogPosts --%>
+              <p style="margin-top: 20px;">Nothing is currently listed under this category.</p>
+          <% end_if %>       
         <% end_with %><%-- /endwith CurrentTag --%>
       <% end_if %><%-- /endif CurrentTag --%>
 
