@@ -44,9 +44,9 @@ $BeforeContent
     <article class="cell">
       $BeforeContentConstrained
 
-      <div class="main-content__text">
+<%--       <div class="main-content__text">
         $Content
-      </div>
+      </div> --%>
 
  
           $Content
