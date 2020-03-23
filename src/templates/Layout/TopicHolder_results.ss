@@ -47,9 +47,6 @@ $BeforeContent
 <%--       <div class="main-content__text">
         $Content
       </div> --%>
-
- 
-          $Content
           <div class="grid-x grid-padding-x">
             <div class="cell">
                  <h2 style="text-transform: uppercase; color: #333; border-bottom: 2px solid #333;">Search results for "<em>{$Query}</em>":</h2>
