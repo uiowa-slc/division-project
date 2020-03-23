@@ -50,15 +50,15 @@ class TopicHolder extends Blog {
     }
 
     //Allow for blog to be homepage.
-    public function Link($action = NULL){
-        if(!$action){
-            if(($this->ParentID == 0) && ($this->URLSegment == 'home')){
-                return 'home';
-            }
-        }
-        //$link = parent::getLink();
+    // public function Link($action = NULL){
+    //     if($action){
+    //         if(($this->ParentID == 0) && ($this->URLSegment == 'home')){
+    //             return 'home';
+    //         }
+    //     }
+    //     //$link = parent::getLink();
 
-    }
+    // }
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
