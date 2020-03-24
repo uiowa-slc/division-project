@@ -33,7 +33,10 @@ class TopicHolder extends Blog {
         'AllTopicsTabTitle' => 'Varchar(155)',
         'AllTopicsTabHeading' => 'Varchar(155)',
 
-        'TermPlural' => 'Varchar(155)'
+        'TermPlural' => 'Varchar(155)',
+
+        'FeedbackText' => 'HTMLText',
+        'FeedbackLink' => 'Text'
 	);
 
 
@@ -49,7 +52,7 @@ class TopicHolder extends Blog {
         return 'Topics';
     }
 
-    //Allow for blog to be homepage.
+    //Allow for blog to be homepage. Experimental.
     // public function Link($action = NULL){
     //     if($action){
     //         if(($this->ParentID == 0) && ($this->URLSegment == 'home')){
@@ -62,7 +65,7 @@ class TopicHolder extends Blog {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-
+        // Question/answer functionality is disabled for now.
 		// $questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		// $questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
 		// $questionGridField->setConfig($questionGridFieldConfig);
@@ -87,6 +90,9 @@ class TopicHolder extends Blog {
 	}
     public function getSettingsFields(){
         $fields = parent::getSettingsFields();
+
+        $fields->addFieldToTab('Root.Settings', TextField::create('FeedbackText'));
+        $fields->addFieldToTab('Root.Settings', TextField::create('FeedbackLink'));
 
         $fields->addFieldToTab('Root.Settings', TextField::create('TermPlural', 'Plural term for topics (ex: "Resources," "Entries," defaults to empty):')->addExtraClass('stacked'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));

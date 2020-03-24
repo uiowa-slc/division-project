@@ -24,7 +24,7 @@ class TopicHolderController extends BlogController{
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search for entries in this section');
+            $searchField->setAttribute('placeholder', 'Search for entries on this website');
 
 
             

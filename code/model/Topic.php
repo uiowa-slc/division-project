@@ -128,7 +128,12 @@ class Topic extends BlogPost {
     	//print_r($letterArrayList);
     	return $letterArrayList;
     }
+	//TODO: Move to a new BlogObjectExtension.
+	public function TermPlural(){
 
+		return $this->owner->Parent()->TermPlural;
+
+	}
 
 	/**
 	 * Returns a static google map of the address, linking out to the address.

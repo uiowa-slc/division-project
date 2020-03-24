@@ -1,5 +1,5 @@
 
-<article class="blogcard clearfix" style="max-width: 800px;">
+<article class="blogcard <% if $Last %>blogcard--no-border<% end_if %> clearfix" style="max-width: 800px;">
 	<% if $FeaturedImage %>
 		<a href="$Link" class="blogcard__img">
 			<img class="dp-lazy" data-original="$FeaturedImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
@@ -15,7 +15,7 @@
 	<% end_if %>
 	<div class="blogcard__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 
-		<h3 class="blogcard__heading">
+		<h3 class="blogcard__heading blogcard__heading--lighter">
             <a href="$Link">$Title</a>
         </h3>
 
@@ -35,7 +35,7 @@
 
 
         <% if $WebsiteLink %>
-        <p><a href="$WebsiteLink" target="_blank" style="font-size: 14px; text-decoration: underline;">{$Title} - Website Link <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+        <p><a href="$WebsiteLink" target="_blank" class="button small">Visit Website <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
         <% end_if %>
 			<div class="byline">
 				<p><em class="byline__on">Updated </em><span class="byline__on">on </span><time datetime="$LastEdited.format(c)" itemprop="datePublished">$LastEdited.format("MMMM d, y")</time></p>

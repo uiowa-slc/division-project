@@ -42,6 +42,10 @@ use SilverStripe\Blog\Model\BlogPost;
 	        $fields->addFieldToTab('Root.Posts', $postsGridField);
 				//$fields->push(new UploadField(Image::class, 'Background Image'), 'Title');
 		}
+		//TODO: Move to a new BlogObjectExtension.
+		public function TermPlural(){
 
+			return $this->owner->Blog()->TermPlural;
 
+		}
 	}

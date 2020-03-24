@@ -29,22 +29,28 @@ class BlogTagExtension extends DataExtension {
 	private static $plural_name = 'Tags';
 
 
-		public function updateCMSFields(FieldList $fields){
-			$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
+	public function updateCMSFields(FieldList $fields){
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
 
 
-			$listToBeSearched = BlogPost::get()->filter(array('ClassName' => 'Topic', 'ParentID' => $this->owner->BlogID));
+		$listToBeSearched = BlogPost::get()->filter(array('ClassName' => 'Topic', 'ParentID' => $this->owner->BlogID));
 
-	        $postsGridFieldConfig = GridFieldConfig_RelationEditor::create();
-	        $postsGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
+        $postsGridFieldConfig = GridFieldConfig_RelationEditor::create();
+        $postsGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
 
-	        //print_r($postsGridFieldConfig->getComponents());
-	        $postsGridFieldConfig->getComponentByType('SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter')->setSearchList($listToBeSearched);
-	   
-	        $postsGridField = new GridField('BlogPosts', 'Topics', $this->owner->BlogPosts());
-	        $postsGridField->setConfig($postsGridFieldConfig);
+        //print_r($postsGridFieldConfig->getComponents());
+        $postsGridFieldConfig->getComponentByType('SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter')->setSearchList($listToBeSearched);
+   
+        $postsGridField = new GridField('BlogPosts', 'Topics', $this->owner->BlogPosts());
+        $postsGridField->setConfig($postsGridFieldConfig);
 
-	        $fields->addFieldToTab('Root.Posts', $postsGridField);
-				//$fields->push(new UploadField(Image::class, 'Background Image'), 'Title');
-		}
+        $fields->addFieldToTab('Root.Posts', $postsGridField);
+			//$fields->push(new UploadField(Image::class, 'Background Image'), 'Title');
+	}
+	//TODO: Move to a new BlogObjectExtension.
+	public function TermPlural(){
+
+		return $this->owner->Blog()->TermPlural;
+
+	}
 }

@@ -1,0 +1,1 @@
+<% if $FeedbackLink %> <div class="topic-content"><p>$FeedbackText</p><a href="$FeedbackLink" class="button">Submit feedback</a></div> <% end_if %>

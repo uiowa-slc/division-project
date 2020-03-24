@@ -46,6 +46,9 @@ HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,addres
 
 ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
 
+
 TinyMCEConfig::get('cms')
     ->addButtonsToLine(1, 'styleselect')
-    ->setOption('importcss_append', true);
+    ->setOption('paste_remove_spans', true)
+    ->setOption('paste_remove_styles', true)
+    ->setOption('paste_strip_class_attributes', 'all');

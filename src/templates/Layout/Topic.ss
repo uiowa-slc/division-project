@@ -65,6 +65,7 @@ $Header
             </ul>
           <% end_if %>
           <% include TagsCategories %>
+
         </div>
       </div>
 
@@ -75,16 +76,9 @@ $Header
 
     </article>
   </div>
-      <div class="grid-container" style="margin-top: 200px; border-top: 1px solid #eee; padding-top: 120px;">
-        <div class="grid-x large-up-2">
-          <div class="cell">
-            <h2 style="margin-top: 0; margin-bottom: 0;">More topics:</h2>
-        </div>
-        <div class="cell">
-            $TopicSearchForm
-        </div>
-      </div>
-    </div>
+  <div class="grid-container">
+    <% include TopicMore %>
+  </div>
 
 
 

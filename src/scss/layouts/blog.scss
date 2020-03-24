@@ -5,6 +5,10 @@ Blog Card
 .blogcard {
     border-bottom: 1px solid $light-gray;
     padding: rem-calc(15 0);
+
+    &--no-border{
+        border: none;
+    }
     &__img {
         display: block;
         position: relative;
@@ -29,6 +33,10 @@ Blog Card
             &:hover, &:focus {
                 text-decoration: underline;
             }
+        }
+
+        &--lighter a{
+           color: #484848;
         }
     }
     &__desc {
