@@ -67,7 +67,8 @@
 	 margin-left: 0; 
 
 	 &__item{
-	 	list-style-type: none;
+	 	list-style-type: square;
+	 	list-style-position: inside;
 	 	margin-bottom: 5px;
 	 	font-size: 18px;
 	 	a{
@@ -151,8 +152,9 @@
 }
 
 .topic-feedback{
-	// border-top: 2px solid #eee;
-	// padding-top: 10px;
-	margin-top: 20px;
-	// text-align: center;
+	border: 2px dashed #c9c9c9;
+	padding: 20px;
+	margin: 10px 0;
+	background: #f6f6f6;
+	border-radius: 4px;
 }
