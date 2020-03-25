@@ -12,9 +12,7 @@
                 <div class="grid-x grid-padding-x small-up-2">
                   <% loop $BlogPosts.Limit(4).Sort('LastEdited DESC') %>
                     <div class="cell">
-                      <h2 class="topicholder-featured__heading"><a href="$Link">$Title</a></h2>
-                      <p class="topicholder-featured__preview">$Content.LimitCharacters(90).ATT</p>
-                      <p class="topicholder-featured__meta">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
+                      <% include TopicCardSummary %>
                     </div>
                   <% end_loop %>
                 </div>
