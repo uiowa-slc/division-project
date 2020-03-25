@@ -21,5 +21,5 @@
             <% else %>
               <p style="margin-top: 20px;">Nothing is currently listed under this category.</p>
           <% end_if %>  
-
+           <% include TopicFeedback %>
           </article>   

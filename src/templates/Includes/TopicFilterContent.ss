@@ -19,6 +19,8 @@
     <% end_loop %>
   <% else %>
       <p style="margin-top: 20px;">Nothing is currently listed under this category.</p>
-  <% end_if %>  
-
+  <% end_if %>
+  <% with $Blog %>
+    <% include TopicFeedback %>
+  <% end_with %>
 </article>   
