@@ -32,9 +32,9 @@
 		padding-bottom: 40px;
 	}
 
-	.topic-browse-by-filter__item{
-		padding-left: 10px;
-		padding-right: 10px;
+	&__item{
+		padding-left: 10px !important;
+		padding-right: 10px !important;
 	}
 }
 
@@ -134,6 +134,12 @@
 	margin: auto;
 	@include breakpoint(large) {
 		font-size: 16px;
+	}
+
+	&--small{
+		@include breakpoint(large) {
+			font-size: 12px;
+		}
 	}
 }
 

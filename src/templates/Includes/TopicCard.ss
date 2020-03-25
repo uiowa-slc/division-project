@@ -16,7 +16,7 @@
 	<div class="blogcard__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 
 		<h3 class="blogcard__heading blogcard__heading--lighter">
-            <a href="$Link">$Title</a>
+            <a href="$Link" style="color: #005994;">$Title</a>
         </h3>
 
 
