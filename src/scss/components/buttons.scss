@@ -26,6 +26,13 @@
 	border-radius: 3px;
 }
 
+.button--skinny{
+	padding: 5px;
+	@include breakpoint(large) {
+		padding: 10px;
+	}
+}
+
 
 
 /* Login Button */

@@ -25,7 +25,6 @@ align-items: center; background: rgba(0,0,0,0.4);">
     <div class="grid-x align-center grid-padding-x">
       <div class="cell">
         <div class="main-content__header">
-
         <% if $CurrentCategory.Content || $CurrentTag.Content %>
           <% if $CurrentCategory %>
             <h1>$CurrentCategory.Title</h1>
@@ -35,14 +34,14 @@ align-items: center; background: rgba(0,0,0,0.4);">
         <% else %>
           <% if $CurrentCategory %>
             <% if $TermPlural %>
-              <h1>{$TermPlural} listed under "{$CurrentCategory.Title}": </h1>
+              <h1>{$TermPlural} listed under {$CurrentCategory.Title}: </h1>
             <% else %>
               <h1>Listed under: $CurrentCategory.Title</h1>
             <% end_if %>
             
           <% else_if $CurrentTag %>
             <% if $TermPlural %>
-              <h1>{$TermPlural} listed under "{$CurrentTag.Title}": </h1>
+              <h1>{$TermPlural} listed under {$CurrentTag.Title}: </h1>
             <% else %>
               <h1>Listed under: $CurrentTag.Title</h1>
             <% end_if %>
@@ -50,6 +49,9 @@ align-items: center; background: rgba(0,0,0,0.4);">
         <% end_if %>
         </div>
       </div>
+
+
+
     </div>
   </div>
 
@@ -60,7 +62,7 @@ $BeforeContent
 <div class="grid-container">
 
   <div class="grid-x grid-padding-x">
-    <article class="cell">
+    <article class="cell medium-6">
 
       $BeforeContentConstrained
 
@@ -86,18 +88,26 @@ $BeforeContent
 
             <% include TopicFeedback %>
 
-            <% include TopicMore %>
-        
+
       <% end_if %><%-- /endif CurrentCategory || CurrentTag --%>
 
     </article>
+
+    
+      <div class="cell medium-6">
+        <div class="dp-sticky">
+        <% include TopicBrowseByFilter %>
+      </div>
+    </div>
+
+
   </div>
 </div>
 
 
-
-<% include TopicFooter %>
-
+  
+  <% include TopicBrowseAll %>
+  <% include TopicFooter %>
 
     $AfterContentConstrained
     $Form

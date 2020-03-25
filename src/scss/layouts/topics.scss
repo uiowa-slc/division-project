@@ -99,16 +99,24 @@
 
 .more-topics-container{
 	
-	border-top: 1px solid #eee; 
-	padding-top: 25px;
+	// border-top: 1px solid #eee; 
+	// padding-top: 25px;
 	@include breakpoint(medium) {
 		margin-top: 25px;
 	}
 	
 	@include breakpoint(large) {
-		padding-top: 50px;
+		// padding-top: 50px;
 		margin-top: 50px;
 
+	}
+}
+
+.topicholder-cat-inner{
+	display: block; 
+	margin: auto;
+	@include breakpoint(large) {
+		font-size: 16px;
 	}
 }
 

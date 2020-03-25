@@ -83,6 +83,7 @@ $Header
 
 
   <% with $Parent %>
+    <% include TopicBrowseAll %>
     <% include TopicFooter %>
   <% end_with %>
 
