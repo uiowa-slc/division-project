@@ -62,8 +62,8 @@ $BeforeContent
 <div class="grid-container">
 
   <div class="grid-x grid-padding-x">
-    <div class="cell small-12 medium-1"></div>
-    <article class="cell medium-6">
+    <div class="cell small-12 large-1 show-for-medium"></div>
+    <article class="cell medium-8 large-6">
 
       $BeforeContentConstrained
 
@@ -93,7 +93,7 @@ $BeforeContent
       <% end_if %><%-- /endif CurrentCategory || CurrentTag --%>
 
     </article>
-      <div class="cell small-12 medium-1">
+      <div class="cell small-12 large-1 show-for-large">
 
       </div>
     

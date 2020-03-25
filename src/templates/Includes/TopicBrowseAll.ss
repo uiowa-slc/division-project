@@ -29,7 +29,8 @@
       <section class="topicholder-section topicholder-section--gray">
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
-            <div class="cell">
+            <div class="cell small-12 large-1 show-for-medium"></div>
+            <div class="cell large-11">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
@@ -59,15 +60,17 @@
       <section class="topicholder-section topicholder-section--gray">
         <div class="grid-container grid-container--wpadding">
           <div class="grid-x grid-padding-x">
-            <div class="cell">
+            <div class="cell small-12 medium-1 hide-for-large"></div>
+            <div class="cell medium-11">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
                   <h2 class="topicholder-section__heading">Browse all</h2>
                 <% end_if %>
+
                  <ul class="topicholder-all-list">
-                   <% loop $AllTags.Sort('Title ASC') %>
-                      <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
+                   <% loop $AllCats.Sort('Title ASC') %>
+                      <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading"><a href="$Link">$Title</a></h3>
                         <% if $BlogPosts %>
                         <ul class="topicholder-sublist">
                           <% loop $BlogPosts.Sort('Title ASC') %>
