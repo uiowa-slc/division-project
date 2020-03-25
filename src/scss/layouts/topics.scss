@@ -24,6 +24,15 @@
 	text-transform: uppercase; font-size: 1em; color: #333;
 }
 
+.topic-browse-by-filter{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	@include breakpoint(large) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
+
 .topicholder-all-list{
 	//todo: responsive column count;
 	 margin-left: 0; 
