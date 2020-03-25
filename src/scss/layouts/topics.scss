@@ -172,8 +172,16 @@
 
 .topic-feedback{
 	border: 2px dashed #c9c9c9;
-	padding: 20px;
+	padding: 10px;
 	margin: 10px 0;
 	background: #f6f6f6;
 	border-radius: 4px;
+
+	@include breakpoint(large) {
+		padding: 20px;
+	}
+
+	.button{
+		margin: 0;
+	}
 }
