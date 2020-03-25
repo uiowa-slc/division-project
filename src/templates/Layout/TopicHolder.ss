@@ -34,16 +34,16 @@ $Header
         <% else %>
           <% if $CurrentCategory %>
             <% if $TermPlural %>
-              <h1>{$TermPlural} listed under {$CurrentCategory.Title}: </h1>
+              <h1>{$TermPlural} listed under &ldquo;{$CurrentCategory.Title}&rdquo;: </h1>
             <% else %>
-              <h1>Listed under: $CurrentCategory.Title</h1>
+              <h1>Listed under: &ldquo;$CurrentCategory.Title&rdquo;</h1>
             <% end_if %>
             
           <% else_if $CurrentTag %>
             <% if $TermPlural %>
-              <h1>{$TermPlural} listed under {$CurrentTag.Title}: </h1>
+              <h1>{$TermPlural} listed under &ldquo;{$CurrentTag.Title}&rdquo;: </h1>
             <% else %>
-              <h1>Listed under: $CurrentTag.Title</h1>
+              <h1>Listed under: &ldquo;$CurrentTag.Title&rdquo;</h1>
             <% end_if %>
           <% end_if %>
         <% end_if %>

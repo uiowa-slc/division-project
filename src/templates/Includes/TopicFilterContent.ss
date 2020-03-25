@@ -6,9 +6,9 @@
     </div>
 
     <% if $TermPlural %>
-       <h2 style="margin-bottom: 0;">{$TermPlural} listed under "{$Title}":</h2>
+       <h2 style="margin-bottom: 0;">{$TermPlural} listed under &ldquo;{$Title}&rdquo;:</h2>
     <% else %>
-      <h2 style="margin-bottom: 0;">Listed under {$Title}:</h2>
+      <h2 style="margin-bottom: 0;">Listed under &ldquo;{$Title}&rdquo;:</h2>
     <% end_if %>
 
   <% end_if %>
