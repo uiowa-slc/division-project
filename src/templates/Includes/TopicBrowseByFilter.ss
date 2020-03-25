@@ -2,7 +2,7 @@
 
       <% if $AllCats || $AllTags %>
         <div class="grid-x grid-padding-x">
-          <div class="cell">
+          <div class="cell topic-browse-by-filter__item">
           <% if $TermPlural %>
             <h2 class="topicholder-section__heading">Browse $TermPlural by...</h2>
           <% else %>
