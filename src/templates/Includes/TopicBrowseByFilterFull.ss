@@ -1,4 +1,4 @@
-  <div class="grid-container grid-container--wpadding">
+
 
       <% if $AllCats || $AllTags %>
         <div class="grid-x grid-padding-x">
@@ -22,5 +22,3 @@
 
 
 
-
-</div>

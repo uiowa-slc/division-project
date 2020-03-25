@@ -5,20 +5,20 @@ $Header
 <% if $Action == "index" %>
 <%--   <% include FeaturedImage %> --%>
 <% with $BackgroundImage %>
-<div  data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
+  <div data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
 <% end_with %>
-<div class="background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
-align-items: center; background: rgba(0,0,0,0.4);">
-<div style="width: 100%;">
-    <div style="width: 100%;">
-      <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
-        <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
-        $TopicSearchForm
+    <div class="background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
+    align-items: center; background: rgba(0,0,0,0.4);">
+      <div style="width: 100%;">
+          <div style="width: 100%;">
+            <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
+              <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
+              $TopicSearchForm
+            </div>
+          </div>
       </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 <% else_if $CurrentCategory || $CurrentTag %>
    $Breadcrumbs
   <div class="grid-container">
@@ -49,16 +49,51 @@ align-items: center; background: rgba(0,0,0,0.4);">
         <% end_if %>
         </div>
       </div>
-
-
-
     </div>
   </div>
 
 <% end_if %>
 
 $BeforeContent
- 
+
+
+<% if not $CurrentTag && not $CurrentCategory %>
+  <% if $Content %>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+          <article class="cell medium-8 large-
+
+          6">
+            $BeforeContentConstrained
+            
+            
+            <div class="topic-content main-content__text">
+              $Content
+              <% include TopicFeedback %>
+            </div>
+      
+
+          </article>
+        
+          <div class="cell medium-4">
+            <div class="dp-sticky">
+              <% include TopicBrowseByFilter %>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="grid-container grid-container--wpadding">
+        <div class="grid-x grid-padding-x">
+          <div class="cell large-12">
+              <% include TopicBrowseByFilterFull %>
+          </div>
+        </div>
+    </div>
+  <% end_if %><%-- end if content --%>
+
+<% else_if $CurrentTag || $CurrentCategory %>
+
 <div class="grid-container">
 
   <div class="grid-x grid-padding-x">
@@ -67,15 +102,7 @@ $BeforeContent
 
       $BeforeContentConstrained
 
-      <% if not $CurrentCategory && not $CurrentTag && $Content %>
-            <div class="topic-content main-content__text">
-              $Content
-
-              <% include TopicFeedback %>
-            </div>
-
-      <% end_if %>
-      <% if $CurrentCategory || $CurrentTag %>
+    
             <% if $CurrentCategory %>
               <% with $CurrentCategory %>
                 <% include TopicFilterContent %>      
@@ -86,11 +113,6 @@ $BeforeContent
               <% end_with %><%-- /endwith CurrentTag --%>
             <% end_if %><%-- /endif CurrentTag --%>
 
-
-           
-
-
-      <% end_if %><%-- /endif CurrentCategory || CurrentTag --%>
 
     </article>
       <div class="cell small-12 large-1 show-for-large">
@@ -107,10 +129,14 @@ $BeforeContent
   </div>
 </div>
 
+<% end_if %>
+
+
+
 
   
-  <% include TopicBrowseAll %>
-  <% include TopicFooter %>
+  <% include TopicBrowseAllFull %>
+  <% include TopicFooterFull %>
 
     $AfterContentConstrained
     $Form

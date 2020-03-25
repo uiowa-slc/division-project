@@ -78,12 +78,14 @@ $Header
   </div>
   <div class="grid-container">
     <% include TopicMore %>
-
+    <% with $Parent %>
+      <% include TopicBrowseByFilterFull %>
+      
+    <% end_with %>
   </div>
   <% with $Parent %>
-     <% include TopicBrowseByFilterFull %>
-    <% include TopicBrowseAll %>
-    <% include TopicFooter %>
+    <% include TopicBrowseAllFull %>
+    <% include TopicFooterFull %>
   <% end_with %>
 
   $AfterContent

@@ -1,5 +1,5 @@
 <% if $RelatedNewsEntries %>
-  <h2>Related Entries:</h2>
+  <h2 class="topic-related-header">Related Entries:</h2>
   <% loop $RelatedNewsEntries %>
       <div style="max-width: 800px;">
         <% include TopicCard %>
