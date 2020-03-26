@@ -257,11 +257,11 @@ class DivisionPage extends DataExtension {
 			'Blog'       		    => '',
 			'SiteConfigExtension' => ''
 		);
-		if(isset($niceNames[$this->owner->ClassName])){
-			$niceClassName = $niceNames[$this->owner->ClassName];
+		if(isset($niceNames[$this->owner->singular_name()])){
+			$niceClassName = $niceNames[$this->owner->singular_name()];
 			return $niceClassName;
 		}else{
-			return preg_replace('/([a-z]+)([A-Z])/', '$1 $2', $this->owner->getClassName());
+			return preg_replace('/([a-z]+)([A-Z])/', '$1 $2', $this->owner->singular_name());
 		}
 	}
 
