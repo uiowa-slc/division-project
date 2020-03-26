@@ -15,14 +15,14 @@
 	<% end_if %>
 	<div class="blogcard__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 
-		<h3 class="blogcard__heading blogcard__heading--lighter">
+		<h2 class="blogcard__heading blogcard__heading--lighter">
             <a href="$Link" style="color: #005994;">$Title</a>
-        </h3>
+        </h2>
 
 
 		<% if $Parent.ShowFullTopicBody %>
 			<div class="blogcard__desc">
-				$Content
+				$ContentDemotedHeadings.RAW
 			</div>
 		<% else %>
 			<% if $Summary %>

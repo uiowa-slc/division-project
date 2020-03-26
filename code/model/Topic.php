@@ -17,6 +17,10 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Blog\Controllers\BlogPostController;
+// use Sunra\PhpSimple\HtmlDomParser;
+
+use PHPHtmlParser\Dom;
+use PHPHtmlParser\Dom\HtmlNode;
 
 class Topic extends BlogPost {
 
@@ -42,10 +46,91 @@ class Topic extends BlogPost {
 
 	private static $icon_class = 'font-icon-book-open';
 	private static $can_be_root = false;
+
     public function AllTags(){
         $tags = BlogTag::get()->filter(array('BlogID' => $this->ParentID))->sort('Title ASC');
         return $tags;
     }
+
+    public function ContentDemotedHeadings(){
+    	$content = $this->Content;
+
+		$dom = new Dom;
+		$dom->load($content);
+
+		$conversionArray = array(
+			'h1' => 'h2',
+			'h2' => 'h3',
+			'h3' => 'h4',
+			'h5' => 'h6'
+		);
+
+
+    	 foreach($conversionArray as $tagName => $tagNewValue){
+
+
+
+				/** @var HtmlNode[] $tags */
+				foreach($dom->find($tagName) as $tag) {
+
+					// $tag->name = $tagNewValue;
+					// print_r($tag);
+				    $changeTag = function($new) {
+				        $this->name = 'h3';
+				    };
+				    $changeTag->call($tag->tag);
+				};
+
+
+
+    	 }
+
+    	 $exportedContent = new SilverStripe\ORM\FieldType\DBHTMLText();
+    	 $exportedContent = (string)$dom;;
+
+
+    	 return $exportedContent;
+	    
+
+    }
+
+
+
+    //almost works but is too aggressive and creates some weird utf characters
+    // public function ContentDemotedHeadings(){
+    // 	$content = $this->Content;
+
+    // 	 $dom = new DOMDocument();
+    // 	 $dom->loadHTML($content); 
+
+    // 	 $conversionArray = array(
+    // 	 	'h1' => 'h2',
+    // 	 	'h2' => 'h3',
+    // 	 	'h3' => 'h4',
+    // 	 	'h5' => 'h6'
+    // 	 );
+
+    // 	 foreach($conversionArray as $tagName => $tagNewValue){
+    // 	 		$elements = $dom->getElementsByTagName($tagName);
+			 //    for ($i = $elements->length - 1; $i >= 0; $i --) {
+			 //    	$nodeBefore = $elements->item($i);
+			 //    	$nodeAfter = $dom->createElement($tagNewValue, $nodeBefore->nodeValue);
+			 //    	$nodeBefore->parentNode->replaceChild($nodeAfter, $nodeBefore);
+			 //    } 
+    // 	 }
+
+    // 	 $exportedContent = new SilverStripe\ORM\FieldType\DBHTMLText();
+    // 	 $exportedContent = $dom->saveHTML();
+
+
+    // 	 return $exportedContent;
+	    
+
+    // }
+
+
+
+    
 
 	public function getCMSFields(){
 		
@@ -65,15 +150,15 @@ class Topic extends BlogPost {
 		$fields->removeByName('MetaData');
 		$fields->removeByName('Widgets');
 		$fields->renameField('Suburb', 'City');
-		$qField = TagField::create(
-						'Questions',
-						'Questions relevant to this topic:',
-						TopicQuestion::get(),
-						$this->Questions()
-					)->setShouldLazyLoad(true)->setCanCreate(false);
+		// $qField = TagField::create(
+		// 				'Questions',
+		// 				'Questions relevant to this topic:',
+		// 				TopicQuestion::get(),
+		// 				$this->Questions()
+		// 			)->setShouldLazyLoad(true)->setCanCreate(false);
 
-		$fields->addFieldToTab('Root.Questions', $qField);
-		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link (include https://)'));
+		// $fields->addFieldToTab('Root.Questions', $qField);
+		
 		$linkGrid = new GridField(
 			'Links',
 			'Links relevant to this topic',
@@ -92,6 +177,18 @@ class Topic extends BlogPost {
 		
 		$tagField = $fields->fieldByName('Root.PostOptions.Tags');
 		$tagField->setShouldLazyLoad(false);
+
+
+		if($this->Parent()->DisableTags){
+			$tagField->setDisabled(true);
+			$tagField->setRightTitle('Tags have been disabled for this section, please use categories.');
+
+		}
+
+		if($this->Parent()->DisableCategories){
+			$catField->setDisabled(true);
+			$catField->setRightTitle('Categories have been disabled for this section, please use tags.');
+		}
 		
 		$linkGrid->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
 			'Title' => array(
@@ -105,7 +202,7 @@ class Topic extends BlogPost {
 		));
 		// $fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
 		// $fields->addFieldToTab('Root.RelatedLinks', $linkGrid);
-
+		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link (include https://)'), 'CustomSummary');
 
 		return $fields;
 
@@ -131,7 +228,7 @@ class Topic extends BlogPost {
 	//TODO: Move to a new BlogObjectExtension.
 	public function TermPlural(){
 
-		return $this->owner->Parent()->TermPlural;
+		return $this->Parent()->TermPlural;
 
 	}
 
@@ -149,5 +246,6 @@ class Topic extends BlogPost {
 		));
 		return $data->renderWith('TopicGoogleMap');
 	}
+
 
 }

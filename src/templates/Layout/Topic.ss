@@ -78,12 +78,13 @@ $Header
         </aside>
         
   </div>
+  <div class="grid-container">
   <% if $RelatedNewsEntries %>
-    <div class="topic-content">
+    <div class="topic-content topic-content--no-pt">
       <% include TopicRelated %>
     </div>
   <% end_if %>
-  <div class="grid-container">
+  
     <% include TopicMore %>
     <% with $Parent %>
       <% include TopicBrowseByFilterFull %>

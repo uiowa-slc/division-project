@@ -36,7 +36,10 @@ class TopicHolder extends Blog {
         'TermPlural' => 'Varchar(155)',
 
         'FeedbackText' => 'HTMLText',
-        'FeedbackLink' => 'Text'
+        'FeedbackLink' => 'Text',
+
+        'DisableTags' => 'Boolean',
+        'DisableCategories' => 'Boolean'
 	);
 
 
@@ -65,6 +68,16 @@ class TopicHolder extends Blog {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+
+        $fields->removeByName('Dependent');
+        $fields->removeByName('Blocks');
+        $fields->removeByName('Widgets');
+        $fields->removeByName('LayoutType');
+        $fields->removeByName('MetaData');
+        //$fields->renameField('Root.Categorisation', 'Categories');
+
+        $catTab = $fields->findTab('Root.Categorisation');
+        $catTab->setTitle('Categories');
         // Question/answer functionality is disabled for now.
 		// $questionGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		// $questionGridField = new GridField('TopicQuestions', 'Questions', TopicQuestion::get());
@@ -83,7 +96,12 @@ class TopicHolder extends Blog {
         
         $featuredGridField = new GridField('FeaturedTopics', 'Featured Topics', $this->FeaturedTopics());
         $featuredGridField->setConfig($featuredGridFieldConfig);
-        $fields->addFieldToTab('Root.Main', $featuredGridField, 'Content');
+
+        $fields->addFieldToTab('Root.Feedback', TextField::create('FeedbackText'));
+        $fields->addFieldToTab('Root.Feedback', TextField::create('FeedbackLink'));
+
+
+        // $fields->addFieldToTab('Root.Main', $featuredGridField, 'Content');
 
 
 		return $fields;
@@ -91,14 +109,13 @@ class TopicHolder extends Blog {
     public function getSettingsFields(){
         $fields = parent::getSettingsFields();
 
-        $fields->addFieldToTab('Root.Settings', TextField::create('FeedbackText'));
-        $fields->addFieldToTab('Root.Settings', TextField::create('FeedbackLink'));
+
 
         $fields->addFieldToTab('Root.Settings', TextField::create('TermPlural', 'Plural term for topics (ex: "Resources," "Entries," defaults to empty):')->addExtraClass('stacked'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowFullTopicBody', 'Show full HTML body of the topics in their categories/tags'));
-        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowCategoriesTab', 'Show "Category" tab in "All Topics" navigator'));
-        // $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowTagsTab', 'Show "Tag" tab in "All Topics" navigator'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableTags', 'Disable Tags in the CMS'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableCategories', 'Disable Categories in the CMS'));
         return $fields;
 
     }
@@ -172,4 +189,14 @@ class TopicHolder extends Blog {
     	//print_r($letterArrayList->toArray());
     	return $letterArrayList;
     }
+    public function validate() 
+    {
+        $result = parent::validate();
+
+        if($this->DisableTags && $this->DisableCategories) {
+            $result->addError("Can't disable both categories and tags, please enable one or the other.");
+        }
+
+        return $result;
+    }    
 }
