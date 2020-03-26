@@ -50,7 +50,7 @@ $BeforeContent
       <div class="cell medium-4">
         <div class="dp-sticky">
 
-          <div style="border:1px solid #eee">
+          <div style="margin-top: 20px;">
             $TopicSearchFormSmall
           </div>
 

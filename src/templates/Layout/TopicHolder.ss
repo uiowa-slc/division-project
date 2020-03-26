@@ -15,7 +15,7 @@ $Header
               <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
               $TopicSearchForm
 
-              <p style="color: white; font-size: 14px;">
+              <p style="color: white; font-size: 15px;">
                 Browse by category: 
                 <% loop $AllCats.Sort('Title') %><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
           
@@ -136,9 +136,6 @@ $BeforeContent
 </div>
 
 <% end_if %>
-
-
-
 
   
   <% include TopicBrowseAllFull %>

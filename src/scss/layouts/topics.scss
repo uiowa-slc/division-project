@@ -10,11 +10,26 @@
 }
 .topic-search-form{
 	width: 100%;
+
+	&--small{
+		//hacky thing because I'm not fighting SilverStripe on adding css classes to TopicSearchForm's input field. You win, SilverStripe.
+		.topic-search-form__input{
+			border: 1px solid #ccc;
+
+		}
+
+		.topic-search-form__search-button{
+			font-size: 14px;
+			padding: 0 10px;
+		}
+	}
+
+
 	&__input{
 		border: none;
 		height: 55px;
         width: 100%;
-        background: rgba(#fff, 0.7);
+        background: rgba(#fff, 0.85);
         backdrop-filter: blur(5px);
         // border-top-left-radius: 3px;
         // border-bottom-left-radius: 3px;
@@ -32,6 +47,13 @@
 	}
 
 
+}
+//another non BEM CSS hack because I'm done adding CSS classes to TopicSearchForm:
+
+.more-topics-container{
+	.topic-search-form__input{
+		border: 1px solid #ccc;
+	}
 }
 
 .topic-search-form__search-button{

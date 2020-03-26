@@ -56,8 +56,10 @@ class TopicHolderController extends BlogController{
         }
 
 
-        public function TopicFormSmall(){
-            $form = $this->TopicForm();
+        public function TopicSearchFormSmall(){
+            $form = $this->TopicSearchForm();
+
+            $form->addExtraClass('topic-search-form--small');
 
             return $form;
         }
