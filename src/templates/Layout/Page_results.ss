@@ -4,7 +4,7 @@ $Header
 		<div class="main-content main-content--with-padding main-content--full-width">
 			<h1>$Title</h1>
 			<% if $Query %>
-				<p>You searched for &ldquot;{$Query}&rdquot;</p>
+				<p>You searched for &ldquo;{$Query}&rdquo;</p>
 				<% if $Results %>
 					<ul class="article-list">
 						<% loop $Results %>
