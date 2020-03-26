@@ -8,6 +8,49 @@
 		background: #eee;
 	}
 }
+.topic-search-form{
+	width: 100%;
+	&__input{
+		border: none;
+		height: 55px;
+        width: 100%;
+        background: rgba(#fff, 0.7);
+        backdrop-filter: blur(5px);
+        // border-top-left-radius: 3px;
+        // border-bottom-left-radius: 3px;
+        // border-right: 0;
+	}
+
+	&__input::placeholder{
+		color: #000;
+	}
+
+	&__fields{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+
+
+}
+
+.topic-search-form__search-button{
+	border: none;
+
+	// border-top: 1px solid #a5a5a5;
+	// border-bottom: 1px solid #a5a5a5;
+	// border-right: 1px solid #a5a5a5;
+	background-image: linear-gradient(to bottom, $highlight, lighten($highlight, 10));
+	color: #222;
+	height: 55px;
+	border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0 20px;
+    width: 30%;
+    &:hover{
+    	cursor: pointer;
+    }
+}
 
 .topic-content{
 	max-width: rem-calc(800);

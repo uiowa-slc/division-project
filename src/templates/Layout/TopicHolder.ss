@@ -14,6 +14,12 @@ $Header
             <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
               <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
               $TopicSearchForm
+
+              <p style="color: white; font-size: 14px;">
+                Browse by category: 
+                <% loop $AllCats.Sort('Title') %><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
+          
+                </p>
             </div>
           </div>
       </div>

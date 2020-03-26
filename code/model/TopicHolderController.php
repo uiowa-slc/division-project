@@ -54,6 +54,13 @@ class TopicHolderController extends BlogController{
             //print_r($form);
             return $form;
         }
+
+
+        public function TopicFormSmall(){
+            $form = $this->TopicForm();
+
+            return $form;
+        }
     /**
      * Process and render search results.
      *

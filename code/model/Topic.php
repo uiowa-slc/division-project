@@ -75,7 +75,7 @@ class Topic extends BlogPost {
 
 					// $tag->name = $tagNewValue;
 					// print_r($tag);
-				    $changeTag = function($new) {
+				    $changeTag = function() {
 				        $this->name = 'h3';
 				    };
 				    $changeTag->call($tag->tag);
@@ -130,7 +130,7 @@ class Topic extends BlogPost {
 
 
 
-    
+
 
 	public function getCMSFields(){
 		
