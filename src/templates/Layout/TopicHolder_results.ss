@@ -36,7 +36,7 @@ $BeforeContent
           <% end_loop %>
 
         <% else %>
-              <p style="margin-top: 20px;">Sorry, there are no results for this search term.</p>
+              <p style="margin-top: 20px; font-weight: bold;">Sorry, there are no results for this search term.</p>
         <% end_if %>  
 
         <% include TopicFeedback %>
@@ -50,8 +50,8 @@ $BeforeContent
       <div class="cell medium-4">
         <div class="dp-sticky">
 
-          <div style="margin-top: 20px;">
-            $TopicSearchFormSmall
+          <div style="padding-top: 20px;">
+            $TopicSearchForm("small")
           </div>
 
           <% include TopicBrowseByFilter %>

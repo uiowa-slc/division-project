@@ -9,7 +9,7 @@
                   <h2 class="topicholder-section__heading">Recently updated</h2>
                 <% end_if %>
 
-                <div class="grid-x grid-padding-x small-up-2">
+                <div class="grid-x grid-padding-x large-up-2">
                   <% loop $BlogPosts.Limit(4).Sort('LastEdited DESC') %>
                     <div class="cell">
                       <% include TopicCardSummary %>

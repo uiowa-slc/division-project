@@ -15,8 +15,8 @@ class TopicHolderController extends BlogController{
         'results'
 	);
 
-    public function TopicSearchForm() {
-
+    public function TopicSearchForm($size = "large") {
+        //print_r($size);
             $searchText =  'Search entries under '.$this->owner->Title;
             $termPlural = $this->owner->obj('TermPlural');
 
@@ -24,14 +24,23 @@ class TopicHolderController extends BlogController{
                 $searchText = $this->owner->request->getVar('Search');
             }
             $searchField = new TextField('Search', false, '');
-            $searchField->setAttribute('placeholder', 'Search for entries on this website');
 
+            if($size == "large"){
+                $searchField->setAttribute('placeholder', 'Search for entries on this website');
+            }else{
+                $searchField->setAttribute('placeholder', 'Search entries');
+            }
+            
 
             
             $searchField->setFieldHolderTemplate('TopicSearchFormField_holder');
-            $searchField->setAttribute('class', 'topic-search-form__input');
-
             $searchField->addExtraClass('topic-search-form__input');
+            if($size == "small"){
+                $searchField->addExtraClass('topic-search-form__input--small');
+            }
+            $searchField->addExtraClass('topic-search-form__input');
+
+
             $searchField->setAttribute('title', 'Search for entries');
 
             $fields = new FieldList(
@@ -50,19 +59,18 @@ class TopicHolderController extends BlogController{
             $form->classesToSearch(FulltextSearchable::get_searchable_classes());
             $form->setTemplate('TopicSearchForm');
             $form->addExtraClass('topic-search-form');
+
+            if($size == "small"){
+                $form->addExtraClass('topic-search-form--small');
+            }
+
+             
             //print_r($form->getAttributesHTML());
             //print_r($form);
             return $form;
         }
 
 
-        public function TopicSearchFormSmall(){
-            $form = $this->TopicSearchForm();
-
-            $form->addExtraClass('topic-search-form--small');
-
-            return $form;
-        }
     /**
      * Process and render search results.
      *

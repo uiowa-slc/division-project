@@ -103,7 +103,7 @@ $BeforeContent
 <div class="grid-container">
 
   <div class="grid-x grid-padding-x">
-    <div class="cell small-12 large-1 show-for-medium"></div>
+    <div class="cell small-12 large-1 show-for-large"></div>
     <article class="cell medium-8 large-6">
 
       $BeforeContentConstrained
@@ -127,7 +127,10 @@ $BeforeContent
     
       <div class="cell medium-4">
         <div class="dp-sticky">
-        <% include TopicBrowseByFilter %>
+          <div style="padding-top: 20px;">
+            $TopicSearchForm("small")
+            <% include TopicBrowseByFilter %>
+          </div>
       </div>
     </div>
 

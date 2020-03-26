@@ -12,11 +12,6 @@
 	width: 100%;
 
 	&--small{
-		//hacky thing because I'm not fighting SilverStripe on adding css classes to TopicSearchForm's input field. You win, SilverStripe.
-		.topic-search-form__input{
-			border: 1px solid #ccc;
-
-		}
 
 		.topic-search-form__search-button{
 			font-size: 14px;
@@ -34,6 +29,10 @@
         // border-top-left-radius: 3px;
         // border-bottom-left-radius: 3px;
         // border-right: 0;
+
+        &--small{
+			border: 1px solid #ccc;
+        }
 	}
 
 	&__input::placeholder{
