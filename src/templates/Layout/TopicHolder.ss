@@ -5,26 +5,30 @@ $Header
 <% if $Action == "index" %>
 <%--   <% include FeaturedImage %> --%>
 <% with $BackgroundImage %>
-  <div data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
+  <div style="background-repeat: no-repeat; background-size: cover;" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
 <% end_with %>
-    <div class="background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
+    <div class="topic-search-bg background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
     align-items: center; background: rgba(0,0,0,0.4);">
-      <div style="width: 100%;">
-          <div style="width: 100%;">
-            <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
-              <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
-              $TopicSearchForm
+  
+ 
+        <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
+          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
+          $TopicSearchForm
 
-              <p style="color: white; font-size: 16px; line-height: 2">
-                <span class="topic-search-minicats__heading">Browse by category:</span>
-                <% loop $AllCats.Sort('Title') %>
-                <span style="display: inline-block; margin: 0 2px;"><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>,</span><% end_if %>
-                <% end_loop %>
-          
-                </p>
-            </div>
-          </div>
-      </div>
+          <p style="color: white; font-size: 16px; line-height: 2">
+            <span class="topic-search-minicats__heading">Browse by category:</span>
+            <% loop $AllCats.Sort('Title').Limit(20) %>
+            <span style="display: inline-block; margin: 0 2px;"><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>,</span><% end_if %>
+            <% end_loop %>
+
+            <% if $AllCats.Count > 20 %>
+              <span class="topic-search-minicats__heading"><a href="#browse-categories" style="color: white; text-decoration: underline;">and more...</a></span>
+            <% end_if %>
+      
+            </p>
+        </div>
+      
+   
     </div>
   </div>
 <% else_if $CurrentCategory || $CurrentTag %>
