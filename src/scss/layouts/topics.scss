@@ -47,13 +47,7 @@
 
 
 }
-//another non BEM CSS hack because I'm done adding CSS classes to TopicSearchForm:
 
-.more-topics-container{
-	.topic-search-form__input{
-		border: 1px solid #ccc;
-	}
-}
 
 .topic-search-form__search-button{
 	border: none;
@@ -73,6 +67,13 @@
     }
 }
 
+.topic-search-minicats__heading{
+	display: inline;
+	@include breakpoint(medium) {
+		display: block;
+	}
+
+}
 .topic-content{
 	max-width: rem-calc(800);
 	padding-top: 20px;
