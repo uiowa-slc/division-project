@@ -52,6 +52,7 @@ class Topic extends BlogPost {
         return $tags;
     }
 
+    //Works but only changes them all to h3s..
     public function ContentDemotedHeadings(){
     	$content = $this->Content;
 
@@ -75,6 +76,8 @@ class Topic extends BlogPost {
 
 					// $tag->name = $tagNewValue;
 					// print_r($tag);
+
+					//TODO FIX SO NOT ALL H3s..
 				    $changeTag = function() {
 				        $this->name = 'h3';
 				    };

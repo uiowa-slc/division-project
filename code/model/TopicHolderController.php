@@ -35,10 +35,8 @@ class TopicHolderController extends BlogController{
             
             $searchField->setFieldHolderTemplate('TopicSearchFormField_holder');
             $searchField->addExtraClass('topic-search-form__input');
-            if($size == "small"){
-                $searchField->addExtraClass('topic-search-form__input--small');
-            }
-            $searchField->addExtraClass('topic-search-form__input');
+            $searchField->addExtraClass('topic-search-form__input--'.$size);
+       
 
 
             $searchField->setAttribute('title', 'Search for entries');
@@ -59,10 +57,8 @@ class TopicHolderController extends BlogController{
             $form->classesToSearch(FulltextSearchable::get_searchable_classes());
             $form->setTemplate('TopicSearchForm');
             $form->addExtraClass('topic-search-form');
-
-            if($size == "small"){
-                $form->addExtraClass('topic-search-form--small');
-            }
+            $form->addExtraClass('topic-search-form__input--'.$size);
+         
 
              
             //print_r($form->getAttributesHTML());

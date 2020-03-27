@@ -1,4 +1,4 @@
-  <div class="grid-container grid-container--1800px topic-browse-by-filter">
+  <div class="topic-browse-by-filter">
 
       <% if $AllCats || $AllTags %>
         <div class="grid-x grid-padding-x">

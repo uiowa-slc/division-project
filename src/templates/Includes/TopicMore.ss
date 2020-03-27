@@ -8,7 +8,7 @@
       <% end_if %>
   </div>
   <div class="cell">
-      $TopicSearchForm
+      $TopicSearchForm("medium")
   </div>
 
 </div>
