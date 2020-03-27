@@ -57,7 +57,7 @@ class TopicHolderController extends BlogController{
             $form->classesToSearch(FulltextSearchable::get_searchable_classes());
             $form->setTemplate('TopicSearchForm');
             $form->addExtraClass('topic-search-form');
-            $form->addExtraClass('topic-search-form__input--'.$size);
+            $form->addExtraClass('topic-search-form--'.$size);
          
 
              
