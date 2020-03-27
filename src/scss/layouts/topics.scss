@@ -169,19 +169,11 @@
 
 	}
 	
-	&__item{
-
-		@include breakpoint(xlarge) {
-			// padding-right: 1.25rem;
-		}
-
-
-	}
 }
 
 
 .topicholder-all-list{
-	//todo: responsive column count;
+
 	 margin-left: 0; 
 	 column-count: 1;
 

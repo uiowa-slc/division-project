@@ -134,7 +134,7 @@ $BeforeContent
       <div class="cell medium-4">
         <div class="dp-sticky dp-sticky--medium">
           <div style="padding-top: 20px;">
-            $TopicSearchForm("small")
+            $TopicSearchForm(0, "small")
             <% include TopicBrowseByFilter %>
           </div>
       </div>

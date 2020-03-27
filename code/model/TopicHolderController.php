@@ -15,7 +15,7 @@ class TopicHolderController extends BlogController{
         'results'
 	);
 
-    public function TopicSearchForm($size = "large") {
+    public function TopicSearchForm($request = null, $size = "large") {
         //print_r($size);
             $searchText =  'Search entries under '.$this->owner->Title;
             $termPlural = $this->owner->obj('TermPlural');
@@ -37,7 +37,7 @@ class TopicHolderController extends BlogController{
             $searchField->addExtraClass('topic-search-form__input');
 
             if($size){
-                //$searchField->addExtraClass('topic-search-form__input--'.$size); 
+                $searchField->addExtraClass('topic-search-form__input--'.$size); 
             }
             
        
@@ -61,7 +61,7 @@ class TopicHolderController extends BlogController{
             $form->classesToSearch(FulltextSearchable::get_searchable_classes());
             $form->setTemplate('TopicSearchForm');
             $form->addExtraClass('topic-search-form');
-            //$form->addExtraClass('topic-search-form--'.$size);
+            $form->addExtraClass('topic-search-form--'.$size);
          
 
              
