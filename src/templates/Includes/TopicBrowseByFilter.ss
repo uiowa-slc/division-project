@@ -1,8 +1,8 @@
   <div class="topic-browse-by-filter">
 
       <% if $AllCats || $AllTags %>
-        <div class="grid-x grid-padding-x">
-          <div class="cell topic-browse-by-filter__item">
+        <div class="topic-browse-by-filter__grid topic-browse-by-filter__grid--full">
+          <div class="topic-browse-by-filter__item">
           <% if $TermPlural %>
             <h2 id="browse-categories" class="topicholder-section__heading">Browse $TermPlural by...</h2>
           <% else %>
