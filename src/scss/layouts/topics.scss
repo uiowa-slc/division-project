@@ -129,8 +129,9 @@
 	}
 
 	&__item{
-		// padding-left: 10px !important;
-		// padding-right: 10px !important;
+		@include breakpoint(xlarge) {
+			padding-right: 1.25rem;
+		}
 	}
 }
 
