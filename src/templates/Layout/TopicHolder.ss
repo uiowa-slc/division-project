@@ -13,7 +13,7 @@ $Header
  
         <div style="max-width: 700px; margin: auto; text-align: center; z-index:1; position: relative;">
           <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
-          $TopicSearchForm
+          $TopicSearchFormSized
 
           <p style="color: white; font-size: 16px; line-height: 2">
             <span class="topic-search-minicats__heading">Browse by category:</span>
@@ -134,7 +134,7 @@ $BeforeContent
       <div class="cell medium-4">
         <div class="dp-sticky dp-sticky--medium">
           <div style="padding-top: 20px;">
-            $TopicSearchForm(0, "small")
+            $TopicSearchFormSized("small")
             <% include TopicBrowseByFilter %>
           </div>
       </div>

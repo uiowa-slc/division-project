@@ -7,9 +7,7 @@ $Header
     <div class="grid-x align-center grid-padding-x">
       <div class="cell">
         <div class="main-content__header">
-
-          <h1>Search results for &ldquo;{$Query}&rdquo;</h1>
-       
+          <h1>Search results</h1>
         </div>
       </div>
     </div>
@@ -27,7 +25,9 @@ $BeforeContent
   <div class="grid-x grid-padding-x">
     <div class="cell small-12 large-1 show-for-medium"></div>
       <article class="cell medium-8 large-6">
-
+          <div style="padding-top: 20px;">
+            $TopicSearchFormSized("medium")
+          </div>
         $BeforeContentConstrained
       
         <% if $Results %>
@@ -36,7 +36,12 @@ $BeforeContent
           <% end_loop %>
 
         <% else %>
-              <p style="margin-top: 20px; font-weight: bold;">Sorry, there are no results for this search term.</p>
+              <% if $Query %>
+                <p style="margin-top: 20px; font-weight: bold;">Sorry, there are no results for this search term.</p>
+              <% else %>
+                <p style="margin-top: 20px; font-weight: bold;">No search term specified. Please specify a search term and try searching again.</p>
+              <% end_if %>
+                
         <% end_if %>  
 
         <% include TopicFeedback %>
@@ -50,9 +55,7 @@ $BeforeContent
       <div class="cell medium-4">
         <div class="dp-sticky dp-sticky--medium">
 
-          <div style="padding-top: 20px;">
-            $TopicSearchForm("small")
-          </div>
+
 
           <% include TopicBrowseByFilter %>
         </div>

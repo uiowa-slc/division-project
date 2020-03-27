@@ -15,60 +15,14 @@ class TopicHolderController extends BlogController{
         'results'
 	);
 
-    public function TopicSearchForm($request = null, $size = "large") {
-        //print_r($size);
-            $searchText =  'Search entries under '.$this->owner->Title;
-            $termPlural = $this->owner->obj('TermPlural');
+    public function TopicSearchFormSized($size = "large"){
 
-            if($this->owner->request && $this->owner->request->getVar('Search')) {
-                $searchText = $this->owner->request->getVar('Search');
-            }
-            $searchField = new TextField('Search', false, '');
+        return $this->TopicSearchForm($this, 'SearchForm', null, null, $size);
+    }
 
-            if($size == "large"){
-                $searchField->setAttribute('placeholder', 'Search for entries on this website');
-            }else{
-                $searchField->setAttribute('placeholder', 'Search entries');
-            }
-            
-
-            
-            $searchField->setFieldHolderTemplate('TopicSearchFormField_holder');
-            $searchField->addExtraClass('topic-search-form__input');
-
-            if($size){
-                $searchField->addExtraClass('topic-search-form__input--'.$size); 
-            }
-            
-       
-
-
-            $searchField->setAttribute('title', 'Search for entries');
-
-            $fields = new FieldList(
-                $searchField
-            );
-
-            $action = FormAction::create('results', 'Search');
-            $action->setUseButtonTag(true);
-            $action->addExtraClass('topic-search-form__search-button');
-            $action->setTemplate('TopicSearchFormAction');
-            $actions = new FieldList(
-                $action //this is the only real change to tell the form to use a different function for the action
-            );
-
-            $form = new SearchForm($this->owner, 'TopicSearchForm', $fields, $actions);
-            $form->classesToSearch(FulltextSearchable::get_searchable_classes());
-            $form->setTemplate('TopicSearchForm');
-            $form->addExtraClass('topic-search-form');
-            $form->addExtraClass('topic-search-form--'.$size);
-         
-
-             
-            //print_r($form->getAttributesHTML());
-            //print_r($form);
-            return $form;
-        }
+    public function TopicSearchForm($request, $name, $fields, $actions, $size = "large") {
+        return new TopicSearchForm($this, 'SearchForm', null, null, $size);
+    }
 
 
     /**
