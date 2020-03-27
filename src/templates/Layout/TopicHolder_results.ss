@@ -48,7 +48,7 @@ $BeforeContent
       </div>
     
       <div class="cell medium-4">
-        <div class="dp-sticky">
+        <div class="dp-sticky dp-sticky--medium">
 
           <div style="padding-top: 20px;">
             $TopicSearchForm("small")

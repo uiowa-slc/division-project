@@ -188,5 +188,13 @@ img:not([src]) {
 		position: sticky;
 		top: 0;
 	}
+
+	&--medium{
+		@include breakpoint(medium) {
+			position: sticky;
+			top: 0;
+		}
+
+	}
 }
 

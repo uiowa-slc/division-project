@@ -69,7 +69,7 @@ $Header
       $Form
     </article>
         
-        <aside class="sidebar dp-sticky show-for-large">
+        <aside class="sidebar dp-sticky dp-sticky--medium show-for-large">
           <div class="">
             <% with $Parent %>
               <% include TopicBrowseByFilterSmall %>
