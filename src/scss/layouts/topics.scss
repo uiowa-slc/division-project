@@ -120,8 +120,23 @@
 .topicholder-section__heading{
 	text-transform: uppercase; font-size: 1em; color: #333;
 }
+.gallery-grid {
+    @include xy-grid('horizontal');
 
+    @include xy-grid-layout(3, '.gallery-item');
+    @include breakpoint(medium) {
+        @include xy-grid-layout(5, '.gallery-item');
+    }
+    @include breakpoint(large up) {
+        @include xy-grid-layout(7, '.gallery-item', true, 15, 'padding');
+        @include xy-gutters(15, 'padding', $negative:true);
+    }
+    .gallery-item {
+        margin: 0;
+    }
+}
 .topic-browse-by-filter{
+
 	padding-top: 10px;
 	padding-bottom: 10px;
 	@include breakpoint(large) {
@@ -129,12 +144,32 @@
 		padding-bottom: 40px;
 	}
 
+	//cell small-6 medium-12 large-6
+	&__grid{
+
+		@include xy-grid('horizontal');
+		@include xy-grid-layout(2, '.topic-browse-by-filter__item', true, 15, 'padding');
+		@include xy-gutters(15, 'padding', $negative:true);
+	    @include breakpoint(medium) {
+	        @include xy-grid-layout(1, '.topic-browse-by-filter__item', true, 15, 'padding');
+	    }
+	    @include breakpoint(large up) {
+	        @include xy-grid-layout(2, '.topic-browse-by-filter__item', true, 15, 'padding');
+	        @include xy-gutters(15, 'padding', $negative:true);
+	    }	 
+
+	}
+	
 	&__item{
+
 		@include breakpoint(xlarge) {
 			padding-right: 1.25rem;
 		}
+
+
 	}
 }
+
 
 .topicholder-all-list{
 	//todo: responsive column count;
@@ -301,3 +336,67 @@
 		margin: 0;
 	}
 }
+
+.topic-card {
+    border-bottom: 1px solid $light-gray;
+    padding: rem-calc(15 0);
+
+    &--no-border{
+        border: none;
+    }
+    &__img {
+        display: block;
+        position: relative;
+        margin-bottom: rem-calc(15);
+        @include breakpoint(large) {
+            float: right;
+            margin-bottom: 0;
+            width: 220px;
+        }
+    }
+    &__content {
+        &--wimage {
+            @include breakpoint(large) {
+                margin-right: 240px;
+            }
+        }
+    }
+    &__heading {
+        margin: 0 0 10px 0;
+        & a {
+            color: $body-font-color;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
+
+        &--lighter a{
+           color: #484848;
+        }
+    }
+    &__desc {
+        font-size: rem-calc(16);
+    }
+    &__category {
+        margin: rem-calc(15 0 0 0);
+        text-transform: uppercase;
+        font-size: rem-calc(12);
+        & a {
+            text-decoration: none !important;
+        }
+        .newsblock & {
+            display: none;
+        }
+    }
+    &__date {
+        font-size: rem-calc(13);
+        color: $dark-gray;
+    }
+    .newsblock & {
+        border-bottom: none; // hide border when within a Block
+    }
+    @include breakpoint(medium) {
+        padding: rem-calc(30 0);
+    }
+}
+

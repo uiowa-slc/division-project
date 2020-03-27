@@ -1,5 +1,5 @@
 
-<article class="blogcard <% if $Last %>blogcard--no-border<% end_if %> clearfix" style="max-width: 800px;">
+<article class="blogcard <% if $Last %>blogcard--no-border<% end_if %> clearfix">
 	<% if $FeaturedImage %>
 		<a href="$Link" class="blogcard__img">
 			<img class="dp-lazy" data-original="$FeaturedImage.FocusFill(500,333).URL" width="500" height="333" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="$Title">
