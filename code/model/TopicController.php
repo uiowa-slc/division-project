@@ -11,7 +11,7 @@ class TopicController extends BlogPostController{
         return $this->TopicSearchForm($this, 'SearchForm', null, null, $size);
     }
 
-    public function TopicSearchForm( $size = "large") {
+    public function TopicSearchForm($request, $name, $fields, $actions, $size = "large") {
         //$current = Controller::curr();
         $controller = TopicHolderController::create($this);
         // $current = $this->getController();

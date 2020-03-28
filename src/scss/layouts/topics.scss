@@ -53,7 +53,13 @@
 		    	height: 40px;
 		    }
 		}
+        &--tiny{
 
+			border: 1px solid #ccc;
+		 	@include breakpoint(medium) {
+		    	height: 40px;
+		    }
+		}
 		&--medium{
 			height: 40px;
 		}
@@ -114,6 +120,24 @@
 	    	@include breakpoint(medium) {
 	    		@include show-for-sr;
 	    	}
+	    }
+    }
+
+     &--tiny{
+    	width: 20%;
+    	font-size: 14px;
+    	padding: 0 10px;
+
+    	@include breakpoint(medium) {
+    	 height: 40px;
+    	}
+
+	    //Search button text:
+	    span{
+
+
+	    		@include show-for-sr;
+	    
 	    }
     }
 	&--medium{

@@ -65,12 +65,13 @@ $Header
               <% end_if %>
         $AfterContentConstrained
       </div>
-            <% include TagsCategories %>
+      <% include TagsCategories %>
       $Form
     </article>
         
         <aside class="sidebar dp-sticky dp-sticky--medium show-for-large">
           <div class="">
+            $TopicSearchFormSized("tiny")
             <% with $Parent %>
               <% include TopicBrowseByFilterSmall %>
             <% end_with %>
@@ -84,12 +85,13 @@ $Header
       <% include TopicRelated %>
     </div>
   <% end_if %>
-  
-    <% include TopicMore %>
-    <% with $Parent %>
-      <% include TopicBrowseByFilterFull %>
-      
-    <% end_with %>
+    <div class="hide-for-large">
+      <% include TopicMore %>
+      <% with $Parent %>
+        <% include TopicBrowseByFilterFull %>
+        
+      <% end_with %>
+    </div>
   </div>
   <% with $Parent %>
     <% include TopicBrowseAllFull %>
