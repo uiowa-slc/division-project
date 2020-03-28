@@ -2,7 +2,7 @@
 
 
 <div class="topic-content topic-feedback">
-	<p>$FeedbackText</p>
+	$FeedbackText
 	<a href="$FeedbackLink" class="button">Submit feedback or information</a>
 </div>
 
