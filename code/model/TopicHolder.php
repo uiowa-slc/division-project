@@ -12,6 +12,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\Blog\Model\Blog;
 use MD\DivisionProject\TopicHolderController;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Control\Controller;
 class TopicHolder extends Blog {
 
@@ -74,7 +75,6 @@ class TopicHolder extends Blog {
         $fields->removeByName('Widgets');
         $fields->removeByName('LayoutType');
         $fields->removeByName('MetaData');
-        //$fields->renameField('Root.Categorisation', 'Categories');
 
         $catTab = $fields->findTab('Root.Categorisation');
         $catTab->setTitle('Categories');
@@ -97,10 +97,12 @@ class TopicHolder extends Blog {
         $featuredGridField = new GridField('FeaturedTopics', 'Featured Topics', $this->FeaturedTopics());
         $featuredGridField->setConfig($featuredGridFieldConfig);
 
-        $fields->addFieldToTab('Root.Feedback', TextField::create('FeedbackText'));
         $fields->addFieldToTab('Root.Feedback', TextField::create('FeedbackLink'));
+        $fields->addFieldToTab('Root.Feedback', HtmlEditorField::create('FeedbackText'));
+        
 
 
+        //Featured topics are disabled for now.
         // $fields->addFieldToTab('Root.Main', $featuredGridField, 'Content');
 
 

@@ -23,7 +23,7 @@
 		<% if $Summary %>
 			<div class="topic-card__desc">$Summary</div>
 		<% else %>
-			<p class="topic-card__desc">$Content.LimitCharacters(150)</p>
+			<p class="topic-card__desc">$Content.LimitCharacters(150) <a href="$Link">Continue reading...</a></p>
 		<% end_if %>
 
 
@@ -41,7 +41,7 @@
         <% if $Categories.exists %>
             <p class="topic-card__category">
                 <% loop $Categories %>
-                    <a href="$Link" class="button hollow tiny secondary" style="border-radius: 3px;">$Title</a>
+                    <a href="$Link" class="button hollow tiny secondary" style="border-radius: 4px; margin-bottom: 4px;">$Title</a>
                 <% end_loop %>
             </p>
         <% end_if %>
