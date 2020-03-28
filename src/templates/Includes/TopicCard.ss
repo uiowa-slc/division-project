@@ -29,12 +29,17 @@
         <% if $WebsiteLink %>
         <p><a href="$WebsiteLink" target="_blank" class="button small">Visit Website <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
         <% end_if %>
+
+        <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>
 			<div class="byline">
+
+				
 				<p><em class="byline__on">Updated </em><span class="byline__on">on </span><time datetime="$LastEdited.format(c)" itemprop="datePublished">$LastEdited.format("MMMM d, y")</time></p>
+				
 
 
 			</div>
-
+		<% end_if %>
         <% if $Categories.exists %>
             <p class="topic-card__category">
                 <% loop $Categories %>

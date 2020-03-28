@@ -9,8 +9,8 @@ $Header
       <div class="main-content__header">
         <% if not $BackgroundImage %><h1>$Title</h1><% end_if %>
             <div class="blogmeta">
-                <% if $Parent.ShowLastUpdated %>
-                <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.Nice</em>
+                <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>
+                <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
                   <% if $Categories.Count == 1 %><br />
                       <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
                   </p><% end_if %>
