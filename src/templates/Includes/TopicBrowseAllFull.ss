@@ -69,7 +69,7 @@
                 <% end_if %>
 
                  <ul class="topicholder-all-list">
-                   <% loop $AllCats.Sort('Title ASC') %>
+                   <% loop $AllTags.Sort('Title ASC') %>
                       <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading"><a href="$Link">$Title</a></h3>
                         <% if $BlogPosts %>
                         <ul class="topicholder-sublist">
