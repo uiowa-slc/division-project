@@ -20,6 +20,10 @@
 		& p {
 			line-height: 1.4;
 		}
+		& a {
+			color: $light-gray;
+			text-decoration: underline;
+		}		
 	}
 	&__logo {
 		display: block;
@@ -39,10 +43,7 @@
 		font-weight: 600;
 	}
 	&__address {
-		& a {
-			color: $light-gray;
-			text-decoration: underline;
-		}
+
 	}
 	&__navigation {
 		@include grid-column(12);
