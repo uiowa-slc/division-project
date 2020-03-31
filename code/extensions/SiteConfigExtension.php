@@ -26,6 +26,7 @@ class SiteConfigExtension extends DataExtension {
 		'PhoneLabelAlt' => 'Text',
 		'PhoneNumberAlt' => 'Text',
 		'Fax' => 'Text',
+
 		'FacebookLink' => 'Text',
 		'GroupSummary' => 'HTMLText',
 		'EmailAddress' => 'Text',
@@ -37,23 +38,31 @@ class SiteConfigExtension extends DataExtension {
 		'YouTubeLink' => 'Text',
 		'Github' => 'Text',
 		'Snapchat' => 'Text',
+
 		'DisableDivisionBranding' => 'Boolean',
 		'ShowExitButton' => 'Boolean',
 		'UseDarkTheme' => 'Boolean',
 		'MailChimpFormEmbed' => 'HTMLText',
+
 		'ButtonTextOne' => 'Text',
 		'ButtonUrlOne' => 'Text',
 		'ButtonTextTwo' => 'Text',
 		'ButtonUrlTwo' => 'Text',
 		'ButtonTextThree' => 'Text',
 		'ButtonUrlThree' => 'Text',
+
 		'QuickLinkTitleOne' => 'Text',
 		'QuickLinkTitleTwo' => 'Text',
 		'QuickLinkTitleThree' => 'Text',
 		'QuickLinkURLOne' => 'Text',
 		'QuickLinkURLTwo' => 'Text',
 		'QuickLinkURLThree' => 'Text',
-		'Disclaimer' => 'HTMLText'
+
+		'Disclaimer' => 'HTMLText',
+
+		'CmsCustomLinkTitle' => 'Text',
+		'CmsCustomLinkUrl' => 'Text',
+		'CmsCustomLinkClass' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -64,9 +73,6 @@ class SiteConfigExtension extends DataExtension {
 	private static $owns = array(
 		'PosterImage',
 		'FooterLogo'
-	);
-	private static $defaults = array(
-		'TypeKitID' => 'ggu1mkb'
 	);
 
 	public function updateCMSFields(FieldList $fields) {
@@ -130,6 +136,11 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab("Root.Main", $MailChimpFormEmbed = new TextareaField("MailChimpFormEmbed", "MailChimp Form Embed Code"));
 		$MailChimpFormEmbed->setDescription("More info: <a href='' target='_blank'>How to get this code &rarr;</a>");
 
+
+		$fields->addFieldToTab('Root.Main', new TextField('CmsCustomLinkUrl', 'Custom CMS Link URL'));
+		$fields->addFieldToTab('Root.Main', new TextField('CmsCustomLinkTitle', 'Custom CMS Link Title (optional, default: Content Management Guide)'));
+		$fields->addFieldToTab('Root.Main', new TextField('CmsCustomLinkClass', 'Custom CMS Link Icon Class (optional, default: font-icon-white-question)'));
+
 		return $fields;
 	}
 
@@ -159,4 +170,10 @@ class SiteConfigExtension extends DataExtension {
 
 	}
 
+
+	// public function populateDefaults() {
+	// 	$this->owner->CmsCustomLinkTitle = 'Content Management Guide';
+	// 	$this->owner->CmsCustomClass = 'font-icon-white-question';
+	// 	parent::populateDefaults();
+	// }
 }
