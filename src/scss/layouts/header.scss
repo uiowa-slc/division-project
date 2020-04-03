@@ -27,7 +27,7 @@
 	}
 
 	&--with-shadow {
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background-color: rgba(#333, 0.5);
 			background-image: url(../images/shadow.png);
 			background-size: cover;
@@ -88,7 +88,7 @@
 		z-index: 9999;
 	}
 
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		padding-bottom: 0;
 
 		&:after {
@@ -128,7 +128,7 @@
 		}
 
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			width: 100%;
 			padding: 20px 0 5px;
 		}
@@ -157,7 +157,7 @@
 			}
 		}
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		max-height: none;
 		overflow: visible;
 		padding-bottom: 0;
@@ -166,7 +166,7 @@
 .nav-collapse.open {
 	max-height: 2500px;
 	padding-bottom: 5px;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		padding-bottom: 0;
 	}
 }
