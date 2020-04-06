@@ -8,6 +8,10 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Environment;
+use SilverStripe\Core\Manifest\ModuleLoader;
+
+
+
 \SilverStripe\ORM\Search\FulltextSearchable::enable();
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
@@ -52,3 +56,10 @@ TinyMCEConfig::get('cms')
     ->setOption('paste_remove_spans', true)
     ->setOption('paste_remove_styles', true)
     ->setOption('paste_strip_class_attributes', 'all');
+
+$path = ModuleLoader::getModule('md/division-project')
+    ->getResource('client/expand-shortcode/editor_plugin.js');
+
+HtmlEditorConfig::get('cms')->enablePlugins(['expander' => $path]);
+TinyMCEConfig::get('cms')->insertButtonsAfter('unlink', 'expander-button');
+

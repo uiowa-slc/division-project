@@ -64,6 +64,7 @@
    ],
    "extra": {
         "expose": [
+          "client",
           "src/favicons",
           "src/images",
           "cms-icons",
