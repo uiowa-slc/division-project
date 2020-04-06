@@ -1,0 +1,16 @@
+.accordion{
+	margin-bottom: 0;
+}
+
+.accordion-item{
+	margin-bottom: 5px;
+}
+
+.accordion-title{
+	font-weight: bold;
+	color: #222;
+}
+
+.accordion-content br:first-child{
+	//display: none;
+}

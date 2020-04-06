@@ -20,7 +20,8 @@ use SilverStripe\ORM\DataExtension;
 use MD\DivisionProject\DivisionPageController;
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\View\SSViewer;
+use SilverStripe\View\ArrayData;
 class DivisionPage extends DataExtension {
 	private static $db = array(
 		'OgTitle' => 'Text',
@@ -83,6 +84,11 @@ class DivisionPage extends DataExtension {
 
 
 	);
+
+    private static $casting = [
+        'ExpandShortcode' => 'HTMLText'
+    ];
+
 	private static $hide_from_hierarchy = array(BlogPost::class,'Topic');
 
 	public function ClassAncestry(){
@@ -288,6 +294,23 @@ class DivisionPage extends DataExtension {
 
 	}
 
+
+//Shortcodes:
+
+
+	public static function ExpandShortcode($arguments, $content = null, $parser = null, $tagName){
+		$template = new SSViewer('ExpandShortcode');
+
+		$customise = array(
+			'Title' => $arguments['title'],
+			'Content' => $content
+		);
+
+
+		return $template->process(new ArrayData($customise));
+
+		//return "<em>" . $tagName . "</em> " . $content . "; " . count($arguments) . " arguments.";
+	}
 
 
 }
