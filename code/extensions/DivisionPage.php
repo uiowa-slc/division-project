@@ -62,7 +62,8 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $belongs_many_many = array(
-		'TileGridBlocks' => 'TileGridBlock'
+		'TileGridBlocks' => 'TileGridBlock',
+		'PageSliderBlocks' => 'PageSliderBlock'
 	);
 
 	private static $many_many_extraFields = array(
