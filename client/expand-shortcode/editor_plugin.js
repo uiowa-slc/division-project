@@ -33,16 +33,27 @@
                                 name: 'content',
                                 label: 'Content',
                                 minWidth: 300,
+                                maxWidth: 300,
                                 minHeight: 200,
                                 multiline: true
                             },
+                            {
+                              type: 'label', // component type
+                              level: 'info',
+                              text: 'Formatting, images, and links can be added after clicking OK',
+
+                            }
 
                     ],
                     onsubmit: function( e ) {
-                        editor.insertContent( '[expand title="' + e.data.title + '"]<br />error');
-                        editor.insertContent( e.data.content);
-                        editor.insertContent( '[/expand]<br />');
-                        console.log(e.data.content);
+                        
+                        var content = 
+                        '<div>[expand title="' + e.data.title + '"]<div>' + e.data.content +'</div>[/expand]</div>';
+
+                        editor.insertContent(content);
+                        
+
+                        // console.log(content);
                     }
                 });
 
@@ -53,21 +64,7 @@
                  if ( event.content ) {
 
                     event.content = event.content.replace(new RegExp('\r?\n','g'), '<br />');
-                    // console.log(event.content);
-                //     var re_clear_html = new RegExp( clear_html, 'g' );
-                //     var re_clear_html_no_semicolon = new RegExp( clear_html_no_semicolon, 'g' );
-                //     event.content = event.content.replace( re_clear_html, clear_placeholder );
 
-                //     *
-                //      * Under certain circumstances, TinyMCE will strip the semicolon from `<br style="clear: both;">.
-                //      * Also replace this.
-                     
-                //     event.content = event.content.replace( re_clear_html_no_semicolon, clear_placeholder );
-                //     /**
-                //      * Replace `<div style="clear: (left|right|both);"></div>` with placeholder too.
-                //      * This HTML markup has been used until version 1.1.
-                //      */
-                //     event.content = event.content.replace( /<div style="clear:(.+?)"><\/div>/g, clear_placeholder );
                 }
             });
 
