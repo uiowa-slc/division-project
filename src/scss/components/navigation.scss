@@ -1,7 +1,7 @@
 .nav__wrapper {
 	display: none;
 	visibility: hidden;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		background: transparent;
 		margin-top: 0;
 		position: relative;
@@ -44,14 +44,14 @@
 
 	&--light-header {
 		background-color: #242424;
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background: transparent;
 		}
 	}
 
 	&--dark-header {
 		background-color: #242424;
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background: transparent;
 		}
 	}
@@ -62,7 +62,7 @@
 		&:after {
 			background-color: transparent;
 		}
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background: transparent;
 		}
 	}
@@ -88,7 +88,7 @@
 }
 .nav__wrapper nav {
 	padding: 0 1em 0;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		padding: 0;
 	}
 }
@@ -97,7 +97,7 @@
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		position: static;
 		display: table;
 		width: auto;
@@ -140,7 +140,7 @@
 
 
 .nav__item {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: table-cell;
 		position: relative;
 		padding: 0;
@@ -163,7 +163,7 @@
 
 //We're on the current top nav page.
 .nav__item--current {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
 			background-color: $black;
 			display: block;
@@ -179,7 +179,7 @@
 
 //If we're currently on a page with a top level ancestor
 .nav__item--section {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
 			background-color: $black;
 			display: block;
@@ -197,7 +197,7 @@
 .nav__item--parent:hover,
 .nav__item--parent.focused,
 .nav__item--parent.nav__item--is-hovered {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
 			background-color: $black;
 			display: block;
@@ -233,7 +233,7 @@
 
 	}
 	&:hover > a {
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background-color: #fff;
 			color: #222;
 			&:after {
@@ -244,14 +244,14 @@
 	&:hover:after {
 		background-color: $highlight;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		border:none;
 	}
 	&.nav__item--parent.nav__item--is-hovered > a {
 		background-color: transparent;
 		color: #fff;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&.nav__item--parent.nav__item--is-hovered > a {
 			background-color: #fff;
 			color: #222;
@@ -272,7 +272,7 @@
 			border-color: #fff transparent transparent;
 		}
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		border:none;
 	}
 }
@@ -296,7 +296,7 @@
 	padding: rem-calc(15) 1vw;
 	position: relative;
 	font-size: rem-calc(16);
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: block;
 		font-size: rem-calc(18);
 		font-family: $header-font-family;
@@ -383,7 +383,7 @@
 	&:after{
 		border-color: $black transparent transparent;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		color: $black;
 	}
 }
@@ -396,8 +396,7 @@
 
 		}
 	}
-	@include breakpoint(medium) {
-		font-weight: 600;
+	@include breakpoint(large) {
 		&:hover,
 		&:focus,
 		&:active,
@@ -424,7 +423,7 @@
 	&:nth-last-child(n+9) .nav__link,
 	&:nth-last-child(n+9) ~ * .nav__link {
 		font-size: rem-calc(18);
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(16);
 		}
 
@@ -445,7 +444,7 @@
 	&:nth-last-child(n+11) ~ * .nav__link {
 		font-size: rem-calc(14);
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(14);
 			padding: rem-calc(13) rem-calc(16);
 		}
@@ -460,7 +459,7 @@
 	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
 	&:nth-last-child(n+13) .nav__link,
 	&:nth-last-child(n+13) ~ * .nav__link {
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(14);
 			padding: rem-calc(14) rem-calc(10);
 		}
@@ -474,7 +473,7 @@
 }
 .nav__search-item {
 	display: none;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: block;
 	}
 }
@@ -702,14 +701,14 @@
 	margin: 0;
 	&--light-header{
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background-color: #242424;
 			box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 		}
 	}
 	&--dark-header {
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background-color: #fff;
 			box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
 		}
@@ -721,7 +720,7 @@
 		visibility: visible;
 	}
 
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		position: absolute;
 		// left: -9999px;
 		top: 100%;
@@ -800,20 +799,20 @@
 
 /* new subnav */
 .subnav {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		&--dark-header {
 			// background: #242424;
 		}
 	}
 }
 .nav__item--opened .subnav {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		visibility: visible;
 		height: auto;
 	}
 }
 .nav li.nav__item--opened ul.subnav {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		border-top: 1px solid #333;
 		padding-top: 15px;
 		max-height: 1000px;
@@ -822,7 +821,7 @@
 	}
 }
 .subnav__item--column {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		width: 100%;
 		float: none;
 		padding: 9;
@@ -830,7 +829,7 @@
 
 }
 .subnav__link {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		border-bottom: none;
 		padding: 10px;
 		color: #ddd;
@@ -842,7 +841,7 @@
 }
 .nav .nav__item--parent .nav__link--parent {
 	margin-right: 50px;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		margin-right: 0;
 	}
 }
@@ -862,7 +861,7 @@
 	&:hover, &:focus {
 		background-color: #1f1f1f;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: none;
 	}
 }

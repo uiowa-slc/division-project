@@ -13,11 +13,11 @@
 			<h1 class="header__site-title" itemprop="name"><a href="$AbsoluteBaseURL" class="header__link--{$DarkLightHeader}" itemprop="url">$SiteConfig.Title</a></h1>
 		</div>
 
-		<div class="nav__toggle nav__toggle--menu show-for-small hide-for-medium">
+		<div class="nav__toggle nav__toggle--menu show-for-small hide-for-large">
 			<button class="nav__link nav__link--{$DarkLightHeader} nav__link--mobile-toggle" aria-controls="nav__wrapper"><span class="nav__menu-icon nav__menu-icon--{$DarkLightHeader}" id="nav__menu-icon"></span><span class="nav__menu-text nav__menu-text--{$DarkLightHeader}" id="nav__menu-text">Menu</span></button>
 		</div>
 
-		<div class="nav__toggle nav__toggle--search show-for-small hide-for-medium">
+		<div class="nav__toggle nav__toggle--search show-for-small hide-for-large">
 			<button class="nav__link nav__link--{$DarkLightHeader}">
 				<span class="show-for-sr">search</span>
 				<i class="fa fa-lg fa-search site-search-button" aria-hidden="true"></i>
