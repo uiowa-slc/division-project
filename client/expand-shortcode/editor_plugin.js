@@ -63,7 +63,7 @@
             editor.on( 'BeforeSetContent', function( event ) {
                  if ( event.content ) {
 
-                    event.content = event.content.replace(new RegExp('\r?\n','g'), '<br />');
+                    // event.content = event.content.replace(new RegExp('\r?\n','g'), '<br />');
 
                 }
             });
