@@ -1,4 +1,3 @@
-
 <div class="homepage__header">
 
 	$Header("dark-header","overlay")

@@ -102,6 +102,19 @@ $('.slideshow').each(function() { // the containers for all your galleries
 });
 
 
+//Page Slider Block;
+
+$('.pageslider-links').flickity({
+	cellAlign: 'center',
+	contain: true,
+	imagesLoaded: true,
+	pageDots: false,
+	initialIndex: 1,
+	wrapAround: true,
+	freeScroll: true
+});
+
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Wrap every YouTube iframe in a responsive embed class to prevent layout breakage
