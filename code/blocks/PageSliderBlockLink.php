@@ -33,20 +33,21 @@ class PageSliderBlockLink extends DataObject {
 
 	public function getCMSFields(){
 		$fields = FieldList::create();
-
-
-		$fields->push(UploadField::create('BackgroundImage', 'Background Image (default uses selected page\'s background image if the page is on this site.)'));
 		$fields->push(TextField::create('Title', 'Title (default: uses selected page\'s title if the page is on this site.)'));
 
 		$fields->push(
 			OptionsetField::create('Source', 'Link to:',array(
                 'internal' => 'A page on this site',
                 'external' => 'An external link')));
-
+		
 		$fields->push(Wrapper::create(TextField::create('ExternalLink', 'Link'))->displayIf('Source')->isEqualTo('external')->end());
 		$fields->push(Wrapper::create(TreeDropdownField::create('PageID', 'Page', SiteTree::class))->displayIf('Source')->isEqualTo('internal')->end());
 
-		$fields->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
+		// $fields->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
+		$fields->push(UploadField::create('BackgroundImage', 'Background Image (default uses selected page\'s background image if the page is on this site.)'));
+
+
+
 
 		return $fields;
 
