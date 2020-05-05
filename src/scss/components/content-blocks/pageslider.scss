@@ -1,0 +1,96 @@
+/* What We Do
+=============================================== */
+.pageslider-container {
+	padding: rem-calc(40 0);
+	background-color: #fff;
+	position: relative;
+	z-index: 11;
+	&__title {
+		font-size: rem-calc(50);
+		text-align: center;
+		margin: 0;
+	}
+	&__text {
+		text-align: center;
+	}
+}
+
+.pageslider-links {
+	list-style: none;
+	margin: 2em 0 0;
+	padding: 0;
+	&__item {
+		border-radius: 2px;
+		overflow: hidden;
+		position: relative;
+		width: 80%;
+		margin-left: 1%;
+		margin-right: 1%;
+		@include breakpoint(mobile) {
+			width: 45%;
+		}
+		@include breakpoint(medium) {
+			width: 31%;
+		}
+		@include breakpoint(large) {
+			width: 24%;
+		}
+	}
+	&__link {
+		display: block;
+		&:hover, &:focus {
+			.infosection__body {
+				bottom: 0;
+			}
+		}
+	}
+	&__img {
+		width: 100%;
+	}
+	&__body {
+		background: rgba(0,0,0,.9);
+		position: absolute;
+		left: 0;
+		width: 100%;
+		padding: rem-calc(20);
+		bottom: -55px;
+		transition: bottom 0.5s;
+		text-align: center;
+	}
+	&__title {
+		font-size: rem-calc(20);
+		margin: 1em 0 2em;
+		color: #eee;
+		@include breakpoint(medium) {
+			font-size: rem-calc(18);
+		}
+		@include breakpoint(large) {
+			font-size: rem-calc(20);
+		}
+	}
+	&__content {
+		color: #eee;
+		font-size: rem-calc(16);
+		margin: rem-calc(18 0);
+		line-height: 1.2;
+	}
+	&__reveal {
+		margin-bottom: 0;
+		& span {
+			border-bottom: 4px solid $yellow;
+			font-size: rem-calc(13);
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			display: inline-block;
+			padding: 5px 0;
+			color: #eee;
+		}
+	}
+}
+.pageslider-links:not(.flickity-enabled) {
+	white-space: nowrap;
+	overflow: scroll;
+	.pageslider-links__item {
+		display: inline-block;
+	}
+}
