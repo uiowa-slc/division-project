@@ -30,7 +30,8 @@
       "md/silverstripe-maintenance-mode": "dev-master",
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
       "bummzack/sortablefile" : "^2.0",
-      "silverstripe/sharedraftcontent" :"*"
+      "silverstripe/sharedraftcontent" :"*",
+      "quamsta/silverstripe-api-cacher": "1.*"
     },
    "repositories":[
     {
