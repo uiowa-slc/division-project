@@ -157,7 +157,7 @@ class DivisionPage extends DataExtension {
 		}
 
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (at least 1600px wide)'), 'Content');
+			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (1600 x 500)'), 'Content');
 		}
 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo','<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
@@ -182,7 +182,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldsToTab("Root.Main", array(
 			$fullImgAlt = TextField::create("FullImageAltText","Alt Text For Background Image (required if image has text in it!)"
 		)->addExtraClass('stacked')), 'LayoutType');
-		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');		
+		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
 	// 	if($this->owner->getExistsOnLive() == true){
 	// 		//https://developers.facebook.com/tools/debug/sharing/?q=
 	// 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('FbShareButton','<a href="https://developers.facebook.com/tools/debug/sharing/?q='.$this->owner->AbsoluteLink().'" target="_blank" type="button" class="ss-ui-button ui-corner-all ui-button ui-widget ui-state-default ui-button-text-icon-primary" title="Share Page On Facebook" role="button" aria-disabled="false"><span class="ui-button-text">
@@ -289,7 +289,7 @@ class DivisionPage extends DataExtension {
 
 		if($res[0]){
 			$firstParagraph = $res[0]->nodeValue;
-			return $firstParagraph;			
+			return $firstParagraph;
 		}
 
 
