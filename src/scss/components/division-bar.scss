@@ -1,3 +1,4 @@
+
 .division-bar {
 	&__link {
 		color: $black;
@@ -27,13 +28,21 @@
 			transform: translateY(0);
 			visibility: visible;
 		}
-		&--dark-header {
+
+		&--dark-header, &--light-header {
 			color: $white;
 			&:hover, &:focus {
 				color: $white;
 			}
 		}
+
 	}
+}
+
+.ui-wrapper--light-header{
+	background: #000;
+	padding-bottom: 15px;
+	margin-bottom: 10px;
 }
 
 
