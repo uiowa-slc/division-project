@@ -1,3 +1,5 @@
+$division-bar-padding: 10px;
+
 
 .division-bar {
 	&__link {
@@ -41,7 +43,7 @@
 
 .ui-wrapper--light-header{
 	background: #000;
-	padding-bottom: 15px;
+	padding-bottom: $division-bar-padding / 2;
 	margin-bottom: 20px;
 }
 
@@ -52,7 +54,7 @@
 	font-size: 11px;
 	font-family: sans-serif;
 	box-sizing: border-box;
-	padding: 6px 15px 2px;
+	padding: 6px $division-bar-padding 2px;
 	width: 100%;
 	position: relative;
 	height: 41px;
@@ -78,13 +80,13 @@
 #uiowa-bar #wordmark-link {
 	display: block;
 	position: absolute;
-	top: 15px;
+	top: $division-bar-padding;
 }
 
 #uiowa-bar #uiowa-search {
 	margin-top: 3px;
 	position: absolute;
-	top: 15px;
+	top: $division-bar-padding;
 	right: 15px;
 }
 
@@ -111,7 +113,7 @@
   }
   #uiowa-bar{
 	 // height: inherit;
-	 padding-top: 15px;
+	 padding-top: $division-bar-padding;
   }
   #uiowa-bar #wordmark-link {
 	 display: block;
