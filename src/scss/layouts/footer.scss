@@ -29,9 +29,17 @@
 		display: block;
 		margin-top: rem-calc(15);
 		margin-bottom: rem-calc(15);
-		& img {
+		img {
 			max-width: 300px;
 			max-height: 130px;
+		}
+		&--ui{
+			// margin-top: rem-calc(20);
+			// margin-bottom: rem-calc(20);
+
+		 img{
+				max-width: 200px;
+			}
 		}
 	}
 	&__heading {

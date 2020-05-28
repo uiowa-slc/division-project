@@ -8,7 +8,7 @@
 					<img class="dp-lazy" data-original="$SiteConfig.FooterLogo.URL" alt="$SiteConfig.Title Logo">
 				</div>
 			<% else_if $SiteConfig.DisableDivisionBranding %>
-				<a href="http://uiowa.edu" class="footer__logo" aria-label="Visit the University of Iowa website"><img class="dp-lazy" data-original="{$ThemeDir}/dist/images/ui-logo-footer.png" alt="The University of Iowa logo"></a>
+				<a href="http://uiowa.edu" class="footer__logo footer__logo--ui" aria-label="Visit the University of Iowa website"><img class="dp-lazy" data-original="{$ThemeDir}/dist/images/ui-logo-footer.png" alt="The University of Iowa logo"></a>
 			<% else %>
 				<a href="http://studentlife.uiowa.edu" class="footer__logo" aria-label="Visit the Division of Student Life website"><img class="dp-lazy" width="300" height="81
 			" data-original="{$ThemeDir}/dist/images/dosl-uiowa.png" alt="Division Of Student Life"></a>
