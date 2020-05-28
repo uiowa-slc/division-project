@@ -27,6 +27,7 @@
 	}
 	&__logo {
 		display: block;
+		margin-top: rem-calc(15);
 		margin-bottom: rem-calc(15);
 		& img {
 			max-width: 300px;
