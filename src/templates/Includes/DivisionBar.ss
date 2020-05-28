@@ -10,7 +10,7 @@
 				L41.3,8.8l-2.8,12.4h-6.9L28.6,4.5z"/>
 		      <path class="st0" d="M53.8,16.8h1.6l3.2-16.6h9.6l3.2,16.6h1.5v4.4h-7.1L65,16.1h-3.6l-0.6,5.1h-7L53.8,16.8L53.8,16.8z M64.6,12.2
 				l-1.4-8.5l-1.4,8.5H64.6z"/>
-		        <image src="assets/uiowa.png" xlink:href="">
+		        <image src="{$ThemeDir}/dist/images/ui-logo-footer.png" xlink:href="">
 		        </image>
 		        <title id="uiowa-wordmark">University of Iowa</title>
 		    </svg>

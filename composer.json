@@ -26,7 +26,7 @@
       "md/saml" : "dev-md",
       "jonom/focuspoint" : "*",
       "jonom/silverstripe-betternavigator" : "4.*",
-      "md/uiowa-bar": "2.x",
+      "md/uiowa-bar": "1.x",
       "md/silverstripe-maintenance-mode": "dev-master",
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
       "bummzack/sortablefile" : "^2.0",
