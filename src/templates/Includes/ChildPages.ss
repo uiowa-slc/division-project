@@ -17,7 +17,7 @@
 					<% if $MetaDescription %>
 						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
 					<% else %>
-						<p class="childpages__summary">$ContentSummary</p>
+						<p class="childpages__summary">$Content.Summary(100)</p>
 					<% end_if %>
 					<span class="button small black hollow">Learn More</span>
 				</div>
