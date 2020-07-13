@@ -298,6 +298,22 @@ class DivisionPage extends DataExtension {
 
 //Shortcodes:
 
+	public static function StaffHolderShortcode($arguments, $content = null, $parser = null, $tagname){
+		$template = new SSViewer('StaffHolderShortcode');
+
+		$holder = StaffHolderPage::get()->filter(array('ID'=>$arguments['id']))->First();
+
+		if(!$holder){
+			return null;
+		}
+
+		$customise = array(
+			'StaffHolder' => $holder
+		);
+
+		return $template->process(new ArrayData($customise));
+	}
+
 
 	public static function ExpandShortcode($arguments, $content = null, $parser = null, $tagName){
 		$template = new SSViewer('ExpandShortcode');

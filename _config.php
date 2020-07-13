@@ -50,6 +50,7 @@ HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,addres
 
 ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
 ShortcodeParser::get('default')->register('expand', ['DivisionPage', 'ExpandShortCode']);
+ShortcodeParser::get('default')->register('staffholder', ['DivisionPage', 'StaffHolderShortcode']);
 
 TinyMCEConfig::get('cms')
     ->addButtonsToLine(1, 'styleselect')

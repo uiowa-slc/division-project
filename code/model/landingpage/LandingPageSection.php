@@ -3,6 +3,7 @@
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\ORM\DataObject;
@@ -36,12 +37,25 @@ class LandingPageSection extends DataObject {
 	private static $extensions = [
         Versioned::class
     ];
+
+    private static $singular_name = 'Section';
+    private static $plural_name = 'Sections';
 	//public static $allowed_children = array ("BranchPersonPage");
 
 	public function getCMSFields() {
+
+
+		$landingPage = LandingPage::get()->filter(array('ID' => $this->LandingPageID))->First();
+
 		$fields = parent::getCMSFields();
 		$fields->removeByName("SortOrder");
 		$fields->removeByName("Images");
+
+		if($landingPage){
+		$fields->addFieldToTab('Root.Main', LiteralField::create('LandingPageLink', '<p><a href="'.$landingPage->PreviewLink().'?stage=Stage'.'#'.$this->NiceTitle().'"" target="_blank" rel="noopener">'.$landingPage->PreviewLink().'</a></p>'), 'Content');
+
+
+		}
 
 		$fields->addFieldToTab('Root.Main', DropdownField::create('CalendarID', 'Choose a calendar to retrieve events from (you may need to create a UiCalendar page on this site)', UiCalendar::get()->map())->setEmptyString('(No calendar selected'));
 
