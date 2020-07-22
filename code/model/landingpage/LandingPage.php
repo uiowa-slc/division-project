@@ -36,8 +36,9 @@ class LandingPage extends Page {
 	private static $layout_types = array(
 		'MainImage' => 'Big image (logos/text all contained within image)',
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
-
 	);
+
+	private static $cascade_duplicates = [ 'Sections' ];
 	
 	private static $icon_class = 'font-icon-rocket';
 

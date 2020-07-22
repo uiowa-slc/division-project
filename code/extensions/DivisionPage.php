@@ -320,6 +320,7 @@ class DivisionPage extends DataExtension {
 
 		$customise = array(
 			'Title' => $arguments['title'],
+			'ImageURL' => $arguments['image'],
 			'Content' => $content
 		);
 
