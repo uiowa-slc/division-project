@@ -22,6 +22,8 @@ use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\View\SSViewer;
 use SilverStripe\View\ArrayData;
+use SilverStripe\CMS\Model\SiteTree;
+
 class DivisionPage extends DataExtension {
 	private static $db = array(
 		'OgTitle' => 'Text',
@@ -316,11 +318,33 @@ class DivisionPage extends DataExtension {
 
 
 	public static function ExpandShortcode($arguments, $content = null, $parser = null, $tagName){
+
 		$template = new SSViewer('ExpandShortcode');
+		$title = false;
+		$image = false;
+
+		if(isset($arguments['page'])){
+			if(is_numeric($arguments['page']))
+			$page = SiteTree::get()->filter(array('ID' => $arguments['page']))->First();
+
+			if($page){
+				$content = $page->Content;
+			}
+		}
+
+		if(isset($arguments['title'])){
+			$title = $arguments['title'];
+		}elseif(isset($page)){
+			$title = $page->Title;
+		}
+
+		if(isset($arguments['image'])){
+			$image = $arguments['image'];
+		}
 
 		$customise = array(
-			'Title' => $arguments['title'],
-			'ImageURL' => $arguments['image'],
+			'Title' => $title,
+			'ImageURL' => $image,
 			'Content' => $content
 		);
 

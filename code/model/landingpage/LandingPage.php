@@ -47,6 +47,8 @@ class LandingPage extends Page {
 
 		$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Content');
+		$fields->removeByName('Blocks');
+		$fields->removeByName('Widgets');
 
 $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header Image (1600 x 800 if there\'s a header logo and header text)')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', TextField::create('HeaderImageAltText','Header Image Alt Text (if there is text in the main image, but no logo + header text uploaded)')->addExtraClass('stacked'));
