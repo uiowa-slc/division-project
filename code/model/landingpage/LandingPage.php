@@ -69,6 +69,11 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 		$sectionsConf = GridFieldConfig_RelationEditor::create(10);
 		$sectionsConf->addComponent($sortableLanding = new GridFieldSortableRows('SortOrder'));
+		$sectionsConf->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter');
+		$sectionsConf->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldFilterHeader');
+
+
+
         $sortableLanding->setUpdateVersionedStage('Live');
 
 

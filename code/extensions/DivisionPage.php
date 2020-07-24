@@ -23,6 +23,8 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\View\SSViewer;
 use SilverStripe\View\ArrayData;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\View\Parsers\ShortcodeParser;
+
 
 class DivisionPage extends DataExtension {
 	private static $db = array(
@@ -323,15 +325,20 @@ class DivisionPage extends DataExtension {
 		$title = false;
 		$image = false;
 
+
+		//Get expander content from another page:
 		if(isset($arguments['page'])){
 			if(is_numeric($arguments['page']))
 			$page = SiteTree::get()->filter(array('ID' => $arguments['page']))->First();
 
 			if($page){
-				$content = $page->Content;
+				//Reparse shortcodes when getting content from another page since we're acting in a shortcode itself right now.
+				$parser = ShortcodeParser::get();
+				$parsedContent = $parser->parse($page->Content);
+				$content = $parsedContent;
 			}
 		}
-
+		
 		if(isset($arguments['title'])){
 			$title = $arguments['title'];
 		}elseif(isset($page)){
