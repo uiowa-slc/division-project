@@ -1,5 +1,5 @@
 
-<%-- 
+<%--
 <% if $FeaturedTopics %>
   <section class="topicholder-section topicholder-section--light-gray">
     <div class="grid-container grid-container--1800px">
@@ -102,7 +102,7 @@
                 <% end_if %>
                  <ul class="topicholder-all-list">
                    <% loop $TopicsByLetter %>
-                        <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Title</h3>
+                        <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading">$Letter</h3>
                       <% if $Topics %>
                         <ul class="topicholder-sublist">
                       <% loop $Topics %>

@@ -27,7 +27,7 @@ class TopicHolder extends Blog {
 
         'CategoryTabTitle' => 'Varchar(155)',
         'CategoryTabHeading' => 'Varchar(155)',
-        
+
         'TagTabTitle' => 'Varchar(155)',
         'TagTabHeading' => 'Varchar(155)',
 
@@ -93,13 +93,13 @@ class TopicHolder extends Blog {
         $featuredGridFieldConfig = GridFieldConfig_RelationEditor::create();
         $featuredGridFieldConfig->removeComponentsByType(GridFieldAddNewButton::class);
         $featuredGridFieldConfig->addComponent(new GridFieldSortableRows('FeaturedSortOrder'));
-        
+
         $featuredGridField = new GridField('FeaturedTopics', 'Featured Topics', $this->FeaturedTopics());
         $featuredGridField->setConfig($featuredGridFieldConfig);
 
         $fields->addFieldToTab('Root.Feedback', TextField::create('FeedbackLink'));
         $fields->addFieldToTab('Root.Feedback', HtmlEditorField::create('FeedbackText'));
-        
+
 
 
         //Featured topics are disabled for now.
@@ -145,7 +145,7 @@ class TopicHolder extends Blog {
             if($category){
                 $pages->push($category);
             }
-            
+
 
         }elseif($controllerParams['Action'] == 'tag'){
             $tagSlugTest = $controllerParams['ID'];
@@ -154,7 +154,7 @@ class TopicHolder extends Blog {
                 $pages->push($tag);
             }
         }
- 
+
         return $pages;
     }
     public function AllTags()
@@ -183,15 +183,15 @@ class TopicHolder extends Blog {
 
     		if($letterTopics->Count() > 0){
         		$letterArrayData = new ArrayData(array('Letter' => $letter, 'Topics' => $letterTopics));
-    			$letterArrayList->push($letterArrayData);			
+    			$letterArrayList->push($letterArrayData);
     		}
-    		 
+
     	}
 
     	//print_r($letterArrayList->toArray());
     	return $letterArrayList;
     }
-    public function validate() 
+    public function validate()
     {
         $result = parent::validate();
 
@@ -200,5 +200,5 @@ class TopicHolder extends Blog {
         }
 
         return $result;
-    }    
+    }
 }
