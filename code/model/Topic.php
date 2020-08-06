@@ -40,7 +40,7 @@ class Topic extends BlogPost {
 	);
 
 	private static $belongs_many_many = array(
-	
+
 	);
 
 
@@ -93,7 +93,7 @@ class Topic extends BlogPost {
 
 
     	 return $exportedContent;
-	    
+
 
     }
 
@@ -104,7 +104,7 @@ class Topic extends BlogPost {
     // 	$content = $this->Content;
 
     // 	 $dom = new DOMDocument();
-    // 	 $dom->loadHTML($content); 
+    // 	 $dom->loadHTML($content);
 
     // 	 $conversionArray = array(
     // 	 	'h1' => 'h2',
@@ -119,7 +119,7 @@ class Topic extends BlogPost {
 			 //    	$nodeBefore = $elements->item($i);
 			 //    	$nodeAfter = $dom->createElement($tagNewValue, $nodeBefore->nodeValue);
 			 //    	$nodeBefore->parentNode->replaceChild($nodeAfter, $nodeBefore);
-			 //    } 
+			 //    }
     // 	 }
 
     // 	 $exportedContent = new SilverStripe\ORM\FieldType\DBHTMLText();
@@ -127,7 +127,7 @@ class Topic extends BlogPost {
 
 
     // 	 return $exportedContent;
-	    
+
 
     // }
 
@@ -136,7 +136,7 @@ class Topic extends BlogPost {
 
 
 	public function getCMSFields(){
-		
+
 		$fields = parent::getCMSFields();
 		$fields->removeByName('AuthorNames');
 		$fields->removeByName('PhotosBy');
@@ -161,7 +161,7 @@ class Topic extends BlogPost {
 		// 			)->setShouldLazyLoad(true)->setCanCreate(false);
 
 		// $fields->addFieldToTab('Root.Questions', $qField);
-		
+
 		$linkGrid = new GridField(
 			'Links',
 			'Links relevant to this topic',
@@ -177,7 +177,7 @@ class Topic extends BlogPost {
 
 		$catField = $fields->fieldByName('Root.PostOptions.Categories');
 		$catField->setShouldLazyLoad(false);
-		
+
 		$tagField = $fields->fieldByName('Root.PostOptions.Tags');
 		$tagField->setShouldLazyLoad(false);
 
@@ -192,7 +192,7 @@ class Topic extends BlogPost {
 			$catField->setDisabled(true);
 			$catField->setRightTitle('Categories have been disabled for this section, please use tags.');
 		}
-		
+
 		$linkGrid->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
 			'Title' => array(
 				'title' => 'Link Description',
@@ -220,9 +220,9 @@ class Topic extends BlogPost {
 
     		if($letterTopics->Count() > 0){
         		$letterArrayData = new ArrayData(array('Letter' => $letter, 'Topics' => $letterTopics));
-    			$letterArrayList->push($letterArrayData);			
+    			$letterArrayList->push($letterArrayData);
     		}
-    		 
+
     	}
 
     	//print_r($letterArrayList);
