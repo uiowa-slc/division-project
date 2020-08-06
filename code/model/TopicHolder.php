@@ -40,7 +40,11 @@ class TopicHolder extends Blog {
         'FeedbackLink' => 'Text',
 
         'DisableTags' => 'Boolean',
-        'DisableCategories' => 'Boolean'
+        'DisableTagsBrowse' => 'Boolean',
+
+        'DisableCategories' => 'Boolean',
+        'DisableCategoriesBrowse' => 'Boolean'
+
 	);
 
 
@@ -117,7 +121,9 @@ class TopicHolder extends Blog {
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowLastUpdated', 'Show "Last updated" text on each topic'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowFullTopicBody', 'Show full HTML body of the topics in their categories/tags'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableTags', 'Disable Tags in the CMS'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableTagsBrowse', 'Disable Tags in the "Browse by" section'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableCategories', 'Disable Categories in the CMS'));
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableCategoriesBrowse', 'Disable Categories in the "Browse by" section'));
         return $fields;
 
     }
