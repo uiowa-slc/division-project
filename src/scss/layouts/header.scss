@@ -102,6 +102,7 @@
 	overflow: hidden;
 	transition: max-height 0.2s linear;
 	&__site-title {
+        font-family: $header-font-family;
 		font-size: rem-calc(22);
 		font-size: calc(22px + 24 * ((100vw - 320px) / (1024 - 320)));
 		font-weight: 600;

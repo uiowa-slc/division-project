@@ -23,7 +23,7 @@
       <meta name="robots" content="noindex">
     <% end_if %>
 
-    $TypeKitScript
+    {$GoogleFonts}
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
 <body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
