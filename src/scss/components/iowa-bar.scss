@@ -1,0 +1,209 @@
+
+/* Logo
+====================================================== */
+.uids-logo {
+    display: block;
+    &--tab {
+        margin-right: 10px;
+        height: 56px;
+        width:  109px;
+        padding: 18px 1.25rem;
+        background: $black;
+        a:focus svg {
+            opacity: .5;
+        }
+        @include breakpoint(medium) {
+            height: 56px;
+            width: 119px;
+            padding: 15px;
+        }
+        @include breakpoint(xlarge) {
+            margin-bottom: -6px;
+        }
+
+        // begin styles for iowa-bar--full version
+        .iowa-bar--full & {
+            margin-right: 20px;
+            @include breakpoint(medium) {
+                width: 154px;
+                height: 80px;
+                padding: 25px;
+            }
+            @include breakpoint(xlarge) {
+                margin-bottom: 0;
+                width: 188px;
+                height: 90px;
+                padding: 23px 20px;
+            }
+        }
+    }
+    &__icon {
+        fill: $yellow;
+        height: 20px;
+        &:hover, &:focus {
+            opacity: 0.7;
+        }
+        @include breakpoint(medium) {
+            height: 26px;
+        }
+
+        // begin styles for iowa-bar--full version
+        .iowa-bar--full & {
+            @include breakpoint(medium) {
+                height: 30px;
+            }
+            @include breakpoint(xlarge) {
+                height: 43px;
+            }
+        }
+    }
+}
+
+/* Top Links
+=================================================== */
+.uids-toplinks {
+    @include breakpoint(medium) {
+        display: flex;
+        align-self: center;
+    }
+    &__link {
+        color: $black;
+        font-size: rem-calc(16);
+        font-weight: 300;
+        &:hover, &:focus {
+            text-decoration: underline;
+            color: $black;
+        }
+    }
+}
+
+
+
+/* Iowa Bar
+================================================= */
+
+// Settings for the default version of the IOWA bar.
+.iowa-bar {
+    position: relative;
+    z-index: 2;
+    display: block;
+    min-height: auto;
+    background: $black;
+    @include breakpoint(medium) {
+        background: $yellow;
+    }
+    .site-name {
+        width: 100%;
+        padding: 1.25rem;
+        background: $yellow;
+        @include breakpoint(medium) {
+            width: auto;
+            background: transparent;
+            padding: 0;
+        }
+        @include breakpoint(xlarge) {
+            margin: 5px 0 0 0;
+        }
+    }
+
+    &__container {
+        max-width: 75rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        @include breakpoint(medium) {
+            display: flex;
+        }
+        @include breakpoint(medium) {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .iowa-bar--narrow.horizontal &,
+        .iowa-bar--narrow.mega & {
+            @include breakpoint(xlarge) {
+                position: relative;
+            }
+        }
+
+    }
+
+    // Styles for the narrow version of the IOWA bar.
+    &--full {
+        @include breakpoint(medium) {
+            height: 80px;
+            background: $yellow;
+        }
+    }
+
+    // Styles for the narrow version of the IOWA bar.
+    &--narrow {
+        @include breakpoint(medium) {
+            min-height: 50px;
+            position: relative;
+        }
+    }
+
+    .parent-site-name {
+        @include breakpoint(xlarge) {
+            padding: 6px 0 0 0;
+        }
+    }
+
+    .site-name {
+        font-size: 1rem;
+        margin: 0;
+        padding: 1.25rem;
+        background: $yellow;
+        @include breakpoint(medium) {
+            background: transparent;
+            font-size: 1rem;
+            padding: 0;
+        }
+        @include breakpoint(xlarge) {
+            padding: 6px 0 0 0;
+        }
+    }
+
+
+    // Styles for container underneath
+    &__below {
+        z-index: 2;
+        border-bottom: 1px solid #e6e5e5;
+        background: #fff;
+        & .iowa-bar__container {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-right: 0;
+            margin-left: 0;
+            @include breakpoint(medium) {
+                display: flex;
+                position: unset;
+                min-height: 90px;
+                justify-content: unset;
+                margin-right: auto;
+                padding-left: 1.25rem;
+            }
+            @include breakpoint(xlarge) {
+                margin-left: auto;
+                padding-left: 0;
+            }
+        }
+
+        // Override .site-name styles when
+        // displayed underneath the iowa-bar.
+        .site-name {
+            margin: 0;
+            text-align: left;
+            font-size: 1.8rem;
+            @include breakpoint(medium) {
+                width: 75%;
+                padding: 25px 20px 25px 0;
+                background: transparent;
+                font-size: 2rem;
+            }
+            @include breakpoint(xlarge) {
+                font-size: 2.2rem;
+            }
+        }
+    }
+}

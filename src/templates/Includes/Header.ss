@@ -2,11 +2,13 @@
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
     <!-- Add your site or app content here -->
     <% if $SiteConfig.ShowExitButton %>
-    <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
+        <a class="exit-button" href="http://weather.com"><span class="show-for-sr">Exit this website now</span></a>
     <% end_if %>
-      $Layout
 
-	<% include DivisionBar %>
+    $Layout
+
+    <% include IowaBar %>
+
 	<header id="header" class="header header--{$DarkLightHeader} header--{$HeaderType}" role="banner">
 
 		<div itemscope="" itemtype="http://schema.org/Organization">

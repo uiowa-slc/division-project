@@ -3,6 +3,6 @@ Name: mywebfonts
 ---
 gorriecoe\Webfonts\View\Webfonts:
   GoogleFonts:
-    - 'Roboto Condensed:bold'
-    - 'Roboto:regular,bold,italic'
+    - 'Roboto Condensed:regular,bold'
+    - 'Roboto:light,regular,bold,italic'
     - 'Zilla Slab:semi-bold'
