@@ -32,29 +32,35 @@ $Header
     </div>
   </div>
 <% else_if $CurrentCategory || $CurrentTag %>
-   $Breadcrumbs
+   
   <div class="grid-container">
     <div class="grid-x align-center grid-padding-x">
       <div class="cell">
         <div class="main-content__header">
         <% if $CurrentCategory.Content || $CurrentTag.Content %>
           <% if $CurrentCategory %>
+            $Breadcrumbs
             <h1>$CurrentCategory.Title</h1>
           <% else_if $CurrentTag %>
+            $Breadcrumbs
             <h1>$CurrentTag.Title</h1>
           <% end_if %>
         <% else %>
           <% if $CurrentCategory %>
             <% if $TermPlural %>
+              $Breadcrumbs
               <h1>{$TermPlural} listed under &ldquo;{$CurrentCategory.Title}&rdquo;: </h1>
             <% else %>
+              $Breadcrumbs
               <h1>Listed under: &ldquo;$CurrentCategory.Title&rdquo;</h1>
             <% end_if %>
 
           <% else_if $CurrentTag %>
             <% if $TermPlural %>
+              $Breadcrumbs
               <h1>{$TermPlural} listed under &ldquo;{$CurrentTag.Title}&rdquo;: </h1>
             <% else %>
+              $Breadcrumbs
               <h1>Listed under: &ldquo;$CurrentTag.Title&rdquo;</h1>
             <% end_if %>
           <% end_if %>

@@ -7,7 +7,6 @@ $Header
 			</a>
 		</div>
 	</div>
-	$Breadcrumbs
 	<% include MainContentBody %>
 </main>
 

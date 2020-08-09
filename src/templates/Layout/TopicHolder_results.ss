@@ -1,12 +1,11 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-
-   $Breadcrumbs
   <div class="grid-container">
     <div class="grid-x align-center grid-padding-x">
       <div class="cell">
         <div class="main-content__header">
+          $Breadcrumbs
           <h1>Search results</h1>
         </div>
       </div>

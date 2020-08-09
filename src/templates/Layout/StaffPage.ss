@@ -1,8 +1,8 @@
 $Header
 <main class="main-content__container" id="main-content__container">
-    $Breadcrumbs
     <div class="column row">
         <div class="main-content__header">
+            $Breadcrumbs
             <h1>$Title</h1>
         </div>
     </div>

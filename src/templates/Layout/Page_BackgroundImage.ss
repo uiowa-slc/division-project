@@ -2,13 +2,13 @@
 	<div class="header__screen header__screen--fill-container header__screen--thin"></div>
 	$Header("dark-header","overlay")
 	<div class="column row">
-		<div class="background-image__header">
+        <div class="background-image__header">
+            $Breadcrumbs
 			<h1 class="background-image__title">$Title</h1>
 		</div>
 	</div>
 </div>
 
 <div class="main-content__container main-content--has-video-bg">
-	$Breadcrumbs
 	<% include MainContentBody %>
 </div>

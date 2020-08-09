@@ -2,6 +2,7 @@ $Header
 
 <% with $Post %>
 <main class="main-content__container" id="main-content__container">
+    
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
@@ -15,11 +16,10 @@ $Header
 		</div>
 	<% end_if %>
 
-	$Breadcrumbs
-
 	<% if not $BackgroundImage %>
 		<div class="column row">
-			<div class="main-content__header">
+            <div class="main-content__header">
+                $Breadcrumbs
 				<h1>$Title</h1>
                 <div class="blogmeta">
                     <% if not $Parent.HideDatesAndAuthors %>

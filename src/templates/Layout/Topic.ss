@@ -1,20 +1,20 @@
 $Header
 <main class="main-content__container" id="main-content__container">
-
-
-  $Breadcrumbs
-
-  
     <div class="column row">
-      <div class="main-content__header">
-        <% if not $BackgroundImage %><h1>$Title</h1><% end_if %>
+        <div class="main-content__header">
+        <% if not $BackgroundImage %>
+            $Breadcrumbs
+            <h1>$Title</h1>
+        <% end_if %>
             <div class="blogmeta">
                 <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>
-                <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
-                  <% if $Categories.Count == 1 %><br />
-                      <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
-                  </p><% end_if %>
-                </div>
+                    <div class="byline">
+                        <p>
+                            <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
+                            <% if $Categories.Count == 1 %><br />
+                                <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
+                            </p><% end_if %>
+                    </div>
                 <% end_if %>
                 <ul class="social-icons">
                     <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>

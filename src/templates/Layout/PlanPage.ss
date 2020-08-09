@@ -6,11 +6,12 @@ $Header
 	<!-- Background Image Feature -->
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
-	<% end_if %>
-	$Breadcrumbs
+    <% end_if %>
+    
 	<% if not $BackgroundImage %>
 		<div class="column row row--plan">
-			<div class="main-content__header">
+            <div class="main-content__header">
+                $Breadcrumbs
 				<h1>$Title</h1>
 			</div>
 		</div>

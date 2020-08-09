@@ -8,11 +8,10 @@ $Header
 		<% include FeaturedImage %>
 	<% end_if %>
 
-	$Breadcrumbs
-
 	<% if not $BackgroundImage %>
 		<div class="column row">
-			<div class="main-content__header">
+            <div class="main-content__header">
+                $Breadcrumbs
 				<h1 class="page-title">
 					<% if $FilterType == "author" %>
 						All posts by $FilterTitle:
