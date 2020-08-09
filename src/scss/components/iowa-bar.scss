@@ -18,8 +18,8 @@
             padding: 15px;
         }
 
-        // begin styles for iowa-bar--full version
-        .iowa-bar--full & {
+        // begin styles for iowa-bar--tall version
+        .iowa-bar--tall & {
             margin-right: 20px;
             @include breakpoint(medium) {
                 width: 154px;
@@ -44,8 +44,8 @@
             height: 26px;
         }
 
-        // begin styles for iowa-bar--full version
-        .iowa-bar--full & {
+        // begin styles for iowa-bar--tall version
+        .iowa-bar--tall & {
             @include breakpoint(medium) {
                 height: 30px;
             }
@@ -55,7 +55,10 @@
         }
     }
 }
-.iowa-bar--light-header .uids-logo {
+
+/* Adds the notch look. Doesn't show on dark theme */
+.iowa-bar--light-header .uids-logo,
+.iowa-bar--overlay .uids-logo {
     @include breakpoint(xlarge) {
         margin-bottom: -6px;
     } 
@@ -130,7 +133,7 @@
     }
 
     // Styles for the narrow version of the IOWA bar.
-    &--full {
+    &--tall {
         @include breakpoint(medium) {
             height: 80px;
             background: $yellow;
