@@ -59,10 +59,10 @@
 	z-index: 10;
 	&:after {
 		transition: background-color 1s;
-		background-color: $highlight;
+		background-color: $light-gray;
 		display: block;
 		width: calc(100% - 1px);
-		height: 5px;
+		height: 1px;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -108,7 +108,7 @@
 		font-weight: 600;
 		letter-spacing: 1px;
 		margin: auto;
-		padding: rem-calc(20 0);
+		padding: rem-calc(18 0);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -122,11 +122,9 @@
 		}
 		@include breakpoint(large) {
 			width: 100%;
-			padding: rem-calc(25 0 10 0);
 		}
 		@include breakpoint(large) {
 			font-size: rem-calc(46);
-			margin-bottom: rem-calc(20);
 		}
 	}
 	&--dark-header {
@@ -154,10 +152,6 @@
 }
 .nav-collapse.open {
 	max-height: 2500px;
-	padding-bottom: 5px;
-	@include breakpoint(large) {
-		padding-bottom: 0;
-	}
 }
 
 a.skip-link {
