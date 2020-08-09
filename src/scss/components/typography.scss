@@ -2,7 +2,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin-top: 1.25em;
 }
 h1 {
-  font-family: 'Zilla Slab', serif;
+  font-family: $slab-font-family;
   font-weight: 600;
   font-size: calc(32px + 20 * ((100vw - 320px) / (1024 - 320)));
   @include breakpoint(large) {
@@ -85,16 +85,18 @@ h5 {
 }
 
 blockquote {
-	border-left: 6px solid $highlight;
-	font-family: georgia, serif;
-	font-size: 110%;
-	font-style: italic;
+    border-left: 6px solid $highlight;
+    color: $black;
+	font-family: $slab-font-family;
+    font-size: rem-calc(22);
+    font-weight: 400;
 	padding-left: 1.5em;
 	margin: 1em 0;
 	position: relative;
 	& p {
+        color: $black;
 		margin: 0;
-		line-height: 1.8;
+		line-height: 1.7;
 	}
 }
 blockquote.left {
