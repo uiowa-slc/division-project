@@ -107,9 +107,8 @@
 		font-size: calc(22px + 24 * ((100vw - 320px) / (1024 - 320)));
 		font-weight: 600;
 		letter-spacing: 1px;
-		line-height: 1;
 		margin: auto;
-		padding: 5px 0 25px;
+		padding: rem-calc(20 0);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -121,12 +120,9 @@
 		&:hover {
 			text-decoration: none;
 		}
-		@include breakpoint(600) {
-			padding-top: 20px;
-		}
 		@include breakpoint(large) {
 			width: 100%;
-			padding: 20px 0 5px;
+			padding: rem-calc(25 0 10 0);
 		}
 		@include breakpoint(large) {
 			font-size: rem-calc(46);

@@ -137,11 +137,6 @@ img:not([src]) {
 		& h1 {
 			margin-bottom: 0;
 			margin-top: 0;
-			line-height: 1.1;
-			//text-transform: capitalize;
-			@include breakpoint(large) {
-				// font-size: rem-calc(65);
-			}
 		}
 	}
 
