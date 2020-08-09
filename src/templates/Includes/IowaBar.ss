@@ -16,20 +16,28 @@
                 </svg>
             </a>
         </div>
-        <nav role="navigation" aria-labelledby="uids-toplinks" class="uids-toplinks show-for-medium">
-            <h2 class="show-for-sr" id="uids-toplinks">Top links</h2>
-            <ul class="menu uids-toplinks__menu ">
-                <li class="uids-toplinks__item">
-                    <a href="https://diversity.uiowa.edu/about/division-units" class="uids-toplinks__link">Our 3 Division Units</a>
-                </li>
-                <li class="uids-toplinks__item">
-                    <a href="https://diversity.uiowa.edu/report-concern" class="uids-toplinks__link">Report a Concern</a>
-                </li>
-                <li class="uids-toplinks__item">
-                <a href="https://diversity.uiowa.edu/report-concern" class="uids-toplinks__link">Lorem Ipsum</a>
-            </li>
-            </ul>
-        </nav>
+        <% if $SiteConfig.QuickLinkTitleOne %>
+            <nav role="navigation" aria-labelledby="uids-toplinks" class="uids-toplinks show-for-medium">
+                <h2 class="show-for-sr" id="uids-toplinks">Top links</h2>
+                <ul class="menu uids-toplinks__menu">
+                    <% if $SiteConfig.QuickLinkTitleOne %>
+                        <li class="uids-toplinks__item">
+                            <a href="$SiteConfig.QuickLinkURLOne" class="uids-toplinks__link">$SiteConfig.QuickLinkTitleOne</a>
+                        </li>
+                    <% end_if %>
+                    <% if $SiteConfig.QuickLinkTitleTwo %>
+                        <li class="uids-toplinks__item">
+                            <a href="$SiteConfig.QuickLinkURLTwo" class="uids-toplinks__link">$SiteConfig.QuickLinkTitleTwo</a>
+                        </li>
+                    <% end_if %>
+                    <% if $SiteConfig.QuickLinkTitleThree %>
+                        <li class="uids-toplinks__item">
+                            <a href="$SiteConfig.QuickLinkURLThree" class="uids-toplinks__link">$SiteConfig.QuickLinkTitleThree</a>
+                        </li>
+                    <% end_if %>
+                </ul>
+            </nav>
+        <% end_if %>
     </div>
 </div>
 
