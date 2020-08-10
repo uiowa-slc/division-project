@@ -67,17 +67,24 @@
 /* Top Links
 =================================================== */
 .uids-toplinks {
-    @include breakpoint(medium) {
-        display: flex;
-        align-self: center;
-    }
+    display: flex;
+    align-self: center;
     &__link {
-        color: $black;
+        color: #fff;
         font-size: rem-calc(14);
         font-weight: 300;
+        @include breakpoint(medium) {
+            color: $black;
+        }
         &:hover, &:focus {
             text-decoration: underline;
             color: $black;
+        }
+    }
+    &__item:nth-child(n+2) {
+        display: none;
+        @include breakpoint(medium) {
+            display: inline-block;
         }
     }
 }
@@ -112,6 +119,7 @@
     }
 
     &__container {
+        display: flex;
         max-width: 75rem;
         flex-wrap: wrap;
         justify-content: space-between;
