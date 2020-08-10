@@ -70,12 +70,26 @@
 	}
 
 	&--dark-header {
-		background: $black;
+        background: $black;
+        &:after {
+            display: none;
+        }
 	}
 
 	&--overlay {
 		background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
-		z-index: 101;
+        z-index: 101;
+        &:after {
+            transition: background-color 1s;
+            background-color: $light-gray;
+            display: block;
+            width: calc(100% - 1px);
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+        }
 	}
 
 	&--in-slider {
@@ -108,20 +122,16 @@
 		font-weight: 600;
 		letter-spacing: 1px;
 		margin: auto;
-		padding: rem-calc(18 0);
+		padding: rem-calc(18);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
-		width: 60%;
 		transition: opacity 0.3s linear;
 		a {
 			color: $body-font-color;
 		}
 		&:hover {
 			text-decoration: none;
-		}
-		@include breakpoint(large) {
-			width: 100%;
 		}
 		@include breakpoint(large) {
 			font-size: rem-calc(46);

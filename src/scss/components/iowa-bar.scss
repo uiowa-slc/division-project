@@ -132,6 +132,16 @@
 
     }
 
+    &--dark-header {
+        border-bottom: 1px solid #444;
+        @include breakpoint(medium) {
+            border-bottom: none;
+        }
+    }
+    &--overlay {
+        border-bottom: none;
+    }
+
     // Styles for the narrow version of the IOWA bar.
     &--tall {
         @include breakpoint(medium) {

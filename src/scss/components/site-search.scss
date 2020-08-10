@@ -43,7 +43,10 @@
 	&--mobile {
 		height: auto;
 		top: auto;
-		bottom: 0;
+        bottom: 0;
+        &.site-search--is-active {
+            height: 50px;
+        }
 	}
 
 	&--desktop {
