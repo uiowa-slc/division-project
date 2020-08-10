@@ -323,7 +323,7 @@ $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: #f1f1f1;
 $table-stripe: odd;
-$table-head-background: #fff;
+$table-head-background: $highlight;
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-head-font-color: $body-font-color;
 $show-header-for-stacked: false;
