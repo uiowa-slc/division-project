@@ -10,16 +10,16 @@
 				<% else_if $YoutubeBackgroundEmbed %>
 					<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" class="childpages__img" alt="$Title">
 				<% else_if $MainImage %>
-					<img data-original="$MainImage.Pad(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
+					<img data-original="$MainImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
 				<% end_if %>
 				<div class="clearfix childpages__content">
 					<h3 class="childpages__title">$Title</h3>
 					<% if $MetaDescription %>
 						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
 					<% else %>
-						<p class="childpages__summary">$Content.Summary(100)</p>
+                        <p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
 					<% end_if %>
-					<span class="button small black hollow">Learn More</span>
+					<span class="button large">Learn More <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
 				</div>
 			</a>
 		</div>
