@@ -6,12 +6,12 @@ $foundation-palette: (
 	primary: #005994,
 	secondary: #6e6e6e,
 	success: #3adb76,
-	warning: #ffae00,
+	warning: #ffcd00,
 	alert: #cc4b37,
 );
 $button-palette: map-merge($foundation-palette, (
     gold: #ffcd00,
-    black: #212121,
+    black: #151515,
 )) !default;
 $button-background-hover-lightness: -15%;
 
