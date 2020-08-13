@@ -19,7 +19,7 @@
 					<% else %>
                         <p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
 					<% end_if %>
-					<span class="button large">Learn More <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+					<span class="button">Learn More <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
 				</div>
 			</a>
 		</div>
