@@ -1,0 +1,235 @@
+/* UIDS Card
+================================================= */
+.card__wrapper {
+    margin: 1.25rem 0;
+    @include breakpoint(medium) {
+        margin: 1.25rem 0 8rem;
+        display: flex;
+    }
+}
+.card__row {
+    @include breakpoint(medium) {
+        margin-right: 1.6rem;
+        margin-bottom: 0;
+        margin-left: 1.6rem;
+        &:first-of-type {
+            margin-left: 0;
+        }
+    }
+    
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
+    text-decoration: none;
+    background: #fff;
+    flex-grow: 1;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    &:focus-within .card__title a:focus {
+        text-decoration: underline;
+    }
+    @include breakpoint(medium) {
+        border: none;
+        margin-bottom: 0;
+    }
+    &.card--enclosed {
+        @include breakpoint(medium) {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+        .card__body {
+            padding: 1.2rem;
+            @include breakpoint(medium) {
+                padding: 2rem;
+            }
+        }
+        .button {
+            margin-bottom: 0;
+        }
+    }
+
+    .card__title:focus-within~.button {
+        background-position: 0px;
+        background-size: 200% 100%;
+        i, svg {
+            color: $black;
+        }
+    }
+    p+.button,
+    p+.button {
+        margin-top: 1.05rem;
+    }
+    & .button {
+        margin-bottom: 0;
+    }
+    .card__author+p,
+    .card__author+.button,
+    .card__author+.button {
+        margin-top: 0.625rem;
+    }
+    .card__media {
+        flex-shrink: 0;
+        width: 100%;
+        min-height: 1px;
+        img {
+            flex-shrink: 0;
+            width: 100%;
+            min-height: 1px;
+        }
+    }
+    &__img {
+        align-self: start;
+        width: 100%;
+    }
+    &__body {
+        flex: 1;
+        color: $black;
+        padding: 1.2rem;
+        min-height: 1px;
+        line-height: 1.7;
+        h2, h3,  h4,  h5,  h6 {
+            &:not(:first-child) {
+                margin-top: 0;
+            }
+        }
+        @include breakpoint(medium) {
+            padding: 2rem 0;
+        }
+        .card--enclosed & {
+            @include breakpoint(medium) {
+                padding: 2rem;
+            }
+        }
+        ul, ol, dl, table {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+    }
+
+    p {
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        a {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &__author {
+        color: #666;
+        font-family: $serif-font-family;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    &__title {
+        margin: 0 0 0.625rem;
+        padding: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.2;
+        a {
+            text-decoration: none;
+            color: $black;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+
+.card.card--horizontal {
+
+    &.card--enclosed {
+        padding: 1.25rem;
+    }
+    @include breakpoint(medium) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1.6rem;
+    }
+
+    >* {
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+        }
+    }
+    >.card__media {
+        @include breakpoint(medium) {
+            flex: 0 0 20%;
+            width: 20%;
+        }
+    }
+    .card__title {
+        font-family: $header-font-family;
+        font-weight: bold;
+        @include breakpoint(medium) {
+            padding: 0;
+            margin: 0 0 .5rem;
+        }
+    }
+    .card__body {
+        padding: 2rem;
+        @include breakpoint(medium) {
+            padding: 0 0 1.6rem 1.25rem;;
+        }
+        min-height: 1px;
+    }
+    .button.hollow {
+        width: max-content;
+    }
+}
+
+
+// @todo move card header to separate component
+.card__head {
+    flex-wrap: wrap;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    @include breakpoint(medium) {
+        padding: 0 0 2rem 0;
+    }
+    @include breakpoint(large) {
+        margin: 0;
+        display: block;
+    }
+    p {
+        color: #63666A;
+        margin: 0;
+    }
+    .bold-headline {
+        display: block;
+    }
+    .button {
+        flex-basis: 100%;
+        padding-top: 0.625rem;
+        @include breakpoint(medium) {
+            padding-top: 1.05rem;
+        }
+        &.button.clear:hover,
+        &.button.clear:focus {
+            background: transparent;
+        }
+    }
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+}
