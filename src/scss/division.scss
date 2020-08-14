@@ -40,6 +40,7 @@
 @include foundation-breadcrumbs;
 // @include foundation-button-group;
 // @include foundation-callout;
+// @include foundation-card;
 @include foundation-close-button;
 
 @include foundation-menu;
@@ -93,6 +94,7 @@
 @import "components/typography";
 @import "components/accordion";
 @import "components/breadcrumbs";
+@import "components/card";
 @import "components/forms";
 @import "components/login";
 @import "components/childpages";
