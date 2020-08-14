@@ -67,15 +67,19 @@ clear: "button clear"
 // Clear Styles - No border
 .button.clear {
     color: $black;
+    border: none;
     & i {
         color: $highlight; // Icon
     }
     &::after {
-        background-color: $highlight; // Hover animation
+        display: none;
     }
     &:hover, &:focus {
-        border-color: $black;
         color: $black;
+        text-decoration: underline;
+        & i {
+            color: $black;
+        }
     }
 }
 
