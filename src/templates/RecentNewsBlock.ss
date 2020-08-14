@@ -5,7 +5,7 @@
             <h2 class="text-center serif text-semibold h1" id="Block$ID">
                 <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
             </h2>
-            <a href="#" class="button clear">View All News (needs url)<span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+            <%-- <a href="$Blog.Link" class="button clear">View All News <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a> --%>
         </div>
         <div class="card__wrapper">
             <% loop $Entries %>
@@ -22,6 +22,7 @@
             <h2 class="text-center serif text-semibold h1" id="Block$ID">
                 <% if $Title && $ShowTitle %>$Title<% else %>Recent News<% end_if %>
             </h2>
+            <%-- <a href="$Blog.Link" class="button clear">View All News <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a> --%>
         </div>
         <div class="card__wrapper">
             <% loop $Entries %>
