@@ -69,7 +69,7 @@ $header-lineheight: 1.2;
 $header-margin-bottom: rem-calc(18);
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 
-$slab-font-family: 'Zilla Slab', serif;
+$serif-font-family: 'Zilla Slab', serif;
 
 // commenting out - this was updated to use $header-styles below
 // $header-sizes: (
@@ -123,7 +123,7 @@ $prototype-separator-background: $black;
 $breakpoints: (
 	small: 0,
 	mobile: 480px,
-	medium: 640px,
+	medium: 768px,
 	large: 1024px,
 	xlarge: 1200px,
 	xxlarge: 1440px,
