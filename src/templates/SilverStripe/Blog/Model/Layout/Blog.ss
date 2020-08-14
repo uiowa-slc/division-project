@@ -47,16 +47,16 @@ $Header
 				<% if $Action == "index" %>
 					<% if $SortAlphabetically %>
 	 					<% loop $BlogPostsAlpha %>
-	 						<% include BlogCard %>
+	 						<% include BlogCardHorizontal %>
 	 					<% end_loop %>
 	 				<% else_if $PaginatedList.Exists %>
 						<% loop $PaginatedList %>
-							<% include BlogCard %>
+							<% include BlogCardHorizontal %>
 						<% end_loop %>
 					<% end_if %>
 				<% else %>
 					<% loop $PaginatedList %>
-						<% include BlogCard %>
+						<% include BlogCardHorizontal %>
 					<% end_loop %>
 				<% end_if %>
 				$AfterContentConstrained
