@@ -21,9 +21,7 @@ class SiteConfigExtension extends DataExtension {
 		'City' => 'Text',
 		'State' => 'Text',
 		'Zipcode' => 'Text',
-		'PhoneLabel' => 'Text',
 		'PhoneNumber' => 'Text',
-		'PhoneLabelAlt' => 'Text',
 		'PhoneNumberAlt' => 'Text',
 		'Fax' => 'Text',
 
@@ -93,10 +91,8 @@ class SiteConfigExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Main', new TextField('State', 'State'));
 		$fields->addFieldToTab('Root.Main', new TextField('Zipcode', 'Zip Code'));
 		$fields->addFieldToTab('Root.Main', new TextField('Fax', 'Fax Number'));
-		$fields->addFieldToTab('Root.Main', new TextField('PhoneLabel', 'Phone Label (Phone:)'));
-		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumber', 'Main Phone Number'));
-		$fields->addFieldToTab('Root.Main', new TextField('PhoneLabelAlt', 'Alternate Phone Label'));
-		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumberAlt', 'Alternate Phone Number'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumber', 'Main Phone Number (555-555-5555)'));
+		$fields->addFieldToTab('Root.Main', new TextField('PhoneNumberAlt', 'Alternate Phone Number (555-555-5555)'));
 		$fields->addFieldToTab('Root.Main', new TextField('EmailAddress', 'Email Address'));
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( 'FooterButtons', 'Footer Buttons') );

@@ -16,14 +16,19 @@
 		@include breakpoint(large) {
 			@include grid-column(4);
 		}
-        font-size: rem-calc(14);
+        font-size: rem-calc(16);
 		& p {
-			line-height: 1.4;
+			
 		}
 		& a {
-			color: $light-gray;
-			text-decoration: underline;
-		}		
+			color: $highlight;
+            text-decoration: underline;
+        }	
+        & i {
+            color: #999;
+            margin-right: 10px;
+            text-decoration: none;
+        }	
 	}
 	&__logo {
 		display: block;
@@ -42,19 +47,8 @@
 			}
 		}
 	}
-	&__heading {
-		font-size: rem-calc(16);
-		text-transform: uppercase;
-		letter-spacing: .8px;
-		margin: rem-calc(15 0);
-		padding-bottom: rem-calc(5);
-		border-bottom: 2px solid $highlight;
-		font-weight: 600;
-	}
-	&__address {
-
-	}
-	&__navigation {
+    &__navigation,
+    &__disclaimer {
 		@include grid-column(12);
 		@include breakpoint(medium) {
 			@include grid-column(6);
@@ -63,36 +57,27 @@
 			@include grid-column(8);
 		}
 	}
-	&__container--with-social {
-		& .footer__navigation {
-			@include breakpoint(medium) {
-				@include grid-column(6);
-			}
-			@include breakpoint(large) {
-				@include grid-column(5);
-			}
-		}
-	}
 	&__links {
 		& ul {
 			list-style: none;
 			margin: 0 0 20px 0;
 			padding: 0;
 			& li {
-				float: left;
-				width: 50%;
+                @include breakpoint(medium) {
+                    float: left;
+                    width: 50%;
+                }
 			}
 			& li a {
-				color: $light-gray;
+				color: #fff;
 				display: block;
-				font-size: rem-calc(14);
+				font-size: rem-calc(16);
 				padding: rem-calc(10 5 10 0);
 				&:hover, &:focus {
 					text-decoration: underline;
 				}
 			}
 		}
-
 	}
 	&__navigation--with-buttons {
 		& .footer__links {
@@ -109,8 +94,8 @@
 		}
 	}
 	&__give {
-		display: block;
-		color: $light-gray;
+		display: inline-block;
+		color: $light-gray !important;
 		border: 1px solid $light-gray;
 		padding: rem-calc(15);
 		margin: 8px 0 16px;
@@ -122,86 +107,40 @@
 		&:hover, &:focus {
 			color: $black;
 			background-color: $highlight;
-		}
-	}
+        }
+        @include breakpoint(xlarge) {
+            display: block;
+        }
+    }
+    
 	&__socialmedia {
-		@include grid-column(12);
-		& ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			-webkit-column-count: 2;
-			-moz-column-count: 2;
-			column-count: 2;
-			-webkit-column-gap: 20px;
-			-moz-column-gap: 20px;
-			column-gap: 20px;
-			@include breakpoint(medium) {
-				-webkit-column-count: 3;
-				-moz-column-count: 3;
-				column-count: 3;
-			}
-			@include breakpoint(large) {
-				-webkit-column-count: inherit;
-				-moz-column-count: inherit;
-				column-count: inherit;
-			}
-		}
+		list-style: none;
+        margin: 0;
+        padding: 0;
+        & li {
+            display: inline-block;
+        }
 		& li a {
-			font-size: rem-calc(14);
-			color: $light-gray;
-			display: block;
-			padding: rem-calc(10 0);
-			&:before {
-				content:'';
-				display: inline-block;
-				background-repeat: no-repeat;
-				background-size: 26px 26px;
-				width: 28px;
-				height: 28px;
-				margin-right: 10px;
-				vertical-align: middle;
-			}
+			font-size: rem-calc(28);
+            display: block;
+            margin-right: rem-calc(15);
+            & i {
+                color: #fff;
+            }
 			&:hover, &:focus {
 				text-decoration: underline;
 			}
 		}
-
-		@include breakpoint(large) {
-			@include grid-column(3);
-		}
 	}
 
-	&__facebook:before {background-image: url(../images/icon_facebook.png);}
-	&__twitter:before {background-image: url(../images/icon_twitter.png);}
-	&__vimeo:before {background-image: url(../images/icon_vimeo.png);}
-	&__youtube:before {background-image: url(../images/icon_youtube.png);}
-	&__instagram:before {background-image: url(../images/icon_instagram.png);}
-	&__linkedin:before {background-image: url(../images/icon_linkedin.png);}
-	&__pinterest:before {background-image: url(../images/icon_pinterest.png);}
-	&__flickr:before {background-image: url(../images/icon_flickr.png);}
-	&__github:before {background-image: url(../images/icon_github.png);}
-	&__snapchat:before {background-image: url(../images/icon_snapchat.png);}
-
 	&__disclaimer{
-		font-size: rem-calc(12);
+		font-size: rem-calc(14);
 		border-top: 2px solid $dark-gray;
 		padding-top: rem-calc(10);
 	}
-	&__md {
-		display: inline-block;
-		text-indent: -9999em;
-		background-image: url(../images/md.png);
-		background-size: 41px 24px;
-		background-repeat: no-repeat;
-		width: 41px;
-		height: 24px;
-		position: relative;
-		top: 4px;
-	}
 	&__copyrightcontainer {
-		background-color: $white;
-		color: $dark-gray;
+		background-color: $highlight;
+		color: $black;
 		font-size: rem-calc(14);
 		padding: rem-calc(12 0);
 	}
@@ -215,14 +154,8 @@
 			line-height: 32px;
 		}
 		& a {
+            color: $black;
 			text-decoration: underline;
-		}
-	}
-	&__copyrightcontainer--newsletter {
-		& .footer__copyright {
-			@include breakpoint(medium) {
-				@include grid-column(6);
-			}
 		}
 	}
 	&__newsletter {
@@ -232,83 +165,6 @@
 		}
 	}
 }
-
-/* MailChimp Signup */
-#mc_embed_signup form {
-	display:block;
-	position:relative;
-	text-align:left;
-	padding:0;
-	@include breakpoint(medium) {
-		float: right;
-		width: 280px;
-	}
-	@include breakpoint(large) {
-		float: right;
-		width: 380px;
-	}
-}
-#mc_embed_signup input {border:1px solid #ccc; -webkit-appearance:none;}
-#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
-#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
-#mc_embed_signup input:focus {border-color:#333;}
-#mc_embed_signup .button:hover {background-color:#777;}
-#mc_embed_signup .small-meta {font-size: 11px;}
-#mc_embed_signup .nowrap {white-space:nowrap;}
-#mc_embed_signup .clear {
-	clear:none;
-	display:inline;
-	float: left;
-	width: 100px;
-}
-
-#mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
-#mc_embed_signup input.email {
-	display:block;
-	padding: 0 0.4em;
-	margin: 0 10px 0 0;
-	height: 32px;
-	width: 170px;
-	min-width: 130px;
-	border-radius: 3px;
-	float: left;
-	@include breakpoint(large) {
-		width: 270px;
-	}
-}
-#mc_embed_signup .button {
-	clear:both;
-	background: $highlight;
-	border: 0 none;
-	border-radius:4px;
-	letter-spacing:.03em;
-	color: #111;
-	cursor: pointer;
-	display: inline-block;
-	font-size:13px;
-	height: 32px;
-	line-height: 32px;
-	margin: 0 5px 10px 0;
-	padding:0;
-	text-align: center;
-	text-decoration: none;
-	vertical-align: top;
-	white-space: nowrap;
-	width: auto;
-	transition: all 0.23s ease-in-out 0s;
-}
-#mc_embed_signup input.button {
-	display:block;
-	width:35%;
-	margin:0;
-	min-width: 90px;
-}
-
-#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
-#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
-#mc_embed_signup #mce-error-response {display:none;}
-#mc_embed_signup #mce-success-response {color:#529214; display:none;}
-#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
 
 
 
