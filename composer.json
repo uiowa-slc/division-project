@@ -21,7 +21,6 @@
       "gorriecoe/silverstripe-webfonts" : "*",
       "md/ac-json-events":"3.*",
       "md/division-analytics": "1.2.x",
-      "md/deploy-helper": "*",
       "unclecheese/display-logic" : "dev-master",
       "md/saml" : "dev-md",
       "jonom/focuspoint" : "*",
@@ -50,10 +49,6 @@
     {
        "type":"vcs",
        "url":"https://github.com/StudentLifeMarketingAndDesign/division-analytics"
-    },
-    {
-       "type":"vcs",
-       "url":"https://github.com/StudentLifeMarketingAndDesign/deploy-helper"
     },
     {
        "type":"vcs",
