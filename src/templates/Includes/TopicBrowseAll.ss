@@ -39,15 +39,15 @@
 
                  <ul class="topicholder-all-list">
                    <% loop $AllCats.Sort('Title ASC') %>
+                    <% if $BlogPosts %>
                       <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading"><a href="$Link">$Title</a></h3>
-                        <% if $BlogPosts %>
                         <ul class="topicholder-sublist">
                           <% loop $BlogPosts.Sort('Title ASC') %>
                             <li class="topicholder-sublist__item"><a href="$Link">$Title</a></li>
                           <% end_loop %>
                         </ul>
-                      <% end_if %>
                         </li>
+                     <% end_if %>
                     <% end_loop %>
 
                 </ul>
@@ -70,15 +70,17 @@
 
                  <ul class="topicholder-all-list">
                    <% loop $AllCats.Sort('Title ASC') %>
+                   <% if $BlogPosts %>
                       <li class="topicholder-all-list__item topicholder-all-list__item--avoid-break"><h3 class="topicholder-all-list__item-heading"><a href="$Link">$Title</a></h3>
-                        <% if $BlogPosts %>
+
                         <ul class="topicholder-sublist">
                           <% loop $BlogPosts.Sort('Title ASC') %>
                             <li class="topicholder-sublist__item"><a href="$Link">$Title</a></li>
                           <% end_loop %>
                         </ul>
-                      <% end_if %>
+
                         </li>
+                     <% end_if %>
                     <% end_loop %>
 
                 </ul>
