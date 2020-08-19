@@ -31,7 +31,8 @@
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
       "bummzack/sortablefile" : "^2.0",
       "silverstripe/sharedraftcontent" :"*",
-      "quamsta/silverstripe-api-cacher": "1.*"
+      "quamsta/silverstripe-api-cacher": "1.*",
+      "paquettg/php-html-parser": "^2.2"
     },
    "repositories":[
     {
