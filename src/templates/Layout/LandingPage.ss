@@ -1,7 +1,7 @@
-
-<div class="header__container header__container--{$DarkLightHeader} header__container--{$HeaderType}">
+<div class="lp-uiowa-bar">
 	<% include DivisionBar %>
 </div>
+
 
 
 
