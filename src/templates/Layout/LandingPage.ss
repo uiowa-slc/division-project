@@ -21,7 +21,7 @@
 	<% else %>
 
 		<div class="lp-hero">
-			<img src="$HeaderImage.URL" alt="$HeaderImageAltText" class="lp-hero__img" />
+			<img src="$HeaderImage.ScaleWidth(1600).URL" alt="$HeaderImageAltText" class="lp-hero__img" />
 		</div>
 
 
