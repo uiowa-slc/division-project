@@ -1,141 +1,98 @@
 /* UIDS Card
 ================================================= */
 .card__wrapper {
-    margin: 1.25rem 0;
+    margin: rem-calc(20 0);
     @include breakpoint(medium) {
-        margin: 1.25rem 0 8rem;
+        margin: rem-calc(20 0 100 0);
         display: flex;
     }
 }
-.card__row {
+.card--row {
     @include breakpoint(medium) {
-        margin-right: 1.6rem;
+        margin-right: 2%;
         margin-bottom: 0;
-        margin-left: 1.6rem;
+        margin-left: 2%;
         &:first-of-type {
             margin-left: 0;
+        }
+        &:last-of-type {
+            margin-right: 0;
         }
     }
     
 }
+
+/* Card
+--------------------------------------------------- */
 .card {
+    background: #fff;
+    border-radius: $global-radius;
+    border: 1px solid $light-gray;
     position: relative;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 1.6rem;
-    text-decoration: none;
-    background: #fff;
     flex-grow: 1;
-    display: flex;
     flex: 1 1 0%;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    &:focus-within .card__title a:focus {
-        text-decoration: underline;
-    }
+    margin-bottom: rem-calc(20);
+    text-decoration: none;
+
+    // Breakpoint Medium
     @include breakpoint(medium) {
         border: none;
         margin-bottom: 0;
     }
-    &.card--enclosed {
+
+    // Enclosed 
+    &--enclosed {
         @include breakpoint(medium) {
-            border: 1px solid rgba(0, 0, 0, 0.125);
+            border: 1px solid $light-gray;
         }
         .card__body {
-            padding: 1.2rem;
             @include breakpoint(medium) {
-                padding: 2rem;
+                padding: 8%;
             }
         }
-        .button {
-            margin-bottom: 0;
-        }
+        
     }
 
-    .card__title:focus-within~.button {
-        background-position: 0px;
-        background-size: 200% 100%;
-        i, svg {
-            color: $black;
-        }
-    }
-    p+.button,
-    p+.button {
-        margin-top: 1.05rem;
-    }
-    & .button {
-        margin-bottom: 0;
-    }
-    .card__author+p,
-    .card__author+.button,
-    .card__author+.button {
-        margin-top: 0.625rem;
-    }
-    .card__media {
+    // Media
+    &__media {
         flex-shrink: 0;
         width: 100%;
-        min-height: 1px;
-        img {
-            flex-shrink: 0;
-            width: 100%;
-            min-height: 1px;
-        }
     }
     &__img {
+        flex-shrink: 0;
         align-self: start;
         width: 100%;
     }
+
+    // Body
     &__body {
         flex: 1;
-        color: $black;
-        padding: 1.2rem;
-        min-height: 1px;
-        line-height: 1.7;
-        h2, h3,  h4,  h5,  h6 {
-            &:not(:first-child) {
-                margin-top: 0;
-            }
-        }
+        padding: rem-calc(24);
         @include breakpoint(medium) {
-            padding: 2rem 0;
+            padding: rem-calc(30 0);
         }
-        .card--enclosed & {
-            @include breakpoint(medium) {
-                padding: 2rem;
+        ul, ol, dl, table, p {
+            font-size: rem-calc(16);
+        }
+        p {
+            margin-bottom: 0;
+            margin-top: 0;
+            a {
+                position: relative;
+                z-index: 1;
             }
         }
-        ul, ol, dl, table {
-            font-size: 1rem;
-            line-height: 1.7;
-        }
     }
 
-    p {
-        margin-bottom: 0;
-        margin-top: 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        a {
-            position: relative;
-            z-index: 1;
-        }
-    }
-
-    &__author {
-        color: #666;
-        font-family: $serif-font-family;
-        font-size: 1.3rem;
-        font-weight: 600;
-        line-height: 1.3;
-    }
-
+    // Title
     &__title {
-        margin: 0 0 0.625rem;
-        padding: 0;
-        font-size: 1.5rem;
+        font-family: $body-font-family;
+        font-size: rem-calc(24);
         font-weight: bold;
-        line-height: 1.2;
+        margin: rem-calc(0 0 10 0);
         a {
             text-decoration: none;
             color: $black;
@@ -144,21 +101,68 @@
             }
         }
     }
+
+    // Author
+    &__author {
+        color: $dark-gray;
+        font-family: $serif-font-family;
+        font-weight: 600;
+        line-height: $header-lineheight;
+    }
+
+    // Button
+    & .button {
+        margin-bottom: 0;
+        margin-top: rem-calc(16);
+    }
+
+    .card__author + p,
+    .card__author + .button,
+    .card__author + .button {
+        margin-top: rem-calc(10);
+    } 
+
 }
 
 
+/* Stacked Layout
+--------------------------------------------------- */
+.card--horizontal {
+    & .card__body {
+        @include breakpoint(medium) {
+            padding: rem-calc(0 0 30 30);
+        }
+        &--noimage {
+            @include breakpoint(medium) {
+                padding-left: 0;
+            }
+        }
+    }
+    & .card__title {
+        font-family: $serif-font-family;
+        font-weight: 600;
+    }
 
-.card.card--horizontal {
+    & .button {
+        width: max-content;
+    }
 
     &.card--enclosed {
-        padding: 1.25rem;
+        @include breakpoint(medium) {
+            padding: rem-calc(20);
+            & .card__body {
+                padding-bottom: 0;
+            }
+        }
     }
+
     @include breakpoint(medium) {
+        border-bottom: 1px solid $light-gray;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        margin-bottom: 1.6rem;
+        margin-bottom: rem-calc(30);
     }
 
     >* {
@@ -175,28 +179,11 @@
             width: 20%;
         }
     }
-    .card__title {
-        font-family: $header-font-family;
-        font-weight: bold;
-        @include breakpoint(medium) {
-            padding: 0;
-            margin: 0 0 .5rem;
-        }
-    }
-    .card__body {
-        padding: 2rem;
-        @include breakpoint(medium) {
-            padding: 0 0 1.6rem 1.25rem;;
-        }
-        min-height: 1px;
-    }
-    .button.hollow {
-        width: max-content;
-    }
 }
 
 
-// @todo move card header to separate component
+/* Card Head
+--------------------------------------------------- */
 .card__head {
     flex-wrap: wrap;
     padding: 0;
@@ -204,10 +191,9 @@
     display: flex;
     justify-content: center;
     @include breakpoint(medium) {
-        padding: 0 0 2rem 0;
+        padding: rem-calc(0 0 30 0);
     }
     @include breakpoint(large) {
-        margin: 0;
         display: block;
     }
     p {

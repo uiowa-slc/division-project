@@ -1,8 +1,8 @@
-<article class="card card__row card--enclosed">
+<div class="card card__row <% if $Parent.Enclosed %>card--enclosed<% end_if %>">
     <div class="card__media">
         <% if $FeaturedImage %>
             <a href="$Link" class="">
-                <img src="$FeaturedImage.FocusFill(500,333).URL" class="card__img" loading="lazy" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="" role="presentation" <% end_if %>>
+                <img src="$FeaturedImage.FocusFill(500,333).URL" class="card__img" loading="lazy" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="$Title" role="presentation" <% end_if %>>
             </a>
         <% else_if $BackgroundImage %>
             <a href="$Link" class="">
@@ -10,6 +10,7 @@
             </a>
         <% end_if %>
     </div>
+    
     <div class="card__body">
         <h3 class="card__title">
             <a href="$Link">$Title</a>
@@ -21,14 +22,12 @@
 
         <% if not $Parent.HideSummaries %>
             <% if $Summary %>
-                <div class="">$Summary</div>
+                <div>$Summary</div>
             <% else %>
-                <p class="">
-                    $Content.FirstParagraph.LimitCharacters(150)
-                </p>
-                <a href="$Link" class="button hollow">Continue Reading <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+                <p>$Content.FirstParagraph.LimitCharacters(150)</p>
+                <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
             <% end_if %>
         <% end_if %>
 
     </div>
-</article>
+</div>
