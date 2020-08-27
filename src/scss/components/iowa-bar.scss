@@ -73,13 +73,17 @@
         color: #fff;
         font-size: rem-calc(14);
         font-weight: 300;
-        @include breakpoint(medium) {
-            color: $black;
-        }
         &:hover, &:focus {
             text-decoration: underline;
-            color: $black;
+            color: #fff;
         }
+        @include breakpoint(medium) {
+            color: $black;
+            &:hover, &:focus {
+                color: $black;
+            }
+        }
+       
     }
     &__item:nth-child(n+2) {
         display: none;

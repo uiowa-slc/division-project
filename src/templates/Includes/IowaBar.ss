@@ -17,7 +17,7 @@
             </a>
         </div>
         <% if $SiteConfig.QuickLinkTitleOne %>
-            <nav role="navigation" aria-labelledby="uids-toplinks" class="uids-toplinks">
+            <nav aria-labelledby="uids-toplinks" class="uids-toplinks">
                 <h2 class="show-for-sr" id="uids-toplinks">Top links</h2>
                 <ul class="menu uids-toplinks__menu">
                     <% if $SiteConfig.QuickLinkTitleOne %>
