@@ -17,16 +17,15 @@
 			@include grid-column(4);
 		}
         font-size: rem-calc(16);
-		& p {
-			
-		}
 		& a {
 			color: $highlight;
-            text-decoration: underline;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
         }	
-        & i {
+        & svg {
             color: #999;
-            margin-right: 10px;
+            margin-right: rem-calc(10);
             text-decoration: none;
         }	
 	}
@@ -38,11 +37,11 @@
 			max-width: 300px;
 			max-height: 130px;
 		}
-		&--ui{
+		&--ui {
 			// margin-top: rem-calc(20);
 			// margin-bottom: rem-calc(20);
 
-		 img{
+		 img {
 				max-width: 200px;
 			}
 		}
@@ -60,7 +59,7 @@
 	&__links {
 		& ul {
 			list-style: none;
-			margin: 0 0 20px 0;
+			margin: rem-calc(0 0 20 0);
 			padding: 0;
 			& li {
                 @include breakpoint(medium) {
@@ -94,19 +93,10 @@
 		}
 	}
 	&__give {
-		display: inline-block;
 		color: $light-gray !important;
-		border: 1px solid $light-gray;
-		padding: rem-calc(15);
-		margin: 8px 0 16px;
-		text-transform: uppercase;
-		font-size: rem-calc(12);
-		font-weight: 600;
-		line-height: 1;
-        text-align: center;
+		margin: rem-calc(8 0 16 0);
 		&:hover, &:focus {
-			color: $black;
-			background-color: $highlight;
+            border-color: $highlight !important;
         }
         @include breakpoint(xlarge) {
             display: block;
@@ -124,11 +114,15 @@
 			font-size: rem-calc(28);
             display: block;
             margin-right: rem-calc(15);
-            & i {
+            & svg {
                 color: #fff;
+                margin-right: 0;
             }
 			&:hover, &:focus {
-				text-decoration: underline;
+                text-decoration: underline;
+                & svg {
+                    color: $highlight;
+                }
 			}
 		}
 	}
@@ -141,7 +135,7 @@
 	&__copyrightcontainer {
 		background-color: $highlight;
 		color: $black;
-		font-size: rem-calc(14);
+		font-size: rem-calc(13);
 		padding: rem-calc(12 0);
 	}
 	&__copyrightrow {
@@ -151,7 +145,6 @@
 		@include grid-column(12);
 		& p {
 			margin-bottom: 0;
-			line-height: 32px;
 		}
 		& a {
             color: $black;

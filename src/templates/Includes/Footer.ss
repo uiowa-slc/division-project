@@ -156,13 +156,13 @@
 			<% if $$SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>
 				<div class="footer__buttons">
 					<% if $SiteConfig.ButtonUrlOne %>
-						<a href="$SiteConfig.ButtonUrlOne" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextOne</a>
+						<a href="$SiteConfig.ButtonUrlOne" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextOne <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
 					<% end_if %>
 					<% if $SiteConfig.ButtonUrlTwo %>
-						<a href="$SiteConfig.ButtonUrlTwo" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextTwo</a>
+						<a href="$SiteConfig.ButtonUrlTwo" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextTwo <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
 					<% end_if %>
 					<% if $SiteConfig.ButtonUrlThree %>
-						<a href="$SiteConfig.ButtonUrlThree" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextThree</a>
+						<a href="$SiteConfig.ButtonUrlThree" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextThree <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
 					<% end_if %>
 				</div>
 			<% end_if %>
