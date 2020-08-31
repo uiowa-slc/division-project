@@ -116,6 +116,7 @@ $BeforeContent
 
 
             <% if $CurrentCategory %>
+
               <% with $CurrentCategory %>
                 <% include TopicFilterContent %>
               <% end_with %>
