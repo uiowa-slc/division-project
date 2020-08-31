@@ -27,6 +27,7 @@ class Topic extends BlogPost {
 
 	private static $db = [
 		'WebsiteLink' => 'Varchar(255)',
+        'WebsiteLinkButtonText' => 'Varchar(255)',
 		'FeaturedSortOrder' => 'Int',
 	];
 
@@ -205,7 +206,9 @@ class Topic extends BlogPost {
 		));
 		// $fields->insertAfter(new Tab('RelatedLinks', 'Related links'), 'Main');
 		// $fields->addFieldToTab('Root.RelatedLinks', $linkGrid);
-		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link (include https://)'), 'CustomSummary');
+		$fields->addFieldToTab('Root.Main', TextField::create('WebsiteLink', 'Website link')->setDescription('Please include "https://"', 'CustomSummary'));
+        $fields->addFieldToTab('Root.Main', TextField::create('WebsiteLinkButtonText', 'Website button text')->setDescription('Default: "Visit Website" (if left blank)', 'CustomSummary'));
+
 
 		return $fields;
 

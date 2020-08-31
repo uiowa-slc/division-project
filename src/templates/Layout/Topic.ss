@@ -4,7 +4,7 @@ $Header
 
   $Breadcrumbs
 
-  
+
     <div class="column row">
       <div class="main-content__header">
         <% if not $BackgroundImage %><h1>$Title</h1><% end_if %>
@@ -12,7 +12,7 @@ $Header
                 <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>
                 <div class="byline"><p>  <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
                   <% if $Categories.Count == 1 %><br />
-                      <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>      
+                      <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>
                   </p><% end_if %>
                 </div>
                 <% end_if %>
@@ -25,7 +25,7 @@ $Header
             </div>
         </div>
     </div>
-  
+
 
   $BeforeContent
 
@@ -53,7 +53,7 @@ $Header
                 $GoogleMap
               <% end_if %>
               <% if $WebsiteLink %>
-              <p><a href="$WebsiteLink" class="button large" target="_blank">Visit Website <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+              <p><a href="$WebsiteLink" class="button large" target="_blank"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %>  <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
               <% end_if %>
               <% if $Links %>
                 <h2>Additional information:</h2>
@@ -68,7 +68,7 @@ $Header
       <% include TagsCategories %>
       $Form
     </article>
-        
+
         <aside class="sidebar dp-sticky dp-sticky--medium show-for-large">
           <div class="">
             $TopicSearchFormSized("tiny")
@@ -77,7 +77,7 @@ $Header
             <% end_with %>
           </div>
         </aside>
-        
+
   </div>
   <div class="grid-container">
   <% if $RelatedNewsEntries %>
@@ -89,7 +89,7 @@ $Header
       <% include TopicMore %>
       <% with $Parent %>
         <% include TopicBrowseByFilterFull %>
-        
+
       <% end_with %>
     </div>
   </div>
