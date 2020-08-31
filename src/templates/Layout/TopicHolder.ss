@@ -81,6 +81,7 @@ $BeforeContent
 
             <div class="topic-content main-content__text">
               $Content
+
               <% include TopicFeedback %>
             </div>
 
