@@ -3,7 +3,7 @@
 	<section class="childpages" aria-labelledby="ChildPages">
 	<h2 class="show-for-sr" id="ChildPages">Related Navigation</h2>
 	<% loop $Children %>
-		<div class="childpages__page <% if $BackgroundImage || $MainImage || $YoutubeBackgroundEmbed %>childpages--withphoto<% end_if %>">
+		<div class="childpages__page <% if $BackgroundImage || $MainImage || $YoutubeBackgroundEmbed || $HeaderImage%>childpages--withphoto<% end_if %>">
 			<a href="$Link" class="childpages__blocklink">
 				<% if $BackgroundImage %>
 					<img data-original="$BackgroundImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="" role="presentation">
