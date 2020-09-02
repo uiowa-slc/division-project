@@ -29,3 +29,5 @@ SilverStripe\Assets\Flysystem\AssetAdapter:
       'private': '0600'
 SilverStripe\Assets\InterventionBackend:
   flush_enabled: false
+SilverStripe\View\Parsers\URLSegmentFilter:
+  default_allow_multibyte: true
