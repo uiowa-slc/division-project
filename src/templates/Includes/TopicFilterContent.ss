@@ -1,8 +1,9 @@
 <article class="topic-content">
+
   <% if $Content %>
 
     <div class="main-content__text">
-    $Content 
+    $Content
     </div>
 
     <% if $TermPlural %>
@@ -20,7 +21,13 @@
   <% else %>
       <p style="margin-top: 20px;">Nothing is currently listed under this category.</p>
   <% end_if %>
+<%--     <% if $ContentAfter %>
+   <hr />
+    <div class="main-content__text">
+        $ContentAfter
+    </div>
+<% end_if %> --%>
   <% with $Blog %>
     <% include TopicFeedback %>
   <% end_with %>
-</article>   
+</article>

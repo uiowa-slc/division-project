@@ -14,6 +14,7 @@ class LandingPage extends Page {
 
 	private static $db = array(
 		'HeaderText'      => 'Text',
+		'HideSidebar'	=> 'Boolean',
 		'ShowBreadcrumbs' => 'Boolean(1)',
 		'FacebookLink' => 'Varchar(2083)',
 		'TwitterLink' => 'Varchar(2083)',
@@ -61,7 +62,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 		$fields->addFieldToTab('Root.Main', $headerTextField = TextareaField::create('HeaderText', 'Header text under logo'));
 
 		$headerTextField->displayIf('LayoutType')->isEqualTo('BackgroundImage');
-				$fields->addFieldToTab('Root.Main', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
+
 		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', UploadField::create('SecondaryImage','Secondary Image (shows in main content area)'));
 
@@ -84,6 +85,15 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 		$fields->addFieldToTab('Root.Main', TextField::create('FacebookLink','Facebook page link'));
 		$fields->addFieldToTab('Root.Main', TextField::create('TwitterLink','Twitter page link'));
 		$fields->addFieldToTab('Root.Main', TextField::create('InstagramLink','Instagram page link'));
+
+		return $fields;
+	}
+
+	public function getSettingsFields(){
+		$fields = parent::getSettingsFields();
+
+		$fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
+		$fields->addFieldToTab('Root.Settings', CheckboxField::create('HideSidebar', 'Hide sidebar no matter what'));
 
 		return $fields;
 	}

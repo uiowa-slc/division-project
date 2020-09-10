@@ -5,8 +5,8 @@
    "minimum-stability":"dev",
    "require":{
       "php": ">=5.5",
-      "silverstripe/recipe-plugin": "^1.2",
-      "silverstripe/recipe-cms": "4.5.*@stable",
+      "silverstripe/recipe-plugin": "^1.3",
+      "silverstripe/recipe-cms": "4.6.*@stable",
       "undefinedoffset/sortablegridfield": "*",
       "undefinedoffset/silverstripe-nocaptcha":"*",
       "edgarindustries/youtubefield" : "*",
@@ -21,7 +21,6 @@
       "gorriecoe/silverstripe-webfonts" : "*",
       "md/ac-json-events":"3.*",
       "md/division-analytics": "1.2.x",
-      "md/deploy-helper": "*",
       "unclecheese/display-logic" : "dev-master",
       "md/saml" : "dev-md",
       "jonom/focuspoint" : "*",
@@ -31,7 +30,8 @@
       "colymba/gridfield-bulk-editing-tools" : "dev-master",
       "bummzack/sortablefile" : "^2.0",
       "silverstripe/sharedraftcontent" :"*",
-      "quamsta/silverstripe-api-cacher": "1.*"
+      "quamsta/silverstripe-api-cacher": "1.*",
+      "paquettg/php-html-parser": "^2.2"
     },
    "repositories":[
     {
@@ -49,10 +49,6 @@
     {
        "type":"vcs",
        "url":"https://github.com/StudentLifeMarketingAndDesign/division-analytics"
-    },
-    {
-       "type":"vcs",
-       "url":"https://github.com/StudentLifeMarketingAndDesign/deploy-helper"
     },
     {
        "type":"vcs",

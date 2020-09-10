@@ -1,0 +1,8 @@
+---
+Name: baseconfig
+Before:
+  - '#framework'
+---
+# No idea why, but this is required for forcing https link generation on error page regeneration. Sigh.
+SilverStripe\Control\Director:
+  alternate_base_url: '`SS_BASE_URL`'

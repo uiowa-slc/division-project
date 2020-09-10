@@ -27,3 +27,7 @@ SilverStripe\Assets\Flysystem\AssetAdapter:
     'file':
       'public': '0644'
       'private': '0600'
+SilverStripe\Assets\InterventionBackend:
+  flush_enabled: false
+SilverStripe\View\Parsers\URLSegmentFilter:
+  default_allow_multibyte: true

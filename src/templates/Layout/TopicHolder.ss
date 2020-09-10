@@ -87,6 +87,7 @@ $BeforeContent
 
             <div class="topic-content main-content__text">
               $Content
+
               <% include TopicFeedback %>
             </div>
 
@@ -122,6 +123,7 @@ $BeforeContent
 
 
             <% if $CurrentCategory %>
+
               <% with $CurrentCategory %>
                 <% include TopicFilterContent %>
               <% end_with %>
