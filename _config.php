@@ -1,14 +1,11 @@
 <?php
 
-
-use SilverStripe\View\Parsers\ShortcodeParser;
-use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
-use SilverStripe\Security\Authenticator;
+use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
-use SilverStripe\Control\Director;
-use SilverStripe\Core\Environment;
+use SilverStripe\View\Parsers\ShortcodeParser;
 
+\SilverStripe\ORM\Search\FulltextSearchable::enable();
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
@@ -45,7 +42,17 @@ HtmlEditorConfig::get('cms')->insertButtonsAfter('indent', 'blockquote');
 HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,address,pre,h2,h3,h4,h5,h6');
 
 ShortcodeParser::get()->register('flickr', array('FlickrShortcodeControllerExtension', 'FlickrShortcodeHandler'));
+ShortcodeParser::get('default')->register('expand', ['DivisionPage', 'ExpandShortCode']);
+ShortcodeParser::get('default')->register('staffholder', ['DivisionPage', 'StaffHolderShortcode']);
 
 TinyMCEConfig::get('cms')
-    ->addButtonsToLine(1, 'styleselect')
-    ->setOption('importcss_append', true);
+	->addButtonsToLine(1, 'styleselect')
+	->setOption('paste_remove_spans', true)
+	->setOption('paste_remove_styles', true)
+	->setOption('paste_strip_class_attributes', 'all');
+
+$path = ModuleLoader::getModule('md/division-project')
+	->getResource('client/expand-shortcode/editor_plugin.js');
+
+HtmlEditorConfig::get('cms')->enablePlugins(['expander' => $path]);
+TinyMCEConfig::get('cms')->insertButtonsAfter('unlink', 'expander-button');

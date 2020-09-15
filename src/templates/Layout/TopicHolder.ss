@@ -1,139 +1,168 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-   <% if $BackgroundImage && not $IsFilterActive %>
-    <div class="background-image" data-interchange="[$BackgroundImage.FocusFill(600,400).URL, small], [$BackgroundImage.FocusFill(1600,500).URL, medium]">
-        <div class="column row">
-          <div class="background-image__header background-image__header--has-content">
-            <h1 class="background-image__title text-center">$Title</h1>
-            <div class="topic-search__container row">
-              <div class="large-9 columns large-centered">
-                <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
-                $TopicSearchForm
-              </div>
-            </div>           
-          </div>
+
+<% if $Action == "index" %>
+<%--   <% include FeaturedImage %> --%>
+<% with $BackgroundImage %>
+  <div style="background-repeat: no-repeat; background-size: cover;" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
+<% end_with %>
+    <div class="topic-search-bg background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
+    align-items: center; background: rgba(0,0,0,0.4);">
+
+
+        <div class="topic-search-container">
+          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
+          $TopicSearchFormSized
+
+          <p style="color: white; font-size: 16px; line-height: 2">
+            <span class="topic-search-minicats__heading">Browse by category:</span>
+            <% loop $AllCats.Sort('Title').Limit(20) %>
+            <span style="display: inline-block; margin: 0 2px;"><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>,</span><% end_if %>
+            <% end_loop %>
+
+            <% if $AllCats.Count > 20 %>
+              <span class="topic-search-minicats__heading"><a href="#browse-categories" style="color: white; text-decoration: underline;">and more...</a></span>
+            <% end_if %>
+
+            </p>
         </div>
-    </div>
-  <% end_if %>
 
-  <!-- Background Image Feature -->
 
-  $Breadcrumbs
-
-<% if not $BackgroundImage || $IsFilterActive %>
-  <div class="column row">
-    <div class="main-content__header">
-    <% if $IsFilterActive %>
-      <% if $CurrentCategory %>
-        <h1>Category: $CurrentCategory.Title</h1>
-      <% else_if $CurrentTag %>
-        <h1>Tag: $CurrentTag.Title</h1>
-      <% end_if %>
-      
-    <% else %>
-      <h1>$Title</h1>
-    <% end_if %>
-      
     </div>
   </div>
+<% else_if $CurrentCategory || $CurrentTag %>
+   
+  <div class="grid-container">
+    <div class="grid-x align-center grid-padding-x">
+      <div class="cell">
+        <div class="main-content__header">
+        <% if $CurrentCategory.Content || $CurrentTag.Content %>
+          <% if $CurrentCategory %>
+            $Breadcrumbs
+            <h1>$CurrentCategory.Title</h1>
+          <% else_if $CurrentTag %>
+            $Breadcrumbs
+            <h1>$CurrentTag.Title</h1>
+          <% end_if %>
+        <% else %>
+          <% if $CurrentCategory %>
+            <% if $TermPlural %>
+              $Breadcrumbs
+              <h1>{$TermPlural} listed under &ldquo;{$CurrentCategory.Title}&rdquo;: </h1>
+            <% else %>
+              $Breadcrumbs
+              <h1>Listed under: &ldquo;$CurrentCategory.Title&rdquo;</h1>
+            <% end_if %>
+
+          <% else_if $CurrentTag %>
+            <% if $TermPlural %>
+              $Breadcrumbs
+              <h1>{$TermPlural} listed under &ldquo;{$CurrentTag.Title}&rdquo;: </h1>
+            <% else %>
+              $Breadcrumbs
+              <h1>Listed under: &ldquo;$CurrentTag.Title&rdquo;</h1>
+            <% end_if %>
+          <% end_if %>
+        <% end_if %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% end_if %>
 
 $BeforeContent
 
-<div class="row">
 
-  <article class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-    $BeforeContentConstrained
-    <div class="main-content__text">
-      $Content
+<% if not $CurrentTag && not $CurrentCategory %>
+  <% if $Content %>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+          <article class="cell medium-8 large-
+
+          6">
+            $BeforeContentConstrained
+
+
+            <div class="topic-content main-content__text">
+              $Content
+
+              <% include TopicFeedback %>
+            </div>
+
+
+          </article>
+
+          <div class="cell medium-4">
+            <div class="dp-sticky dp-sticky--medium">
+              <% include TopicBrowseByFilter %>
+            </div>
+        </div>
+      </div>
     </div>
-      <% if $CurrentCategory %>
-        <% with $CurrentCategory %>
-          $Content
-          <h2>Listed under "{$Title}": </h2>
-           <% if $BlogPosts %>
-            <ul class="featured-topic-list row large-up-2">
-
-            <% loop $BlogPosts %>
-              <li class="featured-topic-list__item column column-block">
-
-                <a href="$Link">
-                <div class="row collapse">
-                  <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
-                  <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
-
-                  <p class="bloglistitem__category">
-                  <% loop $Categories.Limit(1) %><span href="$URL" class="bloglistitem__category">$Title</span><% end_loop %>
-                </p></div>
-
-                </div>
-
-                </a>
-              </li>
-            <% end_loop %>
-            </ul>
-            <% else %>
-              <p>No topics are currently listed.</p>
-          <% end_if %>           
-        <% end_with %>
-      <% else_if $CurrentTag %>
-        <% with $CurrentTag %>
-          $Content
-          <h2>Listed under "{$Title}": </h2>
-           <% if $BlogPosts %>
-              <ul class="featured-topic-list row large-up-2">
-                <% loop $BlogPosts %>
-                <li class="featured-topic-list__item column column-block">
-
-                  <a href="$Link">
-                  <div class="row collapse">
-                    <div class="featured-topic-list__icon-container show-for-large large-1 columns"><i class="fa fa-file-o fa-lg fa-fw featured-topic-list__icon"></i></div>
-                    <div class="large-11 columns featured-topic-list__heading-container"><h3 class="topic-list__heading">$Title</h3>
-
-                    <p class="bloglistitem__category">
-                    <% loop $Categories.Limit(1) %><span href="$URL" class="bloglistitem__category">$Title</span><% end_loop %>
-                  </p></div>
-
-                  </div>
-
-                  </a>
-                </li>
-                <% end_loop %>
-              </ul>
-            <% else %>
-              <p><% if $NoTopicsText %>$NoTopicsText<% else %>No topics currently listed.<% end_if %></p>
-          <% end_if %>           
-        <% end_with %>
-      <% end_if %>
-
-      <% if not $BackgroundImage || $IsFilterActive %>
-        <div class="topic-search__container row">
-          <div class="large-9 columns large-centered">
-            <h2 class="text-center"><% if $Heading %>$Heading <% else %>Search for a topic below:<% end_if %></h2>
-            $TopicSearchForm
+  <% else %>
+    <div class="grid-container grid-container--wpadding">
+        <div class="grid-x grid-padding-x">
+          <div class="cell large-12">
+              <% include TopicBrowseByFilterFull %>
           </div>
         </div>
-       <hr />
-      <% end_if %>
-    
+    </div>
+  <% end_if %><%-- end if content --%>
 
-      <% include TopicHolderAllTopics %>
+<% else_if $CurrentTag || $CurrentCategory %>
+
+<div class="grid-container">
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12 large-1 show-for-large"></div>
+    <article class="cell medium-8 large-6">
+
+      $BeforeContentConstrained
+
+
+            <% if $CurrentCategory %>
+
+              <% with $CurrentCategory %>
+                <% include TopicFilterContent %>
+              <% end_with %>
+            <% else_if $CurrentTag %>
+              <% with $CurrentTag %>
+                  <% include TopicFilterContent %>
+              <% end_with %><%-- /endwith CurrentTag --%>
+            <% end_if %><%-- /endif CurrentTag --%>
+
+
+    </article>
+      <div class="cell small-12 large-1 show-for-large">
+
+      </div>
+
+      <div class="cell medium-4">
+        <div class="dp-sticky dp-sticky--medium">
+          <div style="padding-top: 20px;">
+            $TopicSearchFormSized("small")
+            <% include TopicBrowseByFilter %>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<% end_if %>
+
+
+  <% include TopicBrowseAllFull %>
+  <% include TopicFooterFull %>
 
     $AfterContentConstrained
     $Form
-    <% if $ShowChildPages %>
-      <% include ChildPages %>
-    <% end_if %>
-  </article>
-  <aside class="sidebar dp-sticky">
-    <% include SideNav %>
-    <% if $SideBarView %>
-      $SideBarView
-    <% end_if %>
-   $SidebarArea
-  </aside>
-</div>
+
+
+
 $AfterContent
 
 </main>

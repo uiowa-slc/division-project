@@ -27,7 +27,7 @@
 	}
 
 	&--with-shadow {
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			background-color: rgba(#333, 0.5);
 			background-image: url(../images/shadow.png);
 			background-size: cover;
@@ -59,10 +59,10 @@
 	z-index: 10;
 	&:after {
 		transition: background-color 1s;
-		background-color: $highlight;
+		background-color: $light-gray;
 		display: block;
 		width: calc(100% - 1px);
-		height: 5px;
+		height: 1px;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -70,12 +70,26 @@
 	}
 
 	&--dark-header {
-		background: $black;
+        background: $black;
+        &:after {
+            display: none;
+        }
 	}
 
 	&--overlay {
 		background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
-		z-index: 101;
+        z-index: 101;
+        &:after {
+            transition: background-color 1s;
+            background-color: $light-gray;
+            display: block;
+            width: calc(100% - 1px);
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+        }
 	}
 
 	&--in-slider {
@@ -88,7 +102,7 @@
 		z-index: 9999;
 	}
 
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		padding-bottom: 0;
 
 		&:after {
@@ -102,42 +116,25 @@
 	overflow: hidden;
 	transition: max-height 0.2s linear;
 	&__site-title {
+        font-family: $header-font-family;
 		font-size: rem-calc(22);
 		font-size: calc(22px + 24 * ((100vw - 320px) / (1024 - 320)));
 		font-weight: 600;
 		letter-spacing: 1px;
-		line-height: 1;
 		margin: auto;
-		padding: 5px 0 25px;
+		padding: rem-calc(18);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
-		width: 60%;
 		transition: opacity 0.3s linear;
-
 		a {
 			color: $body-font-color;
 		}
-
 		&:hover {
 			text-decoration: none;
 		}
-
-		@include breakpoint(600) {
-			padding-top: 20px;
-		}
-
-
-		@include breakpoint(medium) {
-			width: 100%;
-			padding: 20px 0 5px;
-		}
-
-
 		@include breakpoint(large) {
 			font-size: rem-calc(46);
-			margin-bottom: rem-calc(20);
-			padding: 5px 0 5px;
 		}
 	}
 	&--dark-header {
@@ -157,7 +154,7 @@
 			}
 		}
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		max-height: none;
 		overflow: visible;
 		padding-bottom: 0;
@@ -165,10 +162,6 @@
 }
 .nav-collapse.open {
 	max-height: 2500px;
-	padding-bottom: 5px;
-	@include breakpoint(medium) {
-		padding-bottom: 0;
-	}
 }
 
 a.skip-link {

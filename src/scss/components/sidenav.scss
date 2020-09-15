@@ -1,7 +1,7 @@
 .sidebar-sect-title {
-    border-top: 4px solid $black;
+    border-top: 4px solid $highlight;
     font-size: rem-calc(14);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: .8px;
     margin: rem-calc(0 20);
     padding: rem-calc(24 0);
@@ -29,26 +29,26 @@
 			border-bottom: none;
 		}
 		&--current {
-			background-color: $black;
+			background-color: #f1f1f1;
 			& > a {
-				color: $highlight;
+				color: $black;
 				font-weight: bold;
 			}
 		}
         &--section {
-            background-color: $black;
+            background-color: #f1f1f1;
             & > a {
-                color: $white;
+                color: $black;
                 padding: rem-calc(20 20);
                 font-weight: bold;
             }
             & .sidenav__item--section {
-                background-color: $black;
+                background-color: $light-gray;
             }
         }
 		&--second-level {
 			& .sidenav__link {
-				color: $light-gray;
+				color: $black;
 				font-size: rem-calc(14);
 				padding: rem-calc(10 20 10 30);
 				&:before {
@@ -58,14 +58,14 @@
 					top: 9px;
 				}
 				&:hover, &:focus {
-					background-color: lighten($black, 3%);
+					background-color: $light-gray;
 					text-decoration: underline;
 				}
 			}
 			&.sidenav__item--current {
 				& > a {
-					background-color: lighten($black, 3%);
-					color: $highlight;
+					background-color: $light-gray;
+					color: $black;
 				}
 			}
 		}
@@ -78,8 +78,8 @@
 			}
 			&.sidenav__item--current {
 				& a {
-                    background-color: lighten($black, 3%);
-					color: $highlight;
+                    background-color: $light-gray;
+					color: $black;
 				}
 			}
 		}
@@ -91,6 +91,8 @@
 		padding: rem-calc(14 20);
 		position: relative;
 		&:hover, &:focus {
+            background-color: #f1f1f1;
+            color: $black;
 			text-decoration: underline;
 		}
 	}

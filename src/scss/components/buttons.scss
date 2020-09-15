@@ -1,23 +1,105 @@
+/* Buttons
+Class names to use in template
+normal: "button"
+black: "button black"
+large: "button large"
+hollow: "button hollow", "button black hollow"
+clear: "button clear"
+/*
 
-/* border effect */
-.border-effect {
-	position: relative;
-	&:after {
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		content: "";
-		box-shadow: inset 0 0 0 1px #EAE6E3;
-		margin: 5px;
-		opacity: 0.4;
-		pointer-events: none;
-	}
+/* Foundation button changes */
+.button {
+    letter-spacing: .04rem;
+    position: relative;
+    text-transform: uppercase;
+    &.large {
+        font-family: $header-font-family;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+    & svg {
+        margin-left: rem-calc(5); // adds margin to icons
+        color: #fff; /* sets icon color to white */
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $black;
+        transform-origin: center;
+        transform: translate(-50%, 0) scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    &:focus {
+        text-decoration: underline !important;
+    }
 }
+
+.button:hover::after,
+.button:focus::after {
+    transform: translate(-50%, 0) scaleX(1);
+}
+// Black button
+.button.black {
+    & svg {
+        color: $highlight; // Icon
+    }
+    &::after {
+        background-color: $highlight; // Hover animation
+    }
+}
+// Hollow styles
+.button.hollow {
+    color: $black;
+    & svg {
+        color: $highlight; // Icon
+    }
+    &::after {
+        background-color: $highlight; // Hover animation
+    }
+    &:hover, &:focus {
+        color: $black;
+        border-color: #999;
+    }
+}
+// Clear Styles - No border
+.button.clear {
+    color: $black;
+    border: none;
+    & svg {
+        color: $highlight; // Icon
+    }
+    &::after {
+        display: none;
+    }
+    &:hover, &:focus {
+        color: $black;
+        text-decoration: underline;
+        & svg {
+            color: $black;
+        }
+    }
+}
+
+
+
+/* miscellanious styles. I'm not sure if we still need these */
 .main-content__text .button {
     text-decoration: none;
+}
+.button--flex-full{
+	display: flex; 
+	height: 100%; 
+	border-radius: 3px;
+}
+.button--skinny{
+	padding: 5px;
+	@include breakpoint(large) {
+		padding: 10px;
+	}
 }
 
 

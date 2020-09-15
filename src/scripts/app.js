@@ -102,6 +102,19 @@ $('.slideshow').each(function() { // the containers for all your galleries
 });
 
 
+//Page Slider Block;
+
+$('.pageslider-links').flickity({
+	cellAlign: 'center',
+	contain: true,
+	imagesLoaded: true,
+	pageDots: false,
+	initialIndex: 1,
+	wrapAround: true,
+	freeScroll: true
+});
+
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Wrap every YouTube iframe in a responsive embed class to prevent layout breakage
@@ -128,7 +141,7 @@ $('iframe').each(function(){
 
 $('.nav__item--parent').click(function(event) {
 
-  if ((whatInput.ask() === 'touch') && Foundation.MediaQuery.atLeast('medium')) {
+  if ((whatInput.ask() === 'touch') && Foundation.MediaQuery.atLeast('large')) {
 	 // do touch input things
 	 if(!$(this).hasClass('nav__item--is-hovered')){
 		 event.preventDefault();
@@ -214,7 +227,7 @@ $('input#site-search__input').autocomplete({
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 
-if (Foundation.MediaQuery.atLeast('medium')) {
+if (Foundation.MediaQuery.atLeast('large')) {
   // True if medium or large
   // False if small
   $("#site-search").addClass("site-search--desktop");
@@ -236,7 +249,7 @@ $(".nav__toggle--search").click(function(){
 //If we're resizing from mobile to anything else, toggle the mobile search if it's active.
 $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 
-	 if (newSize == "medium") {
+	 if (newSize == "large") {
 		//alert('hey');
 		$("#site-search").removeClass("site-search--mobile");
 		$("#site-search").addClass("site-search--desktop");
@@ -247,7 +260,7 @@ $(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
 		if($("#site-search").hasClass("site-search--is-active")){
 			// toggleSearchClasses();
 		}
-	 }else if(newSize == "mobile"){
+	 }else if(newSize == "medium"){
 		$("#site-search").appendTo('#header');
 		$("#site-search").removeClass("site-search--desktop");
 		$("#site-search").addClass("site-search--mobile");

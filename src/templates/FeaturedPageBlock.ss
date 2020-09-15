@@ -17,9 +17,9 @@
 					</div>
 					<div class="featuredpageblock__button">
 						<% if $Source == "External" %>
-							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
+							<a href="$FeaturePageExternalUrl" class="button large" aria-label="Read more about $Title">Learn More <i class="fas fa-arrow-right"></i></a>
 						<% else %>
-							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $PageTree.Title">Learn More</a>
+							<a href="$PageTree.Link" class="button large" aria-label="Read more about $PageTree.Title">Learn More <i class="fas fa-arrow-right"></i></a>
 						<% end_if %>
 					</div>
 				</div>
@@ -104,9 +104,9 @@
 					</div>
 					<div class="featuredpageblock__button">
 						<% if $Source == "External" %>
-							<a href="$FeaturePageExternalUrl" class="button gold" aria-label="Read more about $Title">Learn More</a>
+							<a href="$FeaturePageExternalUrl" class="button large" aria-label="Read more about $Title">Learn More <i class="fas fa-arrow-right"></i></a>
 						<% else %>
-							<a href="$PageTree.Link" class="button gold" aria-label="Read more about $PageTree.Title">Learn More</a>
+							<a href="$PageTree.Link" class="button large" aria-label="Read more about $PageTree.Title">Learn More <i class="fas fa-arrow-right"></i></a>
 						<% end_if %>
 					</div>
 				</div>

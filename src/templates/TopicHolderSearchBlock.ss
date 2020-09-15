@@ -7,7 +7,7 @@
             <div class="topic-search__container row">
               <div class="large-9 columns large-centered">
                 <h2 class="text-center"><% if $TopicHolder.Heading %>$TopicHolder.Heading <% else %>Search for a topic below:<% end_if %></h2>
-                  $TopicSearchForm
+                  $TopicSearchFormSized
               </div>
             </div>
           </div>
@@ -21,7 +21,7 @@
 
             <% if not $BackgroundImage %>
             <h2 class="text-center"><% if $TopicHolder.Heading %>$TopicHolder.Heading <% else %>Search for a topic below:<% end_if %></h2>
-                $TopicSearchForm
+                $TopicSearchFormSized
               <% end_if %>
                 <div class="row small-up-2 large-up-3">
                 <% with TopicHolder %>

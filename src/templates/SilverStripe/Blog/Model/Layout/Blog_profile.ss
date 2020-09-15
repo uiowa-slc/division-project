@@ -1,13 +1,12 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-	$Breadcrumbs
-
 	<div class="column row">
 		<div class="main-content__header">
-			<% with CurrentProfile %>
+            <% with CurrentProfile %>
+                $Breadcrumbs
 				<h1>Entries written by $FirstName $Surname:</h1>
-				<% end_with %>
+			<% end_with %>
 		</div>
 	</div>
 

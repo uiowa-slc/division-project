@@ -44,8 +44,11 @@ SilverStripe\Assets\Image:
   extensions:
     - DivisionImageExtension
 SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - CmsCustomLinkExtension
   extra_requirements_css:
     - vendor/md/division-project/css/cms.css
+    - themes/division-subtheme/dist/css/cms.css
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - BaseElementExtension

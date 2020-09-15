@@ -1,21 +1,18 @@
 
 $Header
 
-
 <main class="main-content__container" id="main-content__container">
 	<!-- Background Image Feature -->
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
 
-	$Breadcrumbs
-
 	<% if not $BackgroundImage %>
-	<div class="column row">
-		<h1>$Title</h1>
-	</div>
+        <div class="column row">
+            $Breadcrumbs
+            <h1>$Title</h1>
+        </div>
 	<% end_if %>
-
 
 	$BeforeContent
 
@@ -23,7 +20,6 @@ $Header
 		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BeforeContentConstrained
 			<div class="main-content__text">
-
 
 				$Content
 
@@ -51,16 +47,16 @@ $Header
 				<% if $Action == "index" %>
 					<% if $SortAlphabetically %>
 	 					<% loop $BlogPostsAlpha %>
-	 						<% include BlogCard %>
+	 						<% include BlogCardHorizontal %>
 	 					<% end_loop %>
 	 				<% else_if $PaginatedList.Exists %>
 						<% loop $PaginatedList %>
-							<% include BlogCard %>
+							<% include BlogCardHorizontal %>
 						<% end_loop %>
 					<% end_if %>
 				<% else %>
 					<% loop $PaginatedList %>
-						<% include BlogCard %>
+						<% include BlogCardHorizontal %>
 					<% end_loop %>
 				<% end_if %>
 				$AfterContentConstrained

@@ -1,27 +1,28 @@
 @charset "utf-8";
 
-
-body, td, pre{
-	font-size: 16px;
-}
-
-
+// Foundation
 @import "settings/division-settings";
 @import "settings/subtheme";
 
 @import "lib/foundation/scss/foundation";
 
 @include foundation-global-styles;
+@include foundation-table;
 @include foundation-typography;
 @include foundation-button;
 @include foundation-float-classes;
 
+// Components
+@import "components/typography";
 @import "layouts/default";
 
 body{
-	margin: 10px;
+    margin: 10px;
+    font-size: 17px;
 }
-
+.mce-content-body p {
+    line-height: 1.5;
+}
 
 img.right{
 	float: right;
@@ -30,3 +31,14 @@ img.right{
 img.left{
 	float: left;
 }
+
+// tables
+table {margin: 1rem 0;}
+table thead th,
+table thead td,
+table tbody th,
+table tbody td {
+    font-size: rem-calc(15);
+    text-align: left;
+}
+table p {margin: 0;}

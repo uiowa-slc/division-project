@@ -1,59 +1,77 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-  <!-- Background Image Feature -->
-  <% if $BackgroundImage %>
-    <% include FeaturedImage %>
-  <% end_if %>
-  $Breadcrumbs
-
-<% if not $BackgroundImage %>
-  <div class="column row">
-    <div class="main-content__header">
-      <h1>$Title</h1>
+  <div class="grid-container">
+    <div class="grid-x align-center grid-padding-x">
+      <div class="cell">
+        <div class="main-content__header">
+          $Breadcrumbs
+          <h1>Search results</h1>
+        </div>
+      </div>
     </div>
   </div>
-<% end_if %>
+
+
 
 $BeforeContent
 
-<div class="row">
 
-  <article class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
-    $BeforeContentConstrained
-    <div class="main-content__text">
-        <% if $Query %>
-          <h2>Search results for "<em>{$Query}</em>"</h2>
-          <% if $Results %>
-              <% loop $Results %>
-                  <h3><i class="fa fa-file fa-lg fa-fw"></i><a href="$Link">$Title</a></h3>
-                  <p>$Content.LimitCharacters(100)</p>
-              <% end_loop %>
-          </ul>
-          <% else %>
-            <p>No results found for "<em>{$Query}</em>."</p>
-          <% end_if %>
+
+
+<div class="grid-container">
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12 large-1 show-for-medium"></div>
+      <article class="cell medium-8 large-6">
+          <div style="padding-top: 20px;">
+            $TopicSearchFormSized("medium")
+          </div>
+        $BeforeContentConstrained
+      
+        <% if $Results %>
+          <% loop $Results %>
+              <% include TopicCard %>
+          <% end_loop %>
+
         <% else %>
+              <% if $Query %>
+                <p style="margin-top: 20px; font-weight: bold;">Sorry, there are no results for this search term.</p>
+              <% else %>
+                <p style="margin-top: 20px; font-weight: bold;">No search term specified. Please specify a search term and try searching again.</p>
+              <% end_if %>
+                
+        <% end_if %>  
 
-        <% end_if %>
-        <hr />
-        $TopicSearchForm
-        <% include TopicHolderAllTopics %>
-    </div>
+        <% include TopicFeedback %>
+
+      </article>
+
+      <div class="cell small-12 large-1 show-for-large">
+
+      </div>
+    
+      <div class="cell medium-4">
+        <div class="dp-sticky dp-sticky--medium">
+
+
+
+          <% include TopicBrowseByFilter %>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+  
+  <% include TopicBrowseAllFull %>
+  <% include TopicFooterFull %>
+
     $AfterContentConstrained
     $Form
-    <% if $ShowChildPages %>
-      <% include ChildPages %>
-    <% end_if %>
-  </article>
-  <aside class="sidebar">
-    <% include SideNav %>
-    <% if $SideBarView %>
-      $SideBarView
-    <% end_if %>
-    $Sidebar
-  </aside>
-</div>
+
+
+
 $AfterContent
 
 </main>

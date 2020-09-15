@@ -14,6 +14,7 @@ class LandingPage extends Page {
 
 	private static $db = array(
 		'HeaderText'      => 'Text',
+		'HideSidebar'	=> 'Boolean',
 		'ShowBreadcrumbs' => 'Boolean(1)',
 		'FacebookLink' => 'Varchar(2083)',
 		'TwitterLink' => 'Varchar(2083)',
@@ -36,8 +37,9 @@ class LandingPage extends Page {
 	private static $layout_types = array(
 		'MainImage' => 'Big image (logos/text all contained within image)',
 		'BackgroundImage' => 'Background image (logo/title in plain text)'
-
 	);
+
+	private static $cascade_duplicates = [ 'Sections' ];
 	
 	private static $icon_class = 'font-icon-rocket';
 
@@ -46,6 +48,8 @@ class LandingPage extends Page {
 
 		$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Content');
+		$fields->removeByName('Blocks');
+		$fields->removeByName('Widgets');
 
 $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header Image (1600 x 800 if there\'s a header logo and header text)')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', TextField::create('HeaderImageAltText','Header Image Alt Text (if there is text in the main image, but no logo + header text uploaded)')->addExtraClass('stacked'));
@@ -58,7 +62,7 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 		$fields->addFieldToTab('Root.Main', $headerTextField = TextareaField::create('HeaderText', 'Header text under logo'));
 
 		$headerTextField->displayIf('LayoutType')->isEqualTo('BackgroundImage');
-				$fields->addFieldToTab('Root.Main', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
+
 		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Main Content')->addExtraClass('stacked'));
 		$fields->addFieldToTab('Root.Main', UploadField::create('SecondaryImage','Secondary Image (shows in main content area)'));
 
@@ -66,6 +70,11 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 
 		$sectionsConf = GridFieldConfig_RelationEditor::create(10);
 		$sectionsConf->addComponent($sortableLanding = new GridFieldSortableRows('SortOrder'));
+		$sectionsConf->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter');
+		$sectionsConf->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldFilterHeader');
+
+
+
         $sortableLanding->setUpdateVersionedStage('Live');
 
 
@@ -76,6 +85,15 @@ $fields->addFieldToTab('Root.Main', UploadField::create('HeaderImage', 'Header I
 		$fields->addFieldToTab('Root.Main', TextField::create('FacebookLink','Facebook page link'));
 		$fields->addFieldToTab('Root.Main', TextField::create('TwitterLink','Twitter page link'));
 		$fields->addFieldToTab('Root.Main', TextField::create('InstagramLink','Instagram page link'));
+
+		return $fields;
+	}
+
+	public function getSettingsFields(){
+		$fields = parent::getSettingsFields();
+
+		$fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowBreadcrumbs', 'Show breadcrumbs under header image?'));
+		$fields->addFieldToTab('Root.Settings', CheckboxField::create('HideSidebar', 'Hide sidebar no matter what'));
 
 		return $fields;
 	}

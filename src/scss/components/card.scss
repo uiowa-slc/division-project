@@ -1,0 +1,221 @@
+/* UIDS Card
+================================================= */
+.card__wrapper {
+    margin: rem-calc(20 0);
+    @include breakpoint(medium) {
+        margin: rem-calc(20 0 100 0);
+        display: flex;
+    }
+}
+.card--row {
+    @include breakpoint(medium) {
+        margin-right: 2%;
+        margin-bottom: 0;
+        margin-left: 2%;
+        &:first-of-type {
+            margin-left: 0;
+        }
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+    
+}
+
+/* Card
+--------------------------------------------------- */
+.card {
+    background: #fff;
+    border-radius: $global-radius;
+    border: 1px solid $light-gray;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex: 1 1 0%;
+    flex-direction: column;
+    margin-bottom: rem-calc(20);
+    text-decoration: none;
+
+    // Breakpoint Medium
+    @include breakpoint(medium) {
+        border: none;
+        margin-bottom: 0;
+    }
+
+    // Enclosed 
+    &--enclosed {
+        @include breakpoint(medium) {
+            border: 1px solid $light-gray;
+        }
+        .card__body {
+            @include breakpoint(medium) {
+                padding: 8%;
+            }
+        }
+        
+    }
+
+    // Media
+    &__media {
+        flex-shrink: 0;
+        width: 100%;
+    }
+    &__img {
+        flex-shrink: 0;
+        align-self: start;
+        width: 100%;
+    }
+
+    // Body
+    &__body {
+        flex: 1;
+        padding: rem-calc(24);
+        @include breakpoint(medium) {
+            padding: rem-calc(30 0);
+        }
+        ul, ol, dl, table, p {
+            font-size: rem-calc(16);
+        }
+        p {
+            margin-bottom: 0;
+            margin-top: 0;
+            a {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+
+    // Title
+    &__title {
+        font-family: $body-font-family;
+        font-size: rem-calc(24);
+        font-weight: bold;
+        margin: rem-calc(0 0 10 0);
+        a {
+            text-decoration: none;
+            color: $black;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Author
+    &__author {
+        color: $dark-gray;
+        font-family: $serif-font-family;
+        font-weight: 600;
+        line-height: $header-lineheight;
+    }
+
+    // Button
+    & .button {
+        margin-bottom: 0;
+        margin-top: rem-calc(16);
+    }
+
+    .card__author + p,
+    .card__author + .button,
+    .card__author + .button {
+        margin-top: rem-calc(10);
+    } 
+
+}
+
+
+/* Stacked Layout
+--------------------------------------------------- */
+.card--horizontal {
+    & .card__body {
+        @include breakpoint(medium) {
+            padding: rem-calc(0 0 30 30);
+        }
+        &--noimage {
+            @include breakpoint(medium) {
+                padding-left: 0;
+            }
+        }
+    }
+    & .card__title {
+        font-family: $serif-font-family;
+        font-weight: 600;
+    }
+
+    & .button {
+        width: max-content;
+    }
+
+    &.card--enclosed {
+        @include breakpoint(medium) {
+            padding: rem-calc(20);
+            & .card__body {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    @include breakpoint(medium) {
+        border-bottom: 1px solid $light-gray;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: rem-calc(30);
+    }
+
+    >* {
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+        }
+    }
+    >.card__media {
+        @include breakpoint(medium) {
+            flex: 0 0 20%;
+            width: 20%;
+        }
+    }
+}
+
+
+/* Card Head
+--------------------------------------------------- */
+.card__head {
+    flex-wrap: wrap;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    @include breakpoint(medium) {
+        padding: rem-calc(0 0 30 0);
+    }
+    @include breakpoint(large) {
+        display: block;
+    }
+    p {
+        color: #63666A;
+        margin: 0;
+    }
+    .bold-headline {
+        display: block;
+    }
+    .button {
+        flex-basis: 100%;
+        padding-top: 0.625rem;
+        @include breakpoint(medium) {
+            padding-top: 1.05rem;
+        }
+        &.button.clear:hover,
+        &.button.clear:focus {
+            background: transparent;
+        }
+    }
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+}

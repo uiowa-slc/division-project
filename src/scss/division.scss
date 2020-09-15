@@ -37,9 +37,10 @@
 @include foundation-accordion-menu;
 
 // @include foundation-badge;
-// @include foundation-breadcrumbs;
+@include foundation-breadcrumbs;
 // @include foundation-button-group;
 // @include foundation-callout;
+// @include foundation-card;
 @include foundation-close-button;
 
 @include foundation-menu;
@@ -77,10 +78,10 @@
 // @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-prototype-separator;
-
+@include foundation-prototype-classes;
 @include foundation-float-classes;
 
-// @include foundation-flex-classes;
+@include foundation-flex-classes;
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
 
@@ -91,7 +92,9 @@
 
 // Components
 @import "components/typography";
+@import "components/accordion";
 @import "components/breadcrumbs";
+@import "components/card";
 @import "components/forms";
 @import "components/login";
 @import "components/childpages";
@@ -105,7 +108,9 @@
 @import "components/tables";
 @import "components/navigation";
 @import "components/site-search";
-@import "components/division-bar";
+// @import "../uiowa-bar/scss/uiowa-bar";
+// @import "components/division-bar";
+@import "components/iowa-bar";
 @import "components/page-results";
 @import "components/pagination";
 @import "components/buttons";
@@ -114,7 +119,7 @@
 @import "components/bg-media";
 @import "components/widgets";
 @import "components/exit-button";
-@import "components/topic-search-form";
+
 @import "components/tabs";
 @import "components/userforms";
 
@@ -129,6 +134,7 @@
 @import "components/content-blocks/upcoming-events";
 @import "components/content-blocks/video";
 @import "components/content-blocks/tile-grid";
+@import "components/content-blocks/pageslider";
 
 @import "components/elements/elements";
 

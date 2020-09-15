@@ -1,7 +1,4 @@
 
-
-
-
 <div class="nav__wrapper nav__wrapper--{$HeaderType} nav__wrapper--{$DarkLightHeader}" id="nav__wrapper">
 
 	<nav class="" aria-label="Main menu">
@@ -15,7 +12,7 @@
 					<% if $Children.Count > 5 %>
 						<ul class="subnav subnav--{$Top.DarkLightHeader} subnav--two-columns" aria-labelledby="nav-$Pos" id="subnav-$Pos">
 							<% loop $Children %>
-								<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLightHeader}" href="$Link">$MenuTitle.LimitCharacters(30)</a></li>
+								<li class="subnav__item subnav__item--column <% if $FirstLast %>subnav__item--$FirstLast<% end_if %>"><a class="subnav__link subnav__link--{$Top.DarkLightHeader}" href="$Link">$MenuTitle</a></li>
 							<% end_loop %>
 						</ul>
 					<% else %>

@@ -1,7 +1,7 @@
-
-<div class="header__container header__container--{$DarkLightHeader} header__container--{$HeaderType}">
+<div class="lp-uiowa-bar">
 	<% include DivisionBar %>
 </div>
+
 
 
 
@@ -21,7 +21,7 @@
 	<% else %>
 
 		<div class="lp-hero">
-			<img src="$HeaderImage.URL" alt="$HeaderImageAltText" class="lp-hero__img" />
+			<img src="$HeaderImage.ScaleWidth(1600).URL" alt="$HeaderImageAltText" class="lp-hero__img" />
 		</div>
 
 
@@ -72,7 +72,7 @@
 	$BeforeContent
 
 	<div class="row">
-		<article id="page-content" class="main-content <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %>">
+		<article id="page-content" class="main-content <% if not $HideSidebar %><% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %><% else %>main-content--full-width<% end_if %>">
 			<% if $ShowBreadcrumbs %>
 				$Breadcrumbs
 			<% end_if %>
@@ -137,7 +137,7 @@
 			$AfterContentConstrained
 			$Form
 		</article>
-
+		<% if not $HideSidebar %>
 		<% if $Children %>
 		<aside class="sidebar dp-sticky">
 			<% include SideNav %>
@@ -146,6 +146,7 @@
 			<% end_if %>
 			$Sidebar
 		</aside>
+	<% end_if %>
 	<% end_if %>
 	</div>
 	<br>

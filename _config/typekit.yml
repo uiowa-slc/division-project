@@ -1,7 +1,8 @@
 ---
-Name: division-typekit
-After:
-    - '*'
+Name: mywebfonts
 ---
 gorriecoe\Webfonts\View\Webfonts:
-  TypeKitID: ggu1mkb
+  GoogleFonts:
+    - 'Roboto Condensed:regular,bold'
+    - 'Roboto:light,regular,bold,italic'
+    - 'Zilla Slab:regular,semi-bold'

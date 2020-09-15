@@ -1,7 +1,7 @@
 .nav__wrapper {
 	display: none;
 	visibility: hidden;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		background: transparent;
 		margin-top: 0;
 		position: relative;
@@ -20,22 +20,6 @@
 		-ms-transform: none;
 		-o-transform: none;
 		transform: none;
-		&:after {
-			transition: background-color 1s;
-			background-color: $highlight;
-			display: block;
-			width: calc(100% - 1px);
-			height: 5px;
-			position: absolute;
-			bottom: 0;
-			left: 1px;
-			content: "";
-		}
-	}
-	&--has-transition {
-		@include breakpoint(small) {
-			// transition: 0.3s opacity linear;
-		}
 	}
 
 	&--search-is-active {
@@ -43,37 +27,35 @@
 	}
 
 	&--light-header {
-		background-color: #242424;
-		@include breakpoint(medium) {
-			background: transparent;
+		background-color: #f1f1f1;
+		@include breakpoint(large) {
+            background: transparent;
+            border-top: 1px solid $light-gray;
+            border-bottom: 1px solid $light-gray;
 		}
 	}
 
 	&--dark-header {
-		background-color: #242424;
-		@include breakpoint(medium) {
-			background: transparent;
+		background-color: #f1f1f1;
+		@include breakpoint(large) {
+            background: transparent;
+            border-top: 1px solid #444;
 		}
 	}
 
 	&--overlay {
-		background-color: rgba(#111, 0.95);
-
+		background-color: #f1f1f1;
 		&:after {
 			background-color: transparent;
 		}
-		@include breakpoint(medium) {
-			background: transparent;
+		@include breakpoint(large) {
+            background: transparent;
+            border-top: none;
 		}
 	}
 
 	&--in-slider {
 		@extend .nav__wrapper--overlay;
-	}
-
-	&--search-is-active.nav__wrapper--search-is-active {
-		// background-color: white;
-
 	}
 
 	&--full.nav__wrapper--grayscale {
@@ -88,7 +70,7 @@
 }
 .nav__wrapper nav {
 	padding: 0 1em 0;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		padding: 0;
 	}
 }
@@ -97,7 +79,7 @@
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		position: static;
 		display: table;
 		width: auto;
@@ -105,15 +87,9 @@
 		text-align: center;
 	}
 
-	&--mobile {}
-
 	&--search-is-active {
 		width: auto;
 		background-color: white;
-	}
-
-	&--overlay {
-		background-color: rgba(#111, 0.95);
 	}
 
 	&--in-slider {
@@ -122,13 +98,18 @@
 
 	&--dark-header:after {
 		background: none;
-	}
+    }
+    &--overlay {
+        @include breakpoint(large) {
+            background-color: $black;
+        }
+    }
 	&--no-bg{
 		background: none;
 	}
 	//Inheritance... Not very BEM-friendly Any way to not do this?
 	&--full.nav--dark-header .nav__item:hover:after {
-		background-color: $black;
+		background-color: $yellow;
 	}
 
 	&--overlay.nav--dark-header .nav__item--section:after, &--no-bg.nav--dark-header .nav__item--section:after {
@@ -139,14 +120,25 @@
 }
 
 
+.nav__item:after {
+    background-color: $yellow;
+    display: block;
+    width: 0;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    content: "";
+    z-index: 1;
+    transition: .3s;
+}
 .nav__item {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: table-cell;
 		position: relative;
 		padding: 0;
 		z-index: 2;
 		&:hover:after {
-			background-color: $black;
+			background-color: $yellow;
 			display: block;
 			width: 100%;
 			height: 5px;
@@ -163,9 +155,9 @@
 
 //We're on the current top nav page.
 .nav__item--current {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
-			background-color: $black;
+			background-color: $light-gray;
 			display: block;
 			width: 100%;
 			height: 5px;
@@ -179,9 +171,9 @@
 
 //If we're currently on a page with a top level ancestor
 .nav__item--section {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
-			background-color: $black;
+			background-color: #e1e1e1;
 			display: block;
 			width: 100%;
 			height: 5px;
@@ -197,9 +189,9 @@
 .nav__item--parent:hover,
 .nav__item--parent.focused,
 .nav__item--parent.nav__item--is-hovered {
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&:after {
-			background-color: $black;
+			background-color: $yellow;
 			display: block;
 			width: 100%;
 			height: 5px;
@@ -227,31 +219,31 @@
 -MLK, Jr.
 ------------*/
 .nav__item--dark-header {
-	border-top: 1px solid #444;
+	border-top: 1px solid #ccc;
 
 	&:after {
 
 	}
 	&:hover > a {
-		@include breakpoint(medium) {
-			background-color: #fff;
-			color: #222;
+		@include breakpoint(large) {
+			// background-color: #fff;
+			// color: #222;
 			&:after {
-				border-color: #222 transparent transparent;
+				border-color: #fff transparent transparent;
 			}
 		}
 	}
 	&:hover:after {
 		background-color: $highlight;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		border:none;
 	}
 	&.nav__item--parent.nav__item--is-hovered > a {
 		background-color: transparent;
 		color: #fff;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		&.nav__item--parent.nav__item--is-hovered > a {
 			background-color: #fff;
 			color: #222;
@@ -264,16 +256,16 @@
 }
 
 .nav__item--light-header {
-	border-top: 1px solid #444;
-	&:hover > a {
-		background-color: #242424;
-		color: #fff;
-		&:after {
-			border-color: #fff transparent transparent;
-		}
-	}
-	@include breakpoint(medium) {
-		border:none;
+	border-top: 1px solid #ccc;
+	@include breakpoint(large) {
+        border:none;
+        &:hover > a, &:focus > a {
+            background-color: transparent;
+            color: $black;
+            &:after {
+                border-color: $black transparent transparent;
+            }
+        }
 	}
 }
 //Make the fifth nav item and beyond's dropdown hang from the right:
@@ -295,14 +287,14 @@
 	font-family: $body-font-family;
 	padding: rem-calc(15) 1vw;
 	position: relative;
-	font-size: rem-calc(16);
-	@include breakpoint(medium) {
+    font-size: rem-calc(16);
+    text-decoration: none;
+	@include breakpoint(large) {
 		display: block;
 		font-size: rem-calc(18);
 		font-family: $header-font-family;
 		white-space: nowrap;
 		transition: none;
-		text-transform: uppercase;
 		z-index: 2;
 		padding: rem-calc(15) 1vw;
 		border-color: white;
@@ -318,12 +310,16 @@
 	}
 
 	&:hover, &:focus, &:active {
-		color: white;
-		background: #242424;
+		color: $black;
+        background: $light-gray;
+        text-decoration: none;
 		&:after{
 			border-color: white transparent transparent;
 		}
-	}
+    }
+    &:focus {
+        text-decoration: underline;
+    }
 	&:hover {
 		cursor: pointer;
 	}
@@ -361,7 +357,6 @@
 	@include breakpoint(large) {
 		&:after {
 			@include css-triangle(4px, white, down);
-
 			display: inline-block;
 			margin-left: 7px;
 			margin-bottom: 5px;
@@ -369,42 +364,37 @@
 	}
 }
 
-.nav__link--mobile-toggle{
-
-}
 .nav__menu-link--menu-is-active{
 	background: #222;
 }
 .nav__link--light-header{
-	color: white;
+	color: $black;
 	&:hover, &:focus {
-		text-decoration: underline;
+        background-color: $light-gray;
+        color: $black;
+        &:after{
+            border-color: $black transparent transparent;
+        }
 	}
 	&:after{
 		border-color: $black transparent transparent;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		color: $black;
 	}
 }
 .nav__link--dark-header {
-	color: white;
-	font-weight: 500;
-	&:hover, &:focus {
-		text-decoration: underline;
-		&:after {
+	color: $black;
+	@include breakpoint(large) {
+        color: #fff;
 
-		}
-	}
-	@include breakpoint(medium) {
-		font-weight: 600;
 		&:hover,
 		&:focus,
 		&:active,
 		&.hover,
 		.subnav--light.subnav--open .subnav__link--dark-header {
-			color: $black;
-			background: white;
+			color: #fff;
+			background: transparent;
 			&:after {
 				border-color: $black transparent transparent;
 			}
@@ -424,7 +414,7 @@
 	&:nth-last-child(n+9) .nav__link,
 	&:nth-last-child(n+9) ~ * .nav__link {
 		font-size: rem-calc(18);
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(16);
 		}
 
@@ -445,7 +435,7 @@
 	&:nth-last-child(n+11) ~ * .nav__link {
 		font-size: rem-calc(14);
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(14);
 			padding: rem-calc(13) rem-calc(16);
 		}
@@ -460,7 +450,7 @@
 	/* EMERGENCY BREAK GLASS IF nav EXCEEDS 12 ITEMS */
 	&:nth-last-child(n+13) .nav__link,
 	&:nth-last-child(n+13) ~ * .nav__link {
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			font-size: rem-calc(14);
 			padding: rem-calc(14) rem-calc(10);
 		}
@@ -474,7 +464,7 @@
 }
 .nav__search-item {
 	display: none;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: block;
 	}
 }
@@ -490,23 +480,42 @@
 		width: 100%;
 	}
 }
-
+.nav__toggle-container {
+    border-top: 1px solid $light-gray;
+    background: #f1f1f1;
+    .header--dark-header & {
+        background: $black;
+        border-top-color: #444;
+    }
+    .header--overlay & {
+        background: rgba(0,0,0,.15);
+        border-top-color: $light-gray;
+    }
+    @include breakpoint(large) {
+        border-top: none;
+        background: none;
+	}
+}
 .nav__toggle {
-	position: absolute;
-	left: 5px;
-	bottom: 5px;
 	& .nav__link {
 		padding: rem-calc(15) rem-calc(15);
 	}
 	& .nav__link--dark-header {
+        color: #fff;
 		&:hover, &:focus, &:active {
 			background-color:transparent;
 			color: #fff;
 		}
-	}
+    }
+    .nav__menu-icon--dark-header{
+        &:before, &:after {
+            background-color: #fff;
+        }
+    }
+        
 	&:hover{
 		.nav__menu-icon{
-			background-color: #fff;
+			background-color: $black;
 			&:before, &:after{
 				background-color: #fff;
 			}
@@ -516,7 +525,7 @@
 		}
 
 		.nav__menu-icon--dark-header{
-			// background-color: #111;
+			background-color: #fff;
 			&:before, &:after{
 				// background-color: #111;
 			}
@@ -526,7 +535,7 @@
 		}
 
 		.nav__menu-text--light-header{
-			color: #fff;
+			color: $black;
 		}
 
 		.nav__menu-text--dark-header{
@@ -549,12 +558,8 @@
 
 .nav__toggle--menu {
 	z-index: 99;
-	width: rem-calc(50);
+	width: rem-calc(100);
 	left: 0;
-
-	@include breakpoint(425) {
-		width: rem-calc(100);
-	}
 }
 
 .nav__menu-text {
@@ -562,7 +567,6 @@
 	padding-left: rem-calc(4);
 	padding-top: rem-calc(3);
 	color: #222;
-	opacity: 0;
 	font-family: $header-font-family;
 	text-transform: uppercase;
 
@@ -571,25 +575,18 @@
 	}
 
 	&--dark-header{
-
-	}
-
-	@include breakpoint(425) {
-		opacity: 1;
+        color: white;
 	}
 }
 
-.nav__menu-text--dark-header{
-	color: white;
-}
 .nav__menu-icon {
 	/* this span is the central line of the menu icon */
 	display: inline-block;
 	position: absolute;
 	top: 50%;
 	bottom: auto;
-	left: 1em;
-	right: auto;
+	left: auto;
+	right: 1.2em;
 	-webkit-transform: translateX(0) translateY(-50%);
 	-moz-transform: translateX(0) translateY(-50%);
 	-ms-transform: translateX(0) translateY(-50%);
@@ -607,10 +604,6 @@
 
 	&:after{
 		top: 5px;
-	}
-	@include breakpoint(375) {
-		left: auto;
-		right: 1.2em;
 	}
 	/* these are the upper and lower lines in the menu icon */
 	@include breakpoint(601) {
@@ -646,7 +639,7 @@
 	&--menu-is-active{
 		background-color: #fff;
 		&:before, &:after{
-			background-color: #fff;
+			background-color: $black;
 		}
 		background: none;
 		&:before{
@@ -684,7 +677,7 @@
 		& .nav__menu-icon--light-header {
 			// background-color: #fff;
 			&:before, &:after {
-				background-color: #fff;
+				background-color: $black;
 			}
 		}
 	}
@@ -701,17 +694,13 @@
 	max-height: 0;
 	margin: 0;
 	&--light-header{
-
-		@include breakpoint(medium) {
-			background-color: #242424;
-			box-shadow: inset 1px 0 0 #333, inset 0 1px 0 #333, inset -1px 0 0 #333, inset 0 -1px 0 #333, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		@include breakpoint(large) {
+			background-color: #f1f1f1;
 		}
 	}
 	&--dark-header {
-
-		@include breakpoint(medium) {
-			background-color: #fff;
-			box-shadow: inset 1px 0 0 #ddd, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd, 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+		@include breakpoint(large) {
+			background-color: #f1f1f1;
 		}
 	}
 
@@ -721,7 +710,7 @@
 		visibility: visible;
 	}
 
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		position: absolute;
 		// left: -9999px;
 		top: 100%;
@@ -730,7 +719,7 @@
 		opacity: 0;
 		margin-top: -1px;
 		visibility: hidden;
-		padding: 20px;
+		padding: rem-calc(20);
 		z-index: 1;
 		margin-left: 0;
 		display: block;
@@ -761,13 +750,7 @@
 	&:before {
 		display: none;
 	}
-	// &:not(.subnav__item--column) {
-	// 	padding-right: .625rem;
-	// 	padding-left: .625rem;
-	// }
 }
-
-.subnav__search-item {}
 
 .subnav__item--column {
 	display: inline-block;
@@ -779,50 +762,48 @@
 }
 
 .subnav__link {
-	border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
+    color: $black;
 	display: block;
 	font-size: rem-calc(15);
 	line-height: 1.3;
-	padding: 15px 0;
+	padding: rem-calc(12 3);
 	text-align: left;
 	text-transform: none;
 	transition: padding .1s ease-in-out;
-	color: $body-font-color;
-	&--light-header{
-		border-bottom: 1px solid #333;
-		color: white;
-		&:hover, &:focus {
-			color: #ddd;
-		}
-	}
+    color: $body-font-color;
+    &:hover, &:focus {
+        background-color: $light-gray;
+        color: $black;
+    }
 }
 
 
 /* new subnav */
 .subnav {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		&--dark-header {
 			// background: #242424;
 		}
 	}
 }
 .nav__item--opened .subnav {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		visibility: visible;
 		height: auto;
 	}
 }
 .nav li.nav__item--opened ul.subnav {
-	@media (max-width: 640px) {
-		border-top: 1px solid #333;
+	@media (max-width: 1024px) {
+		border-top: 1px solid #ccc;
 		padding-top: 15px;
 		max-height: 1000px;
 		padding-bottom: 15px;
-		background-color: #1f1f1f;
+		background-color: $light-gray;
 	}
 }
 .subnav__item--column {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		width: 100%;
 		float: none;
 		padding: 9;
@@ -830,19 +811,21 @@
 
 }
 .subnav__link {
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		border-bottom: none;
 		padding: 10px;
-		color: #ddd;
+		color: $black;
 		&:hover, &:focus {
-			color: #ddd;
-			text-decoration: underline;
-		}
+            color: $black;
+        }
+        &:focus {
+            text-decoration: underline;
+        }
 	}
 }
 .nav .nav__item--parent .nav__link--parent {
 	margin-right: 50px;
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		margin-right: 0;
 	}
 }
@@ -854,20 +837,20 @@
 	right: 0;
 	top: 0;
 	outline: 0;
-	border-left: 1px solid #333;
+	border-left: 1px solid #ccc;
 	padding: 0;
 	width: 50px;
 	height: 58px;
 	background-color: transparent;
 	&:hover, &:focus {
-		background-color: #1f1f1f;
+		background-color: $light-gray;
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		display: none;
 	}
 }
 .nav button.second-level--open > svg {
-	fill: #fff;
+	fill: $black;
 	width: 15px;
 	-webkit-transition: transform 0.2s ease-in;
 	-moz-transition: transform 0.2s ease-in;

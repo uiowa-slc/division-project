@@ -3,6 +3,7 @@
 use SilverStripe\Blog\Model\Blog;
 use SilverStripe\Blog\Model\BlogTag;
 use SilverStripe\Blog\Model\BlogCategory;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\MultiSelectField;
@@ -19,7 +20,10 @@ class RecentNewsBlock extends BaseElement{
 		'Limit' => 'Int',
 		'SortBy' => "Enum('Recent,Random,Featured')",
 		'StudentLifeNewsDeptID' => 'Int',
-		'StudentLifeNewsTagName' => 'Varchar(255)'
+        'StudentLifeNewsTagName' => 'Varchar(255)',
+        'HideImages' => 'Boolean',
+        'ShowStacked' => 'Boolean',
+        'Enclosed' => 'Boolean',
 	);
 
 	private static $has_one = array(
@@ -91,8 +95,14 @@ class RecentNewsBlock extends BaseElement{
 		$slTagField->displayIf('FilterBy')->isEqualTo('Student Life News Tag');
 		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
-		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
-		return $fields;
+        $fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
+        $fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
+        $fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
+        $fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
+
+        return $fields;
+
+        
 	}
 
 	public function Entries(){

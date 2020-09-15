@@ -1,97 +1,106 @@
 $Header
 <main class="main-content__container" id="main-content__container">
 
-  <!-- Background Image Feature -->
-  <% if $BackgroundImage %>
-    <% include FeaturedImage %>
-  <% end_if %>
-  $Breadcrumbs
 
-  <% if not $BackgroundImage %>
     <div class="column row">
-      <div class="main-content__header">
-        <h1>$Title</h1>
-        <div class="blogmeta">
+        <div class="main-content__header">
+        <% if not $BackgroundImage %>
+            $Breadcrumbs
+            <h1>$Title</h1>
+        <% end_if %>
+            <div class="blogmeta">
+                <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>
 
-            <% if $Parent.ShowLastUpdated %>
-            <div class="byline"><p>  <em class="byline__on">Last updated: $LastEdited.Nice</em> </p></div>
-            
-            <% end_if %>
-            <ul class="social-icons">
-                <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
-                </li>
-                <li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/icon_twitter.png" alt="Share on Twitter"></a></li>
-                <li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png" alt="share on linkedid"></a></li>
-            </ul>
+                    <div class="byline">
+                        <p>
+                            <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
+                            <% if $Categories.Count == 1 %><br />
+                                <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>
+                            </p><% end_if %>
+                    </div>
+
+                <% end_if %>
+                <ul class="social-icons">
+                    <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/icon_facebook.png" alt="Share on Facebook"></a>
+                    </li>
+                    <li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/icon_twitter.png" alt="Share on Twitter"></a></li>
+                    <li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/icon_linkedin.png" alt="share on linkedid"></a></li>
+                </ul>
+            </div>
         </div>
-        <% if $Summary %>
-          <div class="blogpost__summary">$Summary</div>
-        <% end_if %>
-      </div>
-      <% if $FeaturedImage %>
-        <% if FeaturedImage.Width >= 1200 %>
-          <p class="post-image"><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.FocusFill(1200,700).URL" width="1200" height="700" alt="" role="presentation" /></p>
-        <% end_if %>
-      <% end_if %>
     </div>
-  <% end_if %>
+
 
   $BeforeContent
 
   <div class="row">
-
-    <article class="main-content main-content--with-padding <% if $Children || $Menu(2) || $Sidebar ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+    <article role="main" class="main-content main-content--with-padding main-content--with-sidebar">
       $BeforeContentConstrained
       <div class="main-content__text">
-      <div class="content">
-        <div class="blogmeta clearfix">
-          <div class="blogmeta__byline clearfix">
-          <p>
-            <% if $Tags %>
-              <% loop $Tags.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %><br />
+        <% if $FeaturedImage %>
+
+            <%-- if portrait or square --%>
+            <% if FeaturedImage.Orientation == 1 || $FeaturedImage.Orientation == 0 %>
+              <p><img class="dp-lazy right" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.ScaleWidth(400).URL" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="" role="presentation" <% end_if %>width="400" height="$FeaturedImage.ScaleWidth(400).Height" /></p>
             <% end_if %>
-            
-          </p>
-          </div>
 
-        </div>
+            <%-- if landscape --%>
+            <% if FeaturedImage.Orientation == 2 %>
+              <p><img class="dp-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="$FeaturedImage.ScaleWidth(860).URL" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="" role="presentation" <% end_if %>width="840" height="$FeaturedImage.ScaleWidth(860).Height" /></p>
+            <% end_if %>
 
-        
-        $Content
-        <% if $Address || $Location %>
-          <h2>Located here:</h2>
-          $GoogleMap
+
         <% end_if %>
-        <% if $Links %>
-          <h2>Additional information:</h2>
-          <ul>
-          <% loop $Links %>
-            <li><a href="$URL" target="_blank"><% if $Title %>$Title<% else %>$URL.LimitCharacters(50)<% end_if %></a></li>
-          <% end_loop %>
-          </ul>
-        <% end_if %>
-        <% include TagsCategories %>
-
+          $Content
+              <% if $Address || $Location %>
+                <h2>Located here:</h2>
+                $GoogleMap
+              <% end_if %>
+              <% if $WebsiteLink %>
+              <p><a href="$WebsiteLink" class="button large" target="_blank"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %>  <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+              <% end_if %>
+              <% if $Links %>
+                <h2>Additional information:</h2>
+                <ul>
+                <% loop $Links %>
+                  <li><a href="$URL" target="_blank"><% if $Title %>$Title<% else %>$URL.LimitCharacters(50)<% end_if %></a></li>
+                <% end_loop %>
+                </ul>
+              <% end_if %>
+        $AfterContentConstrained
       </div>
-      
-      <% include TopicRelated %>
-      
-      <h2>More topics:</h2>
-      $TopicSearchForm
-      <% include TopicHolderAllTopics %>
- 
-      $AfterContentConstrained
+      <% include TagsCategories %>
       $Form
-
     </article>
-    <aside class="sidebar dp-sticky">
-      <% include SideNav %>
-      <% if $SideBarView %>
-        $SideBarView
-      <% end_if %>
-      $Sidebar
-    </aside>
-  </div>
-  $AfterContent
 
+        <aside class="sidebar dp-sticky dp-sticky--medium show-for-large">
+          <div class="">
+            $TopicSearchFormSized("tiny")
+            <% with $Parent %>
+              <% include TopicBrowseByFilterSmall %>
+            <% end_with %>
+          </div>
+        </aside>
+
+  </div>
+  <div class="grid-container">
+  <% if $RelatedNewsEntries %>
+    <div class="topic-content topic-content--no-pt">
+      <% include TopicRelated %>
+    </div>
+  <% end_if %>
+    <div class="hide-for-large">
+      <% include TopicMore %>
+      <% with $Parent %>
+        <% include TopicBrowseByFilterFull %>
+
+      <% end_with %>
+    </div>
+  </div>
+  <% with $Parent %>
+    <% include TopicBrowseAllFull %>
+    <% include TopicFooterFull %>
+  <% end_with %>
+  $AfterContent
 </main>
+

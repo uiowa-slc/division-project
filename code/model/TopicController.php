@@ -2,11 +2,16 @@
 
 use SilverStripe\Blog\Model\BlogPostController;
 use SilverStripe\Control\Controller;
+use SilverStripe\ORM\FieldType\DBField;
 
 class TopicController extends BlogPostController{
     private static $allowed_actions = array('TopicSearchForm', 'topicresults');
 
-    public function TopicSearchForm(){
+    public function TopicSearchFormSized($size = "large"){
+        return $this->TopicSearchForm($this, 'SearchForm', null, null, $size);
+    }
+
+    public function TopicSearchForm($request, $name, $fields, $actions, $size = "large") {
         //$current = Controller::curr();
         $controller = TopicHolderController::create($this);
         // $current = $this->getController();
@@ -15,13 +20,13 @@ class TopicController extends BlogPostController{
 
         // $controller->setRequest($current->getRequest());
         //print_r($this->getController());
-        $form = $controller->TopicSearchForm();
+        $form = new TopicSearchForm($controller, 'SearchForm', null, null, $size);
 
 
         $form->setFormAction(
             Controller::join_links(
                 $topicHolder->Link(),
-                'TopicSearchForm'
+                'SearchForm'
             )
         );
         return $form;
@@ -41,16 +46,17 @@ class TopicController extends BlogPostController{
 
         $results = $form->getResults();
 
-        $resultsFiltered = $results->filter(array('ParentID' => $this->owner->getParent()->ID));
+        $resultsFiltered = $results->filter(array('ParentID' => $this->owner->ID));
 
         $data = array(
             'Results' => $resultsFiltered,
             'Query' => DBField::create_field('Text', $form->getSearchQuery()),
-            'Title' => _t('SearchForm.SearchResults', 'Search Results')
+            'Title' => _t('SearchForm.SearchResults', 'Search Results'),
+            'Holder' => $this->owner
         );
 
 
-        return $this->owner->customise($data)->renderWith(array($this->owner->Parent()->ClassName.'_results', 'TopicHolder_results', 'Page'));
+        return $this->owner->customise($data)->renderWith(array($this->owner->ClassName.'_results', 'TopicHolder_results', 'Page'));
     }
         /**
          * Return the associated UserDefinedFormController

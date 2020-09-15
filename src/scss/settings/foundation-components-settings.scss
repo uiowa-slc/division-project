@@ -13,8 +13,9 @@ $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
 
-$accordion-background: $white;
+$accordion-background: #f1f1f1;
 $accordion-plusminus: true;
+$accordion-title-font-size: rem-calc(18);
 $accordion-item-color: foreground($accordion-background, $primary-color);
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
@@ -41,14 +42,15 @@ $badge-font-size: 0.6rem;
 // 10. Breadcrumbs
 // ---------------
 
-$breadcrumbs-margin: 0 0 $global-margin 0;
-$breadcrumbs-item-font-size: rem-calc(11);
-$breadcrumbs-item-color: $primary-color;
+$breadcrumbs-margin: 0 0 0 0;
+$breadcrumbs-item-font-size: rem-calc(13);
+$breadcrumbs-item-color: $black;
 $breadcrumbs-item-color-current: $black;
 $breadcrumbs-item-color-disabled: $medium-gray;
 $breadcrumbs-item-margin: 0.75rem;
-$breadcrumbs-item-uppercase: true;
+$breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-slash: true;
+$breadcrumbs-item-separator-color: $yellow;
 
 // 11. Button
 // ----------
@@ -57,7 +59,7 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $yellow;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: scale-color($button-background, $lightness: 0);
 $button-color: $black;
 $button-color-alt: $white;
 $button-radius: $global-radius;
@@ -321,7 +323,7 @@ $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: #f1f1f1;
 $table-stripe: odd;
-$table-head-background: #fff;
+$table-head-background: $highlight;
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-head-font-color: $body-font-color;
 $show-header-for-stacked: false;

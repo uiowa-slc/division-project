@@ -13,10 +13,8 @@ class StaffTeam extends DataObject {
 		'StaffPages' => 'StaffPage',
 		'StaffHolderPages' => 'StaffHolderPage'
 	);
-	
-	private static $belongs_many_many = array();
-	
-	private static $summary_fields = array( 
+
+	private static $summary_fields = array(
 		'Name' => 'Name',
 	);
 
@@ -26,11 +24,11 @@ class StaffTeam extends DataObject {
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
-		
+
 		$f->addFieldToTab('Root.Main', new CheckboxSetField('StaffPages', 'People on this team', StaffPage::get()->map('ID', 'Title')));
 		$f->removeByName('SortOrder');
 		return $f;
-		
+
 	}
 
 	public function SortedStaffPages(){

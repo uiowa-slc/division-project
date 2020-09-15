@@ -15,40 +15,28 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="$resourceURL('vendor/md/division-project/src/favicons/manifest.json')">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="$SiteConfig.Title">
-    
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="$SiteConfig.Title">
-    <link rel="apple-touch-icon" sizes="180x180" href="$resourceURL('vendor/md/division-project/src/favicons/apple-touch-icon.png')">
-    <link rel="icon" type="image/png" href="$resourceURL('vendor/md/division-project/src/favicons/favicon-32x32.png')" sizes="32x32">
-    <link rel="icon" type="image/png" href="$resourceURL('vendor/md/division-project/src/favicons/favicon-16x16.png')" sizes="16x16">
-    <link rel="icon" type="image/png" href="$resourceURL('vendor/md/division-project/src/favicons/favicon-192x192.png')" sizes="192x192">
-    <link rel="mask-icon" href="$resourceURL('vendor/md/division-project/src/favicons/safari-pinned-tab.svg')" color="#000000">
-    <link rel="shortcut icon" href="$resourceURL('vendor/md/division-project/src/favicons/favicon.ico')">
-    <meta name="msapplication-config" content="$resourceURL('vendor/md/division-project/src/favicons/browserconfig.xml')">
-    <meta name="theme-color" content="#000000">
+    <% include Favicons %>
 
     <% if $PreventSearchEngineIndex %>
-      <meta name="robots" content="noindex">
+        <meta name="robots" content="noindex">
     <% end_if %>
 
-    $TypeKitScript
+    {$GoogleFonts}
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/49191f9021.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
 <body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
+
     $Layout
 
-
     <% include Footer %>
+
     $BetterNavigator
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="{$ThemeDir}/dist/scripts/app.js"></script>
 
     $Analytics

@@ -3,23 +3,23 @@
 	<section class="childpages" aria-labelledby="ChildPages">
 	<h2 class="show-for-sr" id="ChildPages">Related Navigation</h2>
 	<% loop $Children %>
-		<div class="childpages__page <% if $BackgroundImage || $MainImage || $YoutubeBackgroundEmbed %>childpages--withphoto<% end_if %>">
+		<div class="childpages__page <% if $BackgroundImage || $MainImage || $YoutubeBackgroundEmbed || $HeaderImage%>childpages--withphoto<% end_if %>">
 			<a href="$Link" class="childpages__blocklink">
 				<% if $BackgroundImage %>
-					<img data-original="$BackgroundImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
-				<% else_if $YoutubeBackgroundEmbed %>
-					<img src="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/sddefault.jpg" class="childpages__img" alt="$Title">
+					<img src="$BackgroundImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img" alt="$Title" loading="lazy">
 				<% else_if $MainImage %>
-					<img data-original="$MainImage.Pad(180,150).URL" width="180" height="150" class="childpages__img dp-lazy" alt="$Title">
+					<img src="$MainImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img" alt="$Title" loading="lazy">
+				<% else_if $HeaderImage %>
+					<img src="$HeaderImage.FocusFill(180,150).URL" width="180" height="150" class="childpages__img" alt="$Title" loading="lazy">
 				<% end_if %>
 				<div class="clearfix childpages__content">
 					<h3 class="childpages__title">$Title</h3>
 					<% if $MetaDescription %>
 						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
 					<% else %>
-						<p class="childpages__summary">$ContentSummary</p>
+                        <p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
 					<% end_if %>
-					<span class="button small black hollow">Learn More</span>
+					<span class="button">Learn More <i class="fas fa-arrow-right"></i></span>
 				</div>
 			</a>
 		</div>

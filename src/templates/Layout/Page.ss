@@ -5,7 +5,7 @@ $Header
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
-	$Breadcrumbs
+	
 	<% include MainContentBody %>
 
 </main>
