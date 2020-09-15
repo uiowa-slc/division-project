@@ -5,6 +5,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\ORM\DataObject;
@@ -14,7 +15,8 @@ use SilverStripe\Assets\File;
 class NewHomePageHeroFeature extends DataObject {
 
 	private static $db = array(
-		"Title" => "Varchar(155)",
+        "Title" => "Varchar(155)",
+        "Content" => "HTMLText",
 		"SortOrder" => "Int",
 		"ExternalLink" => "Text",
 		"ButtonText" => "Text",
@@ -24,13 +26,9 @@ class NewHomePageHeroFeature extends DataObject {
 	private static $has_one = array(
 		"AssociatedPage" => SiteTree::class,
 		"Image" => Image::class,
-		"Video" => File::class,
-		"VideoPoster" => Image::class,
 	);
     private static $owns = array(
     	'Image',
-    	'Video',
-    	'VideoPoster'
     );
 	private static $default_sort = "SortOrder";
 	private static $singular_name = "Media Slide";
@@ -51,8 +49,7 @@ class NewHomePageHeroFeature extends DataObject {
 
 		$fields->push(new TextField('Title', 'Title'));
 		$fields->push(new UploadField("Image", "Image"));
-		$fields->push(new UploadField("Video", "Video"));
-		$fields->push(new UploadField("VideoPoster", "Poster image if using video"));
+        $fields->push(HTMLEditorField::create('Content', 'Content')->addExtraClass('stacked'));
 		$fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", SiteTree::class));
 		$fields->push(new TextField('ExternalLink', 'Use the external link instead:'));
 		$fields->push(new TextField('ButtonText', 'Button Text'));
@@ -60,8 +57,8 @@ class NewHomePageHeroFeature extends DataObject {
 		return $fields;
 	}
 
-	function getCMSValidator() {
-		return new RequiredFields(array('Title', 'ButtonText'));
-	}
+	// function getCMSValidator() {
+	// 	return new RequiredFields(array('Title', 'ButtonText'));
+	// }
 
 }

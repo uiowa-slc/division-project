@@ -1,239 +1,102 @@
-.homepage__header {
-	height: 94vh;
-	background-repeat: no-repeat;
+/* Background Media */
+
+
+.hero {
+	background-color: $black;
 	background-position: center center;
 	background-size: cover;
-	position: relative;
-	& .header__container {
-		background: linear-gradient(180deg,rgba(0,0,0,.8),transparent);
-		position: absolute;
-		top: 0;
-		z-index: 300;
-		width: 100%;
-		@include breakpoint(medium) {
-			background: linear-gradient(180deg,rgba(0,0,0,.4),transparent);
-		}
-	}
-	@media only screen and (min-height: 900px) and (min-width: 769px) {
-		height: 900px;
-	}
-}
-.carousel {
-	background: #111;
-	height: 94vh;
-	z-index: 200;
-	@media only screen and (min-height: 900px) and (min-width: 769px) {
-		height: 900px;
-	}
-}
-.carousel-cell {
+	background-repeat: no-repeat;
 	overflow: hidden;
-	width: 100%;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 94vh;
-	@media only screen and (min-height: 900px) and (min-width: 769px) {
-		height: 900px;
-	}
+    padding: 80px 0;
+    @include breakpoint(medium) {
+        padding: 120px 0;
+    }
+    &__contentwrap {
+        @include xy-grid-container;
+        display: flex;
+        justify-content: start;
+    }
+    &__content {
+        background-color: #fff;
+        color: $black;
+        padding: rem-calc(15);
+        @include breakpoint(medium) {
+            padding: rem-calc(35);
+            max-width: 40%;
+        }
+        & h1, & h2, & h3, & h4, & h5 {
+            font-size: 22px;
+            margin: rem-calc(0 0 5 0);
+        }
+        & p:last-of-type {
+            margin-bottom: 0;
+        }
+        & .button {
+            margin-bottom: 0;
+        }
+    }
 }
-.carousel-cell .cell-bg {
-	display: block;
-	height: 100%;
-	max-width: none;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	&:after {
-		background-image: linear-gradient(to right top, #000000, rgba(0,0,0, 0) 70%);
-		content:'';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		opacity: 0.67;
-		z-index: 1;
-	}
-}
-/* Nav */
-.carousel-nav {
-	display: none;
-	position: absolute;
-	bottom: 0;
-	z-index: 320;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	@include grid-row;
-	@include grid-column(12);
-	@include breakpoint(large) {
-		display: block;
-	}
-}
-.carousel-nav .carousel-nav-cell {
-	// border-top: 4px solid transparent;
-	color: #fff;
-	font-size: rem-calc(13);
-	font-weight: bold;
-	padding: 40px 10px;
-	width: 25%;
-   float: left;
-	transition: all .7s ease-in-out;
-	padding-right: rem-calc(50);
-	cursor: pointer;
-	position: relative;
-}
-.carousel-nav .carousel-nav-cell:before {
-	content:'';
-	background-color: rgba(255,255,255,.3);
-	height: 4px;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.carousel-nav .carousel-nav-cell.is-nav-selected:before {
-	background-color: $highlight;
-}
-/* Dots */
-.carousel .flickity-page-dots {
-	bottom: 30px;
-	left: 0;
-	right: 0;
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
-	@include breakpoint(large) {
-		display: none;
-		visibility: hidden;
-	}
-}
-/* dots are lines */
-.carousel .flickity-page-dots .dot {
-	height: 4px;
-	width: 25%;
-	margin: 0;
-	border-radius: 0;
-	opacity: .5;
-	transition: all .7s ease-in-out;
-	background-color: rgba(255,255,255,.3);
-}
-.carousel .flickity-page-dots .dot.is-selected {
-    opacity: 1;
-    background-color: $highlight;
-}
-/* fade stuff */
-// .carousel .flickity-slider {
-//   transform: none !important;
-// }
-// .carousel-cell {
-//   left: 0 !important;
-//   opacity: 0;
-//   transition: opacity 0.7s ease-in-out;
-//   z-index: -1;
-// }
-// .carousel-cell.is-selected {
-//   opacity: 1;
-//   z-index: 0
-// }
 
-/* Tagline */
-.carousel .inner {
-	position: relative;
-	color: #fff;
-	position: absolute;
-	bottom: 90px;
-	left: 0;
-	right: 0;
-	z-index: 20;
-	@include grid-row;
-	& span {
-		color: #fff;
-		font-family: $header-font-family;
-		font-size: rem-calc(13);
-		display: inline-block;
-		text-transform: uppercase;
-		font-weight: bold;
-		letter-spacing: 1px;
-		text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-		@include breakpoint(large) {
-			padding-left: 60px;
-		}
-	}
-	& h2 {
-		font-size: rem-calc(30);
-		font-size: calc(30px + 30 * ((100vw - 320px) / (1024 - 320)));
-		margin: 20px 0 5px;
-		line-height: 1.2;
-		text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-		position: relative;
-		@include breakpoint(large) {
-			padding-left: 60px;
-			font-size: rem-calc(60);
-			&:before {
-				content: '';
-				width: 40px;
-				height: 86%;
-				background: $highlight;
-				position: absolute;
-				top: 5%;
-				left: 0;
-			}
-		}
-	}
-	& p {
-		font-weight: 600;
-		font-style: italic;
-		margin: 0;
-		@include breakpoint(large) {
-			padding-left: 60px;
-		}
-	}
-	& .cell-btn {
-		background: transparent;
-		color: #fff;
-		display: inline-block;
-		border: 1px solid #fff;
-		padding: 10px 15px;
-		font-size: rem-calc(12);
-		line-height: 1;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		font-weight: bold;
-		margin-top: 25px;
-		&:hover, &:focus {
-			background: $highlight;
-			color: #333;
-		}
-		@include breakpoint(large) {
-			margin-left: 60px;
-		}
-	}
-	@include breakpoint(large) {
-		bottom: 25%;
-	}
-}
-.carousel .inner .cell-text {
-	width: 100%;
-	padding-left: 2%;
-	padding-right: 2%;
-	@include breakpoint(large) {
-		width: 60%;
-	}
-	@media only screen and (max-height: 800px) and (min-width: 1024px) {
-		width: 96%;
-	}
+.homefeatures {
+    background-color: #f8f8f8;
+    background-image: url(../images/BrainRockPattern-White.png);
+    background-repeat: repeat;
+    border-top: 1px solid #ddd;
+    padding: rem-calc(60 0);
+    @include breakpoint(medium) {
+        padding: rem-calc(100 0);
+    }
+    &:nth-child(even) {
+        background-color: $highlight;
+        background-image: none;
+    }
+    & .grid-x {
+        background: #fff;
+    }
+    &__content {
+        padding: rem-calc(15);
+        @include breakpoint(medium) {
+            padding: rem-calc(30);
+        }
+        & .button {
+            margin-bottom: 0;
+        }
+        & ul {
+            // border-top: 1px solid $light-gray;
+            list-style: none;
+            margin: rem-calc(0 0 18 0);
+            padding:0;
+            & li {
+                border-bottom: 1px solid $light-gray;
+                font-size: rem-calc(16);
+                line-height: 1;
+                text-decoration: none;
+                display: block;
+                padding: rem-calc(15);
+                &:first-of-type {
+                    border-top: 1px solid $light-gray;
+                }
+                & a {
+                    display: block;
+                    position: relative;
+                    &:hover, &:focus {
+                        text-decoration: underline;
+                    }
+                    &:after {
+                        content:"\2192";
+                        position: absolute;
+                        right: 0;
+                    }
+                }
+                
+            }
+        }
+    }
+    
 }
 
 
-.tagline__container {
-	background-color: #fff;
-}
+// Old Tagline -- remove
 .tagline {
 	@include grid-column(11);
 	@include grid-column-position(center);
@@ -266,228 +129,3 @@
 		padding: rem-calc(100 0);
 	}
 }
-.HomePage .block_area_aftercontent {
-	// background-color: transparent;
-}
-.HomePage .block_area_aftercontent .recentnews {
-	padding: 0;
-	// background-color: transparent;
-}
-.HomePage .block_area_aftercontent .recentnewsblock {
-	overflow: hidden;
-	padding: rem-calc(50 0);
-	& .recentnews-title {
-		margin-top: 0;
-		text-transform: uppercase;
-	}
-	& .bloglistitem {
-		border: none;
-		@include breakpoint(large) {
-			padding-bottom: 0;
-		}
-	}
-	@include breakpoint(large) {
-		padding: rem-calc(150 0);
-	}
-}
-
-.HomePage .block_area_aftercontent .featuredpageblock {
-	// background: transparent;
-	@include breakpoint(large) {
-		// padding: rem-calc(100 0 60);
-	}
-}
-
-.HomePage .block_area_aftercontent .upcomingeventsblock__title {
-	text-align: center;
-	border-top: none;
-	padding-top: 150px;
-	display: block;
-}
-
-.carousel .carousel-cell.is-selected .cell-text {
-	-webkit-animation-name: fadeInRight;
-	animation-name: fadeInRight;
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	animation-delay: .7s;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-}
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.animated.hinge {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-}
-
-@keyframes fadeInDown {
-	from {
-		opacity: 0;
-		transform: translate3d(0, -100%, 0);
-	}
-
-	to {
-		opacity: 1;
-		transform: none;
-	}
-}
-
-.fadeInDown {
-  animation-name: fadeInDown;
-}
-.fadeInDown {
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	-o-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-delay: 1.5s;
-	-webkit-animation-timing-function: ease;
-	-webkit-animation-fill-mode: both;
-	-moz-animation-duration: 1s;
-	-moz-animation-delay: 1.5s;
-	-moz-animation-timing-function: ease;
-	-moz-animation-fill-mode: both;
-	-ms-animation-duration: 1s;
-	-ms-animation-delay: 1.5s;
-	-ms-animation-timing-function: ease;
-	-ms-animation-fill-mode: both;
-	-o-animation-duration: 1s;
-	-o-animation-delay: 1.5s;
-	-o-animation-timing-function: ease;
-	-o-animation-fill-mode: both;
-	animation-duration: 1s;
-	animation-delay: 1.5s;
-	animation-timing-function: ease;
-	animation-fill-mode: both;
-}
-
-/* fadeinright */
-@-webkit-keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(10%, 0, 0);
-    transform: translate3d(10%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(10%, 0, 0);
-    transform: translate3d(10%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight;
-}
-
-@-webkit-keyframes fadeInRightBig {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-
-
-.fullwidth-video {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	min-height: 120%;
-	min-width: 100%;
-	width: 100%;
-	min-height: 100%;
-	height: 100%;
-	z-index: -20;
-	-webkit-overflow-scrolling: touch;
-	-webkit-transform: translate3d(0,0,0);
-	-moz-transform: translate3d(0,0,0);
-	-ms-transform: translate3d(0,0,0);
-	-o-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	right: 0;
-    bottom: 0;
-    width: auto;
-    min-width: 100%;
-    height: auto;
-    min-height: 100%;
-}
-
-.fullwidth-video video {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 0;
-	min-height: 120%;
-	min-height: 100%;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-	-webkit-transform: translate3d(0,0,0);
-	-moz-transform: translate3d(0,0,0);
-	-ms-transform: translate3d(0,0,0);
-	-o-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-	-webkit-overflow-scrolling: touch;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	opacity: 1;
-	right: 0;
-	bottom: 0;
-	width: auto;
-	min-width: 100%;
-	height: auto;
-	min-height: 100%;
-	top: 50%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -100;
-	-ms-transform: translateX(-50%) translateY(-50%);
-	-moz-transform: translateX(-50%) translateY(-50%);
-	-webkit-transform: translateX(-50%) translateY(-50%);
-	transform: translateX(-50%) translateY(-50%);
-	background-size: cover;
-}
-
