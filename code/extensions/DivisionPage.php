@@ -1,6 +1,5 @@
 <?php
 
-use DNADesign\Elemental\Models\ElementalArea;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Blog\Model\BlogPost;
@@ -34,11 +33,11 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'SidebarArea' => ElementalArea::class,
-		'AfterContentConstrained' => ElementalArea::class,
-		'BeforeContent' => ElementalArea::class,
-		'BeforeContentConstrained' => ElementalArea::class,
-		'AfterContent' => ElementalArea::class,
+		// 'SidebarArea' => ElementalArea::class,
+		// 'AfterContentConstrained' => ElementalArea::class,
+		// 'BeforeContent' => ElementalArea::class,
+		// 'BeforeContentConstrained' => ElementalArea::class,
+		// 'AfterContent' => ElementalArea::class,
 		'BackgroundImage' => Image::class,
 		'FeatureHolderImage' => Image::class,
 		'OgImage' => Image::class,
@@ -49,11 +48,11 @@ class DivisionPage extends DataExtension {
 		'FeatureHolderImage',
 		'BackgroundImage',
 		'FeatureHolderImage',
-		'SidebarArea',
-		'AfterContentConstrained',
-		'BeforeContent',
-		'BeforeContentConstrained',
-		'AfterContent',
+		// 'SidebarArea',
+		// 'AfterContentConstrained',
+		// 'BeforeContent',
+		// 'BeforeContentConstrained',
+		// 'AfterContent',
 	);
 	private static $many_many = array(
 
