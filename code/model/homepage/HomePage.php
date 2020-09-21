@@ -39,8 +39,8 @@ class HomePage extends Page {
         $f = parent::getCMSFields();
 
 
-        $f->removeByName('Content');
-        $f->removeByName('BackgroundImage');
+        // $f->removeByName('Content');
+        // $f->removeByName('BackgroundImage');
         $f->removeByName('InheritSidebarItems');
         $f->removeByName('SidebarLabel');
         $f->removeByName('SidebarItem');
@@ -89,8 +89,8 @@ class HomePage extends Page {
         $this->extend('updateCMSFields', $f);
 
 
-        $f->removeByName('Content');
-        $f->removeByName('BackgroundImage');
+        // $f->removeByName('Content');
+        // $f->removeByName('BackgroundImage');
         $f->removeByName('InheritSidebarItems');
         $f->removeByName('SidebarLabel');
         $f->removeByName('SidebarItem');
@@ -170,7 +170,7 @@ class HomePage extends Page {
 
         }
 
-        $newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Slides', NewHomePageHeroFeature::get(), $newgridFieldConfig);
+        $newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Features', NewHomePageHeroFeature::get(), $newgridFieldConfig);
         $shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
 
         $fieldList->push($shuffleHomePageFeaturesField);
