@@ -1,36 +1,28 @@
 
 $Header
 
-<!-- Image Feature -->
-<%-- <% if $BackgroundImage %>
-    <% with $BackgroundImage %>
-        <div class="hero" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%">
-        <% end_with %>
-        <div class="hero__contentwrap">
+<section class="hero">
+    <div class="hero__imgwrap">
+        <% if $BackgroundImage %>
+            <picture>
+                <source media="(max-width: 767px)" srcset="$BackgroundImage.FocusFill(800,400).URL">
+                <source media="(min-width: 768px)" srcset="$BackgroundImage.FocusFill(1300,500).URL">
+                <img src="$BackgroundImage.FocusFill(1300,500).URL" alt="$BackgroundImage.Title">
+            </picture>
+        <% else %>
+            <img src="{$ThemeDir}/dist/images/hero-placeholder.jpg" alt="Students sitting in front of the Old Capitol building ">
+        <% end_if %>
+    </div>
+    <% if $Content %>
+        <div class="hero__contentwrap grid-container">
             <div class="hero__content">
                 $Content
             </div>
         </div>
-    </div>
-<% end_if %> --%>
-
-<section class="hero">
-    <div class="hero__imgwrap">
-        <picture>
-            <source media="(max-width: 767px)" srcset="$BackgroundImage.FocusFill(800,400).URL">
-            <source media="(min-width: 768px)" srcset="$BackgroundImage.FocusFill(1300,500).URL">
-            <img src="$BackgroundImage.FocusFill(1300,500).URL" alt="$BackgroundImage.Title">
-        </picture>
-    </div>
-    <div class="hero__contentwrap grid-container">
-        <div class="hero__content">
-            $Content
-        </div>
-    </div>
+    <% end_if %>
 </section>
 
 $BeforeContent
-
 
 <!-- Feature Sections -->
 <% if $NewHomePageHeroFeatures %>
