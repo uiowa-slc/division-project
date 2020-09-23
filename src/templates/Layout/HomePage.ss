@@ -2,7 +2,7 @@
 $Header
 
 <!-- Image Feature -->
-<% if $BackgroundImage %>
+<%-- <% if $BackgroundImage %>
     <% with $BackgroundImage %>
         <div class="hero" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]" style="background-position: {$PercentageX}% {$PercentageY}%">
         <% end_with %>
@@ -11,16 +11,32 @@ $Header
                 $Content
             </div>
         </div>
-    </div><!-- end .hero -->
-<% end_if %>
+    </div>
+<% end_if %> --%>
+
+<section class="hero">
+    <div class="hero__imgwrap">
+        <picture>
+            <source media="(max-width: 767px)" srcset="$BackgroundImage.FocusFill(800,400).URL">
+            <source media="(min-width: 768px)" srcset="$BackgroundImage.FocusFill(1300,500).URL">
+            <img src="$BackgroundImage.FocusFill(1300,500).URL" alt="$BackgroundImage.Title">
+        </picture>
+    </div>
+    <div class="hero__contentwrap grid-container">
+        <div class="hero__content">
+            $Content
+        </div>
+    </div>
+</section>
 
 $BeforeContent
 
 
 <!-- Feature Sections -->
 <% if $NewHomePageHeroFeatures %>
+    <div class="homefeatures">
     <% loop NewHomePageHeroFeatures %>
-            <div class="homefeatures">
+            <div class="homefeatures__feature">
                 <div class="grid-container">
                     <div class="grid-x align-middle">
                         <% if $Image %>
@@ -47,6 +63,7 @@ $BeforeContent
                 </div>
             </div>        
     <% end_loop %>
+    </div>
 <% end_if %>
 
 

@@ -1,54 +1,59 @@
 /* Background Media */
 
-
 .hero {
-	background-color: $black;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	overflow: hidden;
-    padding: 80px 0;
-    @include breakpoint(medium) {
-        padding: 120px 0;
+    overflow: hidden;
+    position: relative;
+    @include breakpoint(large) {
+        background-color: $black;
+        max-height: 55vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__imgwrap {
+        & img {
+            width: 100%;
+        }
+        @include breakpoint(large) {
+            min-height: 300px;
+            flex: 1 100%;
+        }
     }
     &__contentwrap {
-        @include xy-grid-container;
-        display: flex;
-        justify-content: start;
+        @include breakpoint(large) {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
     }
     &__content {
         background-color: #fff;
         color: $black;
-        padding: rem-calc(15);
-        @include breakpoint(medium) {
+        padding: rem-calc(15 0);
+        @include breakpoint(large) {
             padding: rem-calc(35);
+            background-color: #fff;
+            color: $black;
+            padding: rem-calc(30);
             max-width: 40%;
         }
         & h1, & h2, & h3, & h4, & h5 {
-            font-size: 22px;
+            font-size: 24px;
             margin: rem-calc(0 0 5 0);
         }
-        & p:last-of-type {
-            margin-bottom: 0;
-        }
-        & .button {
+        & p:last-of-type, & .button {
             margin-bottom: 0;
         }
     }
 }
 
+
 .homefeatures {
     background-color: #f8f8f8;
     background-image: url(../images/BrainRockPattern-White.png);
     background-repeat: repeat;
-    border-top: 1px solid #ddd;
-    padding: rem-calc(60 0);
-    @include breakpoint(medium) {
-        padding: rem-calc(100 0);
-    }
-    &:nth-child(even) {
-        background-color: $highlight;
-        background-image: none;
+    &__feature {
+        padding: rem-calc(60 0);
     }
     & .grid-x {
         background: #fff;
@@ -62,7 +67,6 @@
             margin-bottom: 0;
         }
         & ul {
-            // border-top: 1px solid $light-gray;
             list-style: none;
             margin: rem-calc(0 0 18 0);
             padding:0;
