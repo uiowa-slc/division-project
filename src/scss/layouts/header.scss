@@ -164,24 +164,12 @@
 	max-height: 2500px;
 }
 
+
+// Skip Link
 a.skip-link {
-	display: block;
-	background-color: #555;
-	color: #fff;
-	position: absolute;
-	top: -100%;
-	right: 0;
-	left: 0;
-	z-index: 400;
-	padding: 20px;
+    display: block;
 	text-align: center;
-	-webkit-transition: top .35s,-webkit-transform .35s;
-	transition: top .35s,-webkit-transform .35s;
-	transition: transform .35s,top .35s;
-	transition: transform .35s,top .35s,-webkit-transform .35s;
-}
-a.skip-link:focus, a.skip-link:active {
-	outline: 0;
-	top: 0;
-	text-decoration: underline;
+    background: $light-gray;
+    padding: 10px;
+    font-size: rem-calc(16);
 }

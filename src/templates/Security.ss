@@ -36,22 +36,33 @@
     <!-- noindex -->
     <meta name="robots" content="noindex">
 
-    $TypeKitScript
+    {$GoogleFonts}
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/49191f9021.js" crossorigin="anonymous"></script>
+
 </head>
 
-<body class="sslogin">
+<body>
 
-    <div class="sslogin__box">
-        <%-- <h1>$Title</h1> --%>
-        <div class="sslogin__mdlogo">
-            <img src="{$ThemeDir}/dist/images/md_color.png" alt="marketing and design logo">
+    $Header
+
+    <div class="grid-container" id="main-content__container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell">
+                <div class=" margin-top-3 margin-bottom-3 text-center">
+                    <h1>Continue to log in with your HawkID.</h1>
+                    $Content
+                    $Form
+                    <%-- <img src="{$ThemeDir}/dist/images/uiowa--light.png" alt="university of iowa logo" class="sslogin__uilogo"> --%>
+                    <img loading="lazy" width="150" src="{$ThemeDir}/dist/images/dosl-stacked.png" alt="Division Of Student Life" class="margin-top-3 margin-bottom-3">
+                </div>
+            </div>
         </div>
-        <p>Continue to log in with your HawkID.</p>
-        $Content
-        $Form
-        <img src="{$ThemeDir}/dist/images/uiowa--light.png" alt="university of iowa logo" class="sslogin__uilogo">
     </div>
+
+    <% include Footer %>
 
 </body>
 </html>

@@ -1,51 +1,7 @@
-.sslogin {
-    background-color: #e1efee;
-    background-image: url(../images/sslogin-bg.jpg);
-    background-size: cover;
-    background-position: center center;
-    display: flex;
-    height: 100%;
-    padding: 1em;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    &__box {
-        background-color: #fff;
-        border-radius: 4px;
-        box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
-        padding: 2em;
-        max-width: 360px;
-    }
-    & p {
-        font-size: rem-calc(16);
-    }
-    &__mdlogo {
-        margin-bottom: 2em;
-        width: 60%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    &__uilogo {
-        margin-top: 2em;
-        opacity: .5;
-        width: 60%;
-    }
-}
+
 /* log in button */
 #SAMLLoginForm_LoginForm{
     .action{
-        background-color: #399b94;
-        background-image: linear-gradient(#54b3ac, #399b94);
-        border: none;
-        box-shadow: 2px 2px 2px rgba(0,0,0,.1);
-        color: #fff;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        width: 100%;
-        transition: .2s linear;
-        &:hover, &:focus {
-            background-color: #288a83;
-            background-image: linear-gradient(#47a8a1, #288a83);
-        }
+        @extend .button;
     }
 }

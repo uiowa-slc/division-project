@@ -101,18 +101,3 @@ clear: "button clear"
 		padding: 10px;
 	}
 }
-
-
-
-/* Login Button */
-#SAMLLoginForm_LoginForm_action_dologin{
-	-webkit-transition: all 1s ease-out;
-	-moz-transition: all 1s ease-out;
-	-o-transition: all 1s ease-out;
-	transition: all 1s ease-out;
-	background: #FFCD00;
-	background: -webkit-linear-gradient(45deg, #FFCD00 0%,#dbb000 50%,#f0c100 50.01%,#ffe166);
-	background: linear-gradient(45deg, #FFCD00 0%,#dbb000 50%,#f0c100 50.01%,#ffe166);
-	color: #111;
-}
-
