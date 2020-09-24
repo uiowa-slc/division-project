@@ -4,11 +4,17 @@ $Header
 <section class="hero">
     <div class="hero__imgwrap">
         <% if $BackgroundImage %>
-            <picture>
-                <source media="(max-width: 767px)" srcset="$BackgroundImage.FocusFill(800,400).URL">
-                <source media="(min-width: 768px)" srcset="$BackgroundImage.FocusFill(1300,500).URL">
-                <img src="$BackgroundImage.FocusFill(1300,500).URL" alt="$BackgroundImage.Title">
-            </picture>
+            <img 
+                alt="$BackgroundImage.Title" 
+                sizes="(min-width:1440px) 1440px, 100vw" 
+                srcset="
+                    $BackgroundImage.FocusFill(380,146).URL 384w,
+                    $BackgroundImage.FocusFill(768,295).URL 768w,
+                    $BackgroundImage.FocusFill(1024,394).URL 1024w,
+                    $BackgroundImage.FocusFill(1440,554).URL 1440w,
+                    $BackgroundImage.FocusFill(1920,738).URL 1920w" 
+                src="$BackgroundImage.FocusFill(1024,394).URL"
+            >
         <% else %>
             <img src="{$ThemeDir}/dist/images/hero-placeholder.jpg" alt="Students sitting in front of the Old Capitol building ">
         <% end_if %>
