@@ -3,5 +3,6 @@
 #SAMLLoginForm_LoginForm{
     .action{
         @extend .button;
+        @extend .large;
     }
 }
