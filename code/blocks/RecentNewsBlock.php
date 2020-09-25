@@ -21,6 +21,7 @@ class RecentNewsBlock extends BaseElement{
 		'SortBy' => "Enum('Recent,Random,Featured')",
 		'StudentLifeNewsDeptID' => 'Int',
         'StudentLifeNewsTagName' => 'Varchar(255)',
+        'NewsLink' => 'Varchar(255)',
         'HideImages' => 'Boolean',
         'ShowStacked' => 'Boolean',
         'Enclosed' => 'Boolean',
@@ -96,6 +97,7 @@ class RecentNewsBlock extends BaseElement{
 		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
         $fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
+        $fields->addFieldToTab('Root.Main', new TextField('NewsLink', '"View all news link"'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
