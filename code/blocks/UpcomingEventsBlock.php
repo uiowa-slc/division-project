@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
 class UpcomingEventsBlock extends BaseElement{
@@ -15,7 +16,10 @@ class UpcomingEventsBlock extends BaseElement{
 		'GeneralInterestFilterID' => 'Int',
         'KeywordFilterID' => 'Int',
 		'SearchTerm' => 'Varchar(255)',
-		'CalendarLink' => 'Varchar(255)'
+        'CalendarLink' => 'Varchar(255)',
+        'HideImages' => 'Boolean',
+        'ShowStacked' => 'Boolean',
+        'Enclosed' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -109,7 +113,9 @@ class UpcomingEventsBlock extends BaseElement{
 		// $searchTermField->displayIf('Source')->isEqualTo('Search term');
         $keywordDropDownField->displayIf('Source')->isEqualTo('Keyword');
 
-
+        $fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
+        $fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
+        $fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
 
 		return $fields;
 	}

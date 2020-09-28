@@ -1,122 +1,76 @@
-<% if $AreaName == "SidebarArea" %>
-<section class="content-block__container" aria-labelledby="Block$ID">
-	<div class="content-block row column">
-		<div class="upcomingeventsblock">
-			<h3 id="Block$ID" class="sidebar-sect-title">
-                <% if $Title && $ShowTitle %>
-                    $Title
-                <% else %>
-                    Upcoming Events
-                <% end_if %>
-            </h3>
-			<% if $EventList %>
-				<% loop $EventList %>
-					<% include EventCard %>
-				<% end_loop %>
-			<% end_if %>
-		</div>
-		<% if $CalendarLink %>
-			<div class="text-center">
-                <a href="$CalendarLink" class="button tiny hollow secondary">See all events</a>
-            </div>
-		<% end_if %>
-	</div>
-</section>
-
-<% else_if $AreaName == "AfterContentConstrained" %>
-<section class="content-block__container" aria-labelledby="Block$ID">
-    <div class="content-block row column">
-        <div class="upcomingeventsblock">
-            <h3 id="Block$ID">
+<section class="content-block__container upcoming-events" aria-labelledby="Block$ID">
+    <div class="grid-container">
+        <div class="card__head">
+            <h2 class="text-center serif text-semibold h1" id="Block$ID">
                 <% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %>
-            </h3>
-            <% if $EventList %>
-                <% loop $EventList %>
-                    <% include EventCard %>
-                <% end_loop %>
+            </h2>
+            <!-- Link to all news button -->
+            <% if $CalendarLink %>
+                <a href="$CalendarLink" class="button clear">View All Events <i class="fas fa-arrow-right"></i></a>
             <% end_if %>
         </div>
-        <% if $CalendarLink %>
-            <div>
-                <p><a class="button small hollow secondary" href="$CalendarLink">See all events</a></p>
-            </div>
-        <% end_if %>
-    </div>
-</section>
 
-<% else_if $AreaName == "BeforeContentConstrained" %>
-<section class="content-block__container" aria-labelledby="Block$ID">
-    <div class="content-block row column">
-        <div class="upcomingeventsblock">
-            <h3 id="Block$ID">
-                <% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %>
-            </h3>
+        <div class="card__wrapper <% if $ShowStacked %>flex-dir-column<% end_if %>">
             <% if $EventList %>
                 <% loop $EventList %>
-                    <% include EventCard %>
-                <% end_loop %>
-            <% end_if %>
-        </div>
-        <% if $CalendarLink %>
-            <div>
-                <p><a class="button small hollow secondary" href="$CalendarLink">See all events</a></p>
-            </div>
-        <% end_if %>
-    </div>
-</section>
-<% else %>
+                    <div class="card
+                        <% if $Up.ShowStacked %> card--horizontal<% else %> card--row<% end_if %> 
+                        <% if $Up.Enclosed %> card--enclosed<% end_if %> ">
+                        <% if not $Up.HideImages %>
+                            <div class="card__media upcoming-events__media">
+                                <% if $Image.URL %>
+                                    <a href="$Link" style="background-image: url($Image.ThumbURL);" >
+                                        <span class="show-for-sr">$Title</span>
+                                    </a>
+                                <% else_if $Venue.ImageURL %>
+                                    <a href="$Link" style="background-image: url($Venue.ImageURL);" >
+                                        <span class="show-for-sr">$Title</span>
+                                    </a>
+                                <% else %>
+                                    <a href="$Link" style="background-image: url({$ThemeDir}/dist/images/UiCalendarEventPlaceholder.png);" >
+                                        <span class="show-for-sr">$Title</span>
+                                    </a>
+                                <% end_if %>
+                            </div>
+                        <% end_if %>
+                        
+                    <div class="card__body <% if $Up.HideImages %>card__body--noimage<% end_if %>">
+                            <h3 class="card__title">
+                                <a href="$Link">$Title</a>
+                            </h3>
+                    
+                            <%-- Dates --%>
+                            <% if $Dates %>
+                                <p class="">
+                                    <img src="{$ThemeDir}/dist/images/calendar-bw.png" alt="calendar icon" width="16">
+                                    <% loop $Dates.Limit(1) %>
+                                        <% include DateTimesList %>
+                                    <% end_loop %>
+                                </p>
+                            <% else %>
+                                    No upcoming dates.
+                            <% end_if %>
+                    
+                            <%-- Venue --%>
+                            <% if $Venue %>
+                                <p class="">
+                                    <img src="{$ThemeDir}/dist/images/location-bw.png" alt="location icon" width="16">
+                                    $Venue.Title
+                                </p>
+                            <% end_if %>
 
-<!-- Begin Before Content and After Content element area -->
-<section class="content-block__container content-block__container--padding" aria-labelledby="Block$ID">
-    <div class="upcomingeventsblock">
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="cell">
-                    <h3 id="Block$ID" class="element-title">
-                        <% if $Title && $ShowTitle %>$Title<% else %>Upcoming Events<% end_if %>
-                    </h3>
+                            <%-- Summary --%>
+                            <p>$Content.FirstParagraph.LimitCharacters(130)</p>
+                    
+                        </div><!-- end .card__body -->
+                    </div><!-- end .card -->
+                <% end_loop %>
+            <% else %>
+                <div class="card">
+                    <p class="text-center">No events currently listed.</p>
                 </div>
-                <% if $Source == "SilverStripe calendar on this site" %>
-                    <% if $Calendar.UpcomingEvents.Count > 0 %>
-                        <% loop $Calendar.UpcomingEvents.Limit(3) %>
-                            <div class="cell medium-4">
-                                <% include SsEventCard %>
-                            </div>
-                        <% end_loop %>
-                    <% else %>
-                        <div class="cell">
-                            <p>No upcoming events currently listed.</p>
-                        </div>
-                    <% end_if %>
-                <% else %>
-                    <% if $EventList %>
-                        <% loop $EventList %>
-                            <div class="cell medium-4">
-                                <% include EventCard %>
-                            </div>
-                        <% end_loop %>
-                    <% else %>
-                        <div class="cell">
-                            <p>No upcoming events currently listed.</p>
-                        </div>
-                    <% end_if %>
-                <% end_if %>
-                <% if $CalendarLink %>
-                    <div class="cell">
-                        <div class="text-center">
-                            <a class="button small hollow secondary" href="$CalendarLink">See all events</a>
-                        </div>
-                    </div>
-                <% end_if %>
-                <% if $EventList.Count == 0 %>
-                    <div class="cell">
-                        <div class="text-center">
-                            <a class="button small hollow secondary" href="https://afterclass.uiowa.edu" target="_blank">See more events on campus</a>
-                        </div>
-                    </div>
-                <% end_if %>
-            </div>
-        </div>
+            <% end_if %>
+        </div><!-- end .card__wrapper -->
+
     </div>
 </section>
-<% end_if %>

@@ -3,7 +3,7 @@
 .card__wrapper {
     margin: rem-calc(20 0);
     @include breakpoint(medium) {
-        margin: rem-calc(20 0 100 0);
+        margin: rem-calc(20 0 60 0);
         display: flex;
     }
 }
@@ -20,6 +20,47 @@
         }
     }
     
+}
+
+/* Card Head
+--------------------------------------------------- */
+.card__head {
+    flex-wrap: wrap;
+    margin-top: rem-calc(20);
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    @include breakpoint(medium) {
+        margin-top: rem-calc(60);
+        padding: rem-calc(0 0 20 0);
+    }
+    @include breakpoint(large) {
+        display: block;
+    }
+    p {
+        color: #63666A;
+        margin: 0;
+    }
+    .bold-headline {
+        display: block;
+    }
+    .button {
+        flex-basis: 100%;
+        padding-top: 0.625rem;
+        @include breakpoint(medium) {
+            padding-top: 1.05rem;
+        }
+        &.button.clear:hover,
+        &.button.clear:focus {
+            background: transparent;
+        }
+    }
+    h2 {
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 /* Card
@@ -78,7 +119,7 @@
             font-size: rem-calc(16);
         }
         p {
-            margin-bottom: 0;
+            margin-bottom: 5px;
             margin-top: 0;
             a {
                 position: relative;
@@ -182,40 +223,3 @@
 }
 
 
-/* Card Head
---------------------------------------------------- */
-.card__head {
-    flex-wrap: wrap;
-    padding: 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    @include breakpoint(medium) {
-        padding: rem-calc(0 0 30 0);
-    }
-    @include breakpoint(large) {
-        display: block;
-    }
-    p {
-        color: #63666A;
-        margin: 0;
-    }
-    .bold-headline {
-        display: block;
-    }
-    .button {
-        flex-basis: 100%;
-        padding-top: 0.625rem;
-        @include breakpoint(medium) {
-            padding-top: 1.05rem;
-        }
-        &.button.clear:hover,
-        &.button.clear:focus {
-            background: transparent;
-        }
-    }
-    h2 {
-        margin: 0;
-        padding: 0;
-    }
-}

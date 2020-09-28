@@ -1,93 +1,17 @@
-
-
-/*-----------------------------------------
-Before Content, After Content
--------------------------------------------*/
-.elemental-area--BeforeContent .upcomingeventsblock,
-.elemental-area--AfterContent .upcomingeventsblock {
-	& .eventcard {
-        border-bottom: none;
-        &__title {
-            font-size: rem-calc(22);
-        }
-        &__imgwrap {
-            @include breakpoint(medium only) {
-                display: none;
+.upcoming-events {
+    &__media a {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        padding-bottom: 56.25%;
+        .card--horizontal & {
+            @include breakpoint(medium) {
+                margin-bottom: rem-calc(30);
             }
         }
-        &__content {
-            @include breakpoint(medium only) {
-                margin-left: 0;
-            }
-        }
-        &__summary {
-            display: none;
-        }
-	}
-	@include breakpoint(large) {
-		padding: rem-calc(0 0 60 0);
-	}
-}
-
-/*-----------------------------------------
-Sidebar
--------------------------------------------*/
-.elemental-area--SidebarArea .upcomingeventsblock {
-	background-color: $white;
-	border: 1px solid $light-gray;
-	margin-bottom: rem-calc(30);
-	width: 100%;
-	& .eventcard {
-        margin: 0;
-		padding: rem-calc(20);
-		&:last-of-type {
-			border-bottom: none;
-		}
-	}
-	& .eventcard__imgwrap,
-    & .eventcard__summary {
-		display: none;
-	}
-	& .eventcard__content {
-		font-size: rem-calc(14);
-		margin-left: 0;
-	}
-	& .eventcard__title {
-		font-size: rem-calc(18);
-	}
-}
-
-/*-----------------------------------------
-Before/After Constrained
--------------------------------------------*/
-.elemental-area--BeforeContentConstrained,
-.elemental-area--AfterContentConstrained {
-    & .eventcard {
-        margin-bottom: rem-calc(15);
-        padding-bottom: rem-calc(15);
-        &__title {
-            font-size: rem-calc(22);
-        }
-    }
-    & .eventcard__summary {
-        display: none;
-    }
-    & .eventcard__imgwrap {
-        float: right;
-    }
-    & .eventcard__content {
-        margin-left: 0;
-        margin-right: 35%;
     }
 }
-
-
-
-
-
-
-
-
 
 
 

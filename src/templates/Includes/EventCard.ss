@@ -3,7 +3,7 @@
 	<%-- image --%>
 	<div class="eventcard__imgwrap">
 		<% if $Image.URL %>
-			<a href="$Link"><div style="background-image: url($Image.URL);">$Title</div></a>
+			<a href="$Link"><div style="background-image: url($Image.ThumbURL);">$Title</div></a>
 			<%-- <img src="$Image.URL" alt="$Title" class="eventcard-img"> --%>
 		<% else_if $Venue.ImageURL %>
 			<a href="$Link"><div style="background-image: url($Venue.ImageURL);">$Title</div></a>
