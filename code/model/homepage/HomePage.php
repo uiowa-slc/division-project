@@ -3,6 +3,7 @@
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
@@ -18,7 +19,15 @@ use MD\DivisionProject\HomePageController;
 class HomePage extends Page {
 
     private static $db = array(
-        'ShuffleHomePageFeatures' => 'Boolean'
+        'ShuffleHomePageFeatures' => 'Boolean',
+        'SubHeading' => 'Text',
+        'CenterText' => 'Boolean',
+        'ButtonTextOne' => 'Text',
+		'ButtonUrlOne' => 'Text',
+		'ButtonTextTwo' => 'Text',
+		'ButtonUrlTwo' => 'Text',
+		'ButtonTextThree' => 'Text',
+		'ButtonUrlThree' => 'Text'
     );
 
     private static $has_one = array(
@@ -38,21 +47,29 @@ class HomePage extends Page {
     public function getCMSFields() {
         $f = parent::getCMSFields();
 
-
-        // $f->removeByName('Content');
-        // $f->removeByName('BackgroundImage');
         $f->removeByName('InheritSidebarItems');
         $f->removeByName('SidebarLabel');
         $f->removeByName('SidebarItem');
         $f->removeByName('YoutubeBackgroundEmbed');
+        $f->removeByName('Content');
 
 
-        $f->addFieldToTab('Root.Main', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
-            $layoutOptionsField = DropdownField::create(
-                'LayoutType',
-                'Layout type',
-                $this->LayoutTypes()
-            )->setEmptyString('(Default Layout)');
+        // $f->addFieldToTab('Root.Main', CheckboxField::create('ShowChildrenInDropdown','Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+
+        $layoutOptionsField = DropdownField::create(
+            'LayoutType',
+            'Layout type',
+            $this->LayoutTypes()
+        )->setEmptyString('(Default Layout)');
+
+        $f->addFieldToTab('Root.Main', new TextField('SubHeading', 'Text Over Image'));
+        $f->addFieldToTab('Root.Main', new CheckboxField('CenterText', 'Center Text Over Image'));
+        $f->addFieldToTab('Root.Main', new TextField('ButtonTextOne', 'Button Title'));
+		$f->addFieldToTab('Root.Main', new TextField('ButtonUrlOne', 'Button URL'));
+		$f->addFieldToTab('Root.Main', new TextField('ButtonTextTwo', 'Button Title'));
+		$f->addFieldToTab('Root.Main', new TextField('ButtonUrlTwo', 'Button URL'));
+		$f->addFieldToTab('Root.Main', new TextField('ButtonTextThree', 'Button Title'));
+		$f->addFieldToTab('Root.Main', new TextField('ButtonUrlThree', 'Button URL'));
 
 
         // // Begin Default Slider fields
@@ -87,14 +104,6 @@ class HomePage extends Page {
         $f = $this->getShuffledBackgroundFields($f);
 
         $this->extend('updateCMSFields', $f);
-
-
-        // $f->removeByName('Content');
-        // $f->removeByName('BackgroundImage');
-        $f->removeByName('InheritSidebarItems');
-        $f->removeByName('SidebarLabel');
-        $f->removeByName('SidebarItem');
-        $f->removeByName('YoutubeBackgroundEmbed');
 
         return $f;
     }
@@ -171,6 +180,7 @@ class HomePage extends Page {
         }
 
         $newHomePageHeroFeatureGridField = GridField::create('NewHomePageHeroFeature', 'Homepage Features', NewHomePageHeroFeature::get(), $newgridFieldConfig);
+        
         $shuffleHomePageFeaturesField = CheckboxField::create('ShuffleHomePageFeatures', 'Show features in a random order');
 
         $fieldList->push($shuffleHomePageFeaturesField);
