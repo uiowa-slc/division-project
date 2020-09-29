@@ -153,7 +153,7 @@
 				</ul>
 			</div>
 
-			<% if $$SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>
+			<% if $SiteConfig.ButtonUrlOne || $SiteConfig.ButtonUrlTwo || $SiteConfig.ButtonUrlThree %>
 				<div class="footer__buttons">
 					<% if $SiteConfig.ButtonUrlOne %>
 						<a href="$SiteConfig.ButtonUrlOne" class="button hollow footer__give" target="_blank">$SiteConfig.ButtonTextOne <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
