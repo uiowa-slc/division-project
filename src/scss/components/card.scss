@@ -82,6 +82,7 @@
     @include breakpoint(medium) {
         border: none;
         margin-bottom: 0;
+        max-width: 356px;
     }
 
     // Enclosed 
@@ -202,6 +203,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        max-width: none;
         width: 100%;
         margin-bottom: rem-calc(30);
     }
