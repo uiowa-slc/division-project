@@ -9,15 +9,19 @@
         max-height: 55vh;
         display:flex;
         justify-content: center;
-        &:after {
-            background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
-            opacity: .75;
-            content:'';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
+    }
+    &--content {
+        @include breakpoint(medium) {
+            &:after {
+                background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+                opacity: .75;
+                content:'';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+            }
         }
     }
     &--center {
@@ -80,7 +84,10 @@
     background-image: url(../images/BrainRockPattern-White.png);
     background-repeat: repeat;
     &__feature {
-        padding: rem-calc(60 0);
+        padding: rem-calc(30 0);
+        @include breakpoint(medium) {
+            padding: rem-calc(60 0);
+        }
     }
     & .grid-x {
         background: #fff;

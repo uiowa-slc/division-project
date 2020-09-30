@@ -1,7 +1,7 @@
 
 $Header
 
-<section class="hero <% if $CenterText %>hero--center<% end_if %>">
+<section class="hero <% if $SubHeading || $ButtonTextOne %>hero--content<% end_if %> <% if $CenterText %>hero--center<% end_if %>">
     <div class="hero__imgwrap">
         <% if $BackgroundImage %>
             <img 
@@ -20,7 +20,7 @@ $Header
         <% end_if %>
     </div>
 
-    <% if $ButtonUrlOne || $ButtonUrlTwo || $ButtonUrlThree %>
+    <% if $SubHeading || $ButtonUrlOne || $ButtonUrlTwo || $ButtonUrlThree %>
         <div class="hero__contentwrap grid-container">
             <div class="hero__content">
                 <% if $SubHeading %>
