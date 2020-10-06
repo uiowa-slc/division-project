@@ -26,7 +26,7 @@
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/49191f9021.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
+    <% require css("themes/division-subtheme/dist/css/main.css") %>
   </head>
 <body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
 
