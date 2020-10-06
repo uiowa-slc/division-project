@@ -1,18 +1,25 @@
 <?php
 
-
-use SilverStripe\View\Parsers\ShortcodeParser;
-use SilverStripe\ActiveDirectory\Authenticators\SAMLAuthenticator;
-use SilverStripe\Security\Authenticator;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
-use SilverStripe\Control\Director;
-use SilverStripe\Core\Environment;
-use SilverStripe\Core\Manifest\ModuleLoader;
-
-
-
+use SilverStripe\View\Parsers\ShortcodeParser;
 \SilverStripe\ORM\Search\FulltextSearchable::enable();
+
+$replacements = [
+	'/&amp;/u' => '-and-',
+	'/&/u' => '-and-',
+	'/[,]+/u' => '',
+	'/\s|\+/u' => '-', // remove whitespace/plus
+	'/[_.]+/u' => '-', // underscores and dots to dashes
+	'/[^A-Za-z0-9\-]+/u' => '', // remove non-ASCII chars, only allow alphanumeric and dashes
+	'/[\/\?=#:]+/u' => '-', // remove forward slashes, question marks, equal signs, hashes and colons in case multibyte is allowed (and non-ASCII chars aren't removed)
+	'/[\-]{2,}/u' => '-', // remove duplicate dashes
+	'/^[\-]+/u' => '', // Remove all leading dashes
+	'/[\-]+$/u' => '', // Remove all trailing dashes
+];
+Config::modify()->set('SilverStripe\View\Parsers\URLSegmentFilter', 'default_replacements', $replacements);
 
 HtmlEditorConfig::get('cms')->insertButtonsBefore(
 	'styleselect',
@@ -53,14 +60,13 @@ ShortcodeParser::get('default')->register('expand', ['DivisionPage', 'ExpandShor
 ShortcodeParser::get('default')->register('staffholder', ['DivisionPage', 'StaffHolderShortcode']);
 
 TinyMCEConfig::get('cms')
-    ->addButtonsToLine(1, 'styleselect')
-    ->setOption('paste_remove_spans', true)
-    ->setOption('paste_remove_styles', true)
-    ->setOption('paste_strip_class_attributes', 'all');
+	->addButtonsToLine(1, 'styleselect')
+	->setOption('paste_remove_spans', true)
+	->setOption('paste_remove_styles', true)
+	->setOption('paste_strip_class_attributes', 'all');
 
 $path = ModuleLoader::getModule('md/division-project')
-    ->getResource('client/expand-shortcode/editor_plugin.js');
+	->getResource('client/expand-shortcode/editor_plugin.js');
 
 HtmlEditorConfig::get('cms')->enablePlugins(['expander' => $path]);
 TinyMCEConfig::get('cms')->insertButtonsAfter('unlink', 'expander-button');
-
