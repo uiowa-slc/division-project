@@ -1,4 +1,24 @@
 .clearfix:before,
-.clearfix:after { content: " ";display: table;}
-.clearfix:after { clear: both;}
-.clearfix { *zoom: 1;}
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

@@ -57,7 +57,7 @@ $Header
                 $GoogleMap
               <% end_if %>
               <% if $WebsiteLink %>
-              <p><a href="$WebsiteLink" class="button large" target="_blank"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %>  <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+              <p><a href="$WebsiteLink" class="button large" target="_blank"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %>  <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
               <% end_if %>
               <% if $Links %>
                 <h2>Additional information:</h2>

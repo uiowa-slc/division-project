@@ -24,7 +24,12 @@
     {$GoogleFonts}
 
     <!-- Font Awesome Kit -->
-    <script src="https://kit.fontawesome.com/49191f9021.js" crossorigin="anonymous"></script>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
 
     <% require css("themes/division-subtheme/dist/css/main.css") %>
   </head>
@@ -36,7 +41,7 @@
 
     $BetterNavigator
 
-   <% require javascript("https://code.jquery.com/jquery-3.5.1.min.js" ) %>
+   <% require javascript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ) %>
    <% require javascript("themes/division-subtheme/dist/scripts/app.js") %>
     $Analytics
   </body>

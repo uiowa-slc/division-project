@@ -27,7 +27,7 @@
 
 
         <% if $WebsiteLink %>
-        <p><a href="$WebsiteLink" target="_blank" class="button small"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %> <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+        <p><a href="$WebsiteLink" target="_blank" class="button small"><% if $WebsiteLinkButtonText %>$WebsiteLinkButtonText<% else %>Visit Website<% end_if %> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
         <% end_if %>
 
         <% if $Parent.ShowLastUpdated && $LastEdited.TimeDiff < 604800 %>

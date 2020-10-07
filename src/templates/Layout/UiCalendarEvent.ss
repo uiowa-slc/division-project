@@ -98,7 +98,7 @@ $Header
 				<% end_if %>
 
 				<% if $UiCalendarLink %>
-					<a href="$UiCalendarLink" target="_blank">View on the UI calendar <i class="fa fa-external-link" aria-hidden="true"></i></a>
+					<a href="$UiCalendarLink" target="_blank">View on the UI calendar <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
 				<% end_if %>
 
 			</div>

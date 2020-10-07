@@ -1,7 +1,7 @@
     <div class="footer__copyrightcontainer">
         <div class="footer__copyrightrow">
             <div class="footer__copyright">
-                <p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | <a href="https://opsmanual.uiowa.edu/community-policies/nondiscrimination-statement" target="_blank">Nondiscrimination Statement</a> | <a href="https://uiowa.edu/accessibility" target="_blank">Accessibility</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank">Student Life Communications</a></p>
+                <p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> | <a href="https://opsmanual.uiowa.edu/community-policies/nondiscrimination-statement" target="_blank">Nondiscrimination Statement</a> | <a href="https://uiowa.edu/accessibility" target="_blank">Accessibility</a> | Created by <a href="https://md.studentlife.uiowa.edu/" target="_blank">Student Life Marketing + Design</a></p>
             </div>
             <% if $SiteConfig.MailChimpFormEmbed %>
             <div class="footer__newsletter">
