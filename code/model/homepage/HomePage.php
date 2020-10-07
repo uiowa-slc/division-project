@@ -38,7 +38,6 @@ class HomePage extends Page {
 		$f->removeByName('SidebarLabel');
 		$f->removeByName('SidebarItem');
 		$f->removeByName('YoutubeBackgroundEmbed');
-		$f->removeByName('Content');
 
 		$f->addFieldToTab('Root.Main', TextField::create('SubHeading', 'Text Over Image')->setAttribute('maxlength', '100')->setDescription('Maximum length: 100 characters'));
 
@@ -68,8 +67,9 @@ class HomePage extends Page {
 
 		$f->addFieldToTab('Root.Main', $newHomePageHeroFeatureGridField);
 
-		$this->extend('updateCMSFields', $f);
 		$f->removeByName('LayoutType');
+
+		$f->removeByName('Content');
 		$f->removeByName('Content');
 		return $f;
 	}

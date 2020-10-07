@@ -9,7 +9,6 @@ use SilverStripe\Core\ClassInfo;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\TextareaField;
@@ -164,6 +163,11 @@ class DivisionPage extends DataExtension {
 
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Content')->addExtraClass('stacked'));
 
+		$parent = $this->owner->Parent();
+		if ((isset($parent)) && ($parent->ClassName == 'FeatureHolderPage')) {
+			$f->addFieldToTab('Root.Main', new UploadField('FeatureHolderImage', 'Feature Holder Image (shown in parent)'), 'Content');
+		}
+
 	}
 
 	public function LayoutTypes() {
@@ -190,16 +194,11 @@ class DivisionPage extends DataExtension {
 			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed", "Video"
 			)), 'LayoutType');
 		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
-		$f->addFieldsToTab("Root.Settings", array(
+		$f->addFieldsToTab("Root.Main", array(
 			$fullImgAlt = TextField::create("FullImageAltText", "Alt Text For Background Image (required if image has text in it!)"
 			)->addExtraClass('stacked')), 'LayoutType');
 		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
 
-		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$parent = $this->owner->Parent();
-		if ((isset($parent)) && ($parent->ClassName == 'FeatureHolderPage')) {
-			$f->addFieldToTab('Root.Settings', new UploadField('FeatureHolderImage', 'Feature Holder Image (shown in parent)'), 'Content');
-		}
 	}
 
 	public function getSidebarItems() {
