@@ -16,8 +16,6 @@
 					<h3 class="childpages__title">$Title</h3>
 					<% if $MetaDescription %>
 						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
-					<% else %>
-                        <p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
 					<% end_if %>
 					<span class="button">Learn More <i class="fas fa-arrow-right"></i></span>
 				</div>
