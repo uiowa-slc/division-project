@@ -457,10 +457,10 @@
     /*link layout if there are 8 or more items (don't push it) */
     &:nth-last-child(n+9) .nav__link,
     &:nth-last-child(n+9)~* .nav__link {
-        font-size: rem-calc(18);
+        font-size: rem-calc(16);
 
         @include breakpoint(large) {
-            font-size: rem-calc(16);
+            font-size: rem-calc(14);
         }
 
 
@@ -470,7 +470,7 @@
 
 
         @include breakpoint(xlarge) {
-            font-size: rem-calc(20);
+            font-size: rem-calc(16);
             padding: rem-calc(13) rem-calc(30);
         }
     }
