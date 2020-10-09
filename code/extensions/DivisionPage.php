@@ -34,7 +34,7 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'SidebarArea' => ElementalArea::class,
+		'beforecontentConstrained' => ElementalArea::class,
 		'AfterContentConstrained' => ElementalArea::class,
 		'BeforeContent' => ElementalArea::class,
 		'BeforeContentConstrained' => ElementalArea::class,
@@ -49,7 +49,7 @@ class DivisionPage extends DataExtension {
 		'FeatureHolderImage',
 		'BackgroundImage',
 		'FeatureHolderImage',
-		'SidebarArea',
+		'beforecontentConstrained',
 		'AfterContentConstrained',
 		'BeforeContent',
 		'BeforeContentConstrained',
@@ -100,18 +100,24 @@ class DivisionPage extends DataExtension {
 		// $f = parent::getCMSFields();
 		$f->removeByName("ExtraMeta");
 
-		$sidebarAreaField = $f->dataFieldByName('SidebarArea');
+		$beforecontentConstrainedField = $f->dataFieldByName('beforecontentConstrained');
 
-		if ($sidebarAreaField) {
-			$sidebarAreaField->setTitle('Sidebar');
-			$f->removeByName('SidebarArea');
-			$f->addFieldToTab('Root.Blocks', $sidebarAreaField);
+		if ($beforecontentConstrainedField) {
+			$beforecontentConstrainedField->setTitle('Sidebar');
+			$beforecontentConstrainedConfig = $beforecontentConstrainedField->getConfig();
+			$beforecontentConstrainedConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
+			$f->removeByName('beforecontentConstrained');
+			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
 		}
 
 		$beforecontentField = $f->dataFieldByName('BeforeContent');
 
 		if ($beforecontentField) {
 			$beforecontentField->setTitle('Before Content');
+
+			$beforecontentConfig = $beforecontentField->getConfig();
+			$beforecontentConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
+
 			$f->remove($beforecontentField);
 			$f->addFieldToTab('Root.Blocks', $beforecontentField);
 		}
@@ -120,6 +126,8 @@ class DivisionPage extends DataExtension {
 
 		if ($beforecontentConstrainedField) {
 			$beforecontentConstrainedField->setTitle('Before Content (Constrained)');
+			$beforecontentConstrainedConfig = $beforecontentConstrainedField->getConfig();
+			$beforecontentConstrainedConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('BeforeContentConstrained');
 			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
 		}
@@ -128,6 +136,8 @@ class DivisionPage extends DataExtension {
 
 		if ($aftercontentAreaField) {
 			$aftercontentAreaField->setTitle('After Content');
+			$aftercontentAreaConfig = $aftercontentAreaField->getConfig();
+			$aftercontentAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('AfterContent');
 			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);
 		}
@@ -136,6 +146,8 @@ class DivisionPage extends DataExtension {
 
 		if ($aftercontentConstrainedField) {
 			$aftercontentConstrainedField->setTitle('After Content (Constrained)');
+			$aftercontentConstrainedAreaConfig = $aftercontentConstrainedField->getConfig();
+			$aftercontentConstrainedAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('AfterContentConstrained');
 			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);
 		}
