@@ -1,5 +1,5 @@
 <div class="lp-uiowa-bar">
-	<% include DivisionBar %>
+	<% include IowaBar %>
 </div>
 
 
