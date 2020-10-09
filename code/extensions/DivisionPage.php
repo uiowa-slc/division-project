@@ -3,6 +3,7 @@
 use DNADesign\Elemental\Models\ElementalArea;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Blog\Model\Blog;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\ClassInfo;
@@ -34,7 +35,7 @@ class DivisionPage extends DataExtension {
 	);
 
 	private static $has_one = array(
-		'beforecontentConstrained' => ElementalArea::class,
+		'SidebarArea' => ElementalArea::class,
 		'AfterContentConstrained' => ElementalArea::class,
 		'BeforeContent' => ElementalArea::class,
 		'BeforeContentConstrained' => ElementalArea::class,
@@ -49,7 +50,7 @@ class DivisionPage extends DataExtension {
 		'FeatureHolderImage',
 		'BackgroundImage',
 		'FeatureHolderImage',
-		'beforecontentConstrained',
+		'SidebarArea',
 		'AfterContentConstrained',
 		'BeforeContent',
 		'BeforeContentConstrained',
@@ -99,15 +100,22 @@ class DivisionPage extends DataExtension {
 	public function updateCMSFields(FieldList $f) {
 		// $f = parent::getCMSFields();
 		$f->removeByName("ExtraMeta");
+		$f->removeByName("Dependent");
 
-		$beforecontentConstrainedField = $f->dataFieldByName('beforecontentConstrained');
+		if (!($this->owner instanceof Blog) && !($this->owner instanceof BlogPost)) {
 
-		if ($beforecontentConstrainedField) {
-			$beforecontentConstrainedField->setTitle('Sidebar');
-			$beforecontentConstrainedConfig = $beforecontentConstrainedField->getConfig();
-			$beforecontentConstrainedConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
-			$f->removeByName('beforecontentConstrained');
-			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
+			$f->removeByName("Widgets");
+
+		}
+
+		$SidebarAreaField = $f->dataFieldByName('SidebarArea');
+
+		if ($SidebarAreaField) {
+			$SidebarAreaField->setTitle('Sidebar');
+			$SidebarAreaConfig = $SidebarAreaField->getConfig();
+			$SidebarAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
+			$f->removeByName('SidebarArea');
+			$f->addFieldToTab('Root.Blocks', $SidebarAreaField);
 		}
 
 		$beforecontentField = $f->dataFieldByName('BeforeContent');
