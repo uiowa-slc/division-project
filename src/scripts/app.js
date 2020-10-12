@@ -372,3 +372,23 @@ if ($('#topic-tabs').length) {
 	$('#topic-tabs').foundation('selectTab', $('.tabs-panel').first());
 }
 
+/*-------------------------------------------------*/
+// Homepage Video Play/Pause Button
+/*-------------------------------------------------*/
+var myVideo = document.getElementById("hero__video");
+var playbtn = document.getElementById("play-pause");
+function playPause() { 
+    if (myVideo.paused) 
+        myVideo.play(),
+        playbtn.setAttribute('aria-pressed', 'false'),
+        playbtn.setAttribute('aria-label', 'pause'),
+        playbtn.className = "pause",
+        playbtn.innerHTML = "<span class='show-for-sr'>Pause</span>";
+    else 
+        myVideo.pause(),
+        playbtn.setAttribute('aria-pressed', 'true'),
+        playbtn.setAttribute('aria-label', 'play'),
+        playbtn.className = "play",
+        playbtn.innerHTML = "<span class='show-for-sr'>Play</span>";
+        
+}

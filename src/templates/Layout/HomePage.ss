@@ -1,23 +1,25 @@
 
 $Header
 
-<section class="hero <% if $SubHeading || $ButtonTextOne %>hero--content<% end_if %> <% if $CenterText %>hero--center<% end_if %>">
-    <div class="hero__imgwrap">
-        <% if $BackgroundImage %>
-            <img 
-                alt="$BackgroundImage.Title" 
-                sizes="(min-width:1440px) 1440px, 100vw" 
-                srcset="
-                    $BackgroundImage.FocusFill(380,146).URL 384w,
-                    $BackgroundImage.FocusFill(768,295).URL 768w,
-                    $BackgroundImage.FocusFill(1024,394).URL 1024w,
-                    $BackgroundImage.FocusFill(1440,554).URL 1440w,
-                    $BackgroundImage.FocusFill(1920,738).URL 1920w" 
-                src="$BackgroundImage.FocusFill(1024,394).URL"
-            >
-        <% else %>
-            <img src="{$ThemeDir}/dist/images/hero-placeholder.jpg" alt="Students sitting in front of the Old Capitol building ">
+<div class="hero <% if $SubHeading || $ButtonTextOne %>hero--content<% end_if %> hero--$Position">
+    <div class="hero__imgwrap hero__imgwrap--$Size hero__imgwrap--$Background" 
+        <% if $Background = "image" %>
+            <% if $HeroImage %>
+                data-interchange="[$HeroImage.FocusFill(768,400).URL, small], [$HeroImage.FocusFill(1024,400).URL, medium], [$HeroImage.FocusFill(1700,638).URL, large]" style="background-position: {$HeroImage.PercentageX}% {$HeroImage.PercentageY}%"
+            <% else %>
+                style="background-image:url({$ThemeDir}/dist/images/hero-placeholder.jpg)"
+            <% end_if %>
         <% end_if %>
+    >
+        <% if $Background = "video" %>
+            <button onclick="playPause()" id="play-pause" class="pause" role="button" aria-pressed="false" aria-label="pause">
+                <span class="show-for-sr">Pause</span>
+            </button>
+            <video autoplay muted loop id="hero__video">
+                <source src="$HeroVideo.URL" type="video/mp4">
+            </video>
+        <% end_if %>
+        
     </div>
 
     <% if $SubHeading || $ButtonUrlOne || $ButtonUrlTwo || $ButtonUrlThree %>
@@ -38,7 +40,7 @@ $Header
             </div>
         </div>
     <% end_if %>
-</section>
+</div>
 
 $BeforeContent
 

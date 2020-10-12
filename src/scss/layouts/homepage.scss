@@ -5,8 +5,6 @@
     position: relative;
     @include breakpoint(medium) {
         background-color: $black;
-        min-height: 300px;
-        max-height: 55vh;
         display:flex;
         justify-content: center;
     }
@@ -38,12 +36,35 @@
         }
     }
     &__imgwrap {
-        & img {
-            width: 100%;
-        }
+        min-height: 300px;
+        position: relative;
         @include breakpoint(medium) {
-            min-height: 300px;
             flex: 1 100%;
+            min-height: 375px;
+        }
+        @include breakpoint(large) {
+            min-height: 500px;
+        }
+        &--image {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &--small {
+            min-height: 200px;
+            @include breakpoint(medium) {
+                min-height: 300px;
+            }
+            @include breakpoint(large) {
+                min-height: 400px;
+            }
+        }
+        &--large {
+            @include breakpoint(medium) {
+                min-height: 500px;
+            }
+            @include breakpoint(large) {
+                min-height: 625px;
+            }
         }
     }
     &__contentwrap {
@@ -75,6 +96,43 @@
                 font-size: rem-calc(50);
             }
         }
+    }
+}
+#hero__video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+#play-pause {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    color: $black;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    &::before {
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 15px;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+    }
+    &.pause::before {
+        content: "\f04c";
+    }
+    &.play::before {
+        content: "\f04b";
+    }
+    &:hover, &:focus {
+        background-color: $light-gray;
     }
 }
 
