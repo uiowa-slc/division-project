@@ -12,15 +12,19 @@ clear: "button clear"
     letter-spacing: .04rem;
     position: relative;
     text-transform: uppercase;
+
     &.large {
         font-family: $header-font-family;
         font-weight: bold;
         letter-spacing: 0;
     }
+
     & svg {
         margin-left: rem-calc(5); // adds margin to icons
-        color: #fff; /* sets icon color to white */
+        color: #fff;
+        /* sets icon color to white */
     }
+
     &::after {
         content: '';
         position: absolute;
@@ -33,6 +37,7 @@ clear: "button clear"
         transform: translate(-50%, 0) scaleX(0);
         transition: transform 0.3s ease-in-out;
     }
+
     &:focus {
         text-decoration: underline !important;
     }
@@ -42,62 +47,82 @@ clear: "button clear"
 .button:focus::after {
     transform: translate(-50%, 0) scaleX(1);
 }
+
 // Black button
 .button.black {
     & svg {
         color: $highlight; // Icon
     }
+
     &::after {
         background-color: $highlight; // Hover animation
     }
 }
+
 // Hollow styles
 .button.hollow {
     color: $black;
+
     & svg {
         color: $highlight; // Icon
     }
+
     &::after {
         background-color: $highlight; // Hover animation
     }
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
         color: $black;
         border-color: #999;
     }
 }
+
 // Clear Styles - No border
 .button.clear {
     color: $black;
     border: none;
+
     & svg {
         color: $highlight; // Icon
     }
+
     &::after {
         display: none;
     }
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
         color: $black;
         text-decoration: underline;
+
         & svg {
             color: $black;
         }
     }
 }
 
-
+/* fallback style to prevent odd coloring in weird/malformed TinyMCE-made buttons. */
+.button a {
+    text-decoration: none !important;
+    color: $black;
+}
 
 /* miscellanious styles. I'm not sure if we still need these */
 .main-content__text .button {
     text-decoration: none;
 }
-.button--flex-full{
-	display: flex; 
-	height: 100%; 
-	border-radius: 3px;
+
+.button--flex-full {
+    display: flex;
+    height: 100%;
+    border-radius: 3px;
 }
-.button--skinny{
-	padding: 5px;
-	@include breakpoint(large) {
-		padding: 10px;
-	}
+
+.button--skinny {
+    padding: 5px;
+
+    @include breakpoint(large) {
+        padding: 10px;
+    }
 }

@@ -58,7 +58,6 @@ class HomePage extends Page {
         $f->removeByName('SidebarItem');
         $f->removeByName('BackgroundImage');
 		$f->removeByName('YoutubeBackgroundEmbed');
-        $f->removeByName('Content');
         
 
         $f->addFieldToTab(
@@ -124,7 +123,6 @@ class HomePage extends Page {
 
 		$f->addFieldToTab('Root.Main', $newHomePageHeroFeatureGridField);
 
-		$this->extend('updateCMSFields', $f);
 		$f->removeByName('LayoutType');
         $f->removeByName('Content');
         $f->removeByName('BackgroundImage');

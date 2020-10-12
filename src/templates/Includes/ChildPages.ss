@@ -16,8 +16,10 @@
 					<h3 class="childpages__title">$Title</h3>
 					<% if $MetaDescription %>
 						<p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
-					<% else %>
-                        <p class="childpages__summary">$Content.FirstSentence.LimitCharacters(200)</p>
+                    <% else_if $ClassName == "SilverStripe\CMS\Model\RedirectorPage" %>
+                        <% if $Content %>
+                            <p class="childpages__summary">$Content.Plain</p>
+                        <% end_if %>
 					<% end_if %>
 					<span class="button">Learn More <i class="fas fa-arrow-right"></i></span>
 				</div>

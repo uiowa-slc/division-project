@@ -13,8 +13,8 @@ Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - ExtendedElementalAreas
-    - DivisionPage
     - SilverStripe\Widgets\Extensions\WidgetPageExtension
+    - DivisionPage
     - OpenGraphExtension
 PageController:
   extensions:
