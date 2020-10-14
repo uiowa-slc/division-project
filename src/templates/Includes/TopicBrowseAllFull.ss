@@ -1,29 +1,4 @@
 
-<%--
-<% if $FeaturedTopics %>
-  <section class="topicholder-section topicholder-section--light-gray">
-    <div class="grid-container grid-container--1800px">
-      <div class="grid-x grid-padding-x">
-        <div class="cell">
-          <% if $TermPlural %>
-            <h2 class="topicholder-section__heading">Featured $TermPlural</h2>
-          <% else %>
-            <h2 class="topicholder-section__heading">Featured Topics</h2>
-          <% end_if %>
-        </div>
-      </div>
-      <div class="grid-x grid-padding-x small-up-2 medium-up-4">
-        <% loop $FeaturedTopics.Sort('FeaturedSortOrder') %>
-          <div class="cell">
-            <h2 style="font-size: 28px;"><a href="$Link">$Title.LimitCharacters(60)</a></h2>
-            <p style="font-size: 12px;">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
-          </div>
-        <% end_loop %>
-      </div>
-    </div>
-  </section>
-<% end_if %> --%>
-
 
 <% if $AllCats.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">

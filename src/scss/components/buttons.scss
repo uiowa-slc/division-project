@@ -13,6 +13,10 @@ clear: "button clear"
     position: relative;
     text-transform: uppercase;
 
+    &--no-caps {
+        text-transform: none;
+    }
+
     &.large {
         font-family: $header-font-family;
         font-weight: bold;
