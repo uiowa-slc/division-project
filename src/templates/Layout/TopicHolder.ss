@@ -18,11 +18,11 @@ $Header
           <p style="color: white; font-size: 16px; line-height: 2">
             <span class="topic-search-minicats__heading">Browse by category:</span>
             <% loop $AllCats.Sort('Title').Limit(20) %>
-            <span style="display: inline-block; margin: 0 2px;"><a href="$Link" style="color: white; text-decoration: underline;">$Title</a><% if not $Last %>,</span><% end_if %>
+            <span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,</span><% end_if %>
             <% end_loop %>
 
             <% if $AllCats.Count > 20 %>
-              <span class="topic-search-minicats__heading"><a href="#browse-categories" style="color: white; text-decoration: underline;">and more...</a></span>
+              <span class="topic-search-minicats__heading"><a href="#browse-categories" class="topic-search-minicats__link">and more...</a></span>
             <% end_if %>
 
             </p>
@@ -32,7 +32,7 @@ $Header
     </div>
   </div>
 <% else_if $CurrentCategory || $CurrentTag %>
-   
+
   <div class="grid-container">
     <div class="grid-x align-center grid-padding-x">
       <div class="cell">

@@ -170,6 +170,27 @@
 
 }
 
+.topic-search-minicats {
+    color: white;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.topic-search-minicats__cat {
+    display: inline-block;
+    margin: 0 2px;
+
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+.topic-search-minicats__link {
+    color: white;
+    text-decoration: underline;
+}
+
 .topic-search-minicats__heading {
     display: inline;
 
