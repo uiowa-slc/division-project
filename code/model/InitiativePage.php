@@ -1,8 +1,8 @@
 <?php
 
-use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-use MD\DivisionProject\InitiativePageController;
+use SilverStripe\Assets\Image;
+
 class InitiativePage extends Page {
 
 	private static $db = array(
@@ -13,6 +13,10 @@ class InitiativePage extends Page {
 
 		"MainImage" => Image::class,
 
+	);
+
+	private static $owns = array(
+		"MainImage",
 	);
 	private static $can_be_root = false;
 	//public static $allowed_children = array ("BranchPersonPage");
