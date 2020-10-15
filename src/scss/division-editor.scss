@@ -16,24 +16,28 @@
 @import "components/typography";
 @import "layouts/default";
 
-body{
+body {
     margin: 10px;
     font-size: 17px;
 }
+
 .mce-content-body p {
     line-height: 1.5;
 }
 
-img.right{
-	float: right;
+img.right {
+    float: right;
 }
 
-img.left{
-	float: left;
+img.left {
+    float: left;
 }
 
 // tables
-table {margin: 1rem 0;}
+table {
+    margin: 1rem 0;
+}
+
 table thead th,
 table thead td,
 table tbody th,
@@ -41,4 +45,7 @@ table tbody td {
     font-size: rem-calc(15);
     text-align: left;
 }
-table p {margin: 0;}
+
+table p {
+    margin: 0;
+}

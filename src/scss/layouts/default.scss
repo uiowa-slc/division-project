@@ -1,42 +1,44 @@
 .html--no-scroll {
-	overflow: hidden !important;
-	height: 100%;
+    overflow: hidden !important;
+    height: 100%;
 }
 
-body > #BetterNavigator {
-	display: none;
-	top: 200px;
-	@media screen and (min-width: 64em) {
-		display: block;
-	}
+body>#BetterNavigator {
+    display: none;
+    top: 200px;
+
+    @media screen and (min-width: 64em) {
+        display: block;
+    }
 }
 
 .container {
-	//Container utility class.
-	@include grid-row;
+    //Container utility class.
+    @include grid-row;
 }
 
 
-.grid-container--wpadding{
-	padding-top: 40px;
-	padding-bottom: 40px;
+.grid-container--wpadding {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
-.grid-container--1800px{
-	max-width: 1800px;
+.grid-container--1800px {
+    max-width: 1800px;
 }
 
 body {
-	transition: background-color 1s;
-	font-size: rem-calc(16);
-	font-size: calc(16px + 3 * ((100vw - 320px) / (1024 - 320)));
-	@include breakpoint(large) {
-		font-size: rem-calc(19);
-	}
+    transition: background-color 1s;
+    font-size: rem-calc(16);
+    font-size: calc(16px + 3 * ((100vw - 320px) / (1024 - 320)));
+
+    @include breakpoint(large) {
+        font-size: rem-calc(19);
+    }
 }
 
 .body--search-active {
-	background-color: #ddd;
+    background-color: #ddd;
 }
 
 /* Prevents img without src to appear */
@@ -54,142 +56,140 @@ img:not([src]) {
 /* Main Content/Article Body Styles: */
 
 .main-content {
-	@include grid-column(12);
-	@include breakpoint(large) {
-		@include grid-column(9);
-	}
+    @include grid-column(12);
 
-	h1, h2, h3, h4, h5, h6 {
-		// a:after {
-		// 	@include css-triangle(6px, $anchor-color, right);
-		// 	// margin-bottom: 4px;
-		// 	margin-left: 5px;
-		// 	display: inline-block;
-		// }
-	}
+    @include breakpoint(large) {
+        @include grid-column(9);
+    }
 
-	&--with-padding {
-		padding-top: rem-calc(20);
-		@include breakpoint(large) {
-			padding-top: rem-calc(40);
-		}
-	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        // a:after {
+        //  @include css-triangle(6px, $anchor-color, right);
+        //  // margin-bottom: 4px;
+        //  margin-left: 5px;
+        //  display: inline-block;
+        // }
+    }
 
-	&--with-exit-button-padding{
-		@include breakpoint(large) {
-			padding-left: rem-calc(50);
-		}
-		@include breakpoint(xxlarge) {
-			padding-left: 1.25rem;
-		}
-	}
+    &--with-padding {
+        padding-top: rem-calc(20);
 
-	&--with-sidebar {
-		@include breakpoint(large) {
-			@include grid-column-offset(0);
-		}
-	}
+        @include breakpoint(large) {
+            padding-top: rem-calc(40);
+        }
+    }
 
-	&--full-width {
-		@include grid-column-position(center);
-	}
+    &--with-exit-button-padding {
+        @include breakpoint(large) {
+            padding-left: rem-calc(50);
+        }
 
-	&__container {
-		transition: filter 1s;
-	}
+        @include breakpoint(xxlarge) {
+            padding-left: 1.25rem;
+        }
+    }
 
-	&__container--grayscale {
-		filter: grayscale(90%);
-	}
+    &--with-sidebar {
+        @include breakpoint(large) {
+            @include grid-column-offset(0);
+        }
+    }
 
-	&__text {
-		//Hack to disable in-content headers
-		// h1 {
-		// 	display: none;
-		// }
-		& > h2:first-child, & > h3:first-child {
-			margin-top: 0;
-		}
+    &--full-width {
+        @include grid-column-position(center);
+    }
+
+    &__container {
+        transition: filter 1s;
+    }
+
+    &__container--grayscale {
+        filter: grayscale(90%);
+    }
+
+    &__text {
+
+        //Hack to disable in-content headers
+        // h1 {
+        //  display: none;
+        // }
+        &>h2:first-child,
+        &>h3:first-child {
+            margin-top: 0;
+        }
+
         & p a {
             text-decoration: underline;
         }
-	}
+    }
 
-	&__main-img{
-		padding-left: rem-calc(10);
-		padding-bottom: rem-calc(10);
-		padding-top: rem-calc(10);
+    &__main-img {
+        padding-left: rem-calc(10);
+        padding-bottom: rem-calc(10);
+        padding-top: rem-calc(10);
 
-		display: block;
+        display: block;
 
-		@include breakpoint(medium) {
-		float: right;
-	}
-	}
-	&__small-all-caps{
-		text-transform: uppercase;
-		font-size: rem-calc(13);
-	}
-	&__header {
-		border-bottom: 4px solid rgba(0,0,0,.1);
-		margin: rem-calc(40 0 0);
-		padding-bottom: rem-calc(12);
-		& h1 {
-			margin-bottom: 0;
-			margin-top: 0;
-		}
-	}
+        @include breakpoint(medium) {
+            float: right;
+        }
+    }
 
-	/* SilverStripe / TinyMCE Image Styles (non BEM!!) */
+    &__small-all-caps {
+        text-transform: uppercase;
+        font-size: rem-calc(13);
+    }
 
-	img.right {
-		float: none !important;
-		@include breakpoint(medium) {
-			float: right !important;
-			margin-left: 1em;
-			margin-bottom: 1em;
-		}
-	}
+    &__header {
+        border-bottom: 4px solid rgba(0, 0, 0, .1);
+        margin: rem-calc(40 0 0);
+        padding-bottom: rem-calc(12);
 
-	img.left {
-		float: none !important;
-		@include breakpoint(medium) {
-			float: left !important;
-			margin-right: 1em;
-			margin-bottom: 1em;
-		}
-	}
+        & h1 {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    }
+
+
+
 }
 
-.full-image{
+.full-image {
 
-	&__img{
-		display: block;
-		width: 100%;
-	}
+    &__img {
+        display: block;
+        width: 100%;
+    }
 }
+
 .sidebar {
-	@include grid-column(12);
-	margin: rem-calc(20 0);
-	@include breakpoint(large) {
-		@include grid-column(3);
-		@include grid-column-offset(1);
-		margin: rem-calc(40 0);
-	}
+    @include grid-column(12);
+    margin: rem-calc(20 0);
+
+    @include breakpoint(large) {
+        @include grid-column(3);
+        @include grid-column-offset(1);
+        margin: rem-calc(40 0);
+    }
 }
 
-.dp-sticky{
-	@include breakpoint(large) {
-		position: sticky;
-		top: 0;
-	}
+.dp-sticky {
+    @include breakpoint(large) {
+        position: sticky;
+        top: 0;
+    }
 
-	&--medium{
-		@include breakpoint(medium) {
-			position: sticky;
-			top: 0;
-		}
+    &--medium {
+        @include breakpoint(medium) {
+            position: sticky;
+            top: 0;
+        }
 
-	}
+    }
 }
-

@@ -1,0 +1,60 @@
+/*-----------------------------------------------
+    SilverStripe / TinyMCE Image and Caption Styles)
+    ------------------------------------------------*/
+
+.captionImage {
+    margin-bottom: rem-calc(20);
+    max-width: 100%;
+
+    &.left,
+    &.right {
+        margin-bottom: rem-calc(20);
+
+        & img.left,
+        & img.right {
+            float: none !important;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 480px) {
+            float: none;
+            margin: 0 0 1em 0;
+        }
+    }
+
+    &.left {
+        float: left;
+        margin-right: rem-calc(20);
+    }
+
+    &.right {
+        float: right;
+        margin-left: rem-calc(20);
+    }
+}
+
+.caption {
+    font-size: rem-calc(14);
+    margin: 1em 0 0;
+    font-style: italic;
+}
+
+img.right {
+    float: none !important;
+
+    @include breakpoint(medium) {
+        float: right !important;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
+}
+
+img.left {
+    float: none !important;
+
+    @include breakpoint(medium) {
+        float: left !important;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+}
