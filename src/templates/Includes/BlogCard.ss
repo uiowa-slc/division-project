@@ -24,7 +24,7 @@
             <% if $Summary %>
                 <div>$Summary</div>
             <% else %>
-                <p>$Content.FirstParagraph.LimitCharacters(150)</p>
+                <p>$Content.FirstSentence</p>
                 <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
             <% end_if %>
         <% end_if %>
