@@ -173,7 +173,7 @@ class DivisionPage extends DataExtension {
 		}
 
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (1600 x 500)'), 'Content');
+			$f->addFieldToTab('Root.Main', UploadField::create('BackgroundImage', 'Background Image')->setDescription('Preferred image dimensions: 1600 x 500'), 'Content');
 		}
 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo', '<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
