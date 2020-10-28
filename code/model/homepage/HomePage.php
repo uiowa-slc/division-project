@@ -119,6 +119,7 @@ class HomePage extends Page {
 		$f->removeByName('LayoutType');
 		$f->removeByName('Content');
 		$f->removeByName('Content');
+		$f->removeByName('Metadata');
 		$f->removeByName('MetaDescription');
 		$f->removeByName('BackgroundImage');
 		return $f;
