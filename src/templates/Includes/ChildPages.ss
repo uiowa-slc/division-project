@@ -15,7 +15,7 @@
                 <div class="clearfix childpages__content">
                     <h3 class="childpages__title">$Title</h3>
                     <% if $MetaDescription %>
-                        <p class="childpages__summary">$MetaDescription.LimitCharacters(200)</p>
+                        <p class="childpages__summary">$MetaDescription</p>
                     <% else %>
                         <% if $Content %>
                             <p class="childpages__summary">$Content.FirstSentence</p>
