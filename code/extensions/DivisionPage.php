@@ -199,9 +199,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages', 'Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown', 'Show child pages in a dropdown menu if page is in the top bar (Yes)'));
-		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
-		//I hate this. It needs to be moved to Root.Settings, but it breaks the homepage slider. Either this
-		//block or the settings area or both need to be refactored.
+		// $f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
 
 		$layoutOptionsField = DropdownField::create(
 			'LayoutType',
