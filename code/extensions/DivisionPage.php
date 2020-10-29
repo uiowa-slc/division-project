@@ -173,7 +173,7 @@ class DivisionPage extends DataExtension {
 		}
 
 		if (Permission::check('ADMIN')) {
-			$f->addFieldToTab('Root.Main', new UploadField('BackgroundImage', 'Background Image (1600 x 500)'), 'Content');
+			$f->addFieldToTab('Root.Main', UploadField::create('BackgroundImage', 'Background Image')->setDescription('Preferred image dimensions: 1600 x 500'), 'Content');
 		}
 		$f->addFieldToTab('Root.SocialMediaSharing', new LiteralField('SocialMediaInfo', '<p>All information placed in the fields below will override any fields filled out in the "Main Content" tab. <br /><em><a href="https://md.studentlife.uiowa.edu/clients/digital-marketing/sharing-content-on-facebook-best-practices/">Sharing content on Facebook: best practices &rarr;</a></em></p>'));
 
@@ -199,9 +199,7 @@ class DivisionPage extends DataExtension {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages', 'Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown', 'Show child pages in a dropdown menu if page is in the top bar (Yes)'));
-		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
-		//I hate this. It needs to be moved to Root.Settings, but it breaks the homepage slider. Either this
-		//block or the settings area or both need to be refactored.
+		// $f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
 
 		$layoutOptionsField = DropdownField::create(
 			'LayoutType',

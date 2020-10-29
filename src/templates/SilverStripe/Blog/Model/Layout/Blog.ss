@@ -9,9 +9,12 @@ $Header
 
 	<% if not $BackgroundImage %>
         <div class="column row">
-            $Breadcrumbs
-            <h1>$Title</h1>
+            <div class="main-content__header">
+                $Breadcrumbs
+                <h1>$Title</h1>
+            </div>
         </div>
+
 	<% end_if %>
 
 	$BeforeContent

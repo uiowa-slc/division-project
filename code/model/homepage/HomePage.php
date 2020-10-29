@@ -90,7 +90,7 @@ class HomePage extends Page {
 				)->setValue('center')
 		);
 
-		$f->addFieldToTab('Root.Main', TextField::create('SubHeading', 'Text Over Image')->setAttribute('maxlength', '100')->setDescription('Maximum length: 100 characters'));
+		$f->addFieldToTab('Root.Main', TextField::create('SubHeading', 'Text Over Image')->setAttribute('maxlength', '150')->setDescription('Maximum length: 150 characters'));
 		$f->addFieldToTab('Root.Main', new TextField('ButtonTextOne', 'Button Text'));
 		$f->addFieldToTab('Root.Main', new TextField('ButtonUrlOne', 'Button URL'));
 		$f->addFieldToTab('Root.Main', new TextField('ButtonTextTwo', 'Button Text'));
@@ -119,6 +119,7 @@ class HomePage extends Page {
 		$f->removeByName('LayoutType');
 		$f->removeByName('Content');
 		$f->removeByName('Content');
+		$f->removeByName('Metadata');
 		$f->removeByName('MetaDescription');
 		$f->removeByName('BackgroundImage');
 		return $f;

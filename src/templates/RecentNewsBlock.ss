@@ -16,17 +16,14 @@
                     <% if $Up.ShowStacked %> card--horizontal<% else %> card--row<% end_if %> 
                     <% if $Up.Enclosed %> card--enclosed<% end_if %> ">
                     <% if not $Up.HideImages %>
-                        <div class="card__media">
-                            <% if $FeaturedImage %>
+                        <% if $FeaturedImage %>
+                            <div class="card__media">
+                            
                                 <a href="$Link" class="">
                                     <img src="$FeaturedImage.FocusFill(500,280).URL" class="card__img" loading="lazy" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="$Title" role="presentation" <% end_if %>>
                                 </a>
-                            <% else_if $BackgroundImage %>
-                                <a href="$Link" class="">
-                                    <img src="$FeaturedImage.FocusFill(500,280).URL" loading="lazy" alt="$Title" class="card__img">
-                                </a>
-                            <% end_if %>
-                        </div>
+                            </div>
+                        <% end_if %>
                     <% end_if %>
                     
                 <div class="card__body <% if $Up.HideImages %>card__body--noimage<% end_if %>">

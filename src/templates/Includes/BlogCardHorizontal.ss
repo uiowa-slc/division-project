@@ -1,15 +1,11 @@
 <article class="card card--horizontal">
-    <div class="card__media">
-        <% if $FeaturedImage %>
+    <% if $FeaturedImage %>
+        <div class="card__media">
             <a href="$Link" class="">
                 <img src="$FeaturedImage.FocusFill(500,333).URL" class="card__img" loading="lazy" <% if $FeaturedImageAltText %> alt="$FeaturedImageAltText" <% else %> alt="$Title" role="presentation" <% end_if %>>
             </a>
-        <% else_if $BackgroundImage %>
-            <a href="$Link" class="">
-                <img src="$FeaturedImage.FocusFill(500,333).URL" loading="lazy" alt="$Title" class="card__img">
-            </a>
-        <% end_if %>
-    </div>
+        </div>
+    <% end_if %>
 
     <div class="card__body">
         <h3 class="card__title">
@@ -24,7 +20,7 @@
             <% if $Summary %>
                 <div>$Summary</div>
             <% else %>
-                <p>$Content.FirstParagraph.LimitCharacters(150)</p>
+                <p>$Content.FirstSentence</p>
                 <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
             <% end_if %>
         <% end_if %>
