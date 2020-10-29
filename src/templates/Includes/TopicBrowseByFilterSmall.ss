@@ -12,10 +12,10 @@
         </div>
         <div class="topic-browse-by-filter__grid topic-browse-by-filter__grid--small"  data-equalizer>
         <% loop $AllCats.Sort('Title ASC') %>
-            <div class="topic-browse-by-filter__item topic-browse-by-filter__item--small margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow secondary button--flex-full button--skinny"><span class="topicholder-cat-inner topicholder-cat-inner--small">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
+            <div class="topic-browse-by-filter__item topic-browse-by-filter__item--small margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow black button--flex-full button--skinny"><span class="topicholder-cat-inner topicholder-cat-inner--small">$Title&nbsp;<span class="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
         <% end_loop %>
         <% loop $AllTags.Sort('Title ASC') %>
-            <div class="topic-browse-by-filter__item topic-browse-by-filter__item--small margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow secondary button--flex-full button--skinny"><span class="topicholder-cat-inner topicholder-cat-inner--small">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
+            <div class="topic-browse-by-filter__item topic-browse-by-filter__item--small margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow black button--flex-full button--skinny"><span class="topicholder-cat-inner topicholder-cat-inner--small">$Title&nbsp;<span class="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
           <% end_loop %>
         </div>
       <% end_if %>

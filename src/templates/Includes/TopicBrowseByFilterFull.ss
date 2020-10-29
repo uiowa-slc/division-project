@@ -14,14 +14,14 @@
         <% if not $DisableCategoriesBrowse %>
             <% loop $AllCats.Sort('Title ASC') %>
                 <% if $BlogPosts %>
-                    <div class="topic-browse-by-filter__item margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow secondary button--flex-full button--skinny"><span class="topicholder-cat-inner">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
+                    <div class="topic-browse-by-filter__item margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow black button--flex-full button--skinny"><span class="topicholder-cat-inner">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
                 <% end_if %>
             <% end_loop %>
         <% end_if %>
         <% if not $DisableTagsBrowse %>
             <% loop $AllTags.Sort('Title ASC') %>
                 <% if $BlogPosts %>
-                    <div class="topic-browse-by-filter__item large-4 margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow secondary button--flex-full button--skinny"><span class="topicholder-cat-inner">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
+                    <div class="topic-browse-by-filter__item large-4 margin-bottom-1" data-equalizer-watch><a href="$Link" class="button button--no-caps hollow black button--flex-full button--skinny"><span class="topicholder-cat-inner">$Title&nbsp;<span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a></div>
                 <% end_if %>
             <% end_loop %>
 

@@ -57,9 +57,9 @@ $global-font-size: 100%;
 /* Links
 ----------------------------------------------------*/
 $anchor-color: $primary-color;
-$anchor-color-hover: inherit;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -7%);
 $anchor-text-decoration: none;
-$anchor-text-decoration-hover: underline;
+$anchor-text-decoration-hover: none;
 
 
 /* Header Typography

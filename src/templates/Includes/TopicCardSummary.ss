@@ -15,7 +15,7 @@
 	<div class="topic-card__content<% if $FeaturedImage || $BackgroundImage || $YoutubeBackgroundEmbed %>--wimage<% end_if %>">
 
 		<h3 class="topic-card__heading topic-card__heading--lighter">
-            <a href="$Link" style="color: #005994;">$Title</a>
+            <a href="$Link">$Title</a>
         </h3>
 
 
@@ -46,7 +46,7 @@
         <% if $Categories.exists %>
             <p class="topic-card__category">
                 <% loop $Categories %>
-                    <a href="$Link" class="button hollow tiny secondary" style="border-radius: 4px; margin-bottom: 4px;">$Title</a>
+                    <a href="$Link" class="button hollow tiny black" style="margin-bottom: 4px;">$Title</a>
                 <% end_loop %>
             </p>
         <% end_if %>
