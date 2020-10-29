@@ -2,16 +2,14 @@
 
 /* Branding and Colors
 ----------------------------------------------------*/
-$foundation-palette: (
-	primary: #005994,
-	secondary: #6e6e6e,
-	success: #3adb76,
-	warning: #ffcd00,
-	alert: #cc4b37,
+$foundation-palette: (primary: #005994,
+secondary: #6e6e6e,
+success: #3adb76,
+warning: #ffcd00,
+alert: #cc4b37,
 );
-$button-palette: map-merge($foundation-palette, (
-    gold: #ffcd00,
-    black: #151515,
+$button-palette: map-merge($foundation-palette, (gold: #ffcd00,
+black: #151515,
 )) !default;
 $button-background-hover-lightness: -15%;
 
@@ -34,14 +32,18 @@ $global-lineheight: 1.6;
 
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body-font-family: 'Roboto',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
 $body-antialiased: true;
 
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: 700;
-$global-radius: 2px;
+$global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
@@ -55,21 +57,27 @@ $global-font-size: 100%;
 /* Links
 ----------------------------------------------------*/
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -7%);
+$anchor-color-hover: inherit;
 $anchor-text-decoration: none;
-$anchor-text-decoration-hover: none;
+$anchor-text-decoration-hover: underline;
 
 
 /* Header Typography
 ----------------------------------------------------*/
-$header-font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+$header-font-family: "Roboto Condensed",
+"Arial Narrow",
+sans-serif;
 $header-font-weight: 700;
 $header-font-style: normal;
 $header-lineheight: 1.2;
 $header-margin-bottom: rem-calc(18);
-$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$font-family-monospace: Consolas,
+'Liberation Mono',
+Courier,
+monospace;
 
-$serif-font-family: 'Zilla Slab', serif;
+$serif-font-family: 'Zilla Slab',
+serif;
 
 // commenting out - this was updated to use $header-styles below
 // $header-sizes: (
@@ -90,23 +98,18 @@ $serif-font-family: 'Zilla Slab', serif;
 //     'h6': 20,
 //   ),
 // );
-$header-styles: (
-  'small': (
-    'h1': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 19, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 17, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-  ),
-  'medium': (
-    'h1': ('font-size': 52, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 36, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 30, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 25, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-  ),
+$header-styles: ('small': ('h1': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h3': ('font-size': 19, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h5': ('font-size': 17, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)),
+'medium': ('h1': ('font-size': 52, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h2': ('font-size': 36, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h3': ('font-size': 30, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h4': ('font-size': 25, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h5': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+'h6': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)),
 );
 
 $header-color: inherit;
@@ -120,13 +123,12 @@ $prototype-separator-background: $black;
 
 /* Breakpoints
 ----------------------------------------------------*/
-$breakpoints: (
-	small: 0,
-	mobile: 480px,
-	medium: 768px,
-	large: 1024px,
-	xlarge: 1200px,
-	xxlarge: 1440px,
+$breakpoints: (small: 0,
+mobile: 480px,
+medium: 768px,
+large: 1024px,
+xlarge: 1200px,
+xxlarge: 1440px,
 );
 
 $breakpoint-classes: (small medium large xlarge xxlarge);
@@ -135,13 +137,11 @@ $breakpoint-classes: (small medium large xlarge xxlarge);
 ----------------------------------------------------*/
 $grid-row-width: $global-width;
 $grid-column-count: 12;
-$grid-column-gutter: (
-	small: 30px,
-	medium: 40px,
+$grid-column-gutter: (small: 30px,
+medium: 40px,
 );
-$grid-margin-gutters: (
-    small: 30px,
-    medium: 40px,
+$grid-margin-gutters: (small: 30px,
+medium: 40px,
 );
 
 $grid-column-align-edge: true;
@@ -149,9 +149,9 @@ $block-grid-max: 8;
 
 
 /* Nav Settings */
- $nav-height-small: rem-calc(47);
+$nav-height-small: rem-calc(47);
 
- //following are unused currently:
+//following are unused currently:
 // $nav-height: rem-calc(50);
 // $nav-height-large: rem-calc(66);
 
@@ -208,7 +208,7 @@ $orbit-bullet-diameter: 1.2rem;
 $orbit-bullet-margin: 0.1rem;
 $orbit-bullet-margin-top: 0.8rem;
 $orbit-bullet-margin-bottom: 0.8rem;
-$orbit-caption-background: rgba(0,0,0, 0.6);
+$orbit-caption-background: rgba(0, 0, 0, 0.6);
 $orbit-caption-padding: rem-calc(10);
 $orbit-control-background-hover: rgba($black, 0);
 $orbit-control-padding: 1rem;

@@ -1,26 +1,37 @@
-.accordion{
-	margin-bottom: 0;
+.accordion {
+    margin-bottom: 0;
+
 }
 
-.accordion-item{
-	margin-bottom: 5px;
+.accordion-item {
+    margin-bottom: 1rem;
 }
 
-.accordion-title{
-	font-weight: bold;
-	color: #222;
 
-	span{
-		display: inline-block;
-	}
+
+.accordion-title {
+    font-weight: bold;
+    color: #000;
+    background: #edeceb;
+
+    span {
+        display: inline-block;
+    }
 }
 
-.accordion-content br:first-child{
-	//display: none;
+.accordion-title:focus,
+.accordion-title:hover {
+    color: #000;
+    text-decoration: none;
+    background: #e3e2e0;
 }
 
-.accordion-img{
-	width: 50px;
-	display: inline-block;
-	margin-right: 10px;
+.accordion-content br:first-child {
+    //display: none;
+}
+
+.accordion-img {
+    width: 50px;
+    display: inline-block;
+    margin-right: 10px;
 }

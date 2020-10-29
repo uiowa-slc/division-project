@@ -1,4 +1,3 @@
-
 // 6. Abide
 // --------
 
@@ -13,14 +12,14 @@ $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
 
-$accordion-background: #f1f1f1;
+$accordion-background: #edeceb;
 $accordion-plusminus: true;
 $accordion-title-font-size: rem-calc(18);
-$accordion-item-color: foreground($accordion-background, $primary-color);
-$accordion-item-background-hover: $light-gray;
-$accordion-item-padding: 1.25rem 1rem;
+$accordion-item-color: #000;
+$accordion-item-background-hover: #edeceb;
+$accordion-item-padding: 1rem 1rem;
 $accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-content-border: 1px solid #edeceb;
 $accordion-content-color: foreground($accordion-background, $primary-color);
 $accordion-content-padding: 1rem;
 
@@ -63,11 +62,10 @@ $button-background-hover: scale-color($button-background, $lightness: 0);
 $button-color: $black;
 $button-color-alt: $white;
 $button-radius: $global-radius;
-$button-sizes: (
-  tiny: 0.6rem,
-  small: 0.75rem,
-  default: 0.9rem,
-  large: 1.25rem,
+$button-sizes: (tiny: 0.6rem,
+small: 0.75rem,
+default: 0.9rem,
+large: 1.25rem,
 );
 $button-opacity-disabled: 0.25;
 
@@ -119,10 +117,9 @@ $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
-$dropdown-sizes: (
-  tiny: 100px,
-  small: 200px,
-  large: 400px,
+$dropdown-sizes: (tiny: 100px,
+small: 200px,
+large: 400px,
 );
 
 // 17. Dropdown Menu
@@ -141,12 +138,11 @@ $flexvideo-margin-bottom: rem-calc(16);
 $flexvideo-ratio: 4 by 3;
 $flexvideo-ratio-widescreen: 16 by 9;
 
-$responsive-embed-ratios: (
-  default: 4 by 3,
-  widescreen: 16 by 9,
-  vertical: 9 by 16,
-  panorama: 256 by 81,
-  square: 1 by 1,
+$responsive-embed-ratios: (default: 4 by 3,
+widescreen: 16 by 9,
+vertical: 9 by 16,
+panorama: 256 by 81,
+square: 1 by 1,
 );
 
 // 19. Forms
@@ -183,7 +179,8 @@ $input-border-focus: 1px solid $dark-gray;
 $input-shadow: none;
 $input-shadow-focus: none;
 $input-cursor-disabled: default;
-$input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+$input-transition: box-shadow 0.5s,
+border-color 0.25s ease-in-out;
 $input-number-spinners: true;
 $input-radius: $global-radius;
 
@@ -226,11 +223,9 @@ $meter-fill-bad: $alert-color;
 // 24. Off-canvas
 // --------------
 
-$offcanvas-sizes: (
-  small: 250px,
+$offcanvas-sizes: (small: 250px,
 );
-$offcanvas-vertical-sizes: (
-  small: 250px,
+$offcanvas-vertical-sizes: (small: 250px,
 );
 $offcanvas-background: #333;
 $offcanvas-zindex: -1;
