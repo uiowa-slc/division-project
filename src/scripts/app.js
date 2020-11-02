@@ -377,6 +377,22 @@ if ($('#topic-tabs').length) {
 /*-------------------------------------------------*/
 var myVideo = document.getElementById("hero__video");
 var playbtn = document.getElementById("play-pause");
+var motionQuery = matchMedia('(prefers-reduced-motion)');
+
+
+function reducedMotionCheck() {
+  if (motionQuery.matches) {
+    myVideo.pause();
+    playbtn.innerHTML = "<span class='show-for-sr'>" + "Play" + "</span>";
+    playbtn.classList.remove("pause");
+    playbtn.classList.add("play");
+    playbtn.setAttribute("aria-label", "Play");
+  }
+}
+
+reducedMotionCheck();
+motionQuery.addListener(reducedMotionCheck);
+
 function playPause() { 
     if (myVideo.paused) 
         myVideo.play(),
@@ -390,5 +406,4 @@ function playPause() {
         playbtn.setAttribute('aria-label', 'play'),
         playbtn.className = "play",
         playbtn.innerHTML = "<span class='show-for-sr'>Play</span>";
-        
 }
