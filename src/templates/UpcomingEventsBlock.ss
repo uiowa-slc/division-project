@@ -60,7 +60,7 @@
                             <% end_if %>
 
                             <%-- Summary --%>
-                            <p>$Content.FirstParagraph.LimitCharacters(130)</p>
+                            <p class="card__summary">$Content.FirstParagraph.LimitCharacters(130)</p>
                     
                         </div><!-- end .card__body -->
                     </div><!-- end .card -->

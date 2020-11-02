@@ -37,9 +37,9 @@
                 
                         <% if not $Parent.HideSummaries %>
                             <% if $Summary %>
-                                <div>$Summary</div>
+                                <div class="card__summary">$Summary</div>
                             <% else %>
-                                <p>$Content.FirstParagraph.LimitCharacters(140)</p>
+                                <p class="card__summary">$Content.FirstParagraph.LimitCharacters(140)</p>
                                 <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
                             <% end_if %>
                         <% end_if %>
