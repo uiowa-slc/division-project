@@ -2,10 +2,10 @@
 
 <% if $AllCats.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
-            <div class="cell small-12 large-1 show-for-medium"></div>
-            <div class="cell large-11">
+        <div class="grid-container">
+          <div class="row">
+
+            <div class="column large-11">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
@@ -33,10 +33,10 @@
       </div>
  <% else_if $AllTags.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-1 hide-for-large"></div>
-            <div class="cell medium-11">
+        <div class="grid-container">
+          <div class="row">
+
+            <div class="column medium-11">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
@@ -69,9 +69,9 @@
 <% else %>
 
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
-            <div class="cell">
+        <div class="grid-container">
+          <div class="row">
+            <div class="column">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>

@@ -34,8 +34,8 @@ $Header
 <% else_if $CurrentCategory || $CurrentTag %>
 
   <div class="grid-container">
-    <div class="grid-x align-center grid-padding-x">
-      <div class="cell">
+    <div class="column row">
+
         <div class="main-content__header">
         <% if $CurrentCategory.Content || $CurrentTag.Content %>
           <% if $CurrentCategory %>
@@ -66,7 +66,7 @@ $Header
           <% end_if %>
         <% end_if %>
         </div>
-      </div>
+
     </div>
   </div>
 
@@ -115,9 +115,9 @@ $BeforeContent
 
 <div class="grid-container">
 
-  <div class="grid-x grid-padding-x">
-    <div class="cell small-12 large-1 show-for-large"></div>
-    <article class="cell medium-8 large-6">
+  <div class="row">
+
+    <article class="column medium-8">
 
       $BeforeContentConstrained
 
@@ -135,11 +135,9 @@ $BeforeContent
 
 
     </article>
-      <div class="cell small-12 large-1 show-for-large">
 
-      </div>
 
-      <div class="cell medium-4">
+      <div class="column medium-4">
         <div class="dp-sticky dp-sticky--medium">
           <div style="padding-top: 20px;">
             $TopicSearchFormSized("small")

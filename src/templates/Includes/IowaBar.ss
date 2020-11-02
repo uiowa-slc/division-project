@@ -1,6 +1,6 @@
 <% include UiowaAlert %>
 
-<div class="iowa-bar iowa-bar--narrow iowa-bar--{$DarkLightHeader} iowa-bar--{$HeaderType}" data-uids-header>
+<div class="iowa-bar iowa-bar--narrow iowa-bar--light-header iowa-bar--{$HeaderType}" data-uids-header>
     <div class="iowa-bar__container">
         <div class="uids-logo uids-logo--tab">
             <a href="https://www.uiowa.edu">

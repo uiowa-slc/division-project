@@ -1,11 +1,13 @@
 
+<%-- This template is just meant to show a full list of topics sorted by
+category (preferred) or if there aren't any categories, then sort by tags. --%>
 
 <% if $AllCats.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
+        <div class="grid-container">
+          <div class="row column">
 
-            <div class="cell large-12">
+
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
@@ -29,16 +31,16 @@
 
                 </ul>
             </div>
-          </div>
+
         </div>
 
       </div>
  <% else_if $AllTags.Count > 1 %>
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
+        <div class="grid-container">
+          <div class="row column">
 
-            <div class="cell medium-12">
+
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>
@@ -61,7 +63,6 @@
                     <% end_loop %>
 
                 </ul>
-            </div>
           </div>
         </div>
 
@@ -71,9 +72,9 @@
 <% else %>
 
       <section class="topicholder-section topicholder-section--gray">
-        <div class="grid-container grid-container--wpadding">
-          <div class="grid-x grid-padding-x">
-            <div class="cell">
+        <div class="grid-container">
+          <div class="row">
+            <div class="column">
                 <% if $TermPlural %>
                   <h2 class="topicholder-section__heading">Browse all $TermPlural.LowerCase</h2>
                 <% else %>

@@ -1,5 +1,5 @@
 <% include UiowaAlert %>
-<div id="ui-wrapper" class="ui-wrapper ui-wrapper--{$DarkLightHeader}">
+<div id="ui-wrapper" class="ui-wrapper">
 	<div id="uiowa-bar" class="uiowa-bar" role="region" aria-label="University of Iowa global header">
 		<a href="http://www.uiowa.edu" title="The University of Iowa" id="wordmark-link" class="uiowa--bar--wordmark uiowa--bar--wordmark--uiowa">
 		    <svg aria-labelledby="uiowa-wordmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.8 21.4" id="wordmark" class="uiowalogo uiowalogo--{$DarkLightHeader} uiowalogo--{$HeaderType}">
