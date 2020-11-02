@@ -19,7 +19,7 @@ $Header
 
 	$BeforeContent
 
-	<div class="row">
+	<div class="row <% if not $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>column<% end_if %>">
 		<div role="main" class="main-content main-content--with-padding <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 			$BeforeContentConstrained
 			<div class="main-content__text">
