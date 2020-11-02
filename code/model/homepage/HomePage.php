@@ -3,6 +3,7 @@
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -24,8 +25,7 @@ class HomePage extends Page {
 		'ButtonUrlThree' => 'Text',
 		'Size' => 'Varchar(255)',
 		'Position' => 'Varchar(255)',
-		'TestOne' => 'Text',
-		'TestTwo' => 'Text',
+		'DarkerFeatureBackground' => 'Boolean',
 	);
 
 	private static $has_one = array(
@@ -122,6 +122,14 @@ class HomePage extends Page {
 		$f->removeByName('Metadata');
 		$f->removeByName('MetaDescription');
 		$f->removeByName('BackgroundImage');
+		return $f;
+	}
+
+	public function getSettingsFields() {
+		$f = parent::getSettingsFields();
+
+		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkerFeatureBackground', 'Use darker brain rock background for homepage features')->setDescription('Used if the photos or images on the homepage are lighter/hard to see'));
+
 		return $f;
 	}
 

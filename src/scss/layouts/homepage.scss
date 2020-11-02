@@ -3,17 +3,19 @@
 .hero {
     overflow: hidden;
     position: relative;
+
     @include breakpoint(medium) {
         background-color: $black;
-        display:flex;
+        display: flex;
         justify-content: center;
     }
+
     &--content {
         @include breakpoint(medium) {
             &:after {
-                background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+                background: linear-gradient(0deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
                 opacity: .75;
-                content:'';
+                content: '';
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -22,51 +24,65 @@
             }
         }
     }
+
     &--center {
         text-align: center;
+
         @include breakpoint(medium) {
             align-items: center;
+
             & .hero__contentwrap {
                 bottom: initial;
             }
+
             &:after {
-                background: rgba(0,0,0, .4);
+                background: rgba(0, 0, 0, .4);
                 opacity: 1;
             }
         }
     }
+
     &__imgwrap {
         min-height: 300px;
         position: relative;
+
         @include breakpoint(medium) {
             flex: 1 100%;
             min-height: 375px;
         }
+
         @include breakpoint(large) {
             min-height: 500px;
         }
+
         &--image {
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         &--small {
             min-height: 200px;
+
             @include breakpoint(medium) {
                 min-height: 300px;
             }
+
             @include breakpoint(large) {
                 min-height: 400px;
             }
         }
+
         &--large {
             @include breakpoint(medium) {
                 min-height: 500px;
             }
+
             @include breakpoint(large) {
                 min-height: 625px;
             }
         }
     }
+
     &__contentwrap {
         @include breakpoint(medium) {
             position: absolute;
@@ -75,29 +91,36 @@
             width: 100%;
         }
     }
+
     &__content {
         color: $black;
         padding: rem-calc(20 0);
+
         @include breakpoint(medium) {
             color: $black;
         }
-        & h2  {
+
+        & h2 {
             font-size: calc(100% + 3.5vw);
             margin: rem-calc(0 0 15 0);
             font-family: $serif-font-family;
+
             @include breakpoint(medium) {
                 font-size: calc(100% + 2.5vw);
                 color: #fff;
             }
+
             @include breakpoint(large) {
                 font-size: calc(100% + 3vw);
             }
+
             @include breakpoint(xlarge) {
                 font-size: rem-calc(50);
             }
         }
     }
 }
+
 #hero__video {
     position: absolute;
     right: 0;
@@ -105,6 +128,7 @@
     min-width: 100%;
     min-height: 100%;
 }
+
 #play-pause {
     position: absolute;
     z-index: 1;
@@ -116,6 +140,7 @@
     width: 30px;
     cursor: pointer;
     border-radius: 50%;
+
     &::before {
         font-family: "FontAwesome";
         font-weight: 900;
@@ -125,13 +150,17 @@
         font-variant: normal;
         text-rendering: auto;
     }
+
     &.pause::before {
         content: "\f04c";
     }
+
     &.play::before {
         content: "\f04b";
     }
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
         background-color: $light-gray;
     }
 }
@@ -141,27 +170,40 @@
     background-color: #f8f8f8;
     background-image: url(../images/BrainRockPattern-White.png);
     background-repeat: repeat;
+
+    &--darker-bg {
+        background-color: #333;
+        background-image: url(../images/BrainRockPattern-Black.png);
+    }
+
     &__feature {
         padding: rem-calc(30 0);
+
         @include breakpoint(medium) {
             padding: rem-calc(60 0);
         }
     }
+
     & .grid-x {
         background: #fff;
     }
+
     &__content {
         padding: rem-calc(15);
+
         @include breakpoint(medium) {
             padding: rem-calc(30);
         }
+
         & .button {
             margin-bottom: 0;
         }
+
         & ul {
             list-style: none;
             margin: rem-calc(0 0 18 0);
-            padding:0;
+            padding: 0;
+
             & li {
                 border-bottom: 1px solid $light-gray;
                 font-size: rem-calc(16);
@@ -169,59 +211,69 @@
                 text-decoration: none;
                 display: block;
                 padding: rem-calc(15);
+
                 &:first-of-type {
                     border-top: 1px solid $light-gray;
                 }
+
                 & a {
                     display: block;
                     position: relative;
-                    &:hover, &:focus {
+
+                    &:hover,
+                    &:focus {
                         text-decoration: underline;
                     }
+
                     &:after {
-                        content:"\2192";
+                        content: "\2192";
                         position: absolute;
                         right: 0;
                     }
                 }
-                
+
             }
         }
     }
-    
+
 }
 
 
 // Old Tagline -- remove
 .tagline {
-	@include grid-column(11);
-	@include grid-column-position(center);
-	font-size: rem-calc(29);
-	text-align: center;
-	padding: rem-calc(50 0);
-	&__heading {
-		font-size: rem-calc(15);
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-top: 0;
-	}
-	&__text {
-		font-size: rem-calc(18);
-		line-height: 1.7;
-		@include breakpoint(medium) {
-			font-size: rem-calc(30);
-		}
-	}
-	&__separator {
-		height: rem-calc(3);
-		width: 10%;
-		margin: 20px auto 0;
-		background-color: $highlight;
-	}
-	@include breakpoint(large) {
-		@include grid-column(10);
-		@include grid-column-position(center);
-		padding: rem-calc(100 0);
-	}
+    @include grid-column(11);
+    @include grid-column-position(center);
+    font-size: rem-calc(29);
+    text-align: center;
+    padding: rem-calc(50 0);
+
+    &__heading {
+        font-size: rem-calc(15);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0;
+    }
+
+    &__text {
+        font-size: rem-calc(18);
+        line-height: 1.7;
+
+        @include breakpoint(medium) {
+            font-size: rem-calc(30);
+        }
+    }
+
+    &__separator {
+        height: rem-calc(3);
+        width: 10%;
+        margin: 20px auto 0;
+        background-color: $highlight;
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(10);
+        @include grid-column-position(center);
+        padding: rem-calc(100 0);
+    }
 }
