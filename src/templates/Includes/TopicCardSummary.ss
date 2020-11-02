@@ -1,11 +1,3 @@
-<%-- OLD, BUT STILL WORTH REFERENCING? --%>
-<%-- <div class="cell">
-                      <h2 class="topicholder-featured__heading"><a href="$Link">$Title</a></h2>
-                      <p class="topicholder-featured__preview">$Content.LimitCharacters(90).ATT</p>
-                      <p class="topicholder-featured__meta">Last Edited: $LastEdited.Format("MMMM d, YYYY")</p>
-                    </div>
-
- --%>
 <article class="topic-card <% if $Last %>topic-card--no-border<% end_if %> clearfix">
 	<% if $FeaturedImage %>
 		<a href="$Link" class="topic-card__img">

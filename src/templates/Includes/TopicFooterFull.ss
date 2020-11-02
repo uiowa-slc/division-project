@@ -9,13 +9,15 @@
                   <h2 class="topicholder-section__heading">Recently updated</h2>
                 <% end_if %>
 
-                <div class="row columns medium-up-2">
-                  <% loop $BlogPosts.Limit(4).Sort('LastEdited DESC') %>
-                    <div class="cell">
-                      <% include TopicCardSummary %>
-                    </div>
-                  <% end_loop %>
-                </div>
+                <div class="row large-up-3">
+
+                      <% loop $BlogPosts.Limit(3).Sort('LastEdited DESC') %>
+                        <div class="column column-block">
+                          <% include TopicCardSummary %>
+                          </div>
+                      <% end_loop %>
+
+              </div>
 
 
 

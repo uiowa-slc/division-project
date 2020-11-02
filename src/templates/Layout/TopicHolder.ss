@@ -78,8 +78,8 @@ $BeforeContent
 <% if not $CurrentTag && not $CurrentCategory %>
   <% if $Content %>
     <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-          <article class="cell medium-8 large-
+      <div class="row">
+          <article class="column medium-8 large-
 
           6">
             $BeforeContentConstrained
@@ -94,7 +94,7 @@ $BeforeContent
 
           </article>
 
-          <div class="cell medium-4">
+          <div class="column medium-4">
             <div class="dp-sticky dp-sticky--medium">
               <% include TopicBrowseByFilter %>
             </div>
@@ -102,11 +102,11 @@ $BeforeContent
       </div>
     </div>
   <% else %>
-    <div class="grid-container grid-container--wpadding">
-        <div class="grid-x grid-padding-x">
-          <div class="cell large-12">
+    <div class="grid-container">
+        <div class="row column">
+
               <% include TopicBrowseByFilterFull %>
-          </div>
+
         </div>
     </div>
   <% end_if %><%-- end if content --%>
