@@ -2,7 +2,7 @@
 $Header
 
 <div class="hero <% if $SubHeading || $ButtonTextOne %>hero--content<% end_if %> hero--$Position">
-    <div class="hero__imgwrap hero__imgwrap--$Size hero__imgwrap--$Background" 
+    <div class="hero__imgwrap hero__imgwrap--$Size hero__imgwrap--$Background"
         <% if $Background = "image" %>
             <% if $HeroImage %>
                 data-interchange="[$HeroImage.FocusFill(768,400).URL, small], [$HeroImage.FocusFill(1024,400).URL, medium], [$HeroImage.FocusFill(1700,638).URL, large]" style="background-position: {$HeroImage.PercentageX}% {$HeroImage.PercentageY}%"
@@ -19,7 +19,7 @@ $Header
                 <source src="$HeroVideo.URL" type="video/mp4">
             </video>
         <% end_if %>
-        
+
     </div>
 
     <% if $SubHeading || $ButtonUrlOne || $ButtonUrlTwo || $ButtonUrlThree %>
@@ -46,7 +46,7 @@ $BeforeContent
 
 <!-- Feature Sections -->
 <% if $NewHomePageHeroFeatures %>
-    <div class="homefeatures">
+    <div class="homefeatures <% if $DarkerFeatureBackground %>homefeatures--darker-bg<% end_if %>">
     <% loop NewHomePageHeroFeatures %>
             <div class="homefeatures__feature">
                 <div class="grid-container">
@@ -73,7 +73,7 @@ $BeforeContent
                         </div>
                     </div>
                 </div>
-            </div>        
+            </div>
     <% end_loop %>
     </div>
 <% end_if %>
