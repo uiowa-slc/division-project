@@ -30,10 +30,10 @@ $BeforeContent
 
         <% if $Results || $CategoryResults || $TagResults %>
           <% loop $TagResults %>
-            <a href="/student-life-at-iowa/support/category/diversity%2C-equity%2C-and-inclusion" class="button button--no-caps hollow black button--skinny"><span class="topicholder-cat-inner">$Title <span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a>
+            <a href="$Link" class="button button--no-caps hollow black button--skinny"><span class="topicholder-cat-inner">$Title <span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a>
           <% end_loop %>
           <% loop $CategoryResults %>
-            <a href="/student-life-at-iowa/support/category/diversity%2C-equity%2C-and-inclusion" class="button button--no-caps hollow black button--skinny"><span class="topicholder-cat-inner">$Title <span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a>
+            <a href="$Link" class="button button--no-caps hollow black button--skinny"><span class="topicholder-cat-inner">$Title <span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a>
           <% end_loop %>
           <% loop $Results %>
               <% include TopicCard %>
