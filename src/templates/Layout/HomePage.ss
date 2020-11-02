@@ -54,7 +54,7 @@ $BeforeContent
                         <% if $Image %>
                             <% with $Image %>
                                 <div class="cell small-12 medium-7 <% if $Up.Even %>medium-order-2<% end_if %>">
-                                    <img src="$FocusFill(800,500).URL" alt="$Title" loading="lazy">
+                                    <img src="$FocusFill(800,500).URL" alt="$Title" loading="lazy" width="800" height="500">
                                 </div>
                             <% end_with %>
                         <% end_if %>

@@ -3,8 +3,8 @@ Class names to use in template
 normal: "button"
 black: "button black"
 large: "button large"
-hollow: "button hollow", "button black hollow"
-clear: "button clear"
+hollow: "button hollow", "button hollow black"
+clear: "button clear", "button clear black"
 /*
 
 /* Foundation button changes */
@@ -81,6 +81,11 @@ clear: "button clear"
         color: $black;
         border-color: #999;
     }
+    &.black {
+        & svg {
+            color: $black; // Icon
+        }
+    }
 }
 
 // Clear Styles - No border
@@ -103,6 +108,11 @@ clear: "button clear"
 
         & svg {
             color: $black;
+        }
+    }
+    &.black {
+        & svg {
+            color: $black; // Icon
         }
     }
 }
