@@ -9,7 +9,7 @@
                   <h2 class="topicholder-section__heading">Recently updated</h2>
                 <% end_if %>
 
-                <div class="row large-up-3">
+                <div class="row small-up-1 medium-up-2 large-up-3">
 
                       <% loop $BlogPosts.Limit(3).Sort('LastEdited DESC') %>
                         <div class="column column-block">
