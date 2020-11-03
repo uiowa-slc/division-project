@@ -15,6 +15,8 @@ $Header
           <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
           $TopicSearchFormSized
 
+          <% if $AllCats %>
+
           <p style="color: white; font-size: 16px; line-height: 2">
             <span class="topic-search-minicats__heading">Browse by category:</span>
             <% loop $AllCats.Sort('Title').Limit(20) %>
@@ -26,6 +28,7 @@ $Header
             <% end_if %>
 
             </p>
+            <% end_if %>
         </div>
 
 
