@@ -2,163 +2,207 @@
     Media Queries
 -------------------------------------------*/
 .footer {
-	background: $black;
-	color: $light-gray;
-	&__container {
-		padding: rem-calc(60 0);
-		@include grid-row;
-	}
-	&__info {
-		@include grid-column(12);
-		@include breakpoint(medium) {
-			@include grid-column(6);
-		}
-		@include breakpoint(large) {
-			@include grid-column(4);
-		}
+    background: $black;
+    color: $light-gray;
+
+    &__bar-link {
+
+        &:after {
+            display: inline-block;
+            padding-left: 5px;
+            content: "|"
+        }
+    }
+
+    &__container {
+        padding: rem-calc(60 0);
+        @include grid-row;
+    }
+
+    &__info {
+        @include grid-column(12);
+
+        @include breakpoint(medium) {
+            @include grid-column(6);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(4);
+        }
+
         font-size: rem-calc(16);
-		& a {
-			color: $highlight;
-            &:hover, &:focus {
+
+        & a {
+            color: $highlight;
+
+            &:hover,
+            &:focus {
                 text-decoration: underline;
             }
-        }	
+        }
+
         & svg {
             color: #999;
             margin-right: rem-calc(10);
             text-decoration: none;
-        }	
-	}
-	&__logo {
-		display: block;
-		margin-top: rem-calc(15);
-		margin-bottom: rem-calc(15);
-		img {
-			max-width: 300px;
-			max-height: 130px;
-		}
-		&--ui {
-			// margin-top: rem-calc(20);
-			// margin-bottom: rem-calc(20);
+        }
+    }
 
-		 img {
-				max-width: 200px;
-			}
-		}
-	}
+    &__logo {
+        display: block;
+        margin-top: rem-calc(15);
+        margin-bottom: rem-calc(15);
+
+        img {
+            max-width: 300px;
+            max-height: 130px;
+        }
+
+        &--ui {
+            // margin-top: rem-calc(20);
+            // margin-bottom: rem-calc(20);
+
+            img {
+                max-width: 200px;
+            }
+        }
+    }
+
     &__navigation,
     &__disclaimer {
-		@include grid-column(12);
-		@include breakpoint(medium) {
-			@include grid-column(6);
-		}
-		@include breakpoint(large) {
-			@include grid-column(8);
-		}
-	}
-	&__links {
-		& ul {
-			list-style: none;
-			margin: rem-calc(0 0 20 0);
-			padding: 0;
-			& li {
+        @include grid-column(12);
+
+        @include breakpoint(medium) {
+            @include grid-column(6);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(8);
+        }
+    }
+
+    &__links {
+        & ul {
+            list-style: none;
+            margin: rem-calc(0 0 20 0);
+            padding: 0;
+
+            & li {
                 @include breakpoint(medium) {
                     float: left;
                     width: 50%;
                 }
-			}
-			& li a {
-				color: #fff;
-				display: block;
-				font-size: rem-calc(16);
-				padding: rem-calc(10 5 10 0);
-				&:hover, &:focus {
-					text-decoration: underline;
-				}
-			}
-		}
-	}
-	&__navigation--with-buttons {
-		& .footer__links {
-			@include breakpoint(xlarge) {
-				float: left;
-				width: 60%;
-			}
-		}
-	}
-	&__buttons {
-		@include breakpoint(xlarge) {
-			float: right;
-			width: 37%;
-		}
-	}
-	&__give {
-		color: $light-gray !important;
-		margin: rem-calc(8 0 16 0);
-		&:hover, &:focus {
+            }
+
+            & li a {
+                color: #fff;
+                display: block;
+                font-size: rem-calc(16);
+                padding: rem-calc(10 5 10 0);
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__navigation--with-buttons {
+        & .footer__links {
+            @include breakpoint(xlarge) {
+                float: left;
+                width: 60%;
+            }
+        }
+    }
+
+    &__buttons {
+        @include breakpoint(xlarge) {
+            float: right;
+            width: 37%;
+        }
+    }
+
+    &__give {
+        color: $light-gray !important;
+        margin: rem-calc(8 0 16 0);
+
+        &:hover,
+        &:focus {
             border-color: $highlight !important;
         }
+
         @include breakpoint(xlarge) {
             display: block;
         }
     }
-    
-	&__socialmedia {
-		list-style: none;
+
+    &__socialmedia {
+        list-style: none;
         margin: 0;
         padding: 0;
+
         & li {
             display: inline-block;
         }
-		& li a {
-			font-size: rem-calc(28);
+
+        & li a {
+            font-size: rem-calc(28);
             display: block;
             margin-right: rem-calc(15);
+
             & svg {
                 color: #fff;
                 margin-right: 0;
             }
-			&:hover, &:focus {
+
+            &:hover,
+            &:focus {
                 text-decoration: underline;
+
                 & svg {
                     color: $highlight;
                 }
-			}
-		}
-	}
+            }
+        }
+    }
 
-	&__disclaimer{
-		font-size: rem-calc(14);
-		border-top: 2px solid $dark-gray;
-		padding-top: rem-calc(10);
-	}
-	&__copyrightcontainer {
-		background-color: $highlight;
-		color: $black;
-		font-size: rem-calc(13);
-		padding: rem-calc(12 0);
-	}
-	&__copyrightrow {
-		@include grid-row;
-	}
-	&__copyright {
-		@include grid-column(12);
-		& p {
-			margin-bottom: 0;
-		}
-		& a {
+    &__disclaimer {
+        font-size: rem-calc(14);
+        border-top: 2px solid $dark-gray;
+        padding-top: rem-calc(10);
+    }
+
+    &__copyrightcontainer {
+        background-color: $highlight;
+        color: $black;
+        font-size: rem-calc(13);
+        padding: rem-calc(12 0);
+    }
+
+    &__copyrightrow {
+        @include grid-row;
+    }
+
+    &__copyright {
+        @include grid-column(12);
+
+        & p {
+            margin-bottom: 0;
+        }
+
+        & a {
             color: $black;
-			text-decoration: underline;
-		}
-	}
-	&__newsletter {
-		@include grid-column(12);
-		@include breakpoint(medium) {
-			@include grid-column(6);
-		}
-	}
+            text-decoration: underline;
+        }
+    }
+
+    &__newsletter {
+        @include grid-column(12);
+
+        @include breakpoint(medium) {
+            @include grid-column(6);
+        }
+    }
 }
-
-
-
-
