@@ -9,6 +9,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Security\Permission;
+use Silverstripe\SiteConfig\SiteConfig;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 class HomePage extends Page {
@@ -119,8 +120,8 @@ class HomePage extends Page {
 		$f->removeByName('LayoutType');
 		$f->removeByName('Content');
 		$f->removeByName('Content');
-		$f->removeByName('Metadata');
-		$f->removeByName('MetaDescription');
+		// $f->removeByName('Metadata');
+		// $f->removeByName('MetaDescription');
 		$f->removeByName('BackgroundImage');
 		return $f;
 	}
@@ -131,6 +132,23 @@ class HomePage extends Page {
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('DarkerFeatureBackground', 'Use darker brain rock background for homepage features')->setDescription('Used if the photos or images on the homepage are lighter/hard to see'));
 
 		return $f;
+	}
+
+	public function getMetaDescription() {
+		if ($value = $this->getField('MetaDescription')) {
+			return $value;
+		}
+
+		if ($this->SubHeading) {
+			return $this->SubHeading;
+		}
+
+		$config = SiteConfig::current_site_config();
+
+		if ($config->Tagline) {
+			return $config->Tagline;
+		}
+
 	}
 
 }

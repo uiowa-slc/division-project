@@ -167,7 +167,11 @@ class DivisionPage extends DataExtension {
 
 		if ($metadataField = $f->fieldByName('Root.Main.Metadata')) {
 			$metadataField->setTitle('Summary');
+
 			$f->renameField('MetaDescription', 'Short summary of this content');
+
+			$metaDesc = $f->fieldByName('Root.Main.Metadata.MetaDescription');
+			$metaDesc->setRightTitle('This summary shows up in Google results and pages above this one on this website.');
 			// 	$f->removeFieldFromTab('Root.Main', 'Metadata');
 			// 	$f->addFieldToTab('Root.MetaData', $metadataField);
 		}
