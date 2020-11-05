@@ -7,7 +7,7 @@
   {
     "php": ">=5.5",
     "silverstripe/recipe-plugin": "^1.2",
-    "silverstripe/recipe-cms": "4.6.1@stable",
+    "silverstripe/recipe-cms": "4.6.1",
     "undefinedoffset/sortablegridfield": "*",
     "undefinedoffset/silverstripe-nocaptcha": "*",
     "edgarindustries/youtubefield": "*",
