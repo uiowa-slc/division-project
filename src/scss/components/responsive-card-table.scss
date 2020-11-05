@@ -1,70 +1,73 @@
  .responsive-card-table {
-    border: 1px solid #ccc;
-    width: 100%;
-    margin:0;
-    padding:0;
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
+     border: 1px solid #ccc;
+     width: 100%;
+     margin: 0;
+     padding: 0;
+     border-collapse: collapse;
+     border-spacing: 0;
+ }
 
-  .responsive-card-table thead{
-    background: $yellow;
-  }
+ .responsive-card-table thead {
+     background: $yellow;
+ }
 
-  .responsive-card-table tbody{
-    border: none;
-  }
-  .responsive-card-table tr {
-    border: 1px solid #ddd;
-    padding: 5px;
-  }
+ .responsive-card-table tbody {
+     border: none;
+ }
 
-  .responsive-card-table th, .responsive-card-table td {
-    padding: 10px;
-  }
+ .responsive-card-table tr {
+     border: 1px solid #ddd;
+     padding: 5px;
+ }
 
-  .responsive-card-table th {
-    text-transform: uppercase;
+ .responsive-card-table th,
+ .responsive-card-table td {
+     padding: 10px;
+ }
 
-    letter-spacing: 1px;
-  }
+ .responsive-card-table th {
+     text-transform: uppercase;
+     font-family: $header-font-family;
+ }
 
-  @media screen and (max-width: 600px) {
+ @media screen and (max-width: 600px) {
 
-    .responsive-card-table {
-      border: 0;
-    }
+     .responsive-card-table {
+         border: 0;
+     }
 
-    .responsive-card-table thead {
-      display: none;
-    }
+     .responsive-card-table thead {
+         display: none;
+     }
 
-    .responsive-card-table tr {
-      margin-bottom: 10px;
-      display: block;
-      border-bottom: 2px solid #ddd;
+     .responsive-card-table tr {
+         margin-bottom: 10px;
+         display: block;
+         border-bottom: 2px solid #ddd;
 
 
-    }
+     }
 
-    .responsive-card-table td {
-      display: block;
-      text-align: right;
-      font-size: 13px;
-      border-bottom: 1px dotted #ccc;
-      &:first-child{
-        background: $yellow;
-      }
-    }
+     .responsive-card-table td {
+         display: block;
+         text-align: right;
+         font-size: 13px;
+         border-bottom: 1px dotted #ccc;
 
-    .responsive-card-table td:last-child {
-      border-bottom: 0;
-    }
+         &:first-child {
+             background: $yellow;
+         }
+     }
 
-    .responsive-card-table td:before {
-      content: attr(data-label);
-      float: left;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
+     .responsive-card-table td:last-child {
+         border-bottom: 0;
+     }
+
+     .responsive-card-table td:before {
+         content: attr(data-label);
+         float: left;
+         text-transform: uppercase;
+         font-family: $header-font-family;
+         font-weight: bold;
+     }
+ }
