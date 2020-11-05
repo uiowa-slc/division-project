@@ -30,6 +30,18 @@
      font-family: $header-font-family;
  }
 
+ .responsive-card-table__td-100p {
+     width: 100px;
+ }
+
+ .responsive-card-table__td-150p {
+     width: 150px;
+ }
+
+ .responsive-card-table__td-200p {
+     width: 200px;
+ }
+
  @media screen and (max-width: 600px) {
 
      .responsive-card-table {
@@ -69,5 +81,11 @@
          text-transform: uppercase;
          font-family: $header-font-family;
          font-weight: bold;
+     }
+
+     .responsive-card-table__td-100p,
+     .responsive-card-table__td-150p,
+     .responsive-card-table__td-200p {
+         width: 100%
      }
  }
