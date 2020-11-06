@@ -21,9 +21,11 @@
                 <div class="card__summary">$Summary</div>
             <% else %>
                 <p class="card__summary">$Content.FirstSentence</p>
-                <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
+
             <% end_if %>
+
         <% end_if %>
+        <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
 
     </div>
 </article>
