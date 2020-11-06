@@ -11,7 +11,7 @@
 
                 <div class="row small-up-1 medium-up-2">
 
-                      <% loop $BlogPosts.Limit(3).Sort('LastEdited DESC') %>
+                      <% loop $BlogPosts.Limit(2).Sort('LastEdited DESC') %>
                         <div class="column column-block">
                           <% include TopicCardSummary %>
                           </div>
