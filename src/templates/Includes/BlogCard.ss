@@ -17,7 +17,7 @@
         </h3>
 
         <% if not $Parent.HideDatesAndAuthors %>
-        
+
             <% include AuthorBylineFull %>
         <% end_if %>
 

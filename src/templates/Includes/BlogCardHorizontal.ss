@@ -12,10 +12,8 @@
             <a href="$Link">$Title</a>
         </h3>
 
-        <% if not $Parent.HideDatesAndAuthors && $Credits %>
-
+        <% if not $Parent.HideDatesAndAuthors %>
             <% include AuthorBylineFull %>
-
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>
