@@ -71,17 +71,23 @@
 
 	$BeforeContent
 
-	<div class="row">
-		<article id="page-content" class="main-content <% if not $HideSidebar %><% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %><% else %>main-content--full-width<% end_if %>">
-			<% if $ShowBreadcrumbs %>
-				$Breadcrumbs
-			<% end_if %>
+			<div class="column row">
+		        <div class="main-content__header">
+		            $Breadcrumbs
+					<h1>$Title</h1>
+				</div>
+			</div>
+
+<div class="<% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %><% end_if %><% else %>column<% end_if %> row">
+
+	<div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %><% else %>main-content--full-width<% end_if %>">
+
 			$BeforeContentConstrained
 			<% if $SecondaryImage %>
 				<img class="main-content__main-img" src="$SecondaryImage.FocusCropWidth(600).URL" alt="" role="presentation"/>
 			<% end_if %>
+
 			<div class="main-content__text">
-				<h1>$Title</h1>
 				$Content
 			</div>
 			<% if $Sections %>
@@ -136,7 +142,7 @@
 			<% end_if %>
 			$AfterContentConstrained
 			$Form
-		</article>
+		</div>
 		<% if not $HideSidebar %>
 		<% if $Children %>
 		<aside class="sidebar dp-sticky">
