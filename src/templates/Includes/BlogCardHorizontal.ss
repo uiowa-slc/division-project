@@ -14,7 +14,7 @@
 
         <% if not $Parent.HideDatesAndAuthors && $Credits %>
 
-            <% include Byline %>
+            <% include Author %>
 
         <% end_if %>
 
