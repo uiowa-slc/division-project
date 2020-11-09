@@ -56,7 +56,7 @@ $Header
 
 									<!-- Show Blog publish info -->
 									<% if $PublishDate %>
-										<% include Author %>
+										<% include AuthorBylineFull %>
 									<% end_if %>
 
                                     <% if $MetaDescription %>

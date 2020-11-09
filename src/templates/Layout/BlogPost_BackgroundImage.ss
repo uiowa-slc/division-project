@@ -5,7 +5,7 @@
             <div class="background-image__header">
                 $Breadcrumbs
 				<h1 class="background-image__title">$Title</h1>
-				<% if ClassName == 'BlogPost' %><% include Author %><% end_if %>
+				<% if ClassName == 'BlogPost' %><% include AuthorBylineFull %><% end_if %>
 			</div>
 		</div>
 </div>

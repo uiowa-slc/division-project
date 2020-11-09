@@ -33,7 +33,7 @@
                 
                         <% if not $Parent.HideDatesAndAuthors %>
                             <div class="card__author">
-                                <% include Author %>
+                                <% include AuthorBylineFull %>
                             </div>
                         <% end_if %>
                 

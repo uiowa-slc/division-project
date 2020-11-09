@@ -18,7 +18,7 @@
 
         <% if not $Parent.HideDatesAndAuthors %>
         
-            <% include Author %>
+            <% include AuthorBylineFull %>
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>
