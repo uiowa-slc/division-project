@@ -17,7 +17,7 @@
         </h3>
 
         <% if not $Parent.HideDatesAndAuthors %>
-            <% include Author %>
+            <% include Byline %>
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>

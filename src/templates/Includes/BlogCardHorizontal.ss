@@ -13,14 +13,16 @@
         </h3>
 
         <% if not $Parent.HideDatesAndAuthors && $Credits %>
-            <% include Author %>
+
+            <% include Byline %>
+
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>
             <% if $Summary %>
-                <div class="card__summary">$Summary</div>
+                <div class="card__summary margin-top-1">$Summary</div>
             <% else %>
-                <p class="card__summary">$Content.FirstSentence</p>
+                <p class="card__summary margin-top-1">$Content.FirstSentence</p>
 
             <% end_if %>
 
