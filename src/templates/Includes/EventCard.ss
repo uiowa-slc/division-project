@@ -4,13 +4,11 @@
 	<div class="eventcard__imgwrap">
 		<% if $Image.URL %>
 			<a href="$Link"><div style="background-image: url($Image.ThumbURL);">$Title</div></a>
-			<%-- <img src="$Image.URL" alt="$Title" class="eventcard-img"> --%>
 		<% else_if $Venue.ImageURL %>
 			<a href="$Link"><div style="background-image: url($Venue.ImageURL);">$Title</div></a>
-			<%-- <img src="$Venue.ImageURL" alt="$Venue.Title" class="eventcard-img"> --%>
 		<% else %>
 			<a href="$Link"><div style="background-image: url({$ThemeDir}/dist/images/UiCalendarEventPlaceholder.png);">$Title</div></a>
-			<%-- <img src="{$ThemeDir}/images/LocalistEventPlaceholder.jpg" alt="$Title" class="eventcard-img"> --%>
+
 		<% end_if %>
 	</div>
 
@@ -31,6 +29,13 @@
 			</p>
 		<% else %>
 				No upcoming dates.
+		<% end_if %>
+
+		<%-- Online event stuff --%>
+
+		<% if isOnline %>
+
+		<p><i aria-hidden="true" class="fas fa-laptop-house"></i>Online Event</p>
 		<% end_if %>
 
 		<%-- Venue --%>
