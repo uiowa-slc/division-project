@@ -142,7 +142,7 @@
     border-radius: 50%;
 
     &::before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 15px;
         display: inline-block;
@@ -175,13 +175,14 @@
     @include breakpoint(medium) {
         padding-top: rem-calc(80);
     }
-    
+
     &--darker-bg {
         background-color: #e4e4e4;
     }
 
     &__feature {
         padding-bottom: rem-calc(40);
+
         @include breakpoint(medium) {
             padding-bottom: rem-calc(80);
         }
