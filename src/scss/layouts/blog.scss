@@ -95,14 +95,15 @@ byline
 -------------------------------------------*/
 .byline {
     font-size: rem-calc(14);
+    font-family: 'Zilla Slab';
+    color: #666;
 
     & p {
         margin: 0;
     }
 
     &__profilepic {
-        border-radius
-: 50%;
+        border-radius: 50%;
         margin-right: 3px;
         width: 24px;
         height: 24px;

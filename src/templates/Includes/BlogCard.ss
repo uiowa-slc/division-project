@@ -10,14 +10,15 @@
             </a>
         <% end_if %>
     </div>
-    
+
     <div class="card__body">
         <h3 class="card__title">
             <a href="$Link">$Title</a>
         </h3>
 
         <% if not $Parent.HideDatesAndAuthors %>
-            <% include Author %>
+
+            <% include AuthorBylineFull %>
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>
@@ -25,9 +26,11 @@
                 <div class="card__summary">$Summary</div>
             <% else %>
                 <p class="card__summary">$Content.FirstSentence</p>
-                <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
+
             <% end_if %>
         <% end_if %>
+
+        <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
 
     </div>
 </div>

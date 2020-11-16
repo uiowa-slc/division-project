@@ -68,7 +68,17 @@ $Header
 					<% if $Venue.WebsiteLink %><br><a href="$Venue.WebsiteLink">View Map</a><% end_if %>
 					</p>
 				<% end_if %>
+				<% if isOnline %>
 
+				<p><i aria-hidden="true" class="fas fa-laptop-house"></i>Online Event</p>
+				<% end_if %>
+                    <% if $OnlineLocationUrl %>
+                        <% if $OnlineLocationType == "Zoom" %>
+                            <p><a class="button small hollow black" href="$OnlineLocationUrl" rel="noopener" target="_blank">Zoom link <i aria-hidden="true" class="fas fa-video"></i></a></p>
+                        <% else %>
+                            <p><a class="button small hollow black" href="$OnlineLocationUrl" rel="noopener" target="_blank">Online event link<i aria-hidden="true" class="fas fa-external-link-alt"></i></a></p>
+                        <% end_if %>
+                    <% end_if %>
 				<% if $ContactName %>
 					<p><strong>Contact Name:</strong><br /> $ContactName</p>
 				<% end_if %>
@@ -86,19 +96,19 @@ $Header
 				<% end_if %>
 
 				<% if $MoreInfoLink %>
-					<p><a href="$MoreInfoLink" target="_blank" class="btn btn-default">Website</a></p>
+					<p class="margin-0"><a href="$MoreInfoLink" target="_blank" class="button small hollow black">Website <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></p>
 				<% end_if %>
 
 				<% if $Tags %>
 					<p class="locallistevent-tags"><strong>Tags</strong><br />
 					   <% loop $Tags %>
-					       <a href="$Link" class="$FirstLast">$Title</a>
+					       <a href="$Link" class="button small $FirstLast">$Title</a>
 					   <% end_loop %>
 					</p>
 				<% end_if %>
 
 				<% if $UiCalendarLink %>
-					<a href="$UiCalendarLink" target="_blank">View on the UI calendar <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+					<a href="$UiCalendarLink" class="button small hollow black" target="_blank">View on the UI calendar <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
 				<% end_if %>
 
 			</div>

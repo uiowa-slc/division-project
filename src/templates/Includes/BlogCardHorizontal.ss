@@ -12,18 +12,20 @@
             <a href="$Link">$Title</a>
         </h3>
 
-        <% if not $Parent.HideDatesAndAuthors && $Credits %>
-            <% include Author %>
+        <% if not $Parent.HideDatesAndAuthors %>
+            <% include AuthorBylineFull %>
         <% end_if %>
 
         <% if not $Parent.HideSummaries %>
             <% if $Summary %>
-                <div class="card__summary">$Summary</div>
+                <div class="card__summary margin-top-1">$Summary</div>
             <% else %>
-                <p class="card__summary">$Content.FirstSentence</p>
-                <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                <p class="card__summary margin-top-1">$Content.FirstSentence</p>
+
             <% end_if %>
+
         <% end_if %>
+        <a href="$Link" class="button hollow" aria-label="Continue reading about $Title">Continue Reading <i class="fas fa-arrow-right"></i></a>
 
     </div>
 </article>

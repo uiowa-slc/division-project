@@ -32,7 +32,9 @@
                         </h3>
                 
                         <% if not $Parent.HideDatesAndAuthors %>
-                            <% include Author %>
+                            <div class="card__author">
+                                <% include AuthorBylineFull %>
+                            </div>
                         <% end_if %>
                 
                         <% if not $Parent.HideSummaries %>
