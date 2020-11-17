@@ -5,7 +5,7 @@ $Header
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
-	
+
 <% if not $BackgroundImage %>
 	<div class="column row">
         <div class="main-content__header">
@@ -17,7 +17,7 @@ $Header
 
 $BeforeContent
 
-<div class="row">
+<div class="row <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>column% end_if %>">
 
 	<article role="main" class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
 		$BeforeContentConstrained
