@@ -9,7 +9,7 @@
 						<img src="$BackgroundImage.FocusFill(400,300).URL" alt="$Title">
 					<% end_if %>
 					$Title<br>
-					<em class="blogcard__date">$PublishDate.format("MMM dd, YYYY")</em>
+					<span class="blogcard__date">$PublishDate.format("MMM dd, YYYY")</span>
 				</a>
 			</li>
 		<% end_loop %>

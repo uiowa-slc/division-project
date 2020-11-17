@@ -13,7 +13,7 @@ $Header
 
                     <div class="byline">
                         <p>
-                            <em class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</em>
+                            <span class="byline__on">Updated on: $LastEdited.format("MMMM d, y")</span>
                             <% if $Categories.Count == 1 %><br />
                                 <% loop $Categories.Limit(1) %>Filed under: <a href="$Link" class="topic-single__byline-cat">$Title</a><% end_loop %>
                             </p><% end_if %>

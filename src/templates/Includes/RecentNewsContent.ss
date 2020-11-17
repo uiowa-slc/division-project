@@ -8,6 +8,6 @@
 			<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="dp-lazy" data-original="http://img.youtube.com/vi/$YoutubeBackgroundEmbed/mqdefault.jpg" width="400" height="300" alt="$Title">
 		<% end_if %>
 		$Title<br>
-		<em class="blogcard__date">$PublishDate.format("MMMM d, y")</em>
+		<span class="blogcard__date">$PublishDate.format("MMMM d, y")</span>
 	</a>
 </li>

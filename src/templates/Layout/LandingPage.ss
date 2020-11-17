@@ -78,9 +78,9 @@
 				</div>
 			</div>
 
-<div class="<% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %><% end_if %><% else %>column<% end_if %> row">
+<div class="<% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %><% else %>column<% end_if %><% else %>column<% end_if %> row">
 
-	<div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% end_if %><% else %>main-content--full-width<% end_if %>">
+	<div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %><% else %>main-content--full-width<% end_if %>">
 
 			$BeforeContentConstrained
 			<% if $SecondaryImage %>
