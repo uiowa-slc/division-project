@@ -81,7 +81,7 @@ $BeforeContent
 <% if not $CurrentTag && not $CurrentCategory %>
   <% if $Content %>
     <div class="grid-container">
-      <div class="grid-x">
+      <div class="grid-x grid-margin-x">
           <article class="cell medium-8">
             $BeforeContentConstrained
 
