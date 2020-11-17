@@ -34,7 +34,7 @@ $Header
 			$AfterContentConstrained
 			$Form
 			<% include ChildPages %>
-		</article>
+		</div>
 		<aside class="sidebar">
 			<% include SideNav %>
 			<% if $SideBarView %>
