@@ -2,151 +2,171 @@
 
 /* Background Media */
 
-.bg-media{
-	background-color: $black;
-	padding-bottom: rem-calc(450);
-	position: relative;
-	&--image{
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		height: 400px;
+.bg-media {
+    background-color: $black;
+    padding-bottom: rem-calc(450);
+    position: relative;
 
-	}
-	&--video{
+    &--image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        height: 400px;
 
-	}
+    }
 
-	&--fade{
+    &--video {}
 
-	}
+    &--fade {}
 
-	&--grayscale{
-		filter: grayscale(90%);
-	}
-	@include breakpoint(medium) {
-		padding-bottom: rem-calc(500);
-		overflow: hidden;
-	}
-	@include breakpoint(large) {
-		padding-bottom: rem-calc(650);
-	}
-	@include breakpoint(xlarge) {
-		padding-bottom: rem-calc(650);
-	}
+    &--grayscale {
+        filter: grayscale(90%);
+    }
+
+    @include breakpoint(medium) {
+        padding-bottom: rem-calc(500);
+        overflow: hidden;
+    }
+
+    @include breakpoint(large) {
+        padding-bottom: rem-calc(650);
+    }
+
+    @include breakpoint(xlarge) {
+        padding-bottom: rem-calc(650);
+    }
 }
 
 .background-image {
-	background-color: $black;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: $white;
-	min-height: 300px;
-	overflow: hidden;
-	position: relative;
-	&__header {
-		color: $white;
-		padding: rem-calc(10);
-		position: absolute;
-		bottom: 0;
+    background-color: $black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: $white;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+
+    &__header {
+        color: $white;
+        padding-top: rem-calc(10);
+        padding-bottom: rem-calc(10);
+        position: absolute;
+        bottom: 0;
         z-index: 1;
         width: 100%;
         max-width: 75rem;
+
         @include breakpoint(large) {
-            padding: rem-calc(20);
+            padding-top: rem-calc(20);
+            padding-bottom: rem-calc(20);
+
         }
-	}
+    }
 
-	&__header--has-content{
-		padding-top: rem-calc(40);
-		position: relative;
-		@include breakpoint(large) {
-			padding: rem-calc(150) 0 rem-calc(20);
-		}
-	}
+    &__header--has-content {
+        padding-top: rem-calc(40);
+        position: relative;
 
-	&__title {
-		margin: 0;
-		text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-		@include breakpoint(large) {
-			font-size: rem-calc(65);
-		}
-	}
-	&:after {
-        background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+        @include breakpoint(large) {
+            padding: rem-calc(150) 0 rem-calc(20);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        @include breakpoint(large) {
+            font-size: rem-calc(65);
+        }
+    }
+
+    &:after {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
         opacity: .75;
-		content:'';
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		top: 0;
-	}
-	@include breakpoint(medium) {
-		min-height: 350px;
-	}
-	@include breakpoint(large) {
-		min-height: 450px;
-	}
-	@include breakpoint(xlarge) {
-		min-height: 500px;
-	}
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    @include breakpoint(medium) {
+        min-height: 350px;
+    }
+
+    @include breakpoint(large) {
+        min-height: 450px;
+    }
+
+    @include breakpoint(xlarge) {
+        min-height: 500px;
+    }
 }
 
 
 
 .backgroundvideo {
-	position: relative;
-	&__container {
-		background-color: $black;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		height: 260px;
-		transition: all 0.5s ease;
-		position: relative;
-		overflow: hidden;
-		@include breakpoint(medium) {
-			height: 440px;
-		}
-		@include breakpoint(large) {
-			height: 500px;
-		}
-	}
-	&__container.on {
-		background: $black;
-		height: auto;
-		background-image: none !important;
-		transition: all 0.5s ease;
-	}
-	&__link {
-		background-color: rgba(0,0,0,0);
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		transition: all .5s ease;
-		&:after {
-			content:'';
-			border-radius: 50%;
-			background-color: rgba(0,0,0,.4);
-			background-image: url(../images/play-button.png);
-			background-size: 72px 72px;
-			display: inline-block;
-			width: 72px;
-			height: 72px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			margin-top: -36px;
-			margin-left: -36px;
-		}
-		&:hover, &:focus {
-			background-color: rgba(0,0,0,.2);
-		}
-	}
+    position: relative;
+
+    &__container {
+        background-color: $black;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 260px;
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+
+        @include breakpoint(medium) {
+            height: 440px;
+        }
+
+        @include breakpoint(large) {
+            height: 500px;
+        }
+    }
+
+    &__container.on {
+        background: $black;
+        height: auto;
+        background-image: none !important;
+        transition: all 0.5s ease;
+    }
+
+    &__link {
+        background-color: rgba(0, 0, 0, 0);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: all .5s ease;
+
+        &:after {
+            content: '';
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, .4);
+            background-image: url(../images/play-button.png);
+            background-size: 72px 72px;
+            display: inline-block;
+            width: 72px;
+            height: 72px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -36px;
+            margin-left: -36px;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: rgba(0, 0, 0, .2);
+        }
+    }
 }

@@ -9,7 +9,7 @@
 
 $BeforeContent
 
-<div class="row column">
+<div class="row">
 
 	<div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar <% else %>main-content--full-width<% end_if %>">
 		$BeforeContentConstrained
@@ -27,12 +27,14 @@ $BeforeContent
 		<% end_if %>
 
 	</div>
-	<aside class="sidebar dp-sticky">
-		<% include SideNav %>
-		<% if $SideBarView %>
-			$SideBarView
-		<% end_if %>
-		$SidebarArea
-	</aside>
+    <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>
+    	<aside class="sidebar dp-sticky">
+    		<% include SideNav %>
+    		<% if $SideBarView %>
+    			$SideBarView
+    		<% end_if %>
+    		$SidebarArea
+    	</aside>
+    <% end_if %>
 </div>
 $AfterContent
