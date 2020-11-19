@@ -12,7 +12,7 @@ $Header
 			</div>
 		</div>
 	<% end_if %>
-	
+
     <div class="column row">
         <div class="main-content__header">
             <% if not $BackgroundImage %>
@@ -32,7 +32,7 @@ $Header
             </div>
         </div>
     </div>
-	
+
 
 	$BeforeContent
 
