@@ -17,7 +17,7 @@ $Header
 
 $BeforeContent
 
-<div class="column <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>row<% end_if %>">
+<div class="row">
 
     <div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
         $BeforeContentConstrained
