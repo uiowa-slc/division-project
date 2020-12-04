@@ -17,7 +17,18 @@
 									<% if $LinkOrSection = "section" && Children %>
 										<ul class="sidenav__third-level">
 											<% loop Children %>
-												<li class="sidenav__item sidenav__item--third-level sidenav__item--$LinkingMode"><a class="sidenav__link" href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
+                                                <li class="sidenav__item sidenav__item--third-level sidenav__item--$LinkingMode">
+                                                    <a class="sidenav__link" href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
+                                                    <% if $LinkOrSection = "section" && Children %>
+                                                        <ul class="sidenav__fourth-level">
+                                                            <% loop Children %>
+                                                                <li class="sidenav__item sidenav__item--fourth-level sidenav__item--$LinkingMode">
+                                                                    <a class="sidenav__link" href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
+                                                                </li>
+                                                            <% end_loop %><%-- end_loop Children --%>
+                                                        </ul>
+                                                    <% end_if %><%-- end_if $LinkOrSection = "section" && Children --%>
+                                                </li>
 											<% end_loop %><%-- end_loop Children --%>
 										</ul>
 									<% end_if %><%-- end_if $LinkOrSection = "section" && Children --%>
