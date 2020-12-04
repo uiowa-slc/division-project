@@ -200,8 +200,35 @@
     }
 }
 
-//If we're currently hovering over a nav item that has children
-.nav__item--parent:hover,
+//If we're currently hovering over a nav item that has children:
+
+//New 2020: Only show subnav on ":hover"ing over nav__item for input devices that support hover (mouses) via media query,
+//prevents double clicking issue on iDevices that try to be too smart and fake a "hover" action.
+
+@media(hover) {
+    .nav__item--parent:hover {
+
+        &:after {
+            background-color: $yellow;
+            display: block;
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            bottom: 0;
+            content: "";
+            z-index: 1;
+        }
+
+        .subnav {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+
+}
+
 .nav__item--parent.focused,
 .nav__item--parent.nav__item--is-hovered {
     @include breakpoint(large) {

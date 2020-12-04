@@ -132,7 +132,7 @@ $('iframe').each(function(){
 	}
 });
 
-	
+
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
 //Distinguish dropdowns on mobile/desktop:
@@ -153,7 +153,7 @@ $('.nav__item--parent').click(function(event) {
   }
 });
 
-//If anything in the main content container is clicked, remove faux hover class.
+//If anything in the main content container is clicked, remove --is-hovered modifier.
 $('#main-content__container').click(function(){
 	$('.nav__item').removeClass('nav__item--is-hovered');
 
@@ -393,14 +393,14 @@ function reducedMotionCheck() {
 reducedMotionCheck();
 motionQuery.addListener(reducedMotionCheck);
 
-function playPause() { 
-    if (myVideo.paused) 
+function playPause() {
+    if (myVideo.paused)
         myVideo.play(),
         playbtn.setAttribute('aria-pressed', 'false'),
         playbtn.setAttribute('aria-label', 'pause'),
         playbtn.className = "pause",
         playbtn.innerHTML = "<span class='show-for-sr'>Pause</span>";
-    else 
+    else
         myVideo.pause(),
         playbtn.setAttribute('aria-pressed', 'true'),
         playbtn.setAttribute('aria-label', 'play'),
