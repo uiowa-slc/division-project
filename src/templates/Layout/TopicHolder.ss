@@ -4,13 +4,19 @@ $Header
 
 <% if $Action == "index" %>
 <%--   <% include FeaturedImage %> --%>
-<% with $BackgroundImage %>
-  <div style="background-repeat: no-repeat; background-size: cover;" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
-<% end_with %>
-    <div class="topic-search-bg background-image" style="background-position: {$PercentageX}% {$PercentageY}%;  display: flex;
-    align-items: center; background: rgba(0,0,0,0.4);">
 
-
+<% if $BackgroundImage %>
+    <% with $BackgroundImage %>
+      <div style="background-repeat: no-repeat; background-size: cover;" data-interchange="[$FocusFill(600,400).URL, small], [$FocusFill(1600,500).URL, medium]">
+    <% end_with %>
+<% else %>
+    <div>
+<% end_if %>
+    <% if $BackgroundImage %>
+    <div class="topic-search-bg background-image " style="background-position: {$PercentageX}% {$PercentageY}%;">
+    <% else %>
+    <div class="topic-search-bg">
+    <% end_if %>
         <div class="topic-search-container">
           <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
           $TopicSearchFormSized

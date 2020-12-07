@@ -11,12 +11,17 @@
 .topic-search-bg {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.4);
+    background-color: #333;
+
+
     padding-top: 10px;
 
     min-height: 300px;
     min-height: 55vh;
 
+    &.background-image {
+        background-color: transparent;
+    }
 
     @include breakpoint(medium) {
         min-height: 350px;
@@ -44,6 +49,7 @@
     position: relative;
 
     @include breakpoint(large) {
+        padding: 40px 0;
         min-width: 40%;
     }
 }
