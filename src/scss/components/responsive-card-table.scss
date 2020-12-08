@@ -9,6 +9,9 @@
 
  .responsive-card-table thead {
      background: $yellow;
+     position: sticky;
+     -webkit-position: sticky;
+     top: 0;
  }
 
  .responsive-card-table tbody {
@@ -42,7 +45,10 @@
      width: 200px;
  }
 
+ //Small screens:
  @media screen and (max-width: 600px) {
+
+
 
      .responsive-card-table {
          border: 0;
@@ -68,6 +74,10 @@
 
          &:first-child {
              background: $yellow;
+         }
+
+         ul {
+             list-style-position: inside;
          }
      }
 
