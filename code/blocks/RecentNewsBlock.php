@@ -25,6 +25,8 @@ class RecentNewsBlock extends BaseElement{
         'HideImages' => 'Boolean',
         'ShowStacked' => 'Boolean',
         'Enclosed' => 'Boolean',
+        'BlockColor' => 'Enum(array("bg--white", "bg--light", "bg--highlight", "bg--highlight--pattern--brain")',
+        
 	);
 
 	private static $has_one = array(
@@ -98,6 +100,18 @@ class RecentNewsBlock extends BaseElement{
 
         $fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
         $fields->addFieldToTab('Root.Main', new TextField('NewsLink', '"View all news link"'));
+        $fields->addFieldToTab(
+			'Root.Main',
+			DropdownField::create('BlockColor', 'Background Color')
+				->setSource(
+					array(
+                        'bg--white' => 'White',
+                        'bg--light' => 'Gray',
+                        'bg--highlight' => 'Gold',
+                        'bg--highlight--pattern--brain' => 'Gold Brain Rock',
+					)
+				)
+		);
         $fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
