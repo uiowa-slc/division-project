@@ -407,3 +407,11 @@ function playPause() {
         playbtn.className = "play",
         playbtn.innerHTML = "<span class='show-for-sr'>Play</span>";
 }
+
+
+//Responsive Tables:
+
+$('.responsive-card-table th').each(function(i,elem) {
+  var num = i + 1;
+  $('table td:nth-child(' + num + ')').attr('data-label', $(elem).text());
+});
