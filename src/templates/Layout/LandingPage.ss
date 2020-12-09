@@ -38,7 +38,7 @@
 	<nav class="lp-menu__nav">
 		<ul class="lp-menu__list" data-magellan>
 			<li class="lp-menu__listitem">
-				<a href="#top" class="lp-menu__item lp-menu__item--title">$Title</a>
+				<a href="#top" class="lp-menu__item lp-menu__item--title">$MenuTitle</a>
 			</li>
 			<% loop $Sections %>
 				<li class="lp-menu__listitem">
