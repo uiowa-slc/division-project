@@ -17,7 +17,7 @@
                 <% if $LinkEmbedTo && $LinkTitle %>
                 <div class="embed-block-link-area">
 
-                    <a href="$LinkEmbedTo" class="button large hollow" target="_blank">
+                    <a href="$LinkEmbedTo" class="button button--no-caps hollow" target="_blank">
                         <% if $Image %>
                             <img class="embed-block__image" alt="" role="presentation" src="$Image.ScaleWidth(30).URL" />
                         <% end_if %>
