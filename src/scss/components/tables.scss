@@ -1,6 +1,7 @@
 table {
-	margin: 1rem 0;
+    margin: 1rem 0;
 }
+
 table thead th,
 table thead td,
 table tbody th,
@@ -8,6 +9,16 @@ table tbody td {
     font-size: rem-calc(15);
     text-align: left;
 }
+
 table p {
     margin: 0;
+}
+
+.table-valign-top {
+
+    td,
+    td * {
+        vertical-align: top;
+    }
+
 }
