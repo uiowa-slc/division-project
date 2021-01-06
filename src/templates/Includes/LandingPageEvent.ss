@@ -38,7 +38,7 @@
 		<% end_if %>
 
 		<% if $MoreInfoLink %>
-			<a href="$MoreInfoLink"><strong>Website <i class="fa fa-external-link-alt" aria-hidden="true"></i></strong></a><br />
+			<a href="$MoreInfoLink" class="button large"><strong>Website <i class="fa fa-external-link-alt" aria-hidden="true"></i></strong></a><br />
 		<% end_if %>
 
 		<% if $FacebookEventLink %>
