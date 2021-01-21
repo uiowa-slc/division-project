@@ -162,8 +162,8 @@ class RecentNewsBlock extends BaseElement {
 			break;
 
 		case 'RSS Feed':
-			//$url = $this->RssFeedLink;
-			$url = 'http://localhost:8888/rss-example.xml';
+			$url = $this->RssFeedLink;
+			// $url = 'http://localhost:8888/rss-example.xml';
 			//print_r($url);
 			$rss = RssFeed::loadRss($url);
 
