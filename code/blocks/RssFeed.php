@@ -1,4 +1,5 @@
 <?php
+use quamsta\ApiCacher\FeedHelper;
 
 /**
  * RSS for PHP - small and easy-to-use library for consuming an RSS Feed
@@ -161,70 +162,8 @@ class RssFeed {
 	 * @throws FeedException
 	 */
 	private static function loadXml($url, $user, $pass) {
-		$e = self::$cacheExpire;
-		$cacheFile = self::$cacheDir . '/feed.' . md5(serialize(func_get_args())) . '.xml';
-
-		if (self::$cacheDir
-			&& (time()-@filemtime($cacheFile) <= (is_string($e) ? strtotime($e) - time() : $e))
-			&& $data = @file_get_contents($cacheFile)
-		) {
-			// ok
-		} elseif ($data = trim(self::httpRequest($url, $user, $pass))) {
-			if (self::$cacheDir) {
-				file_put_contents($cacheFile, $data);
-			}
-		} elseif (self::$cacheDir && $data = @file_get_contents($cacheFile)) {
-			// ok
-		} else {
-			user_error("Can't load feed.", E_USER_WARNING);
-			return;
-		}
-
+		$data = FeedHelper::getUrl($url);
 		return new SimpleXMLElement($data, LIBXML_NOWARNING | LIBXML_NOERROR | LIBXML_NOCDATA);
-	}
-
-	/**
-	 * Process HTTP request.
-	 * @param  string
-	 * @param  string
-	 * @param  string
-	 * @return string|false
-	 * @throws FeedException
-	 */
-	private static function httpRequest($url, $user, $pass) {
-		if (extension_loaded('curl')) {
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_URL, $url);
-			if ($user !== null || $pass !== null) {
-				curl_setopt($curl, CURLOPT_USERPWD, "$user:$pass");
-			}
-			curl_setopt($curl, CURLOPT_USERAGENT, self::$userAgent); // some feeds require a user agent
-			curl_setopt($curl, CURLOPT_HEADER, false);
-			curl_setopt($curl, CURLOPT_TIMEOUT, 20);
-			curl_setopt($curl, CURLOPT_ENCODING, '');
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // no echo, just return result
-			if (!ini_get('open_basedir')) {
-				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); // sometime is useful :)
-			}
-			$result = curl_exec($curl);
-			return curl_errno($curl) === 0 && curl_getinfo($curl, CURLINFO_HTTP_CODE) === 200
-			? $result
-			: false;
-
-		} else {
-			$context = null;
-			if ($user !== null && $pass !== null) {
-				$options = [
-					'http' => [
-						'method' => 'GET',
-						'header' => 'Authorization: Basic ' . base64_encode($user . ':' . $pass) . "\r\n",
-					],
-				];
-				$context = stream_context_create($options);
-			}
-
-			return file_get_contents($url, false, $context);
-		}
 	}
 
 	/**
