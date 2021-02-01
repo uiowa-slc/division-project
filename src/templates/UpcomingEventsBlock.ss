@@ -1,4 +1,4 @@
-<section class="content-block__container upcoming-events" aria-labelledby="Block$ID">
+<section class="content-block__container upcoming-events $BlockColor" aria-labelledby="Block$ID">
     <div class="grid-container">
         <div class="card__head">
             <h2 class="text-center serif text-semibold h1" id="Block$ID">
@@ -6,7 +6,7 @@
             </h2>
             <!-- Link to all news button -->
             <% if $CalendarLink %>
-                <a href="$CalendarLink" class="button clear">View All Events <i class="fas fa-arrow-right"></i></a>
+                <a href="$CalendarLink" class="button black clear">View All Events <i class="fas fa-arrow-right"></i></a>
             <% end_if %>
         </div>
 
