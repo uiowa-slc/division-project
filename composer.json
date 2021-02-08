@@ -23,7 +23,7 @@
     "md/ac-json-events": "3.*",
     "md/division-analytics": "1.3.x",
     "unclecheese/display-logic": "dev-master",
-    "md/saml": "dev-md",
+    "md/saml": "dev-dsl-employees",
     "jonom/focuspoint": "*",
     "jonom/silverstripe-betternavigator": "4.*",
     "md/uiowa-bar": "2.*",
