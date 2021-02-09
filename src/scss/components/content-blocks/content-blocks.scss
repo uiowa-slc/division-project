@@ -28,3 +28,14 @@
 		padding-top: rem-calc(20);
 	}
 }
+
+/* Background Colors */
+.bg--light {
+    background-color: #f3f3f3;
+}
+.bg--highlight {
+    background-color: $highlight;
+}
+.bg--highlight--pattern--brain {
+    background: $highlight url(../images/brain-pattern-reversed.svg) repeat center center;
+}

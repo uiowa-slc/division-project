@@ -1,9 +1,9 @@
 /* UIDS Card
 ================================================= */
 .card__wrapper {
-    margin: rem-calc(20 0);
+    padding: rem-calc(20 0);
     @include breakpoint(medium) {
-        margin: rem-calc(20 0 60 0);
+        padding: rem-calc(20 0 60 0);
         display: flex;
     }
 }
@@ -26,14 +26,12 @@
 --------------------------------------------------- */
 .card__head {
     flex-wrap: wrap;
-    margin-top: rem-calc(20);
-    padding: 0;
+    padding-top: rem-calc(20);
     text-align: center;
     display: flex;
     justify-content: center;
     @include breakpoint(medium) {
-        margin-top: rem-calc(60);
-        padding: rem-calc(0 0 20 0);
+        padding: rem-calc(60 0 20 0);
     }
     @include breakpoint(large) {
         display: block;
@@ -47,6 +45,7 @@
     }
     .button {
         flex-basis: 100%;
+        margin-bottom: 0;
         padding-top: 0.625rem;
         @include breakpoint(medium) {
             padding-top: 1.05rem;
@@ -66,9 +65,8 @@
 /* Card
 --------------------------------------------------- */
 .card {
-    background: #fff;
     border-radius: $global-radius;
-    border: 1px solid $light-gray;
+    border: 1px solid rgba(0,0,0,.125);
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -87,8 +85,9 @@
 
     // Enclosed 
     &--enclosed {
+        background-color: $white;
         @include breakpoint(medium) {
-            border: 1px solid $light-gray;
+            border: 1px solid rgba(0,0,0,.125);
         }
         .card__body {
             @include breakpoint(medium) {
@@ -111,9 +110,11 @@
 
     // Body
     &__body {
+        background-color: $white;
         flex: 1;
         padding: rem-calc(24);
         @include breakpoint(medium) {
+            background-color: inherit;
             padding: rem-calc(30 0);
         }
         ul, ol, dl, table, p {
@@ -199,7 +200,7 @@
     }
 
     @include breakpoint(medium) {
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid rgba(0,0,0,.125);
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap;
