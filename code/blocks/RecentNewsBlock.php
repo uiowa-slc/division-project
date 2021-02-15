@@ -19,12 +19,15 @@ class RecentNewsBlock extends BaseElement {
 		'Limit' => 'Int',
 		'SortBy' => "Enum('Recent,Random,Featured')",
 		'StudentLifeNewsDeptID' => 'Int',
+
 		'StudentLifeNewsTagName' => 'Varchar(255)',
 		'RssFeedLink' => 'Varchar(255)',
 		'NewsLink' => 'Varchar(255)',
 		'HideImages' => 'Boolean',
 		'ShowStacked' => 'Boolean',
 		'Enclosed' => 'Boolean',
+		'BlockColor' => 'Enum(array("bg--white", "bg--light", "bg--highlight", "bg--highlight--pattern--brain")',
+
 	);
 
 	private static $has_one = array(
@@ -99,6 +102,19 @@ class RecentNewsBlock extends BaseElement {
 
 		$rssFeedField->displayIf('FilterBy')->isEqualTo('RSS Feed');
 
+		$fields->addFieldToTab(
+			'Root.Main',
+			DropdownField::create('BlockColor', 'Background Color')
+				->setSource(
+					array(
+						'bg--white' => 'White',
+						'bg--light' => 'Gray',
+						'bg--highlight' => 'Gold',
+						'bg--highlight--pattern--brain' => 'Gold Brain Rock',
+					)
+				)
+		);
+
 		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
 		$fields->addFieldToTab('Root.Main', new TextField('NewsLink', '"View all news link"'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
@@ -163,8 +179,6 @@ class RecentNewsBlock extends BaseElement {
 
 		case 'RSS Feed':
 			$url = $this->RssFeedLink;
-			// $url = 'http://localhost:8888/rss-example.xml';
-			//print_r($url);
 			$rss = RssFeed::loadRss($url);
 
 			$entries = new ArrayList();
@@ -181,19 +195,8 @@ class RecentNewsBlock extends BaseElement {
 
 				$entry->PublishDate = $dateStampConverted;
 
-				//print_r($entry);
-
-				// $entry->ExternalLink = $item->url;
-				// $entry->PublishDate = $item->timestamp;
-				// $entry->Content = $item->description;
-
 				$entries->push($entry);
 
-				// echo 'Title: ', $item->title;
-				// echo 'Link: ', $item->url;
-				// echo 'Timestamp: ', $item->timestamp;
-				// echo 'Description ', $item->description;
-				// echo 'HTML encoded content: ', $item->{'content:encoded'};
 			}
 
 			break;
