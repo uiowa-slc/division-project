@@ -1,8 +1,17 @@
-
 /* log in button */
-#SAMLLoginForm_LoginForm{
-    .action{
+#SAMLLoginForm_LoginForm,
+    {
+    .action {
         @extend .button;
         @extend .large;
     }
+
+
+}
+
+//warning text:
+
+
+.message.warning {
+    font-weight: bold;
 }
