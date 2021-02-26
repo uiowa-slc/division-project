@@ -4,7 +4,7 @@
             <div class="cell">
                 <div class=" margin-top-4 margin-bottom-4 text-center">
                     <h1>$SiteConfig.Title</h1>
-                    <p>Continue to log in with your HawkID.</p>
+                    <p>Continue by logging in with your HawkID.</p>
                     $Content
                     $Form
 
