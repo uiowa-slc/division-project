@@ -74,7 +74,9 @@
 	<div class="row">
 		<article id="page-content" class="main-content <% if not $HideSidebar %><% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width main-content--with-padding<% end_if %><% else %>main-content--full-width<% end_if %>">
 			<% if $ShowBreadcrumbs %>
-				$Breadcrumbs
+                <div style="margin-top: 20px;">
+				    $Breadcrumbs
+                </div>
 			<% end_if %>
 			$BeforeContentConstrained
 			<% if $SecondaryImage %>
