@@ -25,7 +25,7 @@
     <% require css("themes/division-subtheme/dist/css/main.css") %>
 </head>
 <% include IowaBar %>
-<body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
+<body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action}">
     $Layout
     $BetterNavigator
     <% require javascript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ) %>
