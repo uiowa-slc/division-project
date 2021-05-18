@@ -28,7 +28,7 @@
 
     <% require css("themes/division-subtheme/dist/css/main.css") %>
   </head>
-<body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action} <% if $DarkMode %>body--darkmode<% end_if %>">
+<body class="{$ClassName} {$ClassAncestry} body--{$DarkLightHeader} action--{$Action}">
 
     $Layout
 
