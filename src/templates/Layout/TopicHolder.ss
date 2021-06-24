@@ -85,38 +85,19 @@ $BeforeContent
 
 
 <% if not $CurrentTag && not $CurrentCategory %>
-  <% if $Content %>
-    <div class="grid-container">
-      <div class="grid-x grid-margin-x">
-          <article class="cell medium-8">
-            $BeforeContentConstrained
 
 
-            <div class="topic-content main-content__text">
-              $Content
-
-              <% include TopicFeedback %>
-            </div>
-
-
-          </article>
-
-          <div class="cell medium-4">
-            <div class="dp-sticky dp-sticky--medium">
-              <% include TopicBrowseByFilter %>
-            </div>
-        </div>
-      </div>
-    </div>
-  <% else %>
     <div class="grid-container">
         <div class="row column">
-
+            <% if $Content %>
+                <div style="margin-top: 30px">
+                    $Content
+                </div>
+            <% end_if %>
               <% include TopicBrowseByFilterFull %>
 
         </div>
     </div>
-  <% end_if %><%-- end if content --%>
 
 <% else_if $CurrentTag || $CurrentCategory %>
 
