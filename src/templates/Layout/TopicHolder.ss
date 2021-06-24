@@ -161,6 +161,11 @@ $BeforeContent
 
 
   <% include TopicBrowseAllFull %>
+
+  <% if $ShowAllTopicsByLetter %>
+    <% include TopicLetterBrowser %>
+  <% end_if %>
+
   <% include TopicFooterFull %>
 
     $AfterContentConstrained

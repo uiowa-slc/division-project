@@ -21,6 +21,7 @@ class TopicHolder extends Blog {
         'ShowTagsTab' => 'Boolean(1)',
         'ShowLastUpdated' => 'Boolean(1)',
         'ShowFullTopicBody' => 'Boolean',
+        'ShowAllTopicsByLetter' => 'Boolean',
 
         'Heading' => 'Text',
         'NoTopicsText' => 'Text',
@@ -124,6 +125,8 @@ class TopicHolder extends Blog {
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableTagsBrowse', 'Disable Tags in the "Browse by" section'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableCategories', 'Disable Categories in the CMS'));
         $fields->addFieldToTab('Root.Settings', CheckboxField::create('DisableCategoriesBrowse', 'Disable Categories in the "Browse by" section'));
+
+        $fields->addFieldToTab('Root.Settings', CheckboxField::create('ShowAllTopicsByLetter', 'Always show all topics by letter on this page.'));
         return $fields;
 
     }
