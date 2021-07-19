@@ -5,15 +5,14 @@
 			<% if $Content %><div class="pageslider-container__text">$Content</div><% end_if %>
 		</div>
 	</div>
-
 	<ul class="pageslider-links">
 		<% loop $Links %>
 		<li class="pageslider-links__item">
 			<a href="$Link" class="pageslider-links__link">
 				<% if $BackgroundImage %>
-					<img src="{$ThemeDir}/dist/images/pageslider-placeholder.png"  data-original="$BackgroundImage.FocusFill(360,450).URL" width="360" height="450" class="pageslider-links__img dp-lazy" alt="$Title">
+					<img src="$BackgroundImage.FocusFill(360,450).URL" width="360" height="450" class="pageslider-links__img" alt="$Title" loading="lazy">
 				<% else_if $Page.BackgroundImage %>
-					<img src="{$ThemeDir}/dist/images/pageslider-placeholder.png"  data-original="$Page.BackgroundImage.FocusFill(360,450).URL" width="360" height="450" class="pageslider-links__img dp-lazy" alt="$Title">
+					<img src="$Page.BackgroundImage.FocusFill(360,450).URL" width="360" height="450" class="pageslider-links__img" alt="$Title" loading="lazy">
 				<% else %>
 					<img src="{$ThemeDir}/dist/images/pageslider-placeholder.png" style="display: block; 
 		" height="450" class="pageslider-links__img" alt="$Title">
