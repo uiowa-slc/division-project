@@ -26,7 +26,7 @@ $Header
           <p style="color: white; font-size: 16px; line-height: 2">
             <span class="topic-search-minicats__heading">Browse by category:</span>
             <% loop $AllCats.Sort('Title').Limit(20) %>
-            <span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,</span><% end_if %>
+                <% if $BlogPosts %><span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,</span><% end_if %><% end_if %>
             <% end_loop %>
 
             <% if $AllCats.Count > 20 %>
