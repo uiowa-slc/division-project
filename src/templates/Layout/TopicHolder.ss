@@ -129,7 +129,7 @@ $BeforeContent
         <div class="dp-sticky dp-sticky--medium">
           <div style="padding-top: 20px;">
             $TopicSearchFormSized("small")
-            <% include TopicBrowseByFilter %>
+            <% include TopicBrowseByFilterSmall %>
           </div>
       </div>
     </div>

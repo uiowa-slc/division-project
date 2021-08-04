@@ -247,7 +247,7 @@
 
     //cell small-6 medium-12 large-6
     &__grid {
-        overflow: hidden;
+
         @include xy-grid('horizontal');
         @include xy-grid-layout(2, '.topic-browse-by-filter__item', true, 15, 'padding');
         @include xy-gutters(15, 'padding', $negative: true);
