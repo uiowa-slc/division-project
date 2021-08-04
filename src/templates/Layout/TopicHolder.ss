@@ -105,7 +105,7 @@ $BeforeContent
 
   <div class="row">
 
-    <article class="column medium-8">
+    <article class="columns small-12 large-8">
 
       $BeforeContentConstrained
 
@@ -125,7 +125,7 @@ $BeforeContent
     </article>
 
 
-      <div class="column medium-4">
+      <div class="columns small-12 large-4">
         <div class="dp-sticky dp-sticky--medium">
           <div style="padding-top: 20px;">
             $TopicSearchFormSized("small")
