@@ -22,7 +22,7 @@ $BeforeContent
 <div class="grid-container">
 
   <div class="row">
-      <article class="column medium-8">
+      <article class="column small-12 medium-8">
           <div style="padding-top: 20px;">
             $TopicSearchFormSized("medium")
           </div>
@@ -54,7 +54,7 @@ $BeforeContent
 
 
 
-      <div class="column medium-4">
+      <div class="column small-12 medium-4">
         <div class="dp-sticky dp-sticky--medium">
 
 
