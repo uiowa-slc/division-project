@@ -327,7 +327,12 @@ class DivisionPage extends DataExtension {
 				$parsedContent = $parser->parse($page->Content);
 				$content = $parsedContent;
 			}
-		}
+		}else{
+                //Reparse Parse shortcodes on regular $content for internal links and images, etc.
+                $parser = ShortcodeParser::get();
+                $parsedContent = $parser->parse($content);
+                $content = $parsedContent;
+        }
 
 		if (isset($arguments['title'])) {
 			$title = $arguments['title'];
