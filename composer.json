@@ -8,7 +8,7 @@
   {
     "php": ">=5.5",
     "silverstripe/recipe-plugin": "^1.5",
-    "silverstripe/recipe-cms": "4.6.*@stable",
+    "silverstripe/recipe-cms": "4.8.*@stable",
     "undefinedoffset/sortablegridfield": "*",
     "undefinedoffset/silverstripe-nocaptcha": "*",
     "edgarindustries/youtubefield": "*",
@@ -19,7 +19,7 @@
     "silverstripe/userforms": "*",
     "silverstripe/googlesitemaps": "*",
     "silverstripe-australia/gridfieldextensions": "*",
-    "dnadesign/silverstripe-elemental": "3.1.3",
+    "dnadesign/silverstripe-elemental": "4.*",
     "gorriecoe/silverstripe-webfonts": "*",
     "md/ac-json-events": "3.*",
     "md/division-analytics": "1.3.x",
