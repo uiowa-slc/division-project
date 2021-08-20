@@ -2,3 +2,5 @@ Page:
   disallowed_elements:
     - 'TextBlock'
     - 'ContentBlock'
+DNADesign\Elemental\Models\BaseElement:
+  inline_editable: false
