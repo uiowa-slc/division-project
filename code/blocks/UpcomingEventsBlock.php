@@ -138,7 +138,6 @@ class UpcomingEventsBlock extends BaseElement {
 
 	public function Calendar() {
 		if ($this->Source == 'Ui calendar on this site') {
-			echo 'hello';
 			$calendar = UiCalendar::get()->First();
 			return $calendar;
 		}
