@@ -27,7 +27,7 @@ $Header
         <div class="hero__contentwrap grid-container">
             <div class="hero__content">
                 <% if $SubHeading %>
-                    <h2>$SubHeading</h2>
+                    <h2 class="hero__header">$SubHeading</h2>
                 <% end_if %>
                 <% if $ButtonUrlOne %>
                     <a href="$ButtonUrlOne" class="button">$ButtonTextOne <i class="fas fa-arrow-right"></i></a>

@@ -1,0 +1,31 @@
+<div class="hero <% if $Title || $ButtonTextOne %>hero--content<% end_if %> hero--$Position">
+    <div class="hero__imgwrap hero__imgwrap--$Size hero__imgwrap--image" data-interchange="[$Image.FocusFill(768,400).URL, small], [$Image.FocusFill(1024,400).URL, medium], [$Image.FocusFill(1700,638).URL, large]" style="background-position: {$Image.PercentageX}% {$Image.PercentageY}%">
+
+
+    </div>
+
+    <% if $Title || $ButtonUrlOne || $ButtonUrlTwo || $ButtonUrlThree %>
+        <div class="hero__contentwrap grid-container">
+            <div class="hero__content">
+                <% if $Title %>
+                    <h2 class="hero__header hero__header--large">$Title</h2>
+                <% end_if %>
+                <% if $FeaturedPageOne %>
+                    <a href="$FeaturedPageOne.Link" class="button">$FeaturedPageOne.Title <i class="fas fa-arrow-right"></i></a>
+                <% end_if %>
+                <% if $FeaturedPageTwo %>
+                    <a href="$FeaturedPageTwo.Link" class="button">$FeaturedPageTwo.Title <i class="fas fa-arrow-right"></i></a>
+                <% end_if %>
+                <% if $FeaturedPageThree %>
+                    <a href="$FeaturedPageThree.Link" class="button">$FeaturedPageThree.Title <i class="fas fa-arrow-right"></i></a>
+                <% end_if %>
+                <% if $FeaturedPageFour %>
+                    <a href="$FeaturedPageFour.Link" class="button">$FeaturedPageFour.Title <i class="fas fa-arrow-right"></i></a>
+                <% end_if %>
+                <% if $FeaturedPageFive %>
+                    <a href="$FeaturedPageFiveLink" class="button">$FeaturedPageFive.Title <i class="fas fa-arrow-right"></i></a>
+                <% end_if %>
+            </div>
+        </div>
+    <% end_if %>
+</div>

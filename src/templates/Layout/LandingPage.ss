@@ -71,12 +71,12 @@
 
 	$BeforeContent
 
-			<div class="column row">
-		        <div class="main-content__header">
-		            $Breadcrumbs
-					<h1>$Title</h1>
-				</div>
-			</div>
+	<div class="column row">
+        <div class="main-content__header">
+            $Breadcrumbs
+			<h1>$Title</h1>
+		</div>
+	</div>
 
 <div class="<% if not $HideSidebar %><% if $Children || $SidebarArea.Elements ||  $SidebarView.Widgets %><% else %>column<% end_if %><% else %>column<% end_if %> row">
 

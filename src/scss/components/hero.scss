@@ -3,6 +3,47 @@
 	position: relative;
 	color: white;
 
+    &__header{
+
+            font-size: calc(100% + 3.5vw);
+            margin: rem-calc(0 0 15 0);
+            font-family: $serif-font-family;
+
+            @include breakpoint(medium) {
+                font-size: calc(100% + 2.5vw);
+                color: #fff;
+            }
+
+            @include breakpoint(large) {
+                font-size: calc(100% + 3vw);
+            }
+
+            @include breakpoint(xlarge) {
+                font-size: rem-calc(50);
+            }
+
+            &--large{
+                font-size: calc(100% + 4.5vw);
+                margin: rem-calc(0 0 15 0);
+                font-family: $serif-font-family;
+
+                @include breakpoint(medium) {
+                    font-size: calc(100% + 3.5vw);
+                    color: #fff;
+                }
+
+                @include breakpoint(large) {
+                    font-size: calc(100% + 4vw);
+                }
+
+                @include breakpoint(xlarge) {
+                    font-size: rem-calc(60);
+                }
+
+            }
+        }
+
+
 	@include breakpoint(medium) {
 		padding-top: rem-calc(150);
 		padding-bottom: rem-calc(90);

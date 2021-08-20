@@ -9,7 +9,45 @@
         display: flex;
         justify-content: center;
     }
+    &__header{
 
+            font-size: calc(100% + 3.5vw);
+            margin: rem-calc(0 0 15 0);
+            font-family: $serif-font-family;
+
+            @include breakpoint(medium) {
+                font-size: calc(100% + 2.5vw);
+                color: #fff;
+            }
+
+            @include breakpoint(large) {
+                font-size: calc(100% + 3vw);
+            }
+
+            @include breakpoint(xlarge) {
+                font-size: rem-calc(50);
+            }
+
+            &--large{
+                font-size: calc(100% + 5.5vw);
+                margin: rem-calc(0 0 25 0);
+                font-family: $serif-font-family;
+
+                @include breakpoint(medium) {
+                    font-size: calc(100% + 4.5vw);
+                    color: #fff;
+                }
+
+                @include breakpoint(large) {
+                    font-size: calc(100% + 5vw);
+                }
+
+                @include breakpoint(xlarge) {
+                    font-size: rem-calc(60);
+                }
+
+            }
+        }
     &--content {
         @include breakpoint(medium) {
             &:after {
@@ -100,24 +138,6 @@
             color: $black;
         }
 
-        & h2 {
-            font-size: calc(100% + 3.5vw);
-            margin: rem-calc(0 0 15 0);
-            font-family: $serif-font-family;
-
-            @include breakpoint(medium) {
-                font-size: calc(100% + 2.5vw);
-                color: #fff;
-            }
-
-            @include breakpoint(large) {
-                font-size: calc(100% + 3vw);
-            }
-
-            @include breakpoint(xlarge) {
-                font-size: rem-calc(50);
-            }
-        }
     }
 }
 

@@ -33,6 +33,7 @@ class DivisionPage extends DataExtension {
 		'ShowChildrenInDropdown' => 'Boolean(1)',
 		'FullImageAltText' => 'Text',
 		'DarkMode' => 'Boolean',
+        'VisuallyHideTitle' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -208,6 +209,8 @@ class DivisionPage extends DataExtension {
 	public function updateSettingsFields($f) {
 
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('PreventSearchEngineIndex', 'Prevent search engines from indexing this page'));
+
+        $f->addFieldToTab('Root.Settings', CheckboxField::create('VisuallyHideTitle', 'Visually hide title'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages', 'Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown', 'Show child pages in a dropdown menu if page is in the top bar (Yes)'));
 		// $f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
