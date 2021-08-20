@@ -1,9 +1,10 @@
 <?php
 
-use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\FieldList;
-class VideoBlock extends BaseElement{
+use SilverStripe\Forms\TextField;
+
+class VideoBlock extends BaseElement {
 
 	private static $db = array(
 		"YoutubeEmbed" => "Text",
@@ -12,25 +13,23 @@ class VideoBlock extends BaseElement{
 
 	private static $has_one = array(
 
-
 	);
-    private static $table_name = 'VideoBlock';
+	private static $table_name = 'VideoBlock';
 
-    public function getType()
-    {
-        return 'Video Block';
-    }
+	public function getType() {
+		return 'Video Block';
+	}
 
-	function getCMSFields() {
-		 $this->beforeUpdateCMSFields(function (FieldList $fields) {
+	public function getCMSFields() {
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
-		//$fields->removeByName("Title");
+			//$fields->removeByName("Title");
 
-		$fields->addFieldToTab('Root.Main', new TextField("YoutubeEmbed","Youtube id: <a href='https://md.studentlife.uiowa.edu/assets/Uploads/youtubevideoid.jpg' target='_blank'>Help</a>"));
-		$fields->addFieldToTab('Root.Main', new TextField("VimeoEmbed","Vimeo id: <a href='https://md.studentlife.uiowa.edu/assets/Uploads/3.png' target='_blank'>Help</a>"));
-        });
+			$fields->addFieldToTab('Root.Main', new TextField("YoutubeEmbed", "Youtube id: <a href='https://md.studentlife.uiowa.edu/assets/Uploads/youtubevideoid.jpg' target='_blank'>Help</a>"));
+			$fields->addFieldToTab('Root.Main', new TextField("VimeoEmbed", "Vimeo id: <a href='https://md.studentlife.uiowa.edu/assets/Uploads/3.png' target='_blank'>Help</a>"));
+		});
 
-        return parent::getCMSFields();
+		return parent::getCMSFields();
 	}
 
 }

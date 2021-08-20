@@ -7,11 +7,12 @@ use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Blog\Model\BlogTag;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBDateTime;
-use SilverStripe\Forms\FieldList;
+
 class RecentNewsBlock extends BaseElement {
 
 	private static $db = array(
@@ -50,80 +51,80 @@ class RecentNewsBlock extends BaseElement {
 	}
 
 	public function getCMSFields() {
-$this->beforeUpdateCMSFields(function (FieldList $fields) {
-		$fields->renameField('Title', 'Title (default:Recent News)');
-		$fields->removeByName('SortBy');
-		$fields->removeByName('FilterTagMethod');
-		$fields->removeByName('Tags');
-		$fields->removeByName('Categories');
-		$fields->removeByName('StudentLifeNewsDeptID');
-		$fields->removeByName('StudentLifeNewsTagName');
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			$fields->renameField('Title', 'Title (default:Recent News)');
+			$fields->removeByName('SortBy');
+			$fields->removeByName('FilterTagMethod');
+			$fields->removeByName('Tags');
+			$fields->removeByName('Categories');
+			$fields->removeByName('StudentLifeNewsDeptID');
+			$fields->removeByName('StudentLifeNewsTagName');
 
-		$tags = BlogTag::get();
-		$cats = BlogCategory::get();
-		//Debug::show($tags->map());
+			$tags = BlogTag::get();
+			$cats = BlogCategory::get();
+			//Debug::show($tags->map());
 
-		$fields->addFieldsToTab('Root.Main',
-			array(
-				$filterBy = DropdownField::create(
-					'FilterBy',
-					'Filter Posts By:',
-					singleton('RecentNewsBlock')->dbObject('FilterBy')->enumValues()
-				),
+			$fields->addFieldsToTab('Root.Main',
+				array(
+					$filterBy = DropdownField::create(
+						'FilterBy',
+						'Filter Posts By:',
+						singleton('RecentNewsBlock')->dbObject('FilterBy')->enumValues()
+					),
 
-				$tagField = ListboxField::create(
-					'Tags',
-					'Show entries tagged with ANY of the following tags:',
-					$tags->map()->toArray()
-				),
+					$tagField = ListboxField::create(
+						'Tags',
+						'Show entries tagged with ANY of the following tags:',
+						$tags->map()->toArray()
+					),
 
-				$catField = ListboxField::create(
-					'Categories',
-					'Show entries tagged with ANY of the following categories:',
-					$cats->map()->toArray()
-				),
+					$catField = ListboxField::create(
+						'Categories',
+						'Show entries tagged with ANY of the following categories:',
+						$cats->map()->toArray()
+					),
 
-				$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)'),
+					$blogField = DropdownField::create('BlogID', 'Choose a blog to retrieve posts from', Blog::get()->map())->setEmptyString('(Any blog on this site)'),
 
-				$deptField = NewsDeptDropdownField::create('StudentLifeNewsDeptID', 'Department'),
+					$deptField = NewsDeptDropdownField::create('StudentLifeNewsDeptID', 'Department'),
 
-				$slTagField = TextField::create('StudentLifeNewsTagName', 'Tag'),
+					$slTagField = TextField::create('StudentLifeNewsTagName', 'Tag'),
 
-				$rssFeedField = TextField::create('RssFeedLink', 'RSS Feed Link'),
-			)
-		);
-
-		$tagField->displayIf('FilterBy')->isEqualTo('Tag');
-		$catField->displayIf('FilterBy')->isEqualTo('Category');
-		$blogField->displayIf('FilterBy')->isEqualTo('Blog');
-
-		$slTagField->displayIf('FilterBy')->isEqualTo('Student Life News Tag');
-		$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
-
-		$rssFeedField->displayIf('FilterBy')->isEqualTo('RSS Feed');
-
-		$fields->addFieldToTab(
-			'Root.Main',
-			DropdownField::create('BlockColor', 'Background Color')
-				->setSource(
-					array(
-						'bg--white' => 'White',
-						'bg--light' => 'Gray',
-						'bg--highlight' => 'Gold',
-						'bg--highlight--pattern--brain' => 'Gold Brain Rock',
-					)
+					$rssFeedField = TextField::create('RssFeedLink', 'RSS Feed Link'),
 				)
-		);
+			);
 
-		$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
-		$fields->addFieldToTab('Root.Main', new TextField('NewsLink', '"View all news link"'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
+			$tagField->displayIf('FilterBy')->isEqualTo('Tag');
+			$catField->displayIf('FilterBy')->isEqualTo('Category');
+			$blogField->displayIf('FilterBy')->isEqualTo('Blog');
 
-        });
+			$slTagField->displayIf('FilterBy')->isEqualTo('Student Life News Tag');
+			$deptField->displayIf('FilterBy')->isEqualTo('Student Life News Department');
 
-        return parent::getCMSFields();
+			$rssFeedField->displayIf('FilterBy')->isEqualTo('RSS Feed');
+
+			$fields->addFieldToTab(
+				'Root.Main',
+				DropdownField::create('BlockColor', 'Background Color')
+					->setSource(
+						array(
+							'bg--white' => 'White',
+							'bg--light' => 'Gray',
+							'bg--highlight' => 'Gold',
+							'bg--highlight--pattern--brain' => 'Gold Brain Rock',
+						)
+					)
+			);
+
+			$fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
+			$fields->addFieldToTab('Root.Main', new TextField('NewsLink', '"View all news link"'));
+			$fields->addFieldToTab('Root.Main', new CheckboxField('HideImages', 'Hide Images'));
+			$fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
+			$fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
+
+		});
+
+		return parent::getCMSFields();
 
 	}
 

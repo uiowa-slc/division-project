@@ -1,9 +1,10 @@
 <?php
 
-use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\FieldList;
-class FlickrSlideshowBlock extends BaseElement{
+use SilverStripe\Forms\TextField;
+
+class FlickrSlideshowBlock extends BaseElement {
 
 	private static $db = array(
 		'FlickrEmbed' => 'HTMLText',
@@ -11,10 +12,9 @@ class FlickrSlideshowBlock extends BaseElement{
 
 	private static $has_one = array(
 
-
 	);
 	private static $has_many = array(
-		
+
 	);
 
 	private static $defaults = array(
@@ -22,19 +22,18 @@ class FlickrSlideshowBlock extends BaseElement{
 	);
 	private static $table_name = 'FlickrSlideshowBlock';
 
-	public function getType()
-    {
-        return 'Flickr Slideshow Block';
-    }
-	  
+	public function getType() {
+		return 'Flickr Slideshow Block';
+	}
+
 	public function getCMSFields() {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
-		$fields->addFieldToTab('Root.Main', new TextField('FlickrEmbed', 'Flickr Album Embed Code'));
+			$fields->addFieldToTab('Root.Main', new TextField('FlickrEmbed', 'Flickr Album Embed Code'));
 
-        });
+		});
 
-        return parent::getCMSFields();
+		return parent::getCMSFields();
 	}
 
 }
