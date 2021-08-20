@@ -3,6 +3,7 @@
   "description": "The University of Iowa Division of Student Life Project Code and Theme",
   "type": "silverstripe-vendormodule",
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "require":
   {
     "php": ">=5.5",
