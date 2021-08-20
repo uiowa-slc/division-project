@@ -32,7 +32,7 @@ class PageSliderBlockLink extends DataObject {
 
 
 	public function getCMSFields(){
-		$fields = FieldList::create();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 		
 
 		$fields->push(
@@ -50,7 +50,9 @@ class PageSliderBlockLink extends DataObject {
 
 
 		return $fields;
+        });
 
+        return parent::getCMSFields();
 	}
 
 	public function Link(){

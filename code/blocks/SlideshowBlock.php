@@ -30,7 +30,7 @@ class SlideshowBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$fields = new FieldList();
+       $this->beforeUpdateCMSFields(function (FieldList $fields) {
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 
@@ -43,8 +43,9 @@ class SlideshowBlock extends BaseElement{
 		$gridField = new GridField('SlideshowBlockImages', 'SlideshowImages', $this->SlideshowBlockImages(), $gridFieldConfig);
 		$fields->push($gridField);
 
+        });
 
-		return $fields;
+        return parent::getCMSFields();
 	}
 
 }

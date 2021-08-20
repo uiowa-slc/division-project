@@ -25,7 +25,7 @@ class ScriptEmbedBlock extends BaseElement{
     public function getCMSFields() {
 
         $self = $this;
-        $fields = FieldList::create();
+$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
         $fields->push($textField = TextField::create('ScriptTag', 'Script HTML Tag'));
 
@@ -33,7 +33,9 @@ class ScriptEmbedBlock extends BaseElement{
         // $widthField->displayIf('EmbedMethod')->isEqualTo('manual');
         // $heightField->displayIf('EmbedMethod')->isEqualTo('manual');
 
-        return $fields;
+        });
+
+        return parent::getCMSFields();
     }
     
 

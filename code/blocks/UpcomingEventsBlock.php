@@ -5,6 +5,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
+use SilverStripe\Forms\FieldList;
 class UpcomingEventsBlock extends BaseElement{
 
 	private static $db = array(
@@ -45,7 +46,7 @@ class UpcomingEventsBlock extends BaseElement{
 		return $eventList;
 	}
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 		$fields->removeByName('Source');
         $fields->removeByName('SearchTerm');
 		$calendar = UiCalendar::getOrCreate();
@@ -131,11 +132,14 @@ class UpcomingEventsBlock extends BaseElement{
         $fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
         $fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 	public function Calendar(){
 		if($this->Source == 'Ui calendar on this site'){
+            echo 'hello';
 			$calendar = UiCalendar::get()->First();
 			return $calendar;
 		}

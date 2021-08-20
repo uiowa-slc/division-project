@@ -2,7 +2,7 @@
 
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\Forms\FieldList;
 class FlickrSlideshowBlock extends BaseElement{
 
 	private static $db = array(
@@ -28,11 +28,13 @@ class FlickrSlideshowBlock extends BaseElement{
     }
 	  
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
 		$fields->addFieldToTab('Root.Main', new TextField('FlickrEmbed', 'Flickr Album Embed Code'));
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 }

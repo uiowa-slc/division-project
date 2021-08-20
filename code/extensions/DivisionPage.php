@@ -12,6 +12,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
@@ -115,7 +116,9 @@ class DivisionPage extends DataExtension {
 			$SidebarAreaConfig = $SidebarAreaField->getConfig();
 			$SidebarAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('SidebarArea');
+
 			$f->addFieldToTab('Root.Blocks', $SidebarAreaField);
+            $f->insertBefore('SidebarArea', HeaderField::create('SideBarAreaTitle', 'Sidebar'));
 		}
 
 		$beforecontentField = $f->dataFieldByName('BeforeContent');
@@ -128,6 +131,7 @@ class DivisionPage extends DataExtension {
 
 			$f->remove($beforecontentField);
 			$f->addFieldToTab('Root.Blocks', $beforecontentField);
+            $f->insertBefore('BeforeContent', HeaderField::create('BeforeContentAreaTitle', 'Before Content (Full Browser Width)'));
 		}
 
 		$beforecontentConstrainedField = $f->dataFieldByName('BeforeContentConstrained');
@@ -138,6 +142,7 @@ class DivisionPage extends DataExtension {
 			$beforecontentConstrainedConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('BeforeContentConstrained');
 			$f->addFieldToTab('Root.Blocks', $beforecontentConstrainedField);
+            $f->insertBefore('BeforeContentConstrained', HeaderField::create('BeforeContentConstrainedTitle', 'Before Content (Constrained Width)'));
 		}
 
 		$aftercontentAreaField = $f->dataFieldByName('AfterContent');
@@ -148,6 +153,7 @@ class DivisionPage extends DataExtension {
 			$aftercontentAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('AfterContent');
 			$f->addFieldToTab('Root.Blocks', $aftercontentAreaField);
+            $f->insertBefore('AfterContent', HeaderField::create('AfterContentTitle', 'After Content (Full Browser Width)'));
 		}
 
 		$aftercontentConstrainedField = $f->dataFieldByName('AfterContentConstrained');
@@ -158,6 +164,7 @@ class DivisionPage extends DataExtension {
 			$aftercontentConstrainedAreaConfig->removeComponentsByType('SilverStripe\Forms\GridField\GridFieldDeleteAction');
 			$f->removeByName('AfterContentConstrained');
 			$f->addFieldToTab('Root.Blocks', $aftercontentConstrainedField);
+            $f->insertBefore('AfterContentConstrained', HeaderField::create('AfterContentConstrainedTitle', 'After Content (Constrained Width)'));
 		}
 
 		$f->removeByName('ElementalArea');

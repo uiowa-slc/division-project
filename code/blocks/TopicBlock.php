@@ -1,5 +1,5 @@
 <?php
-
+use SilverStripe\Forms\FieldList;
 class TopicBlock extends RecentNewsBlock{
 
 	private static $db = array(
@@ -26,8 +26,7 @@ class TopicBlock extends RecentNewsBlock{
     }
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-		$fields->renameField('Title', 'Title (default:Recent Topics)');
+$this->beforeUpdateCMSFields(function (FieldList $fields) {
 		// $fields->removeByName('FilterTagMethod');
 		// $fields->removeByName('Tags');
 		// $fields->removeByName('Categories');
@@ -66,7 +65,9 @@ class TopicBlock extends RecentNewsBlock{
 		// $blogField->displayIf('FilterBy')->isEqualTo('Blog');
 
 		// $fields->addFieldToTab('Root.Main', new TextField('Limit', 'Number of posts to show (default: 3)'));
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 

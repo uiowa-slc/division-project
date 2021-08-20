@@ -6,7 +6,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\Elemental\Models\ElementContent;
-
+use SilverStripe\Forms\FieldList;
 
 class TextBlock extends ElementContent{
 
@@ -52,13 +52,14 @@ class TextBlock extends ElementContent{
     }
 
     public function getCMSFields() {
-        $f = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
 
-        $f->removeByName('LinkedPageID');
-        $f->removeByName('Content');
-        $f->renameField('ExternalLink', 'Link (include http://)');
+        $fields->removeByName('LinkedPageID');
+        $fields->removeByName('Content');
+        $fields->renameField('ExternalLink', 'Link (include http://)');
+        });
 
-        return $f;
+        return parent::getCMSFields();
 
     }
 }

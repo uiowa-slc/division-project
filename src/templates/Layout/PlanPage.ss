@@ -17,12 +17,12 @@ $Header
 		</div>
 	<% end_if %>
 
-	$BlockArea(BeforeContent)
+	$BeforeContent
 
 	<div class="row row--plan column">
 
 		<article class="plan-content">
-			$BlockArea(BeforeContentConstrained)
+			$BeforeContentConstrained
 			<% if $MainImage %>
 				<img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>
 			<% end_if %>
@@ -123,7 +123,7 @@ $Header
 					</div>
 				<% end_loop %>
 
-			$BlockArea(AfterContentConstrained)
+			$AfterContentConstrained
 			$Form
 			<% if $ShowChildPages %>
 				<% include ChildPages %>
@@ -131,6 +131,6 @@ $Header
 		</article>
 	</div>
 
-	$BlockArea(AfterContent)
+	$AfterContent
 
 	</main>

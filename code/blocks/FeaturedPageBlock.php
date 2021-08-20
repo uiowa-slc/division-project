@@ -11,7 +11,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
-
+use SilverStripe\Forms\FieldList;
 class FeaturedPageBlock extends BaseElement{
 
 	private static $db = array(
@@ -35,7 +35,7 @@ class FeaturedPageBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 		$fields->removeByName('PageTreeID');
 		$fields->removeByName('FeaturePageExternalUrl');
 		
@@ -66,7 +66,9 @@ class FeaturedPageBlock extends BaseElement{
 		$fields->addFieldToTab('Root.Main', $myEditorField = new HTMLEditorField('FeaturePageSummary', 'Summary Text'));
 		$myEditorField->setRows(12);
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 }

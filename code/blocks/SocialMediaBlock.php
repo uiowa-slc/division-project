@@ -5,7 +5,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\Forms\FieldList;
 class SocialMediaBlock extends BaseElement{
 
 	private static $db = array(
@@ -28,7 +28,7 @@ class SocialMediaBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
 		//$fields->removeByName("Title");
 
 		$fields->addFieldToTab("Root.Main", new HeaderField('TwitterHeader','Twitter', 3) );
@@ -49,8 +49,9 @@ class SocialMediaBlock extends BaseElement{
 		    'messages'=> 'Messages'
 		  )
 		)->setEmptyString('(None)'));
+      });
 
-		return $fields;
+        return parent::getCMSFields();
 	}
 
 }

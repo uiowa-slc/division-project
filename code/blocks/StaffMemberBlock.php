@@ -2,7 +2,7 @@
 
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\Forms\FieldList;
 class StaffMemberBlock extends BaseElement{
 
 	private static $db = array(
@@ -22,13 +22,15 @@ class StaffMemberBlock extends BaseElement{
     }
 
 	function getCMSFields() {
-		$fields = parent::getCMSFields();
+		        $this->beforeUpdateCMSFields(function (FieldList $fields) {
 
 		// $fields->addFieldToTab('Root.Main', new TreeDropdownField("StaffMemberTreeID", "Select a Staff Member:", "SiteTree"));
 
 		$fields->addFieldToTab('Root.Main', new DropdownField('StaffPageID', 'Select a Staff Member:', StaffPage::get()->sort('LastName ASC')->map('ID', 'Title')));
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 }

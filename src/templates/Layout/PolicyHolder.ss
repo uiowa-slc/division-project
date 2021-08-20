@@ -37,7 +37,7 @@ $Header
             $Form
         </article>
         <aside class="sidebar dp-sticky">
-            $Sidebar
+            $SidebarArea
         </aside>
     </div>
     $AfterContent

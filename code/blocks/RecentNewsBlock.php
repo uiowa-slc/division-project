@@ -11,7 +11,7 @@ use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBDateTime;
-
+use SilverStripe\Forms\FieldList;
 class RecentNewsBlock extends BaseElement {
 
 	private static $db = array(
@@ -50,7 +50,7 @@ class RecentNewsBlock extends BaseElement {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+$this->beforeUpdateCMSFields(function (FieldList $fields) {
 		$fields->renameField('Title', 'Title (default:Recent News)');
 		$fields->removeByName('SortBy');
 		$fields->removeByName('FilterTagMethod');
@@ -121,7 +121,9 @@ class RecentNewsBlock extends BaseElement {
 		$fields->addFieldToTab('Root.Main', new CheckboxField('ShowStacked', 'Use Stacked Layout'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('Enclosed', 'Enclose Cards'));
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 
 	}
 

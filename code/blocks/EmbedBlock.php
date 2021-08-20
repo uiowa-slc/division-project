@@ -43,10 +43,11 @@ class EmbedBlock extends BaseElement {
 
 	public function getCMSFields() {
 
-		$self = $this;
-		$fields = FieldList::create();
 
-		$fields->push(TextField::create('Title'));
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+
+		$self = $this;
+
 		$fields->push(CheckboxField::create('ShowTitle'));
 		$fields->push(TextField::create('EmbeddedURL', 'Embed URL (include https://)'));
 		$fields->push(DropdownField::create(
@@ -80,7 +81,9 @@ class EmbedBlock extends BaseElement {
 		$fields->push(TextField::create('LinkTitle', 'Link title')->setDescription('Optional. Could be the Instagram account, etc.'));
 		$fields->push(UploadField::create('Image', 'Title icon or image for the link')->setDescription('Optional. Could be the Instagram account image, or another representative image'));
 
-		return $fields;
+        });
+
+        return parent::getCMSFields();
 	}
 
 }

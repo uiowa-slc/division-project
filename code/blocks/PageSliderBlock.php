@@ -13,7 +13,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordViewer;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use SilverStripe\Forms\LiteralField;
-
+use SilverStripe\Forms\FieldList;
 class PageSliderBlock extends BaseElement{
 
 	private static $db = array(
@@ -39,13 +39,15 @@ class PageSliderBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$f = parent::getCMSFields();
-		$f->removeByName('HolderID');
 
-		$f->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+
+		$fields->removeByName('HolderID');
+
+		$fields->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
 		if(!$this->ID){
 			$gridFieldConfig = GridFieldConfig_RecordViewer::create();
-			$f->push(LiteralField::create('MustSaveLabel', '<em>Please click the <strong>"Create"</strong> button to save this block before adding some links.</em>')->addExtraClass('stacked'));
+			$fields->push(LiteralField::create('MustSaveLabel', '<em>Please click the <strong>"Create"</strong> button to save this block before adding some links.</em>')->addExtraClass('stacked'));
 
 		}else{
 			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
@@ -54,11 +56,13 @@ class PageSliderBlock extends BaseElement{
 
 
 			$gridField = new GridField('Links', 'Links', $this->Links(), $gridFieldConfig);
-			$f->push($gridField);
+			$fields->push($gridField);
 
 		}
 
-		return $f;
+    });
+
+        return parent::getCMSFields();
 
 	}
 

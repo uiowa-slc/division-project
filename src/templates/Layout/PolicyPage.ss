@@ -44,7 +44,7 @@ $Header
                     $Policies
                 </div>
             <% end_with %>
-            $Sidebar
+            $SidebarArea
         </aside>
     </div>
     $AfterContent

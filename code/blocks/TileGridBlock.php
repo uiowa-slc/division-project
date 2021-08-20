@@ -7,7 +7,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\OptionsetField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\DropdownField;
-
+use SilverStripe\Forms\FieldList;
 class TileGridBlock extends BaseElement{
 
 	private static $db = array(
@@ -31,12 +31,12 @@ class TileGridBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$f = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
-		$f->removeByName('HolderID');
-		$f->removeByName('CustomPages');
+		$fields->removeByName('HolderID');
+		$fields->removeByName('CustomPages');
 
-		$f->addFieldsToTab('Root.Main', array(
+		$fields->addFieldsToTab('Root.Main', array(
 
 			// DropdownField::create(
 			//   'MaxSize',
@@ -53,8 +53,9 @@ class TileGridBlock extends BaseElement{
 		));
 
 
+        });
 
-		return $f;
+        return parent::getCMSFields();
 
 	}
 

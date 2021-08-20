@@ -35,13 +35,14 @@ class TopicHolderSearchBlock extends BaseElement {
     }
 
     public function getCMSFields(){
-        $fields = parent::getCMSFields();
+ $this->beforeUpdateCMSFields(function (FieldList $fields) {
 
         $field = DropdownField::create('TopicHolderID', 'Select a Topic Holder:', TopicHolder::get()->map('ID', 'Title'));
         $fields->addFieldToTab('Root.Main', $field);
         $fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "Background Image"));
+        });
 
-        return $fields;
+        return parent::getCMSFields();
     }
 
     public function TopicSearchForm(){

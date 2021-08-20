@@ -57,7 +57,6 @@ $Header
                     <% end_loop %>
                 <% end_if %>
 
-                $BlockArea(AfterContentConstrained)
                 $Form
                 $CommentsForm
 

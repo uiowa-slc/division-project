@@ -7,7 +7,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\ArrayList;
 use DNADesign\Elemental\Models\BaseElement;
 use UncleCheese\DisplayLogic\Wrapper;
-
+use SilverStripe\Forms\FieldList;
 class RelatedNewsBlock extends BaseElement{
 
 	private static $db = array(
@@ -29,7 +29,7 @@ class RelatedNewsBlock extends BaseElement{
     }
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+$this->beforeUpdateCMSFields(function (FieldList $fields) {
 
 		$tags = BlogTag::get();
 		$tagField = TagField::create(
@@ -50,7 +50,9 @@ class RelatedNewsBlock extends BaseElement{
 
 		$fields->renameField('Title', 'Title (default:Related News)');
 
-		return $fields;
+     });
+
+        return parent::getCMSFields();
 	}
 
 	public function RelatedNewsEntries(){

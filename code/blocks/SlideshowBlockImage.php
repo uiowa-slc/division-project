@@ -2,6 +2,7 @@
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FieldList;
 class SlideshowBlockImage extends DataObject {
     private static $db = array(
     	'Caption' => 'Text',
