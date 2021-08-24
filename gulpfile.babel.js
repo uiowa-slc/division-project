@@ -109,13 +109,14 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
 
+  gulp.watch(PATHS.theme + '/templates/**/*.ss').on('all', browser.reload);
   gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', sass);
   gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
 
 
   gulp.watch('../division-elearning-project/scss/**/*.scss').on('all', sass);
-
+  gulp.watch('templates/**/*.ss').on('all', browser.reload);
   gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));

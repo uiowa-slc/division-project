@@ -1,1 +1,3 @@
-<div class="">$FlickrEmbed</div>
+<div class="">
+$FlickrEmbed
+</div>

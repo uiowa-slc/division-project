@@ -1,3 +1,4 @@
+<!-- htmlmin:ignore -->
 <form $AttributesHTML>
 		<div class="topic-search-form__fields">
 		<% if $Legend %><legend>$Legend</legend><% end_if %>
@@ -9,3 +10,5 @@
 		<% end_loop %>
 		</div>
 </form>
+<!-- htmlmin:ignore -->
+

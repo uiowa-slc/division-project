@@ -1,1 +1,41 @@
-$Header<main class="main-content__container" id="main-content__container"> <% if $BackgroundImage %> <% include FeaturedImage %> <% end_if %> <% include MainContentHeader %> $BeforeContent<div class="row"><div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">$BeforeContentConstrained<div class="main-content__text">$Content <% if $EventList %> <% loop $EventList %> <% include EventCard %> <% end_loop %> <% else %> <p>No events are currently listed in this calendar. Please check back soon.</p> <% end_if %> </div>$AfterContentConstrained $Form <% include ChildPages %> </div><aside class="sidebar"> <% include SideNav %> <% if $SideBarView %> $SideBarView <% end_if %> $SidebarArea</aside></div>$AfterContent</main>
+$Header
+<main class="main-content__container" id="main-content__container">
+
+	<!-- Background Image Feature -->
+	<% if $BackgroundImage %>
+		<% include FeaturedImage %>
+	<% end_if %>
+
+<% include MainContentHeader %>
+
+	$BeforeContent
+
+	<div class="row">
+
+	<div class="main-content main-content--with-padding <% if $SiteConfig.ShowExitButton %>main-content--with-exit-button-padding<% end_if %> <% if $Children || $Menu(2) || $SidebarArea.Elements ||  $SidebarView.Widgets %>main-content--with-sidebar<% else %>main-content--full-width<% end_if %>">
+			$BeforeContentConstrained
+			<div class="main-content__text">
+				$Content
+				<% if $EventList %>
+				<% loop $EventList %>
+					<% include EventCard %>
+				<% end_loop %>
+				<% else %>
+					<p>No events are currently listed in this calendar. Please check back soon.</p>
+				<% end_if %>
+			</div>
+			$AfterContentConstrained
+			$Form
+			<% include ChildPages %>
+		</div>
+		<aside class="sidebar">
+			<% include SideNav %>
+			<% if $SideBarView %>
+				$SideBarView
+			<% end_if %>
+			$SidebarArea
+		</aside>
+	</div>
+	$AfterContent
+
+</main>
