@@ -33,7 +33,9 @@ class TopicHolderController extends BlogController {
 	 */
 	public function results($data, $form) {
 		$query = $form->getSearchQuery();
-		$results = $form->getResults();
+
+        $results = new ArrayList();
+        $resultsFiltered = new ArrayList();
 
 		$categoryResults = new ArrayList();
 		$categoryTopics = new ArrayList();
@@ -41,23 +43,27 @@ class TopicHolderController extends BlogController {
 		$tagResults = new ArrayList();
 		$tagTopics = new ArrayList();
 
-		$categoryResults = BlogCategory::get()->filter(array('Title:PartialMatch' => $query, 'BlogID' => $this->ID));
+        if($query != ''){
+            $results = $form->getResults();
+    		$categoryResults = BlogCategory::get()->filter(array('Title:PartialMatch' => $query, 'BlogID' => $this->ID));
 
-		foreach ($categoryResults as $catResult) {
-			$categoryTopics->merge($catResult->BlogPosts());
-		}
+    		foreach ($categoryResults as $catResult) {
+    			$categoryTopics->merge($catResult->BlogPosts());
+    		}
 
-		$tagResults = BlogTag::get()->filter(array('Title:PartialMatch' => $query, 'BlogID' => $this->ID));
-		// print_r($categoryResults);
-		foreach ($tagResults as $tagResult) {
-			$tagTopics->merge($tagResult->BlogPosts());
-		}
+    		$tagResults = BlogTag::get()->filter(array('Title:PartialMatch' => $query, 'BlogID' => $this->ID));
+    		// print_r($categoryResults);
+    		foreach ($tagResults as $tagResult) {
+    			$tagTopics->merge($tagResult->BlogPosts());
+    		}
 
-		$resultsFiltered = $results->filter(array('ParentID' => $this->owner->ID));
-		$resultsFiltered->merge($categoryTopics);
-		$resultsFiltered->merge($tagTopics);
+    		$resultsFiltered = $results->filter(array('ParentID' => $this->owner->ID));
+    		$resultsFiltered->merge($categoryTopics);
+    		$resultsFiltered->merge($tagTopics);
 
-		$resultsFiltered->removeDuplicates();
+    		$resultsFiltered->removeDuplicates();
+
+        }
 
 		$data = array(
 			'Results' => $resultsFiltered,

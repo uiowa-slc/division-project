@@ -18,12 +18,12 @@ $Header
     <div class="topic-search-bg">
     <% end_if %>
         <div class="topic-search-container">
-          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" style="color: white;">$Title</a></h1>
+          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" class="hero__header">$Title</a></h1>
           $TopicSearchFormSized
 
           <% if $AllCats %>
 
-          <p style="color: white; font-size: 16px; line-height: 2">
+          <p class="topic-search-minicats">
             <span class="topic-search-minicats__heading">Browse by category:</span>
             <% loop $AllCats.Sort('Title').Limit(20) %>
                 <% if $BlogPosts %><span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,</span><% end_if %><% end_if %>
@@ -126,7 +126,11 @@ $BeforeContent
             <% end_if %><%-- /endif CurrentTag --%>
 
 
+
+
     </article>
+
+
 
 
 
@@ -134,6 +138,7 @@ $BeforeContent
 
   <div class="row">
         <div class="small-12">
+            <% include TopicMore %>
             <% include TopicBrowseByFilterFull %>
         </div>
 

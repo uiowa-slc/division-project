@@ -22,13 +22,14 @@ $BeforeContent
 <div class="grid-container">
 
   <div class="row">
-      <article class="column small-12 medium-8">
+      <article class="column small-12 medium-8 medium-centered">
           <div style="padding-top: 20px;">
             $TopicSearchFormSized("medium")
           </div>
         $BeforeContentConstrained
 
         <% if $Results || $CategoryResults || $TagResults %>
+          <% if $TagResults || $CategoryResults %><h2>Categories matching this term:</h2><% end_if %>
           <% loop $TagResults %>
             <a href="$Link" class="button button--no-caps hollow black button--skinny"><span class="topicholder-cat-inner">$Title <span style="topicholder-cat-inner__count">({$BlogPosts.Count})</span></span></a>
           <% end_loop %>
@@ -54,18 +55,14 @@ $BeforeContent
 
 
 
-      <div class="column small-12 medium-4">
-        <div class="dp-sticky dp-sticky--medium">
-
-
-
-          <% include TopicBrowseByFilter %>
-        </div>
-      </div>
   </div>
 </div>
 
-
+<div class="row">
+    <div class="small-12 columns">
+         <% include TopicBrowseByFilterFull %>
+    </div>
+</div>
 
   <% include TopicBrowseAllFull %>
   <% include TopicFooterFull %>
