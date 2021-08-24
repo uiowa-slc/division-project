@@ -1,1 +1,0 @@
-<%-- footer logo area, used only in a few sites, override in division-subtheme if necessary --%>

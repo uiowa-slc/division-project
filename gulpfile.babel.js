@@ -26,64 +26,19 @@ function loadConfig() {
 }
 
 gulp.task('build',
- gulp.series(clean, copy, gulp.parallel(dpHtml, themeHtml, sass, javascript, images)));
+ gulp.series(copy, gulp.parallel(sass, javascript, images)));
 
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
   gulp.series('build', server, watch));
 
-// Delete the "dist" folder
-// This happens every time a build starts
-function clean(done) {
-
-  return del([PATHS.theme + '/' + PATHS.dist, 'templates/', PATHS.theme +'/templates/'], {force: true});
-
-}
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy(done) {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.theme + '/' + PATHS.dist), done);
-}
-
-function dpHtml(){
-    return gulp.src('src/templates/**/*.ss')
-    .pipe($.newer('templates/'))
-    .pipe($.if('*.ss', $.htmlmin({
-      removeComments: true,
-      collapseWhitespace: true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes: false,
-      removeRedundantAttributes: true,
-      removeEmptyAttributes: false,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      removeOptionalTags: false
-    })))
-    // Output files
-    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
-    .pipe(gulp.dest('templates/'));
-}
-
-function themeHtml(){
-    return gulp.src(PATHS.theme +'/src/templates/**/*.ss')
-    .pipe($.newer(PATHS.theme +'/templates/'))
-    .pipe($.if('*.ss', $.htmlmin({
-      removeComments: true,
-      collapseWhitespace: true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes: false,
-      removeRedundantAttributes: true,
-      removeEmptyAttributes: false,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      removeOptionalTags: false
-    })))
-    // Output files
-    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
-    .pipe(gulp.dest(PATHS.theme +'/templates/'));  
 }
 
 // Compile Sass into CSS
@@ -153,10 +108,7 @@ function reload(done) {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  // gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
-  // gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
 
-  gulp.watch(PATHS.theme +'/src/templates/**/*.ss').on('all', gulp.series(themeHtml, browser.reload));
   gulp.watch(PATHS.theme + '/src/scss/**/*.scss').on('all', sass);
   gulp.watch(PATHS.theme + '/src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.theme + '/src/images/**/*').on('all', gulp.series(images, browser.reload));
@@ -164,7 +116,6 @@ function watch() {
 
   gulp.watch('../division-elearning-project/scss/**/*.scss').on('all', sass);
 
-  gulp.watch('src/templates/**/*.ss').on('all', gulp.series(dpHtml, browser.reload));
   gulp.watch('src/scss/**/*.scss').on('all', sass);
   gulp.watch('src/scripts/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/images/**/*').on('all', gulp.series(images, browser.reload));
