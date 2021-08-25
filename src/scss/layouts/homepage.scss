@@ -28,6 +28,10 @@
                 font-size: rem-calc(50);
             }
 
+            &--white{
+                color: #fff;
+            }
+
             &--large{
                 font-size: calc(100% + 5.5vw);
                 margin: rem-calc(0 0 25 0);

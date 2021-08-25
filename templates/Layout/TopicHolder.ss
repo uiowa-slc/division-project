@@ -18,7 +18,7 @@ $Header
     <div class="topic-search-bg">
     <% end_if %>
         <div class="topic-search-container">
-          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" class="hero__header">$Title</a></h1>
+          <h1 class="background-image__title" style="margin-bottom: 20px;"><a href="$Link" class="hero__header hero__header--white">$Title</a></h1>
           $TopicSearchFormSized
 
           <% if $AllCats %>
