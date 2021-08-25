@@ -8,6 +8,7 @@
             font-size: calc(100% + 3.5vw);
             margin: rem-calc(0 0 15 0);
             font-family: $serif-font-family;
+            color: white;
 
             @include breakpoint(medium) {
                 font-size: calc(100% + 2.5vw);
