@@ -9,8 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if $URLSegment = 'home' %>
       <title>$SiteConfig.Title | The University of Iowa</title>
+    <% else_if $Action == "tag" %>
+      <title>$CurrentTag.Title | $SiteConfig.Title | The University of Iowa</title>
+    <% else_if $Action == "category" %>
+      <title>$CurrentCategory.Title | $SiteConfig.Title | The University of Iowa</title>
     <% else %>
-      <title>$Title - $SiteConfig.Title | The University of Iowa</title>
+      <title>$Title | $SiteConfig.Title | The University of Iowa</title>
     <% end_if %>
     $OpenGraph
     <!-- Disable tap highlight on IE -->
