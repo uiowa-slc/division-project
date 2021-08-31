@@ -33,7 +33,8 @@ class DivisionPage extends DataExtension {
 		'ShowChildrenInDropdown' => 'Boolean(1)',
 		'FullImageAltText' => 'Text',
 		'DarkMode' => 'Boolean',
-        'VisuallyHideTitle' => 'Boolean'
+        'VisuallyHideTitle' => 'Boolean',
+        'HideSideNav' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -213,6 +214,12 @@ class DivisionPage extends DataExtension {
         $f->addFieldToTab('Root.Settings', CheckboxField::create('VisuallyHideTitle', 'Visually hide title'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildPages', 'Show child pages if available (Yes)'));
 		$f->addFieldToTab('Root.Settings', CheckboxField::create('ShowChildrenInDropdown', 'Show child pages in a dropdown menu if page is in the top bar (Yes)'));
+
+        // Only allow this field on a standard page, since not all of the templates are updated for this option/working yet.
+        if($this->owner->ClassName == 'Page'){
+            $f->addFieldToTab('Root.Settings', CheckboxField::create('HideSideNav', 'Hide side navigation'));
+        }
+
 		// $f->addFieldToTab('Root.Settings', CheckboxField::create('DarkMode', 'Dark Mode (Experimental)'));
 
 		$layoutOptionsField = DropdownField::create(
@@ -226,7 +233,7 @@ class DivisionPage extends DataExtension {
 			$embed = \EdgarIndustries\YouTubeField\YouTubeField::create("YoutubeBackgroundEmbed", "Video"
 			)), 'LayoutType');
 		$embed->displayIf('LayoutType')->isEqualTo('BackgroundVideo');
-		$f->addFieldsToTab("Root.Main", array(
+		$f->addFieldsToTab("Root.Settings", array(
 			$fullImgAlt = TextField::create("FullImageAltText", "Alt Text For Background Image (required if image has text in it!)"
 			)->addExtraClass('stacked')), 'LayoutType');
 		$fullImgAlt->displayIf('LayoutType')->isEqualTo('FullImage');
