@@ -41,7 +41,7 @@ class PageSliderBlock extends BaseElement {
 			$fields->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
 			if (!$this->ID) {
 				$gridFieldConfig = GridFieldConfig_RecordViewer::create();
-				$fields->push(LiteralField::create('MustSaveLabel', '<em>Please click the <strong>"Create"</strong> button to save this block before adding some links.</em>')->addExtraClass('stacked'));
+				$fields->push(LiteralField::create('MustSaveLabel', 'Please click the "Create" button to save this block before adding links.')->addExtraClass('stacked'));
 
 			} else {
 				$gridFieldConfig = GridFieldConfig_RelationEditor::create();

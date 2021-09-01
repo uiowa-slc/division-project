@@ -28,8 +28,10 @@ class PageSliderBlockLink extends DataObject {
 		'BackgroundImage' => Image::class,
 	);
 
-	public function getCMSFields() {
-		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+
+    public function getCMSFields() {
+        $fields = new FieldList();
+
 
 			$fields->push(
 				OptionsetField::create('Source', 'Link to:', array(
@@ -42,10 +44,10 @@ class PageSliderBlockLink extends DataObject {
 			// $fields->push(HTMLEditorField::create('Content', 'Summary')->setRows(3));
 			$fields->push(UploadField::create('BackgroundImage', 'Background Image (default uses selected page\'s background image if the page is on this site.)'));
 
-			return $fields;
-		});
 
-		return parent::getCMSFields();
+
+
+		return $fields;
 	}
 
 	public function Link() {
