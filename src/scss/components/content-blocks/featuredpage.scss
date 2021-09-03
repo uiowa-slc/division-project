@@ -28,6 +28,10 @@
             }
         }
     }
+
+    &__padded-img{
+        padding: rem-calc(20);
+    }
 }
 
 /* Full size background image

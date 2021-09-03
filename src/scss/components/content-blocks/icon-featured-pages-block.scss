@@ -1,0 +1,30 @@
+.ifp-block{
+    text-align: center;
+    margin: rem-calc(30) 0;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+
+    &__link{
+        display: block;
+        color: #000;
+        display: grid;
+        align-items: center;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    &__heading{
+        margin-top: 0;
+        color: #000;
+
+    }
+
+    &__icon{
+        padding: 0 rem-calc(100);
+    }
+}
