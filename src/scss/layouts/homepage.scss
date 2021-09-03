@@ -11,7 +11,7 @@
     }
     &__header{
 
-            font-size: calc(100% + 3.5vw);
+            font-size: rem-calc(40);
             margin: rem-calc(0 0 15 0);
             font-family: $serif-font-family;
 
@@ -37,21 +37,16 @@
             }
 
             &--large{
-                font-size: calc(100% + 5.5vw);
+                font-size: calc(100% + 1.5vw);
                 margin: rem-calc(0 0 25 0);
                 font-family: $serif-font-family;
 
-                @include breakpoint(medium) {
-                    font-size: calc(100% + 4.5vw);
+                @include breakpoint(large) {
                     color: #fff;
                 }
 
-                @include breakpoint(large) {
-                    font-size: calc(100% + 5vw);
-                }
-
                 @include breakpoint(xlarge) {
-                    font-size: rem-calc(60);
+                    font-size: rem-calc(72);
                 }
 
             }
