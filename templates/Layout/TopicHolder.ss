@@ -25,11 +25,11 @@ $Header
 
           <p class="topic-search-minicats">
             <span class="topic-search-minicats__heading">Browse by category:</span>
-            <% loop $AllCats.Sort('Title').Limit(20) %>
-                <% if $BlogPosts %><span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,</span><% end_if %><% end_if %>
+            <% loop $AllCats.Sort('Title').Limit(50) %>
+                <% if $BlogPosts %><span class="topic-search-minicats__cat"><a class="topic-search-minicats__link" href="$Link">$Title</a><% if not $Last %>,<% end_if %><% end_if %></span>
             <% end_loop %>
 
-            <% if $AllCats.Count > 20 %>
+            <% if $AllCats.Count > 50 %>
               <span class="topic-search-minicats__heading"><a href="#browse-categories" class="topic-search-minicats__link">and more...</a></span>
             <% end_if %>
 
