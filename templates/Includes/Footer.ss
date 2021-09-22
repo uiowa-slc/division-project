@@ -27,7 +27,7 @@
 				<% with $SiteConfig %>
 				<p>
 					<% if $Address1 || $PhoneNumber || $PhoneNumberAlt || $Fax || $EmailAddress %>
-						<span itemprop="streetAddress">$Address1</span>
+						<span itemprop="streetAddress">$Address1<% if $Address2 %><br />$Address2<% end_if %></span>
                         <% if $City %><br /><span itemprop="addressLocality">$City</span><% end_if %><% if $State %>, <span itemprop="addressRegion">$State</span><% end_if %><% if $Zipcode %> <span itemprop="postalCode">$Zipcode</span><br /><% end_if %>
                         
                         <% if $PhoneNumber %>
