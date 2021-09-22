@@ -85,7 +85,9 @@
 
 .plan-table {
     padding: 10px;
-
+    a{
+        text-decoration: underline;
+    }
     &:nth-of-type(2n) {
         background: #efefef;
 
