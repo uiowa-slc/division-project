@@ -88,8 +88,13 @@
     a{
         text-decoration: underline;
     }
+
     &:nth-of-type(2n) {
         background: #efefef;
+
+        .accordion-title{
+            background: white;
+        }
 
     }
         &--white-bg:nth-of-type(2n){
@@ -119,19 +124,16 @@
     }
 
     &__updates ul {
-        list-style-type: none;
-        padding-left: 20px;
-        margin-left: 0;
+
     }
 
     &__updates ul li:before {
-        font-family: "Font Awesome 5 Free"; 
-        content: "\f017";
-        margin: 4px 5px 0 -15px;
-        color: #52a271;
-        font-size: rem-calc(14);
+
     }
+
+
 }
+
 
 .plan-aside {
     padding: 10px;
