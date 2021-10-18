@@ -81,7 +81,7 @@
 						<% end_if %>
 					</div>
 				<% end_if %>
-					<div class="featuredpageblock__body <% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>featuredpageblock__body--wimage<% end_if %>">
+				<div class="featuredpageblock__body <% if $FeaturePagePhoto || $PageTree.BackgroundImage || $PageTree.YoutubeBackgroundEmbed || $PageTree.FeaturedImage %>featuredpageblock__body--wimage<% end_if %>">
 					<h3 id="Block$ID" class="featuredpageblock__title separator-left">
 						<% if $Source == "External" %>
 							<a href="$FeaturePageExternalUrl">
@@ -109,7 +109,6 @@
 							<a href="$PageTree.Link" class="button large" aria-label="Read more about $PageTree.Title">Learn More <i class="fas fa-arrow-right"></i></a>
 						<% end_if %>
 					</div>
-				</div>
 				</div>
 			</div>
 		</div>
