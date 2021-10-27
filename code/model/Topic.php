@@ -57,6 +57,10 @@ class Topic extends BlogPost {
     public function ContentDemotedHeadings(){
     	$content = $this->Content;
 
+        if(!$content){
+
+            return;
+        }
 		$dom = new Dom;
 		$dom->load($content);
 

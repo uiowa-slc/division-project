@@ -18,6 +18,7 @@ class SiteConfigExtension extends DataExtension {
 	private static $db = array(
 		'TwitterLink' => 'Text',
 		'Address1' => 'Text',
+        'Address2' => 'Text',
 		'City' => 'Text',
 		'State' => 'Text',
 		'Zipcode' => 'Text',
@@ -87,6 +88,7 @@ class SiteConfigExtension extends DataExtension {
 
 		$fields->addFieldToTab("Root.Main", new HeaderField( 'Address', 'Address', true ) );
 		$fields->addFieldToTab('Root.Main', new TextField('Address1', 'Street Address'));
+        $fields->addFieldToTab('Root.Main', new TextField('Address2', 'Street Address 2'));
 		$fields->addFieldToTab('Root.Main', new TextField('City', 'City'));
 		$fields->addFieldToTab('Root.Main', new TextField('State', 'State'));
 		$fields->addFieldToTab('Root.Main', new TextField('Zipcode', 'Zip Code'));
