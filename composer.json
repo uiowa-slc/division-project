@@ -35,7 +35,7 @@
     "quamsta/silverstripe-api-cacher": "1.*",
     "paquettg/php-html-parser": "^2.2",
     "tractorcow/silverstripe-robots": "^4",
-    "md/silverstripe-migration-tools": "dev-main"
+    "md/silverstripe-migration-tools": "dev-slc-migration"
   },
   "repositories": [
   {
