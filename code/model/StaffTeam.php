@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 class StaffTeam extends DataObject {
 
 	private static $db = array(
@@ -30,6 +31,14 @@ class StaffTeam extends DataObject {
 		return $f;
 
 	}
+
+    public function URLSegment(){
+        $filter = new URLSegmentFilter();
+        $title = $this->Name;
+
+        $segment = $filter->filter($title);
+        return $segment;
+    }
 
 	public function SortedStaffPages(){
 		$staffPages = $this->StaffPages()->sort('Sort');
