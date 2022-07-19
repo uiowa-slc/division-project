@@ -19,6 +19,7 @@ const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
 const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+const sass = require('gulp-sass')(require('node-sass'));
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('../../../mysite/gulp.yml', 'utf8');
@@ -46,10 +47,10 @@ function copy(done) {
 function sass() {
   return gulp.src(PATHS.theme + '/src/scss/*.scss')
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
+    .pipe(sass({
       includePaths: PATHS.sass
     })
-      .on('error', $.sass.logError))
+      .on('error', sass.logError))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
