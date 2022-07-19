@@ -27,7 +27,7 @@ function loadConfig() {
 }
 
 gulp.task('build',
- gulp.series(copy, gulp.parallel(sass, javascript, images)));
+ gulp.series(copy, gulp.parallel(sassBuild, javascript, images)));
 
 
 // Build the site, run the server, and watch for file changes
@@ -44,7 +44,7 @@ function copy(done) {
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
-function sass() {
+function sassBuild() {
   return gulp.src(PATHS.theme + '/src/scss/*.scss')
     .pipe($.sourcemaps.init())
     .pipe(sass({
