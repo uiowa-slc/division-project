@@ -8,7 +8,7 @@ class StaffTeam extends DataObject {
 	private static $db = array(
 		'Name' => 'Text',
 		'SortOrder' => 'Int',
-        'Content' => 'HTMLText'
+        'Description' => 'HTMLText'
 	);
 
 	private static $many_many = array(
@@ -26,7 +26,7 @@ class StaffTeam extends DataObject {
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
-        $f->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
+        $f->addFieldToTab('Root.Main', new HTMLEditorField('Description'));
 		$f->addFieldToTab('Root.Main', new CheckboxSetField('StaffPages', 'People on this team', StaffPage::get()->map('ID', 'Title')));
 		$f->removeByName('SortOrder');
 		return $f;
