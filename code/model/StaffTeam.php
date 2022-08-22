@@ -26,7 +26,7 @@ class StaffTeam extends DataObject {
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
-        $f->addFieldToTab('Root.Main', new HTMLEditorField('Description'));
+        $f->addFieldToTab('Root.Main', new HTMLEditorField('Description', 'Description'));
 		$f->addFieldToTab('Root.Main', new CheckboxSetField('StaffPages', 'People on this team', StaffPage::get()->map('ID', 'Title')));
 		$f->removeByName('SortOrder');
 		return $f;
