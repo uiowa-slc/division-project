@@ -23,7 +23,7 @@ $Header
 					<% loop $Teams %>
                         <% if $SortedStaffPages %>
 						<h2 class="stafflist__title">$Title</h2>
-                        <% if $Name == "Complimentary Appointments" %><p>Complimentary Appointments</p><% end_if %>
+                        <% if $Name == "Complimentary Appointments" %><p>Complimentary appointments are given to UI staff or faculty who have integral roles in UCS services, including collaborative care for students, research, or training efforts. These individuals have primary appointments in other university departments, but are included as part of UCS staff via complimentary appointments.</p><% end_if %>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
 						<% if $Up.SortLastName %>
 							<% loop $SortedStaffPages.Sort(LastName, ASC) %>
