@@ -22,6 +22,7 @@ $Header
 				<% if $Teams %>
 					<% loop $Teams %>
 						<h2 class="stafflist__title">$Title</h2>
+                        <% if $Content %>$Content<% end_if %>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
 						<% if $Up.SortLastName %>
 							<% loop $SortedStaffPages.Sort(LastName, ASC) %>
