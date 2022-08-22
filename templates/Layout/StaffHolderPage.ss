@@ -21,6 +21,7 @@ $Header
 				<div class="stafflist">
 				<% if $Teams %>
 					<% loop $Teams %>
+                        <% if $SortedStaffPages %>
 						<h2 class="stafflist__title">$Title</h2>
                         <% if $Content %>$Content<% end_if %>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
@@ -34,6 +35,7 @@ $Header
 							<% end_loop %>
 						<% end_if %>
 						</ul>
+                        <% end_if %>
 					<% end_loop %>
 				<% else %><%-- end if teams --%>
 					<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
