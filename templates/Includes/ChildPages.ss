@@ -14,6 +14,7 @@
                 <% end_if %>
                 <div class="clearfix childpages__content">
                     <h3 class="childpages__title">$Title</h3>
+                    <% if $OrganizationalUnit %><p class="header--small">$OrganizationalUnit</p><% end_if %>
                     <% if $MetaDescription %>
                         <p class="childpages__summary">$MetaDescription</p>
                     <% else %>
