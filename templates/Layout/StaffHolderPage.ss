@@ -27,7 +27,7 @@ $Header
                         <% else_if $Name == "Psychology Interns" %>
                             <p>Psychology Interns are doctoral students in applied psychology programs that matched with the University Counseling Service for a year-long, full-time placement.  They perform many of the same roles as the full-time staff.  The psychology internship is the last stage of training before a doctoral degree is conferred and one of the last training opportunities before a psychologist can pursue independent licensure.  Psychology interns are under the supervision of several senior UCS staff members.</p>
                         <% else_if $Name == "Practicum Trainees" %>
-                            <p>Practicum Trainees are graduate students in counseling psychology or social work who are under the supervision of a staff therapist.  In their graduate coursework, they are trained in they are trained in evidence-based techniques to provide counseling and other mental health interventions such as facilitating psychoeducational workshops or providing outreach presentations.</p>
+                            <p>Practicum Trainees are graduate students in counseling psychology or social work who are under the supervision of a staff therapist.  In their graduate coursework, they are trained in evidence-based techniques to provide counseling and other mental health interventions such as facilitating psychoeducational workshops or providing outreach presentations.</p>
                         <% end_if %>
 						<ul class="stafflist__list no-bullet row small-up-1 medium-up-2 large-up-3">
 						<% if $Up.SortLastName %>
